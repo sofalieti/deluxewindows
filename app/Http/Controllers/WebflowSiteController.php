@@ -125,6 +125,23 @@ class WebflowSiteController extends Controller
         }
 
         if (! $item) {
+            $importItem = $this->findImportItem($collectionSlug, $itemSlug);
+            if (is_array($importItem)) {
+                $fieldData = $importItem['fieldData'] ?? [];
+                $view = "webflow.collections.{$collectionSlug}.show";
+                if (! view()->exists($view)) {
+                    $view = 'webflow.collections.generic.show';
+                }
+
+                return view($view, [
+                    'collectionSlug' => $collectionSlug,
+                    'collection' => $meta,
+                    'itemSlug' => $itemSlug,
+                    'item' => $importItem,
+                    'fieldData' => is_array($fieldData) ? $fieldData : [],
+                ]);
+            }
+
             $mirrorView = 'webflow.mirror.'.$collectionSlug.'.'.$itemSlug;
             if (view()->exists($mirrorView)) {
                 return view($mirrorView);
@@ -192,6 +209,29 @@ class WebflowSiteController extends Controller
     private function hasCollectionModel(string $slug): bool
     {
         return class_exists($this->modelClassFromSlug($slug));
+    }
+
+    private function findImportItem(string $collectionSlug, string $itemSlug): ?array
+    {
+        $path = storage_path('app/'.trim((string) config('webflow.export_root', 'webflow-export/current'), '/')."/imports/{$collectionSlug}.json");
+        if (! File::exists($path)) {
+            return null;
+        }
+
+        $payload = json_decode((string) File::get($path), true);
+        $items = $payload['items'] ?? [];
+        if (! is_array($items)) {
+            return null;
+        }
+
+        foreach ($items as $item) {
+            $slug = (string) ($item['fieldData']['slug'] ?? '');
+            if ($slug === $itemSlug) {
+                return is_array($item) ? $item : null;
+            }
+        }
+
+        return null;
     }
 
     private function fallbackMirrorViewName(string $normalizedPath): string
