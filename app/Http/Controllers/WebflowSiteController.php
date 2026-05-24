@@ -25,13 +25,18 @@ class WebflowSiteController extends Controller
 
         if ($segments !== []) {
             $collectionSlug = $segments[0];
-            if (array_key_exists($collectionSlug, $collections)) {
+            if ($this->hasCollectionModel($collectionSlug)) {
+                $meta = $collections[$collectionSlug] ?? [
+                    'slug' => $collectionSlug,
+                    'displayName' => Str::headline(str_replace('-', ' ', $collectionSlug)),
+                ];
+
                 if (count($segments) === 1) {
-                    return $this->renderCollectionIndex($collectionSlug, $collections[$collectionSlug]);
+                    return $this->renderCollectionIndex($collectionSlug, $meta);
                 }
 
                 $itemSlug = $segments[count($segments) - 1];
-                return $this->renderCollectionItem($collectionSlug, $itemSlug, $collections[$collectionSlug]);
+                return $this->renderCollectionItem($collectionSlug, $itemSlug, $meta);
             }
         }
 
@@ -162,6 +167,11 @@ class WebflowSiteController extends Controller
     private function modelClassFromSlug(string $slug): string
     {
         return 'App\\Models\\Webflow\\'.Str::studly($slug).'WebflowItem';
+    }
+
+    private function hasCollectionModel(string $slug): bool
+    {
+        return class_exists($this->modelClassFromSlug($slug));
     }
 
     private function fallbackMirrorViewName(string $normalizedPath): string
