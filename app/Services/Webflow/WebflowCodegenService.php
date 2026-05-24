@@ -87,11 +87,11 @@ class WebflowCodegenService
         foreach ($manifest['collections'] as $collection) {
             $slug = (string) $collection['slug'];
             $importPath = storage_path("app/{$root}/imports/{$slug}.json");
-            if (! File::exists($importPath)) {
+            $payload = $this->resolveImportPayload($root, $slug, $collection);
+            if (! is_array($payload)) {
                 continue;
             }
 
-            $payload = json_decode((string) File::get($importPath), true, 512, JSON_THROW_ON_ERROR);
             $table = (string) ($payload['table'] ?? '');
             if ($table === '' || ! Schema::hasTable($table)) {
                 continue;
@@ -130,6 +130,104 @@ class WebflowCodegenService
         }
 
         return $imported;
+    }
+
+    public function exportFromDatabase(string $root): array
+    {
+        $manifestPath = storage_path("app/{$root}/manifest.json");
+        if (! File::exists($manifestPath)) {
+            return [];
+        }
+
+        $manifest = json_decode((string) File::get($manifestPath), true, 512, JSON_THROW_ON_ERROR);
+        $exported = [];
+
+        foreach ($manifest['collections'] as $collection) {
+            $slug = (string) ($collection['slug'] ?? '');
+            if ($slug === '') {
+                continue;
+            }
+
+            $payload = $this->resolveImportPayload($root, $slug, $collection);
+            if (! is_array($payload)) {
+                continue;
+            }
+
+            $table = (string) ($payload['table'] ?? '');
+            if ($table === '' || ! Schema::hasTable($table)) {
+                continue;
+            }
+
+            $fieldMap = $payload['flattenedFieldMap'] ?? [];
+            $fieldMap = is_array($fieldMap) ? $fieldMap : [];
+            $reverseMap = [];
+            foreach ($fieldMap as $wfField => $columnName) {
+                if (is_string($wfField) && is_string($columnName) && $columnName !== '') {
+                    $reverseMap[$columnName] = $wfField;
+                }
+            }
+
+            $rows = \DB::table($table)->orderBy('id')->get();
+            $items = [];
+
+            foreach ($rows as $rowObj) {
+                $row = (array) $rowObj;
+                $fieldData = [];
+                if (isset($row['field_data']) && is_string($row['field_data']) && $row['field_data'] !== '') {
+                    $decoded = json_decode($row['field_data'], true);
+                    if (is_array($decoded)) {
+                        $fieldData = $decoded;
+                    }
+                }
+
+                foreach ($reverseMap as $columnName => $wfField) {
+                    if (! array_key_exists($columnName, $row)) {
+                        continue;
+                    }
+                    $fieldData[$wfField] = $this->decodeStoredValue($row[$columnName]);
+                }
+
+                $items[] = [
+                    'id' => (string) ($row['webflow_item_id'] ?? ''),
+                    'cmsLocaleId' => $row['webflow_cms_locale_id'] ?? null,
+                    'createdOn' => $this->asIsoString($row['webflow_created_on'] ?? null),
+                    'lastUpdated' => $this->asIsoString($row['webflow_updated_on'] ?? null),
+                    'lastPublished' => $this->asIsoString($row['webflow_published_on'] ?? null),
+                    'isArchived' => (bool) ($row['is_archived'] ?? false),
+                    'isDraft' => (bool) ($row['is_draft'] ?? false),
+                    'fieldData' => $fieldData,
+                ];
+            }
+
+            $itemsOutputPath = storage_path("app/{$root}/collections/{$slug}/items.local.json");
+            File::ensureDirectoryExists(dirname($itemsOutputPath));
+            File::put(
+                $itemsOutputPath,
+                json_encode(['items' => $items], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)
+            );
+
+            $importPath = storage_path("app/{$root}/imports/{$slug}.json");
+            File::ensureDirectoryExists(dirname($importPath));
+            File::put(
+                $importPath,
+                json_encode([
+                    'table' => $table,
+                    'collectionId' => $collection['id'] ?? null,
+                    'collectionSlug' => $slug,
+                    'items' => $items,
+                    'flattenedFieldMap' => $fieldMap,
+                ], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)
+            );
+
+            $exported[] = [
+                'slug' => $slug,
+                'table' => $table,
+                'count' => count($items),
+                'itemsFile' => $itemsOutputPath,
+            ];
+        }
+
+        return $exported;
     }
 
     private function buildMigrationContent(string $tableName, array $fields): string
@@ -372,5 +470,60 @@ BLADE;
     private function escapeForSingleQuotedPhp(string $value): string
     {
         return str_replace(['\\', "'"], ['\\\\', "\\'"], $value);
+    }
+
+    private function resolveImportPayload(string $root, string $slug, array $collection): ?array
+    {
+        $importPath = storage_path("app/{$root}/imports/{$slug}.json");
+        if (File::exists($importPath)) {
+            return json_decode((string) File::get($importPath), true, 512, JSON_THROW_ON_ERROR);
+        }
+
+        $itemsPath = storage_path("app/{$root}/collections/{$slug}/items.json");
+        $schemaPath = storage_path("app/{$root}/collections/{$slug}/schema.json");
+        if (! File::exists($itemsPath) || ! File::exists($schemaPath)) {
+            return null;
+        }
+
+        $itemsPayload = json_decode((string) File::get($itemsPath), true, 512, JSON_THROW_ON_ERROR);
+        $schemaPayload = json_decode((string) File::get($schemaPath), true, 512, JSON_THROW_ON_ERROR);
+
+        return [
+            'table' => 'wf_'.Str::snake($slug),
+            'collectionId' => $collection['id'] ?? null,
+            'collectionSlug' => $slug,
+            'items' => $itemsPayload['items'] ?? [],
+            'flattenedFieldMap' => $this->flattenedFieldMap($schemaPayload['fields'] ?? []),
+        ];
+    }
+
+    private function decodeStoredValue(mixed $value): mixed
+    {
+        if (! is_string($value)) {
+            return $value;
+        }
+
+        $trimmed = trim($value);
+        if ($trimmed === '') {
+            return $value;
+        }
+
+        if (($trimmed[0] === '{' && str_ends_with($trimmed, '}')) || ($trimmed[0] === '[' && str_ends_with($trimmed, ']'))) {
+            $decoded = json_decode($trimmed, true);
+            if (json_last_error() === JSON_ERROR_NONE) {
+                return $decoded;
+            }
+        }
+
+        return $value;
+    }
+
+    private function asIsoString(mixed $value): ?string
+    {
+        if (! is_string($value) || $value === '') {
+            return null;
+        }
+
+        return $value;
     }
 }
