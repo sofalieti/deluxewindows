@@ -2,6 +2,7 @@
 
 namespace App\Services\Webflow;
 
+use Carbon\Carbon;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Storage;
@@ -102,9 +103,9 @@ class WebflowCodegenService
                 $row = [
                     'webflow_item_id' => (string) ($item['id'] ?? ''),
                     'webflow_cms_locale_id' => $item['cmsLocaleId'] ?? null,
-                    'webflow_created_on' => $item['createdOn'] ?? null,
-                    'webflow_updated_on' => $item['lastUpdated'] ?? null,
-                    'webflow_published_on' => $item['lastPublished'] ?? null,
+                    'webflow_created_on' => $this->toDatabaseDateTime($item['createdOn'] ?? null),
+                    'webflow_updated_on' => $this->toDatabaseDateTime($item['lastUpdated'] ?? null),
+                    'webflow_published_on' => $this->toDatabaseDateTime($item['lastPublished'] ?? null),
                     'is_archived' => (bool) ($item['isArchived'] ?? false),
                     'is_draft' => (bool) ($item['isDraft'] ?? false),
                     'field_data' => json_encode($item['fieldData'] ?? [], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE),
@@ -524,7 +525,29 @@ BLADE;
             return null;
         }
 
-        return $value;
+        return $this->toIsoString($value);
+    }
+
+    private function toDatabaseDateTime(mixed $value): ?string
+    {
+        if (! is_string($value) || trim($value) === '') {
+            return null;
+        }
+
+        try {
+            return Carbon::parse($value)->utc()->format('Y-m-d H:i:s');
+        } catch (\Throwable) {
+            return null;
+        }
+    }
+
+    private function toIsoString(string $value): ?string
+    {
+        try {
+            return Carbon::parse($value)->utc()->toIso8601String();
+        } catch (\Throwable) {
+            return null;
+        }
     }
 
     private function exportPath(string $root, string $relative = ''): string
