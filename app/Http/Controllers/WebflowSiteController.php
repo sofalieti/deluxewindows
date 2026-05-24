@@ -110,6 +110,26 @@ class WebflowSiteController extends Controller
             ->first();
 
         if (! $item) {
+            // Fallback for DBs where JSON path queries are unreliable.
+            $item = $modelClass::query()
+                ->orderByDesc('id')
+                ->get()
+                ->first(function ($row) use ($itemSlug) {
+                    $fieldData = $row->field_data;
+                    if (! is_array($fieldData)) {
+                        return false;
+                    }
+
+                    return (string) ($fieldData['slug'] ?? '') === $itemSlug;
+                });
+        }
+
+        if (! $item) {
+            $mirrorView = 'webflow.mirror.'.$collectionSlug.'.'.$itemSlug;
+            if (view()->exists($mirrorView)) {
+                return view($mirrorView);
+            }
+
             abort(404);
         }
 
