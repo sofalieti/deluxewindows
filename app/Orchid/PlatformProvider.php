@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orchid;
 
+use App\Support\WebflowCollectionRegistry;
 use Orchid\Platform\Dashboard;
 use Orchid\Platform\ItemPermission;
 use Orchid\Platform\OrchidServiceProvider;
@@ -33,6 +34,15 @@ class PlatformProvider extends OrchidServiceProvider
      */
     public function menu(): array
     {
+        $webflowMenus = [];
+        foreach (WebflowCollectionRegistry::all() as $collection) {
+            $webflowMenus[] = Menu::make($collection['title'])
+                ->icon('bs.database')
+                ->route('platform.webflow.collection', ['collection' => $collection['slug']])
+                ->permission('platform.webflow.manage')
+                ->title('Webflow CMS');
+        }
+
         return [
             Menu::make('Get Started')
                 ->icon('bs.book')
@@ -89,6 +99,8 @@ class PlatformProvider extends OrchidServiceProvider
                 ->url('https://github.com/orchidsoftware/platform/blob/master/CHANGELOG.md')
                 ->target('_blank')
                 ->badge(fn () => Dashboard::version(), Color::DARK),
+
+            ...$webflowMenus,
         ];
     }
 
@@ -103,6 +115,9 @@ class PlatformProvider extends OrchidServiceProvider
             ItemPermission::group(__('System'))
                 ->addPermission('platform.systems.roles', __('Roles'))
                 ->addPermission('platform.systems.users', __('Users')),
+
+            ItemPermission::group('Webflow')
+                ->addPermission('platform.webflow.manage', 'Manage Webflow Collections'),
         ];
     }
 }

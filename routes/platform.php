@@ -17,6 +17,8 @@ use App\Orchid\Screens\Role\RoleListScreen;
 use App\Orchid\Screens\User\UserEditScreen;
 use App\Orchid\Screens\User\UserListScreen;
 use App\Orchid\Screens\User\UserProfileScreen;
+use App\Orchid\Screens\Webflow\WebflowCollectionEditScreen;
+use App\Orchid\Screens\Webflow\WebflowCollectionListScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
 
@@ -102,3 +104,9 @@ Route::screen('/examples/charts', ExampleChartsScreen::class)->name('platform.ex
 Route::screen('/examples/cards', ExampleCardsScreen::class)->name('platform.example.cards');
 
 // Route::screen('idea', Idea::class, 'platform.screens.idea');
+
+Route::screen('webflow/{collection}', WebflowCollectionListScreen::class)
+    ->name('platform.webflow.collection');
+
+Route::screen('webflow/{collection}/{item}/edit', WebflowCollectionEditScreen::class)
+    ->name('platform.webflow.collection.edit');
