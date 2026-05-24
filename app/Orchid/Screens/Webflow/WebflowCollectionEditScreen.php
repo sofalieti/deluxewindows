@@ -6,6 +6,7 @@ namespace App\Orchid\Screens\Webflow;
 
 use App\Support\WebflowCollectionRegistry;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Schema;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Switcher;
@@ -27,6 +28,10 @@ class WebflowCollectionEditScreen extends Screen
 
         $this->collectionSlug = $meta['slug'];
         $this->collectionMeta = $meta;
+
+        if (! Schema::hasTable((string) $meta['table'])) {
+            abort(404, 'Collection table not found: '.$meta['table']);
+        }
 
         $model = $meta['model'];
         $entity = $model::query()->findOrFail($item);
@@ -51,7 +56,7 @@ class WebflowCollectionEditScreen extends Screen
 
     public function permission(): ?iterable
     {
-        return null;
+        return [];
     }
 
     public function commandBar(): iterable
@@ -96,6 +101,9 @@ class WebflowCollectionEditScreen extends Screen
     {
         $meta = WebflowCollectionRegistry::find($collection);
         abort_if($meta === null, 404);
+        if (! Schema::hasTable((string) $meta['table'])) {
+            abort(404, 'Collection table not found: '.$meta['table']);
+        }
 
         $model = $meta['model'];
         $entity = $model::query()->findOrFail($item);

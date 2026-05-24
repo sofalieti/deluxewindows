@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Orchid\Screens\Webflow;
 
 use App\Support\WebflowCollectionRegistry;
+use Illuminate\Support\Facades\Schema;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
 use Orchid\Screen\TD;
@@ -23,6 +24,10 @@ class WebflowCollectionListScreen extends Screen
 
         $this->collectionSlug = $meta['slug'];
         $this->collectionMeta = $meta;
+
+        if (! Schema::hasTable((string) $meta['table'])) {
+            abort(404, 'Collection table not found: '.$meta['table']);
+        }
 
         $model = $meta['model'];
 
@@ -46,7 +51,7 @@ class WebflowCollectionListScreen extends Screen
 
     public function permission(): ?iterable
     {
-        return null;
+        return [];
     }
 
     public function commandBar(): iterable
