@@ -1,13 +1,13 @@
 <?php
 
-use App\Http\Controllers\WebflowMirrorController;
 use App\Http\Controllers\WebflowPageController;
+use App\Http\Controllers\WebflowSiteController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [WebflowMirrorController::class, 'home']);
+Route::get('/', [WebflowSiteController::class, 'home']);
 
 Route::get('/webflow-preview', [WebflowPageController::class, 'home']);
 Route::get('/webflow-preview/{webflowPath}', [WebflowPageController::class, 'show'])
     ->where('webflowPath', '.*');
 
-Route::fallback([WebflowMirrorController::class, 'catchAll']);
+Route::fallback([WebflowSiteController::class, 'catchAll']);

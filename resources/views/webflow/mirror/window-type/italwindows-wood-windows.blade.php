@@ -1,0 +1,865 @@
+@php
+echo <<<'HTML'
+<!DOCTYPE html><!-- This site was created in Webflow. https://webflow.com --><!-- Last Published: Sat May 23 2026 11:56:00 GMT+0000 (Coordinated Universal Time) --><html data-wf-domain="www.deluxewindows.com" data-wf-page="688e50676f1dbd8cba0e091a" data-wf-site="6841ddf8ace3d9d9facb14fd" lang="en" data-wf-collection="688e50676f1dbd8cba0e08f2" data-wf-item-slug="italwindows-wood-windows"><head><meta charset="utf-8"/><link href="https://cdn.prod.website-files.com" rel="preconnect" crossorigin="anonymous"/><title>Italwindows Wood Windows | Deluxe Windows Morgan Hill</title><meta content="Italwindows wood windows combine European craftsmanship and natural materials for Bay Area homes. Installed by Deluxe Windows in San Francisco. Request a free estimate." name="description"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta content="Webflow" name="generator"/><link href="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/css/deluxewindows.webflow.shared.478fc82bb.min.css" rel="stylesheet" type="text/css" integrity="sha384-R4/IK75KFJ1IwMjgHsMOskPtsQNVVSoXMh5BCWagmYeZughtq66LnaZhqyQgoO9Q" crossorigin="anonymous"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous"/><script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script><script type="text/javascript">WebFont.load({  google: {    families: ["Exo:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic"]  }});</script><script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script><link href="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6924517e8392d51f62f03159_favicon-new.png" rel="shortcut icon" type="image/x-icon"/><link href="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/692417759b61af4ba911489d_webclip-bg.png" rel="apple-touch-icon"/><style>
+.w-webflow-badge { display: none !important; }
+</style>
+
+<!-- ✅ Google tag (один раз!) -->
+<script>
+(function () {
+  let gtagLoaded = false;
+
+  function loadGtag() {
+    if (gtagLoaded) return;
+    gtagLoaded = true;
+
+    const script = document.createElement('script');
+    script.src = "https://www.googletagmanager.com/gtag/js?id=G-JHYBB0THJM";
+    script.async = true;
+    document.head.appendChild(script);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+
+    gtag('js', new Date());
+    gtag('config', 'G-JHYBB0THJM');
+    gtag('config', 'AW-1030787786');
+  }
+
+  // 🚀 грузим при первом взаимодействии
+  window.addEventListener('scroll', loadGtag, { once: true });
+  window.addEventListener('click', loadGtag, { once: true });
+
+  // fallback — через 3 сек
+  setTimeout(loadGtag, 3000);
+})();
+</script>
+
+<!-- Zoho placeholder (не грузим сразу) -->
+<script>
+window.$zoho = window.$zoho || {};
+$zoho.salesiq = $zoho.salesiq || { ready: function(){} };
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "Deluxe Windows",
+  "url": "",
+  "telephone": "+18887304144",
+  "description": "Premium window and door replacement for San Francisco Bay Area homes. 30+ years, 100% employee owned.",
+  "priceRange": "$$",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "231",
+    "bestRating": "5"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "08:00", "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "09:00", "closes": "15:00"
+    }
+  ],
+  "areaServed": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": 37.5630,
+      "longitude": -122.0329
+    },
+    "geoRadius": "100000"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "Deluxe Windows",
+  "url": "",
+  "telephone": "+18887304144",
+  "description": "Premium window and door replacement for San Francisco Bay Area homes. 30+ years, 100% employee owned.",
+  "priceRange": "$$",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "231",
+    "bestRating": "5"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "08:00", "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "09:00", "closes": "15:00"
+    }
+  ],
+  "areaServed": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": 37.5630,
+      "longitude": -122.0329
+    },
+    "geoRadius": "100000"
+  }
+}
+</script>
+<script src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd%2F689e5ba67671442434f3ca35%2F69c226225e2c9f5b79f9237a%2Fdwjsonlddoors-1.0.0.js" type="text/javascript"></script><script type="text/javascript">window.__WEBFLOW_CURRENCY_SETTINGS = {"currencyCode":"USD","symbol":"$","decimal":".","fractionDigits":2,"group":",","template":"{{wf {\"path\":\"symbol\",\"type\":\"PlainText\"} }} {{wf {\"path\":\"amount\",\"type\":\"CommercePrice\"} }} {{wf {\"path\":\"currencyCode\",\"type\":\"PlainText\"} }}","hideDecimalForWholeNumbers":false};</script></head><body class="body-21"><div class="header-container-2"><div data-animation="default" data-collapse="tiny" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav"><div class="container-default-2 w-container"><div data-w-id="632206d9-3c73-e5be-be34-15992c2e8311" class="header-container-wrapper-2"><div class="div-block-17 phone3"><a href="tel:+18887304144" class="link-block phone w-inline-block"><img width="20" loading="lazy" alt="" src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/687559a123cece2e95a41a6f_phone_enabled_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg" class="image-38"/></a><div class="link-block odsf"><img width="20" loading="lazy" alt="" src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/687e6d1e97ec845884f78baa_sell_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24%201.svg"/><div class="text-block-17"><a href="/special-offers" class="link-10">Special Offers</a></div></div></div><div class="div-block-17"><div class="link-block"><div class="text-block-17">We are – 100% employee owned &amp; over 30 years in business!</div></div></div><div class="nav-menu-left-side-2"></div><div class="div-block-16"><div class="text-block-15">(888) 730-4144</div></div></div></div></div><div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="header-wrapper-2 w-nav"><div class="container-default-2 w-container"><div data-w-id="632206d9-3c73-e5be-be34-15992c2e8332" class="header-container-wrapper-2"><div class="nav-menu-left-side-2"><div class="logo-wrapper v1"><a href="/" class="logo-link-2 w-inline-block"><img src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/686acba4611e759fd8169f9d_photo_2025-07-06-22.14.41.avif" alt="" class="image-14"/></a></div><nav role="navigation" class="nav-menu-wrapper-2 w-nav-menu"><ul role="list" class="list-nav-menu-2"><li class="link-nav-item"><div data-delay="0" data-hover="true" data-w-id="632206d9-3c73-e5be-be34-15992c2e833a" class="dropdown-wrapper dropdown-default w-dropdown"><div class="dropdown-toogle-2 w-dropdown-toggle"><div>Windows</div><div class="icon-font-rounded-2 dropdown-arrow"></div></div><nav class="dropdown-list-2 dropdown-v1 w-dropdown-list"><div class="dropdown-pd-2 dropdown-v4"><div class="w-layout-grid grid-2-columns-2 dropdown-link-column v4"><div id="w-node-_632206d9-3c73-e5be-be34-15992c2e8343-2c2e830e"><a href="/windows" class="dropdown-link-2 dropdown-link-title">Materials</a><div class="w-layout-grid grid-1-column-2 dropdown-link-column"><a href="/windows" id="w-node-_632206d9-3c73-e5be-be34-15992c2e8347-2c2e830e" class="dropdown-link-2">All</a><a id="w-node-_632206d9-3c73-e5be-be34-15992c2e8349-2c2e830e" href="/windows/vinyl-windows" class="dropdown-link-2">Vinyl</a><a href="/windows/wood-clad-windows" id="w-node-_632206d9-3c73-e5be-be34-15992c2e834b-2c2e830e" class="dropdown-link-2">Wood clad</a><a id="w-node-_632206d9-3c73-e5be-be34-15992c2e834d-2c2e830e" href="/windows/fiberglass-windows" class="dropdown-link-2">Fiberglass</a><a id="w-node-_632206d9-3c73-e5be-be34-15992c2e834f-2c2e830e" href="/windows/wood-windows" class="dropdown-link-2">Wood</a><a id="w-node-_632206d9-3c73-e5be-be34-15992c2e8351-2c2e830e" href="/windows/aluminum-windows" class="dropdown-link-2">Aluminum</a><a id="w-node-_174a8520-3147-7d0b-af22-074f0a21cbcc-2c2e830e" href="/windows/aluminum-clad-windows" class="dropdown-link-2">Aluminum Clad</a><a id="w-node-_632206d9-3c73-e5be-be34-15992c2e8353-2c2e830e" href="/windows/steel-windows" class="dropdown-link-2">Steel</a></div></div><div id="w-node-_632206d9-3c73-e5be-be34-15992c2e8355-2c2e830e"><a href="/brand" class="dropdown-link-2 dropdown-link-title">Brands</a><div class="w-layout-grid main-pages-2"><div class="w-layout-grid grid-1-column-2 dropdown-link-column small"><a href="/brand" id="w-node-_632206d9-3c73-e5be-be34-15992c2e835a-2c2e830e" class="dropdown-link-2">All</a><a id="w-node-_632206d9-3c73-e5be-be34-15992c2e835c-2c2e830e" href="/brands/marvin" class="dropdown-link-2">Marvin</a><a id="w-node-_632206d9-3c73-e5be-be34-15992c2e835e-2c2e830e" href="/brands/milgard" class="dropdown-link-2">Milgard</a><a id="w-node-_632206d9-3c73-e5be-be34-15992c2e8360-2c2e830e" href="/brands/jeld-wen" class="dropdown-link-2">Jeld-Wen</a><a id="w-node-_632206d9-3c73-e5be-be34-15992c2e8362-2c2e830e" href="/brands/anlin" class="dropdown-link-2">Anlin</a><a id="w-node-_632206d9-3c73-e5be-be34-15992c2e8364-2c2e830e" href="/brands/italwindows" class="dropdown-link-2">Italwindows</a></div><div id="w-node-_632206d9-3c73-e5be-be34-15992c2e8366-2c2e830e" class="w-layout-grid grid-1-column-2 dropdown-link-column small"><a id="w-node-_632206d9-3c73-e5be-be34-15992c2e8367-2c2e830e" href="/brands/andersen" class="dropdown-link-2">Andersen</a><a id="w-node-_632206d9-3c73-e5be-be34-15992c2e8369-2c2e830e" href="/brands/ply-gem" class="dropdown-link-2">Ply Gem</a><a id="w-node-_632206d9-3c73-e5be-be34-15992c2e836b-2c2e830e" href="/brands/simonton" class="dropdown-link-2">Simonton</a><a id="w-node-_632206d9-3c73-e5be-be34-15992c2e836d-2c2e830e" href="/brands/alside" class="dropdown-link-2">Alside</a><a id="w-node-_632206d9-3c73-e5be-be34-15992c2e836f-2c2e830e" href="/brands/western-window-systems" class="dropdown-link-2">Western Window Systems</a><a id="w-node-_632206d9-3c73-e5be-be34-15992c2e8371-2c2e830e" href="/brands/all-weather-architectural-aluminum" class="dropdown-link-2">All Weather Architectural Aluminum</a></div></div></div><div id="w-node-_632206d9-3c73-e5be-be34-15992c2e8373-2c2e830e" class="mega-menu-banner w-clearfix"><img sizes="100vw" srcset="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6862abfc8f55643864a69255_Frame%201-p-500.avif 500w, https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6862abfc8f55643864a69255_Frame%201-p-800.avif 800w, https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6862abfc8f55643864a69255_Frame%201-p-1080.avif 1080w, https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6862abfc8f55643864a69255_Frame%201.avif 2000w" alt="" src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6862abfc8f55643864a69255_Frame%201.avif" loading="lazy" class="image-14 cover-image property-wrapper-v3---image"/><div class="w-layout-blockcontainer container-2 w-container"><h5>40% OFF Windows</h5><div class="text-regular-2">Offer ends <span data-last-day="us-short-no-year" class="date-span">7/31</span><br/></div><a href="/special-offers" id="w-node-_632206d9-3c73-e5be-be34-15992c2e837b-2c2e830e" class="primary-button-2 w-inline-block"><div>Learn More</div></a></div></div></div></div></nav></div></li><li class="link-nav-item"><div data-delay="0" data-hover="true" data-w-id="632206d9-3c73-e5be-be34-15992c2e837f" class="dropdown-wrapper dropdown-default w-dropdown"><div class="dropdown-toogle-2 w-dropdown-toggle"><div>Doors</div><div class="icon-font-rounded-2 dropdown-arrow"></div></div><nav class="dropdown-list-2 dropdown-v1 w-dropdown-list"><div class="dropdown-pd-2 dropdown-v4"><div class="w-layout-grid grid-2-columns-2 dropdown-link-column v4"><div id="w-node-_632206d9-3c73-e5be-be34-15992c2e8388-2c2e830e"><a href="/doors" class="dropdown-link-2 dropdown-link-title">Materials</a><div class="w-layout-grid grid-1-column-2 dropdown-link-column"><a href="/doors" id="w-node-_632206d9-3c73-e5be-be34-15992c2e838c-2c2e830e" class="dropdown-link-2">All</a><a id="w-node-_632206d9-3c73-e5be-be34-15992c2e838e-2c2e830e" href="/doors/vinyl-doors" class="dropdown-link-2">Vinyl</a><a href="/doors/wood-clad-doors" id="w-node-_632206d9-3c73-e5be-be34-15992c2e8390-2c2e830e" class="dropdown-link-2">Wood clad</a><a id="w-node-_632206d9-3c73-e5be-be34-15992c2e8392-2c2e830e" href="/doors/fiberglass-doors" class="dropdown-link-2">Fiberglass</a><a id="w-node-_632206d9-3c73-e5be-be34-15992c2e8394-2c2e830e" href="/doors/wood-doors" class="dropdown-link-2">Wood</a><a id="w-node-_632206d9-3c73-e5be-be34-15992c2e8396-2c2e830e" href="/doors/aluminum-doors" class="dropdown-link-2">Aluminum</a><a id="w-node-_632206d9-3c73-e5be-be34-15992c2e8398-2c2e830e" href="/doors/vinyl-doors" class="dropdown-link-2">Steel</a></div></div><div id="w-node-_632206d9-3c73-e5be-be34-15992c2e839a-2c2e830e"><a href="/brand" class="dropdown-link-2 dropdown-link-title">Brands</a><div class="w-layout-grid main-pages-2"><div class="w-layout-grid grid-1-column-2 dropdown-link-column small"><a href="/brand" id="w-node-_632206d9-3c73-e5be-be34-15992c2e839f-2c2e830e" class="dropdown-link-2">All</a><a id="w-node-_632206d9-3c73-e5be-be34-15992c2e83a1-2c2e830e" href="/brands/marvin" class="dropdown-link-2">Marvin</a><a id="w-node-_632206d9-3c73-e5be-be34-15992c2e83a3-2c2e830e" href="/brands/milgard" class="dropdown-link-2">Milgard</a><a id="w-node-_632206d9-3c73-e5be-be34-15992c2e83a5-2c2e830e" href="/brands/jeld-wen" class="dropdown-link-2">Jeld-Wen</a><a id="w-node-_632206d9-3c73-e5be-be34-15992c2e83a7-2c2e830e" href="/brands/anlin" class="dropdown-link-2">Anlin</a><a id="w-node-_632206d9-3c73-e5be-be34-15992c2e83a9-2c2e830e" href="/brands/italwindows" class="dropdown-link-2">Italwindows</a></div><div id="w-node-_632206d9-3c73-e5be-be34-15992c2e83ab-2c2e830e" class="w-layout-grid grid-1-column-2 dropdown-link-column small"><a id="w-node-_632206d9-3c73-e5be-be34-15992c2e83ac-2c2e830e" href="/brands/andersen" class="dropdown-link-2">Andersen</a><a id="w-node-_632206d9-3c73-e5be-be34-15992c2e83ae-2c2e830e" href="/brands/ply-gem" class="dropdown-link-2">Ply Gem</a><a id="w-node-_632206d9-3c73-e5be-be34-15992c2e83b0-2c2e830e" href="/brands/simonton" class="dropdown-link-2">Simonton</a><a id="w-node-_632206d9-3c73-e5be-be34-15992c2e83b2-2c2e830e" href="/brands/alside" class="dropdown-link-2">Alside</a><a id="w-node-_632206d9-3c73-e5be-be34-15992c2e83b4-2c2e830e" href="/brands/western-window-systems" class="dropdown-link-2">Western Window Systems</a><a id="w-node-_632206d9-3c73-e5be-be34-15992c2e83b6-2c2e830e" href="/brands/all-weather-architectural-aluminum" class="dropdown-link-2">All Weather Architectural Aluminum</a></div></div></div><div id="w-node-_632206d9-3c73-e5be-be34-15992c2e83b8-2c2e830e" class="mega-menu-banner w-clearfix"><img sizes="100vw" srcset="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6845713efb9f90434a8611f6_4-p-500.avif 500w, https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6845713efb9f90434a8611f6_4-p-800.avif 800w, https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6845713efb9f90434a8611f6_4-p-1080.avif 1080w, https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6845713efb9f90434a8611f6_4.avif 2000w" alt="" src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6845713efb9f90434a8611f6_4.avif" loading="lazy" class="image-14 cover-image property-wrapper-v3---image"/><div class="w-layout-blockcontainer container-2 w-container"><h5>40% OFF Doors</h5><div class="text-regular-2">Offer ends <span data-last-day="us-short-no-year" class="date-span">7/31</span><br/></div><a href="/special-offers" id="w-node-_632206d9-3c73-e5be-be34-15992c2e83c0-2c2e830e" class="primary-button-2 w-inline-block"><div>Learn More</div></a></div></div></div></div></nav></div></li><li class="link-nav-item"><div data-delay="0" data-hover="true" data-w-id="632206d9-3c73-e5be-be34-15992c2e83c4" class="dropdown-wrapper dropdown-default w-dropdown"><div class="dropdown-toogle-2 w-dropdown-toggle"><div>Learning Center</div><div class="icon-font-rounded-2 dropdown-arrow"></div></div><nav class="dropdown-list-2 dropdown-v1 w-dropdown-list"><div class="dropdown-pd-2 dropdown-v4"><div class="w-layout-grid grid-2-columns-2 dropdown-link-column v4"><div id="w-node-_632206d9-3c73-e5be-be34-15992c2e83cd-2c2e830e"><div class="w-layout-grid grid-1-column-2 dropdown-link-column"><a id="w-node-_632206d9-3c73-e5be-be34-15992c2e83cf-2c2e830e" href="/blog" class="dropdown-link-2">Knowledge Articles</a><a href="/blog/how-to-measure-windows-for-replacement" id="w-node-_632206d9-3c73-e5be-be34-15992c2e83d1-2c2e830e" class="dropdown-link-2-copy">Window Measurement Guide</a><a href="/blog/comprehensive-guide-to-choosing-the-right-replacement-windows" id="w-node-_632206d9-3c73-e5be-be34-15992c2e83d3-2c2e830e" class="dropdown-link-2-copy">Tips for Windows Replacement </a><a href="/blog/window-buyers-guide" id="w-node-_632206d9-3c73-e5be-be34-15992c2e83d5-2c2e830e" target="_blank" class="dropdown-link-2-copy">Window Buyer&#x27;s Guide</a><a href="/blog/the-ultimate-door-buyers-guide" id="w-node-_632206d9-3c73-e5be-be34-15992c2e83d7-2c2e830e" class="dropdown-link-2-copy">Door Buyer&#x27;s Guide</a><a href="/glossary" id="w-node-_632206d9-3c73-e5be-be34-15992c2e83d9-2c2e830e" class="dropdown-link-2">Glossary</a><a href="/faq" id="w-node-_632206d9-3c73-e5be-be34-15992c2e83db-2c2e830e" class="dropdown-link-2">Frequently Asked Questions</a></div></div><div id="w-node-_632206d9-3c73-e5be-be34-15992c2e83dd-2c2e830e"><div class="w-layout-grid main-pages-2"><div class="w-layout-grid grid-1-column-2 dropdown-link-column small"></div><div id="w-node-_632206d9-3c73-e5be-be34-15992c2e83e0-2c2e830e" class="w-layout-grid grid-1-column-2 dropdown-link-column small"></div></div></div><div id="w-node-_632206d9-3c73-e5be-be34-15992c2e83e1-2c2e830e" class="mega-menu-banner w-clearfix"><img sizes="100vw" srcset="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6862abfc8f55643864a69255_Frame%201-p-500.avif 500w, https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6862abfc8f55643864a69255_Frame%201-p-800.avif 800w, https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6862abfc8f55643864a69255_Frame%201-p-1080.avif 1080w, https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6862abfc8f55643864a69255_Frame%201.avif 2000w" alt="" src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6862abfc8f55643864a69255_Frame%201.avif" loading="lazy" class="image-14 cover-image property-wrapper-v3---image"/><div class="w-layout-blockcontainer container-2 w-container"><h5>40% OFF Windows</h5><div class="text-regular-2">Offer ends <span data-last-day="us-short-no-year" class="date-span">7/31</span><br/></div><a href="/special-offers" id="w-node-_632206d9-3c73-e5be-be34-15992c2e83e9-2c2e830e" class="primary-button-2 w-inline-block"><div>Learn More</div></a></div></div></div></div></nav></div></li><li class="link-nav-item"><div data-delay="0" data-hover="true" data-w-id="632206d9-3c73-e5be-be34-15992c2e83ed" class="dropdown-wrapper dropdown-default w-dropdown"><div class="dropdown-toogle-2 w-dropdown-toggle"><div>Resources &amp; Support</div><div class="icon-font-rounded-2 dropdown-arrow"></div></div><nav class="dropdown-list-2 dropdown-v1 w-dropdown-list"><div class="dropdown-pd-2 dropdown-v4"><div class="w-layout-grid grid-2-columns-2 dropdown-link-column v4"><div id="w-node-_632206d9-3c73-e5be-be34-15992c2e83f6-2c2e830e"><div class="w-layout-grid grid-1-column-2 dropdown-link-column"><a href="#" class="dropdown-link-2 dropdown-link-title">Resources</a><a href="/special-offers" id="w-node-_632206d9-3c73-e5be-be34-15992c2e83f8-2c2e830e" class="dropdown-link-2">Special Offers</a><a href="/financing" id="w-node-_632206d9-3c73-e5be-be34-15992c2e83fa-2c2e830e" class="dropdown-link-2">Financing</a><a id="w-node-_632206d9-3c73-e5be-be34-15992c2e83fe-2c2e830e" href="/gallery" class="dropdown-link-2">Gallery</a><a href="/about" id="w-node-_632206d9-3c73-e5be-be34-15992c2e8400-2c2e830e" class="dropdown-link-2">About Us</a><a href="/contacts" id="w-node-_632206d9-3c73-e5be-be34-15992c2e8402-2c2e830e" class="dropdown-link-2">Contact Us</a><a href="/testimonials" id="w-node-_632206d9-3c73-e5be-be34-15992c2e8404-2c2e830e" class="dropdown-link-2">Testimonials</a></div></div><div id="w-node-_632206d9-3c73-e5be-be34-15992c2e8406-2c2e830e"><a href="/brand" class="dropdown-link-2 dropdown-link-title">Premium Service Areas</a><div class="w-layout-grid main-pages-2"><div class="w-dyn-list"><div role="list" class="w-dyn-items"><div role="listitem" class="w-dyn-item"><a href="/county-hub-pages/san-francisco-county" class="dropdown-link-2">San Francisco County</a></div><div role="listitem" class="w-dyn-item"><a href="/county-hub-pages/napa-county" class="dropdown-link-2">Napa County</a></div><div role="listitem" class="w-dyn-item"><a href="/county-hub-pages/sonoma-county" class="dropdown-link-2">Sonoma County</a></div><div role="listitem" class="w-dyn-item"><a href="/county-hub-pages/solano-county" class="dropdown-link-2">Solano County</a></div><div role="listitem" class="w-dyn-item"><a href="/county-hub-pages/marin-county" class="dropdown-link-2">Marin County</a></div><div role="listitem" class="w-dyn-item"><a href="/county-hub-pages/san-mateo-county" class="dropdown-link-2">San Mateo County</a></div><div role="listitem" class="w-dyn-item"><a href="/county-hub-pages/santa-clara-county" class="dropdown-link-2">Santa Clara County</a></div><div role="listitem" class="w-dyn-item"><a href="/county-hub-pages/contra-costa-county" class="dropdown-link-2">Contra Costa County</a></div><div role="listitem" class="w-dyn-item"><a href="/county-hub-pages/alameda-county" class="dropdown-link-2">Alameda County</a></div></div></div></div></div><div id="w-node-_632206d9-3c73-e5be-be34-15992c2e840a-2c2e830e" class="mega-menu-banner w-clearfix"><img sizes="100vw" srcset="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6862abfc8f55643864a69255_Frame%201-p-500.avif 500w, https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6862abfc8f55643864a69255_Frame%201-p-800.avif 800w, https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6862abfc8f55643864a69255_Frame%201-p-1080.avif 1080w, https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6862abfc8f55643864a69255_Frame%201.avif 2000w" alt="" src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6862abfc8f55643864a69255_Frame%201.avif" loading="lazy" class="image-14 cover-image property-wrapper-v3---image"/><div class="w-layout-blockcontainer container-2 w-container"><h5>40% OFF Windows</h5><div class="text-regular-2">Offer ends <span data-last-day="us-short-no-year" class="date-span">7/31</span><br/></div><a href="/special-offers" id="w-node-_632206d9-3c73-e5be-be34-15992c2e8412-2c2e830e" class="primary-button-2 w-inline-block"><div>Learn More</div></a></div></div></div></div></nav></div></li></ul></nav></div><div class="nav-menu-right-side-2"><a href="/contacts" id="w-node-_632206d9-3c73-e5be-be34-15992c2e8416-2c2e830e" class="primary-button-2 w-inline-block"><div>Request a Free Estimate</div></a><div class="hamburger-menu-2 w-nav-button"><div class="hamburger-menu-flex-2"><div class="hamburger-menu-line-2 middle"></div><div class="hamburger-menu-line-2 middle"></div><div class="hamburger-menu-line-2 middle"></div></div></div></div></div></div></div><div class="navbar-3"><div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar-container w-nav"><div class="container-regular"><div class="navbar-wrapper"><a href="/" class="navbar-brand w-nav-brand"><img width="283" loading="lazy" alt="" src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/686acba4611e759fd8169f9d_photo_2025-07-06-22.14.41.avif" class="image-24"/></a><a href="tel:(888)730-4144" class="link-15"><strong>Sales: </strong> (888) 730-4144</a><nav role="navigation" class="nav-menu-wrapper-4 w-nav-menu"><ul role="list" class="nav-menu-2 w-list-unstyled"><li class="menu"><div data-delay="0" data-hover="false" class="nav-dropdown w-dropdown"><div class="nav-dropdown-toggle-2 w-dropdown-toggle"><div class="nav-dropdown-icon-2 w-icon-dropdown-toggle"></div><div class="text-block-31">Windows</div></div><nav class="nav-dropdown-list-2 shadow-three mobile-shadow-hide w-dropdown-list"><div data-delay="0" data-hover="false" class="nav-dropdown w-dropdown"><div class="nav-dropdown-toggle-2 w-dropdown-toggle"><div class="nav-dropdown-icon-2 w-icon-dropdown-toggle"></div><div>Materials</div></div><nav class="nav-dropdown-list-2 shadow-three mobile-shadow-hide w-dropdown-list"><a href="/windows" class="nav-dropdown-link-5 w-dropdown-link">All</a><a href="/windows/vinyl-windows" class="nav-dropdown-link-5 w-dropdown-link">Vinyl</a><a href="/windows/wood-clad-windows" class="nav-dropdown-link-5 w-dropdown-link">Wood clad</a><a href="/windows/fiberglass-windows" class="nav-dropdown-link-5 w-dropdown-link">Fiberglass</a><a href="/windows/wood-windows" class="nav-dropdown-link-5 w-dropdown-link">Wood</a><a href="/windows/aluminum-windows" class="nav-dropdown-link-5 w-dropdown-link">Aluminium</a><a href="/windows/steel-windows" class="nav-dropdown-link-5 w-dropdown-link">Steel</a><a href="/windows/aluminum-clad-windows" class="nav-dropdown-link-5 w-dropdown-link">Aluminum Clad</a></nav></div><div data-delay="0" data-hover="false" class="nav-dropdown w-dropdown"><div class="nav-dropdown-toggle-2 w-dropdown-toggle"><div class="nav-dropdown-icon-2 w-icon-dropdown-toggle"></div><div>Brands</div></div><nav class="nav-dropdown-list-2 shadow-three mobile-shadow-hide w-dropdown-list"><a href="/brand" class="nav-dropdown-link-5 w-dropdown-link">All</a><a href="/brands/marvin" class="nav-dropdown-link-5 w-dropdown-link">Marvin</a><a href="/brands/milgard" class="nav-dropdown-link-5 w-dropdown-link">Milgard</a><a href="/brands/jeld-wen" class="nav-dropdown-link-5 w-dropdown-link">Jeld-Wen</a><a href="/brands/anlin" class="nav-dropdown-link-5 w-dropdown-link">Anlin</a><a href="/brands/italwindows" class="nav-dropdown-link-5 w-dropdown-link">Italwindows</a><a href="/brands/andersen" class="nav-dropdown-link-5 w-dropdown-link">Andersen</a><a href="/brands/ply-gem" class="nav-dropdown-link-5 w-dropdown-link">Ply Gem</a><a href="/brands/simonton" class="nav-dropdown-link-5 w-dropdown-link">Simonton</a><a href="/brands/alside" class="nav-dropdown-link-5 w-dropdown-link">Alside</a><a href="/brands/western-window-systems" class="nav-dropdown-link-5 w-dropdown-link">Western Window Systems</a><a href="/brands/all-weather-architectural-aluminum" class="nav-dropdown-link-5 w-dropdown-link">All Weather Architectural Aluminum</a></nav></div></nav></div></li><li class="menu"><div data-delay="0" data-hover="false" class="nav-dropdown w-dropdown"><div class="nav-dropdown-toggle-2 w-dropdown-toggle"><div class="nav-dropdown-icon-2 w-icon-dropdown-toggle"></div><div class="text-block-31">Doors</div></div><nav class="nav-dropdown-list-2 shadow-three mobile-shadow-hide w-dropdown-list"><div data-delay="0" data-hover="false" class="nav-dropdown w-dropdown"><div class="nav-dropdown-toggle-2 w-dropdown-toggle"><div class="nav-dropdown-icon-2 w-icon-dropdown-toggle"></div><div>Materials</div></div><nav class="nav-dropdown-list-2 shadow-three mobile-shadow-hide w-dropdown-list"><a href="/doors" class="nav-dropdown-link-5 w-dropdown-link">All</a><a href="/doors/vinyl-doors" class="nav-dropdown-link-5 w-dropdown-link">Vinyl</a><a href="/doors/wood-clad-doors" class="nav-dropdown-link-5 w-dropdown-link">Wood clad</a><a href="/doors/fiberglass-doors" class="nav-dropdown-link-5 w-dropdown-link">Fiberglass</a><a href="/doors/wood-doors" class="nav-dropdown-link-5 w-dropdown-link">Wood</a><a href="/doors/aluminum-doors" class="nav-dropdown-link-5 w-dropdown-link">Aluminium</a><a href="/doors/steel-doors" class="nav-dropdown-link-5 w-dropdown-link">Steel</a></nav></div><div data-delay="0" data-hover="false" class="nav-dropdown w-dropdown"><div class="nav-dropdown-toggle-2 w-dropdown-toggle"><div class="nav-dropdown-icon-2 w-icon-dropdown-toggle"></div><div>Brands</div></div><nav class="nav-dropdown-list-2 shadow-three mobile-shadow-hide w-dropdown-list"><a href="/brand" class="nav-dropdown-link-5 w-dropdown-link">All</a><a href="/brands/marvin" class="nav-dropdown-link-5 w-dropdown-link">Marvin</a><a href="/brands/milgard" class="nav-dropdown-link-5 w-dropdown-link">Milgard</a><a href="/brands/jeld-wen" class="nav-dropdown-link-5 w-dropdown-link">Jeld-Wen</a><a href="/brands/anlin" class="nav-dropdown-link-5 w-dropdown-link">Anlin</a><a href="/brands/italwindows" class="nav-dropdown-link-5 w-dropdown-link">Italwindows</a><a href="/brands/andersen" class="nav-dropdown-link-5 w-dropdown-link">Andersen</a><a href="/brands/ply-gem" class="nav-dropdown-link-5 w-dropdown-link">Ply Gem</a><a href="/brands/simonton" class="nav-dropdown-link-5 w-dropdown-link">Simonton</a><a href="/brands/alside" class="nav-dropdown-link-5 w-dropdown-link">Alside</a><a href="/brands/western-window-systems" class="nav-dropdown-link-5 w-dropdown-link">Western Window Systems</a><a href="/brands/all-weather-architectural-aluminum" class="nav-dropdown-link-5 w-dropdown-link">All Weather Architectural Aluminum</a></nav></div></nav></div></li><li class="menu"><div data-delay="0" data-hover="false" class="nav-dropdown w-dropdown"><div class="nav-dropdown-toggle-2 w-dropdown-toggle"><div class="nav-dropdown-icon-2 w-icon-dropdown-toggle"></div><div class="text-block-33">Learning Center</div></div><nav class="nav-dropdown-list-2 shadow-three mobile-shadow-hide w-dropdown-list"><a href="/blog" class="nav-dropdown-link-5 w-dropdown-link">Knowledge Articles</a><a href="/blog/how-to-measure-windows-for-replacement" class="nav-dropdown-link-5 w-dropdown-link">Window Measurement Guide</a><a href="/blog/comprehensive-guide-to-choosing-the-right-replacement-windows" class="nav-dropdown-link-5 w-dropdown-link">Tips for Windows Replacement</a><a href="/blog/window-buyers-guide" class="nav-dropdown-link-5 w-dropdown-link">Window Buyer&#x27;s Guide</a><a href="/blog/the-ultimate-door-buyers-guide" class="nav-dropdown-link-5 w-dropdown-link">Door Buyer&#x27;s Guide</a><a href="/glossary" class="nav-dropdown-link-5 w-dropdown-link">Glossary</a><a href="/faq" class="nav-dropdown-link-5 w-dropdown-link">Frequently Asked Questions</a></nav></div></li><li class="menu"><div data-delay="0" data-hover="false" class="nav-dropdown w-dropdown"><div class="nav-dropdown-toggle-2 w-dropdown-toggle"><div class="nav-dropdown-icon-2 w-icon-dropdown-toggle"></div><div class="text-block-34">Resources &amp; Support</div></div><nav class="nav-dropdown-list-2 shadow-three mobile-shadow-hide w-dropdown-list"><a href="/special-offers" class="nav-dropdown-link-5 w-dropdown-link">Special Offers</a><a href="/financing" class="nav-dropdown-link-5 w-dropdown-link">Financing</a><a href="/gallery" class="nav-dropdown-link-5 w-dropdown-link">Gallery</a><a href="/about" class="nav-dropdown-link-5 w-dropdown-link">About Us</a><a href="/contacts" class="nav-dropdown-link-5 w-dropdown-link">Contact Us</a><a href="/testimonials" class="nav-dropdown-link-5 w-dropdown-link">Testimonials</a></nav></div></li><li class="menu"><div class="nav-button-wrapper"><a href="/contacts" class="primary-button-2 w-inline-block"><div class="text-block-35">Get Quote</div></a></div></li></ul><a href="tel:(888)730-4144"> (888) 730-4144</a></nav><div class="menu-button w-nav-button"><div class="icon w-icon-nav-menu"></div></div></div></div></div></div><div class="code-embed-3 w-embed w-script"><style> /* затемняющий оверлей — по умолчанию скрыт */ .mobile-menu-overlay { position: fixed; inset: 0; /* top:0; right:0; bottom:0; left:0 */ background-color: rgba(0, 0, 0, 0.5); /* полупрозрачный чёрный */ z-index: 900; /* ниже меню, но выше остального контента */ display: none; pointer-events: none; /* чтобы клики «сквозь» не шли */ } /* когда меню открыто — показываем */ .mobile-menu-overlay.is-active { display: block; pointer-events: auto; /* если нужно, чтобы сам оверлей мог ловить клики */ } </style>
+<script>
+(function () {
+  // Десктопный ховер: не тач, есть hover, ширина >= 992px
+  const DESKTOP = '(hover: hover) and (pointer: fine) and (min-width: 992px)';
+  const scopeToggles = '.list-nav-menu-2 .dropdown-wrapper.w-dropdown > .w-dropdown-toggle';
+
+  function isDesktop(){ return window.matchMedia(DESKTOP).matches; }
+
+  function disableClickOnToggle(toggle){
+    // ЧТО гасим: любые попытки клика/клавиш на самом тоггле
+    const cancel = (e) => { 
+      if (!isDesktop()) return;           // мобилку не трогаем
+      e.preventDefault(); 
+      e.stopImmediatePropagation(); 
+    };
+
+    // мышь/pointer
+    toggle.addEventListener('pointerdown', cancel, true);
+    toggle.addEventListener('mousedown',   cancel, true);
+    toggle.addEventListener('mouseup',     cancel, true);
+    toggle.addEventListener('click',       cancel, true);
+
+    // клавиатура (чтобы Enter/Space не триггерили клик)
+    toggle.addEventListener('keydown', function(e){
+      if (!isDesktop()) return;
+      if (e.key === 'Enter' || e.key === ' ') cancel(e);
+    }, true);
+
+    // чисто косметика/а11y-подсказка
+    toggle.setAttribute('aria-disabled','true'); 
+  }
+
+  function bind(){
+    if (!isDesktop()) return;
+    document.querySelectorAll(scopeToggles).forEach(disableClickOnToggle);
+  }
+
+  document.addEventListener('DOMContentLoaded', bind);
+  // На случай ресайза между брейкпоинтами
+  window.addEventListener('resize', function(){
+    // Сначала снимаем старые (перезагрузка страницы — самый простой путь),
+    // но для стабильности просто перебиндим: addEventListener с capture не дублируется критично.
+    bind();
+  });
+})();
+</script>
+<style>
+  /* Слои: overlay и меню поверх диммера, шапка — поверх всех */
+  .w-nav-overlay {
+    z-index: 1198 !important;
+  }
+  .w-nav-overlay .w-nav-menu {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 1199 !important;
+  }
+
+  /* Диммер под меню */
+  #menuDimmer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.55);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease;
+    z-index: 1197;
+  }
+
+  /* Когда меню открыто — фиксируем мобильную шапку и даём ей фон */
+  body.mobile-menu-open .navbar-3 {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1200 !important;
+    transform: translateZ(0); /* страховка от глюков в FF */
+
+    /* !!! тут поставь тот же фон, что у .header-container-2 !!! */
+    background: #fff; /* пример, замени на свой цвет/градиент */
+  }
+</style>
+
+<script>
+/**
+ * Mobile Webflow navbar — Firefox-safe:
+ * - при открытии: фиксируем .navbar-3, считаем её высоту
+ * - overlay и меню начинаются сразу под шапкой
+ * - диммер #menuDimmer под меню
+ * - скролл лочится через overflow, без position:fixed на body
+ */
+(function () {
+  const NAVBAR = '.navbar-3';
+  const BTN    = `${NAVBAR} .w-nav-button`;
+  const OVSEL  = '.w-nav-overlay';
+  const MENU   = '.w-nav-overlay .w-nav-menu';
+  const MOBILE = '(max-width: 991px)';
+  const isMobile = () => window.matchMedia(MOBILE).matches;
+
+  // диммер
+  let dimmer = document.getElementById('menuDimmer');
+  if (!dimmer) {
+    dimmer = document.createElement('div');
+    dimmer.id = 'menuDimmer';
+    document.body.appendChild(dimmer);
+  }
+
+  const $    = (s) => document.querySelector(s);
+  const btn  = ()  => $(BTN);
+  const ov   = ()  => $(OVSEL);
+  const menu = ()  => $(MENU);
+  const open = ()  => !!$(`${BTN}.w--open`);
+
+  const lockScroll = () => {
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+  };
+  const unlockScroll = () => {
+    document.documentElement.style.overflow = '';
+    document.body.style.overflow = '';
+  };
+
+  function navHeight(){
+    const el = $(NAVBAR);
+    const h  = el ? Math.round(el.getBoundingClientRect().height) : 70;
+    return h || 70;
+  }
+
+  function placeUnderHeader(){
+    const h = navHeight();
+
+    // гарантируем, что overlay в body (Firefox)
+    const o = ov();
+    if (o){
+      if (o.parentNode !== document.body) document.body.appendChild(o);
+      Object.assign(o.style, {
+        position: 'fixed',
+        top:      h + 'px',
+        left:     '0',
+        right:    '0',
+        bottom:   '0',
+        width:    '100%',
+        overflow: 'visible',
+        display:  'block',
+        pointerEvents: 'auto'
+      });
+    }
+
+    const m = menu();
+    if (m){
+      Object.assign(m.style, {
+  position: 'fixed',
+        top:       h + 'px',
+        left:      '0',
+        right:     '0',
+      bottom:    '0',              // Растягиваем до низа
+        overflowY: 'auto',           // Скролл только внутри меню
+        maxHeight: 'none',           // Снимаем ограничения Webflow
+        WebkitOverflowScrolling: 'touch' // Плавность на iOS
+      });
+    }
+
+    dimmer.style.top = h + 'px';
+  }
+
+  function show(){
+    if (!isMobile()) return;
+
+    document.body.classList.add('mobile-menu-open');
+    placeUnderHeader();
+
+    dimmer.style.opacity       = '1';
+    dimmer.style.pointerEvents = 'auto';
+
+    lockScroll();
+  }
+
+function hide(){
+  dimmer.style.opacity       = '0';
+  dimmer.style.pointerEvents = 'none';
+
+  document.body.classList.remove('mobile-menu-open');
+  unlockScroll();
+
+  const o = ov();
+  if (o){ // ← убрали проверку !open()
+    o.style.pointerEvents = 'none';
+    o.style.display       = 'none';
+    o.style.height        = ''; // сброс возможных залипаний FF
+  }
+}
+
+
+  function sync(){
+    if (!isMobile()) {
+      hide();
+      return;
+    }
+    if (open()) show(); else hide();
+  }
+
+  // клик по бургеру
+  document.addEventListener('click', (e) => {
+    if (e.target.closest(BTN)) {
+      setTimeout(sync, 0);
+    }
+  });
+
+  // клик по диммеру — закрываем меню
+  dimmer.addEventListener('click', () => {
+    const b = btn();
+    if (b && b.classList.contains('w--open')) b.click();
+  });
+
+  // наблюдаем изменения классов/стилей от Webflow
+  const mo = new MutationObserver(() => setTimeout(sync, 0));
+  mo.observe(document.documentElement, {
+    subtree: true,
+    childList: true,
+    attributes: true,
+    attributeFilter: ['class', 'style', 'data-nav-menu-open']
+  });
+
+  // при ресайзе/скролле актуализируем позицию
+  window.addEventListener('resize', () => {
+    if (open()) placeUnderHeader();
+    sync();
+  }, { passive: true });
+
+  window.addEventListener('scroll', () => {
+    if (open()) placeUnderHeader();
+  }, { passive: true });
+
+  document.addEventListener('DOMContentLoaded', sync);
+})();
+</script>
+<style>
+  /* Глобальный стоп-кран:
+     когда меню НЕ открыто (нет класса на body),
+     оверлей полностью выключен и не ловит клики */
+  body:not(.mobile-menu-open) .w-nav-overlay {
+    display: none !important;
+    pointer-events: none !important;
+    height: auto !important;
+  }
+
+  /* Когда меню открыто — даём оверлею клики,
+     чтобы работало само меню */
+  body.mobile-menu-open .w-nav-overlay {
+    pointer-events: auto !important;
+  }
+  
+
+/* Улучшаем поведение скролла на мобильных */
+body.mobile-menu-open .w-nav-overlay .w-nav-menu {
+    -webkit-overflow-scrolling: touch;  /* Инерционный скролл для старых iOS */
+}
+</style></div></div><div class="div-block-59"><div style="background-image:url(&quot;https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f5e7c66340d6e2c1eaf47_Casey-Dunn-Ascaya-POTW-APALMANAC_0009.avif&quot;)" class="div-block-61"></div><div class="w-layout-blockcontainer container-default w-container"><div class="title-left---content-right paragraph-content alt hero-page"><div class="width-100-mobile-landscape"><div class="inner-container _640px _100-tablet"><div class="inner-container _450px---tablet"><div class="inner-container _400px---mbl"><div class="div-block-60"><div class="rich-text-block-2 w-richtext"><h2 class="heading-49">Upgrade to Energy Efficient Windows and Doors for Less</h2><p>‍</p><div class="w-embed"><h2 style="font-size:21px; color:#fff" data-city>Local Installers</h2></div></div></div></div></div></div></div><div class="inner-container _660px _100-tablet"><div class="form-block-2 w-form"><form id="wf-form-Main-Form" name="wf-form-Main-Form" data-name="Main Form" method="get" class="form-3" data-wf-page-id="688e50676f1dbd8cba0e091a" data-wf-element-id="3ab01c22-18de-4545-ffef-5a89d31afac2"><div class="div-block-22"><img loading="lazy" src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6915bd3fcaf3c1f1ff04d9dd_italwindows.svg" alt="" class="svg50 sidebar-svg top-svg"/><div class="rich-text-block-7 w-richtext"><h3><strong>40% off for limited time</strong></h3><div class="w-embed">Starting from <s>982</s> $589<sup>*</sup></div><p>per window</p><p>‍</p></div><label for="email-banner" class="body-14"></label></div><div class="div-block-23"><div><label for="Name-2" class="field-label">Full name*</label><div class="input-wrapper"><input class="input icon-left w-input" maxlength="256" name="Name" data-name="Name" placeholder="Full name" type="text" id="name" required=""/><div class="input-line-icon-wrapper"><div class="filled-icons-font"></div></div></div></div><div id="w-node-_3ab01c22-18de-4545-ffef-5a89d31afad4-ba0e091a" class="div-block-29"><label for="Email-2" class="field-label-2">Email*</label><div class="input-wrapper"><input class="input icon-left w-input" maxlength="256" name="Email" data-name="Email" placeholder="example@email.com" type="email" id="email" required=""/><div class="input-line-icon-wrapper"><div class="filled-icons-font"></div></div></div></div><div id="w-node-_3ab01c22-18de-4545-ffef-5a89d31afadc-ba0e091a"><label for="Phone-2" class="field-label-3">Phone*</label><div class="input-wrapper"><input class="input icon-left w-input" maxlength="256" name="Phone" data-name="Phone" placeholder="(650) 461-4446" type="tel" id="phone" required=""/><div class="input-line-icon-wrapper"><div class="filled-icons-font"></div></div></div></div><div id="w-node-_3ab01c22-18de-4545-ffef-5a89d31afae4-ba0e091a"><label for="Company" class="field-label-4">City</label><div class="input-wrapper"><input class="input icon-left w-input" maxlength="256" name="Subject" data-name="Subject" placeholder="San Francisco" type="text" id="subject" required=""/><div class="input-line-icon-wrapper"><img loading="eager" src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6841ddf8ace3d9d9facb194d_star-icon-property-x-webflow-template.svg" alt="Star Icon - Property X Webflow Template"/></div></div></div><div id="w-node-_3ab01c22-18de-4545-ffef-5a89d31afaeb-ba0e091a" class="text-area-wrapper"><label for="Message-2" class="field-label-5">Description</label><div class="input-wrapper"><textarea id="message" name="Message" maxlength="5000" data-name="Message" placeholder="Write your message here..." required="" class="text-area icon-left w-input"></textarea><div class="text-area-icon-wrapper"><img loading="eager" src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6841ddf8ace3d9d9facb192f_lisiting-icon-property-x-webflow-template.svg" alt="Listing Icon - Property X Webflow Template"/></div></div></div></div><div class="primary-button space-between-v1"><input type="submit" data-wait="Please wait..." class="inside-input-button text-light w-button" value="Request a Free Estimate"/></div><label for="email-banner" class="body-14"><em class="italic-text">*Windows Replacement. Offer Expires </em><span data-last-day="us-short" class="date-span italic-span"><em class="italic-text">03/10/26</em></span></label></form><div class="w-form-done"><div>Thank you! Your submission has been received!</div></div><div class="w-form-fail"><div>Oops! Something went wrong while submitting the form.</div></div></div></div></div></div></div><div data-animation="default" data-collapse="tiny" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav"><div class="w-layout-blockcontainer container-default w-container"><div class="w-layout-grid grid grid-543"><div><div class="w-embed w-script"><!-- Elfsight All-in-One Reviews | Untitled All-in-One Reviews 3 -->
+<script src="https://elfsightcdn.com/platform.js" async></script>
+<div class="elfsight-app-e3dc666e-7803-4c6a-94c1-0e4f1155d816" data-elfsight-app-lazy></div></div></div><div class="div-block-65"><div class="text-block-46">✔</div><div class="text-block-47">AAMA Certified Installers<br/></div></div><div class="div-block-65"><div class="text-block-46">✔</div><div class="text-block-47">Financing Available<br/></div></div><div class="div-block-65"><div class="text-block-46">✔</div><div class="text-block-47">40% Off — Limited Time</div></div></div></div></div><section class="section_breadcrumbs section-121"><div class="w-layout-blockcontainer container-default breadcrumbs-container w-container"><div class="breadcrumbs-wrapper"><a href="/" class="breadcrumb-link">Home</a><div class="breadcrumb-div">/</div><a href="/windows" class="breadcrumb-link hidden-link">WINDOWS</a><div class="breadcrumb-div hidden-txt">/</div><a href="/brand" class="breadcrumb-link hidden-link">BRANDS</a><div class="breadcrumb-div hidden-txt">/</div><a href="/brands/italwindows" class="breadcrumb-link hidden-link">Italwindows</a><div class="breadcrumb-div hidden-txt">/</div><div class="breadcrumb-text">Italwindows Wood Windows</div></div></div></section><section class="section hero-v4 padding0types wtypespadding"><div class="w-layout-blockcontainer container-default w-container"><div class="mg-top-extra-large brands"><div class="w-layout-grid grid-2-columns listing-grid sidebar-left"><div id="w-node-_6804bfc1-2fcb-3b18-3dd1-06afc16ea028-ba0e091a" class="inner-container _408px _100-mbl"><div class="sticky-top types"><section class="section_sidebar brands types"><div data-delay="0" data-hover="false" class="dropdown-tab tabs-mob sidebar-dropdown w-dropdown"><div data-dd="toggle" class="toggle-tab tabs-mob sidebar is-first brands w-dropdown-toggle"><div class="toggle-text-tab-2 sidebar-txt">All collections</div><div class="tab-icon-wrapper sidebar-icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 9 6" fill="none" class="sidebar-icon"><path d="M4.5 5.55005L0 1.05005L1.05 4.86076e-05L4.5 3.45005L7.95 4.86076e-05L9 1.05005L4.5 5.55005Z" fill="currentColor"></path></svg></div></div><nav data-dd="list" class="dropdown-list-4 sidebar-list w-dropdown-list"><div class="sidebar_content-wrapper-2 bottom brands"><img loading="lazy" src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6915bd3fcaf3c1f1ff04d9dd_italwindows.svg" alt="" class="svg50 sidebar-svg top-svg"/><a href="/brand" class="all-brands-block w-inline-block"><div class="icon-font-rounded arrow"></div><div class="text-size-14">All brands</div></a><div class="scroll-block"><div data-delay="0" data-hover="false" class="dropdown-2 w-condition-invisible w-dropdown"><div class="dropdown-toogle-2 dd-toggle sidebar-toggle w-dropdown-toggle"><div class="icon-font-rounded-2 dropdown-arrow sidebar-icon hidden"></div><div class="text-size-16 text-color-grey">Aluminum Windows</div></div><nav class="dropdown-list-2 dd-sidebar no-borders w-dropdown-list"><div class="w-dyn-list"><div class="w-dyn-empty"><div>No items found.</div></div></div></nav></div><div data-delay="0" data-hover="false" class="dropdown-2 w-dropdown"><nav class="dropdown-list-2 dd-sidebar no-borders w-dropdown-list"><div class="w-dyn-list"><div role="list" class="dropdown-list-2 no-padding d-sidebar w-dyn-items"><div role="listitem" class="w-dyn-item"><a href="/window-type/italwindows-wood-windows" aria-current="page" class="sidebar-item-2 w-inline-block w--current"><img loading="lazy" src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f5e7c66340d6e2c1eaf47_Casey-Dunn-Ascaya-POTW-APALMANAC_0009.avif" alt="" sizes="100vw" srcset="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f5e7c66340d6e2c1eaf47_Casey-Dunn-Ascaya-POTW-APALMANAC_0009-p-500.avif 500w, https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f5e7c66340d6e2c1eaf47_Casey-Dunn-Ascaya-POTW-APALMANAC_0009.avif 1200w" class="sidebar-img"/><div class="sidebar-txt text-size-16">Italwindows Wood Windows</div></a></div><div role="listitem" class="w-dyn-item"><a href="/window-type/italwindows-steel-windows" class="sidebar-item-2 w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f5dccd9472161d1f96514_hopes-01-credit-img_ink.avif" alt="" class="sidebar-img"/><div class="sidebar-txt text-size-16">Italwindows Steel Windows</div></a></div><div role="listitem" class="w-dyn-item"><a href="/window-type/italwindows-aluminium-windows" class="sidebar-item-2 w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f575c9dc2bb9ca5d4a3b0_unnamed.avif" alt="" class="sidebar-img"/><div class="sidebar-txt text-size-16">Italwindows Aluminum Windows</div></a></div></div></div></nav></div><div data-delay="0" data-hover="false" class="dropdown-2 w-condition-invisible w-dropdown"><div class="dropdown-toogle-2 dd-toggle sidebar-toggle w-dropdown-toggle"><div class="text-size-16 text-color-grey">Fiberglass Windows</div><div class="icon-font-rounded-2 dropdown-arrow sidebar-icon hidden"></div></div><nav class="dropdown-list-2 dd-sidebar no-borders w-dropdown-list"><div class="w-dyn-list"><div class="w-dyn-empty"><div>No items found.</div></div></div></nav></div><div data-delay="0" data-hover="false" class="dropdown-2 w-condition-invisible w-dropdown"><div class="dropdown-toogle-2 dd-toggle sidebar-toggle w-dropdown-toggle"><div class="text-block-42 text-size-16 text-color-grey">Vinyl Windows</div><div class="text-block-42 text-size-16 text-color-grey w-condition-invisible">/ New Construction</div><div class="icon-font-rounded-2 dropdown-arrow sidebar-icon hidden"></div></div><nav class="dropdown-list-2 dd-sidebar no-borders w-dropdown-list"><div class="w-dyn-list"><div class="w-dyn-empty"><div>No items found.</div></div></div></nav></div><div data-delay="0" data-hover="false" class="dropdown-2 w-condition-invisible w-dropdown"><div class="dropdown-toogle-2 dd-toggle sidebar-toggle w-dropdown-toggle"><div class="text-block-42 text-size-16 text-color-grey">Vinyl Windows</div><div class="icon-font-rounded-2 dropdown-arrow sidebar-icon hidden"></div><div class="text-block-42 text-size-16 text-color-grey w-condition-invisible">/ Replacement</div></div><nav class="dropdown-list-2 dd-sidebar no-borders w-dropdown-list"><div class="w-dyn-list"><div class="w-dyn-empty"><div>No items found.</div></div></div></nav></div><div data-delay="0" data-hover="false" class="dropdown-2 w-condition-invisible w-dropdown"><div class="dropdown-toogle-2 dd-toggle sidebar-toggle w-dropdown-toggle"><div class="text-block-42 text-size-16 text-color-grey">Wood Windows</div><div class="icon-font-rounded-2 dropdown-arrow sidebar-icon hidden"></div></div><nav class="dropdown-list-2 dd-sidebar no-borders w-dropdown-list"><div class="w-dyn-list"><div class="w-dyn-empty"><div>No items found.</div></div></div></nav></div><div data-delay="0" data-hover="false" class="dropdown-2 w-condition-invisible w-dropdown"><div class="dropdown-toogle-2 dd-toggle sidebar-toggle w-dropdown-toggle"><div class="text-block-42 text-size-16 text-color-grey">Wood Clad Windows</div><div class="icon-font-rounded-2 dropdown-arrow sidebar-icon hidden"></div></div><nav class="dropdown-list-2 dd-sidebar no-borders w-dropdown-list"><div class="w-dyn-list"><div class="w-dyn-empty"><div>No items found.</div></div></div></nav></div><div data-delay="0" data-hover="false" class="dropdown-2 w-condition-invisible w-dropdown"><div class="dropdown-toogle-2 dd-toggle sidebar-toggle w-dropdown-toggle"><div class="text-block-42 text-size-16 text-color-grey">Aluminum Clad</div><div class="icon-font-rounded-2 dropdown-arrow sidebar-icon hidden"></div></div><nav class="dropdown-list-2 dd-sidebar no-borders w-dropdown-list"><div class="w-dyn-list"><div class="w-dyn-empty"><div>No items found.</div></div></div></nav></div></div></div><div class="card-2 sidebar-v1---card new-design brands"><div class="form-sidebar"><div class="form-block-3 w-form"><form id="wf-form-Property-Form" name="wf-form-Property-Form" data-name="Property Form" method="get" class="form-wrapper" data-wf-page-id="688e50676f1dbd8cba0e091a" data-wf-element-id="8637d5b4-0acc-6670-da41-095ae936f225"><div class="grid-1-column-2 gap-row-12"><div class="input-wrapper-5"><div class="input-line-icon-wrapper-4 sidebar-form"><div class="filled-icons-font"></div></div><input class="input-2 icon-left w-input" maxlength="256" name="Name" data-name="Name" placeholder="Full name" type="text" id="name" required=""/></div><div class="input-wrapper-5"><div class="input-line-icon-wrapper-4"><div class="filled-icons-font"></div></div><input class="input-2 icon-left w-input" maxlength="256" name="Email" data-name="Email" placeholder="Email address" type="email" id="email" required=""/></div><div class="input-wrapper-5"><div class="input-line-icon-wrapper-4"><div class="filled-icons-font"></div></div><input class="input-2 icon-left w-input" maxlength="256" name="Phone" data-name="Phone" placeholder="Phone number" type="tel" id="phone" required=""/></div><div class="input-wrapper-5"><input class="input-2 icon-left w-input" maxlength="256" name="Subject" data-name="Subject" placeholder="City" type="text" id="subject" required=""/><div class="input-line-icon-wrapper"><img loading="eager" src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6841ddf8ace3d9d9facb194d_star-icon-property-x-webflow-template.svg" alt="Star Icon - Property X Webflow Template"/></div></div><div id="w-node-_8637d5b4-0acc-6670-da41-095ae936f236-ba0e091a" class="primary-button-6 space-between-v1"><input type="submit" data-wait="Please wait..." class="inside-input-button-4 text-light w-button" value="Get Your Free Estimate"/></div></div></form><div class="success-message-wrapper w-form-done"><div class="item-icon-left"><div class="icon-font-rounded-5 success-message-icon"></div></div><div class="mg-top-extra-small-2"><div class="text-titles-3"><div class="display-40">Thank you! We’ll get back to you soon<br/></div></div></div></div><div class="error-message-wrapper-4 w-form-fail"><div>Oops! Something went wrong.</div></div></div></div></div></nav></div></section><div class="card-2 sidebar-v1---card new-design hero-section w-condition-invisible"><div class="inner-container _400px---mbl"><div class="text-titles-3"><div class="display-41 mid">Get Deluxe Windows for Less. 40% OFF* Windows</div></div><div class="mg-top-small-4"><p class="text-titles-3"><em>Request a FREE No-Obligation Quote &amp; Expert Advice!</em><br/></p></div></div><div class="mg-top-default-4"><div class="sidebar-form-block-v1 sidebar w-form"><form id="wf-form-Property-Form" name="wf-form-Property-Form" data-name="Property Form" method="get" class="form-wrapper" data-wf-page-id="688e50676f1dbd8cba0e091a" data-wf-element-id="40a192b0-023e-5c6d-f48f-10923d6b187e"><div class="grid-1-column-2 gap-row-12"><div class="input-wrapper-5"><div class="input-line-icon-wrapper-4"><div class="filled-icons-font"></div></div><input class="input-2 icon-left w-input" maxlength="256" name="Name" data-name="Name" placeholder="Full name" type="text" id="name" required=""/></div><div class="input-wrapper-5"><div class="input-line-icon-wrapper-4"><div class="filled-icons-font"></div></div><input class="input-2 icon-left w-input" maxlength="256" name="Email" data-name="Email" placeholder="Email address" type="email" id="email" required=""/></div><div class="input-wrapper-5"><div class="input-line-icon-wrapper-4"><div class="filled-icons-font"></div></div><input class="input-2 icon-left w-input" maxlength="256" name="Phone" data-name="Phone" placeholder="Phone number" type="tel" id="phone" required=""/></div><div class="input-wrapper-5"><input class="input-2 icon-left w-input" maxlength="256" name="Subject" data-name="Subject" placeholder="City" type="text" id="subject" required=""/><div class="input-line-icon-wrapper"><img loading="eager" src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6841ddf8ace3d9d9facb194d_star-icon-property-x-webflow-template.svg" alt="Star Icon - Property X Webflow Template"/></div></div><div id="w-node-f4066d92-bc14-6cd7-75d0-901d7e09f368-ba0e091a" class="primary-button-6 space-between-v1"><input type="submit" data-wait="Please wait..." class="inside-input-button-4 text-light w-button" value="Get Your Free Estimate"/></div></div></form><div class="success-message-wrapper w-form-done"><div class="item-icon-left"><div class="icon-font-rounded-5 success-message-icon"></div></div><div class="mg-top-extra-small-2"><div class="text-titles-3"><div class="display-40">Thank you! We’ll get back to you soon<br/></div></div></div></div><div class="error-message-wrapper-4 w-form-fail"><div>Oops! Something went wrong.</div></div></div></div></div><section class="section_sidebar brands types w-condition-invisible"><div data-delay="0" data-hover="false" class="dropdown-tab tabs-mob sidebar-dropdown w-dropdown"><div data-dd="toggle" class="toggle-tab tabs-mob sidebar is-first brands w-dropdown-toggle"><div class="toggle-text-tab-2 sidebar-txt">All collections</div><div class="tab-icon-wrapper sidebar-icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 9 6" fill="none" class="sidebar-icon"><path d="M4.5 5.55005L0 1.05005L1.05 4.86076e-05L4.5 3.45005L7.95 4.86076e-05L9 1.05005L4.5 5.55005Z" fill="currentColor"></path></svg></div></div><nav data-dd="list" class="dropdown-list-4 sidebar-list w-dropdown-list"><div class="sidebar_content-wrapper-2 bottom brands w-condition-invisible"><img loading="lazy" src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6915bd3fcaf3c1f1ff04d9dd_italwindows.svg" alt="" class="svg50 sidebar-svg top-svg"/><a href="/brand" class="all-brands-block w-inline-block"><div class="icon-font-rounded arrow"></div><div class="text-size-14">All brands</div></a><div class="scroll-block"><div data-delay="0" data-hover="false" class="dropdown-2 w-condition-invisible w-dropdown"><div class="dropdown-toogle-2 dd-toggle sidebar-toggle w-dropdown-toggle"><div class="text-size-16 text-color-grey">Aluminum Windows</div><div class="icon-font-rounded-2 dropdown-arrow sidebar-icon hidden"></div></div><nav class="dropdown-list-2 dd-sidebar no-borders w-dropdown-list"><div class="w-dyn-list"><div class="w-dyn-empty"><div>No items found.</div></div></div></nav></div><div data-delay="0" data-hover="false" class="dropdown-2 w-condition-invisible w-dropdown"><div class="dropdown-toogle-2 dd-toggle sidebar-toggle w-dropdown-toggle"><div class="text-size-16 text-color-grey">Fiberglass Windows</div><div class="icon-font-rounded-2 dropdown-arrow sidebar-icon hidden"></div></div><nav class="dropdown-list-2 dd-sidebar no-borders w-dropdown-list"><div class="w-dyn-list"><div class="w-dyn-empty"><div>No items found.</div></div></div></nav></div><div data-delay="0" data-hover="false" class="dropdown-2 w-condition-invisible w-dropdown"><div class="dropdown-toogle-2 dd-toggle sidebar-toggle w-dropdown-toggle"><div class="text-block-42 text-size-16 text-color-grey">Steel Windows</div><div class="icon-font-rounded-2 dropdown-arrow sidebar-icon hidden"></div></div><nav class="dropdown-list-2 dd-sidebar no-borders w-dropdown-list"><div class="w-dyn-list"><div class="w-dyn-empty"><div>No items found.</div></div></div></nav></div><div data-delay="0" data-hover="false" class="dropdown-2 w-condition-invisible w-dropdown"><div class="dropdown-toogle-2 dd-toggle sidebar-toggle w-dropdown-toggle"><div class="text-block-42 text-size-16 text-color-grey">Vinyl Windows</div><div class="icon-font-rounded-2 dropdown-arrow sidebar-icon hidden"></div></div><nav class="dropdown-list-2 dd-sidebar no-borders w-dropdown-list"><div class="w-dyn-list"><div class="w-dyn-empty"><div>No items found.</div></div></div></nav></div><div data-delay="0" data-hover="false" class="dropdown-2 w-condition-invisible w-dropdown"><div class="dropdown-toogle-2 dd-toggle sidebar-toggle w-dropdown-toggle"><div class="text-block-42 text-size-16 text-color-grey">Wood Windows</div><div class="icon-font-rounded-2 dropdown-arrow sidebar-icon hidden"></div></div><nav class="dropdown-list-2 dd-sidebar no-borders w-dropdown-list"><div class="w-dyn-list"><div class="w-dyn-empty"><div>No items found.</div></div></div></nav></div><div data-delay="0" data-hover="false" class="dropdown-2 w-condition-invisible w-dropdown"><div class="dropdown-toogle-2 dd-toggle sidebar-toggle w-dropdown-toggle"><div class="text-block-42 text-size-16 text-color-grey">Woodclad Windows</div><div class="icon-font-rounded-2 dropdown-arrow sidebar-icon hidden"></div></div><nav class="dropdown-list-2 dd-sidebar no-borders w-dropdown-list"><div class="w-dyn-list"><div class="w-dyn-empty"><div>No items found.</div></div></div></nav></div></div></div><div class="card-2 sidebar-v1---card new-design brands"><div class="inner-container _400px---mbl"><div class="text-titles-3 sidebar-txt"><div class="display-41 mid hidden">Get Deluxe Windows for Less. 40% OFF* Windows</div></div><div class="mg-top-small-4"><p class="text-titles-3 sidebar-subtitle brands">Request a FREE No-Obligation Quote &amp; Expert Advice!<br/></p></div></div><div class="form-sidebar"><div class="form-block-3 w-form"><form id="wf-form-Property-Form" name="wf-form-Property-Form" data-name="Property Form" method="get" class="form-wrapper" data-wf-page-id="688e50676f1dbd8cba0e091a" data-wf-element-id="dd1a0305-3680-85b7-63ca-94b40bc32176"><div class="grid-1-column-2 gap-row-12"><div class="input-wrapper-5"><div class="input-line-icon-wrapper-4"><div class="filled-icons-font"></div></div><input class="input-2 icon-left w-input" maxlength="256" name="Name" data-name="Name" placeholder="Full name" type="text" id="name" required=""/></div><div class="input-wrapper-5"><div class="input-line-icon-wrapper-4"><div class="filled-icons-font"></div></div><input class="input-2 icon-left w-input" maxlength="256" name="Email" data-name="Email" placeholder="Email address" type="email" id="email" required=""/></div><div class="input-wrapper-5"><div class="input-line-icon-wrapper-4"><div class="filled-icons-font"></div></div><input class="input-2 icon-left w-input" maxlength="256" name="Phone" data-name="Phone" placeholder="Phone number" type="tel" id="phone" required=""/></div><div class="input-wrapper-5"><input class="input-2 icon-left w-input" maxlength="256" name="Subject" data-name="Subject" placeholder="City" type="text" id="subject" required=""/><div class="input-line-icon-wrapper"><img loading="eager" src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6841ddf8ace3d9d9facb194d_star-icon-property-x-webflow-template.svg" alt="Star Icon - Property X Webflow Template"/></div></div><div id="w-node-dd1a0305-3680-85b7-63ca-94b40bc32187-ba0e091a" class="primary-button-6 space-between-v1"><input type="submit" data-wait="Please wait..." class="inside-input-button-4 text-light w-button" value="Get Your Free Estimate"/></div></div></form><div class="success-message-wrapper w-form-done"><div class="item-icon-left"><div class="icon-font-rounded-5 success-message-icon"></div></div><div class="mg-top-extra-small-2"><div class="text-titles-3"><div class="display-40">Thank you! We’ll get back to you soon<br/></div></div></div></div><div class="error-message-wrapper-4 w-form-fail"><div>Oops! Something went wrong.</div></div></div></div></div></nav></div></section></div></div><div id="w-node-_6804bfc1-2fcb-3b18-3dd1-06afc16e9fed-ba0e091a" class="inner-container _690px _100-tablet left-sidebar"><div class="windows-types-header"><div class="logo-wrap padding0"><img src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6915bd3fcaf3c1f1ff04d9dd_italwindows.svg" loading="lazy" alt="" class="image-27 brand-mob"/></div><h1 class="display-8 mid types">Italwindows Wood Windows</h1><div class="mg-top-default"><div class="property-details"></div></div><div class="mg-top-default"><div class="property-details"></div></div></div><div class="rich-text-v2 mg-bottom--16px mg-top-small-2 w-richtext"><h1>Why Choose Italwindows Wood Windows</h1><p>Italwindows wood windows combine natural warmth with precision craftsmanship to create windows that are both timeless and high-performing. Each unit reflects the Italian tradition of elegant design, made to enhance the beauty and comfort of your home.</p><p>Crafted from carefully selected, sustainably sourced wood species, Italwindows wood frames offer rich textures, natural insulation, and the ability to be finished in custom stains or paints to match any interior style.</p><p>‍</p><h2>WOOD</h2><figure class="w-richtext-align-floatleft w-richtext-figure-type-image"><div><img alt="" src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/697f6b06889c1ea502e2c11f_italwindows-windows-wood.avif" loading="lazy"/></div></figure><p>‍</p><p>For <em>wood</em> windows and doors we work with different Italian suppliers using different kind of wood and finishing. Our windows are adaptable to any architectural solution because of the wide range of materials and configurations available to choose from.</p><p>The high quality dried laminated wood used to create the window, guarantees excellent noise and thermal insulation. Insulating glass comes standard to maximize comfort in any room during any season.</p><p>‍</p><p>‍</p><p>‍</p><h2>WOOD ALUMINIUM</h2><figure class="w-richtext-align-floatleft w-richtext-figure-type-image"><div><img alt="" src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/697f6b89dac4a20816864832_italwindows-windows-wood-aluminium.avif" loading="lazy"/></div></figure><p>‍</p><p>Engineered with modern performance in mind, these windows feature advanced sealing systems, multi-layered glazing, and optional aluminum cladding for added protection—ensuring long-lasting beauty with minimal maintenance.</p><p>Perfect for both classic and contemporary spaces, Italwindows wood windows bring softness, character, and a sense of authenticity to any architectural project.</p><p>Made to order, with unmatched attention to detail, these windows are more than functional—they are a design statement built to last.</p><p>‍</p><p>‍</p><p>‍</p><h2>WOOD BRONZE</h2><figure class="w-richtext-align-floatleft w-richtext-figure-type-image"><div><img alt="" src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/697f6bb43f55ea91891557b0_italwindows-windows-wood-bronze-1.avif" loading="lazy"/></div></figure><p>‍</p><p>For wood aluminum and bronze we use from many years German know-how joints with Italian design and international experience matured in Italy, Spain, Greece, Middle East, USA and AUS. The hybrid project came about which combines the traditional beauty and the warmth of the usage of wood, with the application of an external cladding which provide great resistance. We mean this top quality product could be nice for hospitals, hotels, schools and offices but even for high level residential projects</p></div><div><div data-hover="false" data-delay="0" class="dropdown-tab tabs-mob is-last is-types w-dropdown"><div data-dd="toggle" class="toggle-tab tabs-mob is-types w-dropdown-toggle"><div class="toggle-text-tab">Inspiration Photos</div></div><nav data-dd="list" class="dropdown-list-3 w-dropdown-list"><div class="section_wrapper is-types"><h2 class="h2-collection">Inspiration Photos</h2><div class="collection-list-wrapper-18 w-dyn-list"><script type="text/x-wf-template" id="wf-template-972ed8b8-4a67-7bae-65a3-04c8f5d4dc0c">%3Cdiv%20role%3D%22listitem%22%20class%3D%22load-more-item%20w-dyn-item%20w-dyn-repeater-item%22%3E%3Ca%20href%3D%22%23%22%20class%3D%22inspiration_grid-item%20is-4%20w-inline-block%20w-lightbox%22%3E%3Cimg%20src%3D%22https%3A%2F%2Fcdn.prod.website-files.com%2F6841ddf8ace3d9d9facb1586%2F697f7581eca506a252c38938_italwindows-custom-windows-wood-3-1030x1030.avif%22%20loading%3D%22lazy%22%20data-w-id%3D%223a4db144-ce33-a407-ca89-94df5b3c45ee%22%20alt%3D%22%22%20sizes%3D%22100vw%22%20srcset%3D%22https%3A%2F%2Fcdn.prod.website-files.com%2F6841ddf8ace3d9d9facb1586%2F697f7581eca506a252c38938_italwindows-custom-windows-wood-3-1030x1030-p-500.avif%20500w%2C%20https%3A%2F%2Fcdn.prod.website-files.com%2F6841ddf8ace3d9d9facb1586%2F697f7581eca506a252c38938_italwindows-custom-windows-wood-3-1030x1030.avif%201030w%22%20class%3D%22image%20is-types%20image-32%22%2F%3E%3Cscript%20type%3D%22application%2Fjson%22%20class%3D%22w-json%22%3E%7B%0A%20%20%22items%22%3A%20%5B%0A%20%20%20%20%7B%0A%20%20%20%20%20%20%22url%22%3A%20%22https%3A%2F%2Fcdn.prod.website-files.com%2F6841ddf8ace3d9d9facb1586%2F697f7581eca506a252c38938_italwindows-custom-windows-wood-3-1030x1030.avif%22%2C%0A%20%20%20%20%20%20%22type%22%3A%20%22image%22%0A%20%20%20%20%7D%0A%20%20%5D%2C%0A%20%20%22group%22%3A%20%22%22%0A%7D%3C%2Fscript%3E%3C%2Fa%3E%3C%2Fdiv%3E</script><div role="list" class="inspiration_grid-wrapper load-more-list w-dyn-items"><div role="listitem" class="load-more-item w-dyn-item w-dyn-repeater-item"><a href="#" class="inspiration_grid-item is-4 w-inline-block w-lightbox"><img src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/697f7581eca506a252c38938_italwindows-custom-windows-wood-3-1030x1030.avif" loading="lazy" data-w-id="3a4db144-ce33-a407-ca89-94df5b3c45ee" alt="" sizes="100vw" srcset="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/697f7581eca506a252c38938_italwindows-custom-windows-wood-3-1030x1030-p-500.avif 500w, https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/697f7581eca506a252c38938_italwindows-custom-windows-wood-3-1030x1030.avif 1030w" class="image is-types image-32"/><script type="application/json" class="w-json">{
+  "items": [
+    {
+      "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/697f7581eca506a252c38938_italwindows-custom-windows-wood-3-1030x1030.avif",
+      "type": "image"
+    }
+  ],
+  "group": ""
+}</script></a></div><div role="listitem" class="load-more-item w-dyn-item w-dyn-repeater-item"><a href="#" class="inspiration_grid-item is-4 w-inline-block w-lightbox"><img src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/697f758168fe0f1c181fb451_italwindows-custom-windows-wood-2-1030x1030.avif" loading="lazy" data-w-id="3a4db144-ce33-a407-ca89-94df5b3c45ee" alt="" sizes="100vw" srcset="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/697f758168fe0f1c181fb451_italwindows-custom-windows-wood-2-1030x1030-p-500.avif 500w, https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/697f758168fe0f1c181fb451_italwindows-custom-windows-wood-2-1030x1030.avif 1030w" class="image is-types image-32"/><script type="application/json" class="w-json">{
+  "items": [
+    {
+      "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/697f758168fe0f1c181fb451_italwindows-custom-windows-wood-2-1030x1030.avif",
+      "type": "image"
+    }
+  ],
+  "group": ""
+}</script></a></div><div role="listitem" class="load-more-item w-dyn-item w-dyn-repeater-item"><a href="#" class="inspiration_grid-item is-4 w-inline-block w-lightbox"><img src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/697f7581a64f1abb3a0a570b_italwindows-custom-windows-wood-1-1030x1030.avif" loading="lazy" data-w-id="3a4db144-ce33-a407-ca89-94df5b3c45ee" alt="" sizes="100vw" srcset="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/697f7581a64f1abb3a0a570b_italwindows-custom-windows-wood-1-1030x1030-p-500.avif 500w, https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/697f7581a64f1abb3a0a570b_italwindows-custom-windows-wood-1-1030x1030.avif 1030w" class="image is-types image-32"/><script type="application/json" class="w-json">{
+  "items": [
+    {
+      "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/697f7581a64f1abb3a0a570b_italwindows-custom-windows-wood-1-1030x1030.avif",
+      "type": "image"
+    }
+  ],
+  "group": ""
+}</script></a></div></div><div class="w-dyn-hide w-dyn-empty"><div>No items found.</div></div></div><div class="loadmore-wrapper"><a href="#" class="primary-button-6 small loadmore load-more-btn w-inline-block"><div class="text-block">Show more</div></a></div></div></nav></div></div></div><div id="w-node-_5be68f6b-db0f-24fd-5214-5469291223f3-ba0e091a" class="inner-container _690px _100-tablet left-sidebar w-condition-invisible"><div><div class="logo-wrap padding0"><img src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6915bd3fcaf3c1f1ff04d9dd_italwindows.svg" loading="lazy" alt="" class="image-27 brand-mob"/></div><h1 class="display-8 mid types">Italwindows Wood Windows</h1><div class="mg-top-default"><div class="property-details"></div></div><img src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f5e7c66340d6e2c1eaf47_Casey-Dunn-Ascaya-POTW-APALMANAC_0009.avif" loading="eager" alt="" class="image-29"/><div class="mg-top-default"><div class="property-details"></div></div></div><div class="rich-text-v2 mg-bottom--16px mg-top-small-2 w-richtext"><h1>Why Choose Italwindows Wood Windows</h1><p>Italwindows wood windows combine natural warmth with precision craftsmanship to create windows that are both timeless and high-performing. Each unit reflects the Italian tradition of elegant design, made to enhance the beauty and comfort of your home.</p><p>Crafted from carefully selected, sustainably sourced wood species, Italwindows wood frames offer rich textures, natural insulation, and the ability to be finished in custom stains or paints to match any interior style.</p><p>‍</p><h2>WOOD</h2><figure class="w-richtext-align-floatleft w-richtext-figure-type-image"><div><img alt="" src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/697f6b06889c1ea502e2c11f_italwindows-windows-wood.avif" loading="lazy"/></div></figure><p>‍</p><p>For <em>wood</em> windows and doors we work with different Italian suppliers using different kind of wood and finishing. Our windows are adaptable to any architectural solution because of the wide range of materials and configurations available to choose from.</p><p>The high quality dried laminated wood used to create the window, guarantees excellent noise and thermal insulation. Insulating glass comes standard to maximize comfort in any room during any season.</p><p>‍</p><p>‍</p><p>‍</p><h2>WOOD ALUMINIUM</h2><figure class="w-richtext-align-floatleft w-richtext-figure-type-image"><div><img alt="" src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/697f6b89dac4a20816864832_italwindows-windows-wood-aluminium.avif" loading="lazy"/></div></figure><p>‍</p><p>Engineered with modern performance in mind, these windows feature advanced sealing systems, multi-layered glazing, and optional aluminum cladding for added protection—ensuring long-lasting beauty with minimal maintenance.</p><p>Perfect for both classic and contemporary spaces, Italwindows wood windows bring softness, character, and a sense of authenticity to any architectural project.</p><p>Made to order, with unmatched attention to detail, these windows are more than functional—they are a design statement built to last.</p><p>‍</p><p>‍</p><p>‍</p><h2>WOOD BRONZE</h2><figure class="w-richtext-align-floatleft w-richtext-figure-type-image"><div><img alt="" src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/697f6bb43f55ea91891557b0_italwindows-windows-wood-bronze-1.avif" loading="lazy"/></div></figure><p>‍</p><p>For wood aluminum and bronze we use from many years German know-how joints with Italian design and international experience matured in Italy, Spain, Greece, Middle East, USA and AUS. The hybrid project came about which combines the traditional beauty and the warmth of the usage of wood, with the application of an external cladding which provide great resistance. We mean this top quality product could be nice for hospitals, hotels, schools and offices but even for high level residential projects</p></div></div></div></div><div class="image-wrapper border-radius-image-default"></div></div></section><div class="w-layout-blockcontainer container-default w-condition-invisible w-container"><div class="title-left---content-right"><h2 class="heading-20">Explore Italwindows Collections</h2></div><div class="title-left---content-right w-condition-invisible"><h2 class="heading-20">Explore Italwindows Collections</h2></div><div class="mg-top-large"><div data-w-id="a33ca2cd-5703-170f-9058-016bab574b55" style="-webkit-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="w-dyn-list"><div class="empty-state-message w-dyn-empty"><div>No items found.</div></div></div></div><div class="mg-top-large w-condition-invisible"><div data-w-id="1a5bf4ee-56d1-54ed-c413-22ff9f6c0fc9" style="-webkit-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="w-dyn-list"><div class="empty-state-message w-dyn-empty"><div>No items found.</div></div></div></div></div><div class="w-layout-blockcontainer container-default w-condition-invisible w-container"><div class="title-left---content-right"><h2 class="heading-20">Explore Italwindows Collections</h2></div><div class="title-left---content-right w-condition-invisible"><h2 class="heading-20">Explore Italwindows Collections</h2></div><div class="mg-top-large"><div class="w-dyn-list"><div class="w-dyn-empty"><div>No items found.</div></div></div></div></div><section class="section top-none"><div class="w-layout-blockcontainer container-default w-container"><div class="w-layout-grid grid-2-columns values-wrapper-grid"><div class="sticky-top static---tablet"><div class="inner-container _500px _100-tablet"><div class="inner-container _600px---tablet"><div class="mg-top-default"><h2 class="heading-8">4 Easy Steps</h2></div><div class="mg-top-small"><p>Our step-by-step process is designed to make replacing your windows and doors easy, stress-free, and fully tailored to your needs — from the first estimate to the final inspection.</p></div><div class="mg-top-default"><div class="buttons-row left"></div></div></div></div><div class="inner-container _500px _100-tablet w-condition-invisible"><div class="inner-container _600px---tablet"><div class="mg-top-default"><h2 class="heading-8">4 Easy Steps</h2></div><div class="mg-top-small"><p>Our step-by-step process is designed to make replacing your windows and doors easy, stress-free, and fully tailored to your needs — from the first estimate to the final inspection.</p></div><div class="mg-top-default"><div class="buttons-row left"></div></div></div></div></div><div id="w-node-_40f02674-d345-7fd3-fc7e-23c4d6d6b412-ba0e091a" class="inner-container _592px _100-tablet"><div class="w-layout-grid grid-2-columns values-grid"><div class="value-wrapper"><div class="image-wrapper"><img src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/684d86f32d344f16ce6ec364_flag_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" loading="eager" alt="For-architects-deluxe-windows" class="image"/></div><div class="mg-top-small"><h3 class="display-5 mid">Start</h3></div><div class="mg-top-extra-small"><p class="paragraph-5">Looking to replace your windows and doors? Reach out to Deluxe Windows for a complimentary estimate.</p></div></div><div class="value-wrapper"><div class="image-wrapper"><img src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/684d86ff1fff20336f975d74_shopping_bag_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" loading="eager" alt="For-contractors-deluxe-windows" class="image"/></div><div class="mg-top-small"><h3 class="display-5 mid">Manufacture</h3></div><div class="mg-top-extra-small"><p class="paragraph-6">If you are satisfied with the provided estimate and approve it, we will order windows and doors according to your specifications and needs.</p></div></div><div class="value-wrapper"><div class="image-wrapper"><img src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/684d870c533c4f729eb8094c_settings_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" loading="eager" alt="For-property-managers-owners-deluxe-windows" class="image"/></div><div class="mg-top-small"><h3 class="display-5 mid">Remove and install</h3></div><div class="mg-top-extra-small"><p class="paragraph-7">Once the products are ready, we will arrange a convenient time for installation and ensure your new windows and doors are expertly fitted.</p></div></div><div class="value-wrapper"><div class="image-wrapper"><img src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/684d8718e99d2a34dfef7e4d_home_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" loading="eager" alt="For-property-managers-owners-deluxe-windows" class="image"/></div><div class="mg-top-small"><h3 class="display-5 mid">Final product</h3></div><div class="mg-top-extra-small"><p class="paragraph-7">Upon completion, each window and door will be thoroughly inspected to ensure they operate correctly and meet the highest standards of fit and finish.</p></div></div><div class="divider show-in-mbp"></div></div><div class="w-layout-grid grid-2-columns values-grid w-condition-invisible"><div class="value-wrapper"><div class="image-wrapper"><img src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/684d86f32d344f16ce6ec364_flag_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" loading="eager" alt="For-architects-deluxe-windows" class="image"/></div><div class="mg-top-small"><h3 class="display-5 mid">Start</h3></div><div class="mg-top-extra-small"><p class="paragraph-5">Looking to replace your windows and doors? Reach out to Deluxe Windows for a complimentary estimate.</p></div></div><div class="value-wrapper"><div class="image-wrapper"><img src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/684d86ff1fff20336f975d74_shopping_bag_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" loading="eager" alt="For-contractors-deluxe-windows" class="image"/></div><div class="mg-top-small"><h3 class="display-5 mid">Manufacture</h3></div><div class="mg-top-extra-small"><p class="paragraph-6">If you are satisfied with the provided estimate and approve it, we will order windows and doors according to your specifications and needs.</p></div></div><div class="value-wrapper"><div class="image-wrapper"><img src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/684d870c533c4f729eb8094c_settings_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" loading="eager" alt="For-property-managers-owners-deluxe-windows" class="image"/></div><div class="mg-top-small"><h3 class="display-5 mid">Remove and install</h3></div><div class="mg-top-extra-small"><p class="paragraph-7">Once the products are ready, we will arrange a convenient time for installation and ensure your new windows and doors are expertly fitted.</p></div></div><div class="value-wrapper"><div class="image-wrapper"><img src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/684d8718e99d2a34dfef7e4d_home_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" loading="eager" alt="For-property-managers-owners-deluxe-windows" class="image"/></div><div class="mg-top-small"><h3 class="display-5 mid">Final product</h3></div><div class="mg-top-extra-small"><p class="paragraph-7">Upon completion, each window and door will be thoroughly inspected to ensure they operate correctly and meet the highest standards of fit and finish.</p></div></div><div class="divider show-in-mbp"></div></div></div></div></div></section><div><div data-w-id="497ed413-5854-1a24-5fcb-aba838af4a8b" style="opacity:0" class="section-card cta-v3"><div class="w-layout-blockcontainer container-default w-container"><div class="w-layout-grid grid-2-columns cta-v3-grid"><div id="w-node-_497ed413-5854-1a24-5fcb-aba838af4a8e-ba0e091a" data-w-id="497ed413-5854-1a24-5fcb-aba838af4a8e" style="-webkit-transform:translate3d(0, 6%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 6%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 6%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 6%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="z-index-1"><div class="inner-container _500px---mbl"><div class="inner-container _480px"><div class="inner-container _450px"><div class="inner-container _300px---mbp"><div class="mg-top-small"><h2 class="heading-41">Your dream home starts here.</h2></div></div></div><div class="mg-top-small"><div class="text-neutral-light"><p class="paragraph-20">Tell us about your project — we’ll take care of the rest.</p></div></div><div class="mg-top-default"><div class="buttons-row left"><a id="w-node-_6024598d-eaa2-3e85-ac05-fde8b7e66609-b7e66609" href="#" class="primary-button w-inline-block"><div class="text-block">Free Consultation</div></a></div></div></div></div></div><div data-w-id="497ed413-5854-1a24-5fcb-aba838af4a9e" style="opacity:0" class="image-wrapper cta-v3-image"><img src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/687ca4b70b8583ef4890bad4_iPad.avif" loading="eager" alt="Deluxe-windows" class="image"/></div></div></div></div></div><div class="w-condition-invisible"><div class="section-card cta-v3"><div class="w-layout-blockcontainer container-default w-container"><div class="w-layout-grid grid-2-columns cta-v3-grid"><div id="w-node-_9da5ed88-bffd-ee44-b23b-a0acabf70591-ba0e091a" class="z-index-1"><div class="inner-container _500px---mbl"><div class="inner-container _480px"><div class="inner-container _450px"><div class="inner-container _300px---mbp"><div class="mg-top-small"><h2 class="heading-41">Your dream home starts here.</h2></div></div></div><div class="mg-top-small"><div class="text-neutral-light"><p class="paragraph-20">Tell us about your project — we’ll take care of the rest.</p></div></div><div class="mg-top-default"><div class="buttons-row left"><a id="w-node-_6024598d-eaa2-3e85-ac05-fde8b7e66609-b7e66609" href="#" class="primary-button w-inline-block"><div class="text-block">Free Consultation</div></a></div></div></div></div></div><div class="image-wrapper cta-v3-image"><img src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/687ca4b70b8583ef4890bad4_iPad.avif" loading="eager" alt="Deluxe-windows" class="image"/></div></div></div></div></div><section id="contact" class="section hero-v4"><div class="w-layout-blockcontainer container-default w-container"><div class="w-layout-grid grid-2-columns contact-grid-v2"><div id="w-node-_324983b2-578c-4b96-a818-252e8c7a83d6-ba0e091a" class="inner-container _440px _100-tablet"><div class="inner-container _550px---tablet"><h1>Contact us</h1><div class="mg-top-small"><p class="paragraph-8">We’re here to help with all your door and window needs.</p></div></div><div class="mg-top-default"><div class="w-layout-grid grid-2-columns contact-links-grid-v1"><div class="contact-link---icon-left"><img src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6841ddf8ace3d9d9facb1950_phone-icon-property-x-webflow-template.svg" loading="eager" alt="Phone Icon - Property X Webflow Template" class="contact-icon"/><div><div class="div-block"><div class="text-block-3">Phone number</div></div><div class="mg-top-tiny"><a href="tel:(414)325-427" class="link mid w-inline-block"><div>(650) 461-4446</div></a></div></div></div></div></div></div><div id="w-node-_5ada3f4b-651b-5b30-77a0-edca38fae1c1-ba0e091a" class="inner-container _440px _100-tablet w-condition-invisible"><div class="inner-container _550px---tablet"><h1>Contact us</h1><div class="mg-top-small"><p class="paragraph-8">We’re here to help with all your door and window needs.</p></div></div><div class="mg-top-default"><div class="w-layout-grid grid-2-columns contact-links-grid-v1"><div class="contact-link---icon-left"><img src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6841ddf8ace3d9d9facb1950_phone-icon-property-x-webflow-template.svg" loading="eager" alt="Phone Icon - Property X Webflow Template" class="contact-icon"/><div><div class="div-block"><div class="text-block-3">Phone number</div></div><div class="mg-top-tiny"><a href="tel:(414)325-427" class="link mid w-inline-block"><div>(650) 461-4446</div></a></div></div></div></div></div></div><div id="w-node-_324983b2-578c-4b96-a818-252e8c7a83e9-ba0e091a" class="inner-container _659px width-100 _100-tablet"><div class="form-block-2 w-form"><form id="email-form-2" name="email-form-2" data-name="Email Form 2" method="get" class="form-3" data-wf-page-id="688e50676f1dbd8cba0e091a" data-wf-element-id="324983b2-578c-4b96-a818-252e8c7a83eb"><div class="div-block-22"><h2 class="display-4">Get Deluxe Windows for Less. 40% OFF* Windows</h2><label for="email-banner" class="body-14"><em class="italic-text">*Full Home Siding. Offer Expires 7/30/25</em></label><label for="email-banner" class="body-14">Request a FREE No-Obligation Quote &amp; Expert Advice!</label></div><div class="div-block-23"><div><label for="Name-2">Full name*</label><div class="input-wrapper"><input class="input icon-left w-input" maxlength="256" name="Name" data-name="Name" placeholder="Full name" type="text" id="name" required=""/><div class="input-line-icon-wrapper"><div class="filled-icons-font"></div></div></div></div><div id="w-node-_324983b2-578c-4b96-a818-252e8c7a83fd-ba0e091a" class="div-block-46"><label for="Email-2">Email address*</label><div class="input-wrapper"><input class="input icon-left w-input" maxlength="256" name="Email" data-name="Email" placeholder="example@email.com" type="email" id="email" required=""/><div class="input-line-icon-wrapper"><div class="filled-icons-font"></div></div></div></div><div id="w-node-_324983b2-578c-4b96-a818-252e8c7a8405-ba0e091a"><label for="Phone-2">Phone number*</label><div class="input-wrapper"><input class="input icon-left w-input" maxlength="256" name="Phone" data-name="Phone" placeholder="(650) 461-4446" type="tel" id="phone" required=""/><div class="input-line-icon-wrapper"><div class="filled-icons-font"></div></div></div></div><div id="w-node-_324983b2-578c-4b96-a818-252e8c7a840d-ba0e091a"><label for="Company">City</label><div class="input-wrapper"><input class="input icon-left w-input" maxlength="256" name="Subject" data-name="Subject" placeholder="San Francisco" type="text" id="subject" required=""/><div class="input-line-icon-wrapper"><img loading="eager" src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6841ddf8ace3d9d9facb194d_star-icon-property-x-webflow-template.svg" alt="Star Icon - Property X Webflow Template"/></div></div></div><div id="w-node-_324983b2-578c-4b96-a818-252e8c7a8414-ba0e091a" class="text-area-wrapper"><label for="Message-2">Listing short description</label><div class="input-wrapper"><textarea id="message" name="Message" maxlength="5000" data-name="Message" placeholder="Write your message here..." required="" class="text-area icon-left w-input"></textarea><div class="text-area-icon-wrapper"><img loading="eager" src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6841ddf8ace3d9d9facb192f_lisiting-icon-property-x-webflow-template.svg" alt="Listing Icon - Property X Webflow Template"/></div></div></div></div><div class="primary-button space-between-v1"><input type="submit" data-wait="Please wait..." class="inside-input-button text-light w-button" value="Get your free  in-home estimate"/></div></form><div class="w-form-done"><div>Thank you! Your submission has been received!</div></div><div class="w-form-fail"><div>Oops! Something went wrong while submitting the form.</div></div></div></div><div id="w-node-_52a5925d-047d-daed-8ae2-1a67907d8adf-ba0e091a" class="inner-container _659px width-100 _100-tablet w-condition-invisible"><div class="form-block-2 w-form"><form id="email-form-2" name="email-form-2" data-name="Email Form 2" method="get" class="form-3" data-wf-page-id="688e50676f1dbd8cba0e091a" data-wf-element-id="52a5925d-047d-daed-8ae2-1a67907d8ae1"><div class="div-block-22"><h2 class="display-4">Get Deluxe Windows for Less. 40% OFF* Windows</h2><label for="email-banner" class="body-14"><em class="italic-text">*Full Home Siding. Offer Expires 7/30/25</em></label><label for="email-banner" class="body-14">Request a FREE No-Obligation Quote &amp; Expert Advice!</label></div><div class="div-block-23"><div><label for="Name-2">Full name*</label><div class="input-wrapper"><input class="input icon-left w-input" maxlength="256" name="Name" data-name="Name" placeholder="Full name" type="text" id="name" required=""/><div class="input-line-icon-wrapper"><div class="filled-icons-font"></div></div></div></div><div id="w-node-_52a5925d-047d-daed-8ae2-1a67907d8af3-ba0e091a" class="div-block-46"><label for="Email-2">Email address*</label><div class="input-wrapper"><input class="input icon-left w-input" maxlength="256" name="Email" data-name="Email" placeholder="example@email.com" type="email" id="email" required=""/><div class="input-line-icon-wrapper"><div class="filled-icons-font"></div></div></div></div><div id="w-node-_52a5925d-047d-daed-8ae2-1a67907d8afb-ba0e091a"><label for="Phone-2">Phone number*</label><div class="input-wrapper"><input class="input icon-left w-input" maxlength="256" name="Phone" data-name="Phone" placeholder="(650) 461-4446" type="tel" id="phone" required=""/><div class="input-line-icon-wrapper"><div class="filled-icons-font"></div></div></div></div><div id="w-node-_52a5925d-047d-daed-8ae2-1a67907d8b03-ba0e091a"><label for="Company">City</label><div class="input-wrapper"><input class="input icon-left w-input" maxlength="256" name="Subject" data-name="Subject" placeholder="San Francisco" type="text" id="subject" required=""/><div class="input-line-icon-wrapper"><img loading="eager" src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6841ddf8ace3d9d9facb194d_star-icon-property-x-webflow-template.svg" alt="Star Icon - Property X Webflow Template"/></div></div></div><div id="w-node-_52a5925d-047d-daed-8ae2-1a67907d8b0a-ba0e091a" class="text-area-wrapper"><label for="Message-2">Listing short description</label><div class="input-wrapper"><textarea id="message" name="Message" maxlength="5000" data-name="Message" placeholder="Write your message here..." required="" class="text-area icon-left w-input"></textarea><div class="text-area-icon-wrapper"><img loading="eager" src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6841ddf8ace3d9d9facb192f_lisiting-icon-property-x-webflow-template.svg" alt="Listing Icon - Property X Webflow Template"/></div></div></div></div><div class="primary-button space-between-v1"><input type="submit" data-wait="Please wait..." class="inside-input-button text-light w-button" value="Get your free  in-home estimate"/></div></form><div class="w-form-done"><div>Thank you! Your submission has been received!</div></div><div class="w-form-fail"><div>Oops! Something went wrong while submitting the form.</div></div></div></div></div></div></section><footer data-w-id="080cd6ed-2ec3-ab0f-3fec-cc4bec09a603" class="footer-wrapper"><div class="footer-top-cards-wrapper---pd"></div><div class="footer-card"><div class="w-layout-blockcontainer container-default w-container"><div class="footer-v1-content-wrapper"><div data-w-id="080cd6ed-2ec3-ab0f-3fec-cc4bec09a622" class="inner-container _420px _100-tablet"><div class="inner-container _400px---tablet _100-mbp"><div class="text-light"><div class="display-7 mid">Need Help? <br/>Call Us Now </div></div><div class="mg-top-small"><div class="text-neutral-light"><p class="paragraph-15">(650) 461-4446</p></div></div></div><div class="mg-top-small mg-top-16px---mbl"><div class="social-media-grid"><a href="https://www.facebook.com/" target="_blank" class="social-media-icon-wrapper-dark light w-inline-block"><div class="icon-font-social-media"></div></a><a href="https://www.instagram.com/" target="_blank" class="social-media-icon-wrapper-dark light w-inline-block"><div class="icon-font-social-media"></div></a></div></div></div><div id="w-node-_080cd6ed-2ec3-ab0f-3fec-cc4bec09a642-ec09a603" data-w-id="080cd6ed-2ec3-ab0f-3fec-cc4bec09a642" class="footer-v1---right-content"><div><div class="w-layout-grid footer-main-pages"><ul role="list" class="footer-column-links"><li class="footer-column-item"><a href="/about" class="footer-item-link w-inline-block"><div>About Us</div></a></li><li class="footer-column-item"><a href="/windows" class="footer-item-link w-inline-block"><div>Windows</div></a></li><li class="footer-column-item"><a href="#" class="footer-item-link w-inline-block"><div>Doors</div></a></li><li class="footer-column-item"><a href="/brand" class="footer-item-link w-inline-block"><div>Brands</div></a></li></ul><ul role="list" class="footer-column-links"><li class="footer-column-item"><a href="/glossary" class="footer-item-link w-inline-block"><div>Glossary</div></a></li><li class="footer-column-item"><a href="/contacts" class="footer-item-link w-inline-block"><div>Contacts Us</div></a></li><li class="footer-column-item"><a href="/testimonials" class="footer-item-link w-inline-block"><div>Testimonials</div></a></li><li class="footer-column-item"><a href="/financing" class="footer-item-link w-inline-block"><div>Financing</div></a></li></ul><ul id="w-node-_1ce59c11-5720-7953-47f7-4dd54673de6a-ec09a603" role="list" class="footer-column-links"><li class="footer-column-item"><a href="/faq" class="footer-item-link w-inline-block"><div>FAQs</div></a></li><li class="footer-column-item"><a href="/privacy-policy" class="footer-item-link w-inline-block"><div>Privacy Policy</div></a></li><li class="footer-column-item"><a href="/terms" class="footer-item-link w-inline-block"><div>Terms of Use</div></a></li></ul></div></div><p id="w-node-_49f8c755-3225-d40d-f9ab-cc9f4b368c44-ec09a603" class="paragraph">©2026 Deluxe Windows, Inc. <br/>All rights reserved.<br/></p></div><div id="w-node-_080cd6ed-2ec3-ab0f-3fec-cc4bec09a6ef-ec09a603" class="inner-container _380px _100-tablet"><div class="inner-container _450px---mbl"><div class="center-content---tablet"><div class="logo-wrapper v1"><a href="/" class="logo-link w-inline-block"><img src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/686ad2b4b668ce59a9c25b0e_White.avif" alt="" sizes="(max-width: 719px) 100vw, 719px" srcset="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/686ad2b4b668ce59a9c25b0e_White-p-500.png 500w, https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/686ad2b4b668ce59a9c25b0e_White.avif 719w"/></a></div></div></div></div></div></div></div></footer><script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=6841ddf8ace3d9d9facb14fd" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script><script src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/js/webflow.schunk.172ec51a511480e2.js" type="text/javascript" integrity="sha384-qU8s0hexa7230yNvRC7SOXbAhsCCiiSAtnmgEod8Ssr0OB50VGzzWLiPDvmaspsW" crossorigin="anonymous"></script><script src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/js/webflow.schunk.b35ad38f1af2d1dd.js" type="text/javascript" integrity="sha384-kPxhylkVGPto1495l5ywl0+XeOoRmw9z2/veWrv7DrZxLddZq3b5CSHy2Pbwu6QE" crossorigin="anonymous"></script><script src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/js/webflow.441d5ad8.7ea2af9826bee7b0.js" type="text/javascript" integrity="sha384-cIshdXX8mcFNHtZYP/mogI24UCl6vlLLChSfnw+da0EghDhKtpH3MblKGiZ8bISI" crossorigin="anonymous"></script><script>
+(function () {
+
+  /* ================================
+     1. UTM CAPTURE (СРАЗУ)
+  ================================= */
+  const TRACK_PARAMS = [
+    "utm_source","utm_medium","utm_campaign",
+    "utm_term","utm_content","matchtype",
+    "device","creative","gclid"
+  ];
+
+  const params = new URLSearchParams(window.location.search);
+  const hasUtm = TRACK_PARAMS.some(p => params.get(p));
+
+  if (hasUtm) {
+    // Есть UTM в URL — перезаписываем чисто
+    TRACK_PARAMS.forEach(param => {
+      const value = params.get(param);
+      if (value) {
+        localStorage.setItem(`lead_param_${param}`, value);
+      } else {
+        localStorage.removeItem(`lead_param_${param}`);
+      }
+    });
+
+  } else {
+    // Нет UTM в URL — проверяем localStorage
+    const hasSavedUtm = TRACK_PARAMS.some(p => localStorage.getItem(`lead_param_${p}`));
+
+    if (!hasSavedUtm) {
+      // Нет нигде — пишем SEO / organic / direct
+      const ref = document.referrer || "";
+      let searchEngine   = "";
+      let organicKeyword = "";
+      let refDomain      = "";
+
+      try {
+        if (ref) {
+          const refUrl = new URL(ref);
+          refDomain    = refUrl.hostname.replace(/^www\./, "");
+
+          const SEO_ENGINES = {
+            "google.com":     "google",
+            "bing.com":       "bing",
+            "yahoo.com":      "yahoo",
+            "duckduckgo.com": "duckduckgo",
+            "yandex.ru":      "yandex",
+            "yandex.com":     "yandex",
+            "baidu.com":      "baidu"
+          };
+
+          for (const [domain, name] of Object.entries(SEO_ENGINES)) {
+            if (refDomain.includes(domain)) {
+              searchEngine   = name;
+              organicKeyword = refUrl.searchParams.get("q")
+                || refUrl.searchParams.get("p")
+                || refUrl.searchParams.get("query")
+                || "(not provided)";
+              break;
+            }
+          }
+        }
+      } catch(e) {}
+
+      if (searchEngine) {
+        localStorage.setItem("lead_param_utm_source", searchEngine);
+        localStorage.setItem("lead_param_utm_medium", "organic");
+        if (organicKeyword) localStorage.setItem("lead_param_utm_term", organicKeyword);
+      } else if (refDomain && !refDomain.includes(window.location.hostname)) {
+        localStorage.setItem("lead_param_utm_source", refDomain);
+        localStorage.setItem("lead_param_utm_medium", "referral");
+      } else {
+        localStorage.setItem("lead_param_utm_source", "(direct)");
+        localStorage.setItem("lead_param_utm_medium", "(none)");
+      }
+    }
+    // Если hasSavedUtm — ничего не трогаем (first-touch)
+  }
+
+  if (!localStorage.getItem("lead_param_landing_page")) {
+    localStorage.setItem("lead_param_landing_page", window.location.pathname);
+  }
+
+
+  /* ================================
+     2. HIDDEN FIELDS (DOM READY)
+  ================================= */
+  function injectHiddenFields(form) {
+    [...TRACK_PARAMS, "landing_page"].forEach(param => {
+      if (!form.querySelector(`input[name="${param}"]`)) {
+        const input = document.createElement("input");
+        input.type = "hidden";
+        input.name = param;
+        input.value = localStorage.getItem(`lead_param_${param}`) || "";
+        form.appendChild(input);
+      }
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll("form").forEach(injectHiddenFields);
+  });
+
+
+  /* ================================
+     3. LAZY SYSTEM INIT
+  ================================= */
+  let lazyLoaded = false;
+
+  function initLazy() {
+    if (lazyLoaded) return;
+    lazyLoaded = true;
+
+    initDate();
+    initForms();
+    loadZoho();
+  }
+
+  window.addEventListener('scroll', initLazy, { once: true });
+  window.addEventListener('click', initLazy, { once: true });
+  setTimeout(initLazy, 4000);
+
+
+  /* ================================
+     4. DATE SCRIPT (LAZY)
+  ================================= */
+  function initDate() {
+    const now = new Date();
+    const lastDayDate = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+
+    const monthNames = [
+      'January','February','March','April','May','June',
+      'July','August','September','October','November','December'
+    ];
+
+    document.querySelectorAll('[data-last-day]').forEach(el => {
+      const format = el.getAttribute('data-last-day');
+
+      let text = '';
+      const m = lastDayDate.getMonth() + 1;
+      const d = lastDayDate.getDate();
+      const y = lastDayDate.getFullYear();
+
+      if (format === 'us-short') {
+        text = `${m}/${d}/${String(y).slice(-2)}`;
+      } else if (format === 'long') {
+        text = `${monthNames[lastDayDate.getMonth()]} ${d}, ${y}`;
+      }
+
+      el.textContent = text;
+    });
+  }
+
+
+  /* ================================
+     5. FORM + IP + GOOGLE SHEETS
+  ================================= */
+  function initForms() {
+
+    let ipData = {};
+    let ipLoaded = false;
+
+    function fetchIP() {
+      return fetch('https://ipapi.co/json/')
+        .then(r => r.json())
+        .then(data => {
+          ipLoaded = true;
+          ipData = data;
+        })
+        .catch(() => ipLoaded = true);
+    }
+
+    function waitIP(timeout = 800) {
+      return Promise.race([
+        fetchIP(),
+        new Promise(res => setTimeout(res, timeout))
+      ]);
+    }
+
+    document.querySelectorAll('form').forEach(form => {
+
+      form.addEventListener('submit', function () {
+
+        waitIP().then(() => {
+
+          const formData = new FormData(form);
+
+          formData.append('ip_address', ipData.ip || '');
+          formData.append('geo_location', ipData.city || '');
+
+          const body = new URLSearchParams(formData);
+
+          fetch('https://script.google.com/macros/s/AKfycbyJGhNROpBI8TUkGn9RtdNtIDxNjxsI52kyHgBtDIUauSEWgzVIqCFPic0-chwjxNxU/exec', {
+            method: 'POST',
+            body,
+            keepalive: true
+          });
+
+          fetch('https://script.google.com/macros/s/AKfycbwp7eg4fm8OZtiHLjAFrbNyPaSyDjZWmfTJyhkiAZ2UsWYmE6l7euH9K0RtdgODH44Rmg/exec', {
+            method: 'POST',
+            body,
+            keepalive: true
+          });
+
+        });
+
+      });
+
+    });
+  }
+
+
+  /* ================================
+     6. ZOHO (LAZY)
+  ================================= */
+  function loadZoho() {
+    const script = document.createElement('script');
+    script.src = "https://salesiq.zohopublic.com/widget?wc=siqfe34762ee44eb77120f2a13c55fed7c0984ca603ae60aafcaf2adda4331dc65a";
+    script.defer = true;
+    document.body.appendChild(script);
+  }
+
+})();
+</script>
+
+<!-- SCROLL STYLE -->
+<style>
+.scroll-block {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #E79800 transparent;
+}
+.scroll-block::-webkit-scrollbar { width: 6px; }
+.scroll-block::-webkit-scrollbar-thumb {
+  background: #E79800;
+  border-radius: 999px;
+}
+</style><script>
+(function () {
+  if (window.innerWidth > 992) return; // Только мобильные
+
+  const toggles = document.querySelectorAll('[data-dd="toggle"]');
+  const lists = [];
+
+  // --- Функция расчета высоты ---
+  function applyScrollBlock(list) {
+    const sb = list.querySelector('.scroll-block');
+    if (!sb) return;
+
+    // 1. Считаем высоту
+    const sbRect = sb.getBoundingClientRect();
+    const pad = 20; 
+    // Если sbRect.top врет (например, анимация еще идет), берем запасной вариант
+    const topPos = sbRect.top > 0 ? sbRect.top : 150; 
+    const availableHeight = window.innerHeight - topPos - pad;
+
+    // 2. Применяем высоту
+    sb.style.maxHeight = Math.max(120, availableHeight) + 'px';
+  }
+
+  toggles.forEach(toggle => {
+    const list = toggle.parentElement.querySelector('[data-dd="list"]');
+    if (!list) return;
+
+    const icon = toggle.querySelector('.tab-icon-line.second');
+    const sidebarIcon = toggle.querySelector('.sidebar-icon');
+
+    // Инициализация
+    if (!lists.includes(list)) {
+      lists.push(list);
+      list.style.overflow = 'hidden';
+      list.style.maxHeight = '0px';
+      list.style.transition = 'max-height 0.35s ease';
+      list.dataset.open = 'false';
+      list.style.display = 'none';
+    }
+
+    toggle.addEventListener('click', () => {
+      const isOpen = list.dataset.open === "true";
+
+      // --- Закрываем другие ---
+      lists.forEach(other => {
+        if (other !== list && other.dataset.open === "true") {
+          const otherToggle = other.parentElement.querySelector('[data-dd="toggle"]');
+          const otherIcon = otherToggle?.querySelector('.tab-icon-line.second');
+          const otherSidebarIcon = otherToggle?.querySelector('.sidebar-icon');
+
+          // Сразу блокируем overflow перед закрытием
+          other.style.overflow = 'hidden';
+          
+          other.style.display = 'block';
+          other.style.maxHeight = other.scrollHeight + "px";
+          requestAnimationFrame(() => {
+            other.style.maxHeight = "0px";
+          });
+          other.dataset.open = "false";
+
+          // Таймер для скрытия display:none после анимации (350мс + запас)
+          setTimeout(() => {
+            if (other.dataset.open === "false") {
+              other.style.display = "none";
+            }
+          }, 360);
+
+          if (otherIcon) otherIcon.style.transform = "rotate(0deg)";
+          if (otherSidebarIcon) otherSidebarIcon.style.transform = "rotate(0deg)";
+        }
+      });
+
+      // --- ТЕКУЩИЙ ---
+      if (isOpen) {
+        // ЗАКРЫТИЕ
+        list.style.overflow = 'hidden'; // Снова прячем хвосты
+        list.style.display = 'block';
+        list.style.maxHeight = list.scrollHeight + "px";
+
+        requestAnimationFrame(() => {
+          list.style.maxHeight = "0px";
+        });
+        list.dataset.open = "false";
+
+        setTimeout(() => {
+          if (list.dataset.open === "false") {
+            list.style.display = "none";
+          }
+        }, 360);
+
+        if (icon) icon.style.transform = "rotate(0deg)";
+        if (sidebarIcon) sidebarIcon.style.transform = "rotate(0deg)";
+
+      } else {
+        // ОТКРЫТИЕ
+        list.style.display = 'block';
+        list.style.overflow = 'hidden'; 
+        list.style.maxHeight = '0px';
+
+        requestAnimationFrame(() => {
+          list.style.maxHeight = list.scrollHeight + "px";
+        });
+        list.dataset.open = "true";
+
+        if (icon) {
+          icon.style.transition = "transform 0.35s ease";
+          icon.style.transform = "rotate(90deg)";
+        }
+        if (sidebarIcon) {
+          sidebarIcon.style.transition = "transform 0.35s ease";
+          sidebarIcon.style.transform = "rotate(180deg)";
+        }
+
+        // --- ВАЖНОЕ ИЗМЕНЕНИЕ ---
+        // Используем setTimeout вместо transitionend. Это надежнее.
+        setTimeout(() => {
+          if (list.dataset.open === "true") {
+            // 1. Снимаем ограничение высоты с родителя
+            list.style.maxHeight = "none";
+            
+            // 2. РАЗРЕШАЕМ ВЫХОД ЗА ПРЕДЕЛЫ
+            // Без этого скролл внутри ребенка не работает, если родитель hidden
+            list.style.overflow = "visible"; 
+            
+            // 3. Вычисляем высоту скролл-блока
+            applyScrollBlock(list);
+          }
+        }, 360); // 350ms (время анимации CSS) + 10ms запас
+      }
+    });
+  });
+
+  // Обновление при повороте экрана
+  window.addEventListener('resize', () => {
+    lists.forEach(l => {
+      if (l.dataset.open === "true") {
+        requestAnimationFrame(() => applyScrollBlock(l));
+      }
+    });
+  }, { passive: true });
+
+})();
+</script>
+<style>
+/* Принудительно разрешаем скролл и касания */
+.scroll-block {
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    touch-action: pan-y !important; /* Разрешает вертикальный скролл браузеру */
+    overscroll-behavior: contain;   /* Скролл не передается родителю */
+    pointer-events: auto !important; /* Гарантируем, что блок ловит касания */
+    cursor: auto;
+}
+
+/* Исправляем возможные проблемы с вложенными дропдаунами */
+.scroll-block .w-dropdown-toggle {
+    touch-action: pan-y !important; /* Чтобы клик по заголовку не блокировал скролл */
+}
+
+
+.w--current {
+  color: #1b73bb;
+  pointer-events: none;
+  cursor: default;
+}
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const STEP = 6;
+
+  // Берём ВСЕ секции, где есть список load-more
+  const lists = document.querySelectorAll(
+    '.section_wrapper .inspiration_grid-wrapper.load-more-list'
+  );
+
+  if (!lists.length) return;
+
+  lists.forEach((list) => {
+    const items = Array.from(list.querySelectorAll('.load-more-item'));
+    const sectionWrapper = list.closest('.section_wrapper');
+    const btn = sectionWrapper ? sectionWrapper.querySelector('.load-more-btn') : null;
+
+    if (!btn || items.length === 0) return;
+
+    let visibleCount = STEP;
+
+    // Прячем всё после первых STEP
+    items.forEach((item, index) => {
+      item.style.display = index < STEP ? '' : 'none'; // '' = вернуться к CSS-стилю
+    });
+
+    // Если показывать нечего — скрываем кнопку
+    if (items.length <= STEP) {
+      btn.style.display = 'none';
+      return;
+    }
+
+    // На всякий случай убираем возможные дубли обработчиков, если скрипт вдруг подключится дважды
+    btn.onclick = null;
+
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      const nextVisible = visibleCount + STEP;
+
+      for (let i = visibleCount; i < nextVisible && i < items.length; i++) {
+        items[i].style.display = '';
+      }
+
+      visibleCount = nextVisible;
+
+      if (visibleCount >= items.length) {
+        btn.style.display = 'none';
+      }
+    });
+  });
+});
+</script>
+</body></html>
+HTML;
+@endphp
