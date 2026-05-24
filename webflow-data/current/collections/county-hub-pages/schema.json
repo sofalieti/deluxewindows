@@ -1,0 +1,110 @@
+{
+  "id": "69ce789764cd8d5d1bcf1aa4",
+  "displayName": "County Hubs",
+  "singularName": "County Hub",
+  "slug": "county-hub-pages",
+  "createdOn": "2026-04-02T14:09:27.734Z",
+  "lastUpdated": "2026-04-24T10:17:53.204Z",
+  "fields": [
+    {
+      "id": "da06520bd4b8374457aa6c0f0a105783",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "county-name",
+      "displayName": "County Name",
+      "helpText": "e.g. Santa Clara County — H1, title, schema",
+      "validations": null
+    },
+    {
+      "id": "20545d08dbbfd1086605b0911eee252c",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "county-slug",
+      "displayName": "County Slug",
+      "helpText": "URL segment: lowercase, hyphens (e.g. santa-clara-county)",
+      "validations": null
+    },
+    {
+      "id": "d4d4a120866c4eaf8f593ac81c4b0a46",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "meta-title",
+      "displayName": "Meta Title",
+      "helpText": "SEO title, ~60 chars",
+      "validations": null
+    },
+    {
+      "id": "d187de06fb5895e4852312fb0db55fb7",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "meta-description",
+      "displayName": "Meta Description",
+      "helpText": "Unique per county, ~160 chars",
+      "validations": null
+    },
+    {
+      "id": "4d2847502ba39822e5193b875698036f",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "RichText",
+      "slug": "county-intro",
+      "displayName": "County Intro",
+      "helpText": "Intro / overview rich text for hub page",
+      "validations": null
+    },
+    {
+      "id": "dd2482a967d8f7740ba1f8be3bd18589",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "Image",
+      "slug": "hero-image",
+      "displayName": "Hero Image",
+      "helpText": "County hub hero (min ~1400×600 recommended)",
+      "validations": null
+    },
+    {
+      "id": "fbdd7dac3e389c11a939d73481ce6968",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "MultiReference",
+      "slug": "cities-in-county",
+      "displayName": "Cities in County",
+      "helpText": "All Service Area cities in this county",
+      "validations": {
+        "collectionId": "69ce7898d019bc268b4bb9ca"
+      }
+    },
+    {
+      "id": "4082f4dbc69b198bfc0e56fcd96adcb6",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "name",
+      "displayName": "Name",
+      "helpText": null,
+      "validations": {
+        "maxLength": 256
+      }
+    },
+    {
+      "id": "1c72326ff249891d3a7e61ac000d546d",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "slug",
+      "displayName": "Slug",
+      "helpText": null,
+      "validations": {
+        "maxLength": 256,
+        "messages": {
+          "pattern": "Must be alphanumerical and not contain any spaces or special characters",
+          "maxLength": "Must be less than 256 characters"
+        }
+      }
+    }
+  ]
+}

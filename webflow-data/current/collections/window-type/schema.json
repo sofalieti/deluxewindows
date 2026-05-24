@@ -1,0 +1,404 @@
+{
+  "id": "688e50676f1dbd8cba0e08f2",
+  "displayName": "Window Types",
+  "singularName": "Window Type",
+  "slug": "window-type",
+  "createdOn": "2025-08-02T17:52:39.421Z",
+  "lastUpdated": "2026-04-24T10:17:53.151Z",
+  "fields": [
+    {
+      "id": "81722cf854ae0fffdba89f45d4a23fb2",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Reference",
+      "slug": "windor-type-material",
+      "displayName": "Windor Type Material",
+      "helpText": null,
+      "validations": {
+        "collectionId": "6841ddf8ace3d9d9facb1689"
+      }
+    },
+    {
+      "id": "ed140b1e75b3c40d004c97be80b0b0e6",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "Image",
+      "slug": "property-listing---featured-image",
+      "displayName": "Property Listing - Featured Image [Page]",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "e9cb79d66b2552de9499058e2d5fa5cc",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiImage",
+      "slug": "property-listing---featured-images",
+      "displayName": "Property Listing - Gallery Images [Page]",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "b6919bdb6ff8091907c161631cc81279",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Image",
+      "slug": "property-listing---thumbnail-image-v1",
+      "displayName": "Property Listing - Thumbnail Image V1 [Card]",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "97af2c10ee0b8de8c67f87f5504abc56",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Image",
+      "slug": "property-listing---thumbnail-image-v2",
+      "displayName": "Property Listing - Thumbnail Image V2 [Card]",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "f7613e19a6982297327f86499e82f824",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Image",
+      "slug": "property-listing---thumbnail-image-v3",
+      "displayName": "Property Listing - Thumbnail Image V3 [Card]",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "767aa8ba0ca6c3c88dc36dbfe220a770",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "RichText",
+      "slug": "property-listing---about",
+      "displayName": "Property Listing - About",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "3f7a82cf65b81af0088e4c9d0dd9823d",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "property-listing---summary",
+      "displayName": "Property Listing - Summary [Page]",
+      "helpText": null,
+      "validations": {
+        "singleLine": true,
+        "maxLength": 241
+      }
+    },
+    {
+      "id": "b279270f94349739c07b888935a0c627",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "property-listing---excerpt",
+      "displayName": "Property Listing - Excerpt [Card]",
+      "helpText": null,
+      "validations": {
+        "singleLine": true,
+        "maxLength": 94
+      }
+    },
+    {
+      "id": "650abc82e647d59c0b729775ba0494f3",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Switch",
+      "slug": "property-listing---property-featured",
+      "displayName": "Property Listing - Is Featured?",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "72063ed417f532619f0be165d7a15530",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "property-listing---address",
+      "displayName": "Property Listing - Address",
+      "helpText": null,
+      "validations": {
+        "singleLine": true,
+        "maxLength": 40
+      }
+    },
+    {
+      "id": "45ba56eb74076308d81e6f2700fbcadb",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "property-listing---sqf",
+      "displayName": "Property Listing - SQFT",
+      "helpText": null,
+      "validations": {
+        "singleLine": true,
+        "maxLength": 10
+      }
+    },
+    {
+      "id": "ef7d1f23ab719739063feadb4cef988b",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Number",
+      "slug": "property-listing---number-of-bathrooms",
+      "displayName": "Property Listing - Number of Bathrooms",
+      "helpText": null,
+      "validations": {
+        "format": "integer",
+        "precision": 1,
+        "allowNegative": false,
+        "maxValue": 99
+      }
+    },
+    {
+      "id": "fd4260ef73ce01a8b13691dc39a2854b",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Number",
+      "slug": "property-listing---number-of-bedrooms",
+      "displayName": "Property Listing - Number of Bedrooms",
+      "helpText": null,
+      "validations": {
+        "format": "integer",
+        "precision": 1,
+        "allowNegative": false,
+        "maxValue": 99
+      }
+    },
+    {
+      "id": "da16f93a6fb638f1794d4e914f829194",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Number",
+      "slug": "property-listing---number-of-parking-spots",
+      "displayName": "Property Listing - Number of Parking Spots",
+      "helpText": null,
+      "validations": {
+        "format": "integer",
+        "precision": 1,
+        "allowNegative": false,
+        "maxValue": 99
+      }
+    },
+    {
+      "id": "8fb313a2eea3c1ec495e5e230256d11e",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "property-listing---display-price",
+      "displayName": "Property Listing - Display Price",
+      "helpText": null,
+      "validations": {
+        "singleLine": true,
+        "maxLength": 9
+      }
+    },
+    {
+      "id": "aa522a6f80370a17d28b185ce0216110",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Reference",
+      "slug": "property-listing---type",
+      "displayName": "Property Listing - Type",
+      "helpText": null,
+      "validations": {
+        "collectionId": "6841ddf8ace3d9d9facb165f"
+      }
+    },
+    {
+      "id": "50120f5e8ae43305be5cb91481092527",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Reference",
+      "slug": "property-listing---agent",
+      "displayName": "Property Listing - Agent",
+      "helpText": null,
+      "validations": {
+        "collectionId": "6841ddf8ace3d9d9facb168a"
+      }
+    },
+    {
+      "id": "c0e0e02e412b20f66085b28d552e79cc",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiReference",
+      "slug": "brand-marvin-2",
+      "displayName": "Brand Marvin",
+      "helpText": null,
+      "validations": {
+        "collectionId": "6841ddf8ace3d9d9facb1689"
+      }
+    },
+    {
+      "id": "2cae6196b9f20abcb948626468b420f7",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiReference",
+      "slug": "window-type-collection",
+      "displayName": "Window Type Collection",
+      "helpText": "Choose Window Type Collection",
+      "validations": {
+        "collectionId": "6841ddf8ace3d9d9facb165f"
+      }
+    },
+    {
+      "id": "b7c77b1cf498b1160fb6d43be6fbb21b",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "title",
+      "displayName": "Title",
+      "helpText": null,
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "726ecd03c9f0d31802e6a23151cc1cde",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiReference",
+      "slug": "collections-new-template",
+      "displayName": "Collections-New-Template",
+      "helpText": null,
+      "validations": {
+        "collectionId": "69366118c296b5e2e8bdbfb2"
+      }
+    },
+    {
+      "id": "76536f3ffc8590f588ed5d95b35a457c",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiReference",
+      "slug": "materials",
+      "displayName": "Materials",
+      "helpText": null,
+      "validations": {
+        "collectionId": "6841ddf8ace3d9d9facb1689"
+      }
+    },
+    {
+      "id": "fbca6b7a418801c272e6655f5a3fb2d4",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Switch",
+      "slug": "new-template",
+      "displayName": "new template",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "de2e3b43fc09395075dc9f46d038eb02",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Switch",
+      "slug": "animation-off",
+      "displayName": "animation off",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "92995fe335ce4b5dd4003e7bae7c03d4",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiImage",
+      "slug": "inspiration-photos",
+      "displayName": "Inspiration photos",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "85bc22ea28d6f16ca1a6ab99e67c6bc5",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "seo-title",
+      "displayName": "SEO Title",
+      "helpText": "SEO title for template meta title",
+      "validations": null
+    },
+    {
+      "id": "32546c4ddb7774cec9521dcc7454dcd2",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "seo-description",
+      "displayName": "SEO Description",
+      "helpText": "SEO description for template meta description",
+      "validations": null
+    },
+    {
+      "id": "b27d1d67d23b3589bf71f7739cf4bd8e",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "opengraph-title",
+      "displayName": "OpenGraph Title",
+      "helpText": "Open Graph title from SEO CSV",
+      "validations": null
+    },
+    {
+      "id": "a3048e6d19d3fa8c99a55351719fd223",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "opengraph-description",
+      "displayName": "OpenGraph Description",
+      "helpText": "Open Graph description from SEO CSV",
+      "validations": null
+    },
+    {
+      "id": "4bca32e082cf2333d3fe06b6ba79ed80",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Link",
+      "slug": "opengraph-image",
+      "displayName": "OpenGraph Image",
+      "helpText": "Open Graph image URL from SEO CSV",
+      "validations": null
+    },
+    {
+      "id": "913feff9b6abd5dd085872b2a7b49d75",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "twitter-card",
+      "displayName": "Twitter Card",
+      "helpText": "Twitter card type from SEO CSV",
+      "validations": null
+    },
+    {
+      "id": "9e69c818d90fa65b07acf1ed32d9d2e2",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "name",
+      "displayName": "Property Listing - Title",
+      "helpText": null,
+      "validations": {
+        "maxLength": 256
+      }
+    },
+    {
+      "id": "2b16a51c019f7934b9daf91cff4fde55",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "slug",
+      "displayName": "Property Listing - Link",
+      "helpText": null,
+      "validations": {
+        "maxLength": 256,
+        "messages": {
+          "pattern": "Must be alphanumerical and not contain any spaces or special characters",
+          "maxLength": "Must be less than 256 characters"
+        }
+      }
+    }
+  ]
+}

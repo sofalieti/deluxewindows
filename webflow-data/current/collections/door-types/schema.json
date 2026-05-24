@@ -1,0 +1,326 @@
+{
+  "id": "688ef97f56238a41af6cffd2",
+  "displayName": "Door Types",
+  "singularName": "Door Type",
+  "slug": "door-types",
+  "createdOn": "2025-08-03T05:54:07.274Z",
+  "lastUpdated": "2026-04-24T10:17:53.159Z",
+  "fields": [
+    {
+      "id": "c33bf237f8ddee7698fc7e7c6434f941",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "Image",
+      "slug": "property-listing---featured-image",
+      "displayName": "Property Listing - Featured Image [Page]",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "25bd824355d8c0b72d7adfdec6899cb2",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiImage",
+      "slug": "property-listing---featured-images",
+      "displayName": "Property Listing - Gallery Images [Page]",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "2ef757f9efdd4d54201355264fdf2d9e",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Image",
+      "slug": "property-listing---thumbnail-image-v1",
+      "displayName": "Property Listing - Thumbnail Image V1 [Card]",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "745f13a047fbc0e3df2256b1c86c71fc",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Image",
+      "slug": "property-listing---thumbnail-image-v2",
+      "displayName": "Property Listing - Thumbnail Image V2 [Card]",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "f02146704bf93fb401a017b3e10fcc63",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Image",
+      "slug": "property-listing---thumbnail-image-v3",
+      "displayName": "Property Listing - Thumbnail Image V3 [Card]",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "02def4783ccdd45f3b48493bbcb36e88",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "RichText",
+      "slug": "property-listing---about",
+      "displayName": "Property Listing - About",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "c4f236d2339fe2493344dc78d20582e6",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "property-listing---summary",
+      "displayName": "Property Listing - Summary [Page]",
+      "helpText": null,
+      "validations": {
+        "singleLine": true,
+        "maxLength": 241
+      }
+    },
+    {
+      "id": "2c05bc4e14832d57d2c7dc3e9269d6de",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "property-listing---excerpt",
+      "displayName": "Property Listing - Excerpt [Card]",
+      "helpText": null,
+      "validations": {
+        "singleLine": true,
+        "maxLength": 94
+      }
+    },
+    {
+      "id": "d14f1232428f0807bb56b622d9736d68",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Switch",
+      "slug": "property-listing---property-featured",
+      "displayName": "Property Listing - Is Featured?",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "0fb08453beac71857032aebe0ab34d6b",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "property-listing---address",
+      "displayName": "Property Listing - Address",
+      "helpText": null,
+      "validations": {
+        "singleLine": true,
+        "maxLength": 40
+      }
+    },
+    {
+      "id": "65e5d8d763199ab3441c8d46bd85c968",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "property-listing---sqf",
+      "displayName": "Property Listing - SQFT",
+      "helpText": null,
+      "validations": {
+        "singleLine": true,
+        "maxLength": 10
+      }
+    },
+    {
+      "id": "441bbd1f6ec16d07a4a504d0f8144023",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Number",
+      "slug": "property-listing---number-of-bathrooms",
+      "displayName": "Property Listing - Number of Bathrooms",
+      "helpText": null,
+      "validations": {
+        "format": "integer",
+        "precision": 1,
+        "allowNegative": false,
+        "maxValue": 99
+      }
+    },
+    {
+      "id": "c23947b11f78ab7480a82415c24cad17",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Number",
+      "slug": "property-listing---number-of-bedrooms",
+      "displayName": "Property Listing - Number of Bedrooms",
+      "helpText": null,
+      "validations": {
+        "format": "integer",
+        "precision": 1,
+        "allowNegative": false,
+        "maxValue": 99
+      }
+    },
+    {
+      "id": "e689a5a4434ef84c1a7aea3b94479ae1",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Number",
+      "slug": "property-listing---number-of-parking-spots",
+      "displayName": "Property Listing - Number of Parking Spots",
+      "helpText": null,
+      "validations": {
+        "format": "integer",
+        "precision": 1,
+        "allowNegative": false,
+        "maxValue": 99
+      }
+    },
+    {
+      "id": "d9701ec1617cb3674f8a290a538cfdaf",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "property-listing---display-price",
+      "displayName": "Property Listing - Display Price",
+      "helpText": null,
+      "validations": {
+        "singleLine": true,
+        "maxLength": 9
+      }
+    },
+    {
+      "id": "47b0313211c9cd6fa3945a2d7095f6a8",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Reference",
+      "slug": "property-listing---type",
+      "displayName": "Property Listing - Type",
+      "helpText": null,
+      "validations": {
+        "collectionId": "6841ddf8ace3d9d9facb165f"
+      }
+    },
+    {
+      "id": "286b53f4fc5b4e851a4efc9660804cc6",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Reference",
+      "slug": "property-listing---agent",
+      "displayName": "Property Listing - Agent",
+      "helpText": null,
+      "validations": {
+        "collectionId": "6841ddf8ace3d9d9facb168a"
+      }
+    },
+    {
+      "id": "41b500e49ba3a1c4cff94128234324a7",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiReference",
+      "slug": "door-type-collections-2",
+      "displayName": "Door Type Collections",
+      "helpText": null,
+      "validations": {
+        "collectionId": "6841ddf8ace3d9d9facb165f"
+      }
+    },
+    {
+      "id": "59db5df475294d32b24a3a37cad21840",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "explore-collection-text",
+      "displayName": "Explore Collection Text",
+      "helpText": null,
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "fa5b1831df68a9f0786aca9e6dc4f3a2",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "seo-title",
+      "displayName": "SEO Title",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "baf18bc3c7f95b58d1052a1423b8d33c",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "seo-description",
+      "displayName": "SEO Description",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "cf02952d3dde1de5e90f489f0774f535",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "opengraph-title",
+      "displayName": "OpenGraph Title",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "9a33d032cf02f31983bb7e913401f16c",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "opengraph-description",
+      "displayName": "OpenGraph Description",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "d58f0d535b9d4cfdfbca61073999b770",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Link",
+      "slug": "opengraph-image",
+      "displayName": "OpenGraph Image",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "7f917af32a0767010e24f6c0a6cfcc3e",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "twitter-card",
+      "displayName": "Twitter Card",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "d1de270740690c5be8e35340bd61a8a5",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "name",
+      "displayName": "Property Listing - Title",
+      "helpText": null,
+      "validations": {
+        "maxLength": 256
+      }
+    },
+    {
+      "id": "a78c4c3f243bd3faccab25825cb7c373",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "slug",
+      "displayName": "Property Listing - Link",
+      "helpText": null,
+      "validations": {
+        "maxLength": 256,
+        "messages": {
+          "pattern": "Must be alphanumerical and not contain any spaces or special characters",
+          "maxLength": "Must be less than 256 characters"
+        }
+      }
+    }
+  ]
+}

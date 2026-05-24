@@ -1,0 +1,74 @@
+{
+  "id": "699eb44b527990aff5f23d1e",
+  "displayName": "Global Settings",
+  "singularName": "Global Setting",
+  "slug": "global-settings",
+  "createdOn": "2026-02-25T08:35:23.581Z",
+  "lastUpdated": "2026-04-24T10:17:53.196Z",
+  "fields": [
+    {
+      "id": "2ccf37af37048c70b57f58bd86276b94",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "promotion-name",
+      "displayName": "Promotion Name",
+      "helpText": null,
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "d7fc80839de0b0d388803a9d3b6297e5",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "start-date",
+      "displayName": "Start_date",
+      "helpText": null,
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "04e7dc97e6e477fd7ad4e448e03fec23",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "end-date",
+      "displayName": "End Date",
+      "helpText": null,
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "463d78969d86a4c34b8f9d683ca58a43",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "name",
+      "displayName": "Name",
+      "helpText": null,
+      "validations": {
+        "maxLength": 256
+      }
+    },
+    {
+      "id": "e52d458025bf41f3164158ebc6649016",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "slug",
+      "displayName": "Slug",
+      "helpText": null,
+      "validations": {
+        "maxLength": 256,
+        "messages": {
+          "pattern": "Must be alphanumerical and not contain any spaces or special characters",
+          "maxLength": "Must be less than 256 characters"
+        }
+      }
+    }
+  ]
+}

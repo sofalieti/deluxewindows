@@ -1,0 +1,154 @@
+{
+  "id": "6841ddf8ace3d9d9facb1614",
+  "displayName": "Window Styles",
+  "singularName": "Window Style",
+  "slug": "window-styles",
+  "createdOn": "2024-03-06T17:55:13.260Z",
+  "lastUpdated": "2026-04-24T10:17:53.077Z",
+  "fields": [
+    {
+      "id": "b6449ff67c47308fe827d83d5eb089eb",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "property---description",
+      "displayName": "Property Category - Description",
+      "helpText": null,
+      "validations": {
+        "singleLine": false
+      }
+    },
+    {
+      "id": "b0df0a0507decc5e4668a1fb753a922e",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Image",
+      "slug": "featured-image",
+      "displayName": "Featured Image",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "cc92a9821231b94513e0a74f4a72e3b8",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "RichText",
+      "slug": "main-information",
+      "displayName": "Main information",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "57e5285c59d1fd00c457a2d3a81c503f",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "explore-other-styles-text",
+      "displayName": "Explore other styles text",
+      "helpText": null,
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "ca588514e9238e61da65c2e0046be07b",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiReference",
+      "slug": "other-styles",
+      "displayName": "Other Styles",
+      "helpText": null,
+      "validations": {
+        "collectionId": "6841ddf8ace3d9d9facb1614"
+      }
+    },
+    {
+      "id": "028b9aca693bc958bc79722a3bbddedf",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "seo-title",
+      "displayName": "SEO Title",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "9b8368f90546765f2e83b6c632cebd5c",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "seo-description",
+      "displayName": "SEO Description",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "c7d57462bc838e24d0e02234fe687320",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "opengraph-title",
+      "displayName": "OpenGraph Title",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "35f8b19cc29ededfb86188b0dfe5a4e1",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "opengraph-description",
+      "displayName": "OpenGraph Description",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "cfac83ce67a4ddf9deb6ec48085db818",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Link",
+      "slug": "opengraph-image",
+      "displayName": "OpenGraph Image",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "cde6b34b749d20e7382c1d062bd05ea1",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "twitter-card",
+      "displayName": "Twitter Card",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "e7ff0f8b77ca0c0a4025153fabeb7f98",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "name",
+      "displayName": "Property Category - Name",
+      "helpText": null,
+      "validations": {
+        "maxLength": 256
+      }
+    },
+    {
+      "id": "f62e90a8bcb3b4a116dcb9a8d884bc8c",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "slug",
+      "displayName": "Property Category - Link",
+      "helpText": null,
+      "validations": {
+        "maxLength": 256,
+        "messages": {
+          "pattern": "Must be alphanumerical and not contain any spaces or special characters",
+          "maxLength": "Must be less than 256 characters"
+        }
+      }
+    }
+  ]
+}

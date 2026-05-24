@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class WebflowSiteController extends Controller
@@ -165,7 +166,7 @@ class WebflowSiteController extends Controller
 
     private function collectionMeta(): array
     {
-        $manifestPath = storage_path('app/'.trim((string) config('webflow.export_root', 'webflow-export/current'), '/').'/manifest.json');
+        $manifestPath = $this->exportPath('manifest.json');
         if (! File::exists($manifestPath)) {
             return [];
         }
@@ -196,7 +197,7 @@ class WebflowSiteController extends Controller
 
     private function findImportItem(string $collectionSlug, string $itemSlug): ?array
     {
-        $path = storage_path('app/'.trim((string) config('webflow.export_root', 'webflow-export/current'), '/')."/imports/{$collectionSlug}.json");
+        $path = $this->exportPath("imports/{$collectionSlug}.json");
         if (! File::exists($path)) {
             return null;
         }
@@ -227,5 +228,19 @@ class WebflowSiteController extends Controller
         $safe = array_map(fn (string $segment) => str_replace('-', '_', $segment), $segments);
 
         return 'webflow.pages.'.implode('.', $safe);
+    }
+
+    private function exportPath(string $relative = ''): string
+    {
+        $root = trim((string) config('webflow.export_root', 'current'), '/');
+        $disk = Storage::disk((string) config('webflow.export_disk', 'webflow_repo'));
+        $base = rtrim($disk->path($root), DIRECTORY_SEPARATOR);
+        $relative = trim($relative, '/');
+
+        if ($relative === '') {
+            return $base;
+        }
+
+        return $base.DIRECTORY_SEPARATOR.str_replace('/', DIRECTORY_SEPARATOR, $relative);
     }
 }

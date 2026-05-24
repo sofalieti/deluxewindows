@@ -1,0 +1,402 @@
+{
+  "id": "69ce7898d019bc268b4bb9ca",
+  "displayName": "Service Areas",
+  "singularName": "Service Area",
+  "slug": "window-replacement",
+  "createdOn": "2026-04-02T14:09:28.324Z",
+  "lastUpdated": "2026-04-24T10:17:53.211Z",
+  "fields": [
+    {
+      "id": "3955ab4506ad6b187c00db7bd8d44b23",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "city-name",
+      "displayName": "City Name",
+      "helpText": "e.g. San Jose — H1, title, schema, FAQ",
+      "validations": null
+    },
+    {
+      "id": "efa10bc9b60a24ce0b43f5d500b13bba",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "city-slug",
+      "displayName": "City Slug",
+      "helpText": "URL segment: lowercase, no spaces (e.g. san-jose)",
+      "validations": null
+    },
+    {
+      "id": "05ee15c7ba2a613c99f7456860d24a87",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "county",
+      "displayName": "County",
+      "helpText": "e.g. Santa Clara County — intro + schema",
+      "validations": null
+    },
+    {
+      "id": "1fec663cf42e2b556641bb82c46e7a4f",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "meta-title",
+      "displayName": "Meta Title",
+      "helpText": "Max ~60 chars. SEO title",
+      "validations": null
+    },
+    {
+      "id": "944cba66c66a2c61a5cd729f6cd6643e",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "meta-description",
+      "displayName": "Meta Description",
+      "helpText": "Max ~160 chars. Unique per city; include CTA + phone",
+      "validations": null
+    },
+    {
+      "id": "fc1f68e6190b7301055102b0ced51e80",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "Image",
+      "slug": "hero-image",
+      "displayName": "Hero Image",
+      "helpText": "Min 1400×600px. Bay Area home ideally in this city",
+      "validations": null
+    },
+    {
+      "id": "5d75c8f0b9fb1ee0f8e8ecec7649d36b",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "hero-subheadline",
+      "displayName": "Hero Subheadline",
+      "helpText": "One sentence: 2–3 neighborhoods + key service",
+      "validations": null
+    },
+    {
+      "id": "3e3f85ad63ececccebfe1f0e5e582e38",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "neighborhoods",
+      "displayName": "Neighborhoods",
+      "helpText": "Comma-separated list",
+      "validations": null
+    },
+    {
+      "id": "d4feb262ad0c904d8447559ab00d2700",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "RichText",
+      "slug": "city-paragraph-1",
+      "displayName": "City Paragraph 1",
+      "helpText": "~150 words: why Deluxe Windows serves this city",
+      "validations": null
+    },
+    {
+      "id": "a3c648aa2cea0c88b4f9e973f7efabd8",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "RichText",
+      "slug": "city-paragraph-2",
+      "displayName": "City Paragraph 2",
+      "helpText": "~150 words: common window types + home styles",
+      "validations": null
+    },
+    {
+      "id": "b3b9a203bb8aef501f4a53aa899bb3bf",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "pricing-context",
+      "displayName": "Pricing Context",
+      "helpText": "City-specific pricing note (optional)",
+      "validations": null
+    },
+    {
+      "id": "c188b9115996fc6d67d2e442d9908a0a",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "faq-1-question",
+      "displayName": "FAQ 1 Question",
+      "helpText": "Must match JSON-LD schema",
+      "validations": null
+    },
+    {
+      "id": "f98766df1daaff01e8c57fd74c7c738e",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "RichText",
+      "slug": "faq-1-answer",
+      "displayName": "FAQ 1 Answer",
+      "helpText": "Include price ranges for this city",
+      "validations": null
+    },
+    {
+      "id": "e6580de509615a91ed1d08c2c90a4424",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "faq-2-question",
+      "displayName": "FAQ 2 Question",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "f7823c0cea759283906e4175010e1250",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "RichText",
+      "slug": "faq-2-answer",
+      "displayName": "FAQ 2 Answer",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "3b0c9c5d42457f2687fd07e099ce1093",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "faq-3-question",
+      "displayName": "FAQ 3 Question",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "05c29d379cc847f3c98414e5024843a6",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "RichText",
+      "slug": "faq-3-answer",
+      "displayName": "FAQ 3 Answer",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "38665ee78ef5abcb1c7d25c8a604385d",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "faq-4-question",
+      "displayName": "FAQ 4 Question",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "632189197e1414d1cbc456318b2020bf",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "RichText",
+      "slug": "faq-4-answer",
+      "displayName": "FAQ 4 Answer",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "44b7f1554a65cab8ab1f1170d1c8247c",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "faq-5-question",
+      "displayName": "FAQ 5 Question",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "f1d151e1d1ecb391f8355957a85f775c",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "RichText",
+      "slug": "faq-5-answer",
+      "displayName": "FAQ 5 Answer",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "c13f130895252651eb89280113e73a61",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "Number",
+      "slug": "review-count",
+      "displayName": "Review Count",
+      "helpText": "Local reviews; update quarterly. Schema + trust bar",
+      "validations": {
+        "format": "integer",
+        "allowNegative": true,
+        "precision": 1
+      }
+    },
+    {
+      "id": "f31a9b2787d0a5292c457589a67e6c32",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "Image",
+      "slug": "og-image",
+      "displayName": "OG Image",
+      "helpText": "1200×630 Open Graph / social",
+      "validations": null
+    },
+    {
+      "id": "e28e1c2bd13b26c242b62d10b742b1df",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Switch",
+      "slug": "is-priority",
+      "displayName": "Is Priority",
+      "helpText": "Phase 1 cities — sitemap 1.0 vs 0.8 (Webflow: Switch cannot be Required)",
+      "validations": null
+    },
+    {
+      "id": "eb2fb22ddbe5481f324e87494ee2ee57",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Switch",
+      "slug": "is-published",
+      "displayName": "Is Published",
+      "helpText": "Off until content ready — visibility",
+      "validations": null
+    },
+    {
+      "id": "5519e9e32d74d2c111fae415da90fdb7",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Number",
+      "slug": "population",
+      "displayName": "Population",
+      "helpText": "Internal reporting only",
+      "validations": {
+        "format": "integer",
+        "allowNegative": true,
+        "precision": 1
+      }
+    },
+    {
+      "id": "fc3fdcc196d3b825b71d795f77c27275",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "schema-json",
+      "displayName": "Schema JSON",
+      "helpText": "Optional JSON-LD override",
+      "validations": null
+    },
+    {
+      "id": "7e55f4ad3eef72428ce1a6dbd2bd19d0",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "MultiReference",
+      "slug": "nearby-cities",
+      "displayName": "Nearby Cities",
+      "helpText": "6–10 nearby Service Area cities",
+      "validations": {
+        "collectionId": "69ce7898d019bc268b4bb9ca"
+      }
+    },
+    {
+      "id": "a09fe239ed2ffbb3aa64ea2671e6f034",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "Reference",
+      "slug": "county-page",
+      "displayName": "County Hub",
+      "helpText": "Parent county — items in County Hub Pages (rename to County Hubs in Designer). Link each city to its hub.",
+      "validations": {
+        "collectionId": "69ce789764cd8d5d1bcf1aa4"
+      }
+    },
+    {
+      "id": "06e5d1c85899fabc74f2d2a96525cac6",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiReference",
+      "slug": "featured-brands",
+      "displayName": "Featured Brands",
+      "helpText": "2–3 Brands collection items",
+      "validations": {
+        "collectionId": "6841ddf8ace3d9d9facb168a"
+      }
+    },
+    {
+      "id": "512957f20b96cf46496bf870abf62459",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "faq-1-answer-plain-text",
+      "displayName": "FAQ 1 Answer (Plain Text)",
+      "helpText": "Plain text; Rich Text field remains for formatted copy if needed.",
+      "validations": null
+    },
+    {
+      "id": "80075866f15d7794bb3a6bcc15b867a0",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "faq-2-answer-plain-text",
+      "displayName": "FAQ 2 Answer (Plain Text)",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "2c00c5898feca5b133b98c63fa54789a",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "faq-3-answer-plain-text",
+      "displayName": "FAQ 3 Answer (Plain Text)",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "d2d95daa937c032134b19d09f9206afd",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "faq-4-answer-plain-text",
+      "displayName": "FAQ 4 Answer (Plain Text)",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "5cb2a238c94efec1f1264b1c73ff7dc4",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "faq-5-answer-plain-text",
+      "displayName": "FAQ 5 Answer (Plain Text)",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "d35ce42414d72eaf5555effdbd23bb41",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "name",
+      "displayName": "Name",
+      "helpText": null,
+      "validations": {
+        "maxLength": 256
+      }
+    },
+    {
+      "id": "ea0742cf4aac276ef20e1671922baf73",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "slug",
+      "displayName": "Slug",
+      "helpText": null,
+      "validations": {
+        "maxLength": 256,
+        "messages": {
+          "pattern": "Must be alphanumerical and not contain any spaces or special characters",
+          "maxLength": "Must be less than 256 characters"
+        }
+      }
+    }
+  ]
+}

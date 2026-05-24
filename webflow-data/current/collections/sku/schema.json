@@ -1,0 +1,208 @@
+{
+  "id": "6841ddf8ace3d9d9facb15f3",
+  "displayName": "SKUs",
+  "singularName": "SKU",
+  "slug": "sku",
+  "createdOn": "2024-01-15T18:19:59.293Z",
+  "lastUpdated": "2026-04-24T10:17:53.069Z",
+  "fields": [
+    {
+      "id": "8979b104ea67582794b2bacb31d0255a",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "SkuValues",
+      "slug": "sku-values",
+      "displayName": "SKU Values",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "765677304070c4925ca48589cb22e11d",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "Reference",
+      "slug": "product",
+      "displayName": "Product",
+      "helpText": null,
+      "validations": {
+        "collectionId": "6841ddf8ace3d9d9facb15d4"
+      }
+    },
+    {
+      "id": "3f35e1bb09d8233a362bdcfd65660c83",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Image",
+      "slug": "main-image",
+      "displayName": "Main Image",
+      "helpText": null,
+      "validations": {
+        "acceptedExtensions": [
+          "jpeg",
+          "jpg",
+          "gif",
+          "png",
+          "webp"
+        ]
+      }
+    },
+    {
+      "id": "c1fc94b53917c01ba9ed6ec0a3f0ef0c",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiImage",
+      "slug": "more-images",
+      "displayName": "More Images",
+      "helpText": null,
+      "validations": {
+        "acceptedExtensions": [
+          "jpeg",
+          "jpg",
+          "gif",
+          "png",
+          "webp"
+        ]
+      }
+    },
+    {
+      "id": "4adb6a87a0a7356f396016c75f0d053c",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "Price",
+      "slug": "price",
+      "displayName": "Price",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "7efd58b5a9e7de67810bfc039c87a688",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Price",
+      "slug": "compare-at-price",
+      "displayName": "Compare-at price",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "d964a5e15e7629044a80011e8cd2097d",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiExternalFile",
+      "slug": "download-files",
+      "displayName": "Downloads",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "359bc3930caa0d892b1144ad4d0e13c0",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MembershipPlan",
+      "slug": "ec-sku-subscription-plan",
+      "displayName": "Subscription Plan",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "27a6604d178a457a69aede73dd568ffc",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Number",
+      "slug": "width",
+      "displayName": "Width",
+      "helpText": null,
+      "validations": {
+        "minValue": 0
+      }
+    },
+    {
+      "id": "0afdbcbf0fc34cea4b67e4869ed6fb58",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Number",
+      "slug": "length",
+      "displayName": "Length",
+      "helpText": null,
+      "validations": {
+        "minValue": 0
+      }
+    },
+    {
+      "id": "2f1f1af23e30a738254d85e859b6e979",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Number",
+      "slug": "height",
+      "displayName": "Height",
+      "helpText": null,
+      "validations": {
+        "minValue": 0
+      }
+    },
+    {
+      "id": "77666e670ff1f73abded6529be7090f2",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Number",
+      "slug": "weight",
+      "displayName": "Weight",
+      "helpText": null,
+      "validations": {
+        "minValue": 0
+      }
+    },
+    {
+      "id": "91ef573e2cdfc0f792ef8afcd54359cb",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "sku",
+      "displayName": "SKU",
+      "helpText": null,
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "12ae74d37aa6f56ea3da4684be171e37",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "TextOption",
+      "slug": "ec-sku-billing-method",
+      "displayName": "Billing method",
+      "helpText": null,
+      "validations": {
+        "enumName": "BillingMethods"
+      }
+    },
+    {
+      "id": "c7e18119ef1840db1563f9a850e6778f",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "name",
+      "displayName": "Name",
+      "helpText": null,
+      "validations": {
+        "maxLength": 256
+      }
+    },
+    {
+      "id": "9f7885035583caa6e981ab0a47f0b1b6",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "slug",
+      "displayName": "Slug",
+      "helpText": null,
+      "validations": {
+        "maxLength": 256,
+        "messages": {
+          "pattern": "Must be alphanumerical and not contain any spaces or special characters",
+          "maxLength": "Must be less than 256 characters"
+        }
+      }
+    }
+  ]
+}

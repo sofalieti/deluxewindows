@@ -1,0 +1,473 @@
+{
+  "id": "6841ddf8ace3d9d9facb168a",
+  "displayName": "Brands",
+  "singularName": "Brand",
+  "slug": "brands",
+  "createdOn": "2024-03-06T18:14:47.975Z",
+  "lastUpdated": "2026-04-24T10:17:53.118Z",
+  "fields": [
+    {
+      "id": "f3c8c7c16a3f2c90a3000ebf17dca76d",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "Image",
+      "slug": "agent---avatar-photo",
+      "displayName": "Logo Photo",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "cf3feb81f40ddb75b7e1b4bfc5ac5cf3",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "RichText",
+      "slug": "agent---about",
+      "displayName": "Agent - About",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "1186b063b419f292792f920da4d305ac",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "RichText",
+      "slug": "agent---experience",
+      "displayName": "Agent - Experience",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "4b9d2194dd43232fb6640e6321f6fcdc",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "agent---excerpt",
+      "displayName": "Agent - Excerpt [Card]",
+      "helpText": null,
+      "validations": {
+        "singleLine": true,
+        "maxLength": 78
+      }
+    },
+    {
+      "id": "21e2ec8ae08a512a87d736a6a8127d39",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "agent---job-title",
+      "displayName": "Agent - Job Title",
+      "helpText": null,
+      "validations": {
+        "singleLine": true,
+        "maxLength": 20
+      }
+    },
+    {
+      "id": "9c2048d9b214de15209e48e954300580",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "agent---username",
+      "displayName": "Agent - Username",
+      "helpText": null,
+      "validations": {
+        "singleLine": true,
+        "maxLength": 23
+      }
+    },
+    {
+      "id": "2f166139ac758805fbf57baabb918337",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Image",
+      "slug": "featured-image",
+      "displayName": "Featured Image",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "33fb3235a3173674198625b3a86fb5e5",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiReference",
+      "slug": "doors-type-marvin",
+      "displayName": "Doors Type",
+      "helpText": null,
+      "validations": {
+        "collectionId": "688ef97f56238a41af6cffd2"
+      }
+    },
+    {
+      "id": "a099895e70de26ea7e0591975dfb95f3",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiReference",
+      "slug": "window-types",
+      "displayName": "Window Types",
+      "helpText": null,
+      "validations": {
+        "collectionId": "688e50676f1dbd8cba0e08f2"
+      }
+    },
+    {
+      "id": "b330fddfb5c20fc097a6c029f0bdadc5",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "windows-titles",
+      "displayName": "Windows Titles",
+      "helpText": null,
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "9a54025f75480ddeb1c23fd64346e2ca",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "doors-title",
+      "displayName": "Doors Title",
+      "helpText": null,
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "24ab96e5c7f82fef386a4d0b913d196d",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Image",
+      "slug": "brand-logo",
+      "displayName": "Brand Logo",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "e07b8b136ae3de4bf42ccfcb422b6680",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Image",
+      "slug": "logo-svg",
+      "displayName": "Logo-svg",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "70121f349006ab22aac5fae357513bae",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Number",
+      "slug": "order",
+      "displayName": "order",
+      "helpText": null,
+      "validations": {
+        "format": "integer",
+        "precision": 1,
+        "allowNegative": false
+      }
+    },
+    {
+      "id": "4fc4b50b5f71ceb0493bb5d46963c768",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiReference",
+      "slug": "materials",
+      "displayName": "Materials",
+      "helpText": null,
+      "validations": {
+        "collectionId": "6841ddf8ace3d9d9facb1689"
+      }
+    },
+    {
+      "id": "338ad764958b90d0fb12aaa2274e9692",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Switch",
+      "slug": "new-template",
+      "displayName": "new template",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "8d8b84e96d97ad66e7f9c00c969c0bac",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Switch",
+      "slug": "animation-off",
+      "displayName": "animation off",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "f8423871aed80cae19746447a38f9102",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Switch",
+      "slug": "grid-styles",
+      "displayName": "grid-styles",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "f1f3e68e1b9396ac9ce2f6a5049c5791",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Switch",
+      "slug": "tinted-glass-off",
+      "displayName": "tinted glass off",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "29404b776a1c29cea77982f626bc7985",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Switch",
+      "slug": "standard-glass-is-big",
+      "displayName": "standard glass is big",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "34318d252b7ee30c45595fa227f0c093",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Switch",
+      "slug": "obscure-glass-if-off",
+      "displayName": "obscure glass if off",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "f5b79e118086d345fe5623857095ac9c",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Switch",
+      "slug": "energy-glass-is-off",
+      "displayName": "energy glass is off",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "3d4cf2ca4c5a8439b289b69a958fa4d3",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Switch",
+      "slug": "new-construction-replacement-categories",
+      "displayName": "New Construction & Replacement categories",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "787aa6de5d4fe62ad36b8118a96e6893",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "brand-feature-description-1",
+      "displayName": "Brand Feature description 1",
+      "helpText": null,
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "bc702c5a1e61b3d8762d806b5d2a08fc",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "brand-feature-description-2",
+      "displayName": "Brand Feature description 2",
+      "helpText": null,
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "23ad0b930b996d1d114149fdd4218ee4",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "brand-feature-description-3",
+      "displayName": "Brand Feature Description 3",
+      "helpText": null,
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "9d242689269af4d16f5c3097b0cfffa8",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "brand-feature-description-4",
+      "displayName": "Brand Feature Description 4",
+      "helpText": null,
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "1aca6abf698c9b32b0ea6bb6ea77bb85",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "price-range",
+      "displayName": "Price range",
+      "helpText": null,
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "290abe5e93ce133b6dfb32c3d8ceb411",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Switch",
+      "slug": "field",
+      "displayName": "$$$$$ field",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "d5dd99de380fc7b9501a3db2274ad010",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Switch",
+      "slug": "field-2",
+      "displayName": "$$ field",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "1b64edf8f5eabf98b1c212c2533daf43",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Switch",
+      "slug": "field-3",
+      "displayName": "$$$ field",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "7c14374fdae4bdb25f8de56e9d1d5bbf",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Switch",
+      "slug": "field-4",
+      "displayName": "$$$$ field",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "902f0e82cae58f1c431c2f2b06cb943a",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Switch",
+      "slug": "field-5",
+      "displayName": "$ field",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "3f1a1c1f105f3c48911770f26d994918",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Reference",
+      "slug": "windowmaintype",
+      "displayName": "WindowMainType",
+      "helpText": null,
+      "validations": {
+        "collectionId": "6841ddf8ace3d9d9facb1689"
+      }
+    },
+    {
+      "id": "f3d89473e779f59681a3d74783e15dd1",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "seo-title",
+      "displayName": "SEO Title",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "731a7b065ae063a04167a940182493ed",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "seo-description",
+      "displayName": "SEO Description",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "61f992864dbff2a11101dcd12225a2c9",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "opengraph-title",
+      "displayName": "OpenGraph Title",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "6a10cba6d3cd69bdc5ed2a2043d0431a",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "opengraph-description",
+      "displayName": "OpenGraph Description",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "7bde4af4cc369b06a0bec1d70f0a2df6",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Link",
+      "slug": "opengraph-image",
+      "displayName": "OpenGraph Image",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "0537c0c3ff06394ca95fca41c114de71",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "twitter-card",
+      "displayName": "Twitter Card",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "88c1714a6ba91bdc9c0951d5abe6bfcf",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "name",
+      "displayName": "Agent - Name",
+      "helpText": null,
+      "validations": {
+        "maxLength": 256
+      }
+    },
+    {
+      "id": "5fd1bcd36a827b527e7d4716aca594c7",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "slug",
+      "displayName": "Agent - Link",
+      "helpText": null,
+      "validations": {
+        "maxLength": 256,
+        "messages": {
+          "pattern": "Must be alphanumerical and not contain any spaces or special characters",
+          "maxLength": "Must be less than 256 characters"
+        }
+      }
+    }
+  ]
+}

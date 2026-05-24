@@ -1,0 +1,192 @@
+{
+  "id": "687b79c5ee572b31129b17bf",
+  "displayName": "Blogs",
+  "singularName": "Blog",
+  "slug": "blog",
+  "createdOn": "2025-07-19T10:56:05.947Z",
+  "lastUpdated": "2026-04-24T10:17:53.134Z",
+  "fields": [
+    {
+      "id": "292d2b42e8c39b87d4aeaa56ac9cf95b",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "RichText",
+      "slug": "project-details",
+      "displayName": "Project Details",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "c173a3d32ba288a448288f735d630a38",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "project-summary",
+      "displayName": "Project Summary",
+      "helpText": null,
+      "validations": {
+        "singleLine": false
+      }
+    },
+    {
+      "id": "39dbc8b67426e5c8b89d045710524f49",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Image",
+      "slug": "main-project-image",
+      "displayName": "Main Project Image",
+      "helpText": "Used on project list grid",
+      "validations": null
+    },
+    {
+      "id": "1dc14c6a3ee9e0119436a6d5d16f3ad5",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "client",
+      "displayName": "Client",
+      "helpText": null,
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "069c2b597ae0f18f4dd0635adf3b41e0",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Image",
+      "slug": "client-logo",
+      "displayName": "Client Logo",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "fffbd648df7be54c1ff58ceeb82ed698",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "RichText",
+      "slug": "services-rendered",
+      "displayName": "Services Rendered",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "8c9f1e56d2939f7dcb8e4505f15211d2",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Switch",
+      "slug": "featured-project",
+      "displayName": "Featured Project?",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "f5a97d3d749e1ae7d9a30e9f68505872",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Color",
+      "slug": "color",
+      "displayName": "Color",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "f7e49d29859970d6f178d05bef1f3b1b",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Link",
+      "slug": "link",
+      "displayName": "Link",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "dc0d8a0040017f474254fc9988aa88fb",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "seo-title",
+      "displayName": "SEO Title",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "d5bf1aa8227b1fb3bf1acba135f30212",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "seo-description",
+      "displayName": "SEO Description",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "2e6005175e5f33bfd4add14340e44bc1",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "opengraph-title",
+      "displayName": "OpenGraph Title",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "9182bfeec1794372efc596890c010a94",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "opengraph-description",
+      "displayName": "OpenGraph Description",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "ff082ce333c2055ee256138fc082aed8",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Link",
+      "slug": "opengraph-image",
+      "displayName": "OpenGraph Image",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "03a93a17f77101c5f7168dc0a4da9a93",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "twitter-card",
+      "displayName": "Twitter Card",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "c4085a7ac4fd892b451a7ee14a63d012",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "name",
+      "displayName": "Name",
+      "helpText": null,
+      "validations": {
+        "maxLength": 256
+      }
+    },
+    {
+      "id": "b6f884fc68db7a179a92f9c6d6fbd135",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "slug",
+      "displayName": "Slug",
+      "helpText": null,
+      "validations": {
+        "maxLength": 256,
+        "messages": {
+          "pattern": "Must be alphanumerical and not contain any spaces or special characters",
+          "maxLength": "Must be less than 256 characters"
+        }
+      }
+    }
+  ]
+}

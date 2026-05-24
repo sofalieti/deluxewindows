@@ -1,0 +1,154 @@
+{
+  "id": "692d344de96107a11341bde7",
+  "displayName": "Collections Tabs",
+  "singularName": "Collections Tab",
+  "slug": "collections-tabs",
+  "createdOn": "2025-12-01T06:23:09.499Z",
+  "lastUpdated": "2026-04-24T10:17:53.180Z",
+  "fields": [
+    {
+      "id": "33c027339d02cb16d39e19366a0e96ef",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "description",
+      "displayName": "Description",
+      "helpText": null,
+      "validations": {
+        "singleLine": false
+      }
+    },
+    {
+      "id": "4e2fd1606937102a1970ad3dd3823135",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Image",
+      "slug": "picture",
+      "displayName": "Picture",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "86fa91706cd6ff26c24ba1405ec4750f",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "category",
+      "displayName": "Category",
+      "helpText": null,
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "d2bea5bdc0942b941c8ee72410c69037",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "subcategory",
+      "displayName": "Subcategory",
+      "helpText": null,
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "038533f1464c42eba8df790327711e63",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiReference",
+      "slug": "parent-collection",
+      "displayName": "Parent collection",
+      "helpText": null,
+      "validations": {
+        "collectionId": "6841ddf8ace3d9d9facb165f"
+      }
+    },
+    {
+      "id": "7defaeeb180d147faae917e7631fd48f",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiReference",
+      "slug": "parent-brand",
+      "displayName": "Parent Brand",
+      "helpText": null,
+      "validations": {
+        "collectionId": "6841ddf8ace3d9d9facb168a"
+      }
+    },
+    {
+      "id": "397d3c233b33a868afefebe9fba0e4e7",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiReference",
+      "slug": "parent-window-styles",
+      "displayName": "Parent Window Styles",
+      "helpText": null,
+      "validations": {
+        "collectionId": "6841ddf8ace3d9d9facb1614"
+      }
+    },
+    {
+      "id": "6274ff0a1ddd647604184339cb3a018c",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Color",
+      "slug": "color",
+      "displayName": "Color",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "fd94791bd732398ad255b5227757528c",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiReference",
+      "slug": "materials",
+      "displayName": "Materials",
+      "helpText": null,
+      "validations": {
+        "collectionId": "6841ddf8ace3d9d9facb1689"
+      }
+    },
+    {
+      "id": "707cceb0989bbab0bc2f509ac90a6b3c",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiReference",
+      "slug": "collections-new-template",
+      "displayName": "Collections-New-Template",
+      "helpText": null,
+      "validations": {
+        "collectionId": "69366118c296b5e2e8bdbfb2"
+      }
+    },
+    {
+      "id": "f570a9897796b121f4d2d79325586205",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "name",
+      "displayName": "Name",
+      "helpText": null,
+      "validations": {
+        "maxLength": 256
+      }
+    },
+    {
+      "id": "7cbf2b44eaae6cf3e49bd74d3e5eca8a",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "slug",
+      "displayName": "Slug",
+      "helpText": null,
+      "validations": {
+        "maxLength": 256,
+        "messages": {
+          "pattern": "Must be alphanumerical and not contain any spaces or special characters",
+          "maxLength": "Must be less than 256 characters"
+        }
+      }
+    }
+  ]
+}

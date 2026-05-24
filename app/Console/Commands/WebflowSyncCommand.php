@@ -6,6 +6,7 @@ use App\Services\Webflow\WebflowClient;
 use App\Services\Webflow\WebflowCodegenService;
 use App\Services\Webflow\WebflowSyncService;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use RuntimeException;
 
@@ -54,7 +55,8 @@ class WebflowSyncCommand extends Command
         $result = $sync->sync($siteId, $withDom);
         $root = $result['root'];
 
-        $this->info("Exported Webflow data to storage/app/{$root}");
+        $disk = Storage::disk((string) config('webflow.export_disk', 'webflow_repo'));
+        $this->info('Exported Webflow data to '.$disk->path($root));
         $this->line('Pages: '.$result['manifest']['pagesCount'].' | Collections: '.$result['manifest']['collectionsCount']);
 
         $codegen = new WebflowCodegenService();

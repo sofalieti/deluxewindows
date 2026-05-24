@@ -60,6 +60,13 @@ return [
             'report' => false,
         ],
 
+        'webflow_repo' => [
+            'driver' => 'local',
+            'root' => base_path('webflow-data'),
+            'throw' => false,
+            'report' => false,
+        ],
+
     ],
 
     /*

@@ -1,0 +1,58 @@
+{
+  "id": "688136f10bb2ccdbe12aa297",
+  "displayName": "Gallery",
+  "singularName": "Gallery",
+  "slug": "gallery",
+  "createdOn": "2025-07-23T19:24:33.779Z",
+  "lastUpdated": "2026-04-24T10:17:53.144Z",
+  "fields": [
+    {
+      "id": "ebfaa5a2215a7939a627f02777eb1502",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiImage",
+      "slug": "gallery",
+      "displayName": "Gallery",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "1154cf6b6d47eb5f81a8509eb1882b0d",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Image",
+      "slug": "featured-image",
+      "displayName": "Featured image",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "0d66ad556548137f428c3910f089168d",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "name",
+      "displayName": "Name",
+      "helpText": null,
+      "validations": {
+        "maxLength": 256
+      }
+    },
+    {
+      "id": "714a86523774c72084197068c1769edb",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "slug",
+      "displayName": "Slug",
+      "helpText": null,
+      "validations": {
+        "maxLength": 256,
+        "messages": {
+          "pattern": "Must be alphanumerical and not contain any spaces or special characters",
+          "maxLength": "Must be less than 256 characters"
+        }
+      }
+    }
+  ]
+}

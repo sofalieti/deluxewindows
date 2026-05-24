@@ -1,0 +1,51 @@
+{
+  "id": "6841ddf8ace3d9d9facb163f",
+  "displayName": "TESTs",
+  "singularName": "TEST",
+  "slug": "test",
+  "createdOn": "2024-03-06T17:57:39.115Z",
+  "lastUpdated": "2026-04-24T10:17:53.093Z",
+  "fields": [
+    {
+      "id": "7409ebc93a799c5f543837b10691319a",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "property-location---description",
+      "displayName": "Property Location - Description",
+      "helpText": null,
+      "validations": {
+        "singleLine": true,
+        "maxLength": 146
+      }
+    },
+    {
+      "id": "702d732db8f1d4010d96c2787897a234",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "name",
+      "displayName": "Property Location - Name",
+      "helpText": null,
+      "validations": {
+        "maxLength": 256
+      }
+    },
+    {
+      "id": "7153227eee34555b43e15547e776fd4e",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "slug",
+      "displayName": "Property Location - Link",
+      "helpText": null,
+      "validations": {
+        "maxLength": 256,
+        "messages": {
+          "pattern": "Must be alphanumerical and not contain any spaces or special characters",
+          "maxLength": "Must be less than 256 characters"
+        }
+      }
+    }
+  ]
+}

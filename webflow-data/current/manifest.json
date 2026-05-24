@@ -1,0 +1,148 @@
+{
+  "siteId": "6841ddf8ace3d9d9facb14fd",
+  "generatedAt": "2026-05-24T13:57:22.313Z",
+  "pagesCount": 44,
+  "collectionsCount": 20,
+  "collections": [
+    {
+      "id": "6841ddf8ace3d9d9facb1588",
+      "slug": "doors",
+      "displayName": "Doors",
+      "itemsCount": 6,
+      "fieldsCount": 23
+    },
+    {
+      "id": "6841ddf8ace3d9d9facb15a7",
+      "slug": "category",
+      "displayName": "🏷️ Categories",
+      "itemsCount": 0,
+      "fieldsCount": 2
+    },
+    {
+      "id": "6841ddf8ace3d9d9facb15d4",
+      "slug": "product",
+      "displayName": "👕 Products",
+      "itemsCount": 3,
+      "fieldsCount": 17
+    },
+    {
+      "id": "6841ddf8ace3d9d9facb15f3",
+      "slug": "sku",
+      "displayName": "SKUs",
+      "itemsCount": 3,
+      "fieldsCount": 16
+    },
+    {
+      "id": "6841ddf8ace3d9d9facb1614",
+      "slug": "window-styles",
+      "displayName": "Window Styles",
+      "itemsCount": 73,
+      "fieldsCount": 13
+    },
+    {
+      "id": "6841ddf8ace3d9d9facb163f",
+      "slug": "test",
+      "displayName": "TESTs",
+      "itemsCount": 0,
+      "fieldsCount": 3
+    },
+    {
+      "id": "6841ddf8ace3d9d9facb165f",
+      "slug": "collection",
+      "displayName": "Collections",
+      "itemsCount": 66,
+      "fieldsCount": 22
+    },
+    {
+      "id": "6841ddf8ace3d9d9facb1689",
+      "slug": "windows",
+      "displayName": "Windows",
+      "itemsCount": 13,
+      "fieldsCount": 36
+    },
+    {
+      "id": "6841ddf8ace3d9d9facb168a",
+      "slug": "brands",
+      "displayName": "Brands",
+      "itemsCount": 11,
+      "fieldsCount": 42
+    },
+    {
+      "id": "6841ddf8ace3d9d9facb168b",
+      "slug": "coupons",
+      "displayName": "Coupons",
+      "itemsCount": 4,
+      "fieldsCount": 14
+    },
+    {
+      "id": "687b79c5ee572b31129b17bf",
+      "slug": "blog",
+      "displayName": "Blogs",
+      "itemsCount": 12,
+      "fieldsCount": 17
+    },
+    {
+      "id": "688136f10bb2ccdbe12aa297",
+      "slug": "gallery",
+      "displayName": "Gallery",
+      "itemsCount": 91,
+      "fieldsCount": 4
+    },
+    {
+      "id": "688e50676f1dbd8cba0e08f2",
+      "slug": "window-type",
+      "displayName": "Window Types",
+      "itemsCount": 24,
+      "fieldsCount": 34
+    },
+    {
+      "id": "688ef97f56238a41af6cffd2",
+      "slug": "door-types",
+      "displayName": "Door Types",
+      "itemsCount": 23,
+      "fieldsCount": 27
+    },
+    {
+      "id": "68d41e19b22b310290f0458b",
+      "slug": "window-styles-copy",
+      "displayName": "Window Styles Copy",
+      "itemsCount": 0,
+      "fieldsCount": 7
+    },
+    {
+      "id": "692d344de96107a11341bde7",
+      "slug": "collections-tabs",
+      "displayName": "Collections Tabs",
+      "itemsCount": 1437,
+      "fieldsCount": 12
+    },
+    {
+      "id": "69366118c296b5e2e8bdbfb2",
+      "slug": "brand-collections",
+      "displayName": "Brand-collections",
+      "itemsCount": 80,
+      "fieldsCount": 43
+    },
+    {
+      "id": "699eb44b527990aff5f23d1e",
+      "slug": "global-settings",
+      "displayName": "Global Settings",
+      "itemsCount": 1,
+      "fieldsCount": 5
+    },
+    {
+      "id": "69ce789764cd8d5d1bcf1aa4",
+      "slug": "county-hub-pages",
+      "displayName": "County Hubs",
+      "itemsCount": 9,
+      "fieldsCount": 9
+    },
+    {
+      "id": "69ce7898d019bc268b4bb9ca",
+      "slug": "window-replacement",
+      "displayName": "Service Areas",
+      "itemsCount": 98,
+      "fieldsCount": 37
+    }
+  ]
+}

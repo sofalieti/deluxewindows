@@ -1,0 +1,165 @@
+{
+  "id": "6841ddf8ace3d9d9facb168b",
+  "displayName": "Coupons",
+  "singularName": "Coupon",
+  "slug": "coupons",
+  "createdOn": "2024-03-07T15:00:48.274Z",
+  "lastUpdated": "2026-04-24T10:17:53.126Z",
+  "fields": [
+    {
+      "id": "f62b2cb8eb17e749d57eaca8cd7ec4de",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "blog-post-category---description",
+      "displayName": "Coupon description",
+      "helpText": null,
+      "validations": {
+        "singleLine": false
+      }
+    },
+    {
+      "id": "3aa8eef7dd06361dae4a1f670fb0adf4",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "blog-post-category---icon",
+      "displayName": "Blog Category - Icon",
+      "helpText": null,
+      "validations": {
+        "singleLine": true,
+        "maxLength": 1
+      }
+    },
+    {
+      "id": "36618abd723f18e2d103efc12b2f3dd4",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "DateTime",
+      "slug": "offer-expires",
+      "displayName": "Offer Expires",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "1e9a4f196b62e37b082492c518b11a55",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Image",
+      "slug": "featured-image",
+      "displayName": "Featured image",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "4163a406712730ed76882937fdd089e2",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Link",
+      "slug": "button",
+      "displayName": "Button",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "1da2eb8f9c7d7052954a843505eaa088",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "offer-expires-text",
+      "displayName": "Offer Expires text",
+      "helpText": null,
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "187809fc62c2f94b68a68969b597f8ef",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "seo-title",
+      "displayName": "SEO Title",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "b41c0a936712502641eebbbf71a28281",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "seo-description",
+      "displayName": "SEO Description",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "429fd26d89487d3525b98550e80e4364",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "opengraph-title",
+      "displayName": "OpenGraph Title",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "785d0dc0afb9c67a6f8769627b6894c1",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "opengraph-description",
+      "displayName": "OpenGraph Description",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "8a7738347169862814f818674d4c1537",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Link",
+      "slug": "opengraph-image",
+      "displayName": "OpenGraph Image",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "deac90f6dc6d5dd0bbcf36ce1d84d145",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "twitter-card",
+      "displayName": "Twitter Card",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "28904b28386965bfd9cff16393c566d3",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "name",
+      "displayName": "Coupon Name",
+      "helpText": null,
+      "validations": {
+        "maxLength": 256
+      }
+    },
+    {
+      "id": "c88c9b4f4f87699431aed81696f9f2c2",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "slug",
+      "displayName": "Blog Category - Link",
+      "helpText": null,
+      "validations": {
+        "maxLength": 256,
+        "messages": {
+          "pattern": "Must be alphanumerical and not contain any spaces or special characters",
+          "maxLength": "Must be less than 256 characters"
+        }
+      }
+    }
+  ]
+}

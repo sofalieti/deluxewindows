@@ -1,0 +1,94 @@
+{
+  "id": "68d41e19b22b310290f0458b",
+  "displayName": "Window Styles Copy",
+  "singularName": "Window Style Copy",
+  "slug": "window-styles-copy",
+  "createdOn": "2025-09-24T16:36:41.109Z",
+  "lastUpdated": "2026-04-24T10:17:53.167Z",
+  "fields": [
+    {
+      "id": "9046e7a6583052620d50ac22af30eb9e",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "property---description",
+      "displayName": "Property Category - Description",
+      "helpText": null,
+      "validations": {
+        "singleLine": false
+      }
+    },
+    {
+      "id": "40da7e4f19c4f0385398931b1712a64b",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Image",
+      "slug": "featured-image",
+      "displayName": "Featured Image",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "e7a10a79c63f990e806e1633288c5ab3",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "RichText",
+      "slug": "main-information",
+      "displayName": "Main information",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "46354b972979b29efd8e4c67c13dc864",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "explore-other-styles-text",
+      "displayName": "Explore other styles text",
+      "helpText": null,
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "8e2cd31cb519257b18e0f37566ecf065",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiReference",
+      "slug": "other-styles",
+      "displayName": "Other Styles",
+      "helpText": null,
+      "validations": {
+        "collectionId": "6841ddf8ace3d9d9facb1614"
+      }
+    },
+    {
+      "id": "059dba64e641daad942f23e59d4d4588",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "name",
+      "displayName": "Property Category - Name",
+      "helpText": null,
+      "validations": {
+        "maxLength": 256
+      }
+    },
+    {
+      "id": "1815477defd6887ddf2033932e2f5047",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "slug",
+      "displayName": "Property Category - Link",
+      "helpText": null,
+      "validations": {
+        "maxLength": 256,
+        "messages": {
+          "pattern": "Must be alphanumerical and not contain any spaces or special characters",
+          "maxLength": "Must be less than 256 characters"
+        }
+      }
+    }
+  ]
+}

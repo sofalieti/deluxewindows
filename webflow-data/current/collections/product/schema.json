@@ -1,0 +1,238 @@
+{
+  "id": "6841ddf8ace3d9d9facb15d4",
+  "displayName": "👕 Products",
+  "singularName": "👕 Product",
+  "slug": "product",
+  "createdOn": "2024-01-15T18:19:59.288Z",
+  "lastUpdated": "2026-04-24T10:17:53.061Z",
+  "fields": [
+    {
+      "id": "5980b6288808ee570d756568d2c4412b",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "SkuSettings",
+      "slug": "sku-properties",
+      "displayName": "SKU Properties",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "2fb93535b357448361b51a501209e229",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiReference",
+      "slug": "category",
+      "displayName": "Categories",
+      "helpText": "Add this product to one or more categories.",
+      "validations": {
+        "collectionId": "6841ddf8ace3d9d9facb15a7"
+      }
+    },
+    {
+      "id": "fbc9e8d49ac8a6c5fe949e779936f42e",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "description",
+      "displayName": "Description",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "faac52e9cab322d09af8e6055df77b6c",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Switch",
+      "slug": "shippable",
+      "displayName": "Requires Shipping",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "3889b1de290d5f88092b587968249a8f",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "TextOption",
+      "slug": "tax-category",
+      "displayName": "Tax Category",
+      "helpText": null,
+      "validations": {
+        "enumName": "TaxCategories"
+      }
+    },
+    {
+      "id": "117072ec1f2fd06cc1c337018c0acc65",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Reference",
+      "slug": "default-sku",
+      "displayName": "Default SKU",
+      "helpText": null,
+      "validations": {
+        "collectionId": "6841ddf8ace3d9d9facb15f3"
+      }
+    },
+    {
+      "id": "974349bd0e472be38ee9d13657d8d770",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Option",
+      "slug": "ec-product-type",
+      "displayName": "Product type",
+      "helpText": null,
+      "validations": {
+        "options": [
+          {
+            "id": "ff42fee0113744f693a764e3431a9cc2",
+            "name": "Physical"
+          },
+          {
+            "id": "f22027db68002190aef89a4a2b7ac8a1",
+            "name": "Digital"
+          },
+          {
+            "id": "c599e43b1a1c34d5a323aedf75d3adf6",
+            "name": "Service"
+          },
+          {
+            "id": "e348fd487d0102946c9179d2a94bb613",
+            "name": "Membership"
+          },
+          {
+            "id": "b6ccc1830db4b1babeb06a9ac5f6dd76",
+            "name": "Advanced"
+          }
+        ]
+      }
+    },
+    {
+      "id": "40119a301904b4e1c037df172d5545ad",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "RichText",
+      "slug": "product---description",
+      "displayName": "Product - Rich Text",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "f74fb6a050485737c7558e4a06064662",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "product---short-description-page-2",
+      "displayName": "Product - Summary [Page]",
+      "helpText": null,
+      "validations": {
+        "singleLine": true,
+        "maxLength": 137
+      }
+    },
+    {
+      "id": "e18e254c82f314722ab2001858eb4076",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "product---excerpt",
+      "displayName": "Product - Excerpt [Card]",
+      "helpText": null,
+      "validations": {
+        "singleLine": true,
+        "maxLength": 69
+      }
+    },
+    {
+      "id": "8d170f8417bf1284ac8eea12c38efc3e",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "product---display-price",
+      "displayName": "Product - Display Price",
+      "helpText": null,
+      "validations": {
+        "singleLine": true,
+        "maxLength": 9
+      }
+    },
+    {
+      "id": "b7673c1672c60b951fcfdd56cc865e70",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "product---feature-1",
+      "displayName": "Product - Feature 1",
+      "helpText": null,
+      "validations": {
+        "singleLine": true,
+        "maxLength": 22
+      }
+    },
+    {
+      "id": "c382f3f949aa0e724a32f188b4a68641",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "product---feature-2",
+      "displayName": "Product - Feature 2",
+      "helpText": null,
+      "validations": {
+        "singleLine": true,
+        "maxLength": 22
+      }
+    },
+    {
+      "id": "920c5247b00aa249d4b32ef355848f72",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "product---feature-3",
+      "displayName": "Product - Feature 3",
+      "helpText": null,
+      "validations": {
+        "singleLine": true,
+        "maxLength": 22
+      }
+    },
+    {
+      "id": "5bc7b89eff025e3adfb3a8f07ae2db00",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "product---feature-4",
+      "displayName": "Product - Feature 4",
+      "helpText": null,
+      "validations": {
+        "singleLine": true,
+        "maxLength": 22
+      }
+    },
+    {
+      "id": "ccff316d30f0a40947404e8205fe9e23",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "name",
+      "displayName": "Name",
+      "helpText": null,
+      "validations": {
+        "maxLength": 256
+      }
+    },
+    {
+      "id": "b08507b634218f2efb317ee1d30ddf47",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "slug",
+      "displayName": "Product - Link",
+      "helpText": null,
+      "validations": {
+        "maxLength": 256,
+        "messages": {
+          "pattern": "Must be alphanumerical and not contain any spaces or special characters",
+          "maxLength": "Must be less than 256 characters"
+        }
+      }
+    }
+  ]
+}

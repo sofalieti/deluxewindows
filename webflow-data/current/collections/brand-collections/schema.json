@@ -1,0 +1,495 @@
+{
+  "id": "69366118c296b5e2e8bdbfb2",
+  "displayName": "Brand-collections",
+  "singularName": "Brand-collection",
+  "slug": "brand-collections",
+  "createdOn": "2025-12-08T05:24:40.663Z",
+  "lastUpdated": "2026-04-24T10:17:53.188Z",
+  "fields": [
+    {
+      "id": "c143cabd67759f854ff873e6d32e1941",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Reference",
+      "slug": "mainmaterial",
+      "displayName": "MainMaterial",
+      "helpText": null,
+      "validations": {
+        "collectionId": "6841ddf8ace3d9d9facb1689"
+      }
+    },
+    {
+      "id": "f03f35c0e19a3f7a4ceaf8c4870fb4e7",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiReference",
+      "slug": "materials",
+      "displayName": "Materials",
+      "helpText": null,
+      "validations": {
+        "collectionId": "6841ddf8ace3d9d9facb1689"
+      }
+    },
+    {
+      "id": "1f3f5a461508cfb0f83bd7dc3b3297a5",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "material",
+      "displayName": "Material",
+      "helpText": null,
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "f0d8091bca0fd34884ad0d8315b96817",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "Image",
+      "slug": "property-type---icon",
+      "displayName": "Property Type - Icon",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "78772b171ed560a362dfbf37bedbde0d",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "property-type---description",
+      "displayName": "Property Type - Description",
+      "helpText": null,
+      "validations": {
+        "singleLine": true,
+        "maxLength": 137
+      }
+    },
+    {
+      "id": "a0491e00b25328a39b59a869bd3284ca",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Image",
+      "slug": "featured-image",
+      "displayName": "Featured Image",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "9a92215cc90a6f2e0622e1a6418b4027",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "RichText",
+      "slug": "description",
+      "displayName": "Description",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "0cb7984096f66a389f1fccd1a0143438",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "price-category",
+      "displayName": "Price Category",
+      "helpText": null,
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "95aac9f87ff08547cb625b5f10b13548",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "VideoLink",
+      "slug": "video",
+      "displayName": "Video",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "b981e2be27be0028fcccfbe4991db047",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "explore-brand-style",
+      "displayName": "Explore (Brand) Style",
+      "helpText": null,
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "892566ce4f95efa5a79c8f264b3a9946",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiReference",
+      "slug": "brand---material---style",
+      "displayName": "Brand - Material - Style",
+      "helpText": null,
+      "validations": {
+        "collectionId": "6841ddf8ace3d9d9facb1614"
+      }
+    },
+    {
+      "id": "ad4a1d350a07b231052ec1b5e2299fd0",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Reference",
+      "slug": "parent-brand",
+      "displayName": "Parent brand",
+      "helpText": null,
+      "validations": {
+        "collectionId": "6841ddf8ace3d9d9facb168a"
+      }
+    },
+    {
+      "id": "125beae8517b2d14e9664d10e30d1495",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "RichText",
+      "slug": "about-tab",
+      "displayName": "About tab",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "b96a63cf4ad41a4a647244c2ee684cb7",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiReference",
+      "slug": "collections-tabs-details",
+      "displayName": "Collections-Tabs-Details",
+      "helpText": null,
+      "validations": {
+        "collectionId": "692d344de96107a11341bde7"
+      }
+    },
+    {
+      "id": "631545d1ae0f8d70558780251166af1b",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiImage",
+      "slug": "inspiration-photos",
+      "displayName": "Inspiration Photos",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "50602879c692bda3f8fdbc629e97b508",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiReference",
+      "slug": "other-collections",
+      "displayName": "Other collections",
+      "helpText": null,
+      "validations": {
+        "collectionId": "6841ddf8ace3d9d9facb165f"
+      }
+    },
+    {
+      "id": "b2e667f982ebfb5b8f7d5b30f5cfd677",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "long-description",
+      "displayName": "Long description",
+      "helpText": null,
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "50a2091886abc905c7ae7e41e7f41d1c",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "about-collection-description",
+      "displayName": "About collection description",
+      "helpText": null,
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "037ab789c627544fce34b7d42c9d1d47",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "advantage-title-1",
+      "displayName": "Advantage title 1",
+      "helpText": null,
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "b75bf8ef4ac94d856f6f4337d364685c",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "advantage-description-1",
+      "displayName": "Advantage description 1",
+      "helpText": null,
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "1b5bac8499da54c82dcd7b28038c9719",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "advantage-title-2",
+      "displayName": "Advantage title 2",
+      "helpText": null,
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "57d47cb364684e93748468a6d64cc597",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "advantage-description-2",
+      "displayName": "Advantage description 2",
+      "helpText": null,
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "c2eefac9eed31e2f9830b5abcfb446f7",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "advantage-title-3",
+      "displayName": "Advantage title 3",
+      "helpText": null,
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "a7e0e6f1bd8ea237bd9afa989999df77",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "advantage-description-3",
+      "displayName": "Advantage description 3",
+      "helpText": null,
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "c1d7050fd5d57450c6851333dd6b2bf1",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "advantage-title-4",
+      "displayName": "Advantage title 4",
+      "helpText": null,
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "1e3d6d5ba3e1f4a1c4d3290c55fceec9",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "advantage-description-4",
+      "displayName": "Advantage description 4",
+      "helpText": null,
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "45e00bc08fabeca60063f9baeac54a71",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiReference",
+      "slug": "brand-materials-2",
+      "displayName": "Brand Materials",
+      "helpText": "All-brand-materials",
+      "validations": {
+        "collectionId": "6841ddf8ace3d9d9facb1689"
+      }
+    },
+    {
+      "id": "82b55a0a1c1fff84508519cbb58ef00a",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Switch",
+      "slug": "animation-off",
+      "displayName": "animation off",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "cf71338fb1933ed206c9bb2715195287",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Link",
+      "slug": "installation-instruction",
+      "displayName": "Installation instruction",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "c4a671c8fee802afd2ce0bef89052e1e",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Link",
+      "slug": "specification",
+      "displayName": "Specification",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "e1a7135efb7689419b89c0f0843e7ed1",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Link",
+      "slug": "testing",
+      "displayName": "Testing",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "0b5409603b395e95a1af9294a460cba8",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Switch",
+      "slug": "configuration-sizes",
+      "displayName": "Configuration&Sizes",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "819fd9ce3d1e5fa97b0f9244ac625cb5",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "configuration-sizes-description",
+      "displayName": "Configuration&Sizes description",
+      "helpText": null,
+      "validations": {
+        "singleLine": false
+      }
+    },
+    {
+      "id": "f04fbbe906529025e966134885e9fb15",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Switch",
+      "slug": "performance",
+      "displayName": "Performance",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "e863ffa1f08da1016b66c03f23edae1e",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "performance-description",
+      "displayName": "Performance Description",
+      "helpText": null,
+      "validations": {
+        "singleLine": false
+      }
+    },
+    {
+      "id": "933785e780252e8d89d1a16759fd02f0",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "seo-title",
+      "displayName": "SEO Title",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "6849abaf4a11472ca28ddbd0f555951f",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "seo-description",
+      "displayName": "SEO Description",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "fa848f7c167b8012a44713849c905b76",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "opengraph-title",
+      "displayName": "OpenGraph Title",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "0e735e7ac573d76e07e64d93e0bff0ae",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "opengraph-description",
+      "displayName": "OpenGraph Description",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "a69f422b06a93a58856b2e7111ef685d",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Link",
+      "slug": "opengraph-image",
+      "displayName": "OpenGraph Image",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "cd36f61c46af8efcd4fbb54777cc4718",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "twitter-card",
+      "displayName": "Twitter Card",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "e8a8a7efc0c0d3bd0f20512e11563205",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "name",
+      "displayName": "Property Type - Name",
+      "helpText": null,
+      "validations": {
+        "maxLength": 256
+      }
+    },
+    {
+      "id": "b6aa4ab13e608938e4732e8866797d29",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "slug",
+      "displayName": "Property Type - Link",
+      "helpText": null,
+      "validations": {
+        "maxLength": 256,
+        "messages": {
+          "pattern": "Must be alphanumerical and not contain any spaces or special characters",
+          "maxLength": "Must be less than 256 characters"
+        }
+      }
+    }
+  ]
+}

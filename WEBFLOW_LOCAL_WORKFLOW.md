@@ -13,11 +13,11 @@ php artisan webflow:sync --site-id=YOUR_SITE_ID --token=YOUR_TOKEN
 
 Result files:
 
-- `storage/app/webflow-export/current/site/pages.json`
-- `storage/app/webflow-export/current/collections/<slug>/schema.json`
-- `storage/app/webflow-export/current/collections/<slug>/items.json`
-- `storage/app/webflow-export/current/imports/<slug>.json`
-- `storage/app/webflow-export/current/manifest.json`
+- `webflow-data/current/site/pages.json`
+- `webflow-data/current/collections/<slug>/schema.json`
+- `webflow-data/current/collections/<slug>/items.json`
+- `webflow-data/current/imports/<slug>.json`
+- `webflow-data/current/manifest.json`
 
 Also generated:
 
@@ -55,11 +55,11 @@ php artisan webflow:local all --with-migrate
 
 Primary editable files:
 
-- `storage/app/webflow-export/current/imports/<slug>.json`
+- `webflow-data/current/imports/<slug>.json`
 
 Optional export snapshots from DB:
 
-- `storage/app/webflow-export/current/collections/<slug>/items.local.json`
+- `webflow-data/current/collections/<slug>/items.local.json`
 
 After editing JSON files, run:
 

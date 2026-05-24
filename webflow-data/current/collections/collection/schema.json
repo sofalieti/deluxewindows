@@ -1,0 +1,255 @@
+{
+  "id": "6841ddf8ace3d9d9facb165f",
+  "displayName": "Collections",
+  "singularName": "Collection",
+  "slug": "collection",
+  "createdOn": "2024-03-06T17:59:28.305Z",
+  "lastUpdated": "2026-04-24T10:17:53.101Z",
+  "fields": [
+    {
+      "id": "49ef67bfdfcb2f4420f3710a9a4739fc",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "Image",
+      "slug": "property-type---icon",
+      "displayName": "Property Type - Icon",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "ea766bea1918417d360c327c1726e3fa",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "property-type---description",
+      "displayName": "Property Type - Description",
+      "helpText": null,
+      "validations": {
+        "singleLine": true,
+        "maxLength": 137
+      }
+    },
+    {
+      "id": "b260d4e5728fc7cc416997273d252b9f",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Image",
+      "slug": "featured-image",
+      "displayName": "Featured Image",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "aea0fc216cc223a66baeef133ff130ef",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "RichText",
+      "slug": "description",
+      "displayName": "Description",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "4b4d5a83932622a05012ead13d603dbd",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "price-category",
+      "displayName": "Price Category",
+      "helpText": null,
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "3c31fb437d7a506ee68db7875c6eb9b3",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "VideoLink",
+      "slug": "video",
+      "displayName": "Video",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "65e7d9add2a5bde1f3863199f5323cd0",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "explore-brand-style",
+      "displayName": "Explore (Brand) Style",
+      "helpText": null,
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "4700a2780d596293806aa79fdddad343",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiReference",
+      "slug": "brand---material---style",
+      "displayName": "Brand - Material - Style",
+      "helpText": null,
+      "validations": {
+        "collectionId": "6841ddf8ace3d9d9facb1614"
+      }
+    },
+    {
+      "id": "2a7a36da6f5198e71020811858822595",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Reference",
+      "slug": "parent-brand",
+      "displayName": "Parent brand",
+      "helpText": null,
+      "validations": {
+        "collectionId": "6841ddf8ace3d9d9facb168a"
+      }
+    },
+    {
+      "id": "6c565eb206a4e5cd416ff9c38d966a5f",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "RichText",
+      "slug": "about-tab",
+      "displayName": "About tab",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "5672fffa17c51576085b25013684b53b",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiReference",
+      "slug": "collections-tabs-details",
+      "displayName": "Collections-Tabs-Details",
+      "helpText": null,
+      "validations": {
+        "collectionId": "692d344de96107a11341bde7"
+      }
+    },
+    {
+      "id": "0db7a311c5e81d433612fb3edfbfbe14",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiImage",
+      "slug": "inspiration-photos",
+      "displayName": "Inspiration Photos",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "a74b1351e382c8669fa3a62436d9b294",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiReference",
+      "slug": "other-collections",
+      "displayName": "Other collections",
+      "helpText": null,
+      "validations": {
+        "collectionId": "6841ddf8ace3d9d9facb165f"
+      }
+    },
+    {
+      "id": "ee118226d3fa1a04eac605b5630ac95a",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiReference",
+      "slug": "materials",
+      "displayName": "Materials",
+      "helpText": null,
+      "validations": {
+        "collectionId": "6841ddf8ace3d9d9facb1689"
+      }
+    },
+    {
+      "id": "2fb7ef6eebe145ae87e0cf74c91fbe82",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "seo-title",
+      "displayName": "SEO Title",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "7c1b5b28398db5626c2fa3e4648bc1c3",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "seo-description",
+      "displayName": "SEO Description",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "b863f216b384c70ca67560e81ee8aa15",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "opengraph-title",
+      "displayName": "OpenGraph Title",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "6fd793ecc670c4edc47542db96912d2c",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "opengraph-description",
+      "displayName": "OpenGraph Description",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "242b0aac3de27913cefd7e3af43bbd28",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Link",
+      "slug": "opengraph-image",
+      "displayName": "OpenGraph Image",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "fddbf9f84d1cd4b3cfa19042a9a64a31",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "twitter-card",
+      "displayName": "Twitter Card",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "a13d8e47831e557c4ebea79de6025cba",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "name",
+      "displayName": "Property Type - Name",
+      "helpText": null,
+      "validations": {
+        "maxLength": 256
+      }
+    },
+    {
+      "id": "c9ac6371cfbb41423e257bba418f0ed5",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "slug",
+      "displayName": "Property Type - Link",
+      "helpText": null,
+      "validations": {
+        "maxLength": 256,
+        "messages": {
+          "pattern": "Must be alphanumerical and not contain any spaces or special characters",
+          "maxLength": "Must be less than 256 characters"
+        }
+      }
+    }
+  ]
+}

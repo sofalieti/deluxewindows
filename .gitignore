@@ -32,6 +32,7 @@ yarn-error.log
 !/config/services.php
 !/config/session.php
 !/config/view.php
+!/config/webflow.php
 
 # Docker конфигурации
 docker-compose.override.yml 

@@ -14,8 +14,8 @@ class WebflowSyncService
 
     public function sync(string $siteId, bool $withDom = true): array
     {
-        $disk = Storage::disk((string) config('webflow.export_disk', 'local'));
-        $root = trim((string) config('webflow.export_root', 'webflow-export/current'), '/');
+        $disk = Storage::disk((string) config('webflow.export_disk', 'webflow_repo'));
+        $root = trim((string) config('webflow.export_root', 'current'), '/');
 
         $pages = $this->client->listPages($siteId);
         $collections = $this->client->listCollections($siteId);

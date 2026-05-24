@@ -11,7 +11,7 @@ class WebflowCodegenService
 {
     public function generateFromExport(string $root): array
     {
-        $disk = Storage::disk((string) config('webflow.export_disk', 'local'));
+        $disk = Storage::disk((string) config('webflow.export_disk', 'webflow_repo'));
         $manifest = json_decode((string) $disk->get($root.'/manifest.json'), true, 512, JSON_THROW_ON_ERROR);
         $pagesPayload = json_decode((string) $disk->get($root.'/site/pages.json'), true, 512, JSON_THROW_ON_ERROR);
 
@@ -42,7 +42,7 @@ class WebflowCodegenService
             File::put($modelPath, $this->buildModelContent($modelClass, $tableName, $fields));
             $createdModels[] = $modelPath;
 
-            $importPath = storage_path("app/{$root}/imports/{$slug}.json");
+            $importPath = $this->exportPath($root, "imports/{$slug}.json");
             File::ensureDirectoryExists(dirname($importPath));
             File::put($importPath, json_encode([
                 'table' => $tableName,
@@ -76,7 +76,7 @@ class WebflowCodegenService
 
     public function importIntoDatabase(string $root): array
     {
-        $manifestPath = storage_path("app/{$root}/manifest.json");
+        $manifestPath = $this->exportPath($root, 'manifest.json');
         if (! File::exists($manifestPath)) {
             return [];
         }
@@ -134,7 +134,7 @@ class WebflowCodegenService
 
     public function exportFromDatabase(string $root): array
     {
-        $manifestPath = storage_path("app/{$root}/manifest.json");
+        $manifestPath = $this->exportPath($root, 'manifest.json');
         if (! File::exists($manifestPath)) {
             return [];
         }
@@ -199,14 +199,14 @@ class WebflowCodegenService
                 ];
             }
 
-            $itemsOutputPath = storage_path("app/{$root}/collections/{$slug}/items.local.json");
+            $itemsOutputPath = $this->exportPath($root, "collections/{$slug}/items.local.json");
             File::ensureDirectoryExists(dirname($itemsOutputPath));
             File::put(
                 $itemsOutputPath,
                 json_encode(['items' => $items], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)
             );
 
-            $importPath = storage_path("app/{$root}/imports/{$slug}.json");
+            $importPath = $this->exportPath($root, "imports/{$slug}.json");
             File::ensureDirectoryExists(dirname($importPath));
             File::put(
                 $importPath,
@@ -474,13 +474,13 @@ BLADE;
 
     private function resolveImportPayload(string $root, string $slug, array $collection): ?array
     {
-        $importPath = storage_path("app/{$root}/imports/{$slug}.json");
+        $importPath = $this->exportPath($root, "imports/{$slug}.json");
         if (File::exists($importPath)) {
             return json_decode((string) File::get($importPath), true, 512, JSON_THROW_ON_ERROR);
         }
 
-        $itemsPath = storage_path("app/{$root}/collections/{$slug}/items.json");
-        $schemaPath = storage_path("app/{$root}/collections/{$slug}/schema.json");
+        $itemsPath = $this->exportPath($root, "collections/{$slug}/items.json");
+        $schemaPath = $this->exportPath($root, "collections/{$slug}/schema.json");
         if (! File::exists($itemsPath) || ! File::exists($schemaPath)) {
             return null;
         }
@@ -525,5 +525,18 @@ BLADE;
         }
 
         return $value;
+    }
+
+    private function exportPath(string $root, string $relative = ''): string
+    {
+        $disk = Storage::disk((string) config('webflow.export_disk', 'webflow_repo'));
+        $base = rtrim($disk->path(trim($root, '/')), DIRECTORY_SEPARATOR);
+        $relative = trim($relative, '/');
+
+        if ($relative === '') {
+            return $base;
+        }
+
+        return $base.DIRECTORY_SEPARATOR.str_replace('/', DIRECTORY_SEPARATOR, $relative);
     }
 }

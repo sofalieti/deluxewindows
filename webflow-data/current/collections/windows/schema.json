@@ -1,0 +1,429 @@
+{
+  "id": "6841ddf8ace3d9d9facb1689",
+  "displayName": "Windows",
+  "singularName": "Window",
+  "slug": "windows",
+  "createdOn": "2024-03-06T18:01:39.705Z",
+  "lastUpdated": "2026-05-23T11:15:09.258Z",
+  "fields": [
+    {
+      "id": "3efde23eb7143539d3044ff456db1b08",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "RichText",
+      "slug": "discounttext",
+      "displayName": "DiscountText",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "64d248618a46106d2001518617d5cbb4",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Image",
+      "slug": "property-listing---featured-image",
+      "displayName": "Property Listing - Featured Image [Page]",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "389ca36fbc07226770a5febd4d5e5e1c",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiImage",
+      "slug": "property-listing---featured-images",
+      "displayName": "Property Listing - Gallery Images [Page]",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "c0ae280290b6ffd32e5c2bbd201123f6",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Image",
+      "slug": "property-listing---thumbnail-image-v1",
+      "displayName": "Property Listing - Thumbnail Image V1 [Card]",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "0834b558a0b9a08e5a24bcbfce962f31",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Image",
+      "slug": "property-listing---thumbnail-image-v2",
+      "displayName": "Property Listing - Thumbnail Image V2 [Card]",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "130cdf628292931a621b49d11c5aaafd",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Image",
+      "slug": "property-listing---thumbnail-image-v3",
+      "displayName": "Property Listing - Thumbnail Image V3 [Card]",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "0490266d3c4e1a81c441efc3e6c6b8c0",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "RichText",
+      "slug": "property-listing---about",
+      "displayName": "Property Listing - About",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "9a0dc809190b4c65b24b28ddf5637581",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "property-listing---summary",
+      "displayName": "Property Listing - Summary [Page]",
+      "helpText": null,
+      "validations": {
+        "singleLine": true,
+        "maxLength": 241
+      }
+    },
+    {
+      "id": "038dfc3c122afca56b014782153aef4a",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "property-listing---excerpt",
+      "displayName": "Property Listing - Excerpt [Card]",
+      "helpText": null,
+      "validations": {
+        "singleLine": true,
+        "maxLength": 94
+      }
+    },
+    {
+      "id": "23913f9f957ba13c2384f2e16d38b581",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Switch",
+      "slug": "property-listing---property-featured",
+      "displayName": "Property Listing - Is Featured?",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "d720fcb60e77ed5b8414ad75f249391d",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "property-listing---address",
+      "displayName": "Property Listing - Address",
+      "helpText": null,
+      "validations": {
+        "singleLine": true,
+        "maxLength": 40
+      }
+    },
+    {
+      "id": "d09edf3d5ada08e8fba13f90cdbd1b11",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "property-listing---sqf",
+      "displayName": "Property Listing - SQFT",
+      "helpText": null,
+      "validations": {
+        "singleLine": true,
+        "maxLength": 10
+      }
+    },
+    {
+      "id": "c6a9311bdb2468719b0f266a6f865bdc",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Number",
+      "slug": "property-listing---number-of-bathrooms",
+      "displayName": "Property Listing - Number of Bathrooms",
+      "helpText": null,
+      "validations": {
+        "format": "integer",
+        "precision": 1,
+        "allowNegative": false,
+        "maxValue": 99
+      }
+    },
+    {
+      "id": "21a0218a938c07f003d8db296a7f7eba",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Number",
+      "slug": "property-listing---number-of-bedrooms",
+      "displayName": "Property Listing - Number of Bedrooms",
+      "helpText": null,
+      "validations": {
+        "format": "integer",
+        "precision": 1,
+        "allowNegative": false,
+        "maxValue": 99
+      }
+    },
+    {
+      "id": "849b1aa1613b8bbab8cfc70da82ec683",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Number",
+      "slug": "property-listing---number-of-parking-spots",
+      "displayName": "Property Listing - Number of Parking Spots",
+      "helpText": null,
+      "validations": {
+        "format": "integer",
+        "precision": 1,
+        "allowNegative": false,
+        "maxValue": 99
+      }
+    },
+    {
+      "id": "cfba2673a62cc2fa72f8fac8a6938dfc",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "property-listing---display-price",
+      "displayName": "Property Listing - Display Price",
+      "helpText": null,
+      "validations": {
+        "singleLine": true,
+        "maxLength": 9
+      }
+    },
+    {
+      "id": "33e155adc7892c1349cf3565e03c0d49",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Reference",
+      "slug": "property-listing---type",
+      "displayName": "Property Listing - Type",
+      "helpText": null,
+      "validations": {
+        "collectionId": "6841ddf8ace3d9d9facb165f"
+      }
+    },
+    {
+      "id": "585dd61c12c220fe365dddb3c66eb473",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Reference",
+      "slug": "property-listing---agent",
+      "displayName": "Property Listing - Agent",
+      "helpText": null,
+      "validations": {
+        "collectionId": "6841ddf8ace3d9d9facb168a"
+      }
+    },
+    {
+      "id": "2d79190d2ab7a74c4dd0f51a407b2ef2",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiReference",
+      "slug": "brands",
+      "displayName": "Brands",
+      "helpText": null,
+      "validations": {
+        "collectionId": "6841ddf8ace3d9d9facb168a"
+      }
+    },
+    {
+      "id": "9a9fbcf60bca94c119278258a3dea11d",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "title-for-brands",
+      "displayName": "Title for Brands",
+      "helpText": "Top Vynil Window Brands",
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "29819a3a478b8b31f9cbaaca47c16fac",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiReference",
+      "slug": "brands-types",
+      "displayName": "Brands-Types",
+      "helpText": null,
+      "validations": {
+        "collectionId": "688e50676f1dbd8cba0e08f2"
+      }
+    },
+    {
+      "id": "73b004303941d6e84d84508d93953adf",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "parent-collection",
+      "displayName": "Parent Collection",
+      "helpText": null,
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "8c46926fd11348f36e5248ad8f16e0bb",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiReference",
+      "slug": "collections",
+      "displayName": "Collections",
+      "helpText": null,
+      "validations": {
+        "collectionId": "6841ddf8ace3d9d9facb165f"
+      }
+    },
+    {
+      "id": "85cf32c7c5958412408b92dc5a0e57f4",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "category-name",
+      "displayName": "Category Name",
+      "helpText": null,
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "5ce3b6fc2bad4499fe7f1ce1f335d01a",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "short-title",
+      "displayName": "Short title",
+      "helpText": null,
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "d280273a7faaa93f8b67a9627cc087cd",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "RichText",
+      "slug": "warrantytext",
+      "displayName": "WarrantyText",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "53ffe075b5ad830ca53d86e7c26311e6",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "warrantyline",
+      "displayName": "WarrantyLine",
+      "helpText": null,
+      "validations": {
+        "singleLine": false
+      }
+    },
+    {
+      "id": "1e691afd01d72295f985f8b3733227a7",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "seo-title",
+      "displayName": "SEO Title",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "f3e5eb85b7aba04ddf6a36bf88ae5f05",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "seo-description",
+      "displayName": "SEO Description",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "ae149551faf92e7aab37def16befb7f4",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "opengraph-title",
+      "displayName": "OpenGraph Title",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "a2795916a80e74cd35acbdfb140c71d0",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "opengraph-description",
+      "displayName": "OpenGraph Description",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "8d5a6350d3899f8fe8f3964bcfd1c545",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Link",
+      "slug": "opengraph-image",
+      "displayName": "OpenGraph Image",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "60f594e469b383e8fb21df6179e62e43",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "twitter-card",
+      "displayName": "Twitter Card",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "632558736364de99191eaced4b9580fa",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Switch",
+      "slug": "hide",
+      "displayName": "Hide Item",
+      "helpText": "Test",
+      "validations": null
+    },
+    {
+      "id": "03fc4ed454b1609f827ef4e013153faa",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "name",
+      "displayName": "Property Listing - Title",
+      "helpText": null,
+      "validations": {
+        "maxLength": 256
+      }
+    },
+    {
+      "id": "0ff2cc7c02fa0dfce375982999331e16",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "slug",
+      "displayName": "Property Listing - Link",
+      "helpText": null,
+      "validations": {
+        "maxLength": 256,
+        "pattern": {},
+        "messages": {
+          "pattern": "Must be alphanumerical and not contain any spaces or special characters",
+          "maxLength": "Must be less than 256 characters"
+        }
+      }
+    }
+  ]
+}

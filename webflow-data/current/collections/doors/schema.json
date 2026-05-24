@@ -1,0 +1,264 @@
+{
+  "id": "6841ddf8ace3d9d9facb1588",
+  "displayName": "Doors",
+  "singularName": "Door",
+  "slug": "doors",
+  "createdOn": "2023-06-08T17:08:49.784Z",
+  "lastUpdated": "2026-04-24T10:17:53.047Z",
+  "fields": [
+    {
+      "id": "2fe4fa8b657729a0fe48e70671b839af",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "RichText",
+      "slug": "door-discount",
+      "displayName": "Door Discount",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "34eda207b72b8b8025e1179a71edf60e",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "Image",
+      "slug": "blog-post---featured-image",
+      "displayName": "Blog Post - Featured Image [Page & Featured Card]",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "4f62c09c0ff7b5dddf4a2191a924a4e8",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "Image",
+      "slug": "blog-post---thumbnail-image-v1",
+      "displayName": "Blog Post - Thumbnail Image V1 [Card]",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "d2f9735f44a6c91cd4ff30f555b96410",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "Image",
+      "slug": "blog-post---thumbnail-image-v2",
+      "displayName": "Blog Post - Thumbnail Image V2 [Card]",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "f07d3ca53e41a5ac83fcedfa49ef87be",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "Image",
+      "slug": "blog-post---thumbnail-image-v3",
+      "displayName": "Blog Post - Thumbnail Image V3 [Card]",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "31af53df0f1861e64945807fa4958435",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiImage",
+      "slug": "gallery",
+      "displayName": "Gallery",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "298bbfb94510e78ebf7c3b8b0df6b708",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "RichText",
+      "slug": "blog-post---rich-text",
+      "displayName": "Blog Post - Rich Text",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "485f01920492ca598a4ab377d2f9ba11",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "blog-post---summary",
+      "displayName": "Blog Post - Summary [Page]",
+      "helpText": null,
+      "validations": {
+        "singleLine": true,
+        "maxLength": 137
+      }
+    },
+    {
+      "id": "c8e4bec3b551ec4583d042112a3a3f0b",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "blog-post---excerpt",
+      "displayName": "Blog Post - Excerpt [Card]",
+      "helpText": null,
+      "validations": {
+        "singleLine": true,
+        "maxLength": 94
+      }
+    },
+    {
+      "id": "2a6e533f6d4cb0e9516aa6eedf4bddd4",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Switch",
+      "slug": "featured",
+      "displayName": "Blog Post - Is Featured?",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "b3c26a4f53cb7930762b971548d441c2",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Reference",
+      "slug": "blog-post---category",
+      "displayName": "Blog Post - Category",
+      "helpText": null,
+      "validations": {
+        "collectionId": "6841ddf8ace3d9d9facb168b"
+      }
+    },
+    {
+      "id": "5eaec51d117a5cfb4f6ae1e7b3fd6f12",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Reference",
+      "slug": "blog-post---author",
+      "displayName": "Blog Post - Author",
+      "helpText": null,
+      "validations": {
+        "collectionId": "6841ddf8ace3d9d9facb168a"
+      }
+    },
+    {
+      "id": "d70cf808e1304a84d1105fdc1fc646e8",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "description",
+      "displayName": "Description",
+      "helpText": null,
+      "validations": {
+        "singleLine": false
+      }
+    },
+    {
+      "id": "ea24a0134ef9eb9f680076691eca0daf",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiReference",
+      "slug": "doors-brands",
+      "displayName": "Doors Brands",
+      "helpText": null,
+      "validations": {
+        "collectionId": "6841ddf8ace3d9d9facb168a"
+      }
+    },
+    {
+      "id": "4edeece0ad2a4f5aa9705b73fa0ee439",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "brands-title",
+      "displayName": "Brands Title",
+      "helpText": "Top Vynil Doors Brands",
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "e97898441edf4c068ad966e203598866",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "seo-title",
+      "displayName": "SEO Title",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "763d2f5ce8d5ececd7371ecce2b209c4",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "seo-description",
+      "displayName": "SEO Description",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "914df51d069ac9022ccf8b238cdaec4a",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "opengraph-title",
+      "displayName": "OpenGraph Title",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "b199308e0a3f100e79532f1a806d4898",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "opengraph-description",
+      "displayName": "OpenGraph Description",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "19afc131c90bfabb04d7b8ac6abedb10",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Link",
+      "slug": "opengraph-image",
+      "displayName": "OpenGraph Image",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "b426e1d1b004037f16cd5f697ac1d212",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "twitter-card",
+      "displayName": "Twitter Card",
+      "helpText": null,
+      "validations": null
+    },
+    {
+      "id": "5d8a8bb1b608f3868244e625188e24b1",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "name",
+      "displayName": "Blog Post - Title",
+      "helpText": null,
+      "validations": {
+        "maxLength": 256
+      }
+    },
+    {
+      "id": "e66adad70aed864d7445bf849efbe336",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "slug",
+      "displayName": "Blog Post - Link",
+      "helpText": null,
+      "validations": {
+        "maxLength": 256,
+        "messages": {
+          "pattern": "Must be alphanumerical and not contain any spaces or special characters",
+          "maxLength": "Must be less than 256 characters"
+        }
+      }
+    }
+  ]
+}
