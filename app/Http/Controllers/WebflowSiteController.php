@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 
 class WebflowSiteController extends Controller
 {
@@ -20,10 +20,19 @@ class WebflowSiteController extends Controller
     private function serve(string $path)
     {
         $normalizedPath = $this->normalizePath($path);
+        $segments = $this->segments($normalizedPath);
+        $collections = $this->collectionMeta();
 
-        $cms = $this->resolveCmsItem($normalizedPath);
-        if ($cms !== null) {
-            return view('webflow.cms.item', $cms);
+        if ($segments !== []) {
+            $collectionSlug = $segments[0];
+            if (array_key_exists($collectionSlug, $collections)) {
+                if (count($segments) === 1) {
+                    return $this->renderCollectionIndex($collectionSlug, $collections[$collectionSlug]);
+                }
+
+                $itemSlug = $segments[count($segments) - 1];
+                return $this->renderCollectionItem($collectionSlug, $itemSlug, $collections[$collectionSlug]);
+            }
         }
 
         $viewName = $this->resolveStaticViewName($normalizedPath);
@@ -48,53 +57,105 @@ class WebflowSiteController extends Controller
         return is_string($view) && $view !== '' ? $view : null;
     }
 
-    private function resolveCmsItem(string $normalizedPath): ?array
+    private function renderCollectionIndex(string $collectionSlug, array $meta)
     {
-        if ($normalizedPath === '/') {
-            return null;
+        $modelClass = $this->modelClassFromSlug($collectionSlug);
+        if (! class_exists($modelClass)) {
+            abort(404);
         }
 
-        $segments = array_values(array_filter(explode('/', trim($normalizedPath, '/'))));
-        if (count($segments) < 2) {
-            return null;
+        $items = $modelClass::query()
+            ->orderByDesc('id')
+            ->limit(120)
+            ->get();
+
+        $itemsData = $items->map(function ($item) {
+            $data = $item->toArray();
+            $data['field_data'] = is_array($item->field_data ?? null) ? $item->field_data : [];
+            return $data;
+        })->all();
+
+        $view = "webflow.collections.{$collectionSlug}.index";
+        if (! view()->exists($view)) {
+            $view = 'webflow.collections.generic.index';
         }
 
-        $collectionSlug = $segments[0];
-        $itemSlug = $segments[count($segments) - 1];
-        $table = 'wf_'.str_replace('-', '_', $collectionSlug);
+        return view($view, [
+            'collectionSlug' => $collectionSlug,
+            'collection' => $meta,
+            'items' => $itemsData,
+        ]);
+    }
 
-        if (! \Schema::hasTable($table)) {
-            return null;
+    private function renderCollectionItem(string $collectionSlug, string $itemSlug, array $meta)
+    {
+        $modelClass = $this->modelClassFromSlug($collectionSlug);
+        if (! class_exists($modelClass)) {
+            abort(404);
         }
 
-        $row = DB::table($table)
+        $item = $modelClass::query()
             ->where('field_data->slug', $itemSlug)
+            ->orWhere('webflow_item_id', $itemSlug)
             ->first();
 
-        if (! $row) {
-            return null;
+        if (! $item) {
+            abort(404);
         }
 
-        $item = (array) $row;
-        $fieldData = $item['field_data'] ?? [];
-        if (is_string($fieldData)) {
-            $decoded = json_decode($fieldData, true);
-            if (is_array($decoded)) {
-                $fieldData = $decoded;
-            }
+        $fieldData = is_array($item->field_data ?? null) ? $item->field_data : [];
+        $view = "webflow.collections.{$collectionSlug}.show";
+        if (! view()->exists($view)) {
+            $view = 'webflow.collections.generic.show';
         }
 
-        return [
+        return view($view, [
             'collectionSlug' => $collectionSlug,
+            'collection' => $meta,
             'itemSlug' => $itemSlug,
-            'item' => $item,
-            'fieldData' => is_array($fieldData) ? $fieldData : [],
-        ];
+            'item' => $item->toArray(),
+            'fieldData' => $fieldData,
+        ]);
     }
 
     private function normalizePath(string $path): string
     {
         $trimmed = '/'.trim($path, '/');
         return $trimmed === '/' ? '/' : rtrim($trimmed, '/');
+    }
+
+    private function segments(string $normalizedPath): array
+    {
+        if ($normalizedPath === '/') {
+            return [];
+        }
+
+        return array_values(array_filter(explode('/', trim($normalizedPath, '/'))));
+    }
+
+    private function collectionMeta(): array
+    {
+        $manifestPath = storage_path('app/'.trim((string) config('webflow.export_root', 'webflow-export/current'), '/').'/manifest.json');
+        if (! File::exists($manifestPath)) {
+            return [];
+        }
+
+        $manifest = json_decode((string) File::get($manifestPath), true);
+        $collections = $manifest['collections'] ?? [];
+
+        $map = [];
+        foreach ($collections as $collection) {
+            $slug = $collection['slug'] ?? null;
+            if (is_string($slug) && $slug !== '') {
+                $map[$slug] = $collection;
+            }
+        }
+
+        return $map;
+    }
+
+    private function modelClassFromSlug(string $slug): string
+    {
+        return 'App\\Models\\Webflow\\'.Str::studly($slug).'WebflowItem';
     }
 }

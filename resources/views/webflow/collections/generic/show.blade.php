@@ -3,22 +3,24 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ data_get($fieldData, 'name', ucfirst($itemSlug)) }} - {{ ucfirst($collectionSlug) }}</title>
+    <title>{{ data_get($fieldData, 'name', ucfirst($itemSlug)) }}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <main class="container py-4">
-    <a href="/" class="btn btn-outline-secondary btn-sm mb-3">Back to Home</a>
+    <a href="/{{ $collectionSlug }}" class="btn btn-outline-secondary btn-sm mb-3">Back to collection</a>
     <h1 class="mb-1">{{ data_get($fieldData, 'name', ucfirst($itemSlug)) }}</h1>
-    <p class="text-muted mb-4">
+    <p class="text-muted">
         Collection: <code>{{ $collectionSlug }}</code>,
         Slug: <code>{{ $itemSlug }}</code>
     </p>
 
     @if(!empty(data_get($fieldData, 'description')))
-        <div class="mb-4">
-            {!! data_get($fieldData, 'description') !!}
-        </div>
+        <div class="mb-4">{!! data_get($fieldData, 'description') !!}</div>
+    @endif
+
+    @if(!empty(data_get($fieldData, 'blog-post---rich-text')))
+        <section class="mb-4">{!! data_get($fieldData, 'blog-post---rich-text') !!}</section>
     @endif
 
     <section class="card">
