@@ -98,6 +98,7 @@ class WebflowCodegenService
                 continue;
             }
             $jsonColumns = $this->jsonColumnsForTable($table);
+            $dateTimeColumns = $this->dateTimeColumnsForTable($table);
 
             $rows = [];
             foreach (($payload['items'] ?? []) as $item) {
@@ -116,7 +117,11 @@ class WebflowCodegenService
 
                 foreach (($payload['flattenedFieldMap'] ?? []) as $wfField => $columnName) {
                     $value = $item['fieldData'][$wfField] ?? null;
-                    $row[$columnName] = $this->normalizeFieldValue($value, in_array($columnName, $jsonColumns, true));
+                    $row[$columnName] = $this->normalizeFieldValue(
+                        $value,
+                        in_array($columnName, $jsonColumns, true),
+                        in_array($columnName, $dateTimeColumns, true)
+                    );
                 }
 
                 if ($row['webflow_item_id'] !== '') {
@@ -369,7 +374,11 @@ PHP;
         };
     }
 
-    private function normalizeFieldValue(mixed $value, bool $asJsonColumn = false): mixed
+    private function normalizeFieldValue(
+        mixed $value,
+        bool $asJsonColumn = false,
+        bool $asDateTimeColumn = false
+    ): mixed
     {
         if ($asJsonColumn) {
             if ($value === null) {
@@ -377,6 +386,10 @@ PHP;
             }
 
             return json_encode($value, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+        }
+
+        if ($asDateTimeColumn) {
+            return $this->toDatabaseDateTime(is_string($value) ? $value : null);
         }
 
         if (is_array($value) || is_object($value)) {
@@ -546,6 +559,30 @@ BLADE;
             $field = $row->Field ?? null;
             $type = strtolower((string) ($row->Type ?? ''));
             if (is_string($field) && str_starts_with($type, 'json')) {
+                $columns[] = $field;
+            }
+        }
+
+        return $columns;
+    }
+
+    private function dateTimeColumnsForTable(string $table): array
+    {
+        $columns = [];
+        $rows = \DB::select("SHOW COLUMNS FROM `{$table}`");
+
+        foreach ($rows as $row) {
+            $field = $row->Field ?? null;
+            $type = strtolower((string) ($row->Type ?? ''));
+            if (! is_string($field) || $field === '') {
+                continue;
+            }
+
+            if (
+                str_contains($type, 'timestamp')
+                || str_contains($type, 'datetime')
+                || preg_match('/^date(\(|$)/', $type) === 1
+            ) {
                 $columns[] = $field;
             }
         }
