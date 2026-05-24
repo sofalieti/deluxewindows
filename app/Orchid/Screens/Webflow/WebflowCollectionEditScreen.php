@@ -51,7 +51,7 @@ class WebflowCollectionEditScreen extends Screen
 
     public function permission(): ?iterable
     {
-        return ['platform.webflow.manage'];
+        return null;
     }
 
     public function commandBar(): iterable

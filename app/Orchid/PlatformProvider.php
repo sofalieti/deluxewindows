@@ -39,11 +39,10 @@ class PlatformProvider extends OrchidServiceProvider
             $webflowMenus[] = Menu::make($collection['title'])
                 ->icon('bs.database')
                 ->route('platform.webflow.collection', ['collection' => $collection['slug']])
-                ->permission('platform.webflow.manage')
                 ->title('Webflow CMS');
         }
 
-        return [
+        $baseMenu = [
             Menu::make('Get Started')
                 ->icon('bs.book')
                 ->title('Navigation')
@@ -99,9 +98,9 @@ class PlatformProvider extends OrchidServiceProvider
                 ->url('https://github.com/orchidsoftware/platform/blob/master/CHANGELOG.md')
                 ->target('_blank')
                 ->badge(fn () => Dashboard::version(), Color::DARK),
-
-            ...$webflowMenus,
         ];
+
+        return array_merge($webflowMenus, $baseMenu);
     }
 
     /**
