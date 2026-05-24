@@ -50,21 +50,9 @@ class WebflowSiteController extends Controller
 
     private function resolveStaticViewName(string $normalizedPath): ?string
     {
-        $fallbackView = $this->fallbackMirrorViewName($normalizedPath);
-        $manifestPath = storage_path('app/'.trim((string) config('webflow.export_root', 'webflow-export/current'), '/').'/mirror-routes.json');
-        if (! File::exists($manifestPath)) {
-            return $fallbackView;
-        }
+        $view = $this->pageViewNameFromPath($normalizedPath);
 
-        $manifest = json_decode((string) File::get($manifestPath), true);
-        $routeMap = $manifest['routeMap'] ?? [];
-        $view = $routeMap[$normalizedPath] ?? null;
-
-        if (is_string($view) && $view !== '') {
-            return $view;
-        }
-
-        return $fallbackView;
+        return view()->exists($view) ? $view : null;
     }
 
     private function renderCollectionIndex(string $collectionSlug, array $meta)
@@ -140,11 +128,6 @@ class WebflowSiteController extends Controller
                     'item' => $importItem,
                     'fieldData' => is_array($fieldData) ? $fieldData : [],
                 ]);
-            }
-
-            $mirrorView = 'webflow.mirror.'.$collectionSlug.'.'.$itemSlug;
-            if (view()->exists($mirrorView)) {
-                return view($mirrorView);
             }
 
             abort(404);
@@ -234,13 +217,15 @@ class WebflowSiteController extends Controller
         return null;
     }
 
-    private function fallbackMirrorViewName(string $normalizedPath): string
+    private function pageViewNameFromPath(string $normalizedPath): string
     {
         if ($normalizedPath === '/') {
-            return 'webflow.mirror.home';
+            return 'webflow.pages.home';
         }
 
         $segments = array_values(array_filter(explode('/', trim($normalizedPath, '/'))));
-        return 'webflow.mirror.'.implode('.', $segments);
+        $safe = array_map(fn (string $segment) => str_replace('-', '_', $segment), $segments);
+
+        return 'webflow.pages.'.implode('.', $safe);
     }
 }
