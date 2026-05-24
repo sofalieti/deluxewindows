@@ -45,16 +45,21 @@ class WebflowSiteController extends Controller
 
     private function resolveStaticViewName(string $normalizedPath): ?string
     {
+        $fallbackView = $this->fallbackMirrorViewName($normalizedPath);
         $manifestPath = storage_path('app/'.trim((string) config('webflow.export_root', 'webflow-export/current'), '/').'/mirror-routes.json');
         if (! File::exists($manifestPath)) {
-            return null;
+            return $fallbackView;
         }
 
         $manifest = json_decode((string) File::get($manifestPath), true);
         $routeMap = $manifest['routeMap'] ?? [];
         $view = $routeMap[$normalizedPath] ?? null;
 
-        return is_string($view) && $view !== '' ? $view : null;
+        if (is_string($view) && $view !== '') {
+            return $view;
+        }
+
+        return $fallbackView;
     }
 
     private function renderCollectionIndex(string $collectionSlug, array $meta)
@@ -157,5 +162,15 @@ class WebflowSiteController extends Controller
     private function modelClassFromSlug(string $slug): string
     {
         return 'App\\Models\\Webflow\\'.Str::studly($slug).'WebflowItem';
+    }
+
+    private function fallbackMirrorViewName(string $normalizedPath): string
+    {
+        if ($normalizedPath === '/') {
+            return 'webflow.mirror.home';
+        }
+
+        $segments = array_values(array_filter(explode('/', trim($normalizedPath, '/'))));
+        return 'webflow.mirror.'.implode('.', $segments);
     }
 }
