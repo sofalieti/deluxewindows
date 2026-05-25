@@ -43,7 +43,7 @@ class WebflowSiteController extends Controller
 
         $viewName = $this->resolveStaticViewName($normalizedPath);
         if ($viewName !== null && view()->exists($viewName)) {
-            return view($viewName);
+            return $this->renderStaticView($viewName, $normalizedPath);
         }
 
         abort(404);
@@ -258,5 +258,22 @@ class WebflowSiteController extends Controller
         }
 
         return $base.DIRECTORY_SEPARATOR.str_replace('/', DIRECTORY_SEPARATOR, $relative);
+    }
+
+    private function renderStaticView(string $viewName, string $normalizedPath)
+    {
+        if ($normalizedPath === '/' && $viewName === 'webflow.mirror.home') {
+            $html = view($viewName)->render();
+            $stylesheetHref = '/webflow-overrides/home-redesign.css?v=1';
+
+            if (! str_contains($html, '/webflow-overrides/home-redesign.css')) {
+                $linkTag = '<link href="'.$stylesheetHref.'" rel="stylesheet" type="text/css"/>';
+                $html = preg_replace('/<\/head>/i', $linkTag.'</head>', $html, 1) ?? ($html."\n".$linkTag);
+            }
+
+            return response($html);
+        }
+
+        return view($viewName);
     }
 }

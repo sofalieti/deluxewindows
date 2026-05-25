@@ -3,7 +3,178 @@
 @section('title', 'Home')
 
 @section('content')
-<div class="container py-4">
+<style>
+    .home-redesign {
+        --dw-bg: #f4f7fb;
+        --dw-surface: #ffffff;
+        --dw-text: #122238;
+        --dw-muted: #4d5d73;
+        --dw-primary: #0e5ea8;
+        --dw-primary-soft: #e7f1fb;
+        --dw-border: #d8e3f0;
+        --dw-shadow: 0 10px 28px rgba(14, 39, 66, 0.08);
+        --dw-shadow-hover: 0 14px 30px rgba(14, 39, 66, 0.12);
+        max-width: 1160px;
+        padding: 28px 16px 40px;
+        border-radius: 20px;
+        background:
+            radial-gradient(circle at 0% 0%, rgba(14, 94, 168, 0.08), transparent 42%),
+            radial-gradient(circle at 100% 100%, rgba(7, 125, 92, 0.08), transparent 38%),
+            var(--dw-bg);
+    }
+
+    .home-redesign h1,
+    .home-redesign h2,
+    .home-redesign h3 {
+        color: var(--dw-text);
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+        margin: 0;
+    }
+
+    .home-redesign p,
+    .home-redesign label,
+    .home-redesign div {
+        color: var(--dw-muted);
+        line-height: 1.55;
+        margin: 0;
+    }
+
+    .home-redesign > h1 {
+        font-size: clamp(1.7rem, 2.2vw, 2.4rem);
+        margin-bottom: 8px;
+    }
+
+    .home-redesign > p.text-secondary {
+        color: #3c4f67 !important;
+        font-size: 0.95rem;
+        margin-bottom: 20px !important;
+    }
+
+    .home-redesign > section.mb-3 {
+        position: relative;
+        border: 1px solid var(--dw-border);
+        background: var(--dw-surface);
+        border-radius: 14px;
+        padding: 14px 16px;
+        box-shadow: var(--dw-shadow);
+        transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    .home-redesign > section.mb-3:hover {
+        transform: translateY(-1px);
+        box-shadow: var(--dw-shadow-hover);
+        border-color: #c6d8ed;
+    }
+
+    .home-redesign > section:nth-of-type(1),
+    .home-redesign > section:nth-of-type(2),
+    .home-redesign > section:nth-of-type(3),
+    .home-redesign > section:nth-of-type(4) {
+        background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+        border-color: #c4daf1;
+    }
+
+    .home-redesign > section:nth-of-type(1) {
+        border-left: 6px solid var(--dw-primary);
+    }
+
+    .home-redesign .display-4 {
+        color: #0a3f73;
+        font-size: clamp(1.5rem, 3vw, 2.2rem);
+        font-weight: 700;
+    }
+
+    .home-redesign .display-5,
+    .home-redesign .display-8,
+    .home-redesign .heading-23,
+    .home-redesign .heading-24,
+    .home-redesign .heading-46,
+    .home-redesign .heading-2 {
+        font-size: clamp(1.25rem, 2.4vw, 1.85rem);
+        font-weight: 700;
+        color: #153257;
+    }
+
+    .home-redesign .paragraph-29,
+    .home-redesign .paragraph-17,
+    .home-redesign .paragraph-20,
+    .home-redesign .paragraph-5,
+    .home-redesign .paragraph-6,
+    .home-redesign .paragraph-7 {
+        font-size: 1rem;
+        color: var(--dw-muted);
+        max-width: 72ch;
+    }
+
+    .home-redesign .field-label,
+    .home-redesign .field-label-2,
+    .home-redesign .field-label-3,
+    .home-redesign .field-label-4,
+    .home-redesign .field-label-5 {
+        font-weight: 600;
+        color: #1a3559;
+    }
+
+    .home-redesign .filled-icons-font {
+        display: inline-flex;
+        min-width: 44px;
+        min-height: 44px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        border: 1px solid #c7dbef;
+        background: var(--dw-primary-soft);
+        color: var(--dw-primary);
+        font-size: 1.15rem;
+    }
+
+    .home-redesign .italic-text {
+        color: #29496d;
+    }
+
+    .home-redesign .date-span {
+        font-weight: 700;
+        color: #0f4e90;
+    }
+
+    .home-redesign .card {
+        border: 1px solid var(--dw-border);
+        border-radius: 14px;
+        box-shadow: var(--dw-shadow);
+    }
+
+    .home-redesign .card-body pre {
+        max-height: 260px;
+        overflow: auto;
+        border-radius: 10px;
+        background: #f3f8fd;
+        border: 1px solid #d6e6f7;
+        padding: 10px;
+    }
+
+    @media (max-width: 767px) {
+        .home-redesign {
+            border-radius: 14px;
+            padding: 20px 12px 28px;
+        }
+
+        .home-redesign > section.mb-3 {
+            padding: 12px;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .home-redesign > section.mb-3 {
+            transition: none;
+        }
+
+        .home-redesign > section.mb-3:hover {
+            transform: none;
+        }
+    }
+</style>
+<div class="container py-4 home-redesign">
     <h1 class="mb-2">Home</h1>
     <p class="text-secondary mb-4">Webflow slug: <code></code> | Path: <code>/</code></p>
 
