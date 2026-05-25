@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Orchid\Screens\Webflow;
 
 use App\Support\WebflowCollectionRegistry;
+use App\Support\WebflowReferenceRegistry;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
@@ -20,6 +21,8 @@ class WebflowCollectionListScreen extends Screen
 
     protected array $collectionMeta = [];
 
+    protected array $referenceFields = [];
+
     public function query(string $collection): iterable
     {
         $meta = WebflowCollectionRegistry::find($collection);
@@ -27,6 +30,7 @@ class WebflowCollectionListScreen extends Screen
 
         $this->collectionSlug = $meta['slug'];
         $this->collectionMeta = $meta;
+        $this->referenceFields = WebflowReferenceRegistry::forModel($meta['model']);
 
         if (! Schema::hasTable((string) $meta['table'])) {
             abort(404, 'Collection table not found: '.$meta['table']);
@@ -94,6 +98,9 @@ class WebflowCollectionListScreen extends Screen
                 TD::make('updated_at', 'Updated')
                     ->render(fn ($item) => $this->safeText($this->value($item, 'updated_at', '-'))),
 
+                TD::make('relations', 'Relations')
+                    ->render(fn ($item) => $this->safeText($this->relationSummary($item))),
+
                 TD::make('Actions')
                     ->render(fn ($item) => Link::make('Edit')
                         ->icon('bs.pencil')
@@ -128,6 +135,39 @@ class WebflowCollectionListScreen extends Screen
         $clean = is_string($clean) ? $clean : $string;
 
         return Str::limit($clean, 120);
+    }
+
+    private function relationSummary(mixed $item): string
+    {
+        if ($this->referenceFields === []) {
+            return '-';
+        }
+
+        $parts = [];
+        foreach ($this->referenceFields as $fieldSlug => $meta) {
+            $value = $this->value($item, 'field_data.'.$fieldSlug);
+            $relationType = (string) ($meta['type'] ?? '');
+
+            if ($relationType === 'reference') {
+                if (is_string($value) && $value !== '') {
+                    $parts[] = $fieldSlug.':1';
+                }
+                continue;
+            }
+
+            if ($relationType === 'multi_reference' && is_array($value)) {
+                $count = count(array_filter($value, fn ($id) => is_string($id) && $id !== ''));
+                if ($count > 0) {
+                    $parts[] = $fieldSlug.':'.$count;
+                }
+            }
+        }
+
+        if ($parts === []) {
+            return '-';
+        }
+
+        return implode(', ', array_slice($parts, 0, 4)).(count($parts) > 4 ? ', ...' : '');
     }
 }
 

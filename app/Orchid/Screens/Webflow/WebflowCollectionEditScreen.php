@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Orchid\Screens\Webflow;
 
 use App\Support\WebflowCollectionRegistry;
+use App\Support\WebflowReferenceRegistry;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
@@ -25,6 +27,8 @@ class WebflowCollectionEditScreen extends Screen
 
     protected array $fieldData = [];
 
+    protected array $referencePreview = [];
+
     public function query(string $collection, int $item): iterable
     {
         $meta = WebflowCollectionRegistry::find($collection);
@@ -41,12 +45,14 @@ class WebflowCollectionEditScreen extends Screen
         $entity = $model::query()->findOrFail($item);
         $fieldData = is_array($entity->field_data) ? $entity->field_data : [];
         $this->fieldData = $fieldData;
+        $this->referencePreview = $this->buildReferencePreview($entity, $meta['model']);
 
         return [
             'collection' => $meta,
             'entity' => $entity->toArray(),
             'fieldData' => $fieldData,
             'fieldDataJson' => json_encode($fieldData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) ?: '{}',
+            'referencePreview' => $this->referencePreview,
         ];
     }
 
@@ -97,6 +103,7 @@ class WebflowCollectionEditScreen extends Screen
             ]),
 
             Layout::rows($this->buildFieldDataEditors()),
+            Layout::rows($this->buildReferencePreviewEditors()),
 
             Layout::rows([
                 TextArea::make('fieldDataJson')
@@ -231,6 +238,102 @@ class WebflowCollectionEditScreen extends Screen
     private function buildFieldInputName(string $key): string
     {
         return 'fieldData['.$key.']';
+    }
+
+    /**
+     * @return Field[]
+     */
+    private function buildReferencePreviewEditors(): array
+    {
+        if ($this->referencePreview === []) {
+            return [];
+        }
+
+        $fields = [];
+        foreach ($this->referencePreview as $fieldSlug => $preview) {
+            $title = Str::headline(str_replace(['---', '-'], ' ', (string) $fieldSlug));
+            $name = 'referencePreview['.$fieldSlug.']';
+            $value = is_string($preview) && $preview !== '' ? $preview : '-';
+
+            $fields[] = TextArea::make($name)
+                ->title($title.' Relation')
+                ->rows(4)
+                ->readonly()
+                ->value($value)
+                ->help('Resolved related items from imported collections.');
+        }
+
+        return $fields;
+    }
+
+    private function buildReferencePreview(Model $entity, string $modelClass): array
+    {
+        if (! method_exists($entity, 'webflowRelated')) {
+            return [];
+        }
+
+        $referenceFields = WebflowReferenceRegistry::forModel($modelClass);
+        if ($referenceFields === []) {
+            return [];
+        }
+
+        $preview = [];
+        foreach ($referenceFields as $fieldSlug => $meta) {
+            $related = $entity->webflowRelated((string) $fieldSlug);
+            $targetSlug = (string) ($meta['target_slug'] ?? 'unknown');
+            $relationType = (string) ($meta['type'] ?? '');
+
+            if ($relationType === 'reference') {
+                if ($related instanceof Model) {
+                    $preview[$fieldSlug] = $targetSlug.': '.$this->relatedLabel($related);
+                } else {
+                    $preview[$fieldSlug] = $targetSlug.': not linked';
+                }
+
+                continue;
+            }
+
+            if ($related instanceof \Illuminate\Database\Eloquent\Collection) {
+                if ($related->isEmpty()) {
+                    $preview[$fieldSlug] = $targetSlug.': no linked items';
+                    continue;
+                }
+
+                $lines = [];
+                foreach ($related->take(10) as $linked) {
+                    if ($linked instanceof Model) {
+                        $lines[] = '- '.$this->relatedLabel($linked);
+                    }
+                }
+
+                if ($related->count() > 10) {
+                    $lines[] = '... and '.($related->count() - 10).' more';
+                }
+
+                $preview[$fieldSlug] = $targetSlug.':'.PHP_EOL.implode(PHP_EOL, $lines);
+            }
+        }
+
+        return $preview;
+    }
+
+    private function relatedLabel(Model $model): string
+    {
+        $fieldData = $model->getAttribute('field_data');
+        $name = is_array($fieldData) ? ($fieldData['name'] ?? $fieldData['title'] ?? null) : null;
+        $slug = is_array($fieldData) ? ($fieldData['slug'] ?? null) : null;
+
+        $parts = [];
+        if (is_string($name) && $name !== '') {
+            $parts[] = $name;
+        }
+        if (is_string($slug) && $slug !== '') {
+            $parts[] = '('.$slug.')';
+        }
+
+        $label = implode(' ', $parts);
+
+        return ($label !== '' ? $label.' ' : '').'[wf: '.(string) $model->getAttribute('webflow_item_id').']';
     }
 }
 
