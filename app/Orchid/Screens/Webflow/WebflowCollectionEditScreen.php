@@ -140,15 +140,8 @@ class WebflowCollectionEditScreen extends Screen
         $model = $meta['model'];
         $entity = $model::query()->findOrFail($item);
 
-        $fieldData = is_array($entity->field_data) ? $entity->field_data : [];
-        $submittedFields = $request->input('fieldData', []);
-        if (is_array($submittedFields)) {
-            foreach ($submittedFields as $key => $value) {
-                $existing = $fieldData[$key] ?? null;
-                $fieldData[$key] = $this->hydrateFieldValue($value, $existing);
-            }
-        }
-        $fieldData = $this->applyRelationInputs($request, $fieldData, $meta['model']);
+        $originalFieldData = is_array($entity->field_data) ? $entity->field_data : [];
+        $fieldData = $originalFieldData;
 
         $rawJsonInput = $request->input('fieldDataJson', '');
         if (is_array($rawJsonInput)) {
@@ -158,7 +151,10 @@ class WebflowCollectionEditScreen extends Screen
         }
 
         $rawJson = trim((string) $rawJsonInput);
-        if ($rawJson !== '') {
+        $originalJson = trim(json_encode($originalFieldData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) ?: '{}');
+
+        // Only use the JSON textarea if the user actually changed it (differs from the original).
+        if ($rawJson !== '' && $rawJson !== $originalJson) {
             $decoded = json_decode($rawJson, true);
             if (! is_array($decoded)) {
                 Toast::error('Field Data JSON is invalid.');
@@ -167,6 +163,16 @@ class WebflowCollectionEditScreen extends Screen
             }
 
             $fieldData = $decoded;
+        } else {
+            // Apply individual field edits from the form tabs.
+            $submittedFields = $request->input('fieldData', []);
+            if (is_array($submittedFields)) {
+                foreach ($submittedFields as $key => $value) {
+                    $existing = $fieldData[$key] ?? null;
+                    $fieldData[$key] = $this->hydrateFieldValue($value, $existing);
+                }
+            }
+            $fieldData = $this->applyRelationInputs($request, $fieldData, $meta['model']);
         }
 
         $entity->webflow_cms_locale_id = $request->input('entity.webflow_cms_locale_id');
