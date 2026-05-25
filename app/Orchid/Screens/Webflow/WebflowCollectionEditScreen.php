@@ -91,6 +91,8 @@ class WebflowCollectionEditScreen extends Screen
     public function layout(): iterable
     {
         return [
+            Layout::view('admin.webflow-image-upload-script'),
+
             Layout::rows([
                 Input::make('entity.id')
                     ->title('Local ID')
@@ -209,6 +211,18 @@ class WebflowCollectionEditScreen extends Screen
                 continue;
             }
 
+            // Single image object: array with a 'url' key (not a numeric-indexed list)
+            if (is_array($value) && array_key_exists('url', $value) && ! array_key_exists(0, $value)) {
+                $fields = array_merge($fields, $this->buildSingleImageFields($name, $title, (string) $key, $value));
+                continue;
+            }
+
+            // Multi-image: numeric array where the first element is an image object
+            if (is_array($value) && ! empty($value) && is_array($value[0] ?? null) && array_key_exists('url', $value[0])) {
+                $fields = array_merge($fields, $this->buildMultiImageFields($name, $title, $value));
+                continue;
+            }
+
             if (is_array($value) || is_object($value)) {
                 $encoded = json_encode($value, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
                 $fields[] = TextArea::make($name)
@@ -241,6 +255,15 @@ class WebflowCollectionEditScreen extends Screen
     {
         if (is_bool($existing)) {
             return filter_var($value, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE) ?? false;
+        }
+
+        // Single image object: when the user edits just the URL string, merge it back.
+        if (is_array($existing) && array_key_exists('url', $existing) && ! array_key_exists(0, $existing) && is_string($value)) {
+            if ($value === '') {
+                return $existing; // Don't accidentally clear the image
+            }
+
+            return array_merge($existing, ['url' => $value]);
         }
 
         if (is_array($existing) || is_object($existing)) {
@@ -475,6 +498,83 @@ class WebflowCollectionEditScreen extends Screen
         }
 
         return $fieldData;
+    }
+
+    /**
+     * @return Field[]
+     */
+    private function buildSingleImageFields(string $inputName, string $title, string $fieldKey, array $value): array
+    {
+        $imageUrl = is_string($value['url'] ?? null) ? $value['url'] : '';
+        $safeKey  = preg_replace('/[^a-zA-Z0-9]/', '_', $fieldKey);
+
+        $previewHtml = '';
+        if ($imageUrl !== '') {
+            $esc = htmlspecialchars($imageUrl, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+            $previewHtml = '<div style="margin-bottom:10px">'
+                .'<img id="wf-preview-'.$safeKey.'" src="'.$esc.'" '
+                .'style="max-width:300px;max-height:180px;object-fit:contain;border:1px solid #dee2e6;'
+                .'border-radius:6px;padding:4px;background:#f8f9fa;display:block" '
+                .'onerror="this.style.display=\'none\'">'
+                .'</div>';
+        } else {
+            $previewHtml = '<div id="wf-preview-wrapper-'.$safeKey.'" style="margin-bottom:10px">'
+                .'<img id="wf-preview-'.$safeKey.'" src="" '
+                .'style="max-width:300px;max-height:180px;object-fit:contain;border:1px solid #dee2e6;'
+                .'border-radius:6px;padding:4px;background:#f8f9fa;display:none" />'
+                .'</div>';
+        }
+
+        $uploadHtml = '<div style="margin-top:6px">'
+            .'<input type="file" id="wf-file-'.$safeKey.'" accept="image/jpeg,image/png,image/gif,image/webp,image/avif" '
+            .'style="display:none" '
+            .'onchange="webflowHandleImageUpload(this,'.json_encode($fieldKey).','.json_encode($safeKey).')">'
+            .'<button type="button" id="wf-btn-'.$safeKey.'" '
+            .'onclick="webflowSelectImage('.json_encode($safeKey).')" '
+            .'class="btn btn-sm btn-outline-secondary">'
+            .'📁 Upload image'
+            .'</button>'
+            .'</div>';
+
+        return [
+            Input::make($inputName)
+                ->title($title)
+                ->value($imageUrl)
+                ->help($previewHtml.$uploadHtml.'<small class="text-muted d-block mt-1">Edit URL or upload a new file above.</small>'),
+        ];
+    }
+
+    /**
+     * @return Field[]
+     */
+    private function buildMultiImageFields(string $inputName, string $title, array $value): array
+    {
+        $previewHtml = '<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;">';
+        foreach (array_slice($value, 0, 8) as $img) {
+            if (is_array($img) && is_string($img['url'] ?? null) && $img['url'] !== '') {
+                $esc = htmlspecialchars($img['url'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+                $previewHtml .= '<img src="'.$esc.'" '
+                    .'style="width:90px;height:68px;object-fit:cover;border-radius:4px;border:1px solid #dee2e6;" '
+                    .'onerror="this.style.display=\'none\'">';
+            }
+        }
+
+        $total = count($value);
+        if ($total > 8) {
+            $previewHtml .= '<span style="line-height:68px;color:#6c757d;font-size:13px">+'.($total - 8).' more</span>';
+        }
+
+        $previewHtml .= '</div>';
+
+        $encoded = json_encode($value, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+
+        return [
+            TextArea::make($inputName)
+                ->title($title)
+                ->rows(5)
+                ->value(is_string($encoded) ? $encoded : '[]')
+                ->help($previewHtml.'<small class="text-muted">JSON array — edit the <code>url</code> values to replace individual images.</small>'),
+        ];
     }
 
     private function fieldDataCategory(string $fieldSlug): string
