@@ -143,36 +143,30 @@ class WebflowCollectionEditScreen extends Screen
         $originalFieldData = is_array($entity->field_data) ? $entity->field_data : [];
         $fieldData = $originalFieldData;
 
-        $rawJsonInput = $request->input('fieldDataJson', '');
-        if (is_array($rawJsonInput)) {
-            Toast::error('Field Data JSON must be a JSON object string.');
-
-            return redirect()->back();
+        // Always apply individual field edits from the form tabs first.
+        $submittedFields = $request->input('fieldData', []);
+        if (is_array($submittedFields)) {
+            foreach ($submittedFields as $key => $value) {
+                $existing = $fieldData[$key] ?? null;
+                $fieldData[$key] = $this->hydrateFieldValue($value, $existing);
+            }
         }
+        $fieldData = $this->applyRelationInputs($request, $fieldData, $meta['model']);
 
-        $rawJson = trim((string) $rawJsonInput);
-        $originalJson = trim(json_encode($originalFieldData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) ?: '{}');
-
-        // Only use the JSON textarea if the user actually changed it (differs from the original).
-        if ($rawJson !== '' && $rawJson !== $originalJson) {
+        // JSON textarea override: only when the user actually changed the JSON content.
+        // Compare decoded arrays (not raw strings) to avoid false positives from whitespace/encoding differences.
+        $rawJsonInput = $request->input('fieldDataJson', '');
+        $rawJson = is_string($rawJsonInput) ? trim($rawJsonInput) : '';
+        if ($rawJson !== '') {
             $decoded = json_decode($rawJson, true);
             if (! is_array($decoded)) {
-                Toast::error('Field Data JSON is invalid.');
-
-                return redirect()->back();
+                Toast::error('Field Data JSON is invalid. Changes from individual fields were saved instead.');
+            } elseif ($decoded !== $originalFieldData) {
+                // JSON was intentionally changed by the user — let it take full precedence.
+                $fieldData = $decoded;
             }
-
-            $fieldData = $decoded;
-        } else {
-            // Apply individual field edits from the form tabs.
-            $submittedFields = $request->input('fieldData', []);
-            if (is_array($submittedFields)) {
-                foreach ($submittedFields as $key => $value) {
-                    $existing = $fieldData[$key] ?? null;
-                    $fieldData[$key] = $this->hydrateFieldValue($value, $existing);
-                }
-            }
-            $fieldData = $this->applyRelationInputs($request, $fieldData, $meta['model']);
+            // If $decoded === $originalFieldData the JSON textarea was not touched;
+            // individual field edits already applied above remain in effect.
         }
 
         $entity->webflow_cms_locale_id = $request->input('entity.webflow_cms_locale_id');
