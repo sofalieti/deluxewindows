@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Orchid\Screens\Webflow;
 
 use App\Support\WebflowCollectionRegistry;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
 use Orchid\Screen\Actions\Link;
@@ -30,13 +31,26 @@ class WebflowCollectionListScreen extends Screen
             abort(404, 'Collection table not found: '.$meta['table']);
         }
 
-        $model = $meta['model'];
+        $items = DB::table((string) $meta['table'])
+            ->orderByDesc('id')
+            ->paginate(30)
+            ->through(function ($row) {
+                $item = (array) $row;
+                $fieldData = $item['field_data'] ?? null;
+
+                if (is_string($fieldData) && $fieldData !== '') {
+                    $decoded = json_decode($fieldData, true);
+                    $item['field_data'] = is_array($decoded) ? $decoded : [];
+                } elseif (! is_array($fieldData)) {
+                    $item['field_data'] = [];
+                }
+
+                return (object) $item;
+            });
 
         return [
             'collection' => $meta,
-            'items' => $model::query()
-                ->orderByDesc('id')
-                ->paginate(30),
+            'items' => $items,
         ];
     }
 
@@ -64,7 +78,7 @@ class WebflowCollectionListScreen extends Screen
     {
         return [
             Layout::table('items', [
-                TD::make('id')->sort(),
+                TD::make('id'),
 
                 TD::make('name', 'Name')
                     ->render(fn ($item) => $this->safeText(data_get($item->field_data, 'name', '-'))),
@@ -74,7 +88,7 @@ class WebflowCollectionListScreen extends Screen
 
                 TD::make('webflow_item_id', 'Webflow ID'),
 
-                TD::make('updated_at', 'Updated')->sort(),
+                TD::make('updated_at', 'Updated'),
 
                 TD::make('Actions')
                     ->render(fn ($item) => Link::make('Edit')
