@@ -11,6 +11,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class WebflowReferenceLinkSyncService
 {
+    private const DELETE_CHUNK_SIZE = 1000;
+    private const INSERT_CHUNK_SIZE = 500;
+
     public function sync(): array
     {
         $created = 0;
@@ -81,14 +84,18 @@ class WebflowReferenceLinkSyncService
             }
 
             if ($sourceIds !== []) {
-                WebflowReferenceLink::query()
-                    ->where('source_collection_slug', $sourceSlug)
-                    ->whereIn('source_id', array_values(array_unique($sourceIds)))
-                    ->delete();
+                foreach (array_chunk(array_values(array_unique($sourceIds)), self::DELETE_CHUNK_SIZE) as $sourceIdChunk) {
+                    WebflowReferenceLink::query()
+                        ->where('source_collection_slug', $sourceSlug)
+                        ->whereIn('source_id', $sourceIdChunk)
+                        ->delete();
+                }
             }
 
             if ($rows !== []) {
-                WebflowReferenceLink::query()->insert($rows);
+                foreach (array_chunk($rows, self::INSERT_CHUNK_SIZE) as $rowChunk) {
+                    WebflowReferenceLink::query()->insert($rowChunk);
+                }
             }
 
             $created += count($rows);
