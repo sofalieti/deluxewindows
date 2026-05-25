@@ -16,6 +16,11 @@ class ClassicSiteController extends Controller
         return view('alternative.home');
     }
 
+    public function alternative2()
+    {
+        return view('alternative2.home');
+    }
+
     public function windowBySlug(string $slug)
     {
         $slug = strtolower(trim($slug));
