@@ -8,6 +8,7 @@ use App\Support\WebflowCollectionRegistry;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
+use Orchid\Screen\Repository;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
 use Orchid\Screen\TD;
@@ -45,7 +46,7 @@ class WebflowCollectionListScreen extends Screen
                     $item['field_data'] = [];
                 }
 
-                return (object) $item;
+                return new Repository($item);
             });
 
         return [
@@ -81,10 +82,10 @@ class WebflowCollectionListScreen extends Screen
                 TD::make('id'),
 
                 TD::make('name', 'Name')
-                    ->render(fn ($item) => $this->safeText(data_get($item->field_data, 'name', '-'))),
+                    ->render(fn ($item) => $this->safeText($this->value($item, 'field_data.name', '-'))),
 
                 TD::make('slug', 'Slug')
-                    ->render(fn ($item) => $this->safeText(data_get($item->field_data, 'slug', '-'))),
+                    ->render(fn ($item) => $this->safeText($this->value($item, 'field_data.slug', '-'))),
 
                 TD::make('webflow_item_id', 'Webflow ID'),
 
@@ -95,10 +96,20 @@ class WebflowCollectionListScreen extends Screen
                         ->icon('bs.pencil')
                         ->route('platform.webflow.collection.edit', [
                             'collection' => $this->collectionSlug,
-                            'item' => $item->id,
+                            'item' => $this->value($item, 'id'),
                         ])),
             ]),
         ];
+    }
+
+    private function value(mixed $item, string $key, mixed $default = null): mixed
+    {
+        if (is_object($item) && method_exists($item, 'getContent')) {
+            $value = $item->getContent($key);
+            return $value === null ? $default : $value;
+        }
+
+        return data_get($item, $key, $default);
     }
 
     private function safeText(mixed $value): string
