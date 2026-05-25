@@ -21,7 +21,7 @@
         fd.append('image', input.files[0]);
         fd.append('_token', (document.querySelector('meta[name="csrf-token"]') || {}).content || '');
 
-        fetch('/admin/webflow/upload-image', { method: 'POST', body: fd })
+        fetch('{{ route("platform.webflow.upload-image") }}', { method: 'POST', body: fd })
             .then(function (r) { return r.json(); })
             .then(function (data) {
                 if (data.url) {

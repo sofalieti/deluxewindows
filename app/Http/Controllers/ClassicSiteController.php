@@ -11,6 +11,11 @@ class ClassicSiteController extends Controller
         return view('webflow.mirror.home');
     }
 
+    public function alternative()
+    {
+        return view('alternative.home');
+    }
+
     public function windowBySlug(string $slug)
     {
         $slug = strtolower(trim($slug));
