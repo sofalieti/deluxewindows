@@ -46,7 +46,7 @@ class WebflowCollectionEditScreen extends Screen
             'collection' => $meta,
             'entity' => $entity->toArray(),
             'fieldData' => $fieldData,
-            'fieldDataJson' => json_encode($fieldData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES),
+            'fieldDataJson' => json_encode($fieldData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) ?: '{}',
         ];
     }
 
@@ -127,7 +127,14 @@ class WebflowCollectionEditScreen extends Screen
             }
         }
 
-        $rawJson = trim((string) $request->input('fieldDataJson', ''));
+        $rawJsonInput = $request->input('fieldDataJson', '');
+        if (is_array($rawJsonInput)) {
+            Toast::error('Field Data JSON must be a JSON object string.');
+
+            return redirect()->back();
+        }
+
+        $rawJson = trim((string) $rawJsonInput);
         if ($rawJson !== '') {
             $decoded = json_decode($rawJson, true);
             if (! is_array($decoded)) {
@@ -156,17 +163,13 @@ class WebflowCollectionEditScreen extends Screen
     private function buildFieldDataEditors(): array
     {
         if ($this->fieldData === []) {
-            return [
-                TextArea::make('fieldDataJson')
-                    ->title('Field Data JSON')
-                    ->rows(16),
-            ];
+            return [];
         }
 
         $fields = [];
         foreach ($this->fieldData as $key => $value) {
             $title = Str::headline(str_replace(['---', '-'], ' ', (string) $key));
-            $name = 'fieldData.'.$key;
+            $name = $this->buildFieldInputName((string) $key);
 
             if (is_bool($value)) {
                 $fields[] = Switcher::make($name)
@@ -176,10 +179,11 @@ class WebflowCollectionEditScreen extends Screen
             }
 
             if (is_array($value) || is_object($value)) {
+                $encoded = json_encode($value, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
                 $fields[] = TextArea::make($name)
                     ->title($title)
                     ->rows(6)
-                    ->value(json_encode($value, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES))
+                    ->value(is_string($encoded) ? $encoded : '{}')
                     ->help('JSON value');
                 continue;
             }
@@ -222,6 +226,11 @@ class WebflowCollectionEditScreen extends Screen
         }
 
         return $value;
+    }
+
+    private function buildFieldInputName(string $key): string
+    {
+        return 'fieldData['.$key.']';
     }
 }
 

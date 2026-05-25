@@ -79,7 +79,8 @@ class WebflowCollectionListScreen extends Screen
     {
         return [
             Layout::table('items', [
-                TD::make('id'),
+                TD::make('id')
+                    ->render(fn ($item) => (string) $this->value($item, 'id', '')),
 
                 TD::make('name', 'Name')
                     ->render(fn ($item) => $this->safeText($this->value($item, 'field_data.name', '-'))),
@@ -87,9 +88,11 @@ class WebflowCollectionListScreen extends Screen
                 TD::make('slug', 'Slug')
                     ->render(fn ($item) => $this->safeText($this->value($item, 'field_data.slug', '-'))),
 
-                TD::make('webflow_item_id', 'Webflow ID'),
+                TD::make('webflow_item_id', 'Webflow ID')
+                    ->render(fn ($item) => $this->safeText($this->value($item, 'webflow_item_id', '-'))),
 
-                TD::make('updated_at', 'Updated'),
+                TD::make('updated_at', 'Updated')
+                    ->render(fn ($item) => $this->safeText($this->value($item, 'updated_at', '-'))),
 
                 TD::make('Actions')
                     ->render(fn ($item) => Link::make('Edit')
