@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Support;
 
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class WebflowCollectionRegistry
@@ -17,6 +18,7 @@ class WebflowCollectionRegistry
 
         $files = glob($modelsPath.'/*.php') ?: [];
         $collections = [];
+        $displayNames = self::displayNamesBySlug();
 
         foreach ($files as $file) {
             $class = 'App\\Models\\Webflow\\'.basename($file, '.php');
@@ -35,7 +37,7 @@ class WebflowCollectionRegistry
             }
 
             $slug = str_replace('_', '-', substr($table, 3));
-            $title = Str::title(str_replace('-', ' ', $slug));
+            $title = $displayNames[$slug] ?? Str::title(str_replace('-', ' ', $slug));
 
             $collections[$slug] = [
                 'slug' => $slug,
@@ -48,6 +50,33 @@ class WebflowCollectionRegistry
         ksort($collections);
 
         return array_values($collections);
+    }
+
+    private static function displayNamesBySlug(): array
+    {
+        $disk = Storage::disk((string) config('webflow.export_disk', 'webflow_repo'));
+        $root = trim((string) config('webflow.export_root', 'current'), '/');
+        $manifestPath = $root.'/manifest.json';
+
+        if (! $disk->exists($manifestPath)) {
+            return [];
+        }
+
+        $manifest = json_decode((string) $disk->get($manifestPath), true);
+        if (! is_array($manifest)) {
+            return [];
+        }
+
+        $result = [];
+        foreach (($manifest['collections'] ?? []) as $collection) {
+            $slug = (string) ($collection['slug'] ?? '');
+            $displayName = (string) ($collection['displayName'] ?? '');
+            if ($slug !== '' && $displayName !== '') {
+                $result[$slug] = $displayName;
+            }
+        }
+
+        return $result;
     }
 
     public static function find(string $slug): ?array

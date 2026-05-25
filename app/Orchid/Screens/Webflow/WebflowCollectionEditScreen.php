@@ -110,15 +110,21 @@ class WebflowCollectionEditScreen extends Screen
                     ->title('Draft'),
             ]),
 
-            Layout::rows($this->buildFieldDataEditors()),
-            Layout::rows($this->buildReferenceInputEditors()),
-            Layout::rows($this->buildReferencePreviewEditors()),
-
-            Layout::rows([
-                TextArea::make('fieldDataJson')
-                    ->title('Field Data JSON (advanced)')
-                    ->rows(16)
-                    ->help('Optional: paste full JSON to override field values above.'),
+            Layout::tabs([
+                'Main Data' => Layout::rows($this->buildFieldDataEditorsByCategory('main')),
+                'Relations' => Layout::rows(array_merge(
+                    $this->buildReferenceInputEditors(),
+                    $this->buildReferencePreviewEditors()
+                )),
+                'SEO' => Layout::rows($this->buildFieldDataEditorsByCategory('seo')),
+                'Schemas' => Layout::rows($this->buildFieldDataEditorsByCategory('schemas')),
+                'OpenGraph' => Layout::rows($this->buildFieldDataEditorsByCategory('opengraph')),
+                'JSON' => Layout::rows([
+                    TextArea::make('fieldDataJson')
+                        ->title('Field Data JSON (advanced)')
+                        ->rows(16)
+                        ->help('Optional: paste full JSON to override field values above.'),
+                ]),
             ]),
         ];
     }
@@ -177,7 +183,7 @@ class WebflowCollectionEditScreen extends Screen
     /**
      * @return Field[]
      */
-    private function buildFieldDataEditors(): array
+    private function buildFieldDataEditorsByCategory(string $category): array
     {
         if ($this->fieldData === []) {
             return [];
@@ -185,6 +191,14 @@ class WebflowCollectionEditScreen extends Screen
 
         $fields = [];
         foreach ($this->fieldData as $key => $value) {
+            if (array_key_exists((string) $key, $this->referenceFields)) {
+                continue;
+            }
+
+            if ($this->fieldDataCategory((string) $key) !== $category) {
+                continue;
+            }
+
             $title = Str::headline(str_replace(['---', '-'], ' ', (string) $key));
             $name = $this->buildFieldInputName((string) $key);
 
@@ -263,13 +277,12 @@ class WebflowCollectionEditScreen extends Screen
         foreach ($this->referenceFields as $fieldSlug => $meta) {
             $title = Str::headline(str_replace(['---', '-'], ' ', (string) $fieldSlug));
             $type = (string) ($meta['type'] ?? '');
-            $targetSlug = (string) ($meta['target_slug'] ?? '');
             $options = $this->relationOptions[$fieldSlug] ?? [];
             $currentValue = $this->fieldData[$fieldSlug] ?? null;
 
             if ($type === 'reference') {
                 $fields[] = Select::make('relationFields['.$fieldSlug.']')
-                    ->title($title.' (linked '.$targetSlug.')')
+                    ->title($title)
                     ->options($options)
                     ->empty('Not selected')
                     ->value(is_string($currentValue) ? $currentValue : null)
@@ -283,7 +296,7 @@ class WebflowCollectionEditScreen extends Screen
                     : [];
 
                 $fields[] = Select::make('relationFields['.$fieldSlug.'][]')
-                    ->title($title.' (linked '.$targetSlug.')')
+                    ->title($title)
                     ->options($options)
                     ->multiple()
                     ->value($selected)
@@ -334,14 +347,13 @@ class WebflowCollectionEditScreen extends Screen
         $preview = [];
         foreach ($referenceFields as $fieldSlug => $meta) {
             $related = $entity->webflowRelated((string) $fieldSlug);
-            $targetSlug = (string) ($meta['target_slug'] ?? 'unknown');
             $relationType = (string) ($meta['type'] ?? '');
 
             if ($relationType === 'reference') {
                 if ($related instanceof Model) {
-                    $preview[$fieldSlug] = $targetSlug.': '.$this->relatedLabel($related);
+                    $preview[$fieldSlug] = $this->relatedLabel($related);
                 } else {
-                    $preview[$fieldSlug] = $targetSlug.': not linked';
+                    $preview[$fieldSlug] = 'Not linked';
                 }
 
                 continue;
@@ -349,7 +361,7 @@ class WebflowCollectionEditScreen extends Screen
 
             if ($related instanceof \Illuminate\Database\Eloquent\Collection) {
                 if ($related->isEmpty()) {
-                    $preview[$fieldSlug] = $targetSlug.': no linked items';
+                    $preview[$fieldSlug] = 'No linked items';
                     continue;
                 }
 
@@ -364,7 +376,7 @@ class WebflowCollectionEditScreen extends Screen
                     $lines[] = '... and '.($related->count() - 10).' more';
                 }
 
-                $preview[$fieldSlug] = $targetSlug.':'.PHP_EOL.implode(PHP_EOL, $lines);
+                $preview[$fieldSlug] = implode(PHP_EOL, $lines);
             }
         }
 
@@ -374,20 +386,23 @@ class WebflowCollectionEditScreen extends Screen
     private function relatedLabel(Model $model): string
     {
         $fieldData = $model->getAttribute('field_data');
-        $name = is_array($fieldData) ? ($fieldData['name'] ?? $fieldData['title'] ?? null) : null;
+        $name = is_array($fieldData) ? ($fieldData['name'] ?? null) : null;
+        $title = is_array($fieldData) ? ($fieldData['title'] ?? null) : null;
         $slug = is_array($fieldData) ? ($fieldData['slug'] ?? null) : null;
 
-        $parts = [];
         if (is_string($name) && $name !== '') {
-            $parts[] = $name;
+            return $name;
         }
+
+        if (is_string($title) && $title !== '') {
+            return $title;
+        }
+
         if (is_string($slug) && $slug !== '') {
-            $parts[] = '('.$slug.')';
+            return Str::headline(str_replace('-', ' ', $slug));
         }
 
-        $label = implode(' ', $parts);
-
-        return ($label !== '' ? $label.' ' : '').'[wf: '.(string) $model->getAttribute('webflow_item_id').']';
+        return 'Untitled item';
     }
 
     private function buildRelationOptions(array $referenceFields): array
@@ -460,6 +475,35 @@ class WebflowCollectionEditScreen extends Screen
         }
 
         return $fieldData;
+    }
+
+    private function fieldDataCategory(string $fieldSlug): string
+    {
+        $slug = Str::lower($fieldSlug);
+
+        if (
+            str_contains($slug, 'schema')
+            || str_contains($slug, 'json-ld')
+            || str_contains($slug, 'structured-data')
+            || str_contains($slug, 'ld-json')
+        ) {
+            return 'schemas';
+        }
+
+        if (str_starts_with($slug, 'opengraph-') || str_starts_with($slug, 'og-')) {
+            return 'opengraph';
+        }
+
+        if (
+            str_starts_with($slug, 'seo-')
+            || str_starts_with($slug, 'meta-')
+            || str_starts_with($slug, 'twitter-')
+            || str_contains($slug, 'canonical')
+        ) {
+            return 'seo';
+        }
+
+        return 'main';
     }
 }
 
