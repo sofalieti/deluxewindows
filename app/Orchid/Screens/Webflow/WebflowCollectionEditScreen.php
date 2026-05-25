@@ -8,10 +8,12 @@ use App\Support\WebflowCollectionRegistry;
 use App\Support\WebflowReferenceRegistry;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Fields\Select;
 use Orchid\Screen\Fields\Switcher;
 use Orchid\Screen\Fields\TextArea;
 use Orchid\Screen\Field;
@@ -26,6 +28,10 @@ class WebflowCollectionEditScreen extends Screen
     protected array $collectionMeta = [];
 
     protected array $fieldData = [];
+
+    protected array $referenceFields = [];
+
+    protected array $relationOptions = [];
 
     protected array $referencePreview = [];
 
@@ -45,6 +51,8 @@ class WebflowCollectionEditScreen extends Screen
         $entity = $model::query()->findOrFail($item);
         $fieldData = is_array($entity->field_data) ? $entity->field_data : [];
         $this->fieldData = $fieldData;
+        $this->referenceFields = WebflowReferenceRegistry::forModel($meta['model']);
+        $this->relationOptions = $this->buildRelationOptions($this->referenceFields);
         $this->referencePreview = $this->buildReferencePreview($entity, $meta['model']);
 
         return [
@@ -103,6 +111,7 @@ class WebflowCollectionEditScreen extends Screen
             ]),
 
             Layout::rows($this->buildFieldDataEditors()),
+            Layout::rows($this->buildReferenceInputEditors()),
             Layout::rows($this->buildReferencePreviewEditors()),
 
             Layout::rows([
@@ -133,6 +142,7 @@ class WebflowCollectionEditScreen extends Screen
                 $fieldData[$key] = $this->hydrateFieldValue($value, $existing);
             }
         }
+        $fieldData = $this->applyRelationInputs($request, $fieldData, $meta['model']);
 
         $rawJsonInput = $request->input('fieldDataJson', '');
         if (is_array($rawJsonInput)) {
@@ -243,6 +253,50 @@ class WebflowCollectionEditScreen extends Screen
     /**
      * @return Field[]
      */
+    private function buildReferenceInputEditors(): array
+    {
+        if ($this->referenceFields === []) {
+            return [];
+        }
+
+        $fields = [];
+        foreach ($this->referenceFields as $fieldSlug => $meta) {
+            $title = Str::headline(str_replace(['---', '-'], ' ', (string) $fieldSlug));
+            $type = (string) ($meta['type'] ?? '');
+            $targetSlug = (string) ($meta['target_slug'] ?? '');
+            $options = $this->relationOptions[$fieldSlug] ?? [];
+            $currentValue = $this->fieldData[$fieldSlug] ?? null;
+
+            if ($type === 'reference') {
+                $fields[] = Select::make('relationFields['.$fieldSlug.']')
+                    ->title($title.' (linked '.$targetSlug.')')
+                    ->options($options)
+                    ->empty('Not selected')
+                    ->value(is_string($currentValue) ? $currentValue : null)
+                    ->help('Select one related item.');
+                continue;
+            }
+
+            if ($type === 'multi_reference') {
+                $selected = is_array($currentValue)
+                    ? array_values(array_filter($currentValue, fn ($id) => is_string($id) && $id !== ''))
+                    : [];
+
+                $fields[] = Select::make('relationFields['.$fieldSlug.'][]')
+                    ->title($title.' (linked '.$targetSlug.')')
+                    ->options($options)
+                    ->multiple()
+                    ->value($selected)
+                    ->help('Select one or many related items.');
+            }
+        }
+
+        return $fields;
+    }
+
+    /**
+     * @return Field[]
+     */
     private function buildReferencePreviewEditors(): array
     {
         if ($this->referencePreview === []) {
@@ -334,6 +388,78 @@ class WebflowCollectionEditScreen extends Screen
         $label = implode(' ', $parts);
 
         return ($label !== '' ? $label.' ' : '').'[wf: '.(string) $model->getAttribute('webflow_item_id').']';
+    }
+
+    private function buildRelationOptions(array $referenceFields): array
+    {
+        $options = [];
+
+        foreach ($referenceFields as $fieldSlug => $meta) {
+            $targetModel = (string) ($meta['target_model'] ?? '');
+            if ($targetModel === '' || ! class_exists($targetModel)) {
+                $options[$fieldSlug] = [];
+                continue;
+            }
+
+            /** @var Collection<int, Model> $items */
+            $items = $targetModel::query()
+                ->orderBy('id')
+                ->get();
+
+            $options[$fieldSlug] = $items
+                ->mapWithKeys(function (Model $item): array {
+                    $webflowId = (string) ($item->getAttribute('webflow_item_id') ?? '');
+                    if ($webflowId === '') {
+                        return [];
+                    }
+
+                    return [$webflowId => $this->relatedLabel($item)];
+                })
+                ->all();
+        }
+
+        return $options;
+    }
+
+    private function applyRelationInputs(Request $request, array $fieldData, string $modelClass): array
+    {
+        $referenceFields = WebflowReferenceRegistry::forModel($modelClass);
+        if ($referenceFields === []) {
+            return $fieldData;
+        }
+
+        $input = $request->input('relationFields', []);
+        if (! is_array($input)) {
+            return $fieldData;
+        }
+
+        foreach ($referenceFields as $fieldSlug => $meta) {
+            if (! array_key_exists($fieldSlug, $input)) {
+                continue;
+            }
+
+            $value = $input[$fieldSlug];
+            $type = (string) ($meta['type'] ?? '');
+
+            if ($type === 'reference') {
+                $fieldData[$fieldSlug] = is_string($value) && $value !== '' ? $value : null;
+                continue;
+            }
+
+            if ($type === 'multi_reference') {
+                if (! is_array($value)) {
+                    $fieldData[$fieldSlug] = [];
+                    continue;
+                }
+
+                $fieldData[$fieldSlug] = array_values(array_unique(array_filter(
+                    $value,
+                    fn ($id) => is_string($id) && $id !== ''
+                )));
+            }
+        }
+
+        return $fieldData;
     }
 }
 
