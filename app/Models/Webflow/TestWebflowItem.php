@@ -2,10 +2,13 @@
 
 namespace App\Models\Webflow;
 
+use App\Models\Webflow\Concerns\ResolvesWebflowReferences;
 use Illuminate\Database\Eloquent\Model;
 
 class TestWebflowItem extends Model
 {
+    use ResolvesWebflowReferences;
+
     protected $table = 'wf_test';
 
     protected $guarded = [];

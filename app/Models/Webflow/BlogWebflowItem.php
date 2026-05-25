@@ -2,10 +2,13 @@
 
 namespace App\Models\Webflow;
 
+use App\Models\Webflow\Concerns\ResolvesWebflowReferences;
 use Illuminate\Database\Eloquent\Model;
 
 class BlogWebflowItem extends Model
 {
+    use ResolvesWebflowReferences;
+
     protected $table = 'wf_blog';
 
     protected $guarded = [];

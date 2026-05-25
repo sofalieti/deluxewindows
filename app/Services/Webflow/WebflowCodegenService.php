@@ -136,6 +136,10 @@ class WebflowCodegenService
             $imported[] = ['table' => $table, 'count' => count($rows)];
         }
 
+        if (Schema::hasTable('wf_reference_links')) {
+            app(WebflowReferenceLinkSyncService::class)->sync();
+        }
+
         return $imported;
     }
 
@@ -316,10 +320,13 @@ PHP;
 
 namespace App\Models\Webflow;
 
+use App\Models\Webflow\Concerns\ResolvesWebflowReferences;
 use Illuminate\Database\Eloquent\Model;
 
 class {$modelClass} extends Model
 {
+    use ResolvesWebflowReferences;
+
     protected \$table = '{$tableName}';
 
     protected \$guarded = [];
