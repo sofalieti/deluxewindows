@@ -51,6 +51,11 @@ class WebflowSiteController extends Controller
 
     private function resolveStaticViewName(string $normalizedPath): ?string
     {
+        $mirrorView = $this->mirrorViewNameFromPath($normalizedPath);
+        if (view()->exists($mirrorView)) {
+            return $mirrorView;
+        }
+
         $view = $this->pageViewNameFromPath($normalizedPath);
 
         return view()->exists($view) ? $view : null;
@@ -228,6 +233,17 @@ class WebflowSiteController extends Controller
         $safe = array_map(fn (string $segment) => str_replace('-', '_', $segment), $segments);
 
         return 'webflow.pages.'.implode('.', $safe);
+    }
+
+    private function mirrorViewNameFromPath(string $normalizedPath): string
+    {
+        if ($normalizedPath === '/') {
+            return 'webflow.mirror.home';
+        }
+
+        $segments = array_values(array_filter(explode('/', trim($normalizedPath, '/'))));
+
+        return 'webflow.mirror.'.implode('.', $segments);
     }
 
     private function exportPath(string $relative = ''): string
