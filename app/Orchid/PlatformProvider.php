@@ -35,11 +35,11 @@ class PlatformProvider extends OrchidServiceProvider
     public function menu(): array
     {
         $webflowMenus = [];
-        foreach (WebflowCollectionRegistry::all() as $collection) {
+        foreach (WebflowCollectionRegistry::all() as $index => $collection) {
             $webflowMenus[] = Menu::make($collection['title'])
                 ->icon('bs.database')
                 ->route('platform.webflow.collection', ['collection' => $collection['slug']])
-                ->title('Webflow CMS');
+                ->title($index === 0 ? 'Webflow CMS' : null);
         }
 
         $baseMenu = [

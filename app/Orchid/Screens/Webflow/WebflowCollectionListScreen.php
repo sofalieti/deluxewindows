@@ -6,6 +6,7 @@ namespace App\Orchid\Screens\Webflow;
 
 use App\Support\WebflowCollectionRegistry;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Str;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
 use Orchid\Screen\TD;
@@ -65,11 +66,11 @@ class WebflowCollectionListScreen extends Screen
             Layout::table('items', [
                 TD::make('id')->sort(),
 
-                TD::make('field_data.name', 'Name')
-                    ->render(fn ($item) => data_get($item->field_data, 'name', '-')),
+                TD::make('name', 'Name')
+                    ->render(fn ($item) => $this->safeText(data_get($item->field_data, 'name', '-'))),
 
-                TD::make('field_data.slug', 'Slug')
-                    ->render(fn ($item) => data_get($item->field_data, 'slug', '-')),
+                TD::make('slug', 'Slug')
+                    ->render(fn ($item) => $this->safeText(data_get($item->field_data, 'slug', '-'))),
 
                 TD::make('webflow_item_id', 'Webflow ID'),
 
@@ -84,6 +85,21 @@ class WebflowCollectionListScreen extends Screen
                         ])),
             ]),
         ];
+    }
+
+    private function safeText(mixed $value): string
+    {
+        if (! is_scalar($value)) {
+            return '-';
+        }
+
+        $string = (string) $value;
+
+        // Prevent malformed byte sequences from breaking Orchid table rendering.
+        $clean = @mb_convert_encoding($string, 'UTF-8', 'UTF-8');
+        $clean = is_string($clean) ? $clean : $string;
+
+        return Str::limit($clean, 120);
     }
 }
 
