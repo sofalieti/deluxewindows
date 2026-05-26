@@ -62,7 +62,6 @@ class ClassicSiteController extends Controller
                 $wSlug = $fd['slug'] ?? '';
                 $wName = $fd['name'] ?? '';
                 $wImage = $this->extractImageUrl($fd, [
-                    'property-listing---thumbnail-image-v1',
                     'property-listing---featured-image',
                 ]);
                 $wSummary = $fd['property-listing---summary'] ?? '';
