@@ -211,7 +211,6 @@
         }
       }
     </script>
-    <script src="/webflow-assets/js/dwjsonlddoors.js" type="text/javascript"></script>
     <script type="text/javascript">
       window.__WEBFLOW_CURRENCY_SETTINGS = {
         currencyCode: "USD",

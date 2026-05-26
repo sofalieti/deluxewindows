@@ -1204,7 +1204,6 @@
         }
       }
     </script>
-    <script src="/webflow-assets/js/dwjsonlddoors.js" type="text/javascript"></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -1217,7 +1216,6 @@
         "inLanguage": "en-US"
       }
     </script>
-    <script src="/webflow-assets/js/dwjsonldhome.js" type="text/javascript"></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
