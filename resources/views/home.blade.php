@@ -1244,39 +1244,6 @@
       };
     </script>
     <link href="https://core.service.elfsight.com/" rel="preconnect" crossorigin="" />
-
-    {{-- ─── Section-spacing normalisation ─────────────────────────────── --}}
-    <style>
-      :root {
-        --sp: 80px; /* single source of truth for section vertical padding */
-      }
-
-      /* All main-content section wrappers → uniform top & bottom */
-      .section,
-      .section.pd-top-80px,
-      .section-122,
-      .f-section-large-2,
-      .f-section-large-3,
-      .section-card-wrapper {
-        padding-top:    var(--sp) !important;
-        padding-bottom: var(--sp) !important;
-      }
-
-      /* "top-none" variant is used for For-Professionals & FAQ —
-         drop the rogue 150px margin-top that Webflow injected */
-      .section.top-none {
-        margin-top:     0 !important;
-        padding-top:    var(--sp) !important;
-        padding-bottom: var(--sp) !important;
-      }
-
-      /* Map section gets no bottom padding */
-      .section-map {
-        padding-top:    var(--sp) !important;
-        padding-bottom: 0 !important;
-      }
-    </style>
-    {{-- ──────────────────────────────────────────────────────────────── --}}
   </head>
 <body class="body-18 height-auto">
   <div class="page-wrapper">
