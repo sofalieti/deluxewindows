@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Webflow\BrandsWebflowItem;
 use App\Models\Webflow\WindowsWebflowItem;
 
 class ClassicSiteController extends Controller
@@ -36,11 +35,8 @@ class ClassicSiteController extends Controller
             ->filter()
             ->values();
 
-        // Brand logos from BrandsWebflowItem
-        $brands = BrandsWebflowItem::query()
-            ->where('is_archived', false)
-            ->where('is_draft', false)
-            ->get()
+        // Brand logos — only those referenced on this specific window item
+        $brands = $window->webflowReferences('brands')
             ->map(function ($brand) {
                 $fd = is_array($brand->field_data) ? $brand->field_data : [];
                 $brandSlug = $fd['slug'] ?? '';
