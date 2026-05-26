@@ -17,8 +17,9 @@
                     class="blog-card-wrapper-v1 min0 w-inline-block"
                     ><div class="blog-card-top-content-v1">
                       <div class="image-wrapper border-radius-image-default blog-card-top-content-v1---image min0">
-                        <img
+                        <x-img
                           src="/webflow-assets/images/6862d4e603255742b1319d0f_Frame%2048.avif"
+                          preset="card"
                           loading="eager"
                           alt="Vinyl Doors"
                           class="image cover-image auto-height"
@@ -37,8 +38,9 @@
                     class="blog-card-wrapper-v1 min0 w-inline-block"
                     ><div class="blog-card-top-content-v1">
                       <div class="image-wrapper border-radius-image-default blog-card-top-content-v1---image min0">
-                        <img
+                        <x-img
                           src="/webflow-assets/images/687e2bbbcf84c63258838bc4_homeguide-marvin-signature-windows-and-doors.avif"
+                          preset="card"
                           loading="eager"
                           alt="Wood Clad Doors"
                           class="image cover-image auto-height"
@@ -59,8 +61,9 @@
                     class="blog-card-wrapper-v1 min0 w-inline-block"
                     ><div class="blog-card-top-content-v1">
                       <div class="image-wrapper border-radius-image-default blog-card-top-content-v1---image min0">
-                        <img
+                        <x-img
                           src="/webflow-assets/images/684e94a86602a96b9775c003_Frame%2048.avif"
+                          preset="card"
                           loading="eager"
                           alt="Fiberglass Doors "
                           class="image cover-image auto-height"

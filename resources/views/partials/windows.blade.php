@@ -20,10 +20,11 @@
                     ><div id="w-node-_87779e2a-0c09-17ad-e055-dbd837711a36-fd53ec90" class="position-relative">
                       <div class="image-wrapper border-radius-image-default height-100 wrapperimage2">
                         @if($hw['image'])
-                        <img
-                          src="{{ $hw['image'] }}"
+                        <x-img
+                          :src="$hw['image']"
+                          preset="card"
                           loading="eager"
-                          alt="{{ $hw['name'] }}"
+                          :alt="$hw['name']"
                           class="image cover-image property-wrapper-v3---image"
                         />
                         @endif

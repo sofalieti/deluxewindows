@@ -31,8 +31,9 @@
                 </div>
               </div>
               <div class="image-wrapper cta-v3-image">
-                <img
+                <x-img
                   src="/webflow-assets/images/687ca4b70b8583ef4890bad4_iPad.avif"
+                  preset="cta"
                   loading="eager"
                   alt="Deluxe-windows"
                   class="image"

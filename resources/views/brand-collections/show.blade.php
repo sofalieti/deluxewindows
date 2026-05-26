@@ -139,7 +139,7 @@
         <nav data-dd="list" class="dropdown-list-4 sidebar-list w-dropdown-list">
           <div class="sidebar_content-wrapper-2 bottom">
             @if($brandLogo)
-            <img loading="lazy" src="{{ $brandLogo }}" alt="{{ $brandName }}" class="svg50 sidebar-svg top-svg" />
+            <x-img loading="lazy" :src="$brandLogo" :alt="$brandName" preset="logo" class="svg50 sidebar-svg top-svg" />
             @endif
             <a href="/brand" class="all-brands-block w-inline-block" tabindex="0">
               <div class="icon-font-rounded arrow">о "</div>
@@ -161,7 +161,7 @@
                         <a href="/brand-collections/{{ $sc['slug'] }}"
                            class="sidebar-item-2 w-inline-block{{ $sc['slug'] === $slug ? ' w--current' : '' }}">
                           @if($sc['image'])
-                          <img loading="lazy" src="{{ $sc['image'] }}" alt="{{ $sc['name'] }}" class="sidebar-img" />
+                          <x-img loading="lazy" :src="$sc['image']" :alt="$sc['name']" preset="sidebar" class="sidebar-img" />
                           @endif
                           <div class="sidebar-txt">{{ $sc['name'] }}</div>
                         </a>
@@ -203,9 +203,10 @@
         <div class="container-default-7 _1100 top0 collection">
           <div class="hero_collection-wrapper">
             @if($brandLogo)
-            <img data-w-id="22412492-4009-ced3-16dc-8fb2668c31b3"
-                 alt="{{ $brandName }}"
-                 src="{{ $brandLogo }}"
+            <x-img data-w-id="22412492-4009-ced3-16dc-8fb2668c31b3"
+                 :alt="$brandName"
+                 :src="$brandLogo"
+                 preset="logo"
                  loading="lazy"
                  class="svg50 hidden-desktop" />
             @endif
@@ -350,7 +351,7 @@
                   </div>
                   @if($featuredImage)
                   <div class="about-right">
-                    <img loading="lazy" src="{{ $featuredImage }}" alt="{{ $name }}" class="image-32 right100" />
+                    <x-img loading="lazy" :src="$featuredImage" :alt="$name" preset="card" class="image-32 right100" />
                   </div>
                   @endif
                 </div>
@@ -383,7 +384,7 @@
                     <div role="listitem" class="collection-item-5 w-dyn-item">
                       <div class="wtypes_grid-item-2 animated-scroll">
                         @if($wt['picture'])
-                        <img loading="lazy" src="{{ $wt['picture'] }}" alt="{{ $wt['name'] }}" class="wtypes-img" />
+                        <x-img loading="lazy" :src="$wt['picture']" :alt="$wt['name']" preset="wtype" class="wtypes-img" />
                         @endif
                         <h4 class="wtypes-h4-3">{{ $wt['name'] }}</h4>
                         @if($wt['description'])
@@ -427,7 +428,7 @@
                   @foreach($items as $glass)
                   <div class="glass-item animated-scroll">
                     @if($glass['picture'])
-                    <img loading="lazy" src="{{ $glass['picture'] }}" alt="{{ $glass['name'] }}" class="glass-img" />
+                    <x-img loading="lazy" :src="$glass['picture']" :alt="$glass['name']" preset="glass" class="glass-img" />
                     @endif
                     <p class="collection-paragraph">{{ $glass['name'] }}</p>
                     @if($glass['description'])
@@ -470,7 +471,7 @@
                   @foreach($items as $option)
                   <div class="option-item animated-scroll">
                     @if($option['picture'])
-                    <img loading="lazy" src="{{ $option['picture'] }}" alt="{{ $option['name'] }}" class="option-img" />
+                    <x-img loading="lazy" :src="$option['picture']" :alt="$option['name']" preset="option" class="option-img" />
                     @endif
                     <p class="collection-paragraph">{{ $option['name'] }}</p>
                     @if($option['description'])
@@ -513,7 +514,7 @@
                   @foreach($items as $color)
                   <div class="color-item animated-scroll">
                     @if($color['picture'])
-                    <img loading="lazy" src="{{ $color['picture'] }}" alt="{{ $color['name'] }}" class="color-img" />
+                    <x-img loading="lazy" :src="$color['picture']" :alt="$color['name']" preset="color" class="color-img" />
                     @elseif($color['color'])
                     <div class="color-swatch" style="background-color: {{ $color['color'] }}; width:60px; height:60px; border-radius:4px; border:1px solid #ddd;"></div>
                     @endif
@@ -549,7 +550,7 @@
                 <div class="inspiration-grid-wrapper">
                   @foreach($inspirationPhotos as $photo)
                   <div class="inspiration-item animated-scroll">
-                    <img loading="lazy" src="{{ $photo }}" alt="{{ $name }} inspiration" class="inspiration-img" />
+                    <x-img loading="lazy" :src="$photo" :alt="$name . ' inspiration'" preset="inspiration" class="inspiration-img" />
                   </div>
                   @endforeach
                 </div>

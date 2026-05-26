@@ -219,7 +219,7 @@
       <div class="div-block-59">
         @if(!empty($windowHeroImage))
           {{-- Windows detail page: static product image as background --}}
-          <div style="background-image:url('{{ $windowHeroImage }}')" class="div-block-61"></div>
+          <div style="background-image:url('{{ thumbnail_url($windowHeroImage, 'hero_bg') }}')" class="div-block-61"></div>
         @else
           {{-- Homepage: video background --}}
           <div class="code-embed-5 w-embed w-script">
@@ -236,7 +236,7 @@
               const bgWrapper = document.getElementById("hero-bg-wrapper");
               // Local asset paths:
               const videoUrl = "/webflow-assets/videos/687ca10e41cc245f5cdacfd5_0719_2-copy.mp4";
-              const imageUrl = "/webflow-assets/images/69ce36fd76a6aaff9c68df7e_01.webp";
+              const imageUrl = @json(thumbnail_url('/webflow-assets/images/69ce36fd76a6aaff9c68df7e_01.webp', 'hero_mobile'));
 
               if (window.innerWidth > 767) {
                 // Desktop: show video

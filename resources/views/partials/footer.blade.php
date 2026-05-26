@@ -122,9 +122,10 @@
                         href="/"
                         aria-current="page"
                         class="logo-link w-inline-block w--current"
-                        ><img
+                        ><x-img
                           src="/webflow-assets/images/686ad2b4b668ce59a9c25b0e_White.avif"
-                          alt=""
+                          preset="footer_logo"
+                          alt="Deluxe Windows"
                       /></a>
                     </div>
                   </div>

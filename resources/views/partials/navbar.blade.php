@@ -64,9 +64,10 @@
                     href="/"
                     aria-current="page"
                     class="logo-link-2 w-inline-block w--current"
-                    ><img
+                    ><x-img
                       src="/webflow-assets/images/686acba4611e759fd8169f9d_photo_2025-07-06-22.14.41.avif"
-                      alt=""
+                      preset="nav_logo"
+                      alt="Deluxe Windows"
                       class="image-14"
                   /></a>
                 </div>
@@ -269,9 +270,10 @@
                                 id="w-node-_632206d9-3c73-e5be-be34-15992c2e8373-2c2e830e"
                                 class="mega-menu-banner w-clearfix"
                               >
-                                <img
-                                  alt=""
+                                <x-img
+                                  alt="40% OFF Windows"
                                   src="/webflow-assets/images/6862abfc8f55643864a69255_Frame%201.avif"
+                                  preset="card_sm"
                                   loading="lazy"
                                   class="image-14 cover-image property-wrapper-v3---image"
                                 />
@@ -486,9 +488,10 @@
                                 id="w-node-_632206d9-3c73-e5be-be34-15992c2e83b8-2c2e830e"
                                 class="mega-menu-banner w-clearfix"
                               >
-                                <img
-                                  alt=""
+                                <x-img
+                                  alt="40% OFF Doors"
                                   src="/webflow-assets/images/6845713efb9f90434a8611f6_4.avif"
+                                  preset="card_sm"
                                   loading="lazy"
                                   class="image-14 cover-image property-wrapper-v3---image"
                                 />
@@ -616,9 +619,10 @@
                                 id="w-node-_632206d9-3c73-e5be-be34-15992c2e83e1-2c2e830e"
                                 class="mega-menu-banner w-clearfix"
                               >
-                                <img
-                                  alt=""
+                                <x-img
+                                  alt="40% OFF Windows"
                                   src="/webflow-assets/images/6862abfc8f55643864a69255_Frame%201.avif"
+                                  preset="card_sm"
                                   loading="lazy"
                                   class="image-14 cover-image property-wrapper-v3---image"
                                 />
@@ -821,9 +825,10 @@
                                 id="w-node-_632206d9-3c73-e5be-be34-15992c2e840a-2c2e830e"
                                 class="mega-menu-banner w-clearfix"
                               >
-                                <img
-                                  alt=""
+                                <x-img
+                                  alt="40% OFF Windows"
                                   src="/webflow-assets/images/6862abfc8f55643864a69255_Frame%201.avif"
+                                  preset="card_sm"
                                   loading="lazy"
                                   class="image-14 cover-image property-wrapper-v3---image"
                                 />
@@ -895,11 +900,12 @@
                   aria-current="page"
                   class="navbar-brand w-nav-brand w--current"
                   aria-label="home"
-                  ><img
+                  ><x-img
                     width="283"
                     loading="lazy"
-                    alt=""
+                    alt="Deluxe Windows"
                     src="/webflow-assets/images/686acba4611e759fd8169f9d_photo_2025-07-06-22.14.41.avif"
+                    preset="nav_logo"
                     class="image-24" /></a
                 ><a href="tel:(888)730-4144" class="link-15"><strong>Sales:&nbsp;</strong>&nbsp;(888) 730-4144</a>
                 <nav role="navigation" class="nav-menu-wrapper-4 w-nav-menu">

@@ -1,0 +1,39 @@
+<?php
+
+return [
+
+    /*
+    |--------------------------------------------------------------------------
+    | Thumbnail presets (max width in CSS pixels; 2x variant generated for srcset)
+    |--------------------------------------------------------------------------
+    */
+    'presets' => [
+        'gallery_main'  => ['width' => 1220, 'height' => null],
+        'gallery_thumb' => ['width' => 220,  'height' => null],
+        'card'          => ['width' => 640,  'height' => null],
+        'card_sm'       => ['width' => 400,  'height' => null],
+        'logo'          => ['width' => 300,  'height' => null],
+        'hero_bg'       => ['width' => 1920, 'height' => null],
+        'hero_mobile'   => ['width' => 768,  'height' => null],
+        'sidebar'       => ['width' => 160,  'height' => null],
+        'brand_grid'    => ['width' => 200,  'height' => null],
+        'cta'           => ['width' => 800,  'height' => null],
+        'inspiration'   => ['width' => 600,  'height' => null],
+        'wtype'         => ['width' => 400,  'height' => null],
+        'glass'         => ['width' => 200,  'height' => null],
+        'option'        => ['width' => 200,  'height' => null],
+        'color'         => ['width' => 120,  'height' => null],
+        'footer_logo'   => ['width' => 200,  'height' => null],
+        'nav_logo'      => ['width' => 180,  'height' => null],
+        'icon'          => ['width' => 48,   'height' => null],
+    ],
+
+    'quality'   => 82,
+    'format'    => 'webp',
+    'disk'      => 'public',
+    'directory' => 'thumbnails',
+
+    /** Skip resizing when source is already within this many pixels of target. */
+    'skip_within_px' => 8,
+
+];
