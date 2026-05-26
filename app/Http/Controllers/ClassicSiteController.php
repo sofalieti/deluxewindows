@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Webflow\BrandsWebflowItem;
 use App\Models\Webflow\WindowsWebflowItem;
 
 class ClassicSiteController extends Controller
@@ -114,6 +115,65 @@ class ClassicSiteController extends Controller
             'galleryImages'    => $galleryImages,
             'brands'           => $brands,
             'otherWindows'     => $otherWindows,
+        ]);
+    }
+
+    public function brandBySlug(string $slug)
+    {
+        $slug = strtolower(trim($slug));
+
+        $brand = BrandsWebflowItem::query()
+            ->where('field_data->slug', $slug)
+            ->orWhere('webflow_item_id', $slug)
+            ->orderByDesc('id')
+            ->first();
+
+        abort_if(! $brand, 404);
+
+        $fieldData = is_array($brand->field_data ?? null) ? $brand->field_data : [];
+
+        $logo        = $this->extractImageUrl($fieldData, ['brand-logo', 'logo-svg', 'agent-avatar-photo']);
+        $description = $fieldData['agent-about'] ?? '';
+        $name        = $fieldData['name'] ?? 'Brand';
+
+        // Window types referenced by this brand
+        $windowTypes = $brand->webflowReferences('window-types')
+            ->map(function ($wt) {
+                $fd    = is_array($wt->field_data) ? $wt->field_data : [];
+                $wtSlug  = $fd['slug'] ?? '';
+                $wtName  = $fd['name'] ?? '';
+                $wtImage = $this->extractImageUrl($fd, [
+                    'property-listing---thumbnail-image-v1',
+                    'property-listing---featured-image',
+                ]);
+
+                return $wtSlug !== ''
+                    ? ['name' => $wtName, 'slug' => $wtSlug, 'image' => $wtImage ?? '']
+                    : null;
+            })
+            ->filter()
+            ->values();
+
+        $seoTitle       = $fieldData['seo-title']              ?? $name;
+        $seoDescription = $fieldData['seo-description']        ?? '';
+        $ogTitle        = $fieldData['opengraph-title']        ?? $seoTitle;
+        $ogDescription  = $fieldData['opengraph-description']  ?? $seoDescription;
+        $ogImage        = $fieldData['opengraph-image']        ?? $logo ?? '';
+        $windowsTitle   = $fieldData['windows-titles']         ?? "Explore {$name}'s Window Types";
+
+        return view('brands.show', [
+            'brandFieldData'  => $fieldData,
+            'name'            => $name,
+            'slug'            => $fieldData['slug'] ?? $slug,
+            'logo'            => $logo,
+            'description'     => $description,
+            'windowTypes'     => $windowTypes,
+            'windowsTitle'    => $windowsTitle,
+            'seoTitle'        => $seoTitle,
+            'seoDescription'  => $seoDescription,
+            'ogTitle'         => $ogTitle,
+            'ogDescription'   => $ogDescription,
+            'ogImage'         => $ogImage,
         ]);
     }
 
