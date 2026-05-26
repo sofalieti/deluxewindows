@@ -216,7 +216,7 @@
           </script>
         </div>
       </div>
-      <div class="div-block-59" style="margin-bottom: 0;">
+      <div class="div-block-59">
         <div class="code-embed-5 w-embed w-script">
           <div id="hero-bg-wrapper" class="video-bg-container">
             <video autoplay="" loop="" muted="" playsinline="">
@@ -249,7 +249,7 @@
             }
           </script>
         </div>
-        <div class="w-layout-blockcontainer container-default w-container" style="padding-bottom: 0;">
+        <div class="w-layout-blockcontainer container-default w-container">
           <div class="title-left---content-right paragraph-content alt hero-page">
             <div class="width-100-mobile-landscape">
               <div class="inner-container _640px _100-tablet">

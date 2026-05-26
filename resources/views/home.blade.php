@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!-- This site was created in Webflow. https://webflow.com --><!-- Last Published: Tue May 26 2026 07:52:04 GMT+0000 (Coordinated Universal Time) -->
 <html
   data-wf-domain="www.deluxewindows.com"
@@ -22,6 +22,17 @@
       .w-webflow-badge {
         display: none !important;
       }
+
+      /* === Layout spacing fixes === */
+      /* Remove gap between hero section and trust-badges bar below it */
+      .div-block-59 { margin-bottom: 0 !important; }
+      .div-block-59 > .w-layout-blockcontainer.container-default { padding-bottom: 0 !important; }
+
+      /* Remove extra top padding on Doors section */
+      .section.pd-top-80px { padding-top: 0 !important; }
+
+      /* Remove grey gap above For Professionals section (after Google Maps) */
+      .section.top-none { margin-top: 0 !important; }
     </style>
     <style rel="stylesheet" type="text/css">
       @charset "utf-8";
