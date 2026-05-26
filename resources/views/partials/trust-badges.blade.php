@@ -1,4 +1,4 @@
-﻿      <div
+      <div
         data-animation="default"
         data-collapse="tiny"
         data-duration="400"

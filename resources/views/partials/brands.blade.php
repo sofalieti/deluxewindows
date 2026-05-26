@@ -1,4 +1,4 @@
-﻿      <div class="div-block-51">
+      <div class="div-block-51">
         <div class="collection-list-wrapper-9 w-dyn-list">
           <div role="list" class="collection-list-9 third-item w-dyn-items">
             <div role="listitem" class="w-dyn-item">

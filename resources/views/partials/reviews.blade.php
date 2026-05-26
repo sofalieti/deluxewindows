@@ -1,4 +1,4 @@
-﻿      <section class="section-122">
+      <section class="section-122">
         <div class="w-layout-blockcontainer container-default w-container">
           <h2 class="heading-5 asdf">Reviews</h2>
           <div class="w-embed w-script">

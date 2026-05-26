@@ -1,4 +1,4 @@
-﻿      <section class="section">
+      <section class="section">
         <div class="text-center---mbl">
           <div class="title-left---content-right">
             <div class="width-100-mobile-landscape">

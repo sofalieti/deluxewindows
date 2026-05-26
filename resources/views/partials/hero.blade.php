@@ -1,4 +1,4 @@
-﻿        <div class="code-embed-3 w-embed w-script">
+        <div class="code-embed-3 w-embed w-script">
           <script>
             (function () {
               / Десктопный ховер: не тач, есть hover, ширина >= 992px
@@ -217,38 +217,44 @@
         </div>
       </div>
       <div class="div-block-59">
-        <div class="code-embed-5 w-embed w-script">
-          <div id="hero-bg-wrapper" class="video-bg-container">
-            <video autoplay="" loop="" muted="" playsinline="">
-              <source
-                src="https://s3.amazonaws.com/webflow-prod-assets/6841ddf8ace3d9d9facb14fd/687ca10e41cc245f5cdacfd5_0719_2%20copy.mp4"
-                type="video/mp4"
-              />
-            </video>
+        @if(!empty($windowHeroImage))
+          {{-- Windows detail page: static product image as background --}}
+          <div style="background-image:url('{{ $windowHeroImage }}')" class="div-block-61"></div>
+        @else
+          {{-- Homepage: video background --}}
+          <div class="code-embed-5 w-embed w-script">
+            <div id="hero-bg-wrapper" class="video-bg-container">
+              <video autoplay="" loop="" muted="" playsinline="">
+                <source
+                  src="https://s3.amazonaws.com/webflow-prod-assets/6841ddf8ace3d9d9facb14fd/687ca10e41cc245f5cdacfd5_0719_2%20copy.mp4"
+                  type="video/mp4"
+                />
+              </video>
+            </div>
+
+            <script>
+              const bgWrapper = document.getElementById("hero-bg-wrapper");
+
+              / Твои ссылки:
+              const videoUrl =
+                "https://s3.amazonaws.com/webflow-prod-assets/6841ddf8ace3d9d9facb14fd/687ca10e41cc245f5cdacfd5_0719_2%20copy.mp4";
+              const imageUrl =
+                "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/69ce36fd76a6aaff9c68df7e_01.webp";
+
+              if (window.innerWidth > 767) {
+                / Для компьютеров вставляем видео
+                bgWrapper.innerHTML = `
+        <video autoplay loop muted playsinline>
+          <source src="${videoUrl}" type="video/mp4">
+        </video>
+      `;
+              } else {
+                / Для мобильных ставим только твою картинку
+                bgWrapper.style.backgroundImage = `url('${imageUrl}')`;
+              }
+            </script>
           </div>
-
-          <script>
-            const bgWrapper = document.getElementById("hero-bg-wrapper");
-
-            / Твои ссылки:
-            const videoUrl =
-              "https://s3.amazonaws.com/webflow-prod-assets/6841ddf8ace3d9d9facb14fd/687ca10e41cc245f5cdacfd5_0719_2%20copy.mp4";
-            const imageUrl =
-              "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/69ce36fd76a6aaff9c68df7e_01.webp";
-
-            if (window.innerWidth > 767) {
-              / Для компьютеров вставляем видео
-              bgWrapper.innerHTML = `
-      <video autoplay loop muted playsinline>
-        <source src="${videoUrl}" type="video/mp4">
-      </video>
-    `;
-            } else {
-              / Для мобильных ставим только твою картинку
-              bgWrapper.style.backgroundImage = `url('${imageUrl}')`;
-            }
-          </script>
-        </div>
+        @endif
         <div class="w-layout-blockcontainer container-default w-container">
           <div class="title-left---content-right paragraph-content alt hero-page">
             <div class="width-100-mobile-landscape">

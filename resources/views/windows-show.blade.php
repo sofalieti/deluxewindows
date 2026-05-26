@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!-- This site was created in Webflow. https://webflow.com --><!-- Last Published: Tue May 26 2026 07:52:04 GMT+0000 (Coordinated Universal Time) -->
 <html
   data-wf-domain="www.deluxewindows.com"

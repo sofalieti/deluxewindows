@@ -1,4 +1,4 @@
-﻿      <section class="section pd-top-80px">
+      <section class="section pd-top-80px">
         <div class="w-layout-blockcontainer container-default scroll-horiz w-container">
           <div class="text-center---mbl">
             <div class="title-left---content-right">

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html
   data-wf-domain="www.deluxewindows.com"
   data-wf-site="6841ddf8ace3d9d9facb14fd"
@@ -110,7 +110,7 @@
 
       @include('partials.navbar')
 
-      @include('partials.hero')
+      @include('partials.hero', ['windowHeroImage' => $heroImage])
 
       @include('partials.trust-badges')
 

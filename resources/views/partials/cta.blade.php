@@ -1,4 +1,4 @@
-﻿      <section class="section-card-wrapper">
+      <section class="section-card-wrapper">
         <div class="section-card cta-v3">
           <div class="w-layout-blockcontainer container-default w-container">
             <div class="w-layout-grid grid-2-columns cta-v3-grid">
