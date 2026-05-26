@@ -9,18 +9,24 @@
 ])
 
 @php
-    $responsive = thumbnail_responsive(
-        $src,
-        $preset,
-        is_numeric($width) ? (int) $width : null,
-        is_numeric($height) ? (int) $height : null,
-        $sizes,
-    );
+    $originalSrc = is_string($src) ? trim($src) : '';
+    try {
+        $responsive = thumbnail_responsive(
+            $originalSrc,
+            $preset,
+            is_numeric($width) ? (int) $width : null,
+            is_numeric($height) ? (int) $height : null,
+            $sizes,
+        );
+    } catch (\Throwable) {
+        $responsive = ['src' => $originalSrc, 'srcset' => null, 'sizes' => null];
+    }
+    $imgSrc = $responsive['src'] !== '' ? $responsive['src'] : $originalSrc;
 @endphp
 
-@if($responsive['src'] !== '')
+@if($imgSrc !== '')
 <img
-    src="{{ $responsive['src'] }}"
+    src="{{ $imgSrc }}"
     @if($responsive['srcset']) srcset="{{ $responsive['srcset'] }}" @endif
     @if($responsive['sizes']) sizes="{{ $responsive['sizes'] }}" @endif
     alt="{{ $alt }}"

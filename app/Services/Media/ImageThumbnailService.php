@@ -9,8 +9,6 @@ use Throwable;
 
 class ImageThumbnailService
 {
-    private const RASTER_EXTENSIONS = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'avif', 'bmp'];
-
     /**
      * @return array{width: int, height: int|null}
      */
@@ -38,6 +36,10 @@ class ImageThumbnailService
 
         $source = trim($source);
 
+        if (! $this->isEnabled()) {
+            return $source;
+        }
+
         if ($this->shouldPassthrough($source)) {
             return $source;
         }
@@ -60,7 +62,9 @@ class ImageThumbnailService
         $disk = Storage::disk(config('media.disk', 'public'));
 
         if ($disk->exists($cachePath)) {
-            return $disk->url($cachePath);
+            $publicUrl = $this->publicUrl($cachePath);
+
+            return $this->isWebAccessible($cachePath) ? $publicUrl : $source;
         }
 
         try {
@@ -70,8 +74,9 @@ class ImageThumbnailService
             }
 
             $disk->put($cachePath, $generated);
+            $publicUrl = $this->publicUrl($cachePath);
 
-            return $disk->url($cachePath);
+            return $this->isWebAccessible($cachePath) ? $publicUrl : $source;
         } catch (Throwable) {
             return $source;
         }
@@ -101,6 +106,15 @@ class ImageThumbnailService
         }
 
         $src1x = $this->url($source, $w, $h);
+
+        if ($src1x === '' || $src1x === $source || ! $this->isEnabled()) {
+            return [
+                'src'    => $src1x !== '' ? $src1x : trim($source),
+                'srcset' => null,
+                'sizes'  => null,
+            ];
+        }
+
         $src2x = $this->url($source, $w * 2, $h);
 
         if ($src2x !== $src1x && $src2x !== $source) {
@@ -118,6 +132,15 @@ class ImageThumbnailService
         ];
     }
 
+    private function isEnabled(): bool
+    {
+        if (! config('media.enabled', true)) {
+            return false;
+        }
+
+        return extension_loaded('gd') && function_exists('imagewebp');
+    }
+
     private function shouldPassthrough(string $source): bool
     {
         $path = parse_url($source, PHP_URL_PATH) ?? $source;
@@ -128,14 +151,19 @@ class ImageThumbnailService
 
     private function resolveSourcePath(string $source): ?string
     {
+        if (preg_match('~^https?://~i', $source)) {
+            $path = parse_url($source, PHP_URL_PATH);
+            if (is_string($path) && $path !== '') {
+                return $this->resolveSourcePath($path);
+            }
+
+            return null;
+        }
+
         if (str_starts_with($source, '/storage/')) {
             $relative = ltrim(substr($source, strlen('/storage/')), '/');
 
             return storage_path('app/public/'.$relative);
-        }
-
-        if (str_starts_with($source, '/webflow-assets/')) {
-            return public_path(ltrim($source, '/'));
         }
 
         if (str_starts_with($source, '/')) {
@@ -144,18 +172,24 @@ class ImageThumbnailService
             return is_file($public) ? $public : null;
         }
 
-        if (preg_match('~^https?://~i', $source)) {
-            $appHost = parse_url((string) config('app.url'), PHP_URL_HOST);
-            $srcHost = parse_url($source, PHP_URL_HOST);
-            if ($appHost && $srcHost && strcasecmp($appHost, $srcHost) === 0) {
-                $path = parse_url($source, PHP_URL_PATH);
-                if (is_string($path) && $path !== '') {
-                    return $this->resolveSourcePath($path);
-                }
-            }
+        return null;
+    }
+
+    private function publicUrl(string $cachePath): string
+    {
+        return '/storage/'.ltrim(str_replace('\\', '/', $cachePath), '/');
+    }
+
+    private function isWebAccessible(string $cachePath): bool
+    {
+        $disk = Storage::disk(config('media.disk', 'public'));
+        if (! $disk->exists($cachePath)) {
+            return false;
         }
 
-        return null;
+        $publicFile = public_path('storage/'.ltrim(str_replace('\\', '/', $cachePath), '/'));
+
+        return is_file($publicFile);
     }
 
     private function buildCachePath(string $absolutePath, int $maxWidth, ?int $maxHeight): string

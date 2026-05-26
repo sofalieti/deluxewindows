@@ -256,8 +256,20 @@
                 $allGalleryImages = collect();
                 if ($heroImage) $allGalleryImages->push($heroImage);
                 foreach ($galleryImages as $gi) $allGalleryImages->push($gi);
-                $galleryMainUrl = fn ($url) => thumbnail_url($url, 'gallery_main');
-                $galleryThumbUrl = fn ($url) => thumbnail_url($url, 'gallery_thumb');
+                $galleryMainUrl = function ($url) {
+                    try {
+                        return thumbnail_url($url, 'gallery_main') ?: $url;
+                    } catch (\Throwable) {
+                        return $url;
+                    }
+                };
+                $galleryThumbUrl = function ($url) {
+                    try {
+                        return thumbnail_url($url, 'gallery_thumb') ?: $url;
+                    } catch (\Throwable) {
+                        return $url;
+                    }
+                };
               @endphp
               <div class="dw-gallery" id="dw-gallery">
 

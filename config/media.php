@@ -2,6 +2,9 @@
 
 return [
 
+    /** Set MEDIA_THUMBNAILS_ENABLED=false in .env to serve originals only. */
+    'enabled' => env('MEDIA_THUMBNAILS_ENABLED', true),
+
     /*
     |--------------------------------------------------------------------------
     | Thumbnail presets (max width in CSS pixels; 2x variant generated for srcset)
