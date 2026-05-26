@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!-- This site was created in Webflow. https://webflow.com --><!-- Last Published: Tue May 26 2026 07:52:04 GMT+0000 (Coordinated Universal Time) -->
 <html
   data-wf-domain="www.deluxewindows.com"
@@ -1245,13 +1245,13 @@
     </script>
     <link href="https://core.service.elfsight.com/" rel="preconnect" crossorigin="" />
 
-    {{-- ─── Layout & spacing overrides ──────────────────────────────────── --}}
+    {{-- ─── Section-spacing normalisation ─────────────────────────────── --}}
     <style>
       :root {
         --sp: 80px; /* single source of truth for section vertical padding */
       }
 
-      /* ── 1. Uniform section padding ── */
+      /* All main-content section wrappers → uniform top & bottom */
       .section,
       .section.pd-top-80px,
       .section-122,
@@ -1262,36 +1262,18 @@
         padding-bottom: var(--sp) !important;
       }
 
-      /* "top-none" variant — drop the rogue 150 px margin Webflow injected */
+      /* "top-none" variant is used for For-Professionals & FAQ —
+         drop the rogue 150px margin-top that Webflow injected */
       .section.top-none {
         margin-top:     0 !important;
         padding-top:    var(--sp) !important;
         padding-bottom: var(--sp) !important;
       }
 
-      /* Map section: top padding only, no bottom gap */
+      /* Map section gets no bottom padding */
       .section-map {
         padding-top:    var(--sp) !important;
         padding-bottom: 0 !important;
-      }
-
-      /* ── 2. Trust-badges bar: keep content inside the grid ── */
-      .navbar.w-nav > .container-default {
-        max-width:     var(--core--sizing--container-default--default, 1248px) !important;
-        padding-left:  var(--core--container-default--padding--default, 14px) !important;
-        padding-right: var(--core--container-default--padding--default, 14px) !important;
-        margin-left:   auto !important;
-        margin-right:  auto !important;
-        box-sizing:    border-box !important;
-      }
-
-      /* ── 3. Form inline icons: cap at a sensible icon size ── */
-      .input-line-icon-wrapper img,
-      .text-area-icon-wrapper img {
-        width:       20px !important;
-        height:      20px !important;
-        object-fit:  contain;
-        flex-shrink: 0;
       }
     </style>
     {{-- ──────────────────────────────────────────────────────────────── --}}
