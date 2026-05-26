@@ -337,28 +337,78 @@
         </div>
       </div>
 
-      {{-- Top brands for this window type --}}
-      @if($brandTypeItems->count() > 0)
+      {{-- Top Vinyl Window Brands --}}
+      @if($brands->count() > 0)
       <section class="section top-none">
         <div class="w-layout-blockcontainer container-default w-container">
           <div class="title-left---content-right">
-            <h2 class="heading-23">{{ $titleForBrands }}</h2>
+            <h2 class="heading-23">Top Vinyl Window Brands</h2>
           </div>
           <div class="mg-top-large">
-            <div class="collection-list-wrapper-5 w-dyn-list">
-              <div role="list" class="collection-list-2 w-dyn-items">
-                @foreach($brandTypeItems as $brand)
-                <div role="listitem" class="w-dyn-item">
-                  <a href="/window-type/{{ $brand['slug'] }}" class="property-wrapper-v1 w-inline-block">
-                    <div class="property-card-top-content-v1">
-                      <div class="image-wrapper border-radius-image-default property-card-top-content-v1---image">
+            <div class="div-block-51">
+              <div class="collection-list-wrapper-9 w-dyn-list">
+                <div role="list" class="collection-list-9 third-item w-dyn-items">
+                  @foreach($brands as $brand)
+                  <div role="listitem" class="w-dyn-item">
+                    <a href="/brands/{{ $brand['slug'] }}" class="brand-link w-inline-block">
+                      <img
+                        src="{{ $brand['logo'] }}"
+                        loading="lazy"
+                        alt="{{ $brand['name'] }}"
+                        class="image-26 brand-hero"
+                        width="300"
+                        height="150"
+                      />
+                    </a>
+                  </div>
+                  @endforeach
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      @endif
+
+      {{-- Discover Different Window Types --}}
+      @if($otherWindows->count() > 0)
+      <section class="section">
+        <div class="text-center---mbl">
+          <div class="title-left---content-right">
+            <div class="width-100-mobile-landscape">
+              <h2 class="heading-46">Learn More about <br />Different Window Types</h2>
+            </div>
+          </div>
+        </div>
+        <div class="w-layout-blockcontainer container-default w-container">
+          <div class="w-layout-grid grid-2-columns posts-right---grid">
+            <div class="collection-list-wrapper w-dyn-list">
+              <div role="list" class="grid-1-column properties-grid---v3 w-dyn-items">
+                @foreach($otherWindows as $ow)
+                <div role="listitem" class="collection-item-2 w-dyn-item">
+                  <a href="/windows/{{ $ow['slug'] }}" class="property-wrapper-v3 w-inline-block">
+                    <div class="position-relative">
+                      <div class="image-wrapper border-radius-image-default height-100 wrapperimage2">
+                        @if($ow['image'])
                         <img
-                          src="{{ $brand['image'] }}"
-                          loading="eager"
-                          alt="{{ $brand['name'] }}"
-                          class="image cover-image"
+                          src="{{ $ow['image'] }}"
+                          loading="lazy"
+                          alt="{{ $ow['name'] }}"
+                          class="image cover-image property-wrapper-v3---image"
                         />
+                        @endif
                       </div>
+                      <div class="badge-wrapper---top-left"></div>
+                    </div>
+                    <div class="inner-container _450px---mbl">
+                      <h3 class="display-5 mid">{{ $ow['name'] }}</h3>
+                      @if($ow['summary'])
+                      <div class="mg-top-small">
+                        <div class="text-paragraph">
+                          <p class="paragraph-49">{{ $ow['summary'] }}</p>
+                        </div>
+                      </div>
+                      @endif
                     </div>
                   </a>
                 </div>
@@ -366,13 +416,11 @@
               </div>
             </div>
           </div>
-          <div class="mg-top-large">
-            <div class="buttons-row">
-              <a href="/windows" class="primary-button w-inline-block">
-                <div class="text-block-22">All Window Types</div>
-              </a>
-            </div>
-          </div>
+        </div>
+        <div class="buttons-row">
+          <a href="/windows" class="primary-button w-inline-block">
+            <div class="text-block-22">See all windows</div>
+          </a>
         </div>
       </section>
       @endif

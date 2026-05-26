@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Webflow\BrandsWebflowItem;
 use App\Models\Webflow\WindowsWebflowItem;
 
 class ClassicSiteController extends Controller
@@ -35,19 +36,43 @@ class ClassicSiteController extends Controller
             ->filter()
             ->values();
 
-        $brandTypeItems = $window->webflowReferences('brands-types')
-            ->map(function ($item) {
-                $fd = is_array($item->field_data) ? $item->field_data : [];
-                $name = $fd['name'] ?? '';
-                $itemSlug = $fd['slug'] ?? '';
-                $image = $this->extractImageUrl($fd, [
+        // Brand logos from BrandsWebflowItem
+        $brands = BrandsWebflowItem::query()
+            ->where('is_archived', false)
+            ->where('is_draft', false)
+            ->get()
+            ->map(function ($brand) {
+                $fd = is_array($brand->field_data) ? $brand->field_data : [];
+                $brandSlug = $fd['slug'] ?? '';
+                $brandName = $fd['name'] ?? '';
+                $logo = $this->extractImageUrl($fd, ['brand-logo', 'logo-svg', 'agent-avatar-photo']);
+
+                return ($brandSlug !== '' && $logo !== null)
+                    ? ['name' => $brandName, 'slug' => $brandSlug, 'logo' => $logo]
+                    : null;
+            })
+            ->filter()
+            ->values();
+
+        // Other windows for "Discover Different Window Types" section
+        $otherWindows = WindowsWebflowItem::query()
+            ->where('is_archived', false)
+            ->where('is_draft', false)
+            ->where('id', '!=', $window->id)
+            ->take(6)
+            ->get()
+            ->map(function ($w) {
+                $fd = is_array($w->field_data) ? $w->field_data : [];
+                $wSlug = $fd['slug'] ?? '';
+                $wName = $fd['name'] ?? '';
+                $wImage = $this->extractImageUrl($fd, [
                     'property-listing---thumbnail-image-v1',
                     'property-listing---featured-image',
-                    'agent---avatar-photo',
                 ]);
+                $wSummary = $fd['property-listing---summary'] ?? '';
 
-                return ($name !== '' && $itemSlug !== '')
-                    ? ['name' => $name, 'slug' => $itemSlug, 'image' => $image ?? '']
+                return $wSlug !== ''
+                    ? ['name' => $wName, 'slug' => $wSlug, 'image' => $wImage ?? '', 'summary' => $wSummary]
                     : null;
             })
             ->filter()
@@ -71,10 +96,10 @@ class ClassicSiteController extends Controller
             'aboutHtml'        => $fieldData['property-listing---about'] ?? '',
             'discountHtml'     => $fieldData['discounttext'] ?? '',
             'warrantyHtml'     => $fieldData['warrantytext'] ?? '',
-            'titleForBrands'   => $fieldData['title-for-brands'] ?? 'Top Window Brands',
             'heroImage'        => $heroImage ?? '',
             'galleryImages'    => $galleryImages,
-            'brandTypeItems'   => $brandTypeItems,
+            'brands'           => $brands,
+            'otherWindows'     => $otherWindows,
         ]);
     }
 
