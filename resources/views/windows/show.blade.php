@@ -67,17 +67,16 @@
       .section.top-none { margin-top: 0 !important; }
 
       /* ── Custom product gallery ── */
-      .dw-gallery {
-        width: 100%;
-        --dw-gap: 8px;
+      :root {
+        --dw-gap:   8px;
         --dw-arrow: 36px;
-        --dw-ratio: 4 / 3;
       }
+      .dw-gallery { width: 100%; overflow: visible; }
 
-      /* Main image — full width, same ratio as thumbs */
+      /* Main image — 610:343 ratio */
       .dw-gallery__main {
         width: 100%;
-        aspect-ratio: var(--dw-ratio);
+        aspect-ratio: 610 / 343;
         overflow: hidden;
         border-radius: 12px;
         margin-bottom: 10px;
@@ -88,17 +87,19 @@
         transition: opacity .2s ease;
       }
 
-      /* Strip row: [arrow] [track] [arrow]
-         Track is exactly as wide as the main image (no extra indent) */
+      /* Strip: arrows extend OUTSIDE via negative margin.
+         Track-wrapper gets exactly the same width as main image. */
       .dw-gallery__row {
-        display: grid;
-        grid-template-columns: var(--dw-arrow) 1fr var(--dw-arrow);
+        display: flex;
         align-items: center;
         gap: var(--dw-gap);
+        margin-left:  calc(-1 * (var(--dw-arrow) + var(--dw-gap)));
+        margin-right: calc(-1 * (var(--dw-arrow) + var(--dw-gap)));
       }
 
       /* Arrows */
       .dw-gallery__arrow {
+        flex: 0 0 var(--dw-arrow);
         width: var(--dw-arrow); height: var(--dw-arrow);
         border-radius: 50%;
         border: 1.5px solid #cbd5e1;
@@ -106,24 +107,28 @@
         display: flex; align-items: center; justify-content: center;
         cursor: pointer; color: #334155;
         transition: background .2s, border-color .2s, color .2s;
-        padding: 0; line-height: 0; flex-shrink: 0;
+        padding: 0; line-height: 0;
+        box-shadow: 0 1px 4px rgba(0,0,0,.08);
       }
-      .dw-gallery__arrow:hover  { background: #f1f5f9; border-color: #64748b; color: #0f172a; }
-      .dw-gallery__arrow:disabled { opacity: .3; cursor: default; pointer-events: none; }
+      .dw-gallery__arrow:hover    { background: #f1f5f9; border-color: #64748b; color: #0f172a; }
+      .dw-gallery__arrow:disabled { opacity: .35; cursor: default; pointer-events: none; }
 
-      /* Track */
-      .dw-gallery__track-wrapper { overflow: hidden; }
+      /* Track wrapper = same width as main image */
+      .dw-gallery__track-wrapper { flex: 1; overflow: hidden; min-width: 0; }
+
+      /* Track: set explicit width = wrapper width so % in children works correctly */
       .dw-gallery__track {
         display: flex;
         gap: var(--dw-gap);
+        width: 100%;                        /* = track-wrapper width */
         transition: transform .3s cubic-bezier(.4,0,.2,1);
         will-change: transform;
       }
 
-      /* Thumbnails — 6 per row, same ratio as main */
+      /* 6 thumbs + 5 gaps = track width = main image width */
       .dw-gallery__thumb {
         flex: 0 0 calc((100% - 5 * var(--dw-gap)) / 6);
-        aspect-ratio: var(--dw-ratio);
+        aspect-ratio: 610 / 343;
         overflow: hidden;
         border-radius: 6px;
         border: 2px solid transparent;
@@ -132,29 +137,31 @@
         background: #f1f5f9;
         transition: border-color .2s;
       }
-      .dw-gallery__thumb.is-active        { border-color: #2563eb; }
+      .dw-gallery__thumb.is-active             { border-color: #2563eb; }
       .dw-gallery__thumb:hover:not(.is-active) { border-color: #94a3b8; }
       .dw-gallery__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-      /* ── Mobile: hide main image, show full-width carousel ── */
+      /* ── Mobile: hide main image, show full-width slides ── */
       @media (max-width: 767px) {
         .dw-gallery__main { display: none; }
 
-        /* Each thumb becomes a full-width slide */
+        .dw-gallery__row {
+          margin-left: 0;
+          margin-right: 0;
+        }
         .dw-gallery__thumb {
           flex: 0 0 100% !important;
-          aspect-ratio: 4 / 3 !important;
+          aspect-ratio: 610 / 343 !important;
           border-radius: 10px !important;
           border-color: transparent !important;
         }
         .dw-gallery__thumb.is-active { border-color: transparent !important; }
-
-        /* Bigger arrows on mobile */
         .dw-gallery__arrow {
+          flex: 0 0 40px;
           width: 40px; height: 40px;
           background: rgba(255,255,255,.9);
           border-color: #94a3b8;
-          box-shadow: 0 1px 4px rgba(0,0,0,.12);
+          box-shadow: 0 1px 6px rgba(0,0,0,.15);
         }
       }
     </style>
@@ -490,20 +497,24 @@
     (function () {
       var mainImg = document.getElementById('dw-main-img');
       var track   = document.getElementById('dw-track');
+      var wrapper = document.querySelector('.dw-gallery__track-wrapper');
       var prevBtn = document.getElementById('dw-prev');
       var nextBtn = document.getElementById('dw-next');
-      if (!track) return;
+      if (!track || !wrapper) return;
 
-      var thumbs  = Array.from(track.querySelectorAll('.dw-gallery__thumb'));
-      var offset  = 0;
-      var active  = 0;
+      var thumbs = Array.from(track.querySelectorAll('.dw-gallery__thumb'));
+      var GAP    = 8;
+      var offset = 0;
+      var active = 0;
 
       function isMobile() { return window.innerWidth <= 767; }
       function getVisible() { return isMobile() ? 1 : 6; }
 
-      /* Step size = thumb rendered width + gap (8px) */
+      /* Step = (wrapper_width - 5*GAP) / 6  ← exact thumb width, or full wrapper on mobile */
       function stepPx() {
-        return thumbs[0] ? thumbs[0].getBoundingClientRect().width + 8 : 0;
+        var w = wrapper.offsetWidth;
+        if (isMobile()) return w + GAP;              /* each slide = full width + gap */
+        return (w - 5 * GAP) / 6 + GAP;             /* one thumb width + gap */
       }
 
       function applyOffset() {
@@ -521,7 +532,7 @@
         active = idx;
         thumbs.forEach(function (t, i) { t.classList.toggle('is-active', i === idx); });
 
-        /* Update main image (desktop only) */
+        /* Update main image on desktop */
         if (mainImg && !isMobile()) {
           mainImg.style.opacity = '0';
           setTimeout(function () {
@@ -530,9 +541,9 @@
           }, 180);
         }
 
-        /* Auto-scroll track to keep active thumb visible */
-        if (idx < offset) { offset = idx; }
-        else if (idx >= offset + vis) { offset = idx - vis + 1; }
+        /* Auto-scroll so active thumb stays in view */
+        if (idx < offset)              { offset = idx; }
+        else if (idx >= offset + vis)  { offset = idx - vis + 1; }
         applyOffset();
         updateArrows();
       }
@@ -542,28 +553,32 @@
       });
 
       if (prevBtn) prevBtn.addEventListener('click', function () {
-        if (offset > 0) { offset--; applyOffset(); updateArrows(); }
-        if (isMobile()) { setActive(offset); }
+        if (offset > 0) {
+          offset--;
+          if (isMobile()) setActive(offset);
+          else { applyOffset(); updateArrows(); }
+        }
       });
       if (nextBtn) nextBtn.addEventListener('click', function () {
-        if (offset < thumbs.length - getVisible()) { offset++; applyOffset(); updateArrows(); }
-        if (isMobile()) { setActive(offset); }
+        if (offset < thumbs.length - getVisible()) {
+          offset++;
+          if (isMobile()) setActive(offset);
+          else { applyOffset(); updateArrows(); }
+        }
       });
 
-      /* Touch swipe support (mobile) */
-      var touchStartX = 0;
-      track.addEventListener('touchstart', function (e) {
-        touchStartX = e.touches[0].clientX;
-      }, { passive: true });
-      track.addEventListener('touchend', function (e) {
-        var dx = touchStartX - e.changedTouches[0].clientX;
+      /* Touch swipe */
+      var tx0 = 0;
+      track.addEventListener('touchstart', function (e) { tx0 = e.touches[0].clientX; }, { passive: true });
+      track.addEventListener('touchend',   function (e) {
+        var dx = tx0 - e.changedTouches[0].clientX;
         if (Math.abs(dx) > 40) {
-          if (dx > 0 && active < thumbs.length - 1) { setActive(active + 1); }
-          else if (dx < 0 && active > 0)            { setActive(active - 1); }
+          if (dx > 0 && active < thumbs.length - 1) setActive(active + 1);
+          else if (dx < 0 && active > 0)             setActive(active - 1);
         }
       }, { passive: true });
 
-      /* Recalculate on resize */
+      /* Recalculate after resize */
       window.addEventListener('resize', function () {
         offset = Math.min(offset, Math.max(0, thumbs.length - getVisible()));
         applyOffset();
