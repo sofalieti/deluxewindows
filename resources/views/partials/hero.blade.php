@@ -358,8 +358,7 @@
                             loading="eager"
                             src="/webflow-assets/images/6841ddf8ace3d9d9facb194d_star-icon-property-x-webflow-template.svg"
                             alt="Star Icon - Property X Webflow Template"
-                            width="300"
-                            height="150"
+                            style="width:18px;height:18px;object-fit:contain;"
                           />
                         </div>
                       </div>
@@ -381,8 +380,7 @@
                             loading="eager"
                             src="/webflow-assets/images/6841ddf8ace3d9d9facb192f_lisiting-icon-property-x-webflow-template.svg"
                             alt="Listing Icon - Property X Webflow Template"
-                            width="300"
-                            height="150"
+                            style="width:18px;height:18px;object-fit:contain;"
                           />
                         </div>
                       </div>
