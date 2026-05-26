@@ -1019,7 +1019,7 @@
     <style rel="stylesheet" type="text/css">
       @charset "utf-8";
 
-      @media screen and (min-width: 480px) {
+@media screen and (min-width: 480px) {
         .third-item .w-dyn-item:nth-child(4) {
           margin-left: -24px;
         }
@@ -1084,126 +1084,126 @@
     <link href="/webflow-assets/images/favicon.png" rel="shortcut icon" type="image/x-icon" />
     <link href="/webflow-assets/images/webclip-bg.png" rel="apple-touch-icon" />
 
-    <!-- ✅ Google tag (один раз!) -->
-    <script>
-      (function () {
-        let gtagLoaded = false;
+<!-- ✅ Google tag (один раз!) -->
+<script>
+(function () {
+  let gtagLoaded = false;
 
-        function loadGtag() {
-          if (gtagLoaded) return;
-          gtagLoaded = true;
+  function loadGtag() {
+    if (gtagLoaded) return;
+    gtagLoaded = true;
 
           const script = document.createElement("script");
-          script.src = "https://www.googletagmanager.com/gtag/js?id=G-JHYBB0THJM";
-          script.async = true;
-          document.head.appendChild(script);
+    script.src = "https://www.googletagmanager.com/gtag/js?id=G-JHYBB0THJM";
+    script.async = true;
+    document.head.appendChild(script);
 
-          window.dataLayer = window.dataLayer || [];
+    window.dataLayer = window.dataLayer || [];
           function gtag() {
             dataLayer.push(arguments);
           }
-          window.gtag = gtag;
+    window.gtag = gtag;
 
           gtag("js", new Date());
           gtag("config", "G-JHYBB0THJM");
           gtag("config", "AW-1030787786");
-        }
+  }
 
-        // 🚀 грузим при первом взаимодействии
+  // 🚀 грузим при первом взаимодействии
         window.addEventListener("scroll", loadGtag, { once: true });
         window.addEventListener("click", loadGtag, { once: true });
 
-        // fallback — через 3 сек
-        setTimeout(loadGtag, 3000);
-      })();
-    </script>
+  // fallback — через 3 сек
+  setTimeout(loadGtag, 3000);
+})();
+</script>
 
-    <!-- Zoho placeholder (не грузим сразу) -->
-    <script>
-      window.$zoho = window.$zoho || {};
+<!-- Zoho placeholder (не грузим сразу) -->
+<script>
+window.$zoho = window.$zoho || {};
       $zoho.salesiq = $zoho.salesiq || { ready: function () {} };
-    </script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "HomeAndConstructionBusiness",
-        "name": "Deluxe Windows",
-        "url": "https://www.deluxewindows.com",
-        "telephone": "+18887304144",
-        "description": "Premium window and door replacement for San Francisco Bay Area homes. 30+ years, 100% employee owned.",
-        "priceRange": "$$",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "231",
-          "bestRating": "5"
-        },
-        "openingHoursSpecification": [
-          {
-            "@type": "OpeningHoursSpecification",
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "Deluxe Windows",
+  "url": "https://www.deluxewindows.com",
+  "telephone": "+18887304144",
+  "description": "Premium window and door replacement for San Francisco Bay Area homes. 30+ years, 100% employee owned.",
+  "priceRange": "$$",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "231",
+    "bestRating": "5"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
             "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
             "opens": "08:00",
             "closes": "18:00"
-          },
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": "Saturday",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
             "opens": "09:00",
             "closes": "15:00"
-          }
-        ],
-        "areaServed": {
-          "@type": "GeoCircle",
-          "geoMidpoint": {
-            "@type": "GeoCoordinates",
+    }
+  ],
+  "areaServed": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
             "latitude": 37.563,
-            "longitude": -122.0329
-          },
-          "geoRadius": "100000"
-        }
-      }
-    </script>
+      "longitude": -122.0329
+    },
+    "geoRadius": "100000"
+  }
+}
+</script>
 
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "HomeAndConstructionBusiness",
-        "name": "Deluxe Windows",
-        "url": "https://www.deluxewindows.com",
-        "telephone": "+18887304144",
-        "description": "Premium window and door replacement for San Francisco Bay Area homes. 30+ years, 100% employee owned.",
-        "priceRange": "$$",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "231",
-          "bestRating": "5"
-        },
-        "openingHoursSpecification": [
-          {
-            "@type": "OpeningHoursSpecification",
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "Deluxe Windows",
+  "url": "https://www.deluxewindows.com",
+  "telephone": "+18887304144",
+  "description": "Premium window and door replacement for San Francisco Bay Area homes. 30+ years, 100% employee owned.",
+  "priceRange": "$$",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "231",
+    "bestRating": "5"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
             "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
             "opens": "08:00",
             "closes": "18:00"
-          },
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": "Saturday",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
             "opens": "09:00",
             "closes": "15:00"
-          }
-        ],
-        "areaServed": {
-          "@type": "GeoCircle",
-          "geoMidpoint": {
-            "@type": "GeoCoordinates",
+    }
+  ],
+  "areaServed": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
             "latitude": 37.563,
-            "longitude": -122.0329
-          },
-          "geoRadius": "100000"
-        }
-      }
-    </script>
+      "longitude": -122.0329
+    },
+    "geoRadius": "100000"
+  }
+}
+</script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -1215,7 +1215,7 @@
         "publisher": { "@type": "Organization", "name": "Deluxe Windows", "url": "https://www.deluxewindows.com" },
         "inLanguage": "en-US"
       }
-    </script>
+</script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -1271,7 +1271,7 @@
 
     @include('partials.footer')
 
-  </div>
+    </div>
 
   <div id="menuDimmer" style="opacity: 0; pointer-events: none"></div>
   <script src="/webflow-assets/js/jquery-3.5.1.min.js" type="text/javascript"></script>
