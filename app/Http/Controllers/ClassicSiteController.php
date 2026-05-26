@@ -8,17 +8,7 @@ class ClassicSiteController extends Controller
 {
     public function home()
     {
-        return view('webflow.mirror.home');
-    }
-
-    public function alternative()
-    {
-        return view('alternative.home');
-    }
-
-    public function alternative2()
-    {
-        return view('alternative2.home');
+        return view('home');
     }
 
     public function windowBySlug(string $slug)
