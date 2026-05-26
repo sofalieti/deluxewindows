@@ -108,22 +108,42 @@ class WebflowCollectionListScreen extends Screen
                 TD::make('relations', 'Relations')
                     ->render(fn ($item) => $this->safeText($this->relationSummary($item))),
 
+                TD::make('status', 'Status')
+                    ->render(function ($item) {
+                        $isDraft = (bool) $this->value($item, 'is_draft', false);
+                        return $isDraft
+                            ? '<span class="badge bg-secondary">Disabled</span>'
+                            : '<span class="badge bg-success">Enabled</span>';
+                    }),
+
                 TD::make('Actions')
-                    ->render(fn ($item) => Link::make('Edit')
-                        ->icon('bs.pencil')
-                        ->route('platform.webflow.collection.edit', [
-                            'collection' => $this->collectionSlug,
-                            'item' => $this->value($item, 'id'),
-                        ])
-                        ->render()
-                        .' '.
-                        Button::make('Delete')
+                    ->render(function ($item) {
+                        $id      = $this->value($item, 'id');
+                        $isDraft = (bool) $this->value($item, 'is_draft', false);
+
+                        $edit = Link::make('Edit')
+                            ->icon('bs.pencil')
+                            ->route('platform.webflow.collection.edit', [
+                                'collection' => $this->collectionSlug,
+                                'item'       => $id,
+                            ])
+                            ->render();
+
+                        $toggle = Button::make($isDraft ? 'Enable' : 'Disable')
+                            ->icon($isDraft ? 'bs.eye' : 'bs.eye-slash')
+                            ->method('toggleDraft')
+                            ->parameters(['item_id' => $id])
+                            ->render();
+
+                        $delete = Button::make('Delete')
                             ->icon('bs.trash')
                             ->confirm('Delete this item? This action cannot be undone.')
                             ->method('delete')
-                            ->parameters(['item_id' => $this->value($item, 'id')])
-                            ->render()
-                    ),
+                            ->parameters(['item_id' => $id])
+                            ->render();
+
+                        return $edit.' '.$toggle.' '.$delete;
+                    }),
             ]),
         ];
     }
@@ -151,6 +171,28 @@ class WebflowCollectionListScreen extends Screen
         $clean = is_string($clean) ? $clean : $string;
 
         return Str::limit($clean, 120);
+    }
+
+    public function toggleDraft(string $collection, Request $request): void
+    {
+        $meta = WebflowCollectionRegistry::find($collection);
+        abort_if($meta === null, 404);
+
+        if (! Schema::hasTable((string) $meta['table'])) {
+            abort(404);
+        }
+
+        $itemId = (int) $request->input('item_id', 0);
+        if ($itemId > 0) {
+            $row = DB::table((string) $meta['table'])->where('id', $itemId)->first();
+            if ($row !== null) {
+                $current = (bool) ($row->is_draft ?? false);
+                DB::table((string) $meta['table'])
+                    ->where('id', $itemId)
+                    ->update(['is_draft' => ! $current]);
+                Toast::info($current ? 'Item enabled.' : 'Item disabled.');
+            }
+        }
     }
 
     public function delete(string $collection, Request $request): void
