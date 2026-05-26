@@ -65,6 +65,46 @@
     <style>
       .w-webflow-badge { display: none !important; }
       .section.top-none { margin-top: 0 !important; }
+
+      /* ── Custom product gallery ── */
+      .dw-gallery { width: 100%; }
+
+      .dw-gallery__main {
+        width: 100%; aspect-ratio: 4 / 3;
+        overflow: hidden; border-radius: 12px; margin-bottom: 10px;
+        background: #f1f5f9;
+      }
+      .dw-gallery__main img {
+        width: 100%; height: 100%; object-fit: cover;
+        transition: opacity .25s ease;
+      }
+
+      .dw-gallery__strip {
+        display: flex; align-items: center; gap: 8px;
+      }
+      .dw-gallery__arrow {
+        flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%;
+        border: 1.5px solid #cbd5e1; background: #fff;
+        display: flex; align-items: center; justify-content: center;
+        cursor: pointer; color: #334155; transition: all .2s;
+        padding: 0; line-height: 0;
+      }
+      .dw-gallery__arrow:hover { background: #f8fafc; border-color: #64748b; }
+      .dw-gallery__arrow:disabled { opacity: .3; cursor: default; pointer-events: none; }
+
+      .dw-gallery__track-wrapper { flex: 1; overflow: hidden; }
+      .dw-gallery__track {
+        display: flex; gap: 8px; transition: transform .3s cubic-bezier(.4,0,.2,1);
+      }
+      .dw-gallery__thumb {
+        flex: 0 0 calc((100% - 5 * 8px) / 6);
+        aspect-ratio: 1; overflow: hidden; border-radius: 8px;
+        border: 2px solid transparent; cursor: pointer;
+        padding: 0; background: #f1f5f9; transition: border-color .2s;
+      }
+      .dw-gallery__thumb.is-active { border-color: #2563eb; }
+      .dw-gallery__thumb:hover:not(.is-active) { border-color: #94a3b8; }
+      .dw-gallery__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
     </style>
 
     <!-- Google tag -->
@@ -152,63 +192,48 @@
                 </div>
               </div>
 
-              {{-- Right: hero image + gallery --}}
-              <div class="image-wrapper border-radius-image-default">
-                <div class="w-layout-grid grid-2-columns property-gallery-wrapper">
+              {{-- Right: custom gallery (main image + scrollable thumbnail strip) --}}
+              @php
+                $allGalleryImages = collect();
+                if ($heroImage) $allGalleryImages->push($heroImage);
+                foreach ($galleryImages as $gi) $allGalleryImages->push($gi);
+              @endphp
+              <div class="dw-gallery" id="dw-gallery">
 
-                  {{-- Main hero image (lightbox with all gallery images) --}}
-                  @if($heroImage)
-                  <a
-                    href="#"
-                    class="lightbox-link w-inline-block w-lightbox"
-                  >
-                    <div class="image-wrapper _w-h-100">
-                      <img
-                        src="{{ $heroImage }}"
-                        loading="eager"
-                        alt="{{ $title }}"
-                        class="image cover-image _200px---mbp"
-                      />
-                    </div>
-                    <script type="application/json" class="w-json">
-                    {
-                      "items": [
-                        @foreach($galleryImages as $gi)
-                        {"url": "{!! $gi !!}", "type": "image"}{{ !$loop->last ? ',' : '' }}
-                        @endforeach
-                      ],
-                      "group": "Gallery"
-                    }
-                    </script>
-                  </a>
-                  @endif
+                {{-- Main large image --}}
+                <div class="dw-gallery__main">
+                  <img
+                    id="dw-main-img"
+                    src="{{ $allGalleryImages->first() ?? '' }}"
+                    alt="{{ $title }}"
+                    loading="eager"
+                  />
+                </div>
 
-                  {{-- Gallery thumbnails --}}
-                  @if($galleryImages->count() > 0)
-                  <div>
-                    <div role="list" class="grid-2-columns gallery-images-grid w-dyn-items">
-                      @foreach($galleryImages as $img)
-                      <div role="listitem" class="gallery-image-wrapper w-dyn-item">
-                        <a href="#" class="_w-h-100 w-inline-block w-lightbox">
-                          <div class="image-wrapper _w-h-100">
-                            <img
-                              src="{{ $img }}"
-                              loading="eager"
-                              alt="{{ $title }}"
-                              class="image cover-image _120px---mbp"
-                            />
-                          </div>
-                          <script type="application/json" class="w-json">
-                          {"items": [{"url": "{!! $img !!}", "type": "image"}], "group": "Gallery"}
-                          </script>
-                        </a>
-                      </div>
+                {{-- Thumbnail strip --}}
+                @if($allGalleryImages->count() > 1)
+                <div class="dw-gallery__strip">
+                  <button class="dw-gallery__arrow" id="dw-prev" aria-label="Previous" disabled>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                  </button>
+                  <div class="dw-gallery__track-wrapper">
+                    <div class="dw-gallery__track" id="dw-track">
+                      @foreach($allGalleryImages as $idx => $img)
+                      <button
+                        class="dw-gallery__thumb{{ $idx === 0 ? ' is-active' : '' }}"
+                        data-src="{{ $img }}"
+                        data-idx="{{ $idx }}"
+                        aria-label="Image {{ $idx + 1 }}"
+                      ><img src="{{ $img }}" alt="{{ $title }} {{ $idx + 1 }}" loading="lazy" /></button>
                       @endforeach
                     </div>
                   </div>
-                  @endif
-
+                  <button class="dw-gallery__arrow" id="dw-next" aria-label="Next">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                  </button>
                 </div>
+                @endif
+
               </div>
 
             </div>
@@ -407,6 +432,61 @@
 
     <script src="/webflow-assets/js/jquery-3.5.1.min.js" type="text/javascript"></script>
     <script src="/webflow-assets/js/webflow-windows.js" type="text/javascript"></script>
+
+    {{-- Custom gallery: click thumbnail → update main image --}}
+    <script>
+    (function () {
+      var mainImg  = document.getElementById('dw-main-img');
+      var track    = document.getElementById('dw-track');
+      var prevBtn  = document.getElementById('dw-prev');
+      var nextBtn  = document.getElementById('dw-next');
+      if (!mainImg || !track) return;
+
+      var thumbs  = Array.from(track.querySelectorAll('.dw-gallery__thumb'));
+      var VISIBLE = 6;
+      var offset  = 0;
+
+      function thumbW() {
+        return thumbs[0] ? thumbs[0].offsetWidth + 8 : 0; /* +gap */
+      }
+
+      function applyOffset() {
+        track.style.transform = 'translateX(-' + (offset * thumbW()) + 'px)';
+      }
+
+      function updateArrows() {
+        if (prevBtn) prevBtn.disabled = offset <= 0;
+        if (nextBtn) nextBtn.disabled = offset >= thumbs.length - VISIBLE;
+      }
+
+      function setActive(idx) {
+        thumbs.forEach(function (t, i) { t.classList.toggle('is-active', i === idx); });
+        mainImg.style.opacity = '0';
+        setTimeout(function () {
+          mainImg.src = thumbs[idx].dataset.src;
+          mainImg.style.opacity = '1';
+        }, 150);
+        /* auto-scroll to keep active thumb visible */
+        if (idx < offset) { offset = idx; }
+        else if (idx >= offset + VISIBLE) { offset = idx - VISIBLE + 1; }
+        applyOffset();
+        updateArrows();
+      }
+
+      thumbs.forEach(function (t, i) {
+        t.addEventListener('click', function () { setActive(i); });
+      });
+
+      if (prevBtn) prevBtn.addEventListener('click', function () {
+        if (offset > 0) { offset--; applyOffset(); updateArrows(); }
+      });
+      if (nextBtn) nextBtn.addEventListener('click', function () {
+        if (offset < thumbs.length - VISIBLE) { offset++; applyOffset(); updateArrows(); }
+      });
+
+      updateArrows();
+    })();
+    </script>
 
     <script>
       (function () {
