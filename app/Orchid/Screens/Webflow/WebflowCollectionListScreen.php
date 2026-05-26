@@ -6,14 +6,17 @@ namespace App\Orchid\Screens\Webflow;
 
 use App\Support\WebflowCollectionRegistry;
 use App\Support\WebflowReferenceRegistry;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
-use Orchid\Screen\Repository;
+use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\Link;
+use Orchid\Screen\Repository;
 use Orchid\Screen\Screen;
 use Orchid\Screen\TD;
 use Orchid\Support\Facades\Layout;
+use Orchid\Support\Facades\Toast;
 
 class WebflowCollectionListScreen extends Screen
 {
@@ -76,7 +79,11 @@ class WebflowCollectionListScreen extends Screen
 
     public function commandBar(): iterable
     {
-        return [];
+        return [
+            Link::make('Export JSON')
+                ->icon('bs.download')
+                ->route('platform.webflow.export', ['collection' => $this->collectionSlug]),
+        ];
     }
 
     public function layout(): iterable
@@ -107,7 +114,16 @@ class WebflowCollectionListScreen extends Screen
                         ->route('platform.webflow.collection.edit', [
                             'collection' => $this->collectionSlug,
                             'item' => $this->value($item, 'id'),
-                        ])),
+                        ])
+                        ->render()
+                        .' '.
+                        Button::make('Delete')
+                            ->icon('bs.trash')
+                            ->confirm('Delete this item? This action cannot be undone.')
+                            ->method('delete')
+                            ->parameters(['item_id' => $this->value($item, 'id')])
+                            ->render()
+                    ),
             ]),
         ];
     }
@@ -135,6 +151,22 @@ class WebflowCollectionListScreen extends Screen
         $clean = is_string($clean) ? $clean : $string;
 
         return Str::limit($clean, 120);
+    }
+
+    public function delete(string $collection, Request $request): void
+    {
+        $meta = WebflowCollectionRegistry::find($collection);
+        abort_if($meta === null, 404);
+
+        if (! Schema::hasTable((string) $meta['table'])) {
+            abort(404);
+        }
+
+        $itemId = (int) $request->input('item_id', 0);
+        if ($itemId > 0) {
+            DB::table((string) $meta['table'])->where('id', $itemId)->delete();
+            Toast::info('Item deleted.');
+        }
     }
 
     private function relationSummary(mixed $item): string

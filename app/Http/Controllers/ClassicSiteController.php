@@ -8,7 +8,26 @@ class ClassicSiteController extends Controller
 {
     public function home()
     {
-        return view('home');
+        $homeWindows = WindowsWebflowItem::query()
+            ->where('is_archived', false)
+            ->where('is_draft', false)
+            ->take(6)
+            ->get()
+            ->map(function ($w) {
+                $fd = is_array($w->field_data) ? $w->field_data : [];
+                $wSlug = $fd['slug'] ?? '';
+                $wName = $fd['name'] ?? '';
+                $wImage = $this->extractImageUrl($fd, ['property-listing---featured-image']);
+                $wSummary = $fd['property-listing---summary'] ?? '';
+
+                return $wSlug !== ''
+                    ? ['name' => $wName, 'slug' => $wSlug, 'image' => $wImage ?? '', 'summary' => $wSummary]
+                    : null;
+            })
+            ->filter()
+            ->values();
+
+        return view('home', compact('homeWindows'));
     }
 
     public function windowBySlug(string $slug)

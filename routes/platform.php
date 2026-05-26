@@ -17,6 +17,7 @@ use App\Orchid\Screens\Role\RoleListScreen;
 use App\Orchid\Screens\User\UserEditScreen;
 use App\Orchid\Screens\User\UserListScreen;
 use App\Orchid\Screens\User\UserProfileScreen;
+use App\Http\Controllers\Admin\WebflowExportController;
 use App\Http\Controllers\Admin\WebflowImageUploadController;
 use App\Orchid\Screens\Webflow\WebflowCollectionEditScreen;
 use App\Orchid\Screens\Webflow\WebflowCollectionListScreen;
@@ -114,3 +115,6 @@ Route::screen('webflow/{collection}/{item}/edit', WebflowCollectionEditScreen::c
 
 Route::post('webflow/upload-image', [WebflowImageUploadController::class, 'upload'])
     ->name('platform.webflow.upload-image');
+
+Route::get('webflow/{collection}/export', [WebflowExportController::class, 'export'])
+    ->name('platform.webflow.export');

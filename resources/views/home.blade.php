@@ -1255,7 +1255,7 @@
 
     @include('partials.brands')
 
-    @include('partials.windows')
+    @include('partials.windows', ['homeWindows' => $homeWindows])
 
     @include('partials.doors')
 
