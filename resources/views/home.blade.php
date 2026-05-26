@@ -1044,7 +1044,6 @@
       }
     </style>
     <link href="/webflow-assets/css/webflow.min.css" rel="stylesheet" type="text/css" />
-    <link href="https://cdn.prod.website-files.com/" rel="preconnect" crossorigin="anonymous" />
     <title>Deluxe Windows | Window Replacement – San Francisco Bay Area</title>
     <meta
       content="Upgrade your Bay Area home with energy-efficient windows. Deluxe Windows offers 20+ years of expert installation of vinyl, aluminum, fiberglass &amp; wood. Free quotes."
@@ -1056,7 +1055,7 @@
       property="og:description"
     />
     <meta
-      content="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/684da952cef202b8dda5788c_Meta%20cover-2.jpg"
+      content="/webflow-assets/images/684da952cef202b8dda5788c_Meta%20cover-2.jpg"
       property="og:image"
     />
     <meta content="Deluxe Windows | Window Replacement – San Francisco Bay Area" name="twitter:title" />
@@ -1068,22 +1067,11 @@
     <meta content="summary_large_image" name="twitter:card" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="Webflow" name="generator" />
-    <link href="https://fonts.googleapis.com/" rel="preconnect" />
-    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin="anonymous" />
-    <script src="/webflow-assets/js/webfont.js" type="text/javascript"></script>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Exo:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic"
-      media="all"
-    />
+    <link rel="stylesheet" href="/webflow-assets/css/fonts.css" media="all" />
     <script type="text/javascript">
-      WebFont.load({
-        google: {
-          families: [
-            "Exo:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic",
-          ],
-        },
-      });
+      document.documentElement.className = document.documentElement.className
+        .replace(/\bwf-loading\b/g, 'wf-active')
+        .replace(/\bwf-exo-[^\s]+/g, '');
     </script>
     <script type="text/javascript">
       !(function (o, c) {
@@ -1224,7 +1212,7 @@
         "name": "Exterior & Entry Doors | Deluxe Windows – Bay Area",
         "description": "Upgrade your home with secure, stylish exterior doors from Deluxe Windows. Expert door installation across San Francisco and the Bay Area. Request a free estimate today.",
         "url": "https://www.deluxewindows.com/doors",
-        "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/684da9f6a8d9aab7e88572b2_Meta%20cover-windows.jpg",
+        "image": "/webflow-assets/images/684da9f6a8d9aab7e88572b2_Meta%20cover-windows.jpg",
         "publisher": { "@type": "Organization", "name": "Deluxe Windows", "url": "https://www.deluxewindows.com" },
         "inLanguage": "en-US"
       }
@@ -1237,7 +1225,7 @@
         "name": "Deluxe Windows | Window Replacement – San Francisco Bay Area",
         "description": "Upgrade your Bay Area home with energy-efficient windows. Deluxe Windows offers 20+ years of expert installation of vinyl, aluminum, fiberglass & wood. Free quotes.",
         "url": "https://www.deluxewindows.com",
-        "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/684da952cef202b8dda5788c_Meta%20cover-2.jpg",
+        "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta%20cover-2.jpg",
         "publisher": { "@type": "Organization", "name": "Deluxe Windows", "url": "https://www.deluxewindows.com" },
         "inLanguage": "en-US"
       }

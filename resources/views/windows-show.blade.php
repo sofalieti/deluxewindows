@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!-- This site was created in Webflow. https://webflow.com --><!-- Last Published: Tue May 26 2026 07:52:04 GMT+0000 (Coordinated Universal Time) -->
 <html
   data-wf-domain="www.deluxewindows.com"
@@ -22,7 +22,7 @@
       property="og:description"
     />
     <meta
-      content="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d89095fe85b113c1b5224_Frame%208.avif"
+      content="/webflow-assets/images/684d89095fe85b113c1b5224_Frame%208.avif"
       property="og:image"
     />
     <meta content="Vinyl Windows | Affordable Bay Area – Deluxe Windows Concord" name="twitter:title" />
@@ -31,7 +31,7 @@
       name="twitter:description"
     />
     <meta
-      content="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d89095fe85b113c1b5224_Frame%208.avif"
+      content="/webflow-assets/images/684d89095fe85b113c1b5224_Frame%208.avif"
       name="twitter:image"
     />
     <meta property="og:type" content="website" />
@@ -75,7 +75,7 @@
         "description": "Vinyl windows are the most popular choice for Bay Area homeowners — low maintenance and energy-efficient. Deluxe Windows installs premium vinyl windows in San Francisco.",
         "url": "/windows/vinyl-windows",
         "category": "",
-        "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d89095fe85b113c1b5224_Frame%208.avif",
+        "image": "/webflow-assets/images/684d89095fe85b113c1b5224_Frame%208.avif",
         "brand": {
           "@type": "Brand",
           "name": ""
@@ -245,7 +245,7 @@
                     width="20"
                     loading="lazy"
                     alt=""
-                    src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/687559a123cece2e95a41a6f_phone_enabled_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg"
+                    src="/webflow-assets/images/687559a123cece2e95a41a6f_phone_enabled_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg"
                     class="image-38"
                 /></a>
                 <div class="link-block odsf">
@@ -253,7 +253,7 @@
                     width="20"
                     loading="lazy"
                     alt=""
-                    src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/687e6d1e97ec845884f78baa_sell_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24%201.svg"
+                    src="/webflow-assets/images/687e6d1e97ec845884f78baa_sell_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24%201.svg"
                   />
                   <div class="text-block-17"><a href="/special-offers" class="link-10">Special Offers</a></div>
                 </div>
@@ -283,7 +283,7 @@
                 <div class="logo-wrapper v1">
                   <a href="/" class="logo-link-2 w-inline-block"
                     ><img
-                      src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/686acba4611e759fd8169f9d_photo_2025-07-06-22.14.41.avif"
+                      src="/webflow-assets/images/686acba4611e759fd8169f9d_photo_2025-07-06-22.14.41.avif"
                       alt=""
                       class="image-14"
                   /></a>
@@ -432,13 +432,13 @@
                                 <img
                                   sizes="100vw"
                                   srcset="
-                                    https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6862abfc8f55643864a69255_Frame%201-p-500.avif   500w,
-                                    https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6862abfc8f55643864a69255_Frame%201-p-800.avif   800w,
-                                    https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6862abfc8f55643864a69255_Frame%201-p-1080.avif 1080w,
-                                    https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6862abfc8f55643864a69255_Frame%201.avif        2000w
+                                    /webflow-assets/images/6862abfc8f55643864a69255_Frame%201-p-500.avif   500w,
+                                    /webflow-assets/images/6862abfc8f55643864a69255_Frame%201-p-800.avif   800w,
+                                    /webflow-assets/images/6862abfc8f55643864a69255_Frame%201-p-1080.avif 1080w,
+                                    /webflow-assets/images/6862abfc8f55643864a69255_Frame%201.avif        2000w
                                   "
                                   alt=""
-                                  src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6862abfc8f55643864a69255_Frame%201.avif"
+                                  src="/webflow-assets/images/6862abfc8f55643864a69255_Frame%201.avif"
                                   loading="lazy"
                                   class="image-14 cover-image property-wrapper-v3---image"
                                 />
@@ -597,13 +597,13 @@
                                 <img
                                   sizes="100vw"
                                   srcset="
-                                    https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6845713efb9f90434a8611f6_4-p-500.avif   500w,
-                                    https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6845713efb9f90434a8611f6_4-p-800.avif   800w,
-                                    https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6845713efb9f90434a8611f6_4-p-1080.avif 1080w,
-                                    https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6845713efb9f90434a8611f6_4.avif        2000w
+                                    /webflow-assets/images/6845713efb9f90434a8611f6_4-p-500.avif   500w,
+                                    /webflow-assets/images/6845713efb9f90434a8611f6_4-p-800.avif   800w,
+                                    /webflow-assets/images/6845713efb9f90434a8611f6_4-p-1080.avif 1080w,
+                                    /webflow-assets/images/6845713efb9f90434a8611f6_4.avif        2000w
                                   "
                                   alt=""
-                                  src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6845713efb9f90434a8611f6_4.avif"
+                                  src="/webflow-assets/images/6845713efb9f90434a8611f6_4.avif"
                                   loading="lazy"
                                   class="image-14 cover-image property-wrapper-v3---image"
                                 />
@@ -697,13 +697,13 @@
                                 <img
                                   sizes="100vw"
                                   srcset="
-                                    https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6862abfc8f55643864a69255_Frame%201-p-500.avif   500w,
-                                    https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6862abfc8f55643864a69255_Frame%201-p-800.avif   800w,
-                                    https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6862abfc8f55643864a69255_Frame%201-p-1080.avif 1080w,
-                                    https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6862abfc8f55643864a69255_Frame%201.avif        2000w
+                                    /webflow-assets/images/6862abfc8f55643864a69255_Frame%201-p-500.avif   500w,
+                                    /webflow-assets/images/6862abfc8f55643864a69255_Frame%201-p-800.avif   800w,
+                                    /webflow-assets/images/6862abfc8f55643864a69255_Frame%201-p-1080.avif 1080w,
+                                    /webflow-assets/images/6862abfc8f55643864a69255_Frame%201.avif        2000w
                                   "
                                   alt=""
-                                  src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6862abfc8f55643864a69255_Frame%201.avif"
+                                  src="/webflow-assets/images/6862abfc8f55643864a69255_Frame%201.avif"
                                   loading="lazy"
                                   class="image-14 cover-image property-wrapper-v3---image"
                                 />
@@ -835,13 +835,13 @@
                                 <img
                                   sizes="100vw"
                                   srcset="
-                                    https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6862abfc8f55643864a69255_Frame%201-p-500.avif   500w,
-                                    https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6862abfc8f55643864a69255_Frame%201-p-800.avif   800w,
-                                    https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6862abfc8f55643864a69255_Frame%201-p-1080.avif 1080w,
-                                    https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6862abfc8f55643864a69255_Frame%201.avif        2000w
+                                    /webflow-assets/images/6862abfc8f55643864a69255_Frame%201-p-500.avif   500w,
+                                    /webflow-assets/images/6862abfc8f55643864a69255_Frame%201-p-800.avif   800w,
+                                    /webflow-assets/images/6862abfc8f55643864a69255_Frame%201-p-1080.avif 1080w,
+                                    /webflow-assets/images/6862abfc8f55643864a69255_Frame%201.avif        2000w
                                   "
                                   alt=""
-                                  src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6862abfc8f55643864a69255_Frame%201.avif"
+                                  src="/webflow-assets/images/6862abfc8f55643864a69255_Frame%201.avif"
                                   loading="lazy"
                                   class="image-14 cover-image property-wrapper-v3---image"
                                 />
@@ -902,7 +902,7 @@
                     width="283"
                     loading="lazy"
                     alt=""
-                    src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/686acba4611e759fd8169f9d_photo_2025-07-06-22.14.41.avif"
+                    src="/webflow-assets/images/686acba4611e759fd8169f9d_photo_2025-07-06-22.14.41.avif"
                     class="image-24" /></a
                 ><a href="tel:(888)730-4144" class="link-15"><strong>Sales: </strong> (888) 730-4144</a>
                 <nav role="navigation" class="nav-menu-wrapper-4 w-nav-menu">
@@ -1354,7 +1354,7 @@
       <div class="div-block-59">
         <div
           style="
-            background-image: url(&quot;https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d89095fe85b113c1b5224_Frame%208.avif&quot;);
+            background-image: url(&quot;/webflow-assets/images/684d89095fe85b113c1b5224_Frame%208.avif&quot;);
           "
           class="div-block-61"
         ></div>
@@ -1460,7 +1460,7 @@
                         <div class="input-line-icon-wrapper">
                           <img
                             loading="eager"
-                            src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6841ddf8ace3d9d9facb194d_star-icon-property-x-webflow-template.svg"
+                            src="/webflow-assets/images/6841ddf8ace3d9d9facb194d_star-icon-property-x-webflow-template.svg"
                             alt="Star Icon - Property X Webflow Template"
                           />
                         </div>
@@ -1481,7 +1481,7 @@
                         <div class="text-area-icon-wrapper">
                           <img
                             loading="eager"
-                            src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6841ddf8ace3d9d9facb192f_lisiting-icon-property-x-webflow-template.svg"
+                            src="/webflow-assets/images/6841ddf8ace3d9d9facb192f_lisiting-icon-property-x-webflow-template.svg"
                             alt="Listing Icon - Property X Webflow Template"
                           />
                         </div>
@@ -1572,7 +1572,7 @@
                     <div class="property-details">
                       <div class="card-feature-wrapper w-condition-invisible">
                         <img
-                          src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6841ddf8ace3d9d9facb1a07_sqft-grey-icon-property-x-webflow-template.svg"
+                          src="/webflow-assets/images/6841ddf8ace3d9d9facb1a07_sqft-grey-icon-property-x-webflow-template.svg"
                           loading="eager"
                           alt="SQFT Icon - Property X Webflow Template"
                         />
@@ -1580,7 +1580,7 @@
                       </div>
                       <div class="card-feature-wrapper w-condition-invisible">
                         <img
-                          src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6841ddf8ace3d9d9facb1a08_bathrooms-grey-icon-property-x-webflow-template.svg"
+                          src="/webflow-assets/images/6841ddf8ace3d9d9facb1a08_bathrooms-grey-icon-property-x-webflow-template.svg"
                           loading="eager"
                           alt="Bathrooms Icon - Property X Webflow Template"
                         />
@@ -1588,7 +1588,7 @@
                       </div>
                       <div class="card-feature-wrapper w-condition-invisible">
                         <img
-                          src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6841ddf8ace3d9d9facb19f5_bedrooms-grey-icon-property-x-webflow-template.svg"
+                          src="/webflow-assets/images/6841ddf8ace3d9d9facb19f5_bedrooms-grey-icon-property-x-webflow-template.svg"
                           loading="eager"
                           alt="Bedrooms Icon - Property X Webflow Template"
                         />
@@ -1596,7 +1596,7 @@
                       </div>
                       <div class="card-feature-wrapper w-condition-invisible">
                         <img
-                          src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6841ddf8ace3d9d9facb19f6_parking-spots-grey-icon-property-x-webflow-template.svg"
+                          src="/webflow-assets/images/6841ddf8ace3d9d9facb19f6_parking-spots-grey-icon-property-x-webflow-template.svg"
                           loading="eager"
                           alt="Parking Spots Icon - Property X Webflow Template"
                         />
@@ -1645,7 +1645,7 @@
                 class="lightbox-link w-inline-block w-lightbox"
                 ><div data-w-id="562736ba-09f8-d605-686e-5ae6e833ca6d" class="image-wrapper _w-h-100">
                   <img
-                    src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d89095fe85b113c1b5224_Frame%208.avif"
+                    src="/webflow-assets/images/684d89095fe85b113c1b5224_Frame%208.avif"
                     loading="eager"
                     alt=""
                     class="image cover-image _200px---mbp"
@@ -1655,31 +1655,31 @@
                   {
                     "items": [
                       {
-                        "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d82de149b8ff5ccc7e4c0_Frame%205.avif",
+                        "url": "/webflow-assets/images/684d82de149b8ff5ccc7e4c0_Frame%205.avif",
                         "type": "image"
                       },
                       {
-                        "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d82ddf30d7f609a8883f2_Frame%204.avif",
+                        "url": "/webflow-assets/images/684d82ddf30d7f609a8883f2_Frame%204.avif",
                         "type": "image"
                       },
                       {
-                        "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d82defbd877468954c7ed_Frame%203.avif",
+                        "url": "/webflow-assets/images/684d82defbd877468954c7ed_Frame%203.avif",
                         "type": "image"
                       },
                       {
-                        "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d82de005f082c65d173fc_Frame%207.avif",
+                        "url": "/webflow-assets/images/684d82de005f082c65d173fc_Frame%207.avif",
                         "type": "image"
                       },
                       {
-                        "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d82dd91da0fc0e069fc95_Frame%206.avif",
+                        "url": "/webflow-assets/images/684d82dd91da0fc0e069fc95_Frame%206.avif",
                         "type": "image"
                       },
                       {
-                        "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d83bba78aa3ada9c91c7c_Frame%209.avif",
+                        "url": "/webflow-assets/images/684d83bba78aa3ada9c91c7c_Frame%209.avif",
                         "type": "image"
                       },
                       {
-                        "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d83d3c66c28e9efa25e82_Frame%207.avif",
+                        "url": "/webflow-assets/images/684d83d3c66c28e9efa25e82_Frame%207.avif",
                         "type": "image"
                       }
                     ],
@@ -1829,7 +1829,7 @@
                     <a href="#" class="_w-h-100 w-inline-block w-lightbox"
                       ><div data-w-id="e4b146c4-78d2-56ac-daa8-7c86e981ed4d" class="image-wrapper _w-h-100">
                         <img
-                          src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695e00a375e654f6496bc79b_imgi_78_PGW_Interior_LivingRoom_MIRA_AwningWindow_Black_InspirationGallery_Module_6_1696x610_p32.avif"
+                          src="/webflow-assets/images/695e00a375e654f6496bc79b_imgi_78_PGW_Interior_LivingRoom_MIRA_AwningWindow_Black_InspirationGallery_Module_6_1696x610_p32.avif"
                           loading="eager"
                           alt=""
                           class="image cover-image _120px---mbp"
@@ -1839,15 +1839,15 @@
                         {
                           "items": [
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695d3d1edd81d2862982375d_pgw_mira_hero_3-1-400x400-1-300x300.avif",
+                              "url": "/webflow-assets/images/695d3d1edd81d2862982375d_pgw_mira_hero_3-1-400x400-1-300x300.avif",
                               "type": "image"
                             },
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695e00b30cb2a159c666f249_imgi_71_PGW_Exterior_FrontAngle_MIRA_SingleHungWindow_InspirationGallery_Module_7_1696x610_p32.avif",
+                              "url": "/webflow-assets/images/695e00b30cb2a159c666f249_imgi_71_PGW_Exterior_FrontAngle_MIRA_SingleHungWindow_InspirationGallery_Module_7_1696x610_p32.avif",
                               "type": "image"
                             },
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695e00a375e654f6496bc79b_imgi_78_PGW_Interior_LivingRoom_MIRA_AwningWindow_Black_InspirationGallery_Module_6_1696x610_p32.avif",
+                              "url": "/webflow-assets/images/695e00a375e654f6496bc79b_imgi_78_PGW_Interior_LivingRoom_MIRA_AwningWindow_Black_InspirationGallery_Module_6_1696x610_p32.avif",
                               "type": "image"
                             }
                           ],
@@ -1864,7 +1864,7 @@
                     <a href="#" class="_w-h-100 w-inline-block w-lightbox"
                       ><div data-w-id="e4b146c4-78d2-56ac-daa8-7c86e981ed4d" class="image-wrapper _w-h-100">
                         <img
-                          src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d89095fe85b113c1b5224_Frame%208.avif"
+                          src="/webflow-assets/images/684d89095fe85b113c1b5224_Frame%208.avif"
                           loading="eager"
                           alt=""
                           class="image cover-image _120px---mbp"
@@ -1874,31 +1874,31 @@
                         {
                           "items": [
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d82de149b8ff5ccc7e4c0_Frame%205.avif",
+                              "url": "/webflow-assets/images/684d82de149b8ff5ccc7e4c0_Frame%205.avif",
                               "type": "image"
                             },
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d82ddf30d7f609a8883f2_Frame%204.avif",
+                              "url": "/webflow-assets/images/684d82ddf30d7f609a8883f2_Frame%204.avif",
                               "type": "image"
                             },
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d82defbd877468954c7ed_Frame%203.avif",
+                              "url": "/webflow-assets/images/684d82defbd877468954c7ed_Frame%203.avif",
                               "type": "image"
                             },
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d82de005f082c65d173fc_Frame%207.avif",
+                              "url": "/webflow-assets/images/684d82de005f082c65d173fc_Frame%207.avif",
                               "type": "image"
                             },
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d82dd91da0fc0e069fc95_Frame%206.avif",
+                              "url": "/webflow-assets/images/684d82dd91da0fc0e069fc95_Frame%206.avif",
                               "type": "image"
                             },
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d83bba78aa3ada9c91c7c_Frame%209.avif",
+                              "url": "/webflow-assets/images/684d83bba78aa3ada9c91c7c_Frame%209.avif",
                               "type": "image"
                             },
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d83d3c66c28e9efa25e82_Frame%207.avif",
+                              "url": "/webflow-assets/images/684d83d3c66c28e9efa25e82_Frame%207.avif",
                               "type": "image"
                             }
                           ],
@@ -1915,7 +1915,7 @@
                     <a href="#" class="_w-h-100 w-inline-block w-lightbox"
                       ><div data-w-id="e4b146c4-78d2-56ac-daa8-7c86e981ed4d" class="image-wrapper _w-h-100">
                         <img
-                          src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/687e2bbbcf84c63258838bc4_homeguide-marvin-signature-windows-and-doors.avif"
+                          src="/webflow-assets/images/687e2bbbcf84c63258838bc4_homeguide-marvin-signature-windows-and-doors.avif"
                           loading="eager"
                           alt=""
                           class="image cover-image _120px---mbp"
@@ -1925,31 +1925,31 @@
                         {
                           "items": [
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d82de149b8ff5ccc7e4c0_Frame%205.avif",
+                              "url": "/webflow-assets/images/684d82de149b8ff5ccc7e4c0_Frame%205.avif",
                               "type": "image"
                             },
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d82ddf30d7f609a8883f2_Frame%204.avif",
+                              "url": "/webflow-assets/images/684d82ddf30d7f609a8883f2_Frame%204.avif",
                               "type": "image"
                             },
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d82defbd877468954c7ed_Frame%203.avif",
+                              "url": "/webflow-assets/images/684d82defbd877468954c7ed_Frame%203.avif",
                               "type": "image"
                             },
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d82de005f082c65d173fc_Frame%207.avif",
+                              "url": "/webflow-assets/images/684d82de005f082c65d173fc_Frame%207.avif",
                               "type": "image"
                             },
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d82dd91da0fc0e069fc95_Frame%206.avif",
+                              "url": "/webflow-assets/images/684d82dd91da0fc0e069fc95_Frame%206.avif",
                               "type": "image"
                             },
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d83bba78aa3ada9c91c7c_Frame%209.avif",
+                              "url": "/webflow-assets/images/684d83bba78aa3ada9c91c7c_Frame%209.avif",
                               "type": "image"
                             },
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d83d3c66c28e9efa25e82_Frame%207.avif",
+                              "url": "/webflow-assets/images/684d83d3c66c28e9efa25e82_Frame%207.avif",
                               "type": "image"
                             }
                           ],
@@ -1966,7 +1966,7 @@
                     <a href="#" class="_w-h-100 w-inline-block w-lightbox"
                       ><div data-w-id="e4b146c4-78d2-56ac-daa8-7c86e981ed4d" class="image-wrapper _w-h-100">
                         <img
-                          src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d8fd91fff20336f9a857c_Frame%2029.avif"
+                          src="/webflow-assets/images/684d8fd91fff20336f9a857c_Frame%2029.avif"
                           loading="eager"
                           alt=""
                           class="image cover-image _120px---mbp"
@@ -1976,31 +1976,31 @@
                         {
                           "items": [
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d900b75255925db7f15af_Frame%2028.avif",
+                              "url": "/webflow-assets/images/684d900b75255925db7f15af_Frame%2028.avif",
                               "type": "image"
                             },
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d9011c5d14426658775b0_Frame%2027.avif",
+                              "url": "/webflow-assets/images/684d9011c5d14426658775b0_Frame%2027.avif",
                               "type": "image"
                             },
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d9016813ffc6a40e50cd5_Frame%2026.avif",
+                              "url": "/webflow-assets/images/684d9016813ffc6a40e50cd5_Frame%2026.avif",
                               "type": "image"
                             },
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d901d1c52bdf38ccf5294_Frame%2025.avif",
+                              "url": "/webflow-assets/images/684d901d1c52bdf38ccf5294_Frame%2025.avif",
                               "type": "image"
                             },
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d9024f7519f8e4719812e_Frame%2024.avif",
+                              "url": "/webflow-assets/images/684d9024f7519f8e4719812e_Frame%2024.avif",
                               "type": "image"
                             },
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d90352d344f16ce7237bc_Frame%2023.avif",
+                              "url": "/webflow-assets/images/684d90352d344f16ce7237bc_Frame%2023.avif",
                               "type": "image"
                             },
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d903b9a0f5b6bc57cc3c7_Frame%2022.avif",
+                              "url": "/webflow-assets/images/684d903b9a0f5b6bc57cc3c7_Frame%2022.avif",
                               "type": "image"
                             }
                           ],
@@ -2017,7 +2017,7 @@
                     <a href="#" class="_w-h-100 w-inline-block w-lightbox"
                       ><div data-w-id="e4b146c4-78d2-56ac-daa8-7c86e981ed4d" class="image-wrapper _w-h-100">
                         <img
-                          src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d9286149b8ff5cccdddbc_Frame%2039.avif"
+                          src="/webflow-assets/images/684d9286149b8ff5cccdddbc_Frame%2039.avif"
                           loading="eager"
                           alt=""
                           class="image cover-image _120px---mbp"
@@ -2027,31 +2027,31 @@
                         {
                           "items": [
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d92a6698b1ec714391e9c_Frame%2032.avif",
+                              "url": "/webflow-assets/images/684d92a6698b1ec714391e9c_Frame%2032.avif",
                               "type": "image"
                             },
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d92ac085576df2a795253_Frame%2031.avif",
+                              "url": "/webflow-assets/images/684d92ac085576df2a795253_Frame%2031.avif",
                               "type": "image"
                             },
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d92b422bad9559d06b656_Frame%2033.avif",
+                              "url": "/webflow-assets/images/684d92b422bad9559d06b656_Frame%2033.avif",
                               "type": "image"
                             },
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d92bc2d344f16ce731fd1_Frame%2037.avif",
+                              "url": "/webflow-assets/images/684d92bc2d344f16ce731fd1_Frame%2037.avif",
                               "type": "image"
                             },
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d92c5afa40de85e688954_Frame%2035.avif",
+                              "url": "/webflow-assets/images/684d92c5afa40de85e688954_Frame%2035.avif",
                               "type": "image"
                             },
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d92cc097b260596c176c8_Frame%2034.avif",
+                              "url": "/webflow-assets/images/684d92cc097b260596c176c8_Frame%2034.avif",
                               "type": "image"
                             },
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d92b422bad9559d06b656_Frame%2033.avif",
+                              "url": "/webflow-assets/images/684d92b422bad9559d06b656_Frame%2033.avif",
                               "type": "image"
                             }
                           ],
@@ -2068,7 +2068,7 @@
                     <a href="#" class="_w-h-100 w-inline-block w-lightbox"
                       ><div data-w-id="e4b146c4-78d2-56ac-daa8-7c86e981ed4d" class="image-wrapper _w-h-100">
                         <img
-                          src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d8c0f6326c95b90a2816b_Frame%2019.avif"
+                          src="/webflow-assets/images/684d8c0f6326c95b90a2816b_Frame%2019.avif"
                           loading="eager"
                           alt=""
                           class="image cover-image _120px---mbp"
@@ -2078,31 +2078,31 @@
                         {
                           "items": [
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d8c43d893b1531185ab3e_Frame%2011.avif",
+                              "url": "/webflow-assets/images/684d8c43d893b1531185ab3e_Frame%2011.avif",
                               "type": "image"
                             },
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d8c4cc94ba92d1b1ae62d_Frame%2014.avif",
+                              "url": "/webflow-assets/images/684d8c4cc94ba92d1b1ae62d_Frame%2014.avif",
                               "type": "image"
                             },
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d8c521f36cc7652eca591_Frame%2015.avif",
+                              "url": "/webflow-assets/images/684d8c521f36cc7652eca591_Frame%2015.avif",
                               "type": "image"
                             },
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d8c59dc4619699b6daace_Frame%2016.avif",
+                              "url": "/webflow-assets/images/684d8c59dc4619699b6daace_Frame%2016.avif",
                               "type": "image"
                             },
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d8c5fdec657e07f14c424_Frame%2017.avif",
+                              "url": "/webflow-assets/images/684d8c5fdec657e07f14c424_Frame%2017.avif",
                               "type": "image"
                             },
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d8c640f1c84f5fbcf800b_Frame%2021.avif",
+                              "url": "/webflow-assets/images/684d8c640f1c84f5fbcf800b_Frame%2021.avif",
                               "type": "image"
                             },
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d8c6f86d0f0f7ba4f5be8_Frame%2012.avif",
+                              "url": "/webflow-assets/images/684d8c6f86d0f0f7ba4f5be8_Frame%2012.avif",
                               "type": "image"
                             }
                           ],
@@ -2119,7 +2119,7 @@
                     <a href="#" class="_w-h-100 w-inline-block w-lightbox"
                       ><div data-w-id="e4b146c4-78d2-56ac-daa8-7c86e981ed4d" class="image-wrapper _w-h-100">
                         <img
-                          src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68755fbd78e6bf0cc4107a42_1.avif"
+                          src="/webflow-assets/images/68755fbd78e6bf0cc4107a42_1.avif"
                           loading="eager"
                           alt=""
                           class="image cover-image _120px---mbp"
@@ -2129,31 +2129,31 @@
                         {
                           "items": [
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d82de149b8ff5ccc7e4c0_Frame%205.avif",
+                              "url": "/webflow-assets/images/684d82de149b8ff5ccc7e4c0_Frame%205.avif",
                               "type": "image"
                             },
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d82ddf30d7f609a8883f2_Frame%204.avif",
+                              "url": "/webflow-assets/images/684d82ddf30d7f609a8883f2_Frame%204.avif",
                               "type": "image"
                             },
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d82defbd877468954c7ed_Frame%203.avif",
+                              "url": "/webflow-assets/images/684d82defbd877468954c7ed_Frame%203.avif",
                               "type": "image"
                             },
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d82de005f082c65d173fc_Frame%207.avif",
+                              "url": "/webflow-assets/images/684d82de005f082c65d173fc_Frame%207.avif",
                               "type": "image"
                             },
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d82dd91da0fc0e069fc95_Frame%206.avif",
+                              "url": "/webflow-assets/images/684d82dd91da0fc0e069fc95_Frame%206.avif",
                               "type": "image"
                             },
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d83bba78aa3ada9c91c7c_Frame%209.avif",
+                              "url": "/webflow-assets/images/684d83bba78aa3ada9c91c7c_Frame%209.avif",
                               "type": "image"
                             },
                             {
-                              "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d83d3c66c28e9efa25e82_Frame%207.avif",
+                              "url": "/webflow-assets/images/684d83d3c66c28e9efa25e82_Frame%207.avif",
                               "type": "image"
                             }
                           ],
@@ -2208,7 +2208,7 @@
                     ><div class="property-card-top-content-v1">
                       <div class="image-wrapper border-radius-image-default property-card-top-content-v1---image">
                         <img
-                          src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a760a252df50b4cbf9cd7_Milgard.avif"
+                          src="/webflow-assets/images/688a760a252df50b4cbf9cd7_Milgard.avif"
                           loading="eager"
                           alt=""
                           class="image cover-image"
@@ -2221,7 +2221,7 @@
                     ><div class="property-card-top-content-v1">
                       <div class="image-wrapper border-radius-image-default property-card-top-content-v1---image">
                         <img
-                          src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a751848f910d5ccb0bd34_Jeld%20Wen.avif"
+                          src="/webflow-assets/images/688a751848f910d5ccb0bd34_Jeld%20Wen.avif"
                           loading="eager"
                           alt=""
                           class="image cover-image"
@@ -2234,7 +2234,7 @@
                     ><div class="property-card-top-content-v1">
                       <div class="image-wrapper border-radius-image-default property-card-top-content-v1---image">
                         <img
-                          src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a76b7e94512a795b803e9_Anlin.avif"
+                          src="/webflow-assets/images/688a76b7e94512a795b803e9_Anlin.avif"
                           loading="eager"
                           alt=""
                           class="image cover-image"
@@ -2247,7 +2247,7 @@
                     ><div class="property-card-top-content-v1">
                       <div class="image-wrapper border-radius-image-default property-card-top-content-v1---image">
                         <img
-                          src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a76851f0f6088a0c53667_Alside.avif"
+                          src="/webflow-assets/images/688a76851f0f6088a0c53667_Alside.avif"
                           loading="eager"
                           alt=""
                           class="image cover-image"
@@ -2260,7 +2260,7 @@
                     ><div class="property-card-top-content-v1">
                       <div class="image-wrapper border-radius-image-default property-card-top-content-v1---image">
                         <img
-                          src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a756ee649c541284c8b78_Plygem.avif"
+                          src="/webflow-assets/images/688a756ee649c541284c8b78_Plygem.avif"
                           loading="eager"
                           alt=""
                           class="image cover-image"
@@ -2273,7 +2273,7 @@
                     ><div class="property-card-top-content-v1">
                       <div class="image-wrapper border-radius-image-default property-card-top-content-v1---image">
                         <img
-                          src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a74bb9c532933d19231ea_Simonton.avif"
+                          src="/webflow-assets/images/688a74bb9c532933d19231ea_Simonton.avif"
                           loading="eager"
                           alt=""
                           class="image cover-image"
@@ -2286,7 +2286,7 @@
                     ><div class="property-card-top-content-v1">
                       <div class="image-wrapper border-radius-image-default property-card-top-content-v1---image">
                         <img
-                          src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a75a9f58dabd4b2642bc5_Andersen.avif"
+                          src="/webflow-assets/images/688a75a9f58dabd4b2642bc5_Andersen.avif"
                           loading="eager"
                           alt=""
                           class="image cover-image"
@@ -2398,7 +2398,7 @@
                       <img
                         alt=""
                         loading="eager"
-                        src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/684d5abd999584226df187df_star_rate_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
+                        src="/webflow-assets/images/684d5abd999584226df187df_star_rate_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
                         class="image cover-image"
                       />
                     </div>
@@ -2439,7 +2439,7 @@
                       <img
                         alt=""
                         loading="eager"
-                        src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/684d5b02ab39a043513ad935_trending_down_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
+                        src="/webflow-assets/images/684d5b02ab39a043513ad935_trending_down_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
                         class="image cover-image"
                       />
                     </div>
@@ -2480,7 +2480,7 @@
                       <img
                         alt=""
                         loading="eager"
-                        src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/684d5b0fe6b11bd987eb461c_all_inclusive_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
+                        src="/webflow-assets/images/684d5b0fe6b11bd987eb461c_all_inclusive_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
                         class="image cover-image"
                       />
                     </div>
@@ -2540,7 +2540,7 @@
                 <div class="value-wrapper">
                   <div class="image-wrapper">
                     <img
-                      src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/684d86f32d344f16ce6ec364_flag_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
+                      src="/webflow-assets/images/684d86f32d344f16ce6ec364_flag_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
                       loading="eager"
                       alt="For-architects-deluxe-windows"
                       class="image"
@@ -2557,7 +2557,7 @@
                 <div class="value-wrapper">
                   <div class="image-wrapper">
                     <img
-                      src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/684d86ff1fff20336f975d74_shopping_bag_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
+                      src="/webflow-assets/images/684d86ff1fff20336f975d74_shopping_bag_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
                       loading="eager"
                       alt="For-contractors-deluxe-windows"
                       class="image"
@@ -2574,7 +2574,7 @@
                 <div class="value-wrapper">
                   <div class="image-wrapper">
                     <img
-                      src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/684d870c533c4f729eb8094c_settings_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
+                      src="/webflow-assets/images/684d870c533c4f729eb8094c_settings_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
                       loading="eager"
                       alt="For-property-managers-owners-deluxe-windows"
                       class="image"
@@ -2591,7 +2591,7 @@
                 <div class="value-wrapper">
                   <div class="image-wrapper">
                     <img
-                      src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/684d8718e99d2a34dfef7e4d_home_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
+                      src="/webflow-assets/images/684d8718e99d2a34dfef7e4d_home_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
                       loading="eager"
                       alt="For-property-managers-owners-deluxe-windows"
                       class="image"
@@ -2643,7 +2643,7 @@
               </div>
               <div class="image-wrapper cta-v3-image">
                 <img
-                  src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/687ca4b70b8583ef4890bad4_iPad.avif"
+                  src="/webflow-assets/images/687ca4b70b8583ef4890bad4_iPad.avif"
                   loading="eager"
                   alt="Deluxe-windows"
                   class="image"
@@ -2864,12 +2864,12 @@
                     <div class="logo-wrapper v1">
                       <a href="/" class="logo-link w-inline-block"
                         ><img
-                          src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/686ad2b4b668ce59a9c25b0e_White.avif"
+                          src="/webflow-assets/images/686ad2b4b668ce59a9c25b0e_White.avif"
                           alt=""
                           sizes="(max-width: 719px) 100vw, 719px"
                           srcset="
-                            https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/686ad2b4b668ce59a9c25b0e_White-p-500.png 500w,
-                            https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/686ad2b4b668ce59a9c25b0e_White.avif      719w
+                            /webflow-assets/images/686ad2b4b668ce59a9c25b0e_White-p-500.png 500w,
+                            /webflow-assets/images/686ad2b4b668ce59a9c25b0e_White.avif      719w
                           "
                       /></a>
                     </div>

@@ -1,10 +1,10 @@
-      <div class="f-section-large-3" style="padding-left: 0; padding-right: 0;">
+﻿      <div class="f-section-large-3" style="padding-left: 0; padding-right: 0;">
         <div class="f-container-regular-3" style="max-width: var(--core--sizing--container-default--default, 1248px); padding-left: var(--core--container-default--padding--default, 14px); padding-right: var(--core--container-default--padding--default, 14px);">
           <div class="f-margin-bottom-64">
             <div class="w-layout-grid f-header-grid-asymmetrical">
               <div id="w-node-_62415541-8aa0-a03d-fd67-04e3ce71fbe3-ce71fbdf" class="f-max-width-large">
                 <img
-                  src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/69986ae97432d22237832ac2_guarantee-icon.svg"
+                  src="/webflow-assets/images/69986ae97432d22237832ac2_guarantee-icon.svg"
                   loading="lazy"
                   width="100"
                   alt=""

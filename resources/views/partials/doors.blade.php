@@ -1,4 +1,4 @@
-      <section class="section pd-top-80px">
+﻿      <section class="section pd-top-80px">
         <div class="w-layout-blockcontainer container-default scroll-horiz w-container">
           <div class="text-center---mbl">
             <div class="title-left---content-right">
@@ -18,7 +18,7 @@
                     ><div class="blog-card-top-content-v1">
                       <div class="image-wrapper border-radius-image-default blog-card-top-content-v1---image min0">
                         <img
-                          src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6862d4e603255742b1319d0f_Frame%2048.avif"
+                          src="/webflow-assets/images/6862d4e603255742b1319d0f_Frame%2048.avif"
                           loading="eager"
                           alt="Vinyl Doors"
                           class="image cover-image auto-height"
@@ -38,7 +38,7 @@
                     ><div class="blog-card-top-content-v1">
                       <div class="image-wrapper border-radius-image-default blog-card-top-content-v1---image min0">
                         <img
-                          src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/687e2bbbcf84c63258838bc4_homeguide-marvin-signature-windows-and-doors.avif"
+                          src="/webflow-assets/images/687e2bbbcf84c63258838bc4_homeguide-marvin-signature-windows-and-doors.avif"
                           loading="eager"
                           alt="Wood Clad Doors"
                           class="image cover-image auto-height"
@@ -60,7 +60,7 @@
                     ><div class="blog-card-top-content-v1">
                       <div class="image-wrapper border-radius-image-default blog-card-top-content-v1---image min0">
                         <img
-                          src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684e94a86602a96b9775c003_Frame%2048.avif"
+                          src="/webflow-assets/images/684e94a86602a96b9775c003_Frame%2048.avif"
                           loading="eager"
                           alt="Fiberglass Doors "
                           class="image cover-image auto-height"

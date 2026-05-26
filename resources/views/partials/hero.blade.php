@@ -1,4 +1,4 @@
-        <div class="code-embed-3 w-embed w-script">
+﻿        <div class="code-embed-3 w-embed w-script">
           <script>
             (function () {
               / Десктопный ховер: не тач, есть hover, ширина >= 992px
@@ -226,7 +226,7 @@
             <div id="hero-bg-wrapper" class="video-bg-container">
               <video autoplay="" loop="" muted="" playsinline="">
                 <source
-                  src="https://s3.amazonaws.com/webflow-prod-assets/6841ddf8ace3d9d9facb14fd/687ca10e41cc245f5cdacfd5_0719_2%20copy.mp4"
+                  src="/webflow-assets/videos/687ca10e41cc245f5cdacfd5_0719_2-copy.mp4"
                   type="video/mp4"
                 />
               </video>
@@ -234,22 +234,19 @@
 
             <script>
               const bgWrapper = document.getElementById("hero-bg-wrapper");
-
-              / Твои ссылки:
-              const videoUrl =
-                "https://s3.amazonaws.com/webflow-prod-assets/6841ddf8ace3d9d9facb14fd/687ca10e41cc245f5cdacfd5_0719_2%20copy.mp4";
-              const imageUrl =
-                "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/69ce36fd76a6aaff9c68df7e_01.webp";
+              // Local asset paths:
+              const videoUrl = "/webflow-assets/videos/687ca10e41cc245f5cdacfd5_0719_2-copy.mp4";
+              const imageUrl = "/webflow-assets/images/69ce36fd76a6aaff9c68df7e_01.webp";
 
               if (window.innerWidth > 767) {
-                / Для компьютеров вставляем видео
+                // Desktop: show video
                 bgWrapper.innerHTML = `
         <video autoplay loop muted playsinline>
           <source src="${videoUrl}" type="video/mp4">
         </video>
       `;
               } else {
-                / Для мобильных ставим только твою картинку
+                // Mobile: show static image
                 bgWrapper.style.backgroundImage = `url('${imageUrl}')`;
               }
             </script>
@@ -359,7 +356,7 @@
                         <div class="input-line-icon-wrapper">
                           <img
                             loading="eager"
-                            src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6841ddf8ace3d9d9facb194d_star-icon-property-x-webflow-template.svg"
+                            src="/webflow-assets/images/6841ddf8ace3d9d9facb194d_star-icon-property-x-webflow-template.svg"
                             alt="Star Icon - Property X Webflow Template"
                             width="300"
                             height="150"
@@ -382,7 +379,7 @@
                         <div class="text-area-icon-wrapper">
                           <img
                             loading="eager"
-                            src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6841ddf8ace3d9d9facb192f_lisiting-icon-property-x-webflow-template.svg"
+                            src="/webflow-assets/images/6841ddf8ace3d9d9facb192f_lisiting-icon-property-x-webflow-template.svg"
                             alt="Listing Icon - Property X Webflow Template"
                             width="300"
                             height="150"

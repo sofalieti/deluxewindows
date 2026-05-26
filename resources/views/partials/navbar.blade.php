@@ -1,4 +1,4 @@
-      <div class="header-container-2">
+﻿      <div class="header-container-2">
         <div
           data-animation="default"
           data-collapse="tiny"
@@ -16,7 +16,7 @@
                     width="20"
                     loading="lazy"
                     alt=""
-                    src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/687559a123cece2e95a41a6f_phone_enabled_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg"
+                    src="/webflow-assets/images/687559a123cece2e95a41a6f_phone_enabled_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg"
                     class="image-38"
                 /></a>
                 <div class="link-block odsf">
@@ -24,7 +24,7 @@
                     width="20"
                     loading="lazy"
                     alt=""
-                    src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/687e6d1e97ec845884f78baa_sell_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24%201.svg"
+                    src="/webflow-assets/images/687e6d1e97ec845884f78baa_sell_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24%201.svg"
                   />
                   <div class="text-block-17">
                     <a href="/special-offers" class="link-10">Special Offers</a>
@@ -65,7 +65,7 @@
                     aria-current="page"
                     class="logo-link-2 w-inline-block w--current"
                     ><img
-                      src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/686acba4611e759fd8169f9d_photo_2025-07-06-22.14.41.avif"
+                      src="/webflow-assets/images/686acba4611e759fd8169f9d_photo_2025-07-06-22.14.41.avif"
                       alt=""
                       class="image-14"
                   /></a>
@@ -271,7 +271,7 @@
                               >
                                 <img
                                   alt=""
-                                  src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6862abfc8f55643864a69255_Frame%201.avif"
+                                  src="/webflow-assets/images/6862abfc8f55643864a69255_Frame%201.avif"
                                   loading="lazy"
                                   class="image-14 cover-image property-wrapper-v3---image"
                                 />
@@ -488,7 +488,7 @@
                               >
                                 <img
                                   alt=""
-                                  src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6845713efb9f90434a8611f6_4.avif"
+                                  src="/webflow-assets/images/6845713efb9f90434a8611f6_4.avif"
                                   loading="lazy"
                                   class="image-14 cover-image property-wrapper-v3---image"
                                 />
@@ -618,7 +618,7 @@
                               >
                                 <img
                                   alt=""
-                                  src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6862abfc8f55643864a69255_Frame%201.avif"
+                                  src="/webflow-assets/images/6862abfc8f55643864a69255_Frame%201.avif"
                                   loading="lazy"
                                   class="image-14 cover-image property-wrapper-v3---image"
                                 />
@@ -823,7 +823,7 @@
                               >
                                 <img
                                   alt=""
-                                  src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6862abfc8f55643864a69255_Frame%201.avif"
+                                  src="/webflow-assets/images/6862abfc8f55643864a69255_Frame%201.avif"
                                   loading="lazy"
                                   class="image-14 cover-image property-wrapper-v3---image"
                                 />
@@ -899,7 +899,7 @@
                     width="283"
                     loading="lazy"
                     alt=""
-                    src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/686acba4611e759fd8169f9d_photo_2025-07-06-22.14.41.avif"
+                    src="/webflow-assets/images/686acba4611e759fd8169f9d_photo_2025-07-06-22.14.41.avif"
                     class="image-24" /></a
                 ><a href="tel:(888)730-4144" class="link-15"><strong>Sales:&nbsp;</strong>&nbsp;(888) 730-4144</a>
                 <nav role="navigation" class="nav-menu-wrapper-4 w-nav-menu">

@@ -1,4 +1,4 @@
-      <footer data-w-id="080cd6ed-2ec3-ab0f-3fec-cc4bec09a603" class="footer-wrapper" style="opacity: 0">
+﻿      <footer data-w-id="080cd6ed-2ec3-ab0f-3fec-cc4bec09a603" class="footer-wrapper" style="opacity: 0">
         <div class="footer-top-cards-wrapper---pd"></div>
         <div class="footer-card">
           <div class="w-layout-blockcontainer container-default w-container">
@@ -123,7 +123,7 @@
                         aria-current="page"
                         class="logo-link w-inline-block w--current"
                         ><img
-                          src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/686ad2b4b668ce59a9c25b0e_White.avif"
+                          src="/webflow-assets/images/686ad2b4b668ce59a9c25b0e_White.avif"
                           alt=""
                       /></a>
                     </div>

@@ -1,4 +1,4 @@
-      <section class="section">
+﻿      <section class="section">
         <div class="text-center---mbl">
           <div class="title-left---content-right">
             <div class="width-100-mobile-landscape">
@@ -21,7 +21,7 @@
                     ><div id="w-node-_87779e2a-0c09-17ad-e055-dbd837711a36-fd53ec90" class="position-relative">
                       <div class="image-wrapper border-radius-image-default height-100 wrapperimage2">
                         <img
-                          src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695e00a375e654f6496bc79b_imgi_78_PGW_Interior_LivingRoom_MIRA_AwningWindow_Black_InspirationGallery_Module_6_1696x610_p32.avif"
+                          src="/webflow-assets/images/695e00a375e654f6496bc79b_imgi_78_PGW_Interior_LivingRoom_MIRA_AwningWindow_Black_InspirationGallery_Module_6_1696x610_p32.avif"
                           loading="eager"
                           alt="Aluminum Clad Windows"
                           class="image cover-image property-wrapper-v3---image"
@@ -36,7 +36,7 @@
                       <div class="mg-bottom-extra-small w-condition-invisible">
                         <div class="card-feature-wrapper">
                           <img
-                            src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6841ddf8ace3d9d9facb1875_location-black-icon-property-x-webflow-template.svg"
+                            src="/webflow-assets/images/6841ddf8ace3d9d9facb1875_location-black-icon-property-x-webflow-template.svg"
                             loading="eager"
                             alt="Location Icon - Property X Webflow Template"
                             width="300"
@@ -57,7 +57,7 @@
                         <div class="property-details-wrapper-v1">
                           <div class="card-feature-wrapper w-condition-invisible">
                             <img
-                              src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6841ddf8ace3d9d9facb1a07_sqft-grey-icon-property-x-webflow-template.svg"
+                              src="/webflow-assets/images/6841ddf8ace3d9d9facb1a07_sqft-grey-icon-property-x-webflow-template.svg"
                               loading="eager"
                               alt="SQFT Icon - Property X Webflow Template"
                               width="300"
@@ -67,7 +67,7 @@
                           </div>
                           <div class="card-feature-wrapper w-condition-invisible">
                             <img
-                              src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6841ddf8ace3d9d9facb1a08_bathrooms-grey-icon-property-x-webflow-template.svg"
+                              src="/webflow-assets/images/6841ddf8ace3d9d9facb1a08_bathrooms-grey-icon-property-x-webflow-template.svg"
                               loading="eager"
                               alt="Bathrooms Icon - Property X Webflow Template"
                               width="300"
@@ -77,7 +77,7 @@
                           </div>
                           <div class="card-feature-wrapper w-condition-invisible">
                             <img
-                              src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6841ddf8ace3d9d9facb19f5_bedrooms-grey-icon-property-x-webflow-template.svg"
+                              src="/webflow-assets/images/6841ddf8ace3d9d9facb19f5_bedrooms-grey-icon-property-x-webflow-template.svg"
                               loading="eager"
                               alt="Bedrooms Icon - Property X Webflow Template"
                               width="300"
@@ -87,7 +87,7 @@
                           </div>
                           <div class="card-feature-wrapper w-condition-invisible">
                             <img
-                              src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6841ddf8ace3d9d9facb19f6_parking-spots-grey-icon-property-x-webflow-template.svg"
+                              src="/webflow-assets/images/6841ddf8ace3d9d9facb19f6_parking-spots-grey-icon-property-x-webflow-template.svg"
                               loading="eager"
                               alt="Parking Spots Icon - Property X Webflow Template"
                               width="300"
@@ -110,7 +110,7 @@
                     ><div id="w-node-_87779e2a-0c09-17ad-e055-dbd837711a36-fd53ec90" class="position-relative">
                       <div class="image-wrapper border-radius-image-default height-100 wrapperimage2">
                         <img
-                          src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d89095fe85b113c1b5224_Frame%208.avif"
+                          src="/webflow-assets/images/684d89095fe85b113c1b5224_Frame%208.avif"
                           loading="eager"
                           alt="Vinyl Windows"
                           class="image cover-image property-wrapper-v3---image"
@@ -125,7 +125,7 @@
                       <div class="mg-bottom-extra-small w-condition-invisible">
                         <div class="card-feature-wrapper">
                           <img
-                            src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6841ddf8ace3d9d9facb1875_location-black-icon-property-x-webflow-template.svg"
+                            src="/webflow-assets/images/6841ddf8ace3d9d9facb1875_location-black-icon-property-x-webflow-template.svg"
                             loading="eager"
                             alt="Location Icon - Property X Webflow Template"
                             width="300"
@@ -146,7 +146,7 @@
                         <div class="property-details-wrapper-v1">
                           <div class="card-feature-wrapper w-condition-invisible">
                             <img
-                              src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6841ddf8ace3d9d9facb1a07_sqft-grey-icon-property-x-webflow-template.svg"
+                              src="/webflow-assets/images/6841ddf8ace3d9d9facb1a07_sqft-grey-icon-property-x-webflow-template.svg"
                               loading="eager"
                               alt="SQFT Icon - Property X Webflow Template"
                               width="300"
@@ -156,7 +156,7 @@
                           </div>
                           <div class="card-feature-wrapper w-condition-invisible">
                             <img
-                              src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6841ddf8ace3d9d9facb1a08_bathrooms-grey-icon-property-x-webflow-template.svg"
+                              src="/webflow-assets/images/6841ddf8ace3d9d9facb1a08_bathrooms-grey-icon-property-x-webflow-template.svg"
                               loading="eager"
                               alt="Bathrooms Icon - Property X Webflow Template"
                               width="300"
@@ -166,7 +166,7 @@
                           </div>
                           <div class="card-feature-wrapper w-condition-invisible">
                             <img
-                              src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6841ddf8ace3d9d9facb19f5_bedrooms-grey-icon-property-x-webflow-template.svg"
+                              src="/webflow-assets/images/6841ddf8ace3d9d9facb19f5_bedrooms-grey-icon-property-x-webflow-template.svg"
                               loading="eager"
                               alt="Bedrooms Icon - Property X Webflow Template"
                               width="300"
@@ -176,7 +176,7 @@
                           </div>
                           <div class="card-feature-wrapper w-condition-invisible">
                             <img
-                              src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6841ddf8ace3d9d9facb19f6_parking-spots-grey-icon-property-x-webflow-template.svg"
+                              src="/webflow-assets/images/6841ddf8ace3d9d9facb19f6_parking-spots-grey-icon-property-x-webflow-template.svg"
                               loading="eager"
                               alt="Parking Spots Icon - Property X Webflow Template"
                               width="300"
@@ -199,7 +199,7 @@
                     ><div id="w-node-_87779e2a-0c09-17ad-e055-dbd837711a36-fd53ec90" class="position-relative">
                       <div class="image-wrapper border-radius-image-default height-100 wrapperimage2">
                         <img
-                          src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/687e2bbbcf84c63258838bc4_homeguide-marvin-signature-windows-and-doors.avif"
+                          src="/webflow-assets/images/687e2bbbcf84c63258838bc4_homeguide-marvin-signature-windows-and-doors.avif"
                           loading="eager"
                           alt="Wood Clad Windows"
                           class="image cover-image property-wrapper-v3---image"
@@ -214,7 +214,7 @@
                       <div class="mg-bottom-extra-small w-condition-invisible">
                         <div class="card-feature-wrapper">
                           <img
-                            src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6841ddf8ace3d9d9facb1875_location-black-icon-property-x-webflow-template.svg"
+                            src="/webflow-assets/images/6841ddf8ace3d9d9facb1875_location-black-icon-property-x-webflow-template.svg"
                             loading="eager"
                             alt="Location Icon - Property X Webflow Template"
                             width="300"
@@ -235,7 +235,7 @@
                         <div class="property-details-wrapper-v1">
                           <div class="card-feature-wrapper w-condition-invisible">
                             <img
-                              src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6841ddf8ace3d9d9facb1a07_sqft-grey-icon-property-x-webflow-template.svg"
+                              src="/webflow-assets/images/6841ddf8ace3d9d9facb1a07_sqft-grey-icon-property-x-webflow-template.svg"
                               loading="eager"
                               alt="SQFT Icon - Property X Webflow Template"
                               width="300"
@@ -245,7 +245,7 @@
                           </div>
                           <div class="card-feature-wrapper w-condition-invisible">
                             <img
-                              src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6841ddf8ace3d9d9facb1a08_bathrooms-grey-icon-property-x-webflow-template.svg"
+                              src="/webflow-assets/images/6841ddf8ace3d9d9facb1a08_bathrooms-grey-icon-property-x-webflow-template.svg"
                               loading="eager"
                               alt="Bathrooms Icon - Property X Webflow Template"
                               width="300"
@@ -255,7 +255,7 @@
                           </div>
                           <div class="card-feature-wrapper w-condition-invisible">
                             <img
-                              src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6841ddf8ace3d9d9facb19f5_bedrooms-grey-icon-property-x-webflow-template.svg"
+                              src="/webflow-assets/images/6841ddf8ace3d9d9facb19f5_bedrooms-grey-icon-property-x-webflow-template.svg"
                               loading="eager"
                               alt="Bedrooms Icon - Property X Webflow Template"
                               width="300"
@@ -265,7 +265,7 @@
                           </div>
                           <div class="card-feature-wrapper w-condition-invisible">
                             <img
-                              src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6841ddf8ace3d9d9facb19f6_parking-spots-grey-icon-property-x-webflow-template.svg"
+                              src="/webflow-assets/images/6841ddf8ace3d9d9facb19f6_parking-spots-grey-icon-property-x-webflow-template.svg"
                               loading="eager"
                               alt="Parking Spots Icon - Property X Webflow Template"
                               width="300"
@@ -288,7 +288,7 @@
                     ><div id="w-node-_87779e2a-0c09-17ad-e055-dbd837711a36-fd53ec90" class="position-relative">
                       <div class="image-wrapper border-radius-image-default height-100 wrapperimage2">
                         <img
-                          src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d8fd91fff20336f9a857c_Frame%2029.avif"
+                          src="/webflow-assets/images/684d8fd91fff20336f9a857c_Frame%2029.avif"
                           loading="eager"
                           alt="Fiberglass Windows"
                           class="image cover-image property-wrapper-v3---image"
@@ -303,7 +303,7 @@
                       <div class="mg-bottom-extra-small w-condition-invisible">
                         <div class="card-feature-wrapper">
                           <img
-                            src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6841ddf8ace3d9d9facb1875_location-black-icon-property-x-webflow-template.svg"
+                            src="/webflow-assets/images/6841ddf8ace3d9d9facb1875_location-black-icon-property-x-webflow-template.svg"
                             loading="eager"
                             alt="Location Icon - Property X Webflow Template"
                             width="300"
@@ -325,7 +325,7 @@
                         <div class="property-details-wrapper-v1">
                           <div class="card-feature-wrapper w-condition-invisible">
                             <img
-                              src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6841ddf8ace3d9d9facb1a07_sqft-grey-icon-property-x-webflow-template.svg"
+                              src="/webflow-assets/images/6841ddf8ace3d9d9facb1a07_sqft-grey-icon-property-x-webflow-template.svg"
                               loading="eager"
                               alt="SQFT Icon - Property X Webflow Template"
                               width="300"
@@ -335,7 +335,7 @@
                           </div>
                           <div class="card-feature-wrapper w-condition-invisible">
                             <img
-                              src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6841ddf8ace3d9d9facb1a08_bathrooms-grey-icon-property-x-webflow-template.svg"
+                              src="/webflow-assets/images/6841ddf8ace3d9d9facb1a08_bathrooms-grey-icon-property-x-webflow-template.svg"
                               loading="eager"
                               alt="Bathrooms Icon - Property X Webflow Template"
                               width="300"
@@ -345,7 +345,7 @@
                           </div>
                           <div class="card-feature-wrapper w-condition-invisible">
                             <img
-                              src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6841ddf8ace3d9d9facb19f5_bedrooms-grey-icon-property-x-webflow-template.svg"
+                              src="/webflow-assets/images/6841ddf8ace3d9d9facb19f5_bedrooms-grey-icon-property-x-webflow-template.svg"
                               loading="eager"
                               alt="Bedrooms Icon - Property X Webflow Template"
                               width="300"
@@ -355,7 +355,7 @@
                           </div>
                           <div class="card-feature-wrapper w-condition-invisible">
                             <img
-                              src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6841ddf8ace3d9d9facb19f6_parking-spots-grey-icon-property-x-webflow-template.svg"
+                              src="/webflow-assets/images/6841ddf8ace3d9d9facb19f6_parking-spots-grey-icon-property-x-webflow-template.svg"
                               loading="eager"
                               alt="Parking Spots Icon - Property X Webflow Template"
                               width="300"

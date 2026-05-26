@@ -1,6 +1,6 @@
-      <div class="f-section-large-2">
+﻿      <div class="f-section-large-2">
         <img
-          src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/69986e6eb764fe1619060131_achievement-award-medal-icon.svg"
+          src="/webflow-assets/images/69986e6eb764fe1619060131_achievement-award-medal-icon.svg"
           loading="lazy"
           width="100"
           alt=""
@@ -17,7 +17,7 @@
               <div class="f-feature-icon-wrapper">
                 <img
                   loading="lazy"
-                  src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/6998617839debbabce241e8e_6915aaca08003de3e1e57018_marvin-logo-black.svg"
+                  src="/webflow-assets/images/6998617839debbabce241e8e_6915aaca08003de3e1e57018_marvin-logo-black.svg"
                   alt=""
                   class="image-34"
                 />
@@ -29,7 +29,7 @@
                   width="329"
                   loading="lazy"
                   alt=""
-                  src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/69200ccf66431025ccaabea5_milgard.svg"
+                  src="/webflow-assets/images/69200ccf66431025ccaabea5_milgard.svg"
                   class="image-35"
                 />
               </div>
@@ -38,7 +38,7 @@
               <div class="f-feature-icon-wrapper">
                 <img
                   loading="lazy"
-                  src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/69986178667bcb1013476512_6915aaaa3027924fb18fb47c_andersen_logo_tm_rectangle_rgb.svg"
+                  src="/webflow-assets/images/69986178667bcb1013476512_6915aaaa3027924fb18fb47c_andersen_logo_tm_rectangle_rgb.svg"
                   alt=""
                   class="image-36"
                 />

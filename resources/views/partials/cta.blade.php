@@ -1,4 +1,4 @@
-      <section class="section-card-wrapper">
+﻿      <section class="section-card-wrapper">
         <div class="section-card cta-v3">
           <div class="w-layout-blockcontainer container-default w-container">
             <div class="w-layout-grid grid-2-columns cta-v3-grid">
@@ -32,7 +32,7 @@
               </div>
               <div class="image-wrapper cta-v3-image">
                 <img
-                  src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/687ca4b70b8583ef4890bad4_iPad.avif"
+                  src="/webflow-assets/images/687ca4b70b8583ef4890bad4_iPad.avif"
                   loading="eager"
                   alt="Deluxe-windows"
                   class="image"

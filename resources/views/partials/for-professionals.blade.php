@@ -1,4 +1,4 @@
-      <section class="section top-none">
+﻿      <section class="section top-none">
         <div class="w-layout-blockcontainer container-default w-container">
           <div class="w-layout-grid grid-2-columns values-wrapper-grid">
             <div class="sticky-top static---tablet">
@@ -29,7 +29,7 @@
                 <div class="value-wrapper">
                   <div class="image-wrapper">
                     <img
-                      src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/68457ee6c123c7673849b267_design_services_24dp_E3E3E3_FILL1_wght400_GRAD0_opsz24%201.svg"
+                      src="/webflow-assets/images/68457ee6c123c7673849b267_design_services_24dp_E3E3E3_FILL1_wght400_GRAD0_opsz24%201.svg"
                       loading="eager"
                       alt="For-architects-deluxe-windows"
                       class="image"
@@ -48,7 +48,7 @@
                 <div class="value-wrapper">
                   <div class="image-wrapper">
                     <img
-                      src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/68457e9595b11552c12c4e93_home_repair_service_24dp_E3E3E3_FILL1_wght400_GRAD0_opsz24.svg"
+                      src="/webflow-assets/images/68457e9595b11552c12c4e93_home_repair_service_24dp_E3E3E3_FILL1_wght400_GRAD0_opsz24.svg"
                       loading="eager"
                       alt="For-contractors-deluxe-windows"
                       class="image"
@@ -68,7 +68,7 @@
                 <div class="value-wrapper">
                   <div class="image-wrapper">
                     <img
-                      src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/68457e9f17ba59c9564f8638_apartment_24dp_E3E3E3_FILL1_wght400_GRAD0_opsz24.svg"
+                      src="/webflow-assets/images/68457e9f17ba59c9564f8638_apartment_24dp_E3E3E3_FILL1_wght400_GRAD0_opsz24.svg"
                       loading="eager"
                       alt="For-property-managers-owners-deluxe-windows"
                       class="image"
