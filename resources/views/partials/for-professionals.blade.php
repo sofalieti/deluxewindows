@@ -1,4 +1,4 @@
-﻿      <section class="section top-none">
+﻿      <section class="section top-none" style="margin-top: 0;">
         <div class="w-layout-blockcontainer container-default w-container">
           <div class="w-layout-grid grid-2-columns values-wrapper-grid">
             <div class="sticky-top static---tablet">

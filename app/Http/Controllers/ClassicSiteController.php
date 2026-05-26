@@ -59,7 +59,7 @@ class ClassicSiteController extends Controller
         $ogDescription  = $fieldData['opengraph-description'] ?? $seoDescription;
         $ogImage        = $fieldData['opengraph-image'] ?? $heroImage ?? '';
 
-        return view('classic.windows.show', [
+        return view('windows.show', [
             'windowFieldData'  => $fieldData,
             'seoTitle'         => $seoTitle,
             'seoDescription'   => $seoDescription,
