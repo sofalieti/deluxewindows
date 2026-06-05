@@ -7,19 +7,11 @@
   <head>
     <meta charset="utf-8" />
     <link href="https://cdn.prod.website-files.com" rel="preconnect" crossorigin="anonymous" />
-    <title>{{ $seoTitle }} | Deluxe Windows Blog</title>
-    <meta content="{{ $seoDescription }}" name="description" />
-    <meta content="{{ $ogTitle }}" property="og:title" />
-    <meta content="{{ $ogDescription }}" property="og:description" />
-    @if($heroImage)
-    <meta content="{{ $heroImage }}" property="og:image" />
-    @endif
-    <meta content="{{ $ogTitle }}" name="twitter:title" />
-    <meta content="{{ $ogDescription }}" name="twitter:description" />
-    @if($heroImage)
-    <meta content="{{ $heroImage }}" name="twitter:image" />
-    @endif
-    <meta property="og:type" content="article" />
+    <title>Window Tips &amp; Design Blog | Deluxe Windows – Bay Area</title>
+    <meta content="Expert window tips, buying guides, and design inspiration for Bay Area homeowners from Deluxe Windows." name="description" />
+    <meta content="Window Tips &amp; Design Blog | Deluxe Windows – Bay Area" property="og:title" />
+    <meta content="Expert window tips, buying guides, and design inspiration for Bay Area homeowners from Deluxe Windows." property="og:description" />
+    <meta property="og:type" content="website" />
     <meta content="summary_large_image" name="twitter:card" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link href="/webflow-assets/css/webflow.min.css" rel="stylesheet" type="text/css" />
@@ -45,77 +37,64 @@
       .w-webflow-badge { display: none !important; }
       .section.top-none { margin-top: 0 !important; }
 
-      .blog-post-body p,
-      .blog-post-body li {
-        font-size: 1.05rem;
-        line-height: 1.8;
-        color: #333;
-      }
-      .blog-post-body p { margin-bottom: 20px; }
-      .blog-post-body h2 {
-        font-size: 1.7rem;
-        font-weight: 700;
-        color: #1a1a1a;
-        margin-top: 48px;
-        margin-bottom: 16px;
-      }
-      .blog-post-body h3,
-      .blog-post-body h4 {
-        font-size: 1.25rem;
-        font-weight: 700;
-        color: #1E73B9;
-        margin-top: 32px;
-        margin-bottom: 12px;
-      }
-      .blog-post-body h5 {
-        font-size: 1.1rem;
-        font-weight: 700;
-        color: #1a1a1a;
-        margin-top: 24px;
-        margin-bottom: 10px;
-      }
-      .blog-post-body ol,
-      .blog-post-body ul { padding-left: 24px; margin-bottom: 20px; }
-      .blog-post-body li { margin-bottom: 8px; }
-      .blog-post-body img {
-        width: 100%;
-        border-radius: 10px;
-        margin: 32px 0;
-        display: block;
-      }
-
-      .blog-related-grid {
+      .blog-index-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
+        gap: 28px;
       }
-      .blog-related-card {
+      .blog-index-card {
         background: #fff;
-        border-radius: 12px;
+        border-radius: 14px;
         overflow: hidden;
         text-decoration: none;
         color: inherit;
-        box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-        transition: box-shadow 0.2s;
+        box-shadow: 0 2px 14px rgba(0,0,0,0.07);
+        transition: box-shadow 0.2s, transform 0.2s;
         display: flex;
         flex-direction: column;
       }
-      .blog-related-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.13); }
-      .blog-related-card img {
+      .blog-index-card:hover {
+        box-shadow: 0 8px 28px rgba(0,0,0,0.13);
+        transform: translateY(-2px);
+      }
+      .blog-index-card-img {
         width: 100%;
         aspect-ratio: 16/9;
         object-fit: cover;
+        display: block;
+        background: #e8edf2;
       }
-      .blog-related-card-body { padding: 20px; }
-      .blog-related-card-title {
-        font-size: 1rem;
+      .blog-index-card-body {
+        padding: 20px 22px 24px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .blog-index-card-title {
+        font-size: 1.05rem;
         font-weight: 700;
         color: #1a1a1a;
-        line-height: 1.4;
+        line-height: 1.45;
+        margin-bottom: 14px;
+      }
+      .blog-index-card-date {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.82rem;
+        color: #888;
+      }
+      .blog-index-card-date svg {
+        flex-shrink: 0;
+        opacity: 0.6;
       }
 
       @media (max-width: 900px) {
-        .blog-related-grid { grid-template-columns: 1fr; }
+        .blog-index-grid { grid-template-columns: repeat(2, 1fr); }
+      }
+      @media (max-width: 540px) {
+        .blog-index-grid { grid-template-columns: 1fr; }
       }
     </style>
 
@@ -165,9 +144,7 @@
           <div class="breadcrumbs-wrapper">
             <a href="/" class="breadcrumb-link">Home</a>
             <div class="breadcrumb-div">/</div>
-            <a href="/blog" class="breadcrumb-link hidden-link">Blog</a>
-            <div class="breadcrumb-div hidden-txt">/</div>
-            <div class="breadcrumb-text">{{ $title }}</div>
+            <div class="breadcrumb-text">Knowledge Articles</div>
           </div>
         </div>
       </section>
@@ -175,57 +152,43 @@
       <section class="section pd-120px top-none">
         <div class="w-layout-blockcontainer container-default w-container">
           <div class="mg-top-extra-large">
-            <div class="inner-container _800px _100-tablet">
-              <h1 class="display-8 mid">{{ $title }}</h1>
-
-              @if($heroImage)
-              <div class="mg-top-default">
-                <div class="image-wrapper border-radius-image-default">
+            <div class="title-left---content-right">
+              <h1 class="display-9 mid">Knowledge Articles</h1>
+            </div>
+            <div class="mg-top-large">
+              <div class="blog-index-grid">
+                @foreach($posts as $post)
+                <a href="/blog/{{ $post['slug'] }}" class="blog-index-card">
+                  @if($post['image'])
                   <img
-                    src="{{ $heroImage }}"
-                    loading="eager"
-                    alt="{{ $title }}"
-                    class="image cover-image"
+                    class="blog-index-card-img"
+                    src="{{ $post['image'] }}"
+                    alt="{{ $post['name'] }}"
+                    loading="lazy"
                   />
-                </div>
+                  @else
+                  <div class="blog-index-card-img"></div>
+                  @endif
+                  <div class="blog-index-card-body">
+                    <div class="blog-index-card-title">{{ $post['name'] }}</div>
+                    @if($post['published'])
+                    <div class="blog-index-card-date">
+                      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="1" y="2" width="14" height="13" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M1 6h14" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M5 1v2M11 1v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                      </svg>
+                      {{ $post['published'] }}
+                    </div>
+                    @endif
+                  </div>
+                </a>
+                @endforeach
               </div>
-              @endif
-
-              @if($bodyHtml)
-              <div class="mg-top-default">
-                <div class="rich-text-v2 w-richtext blog-post-body">
-                  {!! $bodyHtml !!}
-                </div>
-              </div>
-              @endif
             </div>
           </div>
         </div>
       </section>
-
-      @if($relatedPosts->count() > 0)
-      <section class="section top-none">
-        <div class="w-layout-blockcontainer container-default w-container">
-          <div class="title-left---content-right">
-            <h2 class="heading-23">Read More Articles</h2>
-          </div>
-          <div class="mg-top-large">
-            <div class="blog-related-grid">
-              @foreach($relatedPosts as $post)
-              <a href="/blog/{{ $post['slug'] }}" class="blog-related-card">
-                @if($post['image'])
-                <img src="{{ $post['image'] }}" alt="{{ $post['name'] }}" loading="lazy" />
-                @endif
-                <div class="blog-related-card-body">
-                  <div class="blog-related-card-title">{{ $post['name'] }}</div>
-                </div>
-              </a>
-              @endforeach
-            </div>
-          </div>
-        </div>
-      </section>
-      @endif
 
       @include('partials.footer')
 
