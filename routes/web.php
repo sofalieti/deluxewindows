@@ -13,3 +13,7 @@ Route::get('/brands/{slug}', [ClassicSiteController::class, 'brandBySlug'])
 Route::get('/brand-collections/{slug}', [ClassicSiteController::class, 'brandCollectionBySlug'])
     ->where('slug', '[A-Za-z0-9\-]+');
 
+Route::get('/blog/how-to-measure-windows-for-replacement', function () {
+    return view('blog.how-to-measure-windows-for-replacement');
+});
+
