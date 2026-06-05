@@ -6,6 +6,7 @@ use App\Models\Webflow\BlogWebflowItem;
 use App\Models\Webflow\BrandCollectionsWebflowItem;
 use App\Models\Webflow\BrandsWebflowItem;
 use App\Models\Webflow\WindowsWebflowItem;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\File;
 
 class ClassicSiteController extends Controller
@@ -362,28 +363,34 @@ class ClassicSiteController extends Controller
 
     public function blogIndex()
     {
-        $posts = BlogWebflowItem::query()
-            ->where('is_archived', false)
-            ->where('is_draft', false)
-            ->orderByDesc('webflow_published_on')
-            ->get()
-            ->map(function ($post) {
-                $fd = is_array($post->field_data) ? $post->field_data : [];
-                $postSlug = $fd['slug'] ?? '';
+        $posts = collect();
 
-                if ($postSlug === '') {
-                    return null;
-                }
+        try {
+            $posts = BlogWebflowItem::query()
+                ->where('is_archived', false)
+                ->where('is_draft', false)
+                ->orderByDesc('webflow_published_on')
+                ->get()
+                ->map(function ($post) {
+                    $fd = is_array($post->field_data) ? $post->field_data : [];
+                    $postSlug = $fd['slug'] ?? '';
 
-                return [
-                    'name'      => $fd['name'] ?? '',
-                    'slug'      => $postSlug,
-                    'image'     => $this->extractImageUrl($fd, ['main-project-image', 'client-logo']) ?? '',
-                    'published' => $post->webflow_published_on?->format('M j, Y') ?? '',
-                ];
-            })
-            ->filter()
-            ->values();
+                    if ($postSlug === '') {
+                        return null;
+                    }
+
+                    return [
+                        'name'      => $fd['name'] ?? '',
+                        'slug'      => $postSlug,
+                        'image'     => $this->extractImageUrl($fd, ['main-project-image', 'client-logo']) ?? '',
+                        'published' => $this->formatBlogPublishedDate($post->webflow_published_on),
+                    ];
+                })
+                ->filter()
+                ->values();
+        } catch (\Throwable) {
+            $posts = collect();
+        }
 
         if ($posts->isEmpty()) {
             $posts = collect($this->loadBlogImportItems())
@@ -399,7 +406,7 @@ class ClassicSiteController extends Controller
                         'name'      => $fd['name'] ?? '',
                         'slug'      => $postSlug,
                         'image'     => $this->extractImageUrl($fd, ['main-project-image', 'client-logo']) ?? '',
-                        'published' => '',
+                        'published' => $this->formatBlogPublishedDate($item['lastPublished'] ?? null),
                     ];
                 })
                 ->filter()
@@ -424,28 +431,34 @@ class ClassicSiteController extends Controller
         $heroImage = $this->extractImageUrl($fieldData, ['main-project-image', 'client-logo', 'opengraph-image']);
         $bodyHtml = $fieldData['project-details'] ?? '';
 
-        $relatedPosts = BlogWebflowItem::query()
-            ->where('is_archived', false)
-            ->where('is_draft', false)
-            ->orderByDesc('id')
-            ->get()
-            ->map(function ($post) use ($slug) {
-                $fd = is_array($post->field_data) ? $post->field_data : [];
-                $postSlug = $fd['slug'] ?? '';
+        $relatedPosts = collect();
 
-                if ($postSlug === '' || $postSlug === $slug) {
-                    return null;
-                }
+        try {
+            $relatedPosts = BlogWebflowItem::query()
+                ->where('is_archived', false)
+                ->where('is_draft', false)
+                ->orderByDesc('id')
+                ->get()
+                ->map(function ($post) use ($slug) {
+                    $fd = is_array($post->field_data) ? $post->field_data : [];
+                    $postSlug = $fd['slug'] ?? '';
 
-                return [
-                    'name'  => $fd['name'] ?? '',
-                    'slug'  => $postSlug,
-                    'image' => $this->extractImageUrl($fd, ['main-project-image', 'client-logo']) ?? '',
-                ];
-            })
-            ->filter()
-            ->take(3)
-            ->values();
+                    if ($postSlug === '' || $postSlug === $slug) {
+                        return null;
+                    }
+
+                    return [
+                        'name'  => $fd['name'] ?? '',
+                        'slug'  => $postSlug,
+                        'image' => $this->extractImageUrl($fd, ['main-project-image', 'client-logo']) ?? '',
+                    ];
+                })
+                ->filter()
+                ->take(3)
+                ->values();
+        } catch (\Throwable) {
+            $relatedPosts = collect();
+        }
 
         if ($relatedPosts->isEmpty()) {
             $relatedPosts = collect($this->loadBlogImportItems())
@@ -483,14 +496,18 @@ class ClassicSiteController extends Controller
 
     private function findBlogFieldData(string $slug): ?array
     {
-        $item = BlogWebflowItem::query()
-            ->where('field_data->slug', $slug)
-            ->orWhere('webflow_item_id', $slug)
-            ->orderByDesc('id')
-            ->first();
+        try {
+            $item = BlogWebflowItem::query()
+                ->where('field_data->slug', $slug)
+                ->orWhere('webflow_item_id', $slug)
+                ->orderByDesc('id')
+                ->first();
 
-        if ($item) {
-            return is_array($item->field_data) ? $item->field_data : null;
+            if ($item) {
+                return is_array($item->field_data) ? $item->field_data : null;
+            }
+        } catch (\Throwable) {
+            // Table may be missing on staging — fall back to import JSON.
         }
 
         foreach ($this->loadBlogImportItems() as $importItem) {
@@ -501,6 +518,23 @@ class ClassicSiteController extends Controller
         }
 
         return null;
+    }
+
+    private function formatBlogPublishedDate(mixed $value): string
+    {
+        if ($value instanceof \DateTimeInterface) {
+            return $value->format('M j, Y');
+        }
+
+        if (is_string($value) && $value !== '') {
+            try {
+                return Carbon::parse($value)->format('M j, Y');
+            } catch (\Throwable) {
+                return '';
+            }
+        }
+
+        return '';
     }
 
     private function loadBlogImportItems(): array

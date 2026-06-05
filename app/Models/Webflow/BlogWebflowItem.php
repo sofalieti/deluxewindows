@@ -19,6 +19,9 @@ class BlogWebflowItem extends Model
             'field_data' => 'array',
             'is_archived' => 'boolean',
             'is_draft' => 'boolean',
+            'webflow_created_on' => 'datetime',
+            'webflow_updated_on' => 'datetime',
+            'webflow_published_on' => 'datetime',
         ];
     }
 }
