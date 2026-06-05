@@ -136,8 +136,6 @@
 
       @include('partials.navbar')
 
-      @include('partials.hero', ['windowHeroImage' => null])
-
       @include('partials.trust-badges')
 
       <section class="section_breadcrumbs section-121">
