@@ -137,8 +137,6 @@
       @include('partials.navbar')
       @include('partials.header-scripts')
 
-      @include('partials.trust-badges')
-
       <section class="section_breadcrumbs section-121">
         <div class="w-layout-blockcontainer container-default breadcrumbs-container w-container">
           <div class="breadcrumbs-wrapper">

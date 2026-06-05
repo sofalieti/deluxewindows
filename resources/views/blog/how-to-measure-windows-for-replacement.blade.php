@@ -221,7 +221,6 @@
   <body class="body">
 
     @include('partials.navbar')
-    @include('partials.trust-badges')
 
     {{-- ===== BLOG ARTICLE ===== --}}
     <section class="blog-post-section">
