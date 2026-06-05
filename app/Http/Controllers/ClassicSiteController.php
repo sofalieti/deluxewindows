@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Webflow\BlogWebflowItem;
 use App\Models\Webflow\BrandCollectionsWebflowItem;
 use App\Models\Webflow\BrandsWebflowItem;
 use App\Models\Webflow\WindowsWebflowItem;
+use Illuminate\Support\Facades\File;
 
 class ClassicSiteController extends Controller
 {
@@ -356,6 +358,162 @@ class ClassicSiteController extends Controller
             'aboutDescription', 'aboutHtml',
             'seoTitle', 'seoDescription', 'ogTitle', 'ogDescription', 'ogImage'
         ));
+    }
+
+    public function blogIndex()
+    {
+        $posts = BlogWebflowItem::query()
+            ->where('is_archived', false)
+            ->where('is_draft', false)
+            ->orderByDesc('webflow_published_on')
+            ->get()
+            ->map(function ($post) {
+                $fd = is_array($post->field_data) ? $post->field_data : [];
+                $postSlug = $fd['slug'] ?? '';
+
+                if ($postSlug === '') {
+                    return null;
+                }
+
+                return [
+                    'name'      => $fd['name'] ?? '',
+                    'slug'      => $postSlug,
+                    'image'     => $this->extractImageUrl($fd, ['main-project-image', 'client-logo']) ?? '',
+                    'published' => $post->webflow_published_on?->format('M j, Y') ?? '',
+                ];
+            })
+            ->filter()
+            ->values();
+
+        if ($posts->isEmpty()) {
+            $posts = collect($this->loadBlogImportItems())
+                ->map(function ($item) {
+                    $fd = is_array($item['fieldData'] ?? null) ? $item['fieldData'] : [];
+                    $postSlug = $fd['slug'] ?? '';
+
+                    if ($postSlug === '') {
+                        return null;
+                    }
+
+                    return [
+                        'name'      => $fd['name'] ?? '',
+                        'slug'      => $postSlug,
+                        'image'     => $this->extractImageUrl($fd, ['main-project-image', 'client-logo']) ?? '',
+                        'published' => '',
+                    ];
+                })
+                ->filter()
+                ->values();
+        }
+
+        return view('blog.index', compact('posts'));
+    }
+
+    public function blogBySlug(string $slug)
+    {
+        $slug = strtolower(trim($slug));
+        $fieldData = $this->findBlogFieldData($slug);
+
+        abort_if(! is_array($fieldData), 404);
+
+        $title = $fieldData['name'] ?? 'Blog';
+        $seoTitle = $fieldData['seo-title'] ?? $title;
+        $seoDescription = $fieldData['seo-description'] ?? ($fieldData['project-summary'] ?? '');
+        $ogTitle = $fieldData['opengraph-title'] ?? $seoTitle;
+        $ogDescription = $fieldData['opengraph-description'] ?? $seoDescription;
+        $heroImage = $this->extractImageUrl($fieldData, ['main-project-image', 'client-logo', 'opengraph-image']);
+        $bodyHtml = $fieldData['project-details'] ?? '';
+
+        $relatedPosts = BlogWebflowItem::query()
+            ->where('is_archived', false)
+            ->where('is_draft', false)
+            ->orderByDesc('id')
+            ->get()
+            ->map(function ($post) use ($slug) {
+                $fd = is_array($post->field_data) ? $post->field_data : [];
+                $postSlug = $fd['slug'] ?? '';
+
+                if ($postSlug === '' || $postSlug === $slug) {
+                    return null;
+                }
+
+                return [
+                    'name'  => $fd['name'] ?? '',
+                    'slug'  => $postSlug,
+                    'image' => $this->extractImageUrl($fd, ['main-project-image', 'client-logo']) ?? '',
+                ];
+            })
+            ->filter()
+            ->take(3)
+            ->values();
+
+        if ($relatedPosts->isEmpty()) {
+            $relatedPosts = collect($this->loadBlogImportItems())
+                ->map(function ($item) use ($slug) {
+                    $fd = is_array($item['fieldData'] ?? null) ? $item['fieldData'] : [];
+                    $postSlug = $fd['slug'] ?? '';
+
+                    if ($postSlug === '' || $postSlug === $slug) {
+                        return null;
+                    }
+
+                    return [
+                        'name'  => $fd['name'] ?? '',
+                        'slug'  => $postSlug,
+                        'image' => $this->extractImageUrl($fd, ['main-project-image', 'client-logo']) ?? '',
+                    ];
+                })
+                ->filter()
+                ->take(3)
+                ->values();
+        }
+
+        return view('blog.show', compact(
+            'slug',
+            'title',
+            'seoTitle',
+            'seoDescription',
+            'ogTitle',
+            'ogDescription',
+            'heroImage',
+            'bodyHtml',
+            'relatedPosts',
+        ));
+    }
+
+    private function findBlogFieldData(string $slug): ?array
+    {
+        $item = BlogWebflowItem::query()
+            ->where('field_data->slug', $slug)
+            ->orWhere('webflow_item_id', $slug)
+            ->orderByDesc('id')
+            ->first();
+
+        if ($item) {
+            return is_array($item->field_data) ? $item->field_data : null;
+        }
+
+        foreach ($this->loadBlogImportItems() as $importItem) {
+            $fd = is_array($importItem['fieldData'] ?? null) ? $importItem['fieldData'] : [];
+            if (($fd['slug'] ?? '') === $slug) {
+                return $fd;
+            }
+        }
+
+        return null;
+    }
+
+    private function loadBlogImportItems(): array
+    {
+        $path = base_path('webflow-data/current/imports/blog.json');
+        if (! File::exists($path)) {
+            return [];
+        }
+
+        $payload = json_decode((string) File::get($path), true);
+        $items = $payload['items'] ?? [];
+
+        return is_array($items) ? $items : [];
     }
 
     private function extractImageUrl(array $fieldData, array $fieldKeys): ?string
