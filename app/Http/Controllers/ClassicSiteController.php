@@ -56,43 +56,36 @@ class ClassicSiteController extends Controller
             ->filter()
             ->values();
 
-        // Brand logos — only those referenced on this specific window item
-        $brands = $window->webflowReferences('brands')
-            ->map(function ($brand) {
-                $fd = is_array($brand->field_data) ? $brand->field_data : [];
-                $brandSlug = $fd['slug'] ?? '';
-                $brandName = $fd['name'] ?? '';
-                $logo = $this->extractImageUrl($fd, ['brand-logo', 'logo-svg', 'agent-avatar-photo']);
+        // Top window brands — referenced window-type cards (brands-types)
+        $brandTypes = $window->webflowReferences('brands-types')
+            ->map(function ($wt) {
+                $fd = is_array($wt->field_data) ? $wt->field_data : [];
+                $wtSlug = $fd['slug'] ?? '';
 
-                return ($brandSlug !== '' && $logo !== null)
-                    ? ['name' => $brandName, 'slug' => $brandSlug, 'logo' => $logo]
+                $brand = $wt->webflowReference('property-listing---agent');
+                $image = null;
+                if ($brand) {
+                    $bfd = is_array($brand->field_data) ? $brand->field_data : [];
+                    $image = $this->extractImageUrl($bfd, ['brand-logo', 'logo-svg', 'agent-avatar-photo']);
+                }
+                if ($image === null) {
+                    $image = $this->extractImageUrl($fd, [
+                        'property-listing---featured-image',
+                        'property-listing---thumbnail-image-v1',
+                    ]);
+                }
+
+                return $wtSlug !== ''
+                    ? ['name' => $fd['name'] ?? '', 'slug' => $wtSlug, 'image' => $image ?? '']
                     : null;
             })
             ->filter()
             ->values();
 
-        // Other windows for "Discover Different Window Types" section
-        $otherWindows = WindowsWebflowItem::query()
-            ->where('is_archived', false)
-            ->where('is_draft', false)
-            ->where('id', '!=', $window->id)
-            ->take(6)
-            ->get()
-            ->map(function ($w) {
-                $fd = is_array($w->field_data) ? $w->field_data : [];
-                $wSlug = $fd['slug'] ?? '';
-                $wName = $fd['name'] ?? '';
-                $wImage = $this->extractImageUrl($fd, [
-                    'property-listing---featured-image',
-                ]);
-                $wSummary = $fd['property-listing---summary'] ?? '';
+        $brandsTitle = $fieldData['title-for-brands'] ?? 'Top Vinyl Window Brands';
 
-                return $wSlug !== ''
-                    ? ['name' => $wName, 'slug' => $wSlug, 'image' => $wImage ?? '', 'summary' => $wSummary]
-                    : null;
-            })
-            ->filter()
-            ->values();
+        // Learn More — referenced collections, fallback to Marvin lines on original template
+        $learnMoreWindows = $this->resolveLearnMoreWindows($window);
 
         $seoTitle       = $fieldData['seo-title'] ?? ($fieldData['name'] ?? 'Windows');
         $seoDescription = $fieldData['seo-description'] ?? '';
@@ -114,9 +107,51 @@ class ClassicSiteController extends Controller
             'warrantyHtml'     => $fieldData['warrantytext'] ?? '',
             'heroImage'        => $heroImage ?? '',
             'galleryImages'    => $galleryImages,
-            'brands'           => $brands,
-            'otherWindows'     => $otherWindows,
+            'brandTypes'       => $brandTypes,
+            'brandsTitle'      => $brandsTitle,
+            'learnMoreWindows' => $learnMoreWindows,
         ]);
+    }
+
+    private function resolveLearnMoreWindows(WindowsWebflowItem $window): \Illuminate\Support\Collection
+    {
+        $referenced = $window->webflowReferences('collections')
+            ->map(function ($item) {
+                $fd = is_array($item->field_data) ? $item->field_data : [];
+                $itemSlug = $fd['slug'] ?? '';
+
+                return $itemSlug !== ''
+                    ? [
+                        'name'  => $fd['name'] ?? '',
+                        'slug'  => $itemSlug,
+                        'image' => $this->extractImageUrl($fd, ['featured-image', 'property-listing---featured-image']),
+                    ]
+                    : null;
+            })
+            ->filter()
+            ->values();
+
+        if ($referenced->isNotEmpty()) {
+            return $referenced;
+        }
+
+        $fallbackSlugs = ['marvin-modern', 'marvin-ultimate', 'martin-elevate'];
+
+        return WindowsWebflowItem::query()
+            ->whereIn('field_data->slug', $fallbackSlugs)
+            ->get()
+            ->sortBy(fn ($w) => array_search($w->field_data['slug'] ?? '', $fallbackSlugs, true))
+            ->map(function ($w) {
+                $fd = is_array($w->field_data) ? $w->field_data : [];
+
+                return [
+                    'name'  => $fd['name'] ?? '',
+                    'slug'  => $fd['slug'] ?? '',
+                    'image' => $this->extractImageUrl($fd, ['property-listing---featured-image']),
+                ];
+            })
+            ->filter(fn ($w) => $w['slug'] !== '')
+            ->values();
     }
 
     public function brandBySlug(string $slug)

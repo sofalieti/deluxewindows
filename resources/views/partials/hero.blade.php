@@ -258,6 +258,15 @@
               <div class="inner-container _640px _100-tablet">
                 <div class="inner-container _450px---tablet">
                   <div class="inner-container _400px---mbl">
+                    @if(!empty($windowHeroImage))
+                    <div class="rich-text-block-2 w-richtext">
+                      <h2 class="heading-49">Upgrade to Energy Efficient Windows and&nbsp;Doors for Less</h2>
+                      <p>‍</p>
+                      <div class="w-embed">
+                        <h2 style="font-size: 21px; color: #fff" data-city="">Local Installers</h2>
+                      </div>
+                    </div>
+                    @else
                     <h1 class="heading-4">Looking to Replace Your Windows in the Bay Area?</h1>
                     <p
                       data-w-id="c3765d23-1eba-01a8-993c-c59200a6f71b"
@@ -271,6 +280,7 @@
                     >
                       Get Deluxe Windows <br />for Less. 40%&nbsp;OFF* Windows.<br />
                     </p>
+                    @endif
                   </div>
                 </div>
               </div>
@@ -283,13 +293,20 @@
                   data-name="Main Form"
                   method="get"
                   class="form-3"
-                  data-wf-page-id="6841df5688ca2f74fd53ec90"
-                  data-wf-element-id="c3765d23-1eba-01a8-993c-c59200a6f722"
-                  aria-label="Main Form"
+                  data-wf-page-id="{{ !empty($windowHeroImage) ? '6841ddf8ace3d9d9facb1582' : '6841df5688ca2f74fd53ec90' }}"
+                  data-wf-element-id="{{ !empty($windowHeroImage) ? '0d2c5edc-6a74-d360-f6d2-0a02682efe78' : 'c3765d23-1eba-01a8-993c-c59200a6f722' }}"
+                  @if(empty($windowHeroImage)) aria-label="Main Form" @endif
                 >
                   <div class="div-block-22">
+                    @if(!empty($windowHeroImage) && !empty($windowDiscountHtml))
+                    <label for="email-banner" class="body-14"></label>
+                    <div class="rich-text-block-4 w-richtext">
+                      {!! $windowDiscountHtml !!}
+                    </div>
+                    @else
                     <h2 class="display-4">Get Deluxe Windows for Less. <br />40%&nbsp;OFF* Windows</h2>
                     <label for="email-banner" class="body-14"></label>
+                    @endif
                   </div>
                   <div class="div-block-23">
                     <div>
@@ -308,7 +325,7 @@
                         <div class="input-line-icon-wrapper"><div class="filled-icons-font"></div></div>
                       </div>
                     </div>
-                    <div id="w-node-c3765d23-1eba-01a8-993c-c59200a6f734-fd53ec90" class="div-block-29">
+                    <div id="{{ !empty($windowHeroImage) ? 'w-node-_0d2c5edc-6a74-d360-f6d2-0a02682efe8a-facb1582' : 'w-node-c3765d23-1eba-01a8-993c-c59200a6f734-fd53ec90' }}" class="div-block-29">
                       <label for="Email-2" class="field-label-2">Email*</label>
                       <div class="input-wrapper">
                         <input
@@ -324,7 +341,7 @@
                         <div class="input-line-icon-wrapper"><div class="filled-icons-font"></div></div>
                       </div>
                     </div>
-                    <div id="w-node-c3765d23-1eba-01a8-993c-c59200a6f73c-fd53ec90">
+                    <div id="{{ !empty($windowHeroImage) ? 'w-node-_0d2c5edc-6a74-d360-f6d2-0a02682efe92-facb1582' : 'w-node-c3765d23-1eba-01a8-993c-c59200a6f73c-fd53ec90' }}">
                       <label for="Phone-2" class="field-label-3">Phone*</label>
                       <div class="input-wrapper">
                         <input
@@ -340,7 +357,7 @@
                         <div class="input-line-icon-wrapper"><div class="filled-icons-font"></div></div>
                       </div>
                     </div>
-                    <div id="w-node-c3765d23-1eba-01a8-993c-c59200a6f744-fd53ec90">
+                    <div id="{{ !empty($windowHeroImage) ? 'w-node-_0d2c5edc-6a74-d360-f6d2-0a02682efe9a-facb1582' : 'w-node-c3765d23-1eba-01a8-993c-c59200a6f744-fd53ec90' }}">
                       <label for="Company" class="field-label-4">City</label>
                       <div class="input-wrapper">
                         <input
@@ -358,12 +375,12 @@
                             loading="eager"
                             src="/webflow-assets/images/6841ddf8ace3d9d9facb194d_star-icon-property-x-webflow-template.svg"
                             alt="Star Icon - Property X Webflow Template"
-                            style="width:18px;height:18px;object-fit:contain;"
+                            @if(empty($windowHeroImage)) style="width:18px;height:18px;object-fit:contain;" @endif
                           />
                         </div>
                       </div>
                     </div>
-                    <div id="w-node-c3765d23-1eba-01a8-993c-c59200a6f74b-fd53ec90" class="text-area-wrapper">
+                    <div id="{{ !empty($windowHeroImage) ? 'w-node-_0d2c5edc-6a74-d360-f6d2-0a02682efea1-facb1582' : 'w-node-c3765d23-1eba-01a8-993c-c59200a6f74b-fd53ec90' }}" class="text-area-wrapper">
                       <label for="Message-2" class="field-label-5">Description</label>
                       <div class="input-wrapper">
                         <textarea
@@ -380,7 +397,7 @@
                             loading="eager"
                             src="/webflow-assets/images/6841ddf8ace3d9d9facb192f_lisiting-icon-property-x-webflow-template.svg"
                             alt="Listing Icon - Property X Webflow Template"
-                            style="width:18px;height:18px;object-fit:contain;"
+                            @if(empty($windowHeroImage)) style="width:18px;height:18px;object-fit:contain;" @endif
                           />
                         </div>
                       </div>
