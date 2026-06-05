@@ -131,10 +131,11 @@
     <link href="https://core.service.elfsight.com/" rel="preconnect" crossorigin="" />
   </head>
 
-  <body class="body-18 height-auto">
+  <body class="body-18 height-auto blog-page">
     <div class="page-wrapper">
 
       @include('partials.navbar')
+      @include('partials.header-scripts')
 
       @include('partials.trust-badges')
 
