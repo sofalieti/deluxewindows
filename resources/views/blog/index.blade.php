@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html
   data-wf-domain="www.deluxewindows.com"
+  data-wf-page="6841df5688ca2f74fd53ec90"
   data-wf-site="6841ddf8ace3d9d9facb14fd"
   lang="en"
+  class="w-mod-js w-mod-ix"
 >
   <head>
     <meta charset="utf-8" />
@@ -33,10 +35,9 @@
     <link href="/webflow-assets/images/favicon.png" rel="shortcut icon" type="image/x-icon" />
     <link href="/webflow-assets/images/webclip-bg.png" rel="apple-touch-icon" />
 
-    <style>
-      .w-webflow-badge { display: none !important; }
-      .section.top-none { margin-top: 0 !important; }
+    @include('partials.classic-layout-styles')
 
+    <style>
       .blog-index-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -196,8 +197,7 @@
 
     <div id="menuDimmer" style="opacity: 0; pointer-events: none"></div>
 
-    <script src="/webflow-assets/js/jquery-3.5.1.min.js" type="text/javascript"></script>
-    <script src="/webflow-assets/js/webflow-windows.js" type="text/javascript"></script>
+    @include('partials.classic-site-scripts')
 
     <script>
       (function () {
