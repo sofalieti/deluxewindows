@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace App\Orchid\Screens\Webflow;
 
+use App\Orchid\Layouts\Webflow\WebflowCollectionSearchLayout;
 use App\Support\WebflowCollectionRegistry;
 use App\Support\WebflowReferenceRegistry;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
@@ -39,9 +41,17 @@ class WebflowCollectionListScreen extends Screen
             abort(404, 'Collection table not found: '.$meta['table']);
         }
 
-        $items = DB::table((string) $meta['table'])
-            ->orderByDesc('id')
+        $query = DB::table((string) $meta['table'])->orderByDesc('id');
+
+        $search = Str::of((string) request()->query('search', ''))->trim()->toString();
+        if ($search !== '') {
+            $like = '%'.addcslashes($search, '%_\\').'%';
+            $query->where('field_data->name', 'like', $like);
+        }
+
+        $items = $query
             ->paginate(30)
+            ->withQueryString()
             ->through(function ($row) {
                 $item = (array) $row;
                 $fieldData = $item['field_data'] ?? null;
@@ -79,16 +89,29 @@ class WebflowCollectionListScreen extends Screen
 
     public function commandBar(): iterable
     {
-        return [
+        $actions = [
+            Button::make('Search')
+                ->icon('bs.search')
+                ->method('applySearch'),
+
+            Link::make('Clear search')
+                ->icon('bs.x-circle')
+                ->route('platform.webflow.collection', ['collection' => $this->collectionSlug])
+                ->canSee(request()->filled('search')),
+
             Link::make('Export JSON')
                 ->icon('bs.download')
                 ->route('platform.webflow.export', ['collection' => $this->collectionSlug]),
         ];
+
+        return $actions;
     }
 
     public function layout(): iterable
     {
         return [
+            WebflowCollectionSearchLayout::class,
+
             Layout::table('items', [
                 TD::make('id')
                     ->render(fn ($item) => (string) $this->value($item, 'id', '')),
@@ -171,6 +194,16 @@ class WebflowCollectionListScreen extends Screen
         $clean = is_string($clean) ? $clean : $string;
 
         return Str::limit($clean, 120);
+    }
+
+    public function applySearch(string $collection, Request $request): RedirectResponse
+    {
+        $search = Str::of((string) $request->input('search', ''))->trim()->toString();
+
+        return redirect()->route('platform.webflow.collection', array_filter([
+            'collection' => $collection,
+            'search' => $search !== '' ? $search : null,
+        ]));
     }
 
     public function toggleDraft(string $collection, Request $request): void
