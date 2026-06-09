@@ -11,9 +11,8 @@ return [
     |--------------------------------------------------------------------------
     */
     'presets' => [
-        // Product gallery slots use 610:343 — crop at generation time so thumbs match main frame.
-        'gallery_main'  => ['width' => 1220, 'height' => 686, 'fit' => 'cover'],
-        'gallery_thumb' => ['width' => 220,  'height' => 124, 'fit' => 'cover'],
+        'gallery_main'  => ['width' => 1220, 'height' => null],
+        'gallery_thumb' => ['width' => 220,  'height' => null],
         'card'          => ['width' => 640,  'height' => null],
         'card_sm'       => ['width' => 400,  'height' => null],
         'logo'          => ['width' => 300,  'height' => null],
