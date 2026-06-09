@@ -57,6 +57,7 @@
       }
       .scroll-block::-webkit-scrollbar { width: 6px; }
       .scroll-block::-webkit-scrollbar-thumb { background: #E79800; border-radius: 999px; }
+      .collection-paragraph.align-center.no-hidden { display: block; }
     </style>
 
     <script>
@@ -256,18 +257,24 @@
                             <div class="left_grid-wrapper">
                               @foreach($advantages as $adv)
                               <div class="left_grid-item">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 25 28" fill="none" class="colleciton-icon">
-                                  <path d="M12.01 23.7222C9.75767 23.155 7.8983 21.8628 6.43186 19.8454C4.96543 17.8281 4.23221 15.5879 4.23221 13.1249V7.19439L12.01 4.27772L19.7878 7.19439V13.1249C19.7878 15.5879 19.0545 17.8281 17.5881 19.8454C16.1217 21.8628 14.2623 23.155 12.01 23.7222ZM12.01 21.6805C13.6952 21.1458 15.0887 20.0763 16.1905 18.4722C17.2924 16.868 17.8433 15.0856 17.8433 13.1249V8.5312L12.01 6.34369L6.17665 8.5312V13.1249C6.17665 15.0856 6.72758 16.868 7.82943 18.4722C8.93128 20.0763 10.3248 21.1458 12.01 21.6805Z" fill="#1E73B9"></path>
-                                </svg>
+                                @include('partials.collection-advantage-icon', ['index' => $loop->index])
                                 <div class="left_grid-content">
                                   <h4 class="wtypes-h4-2">{{ $adv['title'] }}</h4>
                                   @if($adv['description'])
-                                  <p class="collection-paragraph">{{ $adv['description'] }}</p>
+                                  <p class="collection-paragraph">{!! nl2br(e($adv['description'])) !!}</p>
                                   @endif
                                 </div>
                               </div>
                               @endforeach
                             </div>
+                            @if($configurationSizes && $configurationSizesDescription !== '')
+                            <h4 class="wtypes-h4 is-features">Size &amp; Strength</h4>
+                            <p class="collection-paragraph">{!! nl2br(e($configurationSizesDescription)) !!}</p>
+                            @endif
+                            @if($performance && $performanceDescription !== '')
+                            <h4 class="wtypes-h4 is-features">Performance</h4>
+                            <p class="collection-paragraph">{!! nl2br(e($performanceDescription)) !!}</p>
+                            @endif
                             @elseif($aboutHtml)
                             <div class="collection-rich-text w-richtext">{!! $aboutHtml !!}</div>
                             @endif
@@ -310,7 +317,7 @@
                                 @endif
                                 <h4 class="wtypes-h4-3">{{ $wt['name'] }}</h4>
                                 @if($wt['description'])
-                                <p class="collection-paragraph hidden-p">{{ $wt['description'] }}</p>
+                                <p class="collection-paragraph align-center no-hidden">{!! nl2br(e($wt['description'])) !!}</p>
                                 @endif
                               </div>
                             </div>
@@ -429,29 +436,51 @@
                           <div role="list" class="wtypes_grid-wrapper-2 grid-styles-wrapper w-dyn-items">
                             @foreach($gridStyles as $option)
                             <div role="listitem" class="w-dyn-item">
-                              <div class="wtypes_grid-item-2 grid-styles">
+                              <a href="#" class="wtypes_grid-item-2 grid-styles w-inline-block w-lightbox">
                                 @if($option['picture'])
                                 <x-img loading="lazy" :src="$option['picture']" :alt="$option['name']" preset="option" class="wtypes-img" />
                                 @endif
                                 <h4 class="wtypes-h4-3 align-center">{{ $option['name'] }}</h4>
-                              </div>
+                                @if($option['description'])
+                                <p class="collection-paragraph align-center">{!! nl2br(e($option['description'])) !!}</p>
+                                @endif
+                                <script type="application/json" class="w-json">{!! json_encode(['items' => $option['picture'] ? [['url' => $option['picture'], 'type' => 'image']] : [], 'group' => '']) !!}</script>
+                              </a>
                             </div>
                             @endforeach
                           </div>
                         </div>
                         @endif
 
-                        @if($gridPatterns->isNotEmpty())
+                        @if($gridPatternImages->isNotEmpty())
                         <h3 class="h3-collection-2">Grid Patterns</h3>
                         <div class="collection-list-wrapper-11 w-dyn-list">
-                          <div role="list" class="wtypes_grid-wrapper-2 grid-patterns w-dyn-items">
-                            @foreach($gridPatterns as $option)
+                          <div role="list" class="wtypes_grid-wrapper-2 grid-styles-wrapper w-dyn-items">
+                            @foreach($gridPatternImages as $option)
                             <div role="listitem" class="w-dyn-item">
-                              <div class="wtypes_grid-item-2">
-                                @if($option['picture'])
+                              <a href="#" class="wtypes_grid-item-2 grid-styles w-inline-block w-lightbox">
                                 <x-img loading="lazy" :src="$option['picture']" :alt="$option['name']" preset="option" class="wtypes-img auto-width" />
+                                <h4 class="wtypes-h4-3 align-center">{{ $option['name'] }}</h4>
+                                @if($option['description'])
+                                <p class="collection-paragraph align-center">{!! nl2br(e($option['description'])) !!}</p>
                                 @endif
-                                <h4 class="wtypes-h4-3">{{ $option['name'] }}</h4>
+                                <script type="application/json" class="w-json">{!! json_encode(['items' => [['url' => $option['picture'], 'type' => 'image']], 'group' => '']) !!}</script>
+                              </a>
+                            </div>
+                            @endforeach
+                          </div>
+                        </div>
+                        @endif
+
+                        @if($gridPatternSwatches->isNotEmpty())
+                        <h3 class="h3-collection-2">Finishes</h3>
+                        <div class="collection-list-wrapper-11 w-dyn-list">
+                          <div role="list" class="wtypes_grid-wrapper-2 grid-patterns w-dyn-items">
+                            @foreach($gridPatternSwatches as $option)
+                            <div role="listitem" class="w-dyn-item">
+                              <div class="colors-item">
+                                <div class="color-circle" @if($option['color']) style="background-color:{{ $option['color'] }}" @endif></div>
+                                <p class="collection-paragraph align-center">{{ $option['name'] }}</p>
                               </div>
                             </div>
                             @endforeach
@@ -471,7 +500,7 @@
                                 @endif
                                 <h4 class="wtypes-h4-3 align-center">{{ $option['name'] }}</h4>
                                 @if($option['description'])
-                                <p class="collection-paragraph hidden-p align-center no-hidden">{{ $option['description'] }}</p>
+                                <p class="collection-paragraph align-center no-hidden">{!! nl2br(e($option['description'])) !!}</p>
                                 @endif
                               </div>
                             </div>

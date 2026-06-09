@@ -580,8 +580,15 @@ class ClassicSiteController extends Controller
 
         $gridStyles    = $tabDetails->filter(fn ($t) => str_contains($t['category'], 'grid style'));
         $gridPatterns  = $tabDetails->filter(fn ($t) => str_contains($t['category'], 'grid pattern'));
+        $gridPatternImages   = $gridPatterns->filter(fn ($t) => ! empty($t['picture']));
+        $gridPatternSwatches = $gridPatterns->filter(fn ($t) => empty($t['picture']) && ($t['color'] ?? '') !== '');
         $hardwareItems = $tabDetails->filter(fn ($t) => str_contains($t['category'], 'hardware'));
         $hasOptionsTab = $gridStyles->isNotEmpty() || $gridPatterns->isNotEmpty() || $hardwareItems->isNotEmpty();
+
+        $configurationSizes = (bool) ($collection->wf_configuration_sizes ?? $fieldData['configuration-sizes'] ?? false);
+        $configurationSizesDescription = trim((string) ($collection->wf_configuration_sizes_description ?? $fieldData['configuration-sizes-description'] ?? ''));
+        $performance = (bool) ($collection->wf_performance ?? $fieldData['performance'] ?? false);
+        $performanceDescription = trim((string) ($collection->wf_performance_description ?? $fieldData['performance-description'] ?? ''));
 
         // Advantage items
         $advantages = [];
@@ -650,8 +657,14 @@ class ClassicSiteController extends Controller
             'interiorColors'          => $interiorColors,
             'gridStyles'              => $gridStyles,
             'gridPatterns'            => $gridPatterns,
+            'gridPatternImages'       => $gridPatternImages,
+            'gridPatternSwatches'     => $gridPatternSwatches,
             'hardwareItems'           => $hardwareItems,
             'hasOptionsTab'           => $hasOptionsTab,
+            'configurationSizes'      => $configurationSizes,
+            'configurationSizesDescription' => $configurationSizesDescription,
+            'performance'             => $performance,
+            'performanceDescription'  => $performanceDescription,
             'advantages'              => $advantages,
             'inspirationPhotos'       => $inspirationPhotos,
             'aboutDescription'        => $aboutDescription,
