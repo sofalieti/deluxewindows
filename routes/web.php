@@ -18,3 +18,9 @@ Route::get('/blog', [ClassicSiteController::class, 'blogIndex']);
 Route::get('/blog/{slug}', [ClassicSiteController::class, 'blogBySlug'])
     ->where('slug', '[A-Za-z0-9\-]+');
 
+Route::get('/gallery', [ClassicSiteController::class, 'gallery']);
+Route::get('/about', [ClassicSiteController::class, 'about']);
+Route::get('/contacts', [ClassicSiteController::class, 'contacts']);
+Route::get('/special-offers', [ClassicSiteController::class, 'specialOffers']);
+Route::post('/contact-form', [ClassicSiteController::class, 'submitContactForm'])->name('contact.submit');
+
