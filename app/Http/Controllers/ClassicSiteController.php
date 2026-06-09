@@ -506,12 +506,12 @@ class ClassicSiteController extends Controller
 
         $fieldData = is_array($collection->field_data ?? null) ? $collection->field_data : [];
 
-        $name          = $fieldData['name'] ?? 'Collection';
-        $description   = $fieldData['description'] ?? $fieldData['long-description'] ?? '';
-        $priceCategory = $fieldData['price-category'] ?? '';
-        $material      = $fieldData['material'] ?? $collection->wf_material ?? '';
+        $name            = $fieldData['name'] ?? 'Collection';
+        $longDescription = $fieldData['long-description'] ?? $collection->wf_long_description ?? '';
+        $priceCategory   = $fieldData['price-category'] ?? '';
+        $material        = $fieldData['material'] ?? $collection->wf_material ?? '';
 
-        // Featured image
+        // Featured / hero background image
         $featuredImage = null;
         $wfFeaturedImg = $collection->wf_featured_image;
         if (is_array($wfFeaturedImg) && isset($wfFeaturedImg['url'])) {
@@ -520,16 +520,25 @@ class ClassicSiteController extends Controller
             $featuredImage = $this->extractImageUrl($fieldData, ['featured-image', 'property-listing---featured-image']);
         }
 
+        $aboutImage = $this->extractImageUrl($fieldData, ['property-type---icon']);
+        if ($aboutImage === null) {
+            $aboutImage = $featuredImage;
+        }
+
         // Parent brand
         $parentBrand = $collection->webflowReference('parent-brand');
         $brandName = '';
         $brandSlug = '';
         $brandLogo = null;
+        $brandLogoSvg = null;
+        $sidebarMaterialGroups = collect();
         if ($parentBrand) {
             $brandFd   = is_array($parentBrand->field_data) ? $parentBrand->field_data : [];
             $brandName = $brandFd['name'] ?? '';
             $brandSlug = $brandFd['slug'] ?? '';
-            $brandLogo = $this->extractImageUrl($brandFd, ['brand-logo', 'logo-svg', 'agent-avatar-photo']);
+            $brandLogo = $this->extractImageUrl($brandFd, ['brand-logo', 'agent-avatar-photo']);
+            $brandLogoSvg = $this->extractImageUrl($brandFd, ['logo-svg', 'brand-logo']);
+            $sidebarMaterialGroups = $this->buildBrandSidebarMaterialGroups($parentBrand, $brandFd);
         }
 
         // Collections tab details – window types, glass, colors, options etc.
@@ -557,33 +566,21 @@ class ClassicSiteController extends Controller
             ->values();
 
         $windowTypes = $tabDetails->filter(fn ($t) => str_contains($t['category'], 'window') || str_contains($t['category'], 'type'));
-        $glassItems  = $tabDetails->filter(fn ($t) => str_contains($t['category'], 'glass'));
-        $colorItems  = $tabDetails->filter(fn ($t) => str_contains($t['category'], 'color'));
-        $optionItems = $tabDetails->filter(fn ($t) => str_contains($t['category'], 'option') || str_contains($t['category'], 'accessor') || str_contains($t['category'], 'grid'));
 
-        // Other collections for sidebar
-        $otherCollections = $collection->webflowReferences('other-collections')
-            ->map(function ($c) {
-                $fd  = is_array($c->field_data) ? $c->field_data : [];
-                $img = null;
-                $wfImg = $c->wf_featured_image;
-                if (is_array($wfImg) && isset($wfImg['url'])) {
-                    $img = $wfImg['url'];
-                } else {
-                    $img = $this->extractImageUrl($fd, ['featured-image']);
-                }
+        $glassAll = $tabDetails->filter(fn ($t) => str_contains($t['category'], 'glass'));
+        $standardGlass = $glassAll->filter(fn ($t) => $t['subcategory'] === '' || stripos($t['subcategory'], 'standard') !== false);
+        $tintedGlass   = $glassAll->filter(fn ($t) => stripos($t['subcategory'], 'tinted') !== false);
+        $obscureGlass  = $glassAll->filter(fn ($t) => stripos($t['subcategory'], 'obscure') !== false);
+        $hasGlassTab   = $glassAll->isNotEmpty();
 
-                return [
-                    'name'     => $fd['name'] ?? '',
-                    'slug'     => $fd['slug'] ?? '',
-                    'material' => $fd['material'] ?? $c->wf_material ?? '',
-                    'image'    => $img,
-                ];
-            })
-            ->filter(fn ($c) => $c['name'] !== '' && $c['slug'] !== '')
-            ->values();
+        $colorItems     = $tabDetails->filter(fn ($t) => str_contains($t['category'], 'color'));
+        $exteriorColors = $colorItems->filter(fn ($t) => stripos($t['subcategory'], 'exterior') !== false);
+        $interiorColors = $colorItems->filter(fn ($t) => stripos($t['subcategory'], 'interior') !== false);
 
-        $sidebarGroups = $otherCollections->groupBy('material');
+        $gridStyles    = $tabDetails->filter(fn ($t) => str_contains($t['category'], 'grid style'));
+        $gridPatterns  = $tabDetails->filter(fn ($t) => str_contains($t['category'], 'grid pattern'));
+        $hardwareItems = $tabDetails->filter(fn ($t) => str_contains($t['category'], 'hardware'));
+        $hasOptionsTab = $gridStyles->isNotEmpty() || $gridPatterns->isNotEmpty() || $hardwareItems->isNotEmpty();
 
         // Advantage items
         $advantages = [];
@@ -621,20 +618,51 @@ class ClassicSiteController extends Controller
         $aboutDescription = $collection->wf_about_collection_description ?? $fieldData['about-collection-description'] ?? '';
         $aboutHtml        = $collection->wf_about_tab ?? '';
 
+        $heroFormHtml = $this->resolveCollectionHeroPricing($collection, $fieldData);
+
         $seoTitle       = $fieldData['seo-title']             ?? $name;
         $seoDescription = $fieldData['seo-description']       ?? '';
         $ogTitle        = $fieldData['opengraph-title']        ?? $seoTitle;
         $ogDescription  = $fieldData['opengraph-description'] ?? $seoDescription;
         $ogImage        = $fieldData['opengraph-image']        ?? $featuredImage ?? '';
 
-        return view('brand-collections.show', compact(
-            'fieldData', 'name', 'slug', 'description', 'priceCategory', 'material',
-            'featuredImage', 'brandName', 'brandSlug', 'brandLogo',
-            'windowTypes', 'glassItems', 'colorItems', 'optionItems',
-            'sidebarGroups', 'advantages', 'inspirationPhotos',
-            'aboutDescription', 'aboutHtml',
-            'seoTitle', 'seoDescription', 'ogTitle', 'ogDescription', 'ogImage'
-        ));
+        return view('brand-collections.show', [
+            'fieldData'               => $fieldData,
+            'name'                    => $name,
+            'slug'                    => $fieldData['slug'] ?? $slug,
+            'longDescription'         => $longDescription,
+            'priceCategory'           => $priceCategory,
+            'material'                => $material,
+            'featuredImage'           => $featuredImage,
+            'aboutImage'              => $aboutImage,
+            'brandName'               => $brandName,
+            'brandSlug'               => $brandSlug,
+            'brandLogo'               => $brandLogo,
+            'brandLogoSvg'            => $brandLogoSvg,
+            'sidebarMaterialGroups'   => $sidebarMaterialGroups,
+            'windowTypes'             => $windowTypes,
+            'standardGlass'           => $standardGlass,
+            'tintedGlass'             => $tintedGlass,
+            'obscureGlass'            => $obscureGlass,
+            'hasGlassTab'             => $hasGlassTab,
+            'exteriorColors'          => $exteriorColors,
+            'interiorColors'          => $interiorColors,
+            'gridStyles'              => $gridStyles,
+            'gridPatterns'            => $gridPatterns,
+            'hardwareItems'           => $hardwareItems,
+            'hasOptionsTab'           => $hasOptionsTab,
+            'advantages'              => $advantages,
+            'inspirationPhotos'       => $inspirationPhotos,
+            'aboutDescription'        => $aboutDescription,
+            'aboutHtml'               => $aboutHtml,
+            'heroFormHtml'            => $heroFormHtml,
+            'webflowCollectionId'     => '69366118c296b5e2e8bdbfb2',
+            'seoTitle'                => $seoTitle,
+            'seoDescription'          => $seoDescription,
+            'ogTitle'                 => $ogTitle,
+            'ogDescription'           => $ogDescription,
+            'ogImage'                 => $ogImage,
+        ]);
     }
 
     public function blogIndex()
@@ -927,6 +955,34 @@ class ClassicSiteController extends Controller
         }
 
         return $groups;
+    }
+
+    private function resolveCollectionHeroPricing(BrandCollectionsWebflowItem $collection, array $fieldData): string
+    {
+        $materialName = $fieldData['material'] ?? $collection->wf_material ?? '';
+
+        if ($materialName !== '') {
+            $material = WindowsWebflowItem::query()
+                ->where('is_archived', false)
+                ->where('is_draft', false)
+                ->get()
+                ->first(function ($item) use ($materialName) {
+                    $fd = is_array($item->field_data) ? $item->field_data : [];
+
+                    return strcasecmp($fd['name'] ?? '', $materialName) === 0;
+                });
+
+            if ($material) {
+                $materialFd = is_array($material->field_data) ? $material->field_data : [];
+                $discount   = $materialFd['discounttext'] ?? '';
+
+                if (is_string($discount) && trim(strip_tags($discount)) !== '') {
+                    return $discount;
+                }
+            }
+        }
+
+        return '<h3><strong><code>40% off for limited time</code></strong></h3><p>Starting from <s>915</s> $549<sup>*</sup></p><p><code>per window</code></p>';
     }
 
     private function resolveWindowTypeHeroPricing(WindowTypeWebflowItem $windowType, array $fieldData): string

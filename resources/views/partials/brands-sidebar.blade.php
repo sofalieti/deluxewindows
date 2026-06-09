@@ -1,6 +1,6 @@
         <div data-delay="0" data-hover="false" class="dropdown-tab tabs-mob sidebar-dropdown w-dropdown">
           <div data-dd="toggle" class="toggle-tab tabs-mob sidebar is-first brands w-dropdown-toggle" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0">
-            <div class="toggle-text-tab-2 sidebar-txt">All collections</div>
+            <div class="toggle-text-tab-2 sidebar-txt">{{ $sidebarLabel ?? 'All collections' }}</div>
             <div class="tab-icon-wrapper sidebar-icon-wrapper">
               <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 9 6" fill="none" class="sidebar-icon">
                 <path d="M4.5 5.55005L0 1.05005L1.05 4.86076e-05L4.5 3.45005L7.95 4.86076e-05L9 1.05005L4.5 5.55005Z" fill="currentColor"></path>
@@ -12,7 +12,7 @@
               @if($logo)
               <img loading="lazy" src="{{ $logo }}" alt="{{ $name }}" class="svg50 sidebar-svg top-svg" />
               @endif
-              <a href="/brands" class="all-brands-block w-inline-block" tabindex="0">
+              <a href="{{ $allBrandsHref ?? '/brands' }}" class="all-brands-block w-inline-block" tabindex="0">
                 <div class="icon-font-rounded arrow">&#xE824;</div>
                 <div class="text-size-14">All brands</div>
               </a>
@@ -32,7 +32,7 @@
                         <div role="list" class="dropdown-list-2 no-padding d-sidebar w-dyn-items">
                           @foreach($group['collections'] as $collection)
                           <div role="listitem" class="w-dyn-item">
-                            <a href="/brand-collections/{{ $collection['slug'] }}" class="sidebar-item-2 w-inline-block">
+                            <a href="/brand-collections/{{ $collection['slug'] }}" class="sidebar-item-2 w-inline-block{{ !empty($currentCollectionSlug) && $currentCollectionSlug === $collection['slug'] ? ' w--current' : '' }}">
                               @if($collection['image'])
                               <img loading="lazy" src="{{ $collection['image'] }}" alt="{{ $collection['name'] }}" class="sidebar-img" />
                               @endif

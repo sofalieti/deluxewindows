@@ -1,38 +1,55 @@
 ﻿@php
-  $brandLikeHero = !empty($brandHero) || !empty($windowTypeHero);
-  $heroPageId = !empty($windowTypeHero)
-    ? '688e50676f1dbd8cba0e091a'
-    : (!empty($brandHero)
-      ? '6841ddf8ace3d9d9facb1583'
-      : (!empty($windowHeroImage) ? '6841ddf8ace3d9d9facb1582' : '6841df5688ca2f74fd53ec90'));
-  $heroElementId = !empty($windowTypeHero)
-    ? '3ab01c22-18de-4545-ffef-5a89d31afac2'
-    : (!empty($brandHero)
-      ? 'dc04ee7a-918f-7eb9-bff0-f9899431c4c3'
-      : (!empty($windowHeroImage) ? '0d2c5edc-6a74-d360-f6d2-0a02682efe78' : 'c3765d23-1eba-01a8-993c-c59200a6f722'));
-  $heroEmailNode = !empty($windowTypeHero)
-    ? 'w-node-_3ab01c22-18de-4545-ffef-5a89d31afad4-ba0e091a'
-    : (!empty($brandHero)
-      ? 'w-node-dc04ee7a-918f-7eb9-bff0-f9899431c4d5-facb1583'
-      : (!empty($windowHeroImage) ? 'w-node-_0d2c5edc-6a74-d360-f6d2-0a02682efe8a-facb1582' : 'w-node-c3765d23-1eba-01a8-993c-c59200a6f734-fd53ec90'));
-  $heroPhoneNode = !empty($windowTypeHero)
-    ? 'w-node-_3ab01c22-18de-4545-ffef-5a89d31afadc-ba0e091a'
-    : (!empty($brandHero)
-      ? 'w-node-dc04ee7a-918f-7eb9-bff0-f9899431c4dd-facb1583'
-      : (!empty($windowHeroImage) ? 'w-node-_0d2c5edc-6a74-d360-f6d2-0a02682efe92-facb1582' : 'w-node-c3765d23-1eba-01a8-993c-c59200a6f73c-fd53ec90'));
-  $heroCityNode = !empty($windowTypeHero)
-    ? 'w-node-_3ab01c22-18de-4545-ffef-5a89d31afae4-ba0e091a'
-    : (!empty($brandHero)
-      ? 'w-node-dc04ee7a-918f-7eb9-bff0-f9899431c4e5-facb1583'
-      : (!empty($windowHeroImage) ? 'w-node-_0d2c5edc-6a74-d360-f6d2-0a02682efe9a-facb1582' : 'w-node-c3765d23-1eba-01a8-993c-c59200a6f744-fd53ec90'));
-  $heroMessageNode = !empty($windowTypeHero)
-    ? 'w-node-_3ab01c22-18de-4545-ffef-5a89d31afaeb-ba0e091a'
-    : (!empty($brandHero)
-      ? 'w-node-dc04ee7a-918f-7eb9-bff0-f9899431c4ec-facb1583'
-      : (!empty($windowHeroImage) ? 'w-node-_0d2c5edc-6a74-d360-f6d2-0a02682efea1-facb1582' : 'w-node-c3765d23-1eba-01a8-993c-c59200a6f74b-fd53ec90'));
-  $heroPricingHtml = !empty($windowTypeHero)
-    ? ($heroFormHtml ?? '<p>Starting from $1199 per window installed.</p><p><strong>Special pricing available upon request! </strong>‍</p>')
-    : ($brandHeroFormHtml ?? '<p>Starting from $999 per window installed.</p><p><strong>Special pricing available upon request!</strong>‍</p>');
+  $brandLikeHero = !empty($brandHero) || !empty($windowTypeHero) || !empty($collectionHero);
+  $heroPageId = !empty($collectionHero)
+    ? '69366119c296b5e2e8bdbfb8'
+    : (!empty($windowTypeHero)
+      ? '688e50676f1dbd8cba0e091a'
+      : (!empty($brandHero)
+        ? '6841ddf8ace3d9d9facb1583'
+        : (!empty($windowHeroImage) ? '6841ddf8ace3d9d9facb1582' : '6841df5688ca2f74fd53ec90')));
+  $heroElementId = !empty($collectionHero)
+    ? '89b9e427-c9d3-6d8b-0afb-075923310b6c'
+    : (!empty($windowTypeHero)
+      ? '3ab01c22-18de-4545-ffef-5a89d31afac2'
+      : (!empty($brandHero)
+        ? 'dc04ee7a-918f-7eb9-bff0-f9899431c4c3'
+        : (!empty($windowHeroImage) ? '0d2c5edc-6a74-d360-f6d2-0a02682efe78' : 'c3765d23-1eba-01a8-993c-c59200a6f722')));
+  $heroEmailNode = !empty($collectionHero)
+    ? 'w-node-_89b9e427-c9d3-6d8b-0afb-075923310b7e-e8bdbfb8'
+    : (!empty($windowTypeHero)
+      ? 'w-node-_3ab01c22-18de-4545-ffef-5a89d31afad4-ba0e091a'
+      : (!empty($brandHero)
+        ? 'w-node-dc04ee7a-918f-7eb9-bff0-f9899431c4d5-facb1583'
+        : (!empty($windowHeroImage) ? 'w-node-_0d2c5edc-6a74-d360-f6d2-0a02682efe8a-facb1582' : 'w-node-c3765d23-1eba-01a8-993c-c59200a6f734-fd53ec90')));
+  $heroPhoneNode = !empty($collectionHero)
+    ? 'w-node-_89b9e427-c9d3-6d8b-0afb-075923310b86-e8bdbfb8'
+    : (!empty($windowTypeHero)
+      ? 'w-node-_3ab01c22-18de-4545-ffef-5a89d31afadc-ba0e091a'
+      : (!empty($brandHero)
+        ? 'w-node-dc04ee7a-918f-7eb9-bff0-f9899431c4dd-facb1583'
+        : (!empty($windowHeroImage) ? 'w-node-_0d2c5edc-6a74-d360-f6d2-0a02682efe92-facb1582' : 'w-node-c3765d23-1eba-01a8-993c-c59200a6f73c-fd53ec90')));
+  $heroCityNode = !empty($collectionHero)
+    ? 'w-node-_89b9e427-c9d3-6d8b-0afb-075923310b8e-e8bdbfb8'
+    : (!empty($windowTypeHero)
+      ? 'w-node-_3ab01c22-18de-4545-ffef-5a89d31afae4-ba0e091a'
+      : (!empty($brandHero)
+        ? 'w-node-dc04ee7a-918f-7eb9-bff0-f9899431c4e5-facb1583'
+        : (!empty($windowHeroImage) ? 'w-node-_0d2c5edc-6a74-d360-f6d2-0a02682efe9a-facb1582' : 'w-node-c3765d23-1eba-01a8-993c-c59200a6f744-fd53ec90')));
+  $heroMessageNode = !empty($collectionHero)
+    ? 'w-node-_89b9e427-c9d3-6d8b-0afb-075923310b95-e8bdbfb8'
+    : (!empty($windowTypeHero)
+      ? 'w-node-_3ab01c22-18de-4545-ffef-5a89d31afaeb-ba0e091a'
+      : (!empty($brandHero)
+        ? 'w-node-dc04ee7a-918f-7eb9-bff0-f9899431c4ec-facb1583'
+        : (!empty($windowHeroImage) ? 'w-node-_0d2c5edc-6a74-d360-f6d2-0a02682efea1-facb1582' : 'w-node-c3765d23-1eba-01a8-993c-c59200a6f74b-fd53ec90')));
+  $heroPricingBlockClass = !empty($collectionHero)
+    ? 'rich-text-block-3'
+    : (!empty($windowTypeHero) ? 'rich-text-block-7' : 'rich-text-block-5');
+  $heroPricingHtml = !empty($collectionHero)
+    ? ($heroFormHtml ?? '<h3><strong><code>40% off for limited time</code></strong></h3><p>Starting from <s>915</s> $549<sup>*</sup></p><p><code>per window</code></p>')
+    : (!empty($windowTypeHero)
+      ? ($heroFormHtml ?? '<p>Starting from $1199 per window installed.</p><p><strong>Special pricing available upon request! </strong>‍</p>')
+      : ($brandHeroFormHtml ?? '<p>Starting from $999 per window installed.</p><p><strong>Special pricing available upon request!</strong>‍</p>'));
 @endphp
 
 @include('partials.header-scripts')
@@ -133,7 +150,7 @@
                     <img loading="lazy" src="{{ $brandLogo }}" alt="" class="svg50 sidebar-svg top-svg" />
                     @endif
                     <label for="email-banner" class="body-14"></label>
-                    <div class="{{ !empty($windowTypeHero) ? 'rich-text-block-7' : 'rich-text-block-5' }} w-richtext">
+                    <div class="{{ $heroPricingBlockClass }} w-richtext">
                       {!! $heroPricingHtml !!}
                     </div>
                     @elseif(!empty($windowHeroImage) && !empty($windowDiscountHtml))
