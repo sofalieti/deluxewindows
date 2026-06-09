@@ -81,7 +81,10 @@
 
       @include('partials.navbar')
 
-      @include('partials.hero', ['windowHeroImage' => null])
+      @include('partials.hero', [
+        'heroBackgroundImage' => '/webflow-assets/images/hero-brand-placeholder.jpg',
+        'windowHeroImage' => null,
+      ])
 
       @include('partials.trust-badges')
 

@@ -1,7 +1,10 @@
 ﻿@include('partials.header-scripts')
 
       <div class="div-block-59">
-        @if(!empty($windowHeroImage))
+        @if(!empty($heroBackgroundImage))
+          {{-- Static hero background (brand pages etc.) --}}
+          <div style="background-image:url('{{ thumbnail_url($heroBackgroundImage, 'hero_bg') }}')" class="div-block-61"></div>
+        @elseif(!empty($windowHeroImage))
           {{-- Windows detail page: static product image as background --}}
           <div style="background-image:url('{{ thumbnail_url($windowHeroImage, 'hero_bg') }}')" class="div-block-61"></div>
         @else
