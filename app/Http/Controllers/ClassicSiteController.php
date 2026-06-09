@@ -6,6 +6,7 @@ use App\Models\Webflow\BlogWebflowItem;
 use App\Models\Webflow\BrandCollectionsWebflowItem;
 use App\Models\Webflow\BrandsWebflowItem;
 use App\Models\Webflow\CollectionsTabsWebflowItem;
+use App\Models\Webflow\DoorsWebflowItem;
 use App\Models\Webflow\GalleryWebflowItem;
 use App\Models\Webflow\WindowTypeWebflowItem;
 use App\Models\Webflow\WindowsWebflowItem;
@@ -117,6 +118,79 @@ class ClassicSiteController extends Controller
             'brandTypes'       => $brandTypes,
             'brandsTitle'      => $brandsTitle,
             'learnMoreWindows' => $learnMoreWindows,
+        ]);
+    }
+
+    public function doorBySlug(string $slug)
+    {
+        $slug = strtolower(trim($slug));
+
+        $door = DoorsWebflowItem::query()
+            ->where('field_data->slug', $slug)
+            ->orWhere('webflow_item_id', $slug)
+            ->orderByDesc('id')
+            ->first();
+
+        abort_if(! $door, 404);
+
+        $fieldData = is_array($door->field_data ?? null) ? $door->field_data : [];
+
+        $heroImage = $this->extractImageUrl($fieldData, [
+            'blog-post---featured-image',
+        ]);
+
+        $mainImage = $this->extractImageUrl($fieldData, [
+            'blog-post---thumbnail-image-v1',
+        ]);
+
+        $galleryImages = collect(data_get($fieldData, 'gallery', []))
+            ->map(fn ($img) => is_array($img) ? ($img['url'] ?? null) : (is_string($img) ? $img : null))
+            ->filter()
+            ->values();
+
+        $doorBrands = $door->webflowReferences('doors-brands')
+            ->map(function ($brand) {
+                $fd = is_array($brand->field_data) ? $brand->field_data : [];
+                $brandSlug = $fd['slug'] ?? '';
+                $image = $this->extractImageUrl($fd, ['brand-logo', 'logo-svg', 'agent---avatar-photo', 'agent-avatar-photo']);
+
+                return $brandSlug !== ''
+                    ? ['name' => $fd['name'] ?? '', 'slug' => $brandSlug, 'image' => $image ?? '']
+                    : null;
+            })
+            ->filter()
+            ->values();
+
+        $brandsTitle = $fieldData['brands-title'] ?? 'Top Door Brands';
+        $learnMoreDoors = $this->resolveLearnMoreDoors($door);
+
+        $seoTitle       = $fieldData['seo-title'] ?? ($fieldData['name'] ?? 'Doors');
+        $seoDescription = $fieldData['seo-description'] ?? ($fieldData['description'] ?? '');
+        $ogTitle        = $fieldData['opengraph-title'] ?? $seoTitle;
+        $ogDescription  = $fieldData['opengraph-description'] ?? $seoDescription;
+        $ogImage        = $fieldData['opengraph-image']
+            ?? $this->extractImageUrl($fieldData, ['blog-post---thumbnail-image-v3', 'blog-post---featured-image'])
+            ?? $mainImage
+            ?? '';
+
+        return view('doors.show', [
+            'doorFieldData'  => $fieldData,
+            'seoTitle'       => $seoTitle,
+            'seoDescription' => $seoDescription,
+            'ogTitle'        => $ogTitle,
+            'ogDescription'  => $ogDescription,
+            'ogImage'        => $ogImage,
+            'title'          => $fieldData['name'] ?? 'Door',
+            'slug'           => $fieldData['slug'] ?? $slug,
+            'summary'        => $fieldData['description'] ?? '',
+            'aboutHtml'      => $fieldData['blog-post---rich-text'] ?? $door->wf_blog_post_rich_text ?? '',
+            'discountHtml'   => $fieldData['door-discount'] ?? $door->wf_door_discount ?? '',
+            'heroImage'      => $heroImage ?? '',
+            'mainImage'      => $mainImage ?? '',
+            'galleryImages'  => $galleryImages,
+            'doorBrands'     => $doorBrands,
+            'brandsTitle'    => $brandsTitle,
+            'learnMoreDoors' => $learnMoreDoors,
         ]);
     }
 
@@ -236,6 +310,150 @@ class ClassicSiteController extends Controller
         return view('gallery', compact('images'));
     }
 
+    public function glossary()
+    {
+        $seoTitle       = 'Window & Door Glossary | Deluxe Windows – Bay Area';
+        $seoDescription = 'Not sure what low-E glass or casement means? Explore our window and door glossary to understand key terms and make informed decisions for your Bay Area home.';
+        $ogImage        = 'https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/684da952cef202b8dda5788c_Meta%20cover-2.jpg';
+
+        $navItems = [
+            ['id' => 'styling', 'label' => 'Window Replacement'],
+            ['id' => 'editing-pages', 'label' => 'Energy Efficient windows'],
+            ['id' => 'useful-notes', 'label' => 'Energy Star'],
+        ];
+
+        $sections = [
+            [
+                'id'    => 'styling',
+                'title' => 'Windows Replacement',
+                'blocks' => [
+                    ['tag' => 'p', 'class' => 'paragraph-35', 'html' => 'The thought of replacing all or most of your old windows with new ones can be daunting and understandably so. Replacing windows throughout your house could be expensive, not to mention inconvenient but don&#x27;t get too discouraged right away. With proper planning to ensure you install the right windows, ones that meet your needs, vision, and budget, this could be one of the best and most financially wise decisions of your life.'],
+                    ['tag' => 'h4', 'class' => 'mg-bottom-extra-small', 'html' => 'Understand why window replacement is necessary.'],
+                    ['tag' => 'p', 'class' => 'paragraph-36', 'html' => 'There are many reasons that people choose to replace old windows; Appearance, deterioration, maintenance and energy efficiency are just a few. Once you decide to purchase new windows for your home and the reason you are replacing them, you automatically narrow down your search, making it easier to reach a decision. Some materials may be better for energy efficiency, others because they fit in with the aesthetic of your home.'],
+                    ['tag' => 'h4', 'class' => 'mg-bottom-extra-small', 'html' => 'Set a budget.'],
+                    ['tag' => 'p', 'class' => 'paragraph-38', 'html' => 'Deciding on the number of windows you need to replace and setting a budget that works for you should be your next step. Windows are generally priced very differently; hence, the number of windows you will be replacing will help you determine the most economical style of window.'],
+                    ['tag' => 'h4', 'class' => 'mg-bottom-extra-small', 'html' => 'Choose your style.'],
+                    ['tag' => 'p', 'class' => 'paragraph-39', 'html' => 'The best way to start is to think about the rooms in which the windows will be placed. Do they face the front of the house or are they hidden at the back? It&#x27;s more than acceptable to use several styles throughout your home, keep in mind, however, that some windows need a little more maintenance than others. For example wood windows require a little more up-keep than <a href="/windows/vinyl-windows">vinyl</a>, which are virtually maintenance free. However the aesthetic benefits of wood usually far out way the maintenance they need over the years, as always personal preference is key.'],
+                    ['tag' => 'h4', 'class' => 'mg-bottom-extra-small', 'html' => 'How can I get more information?'],
+                    ['tag' => 'p', 'class' => 'paragraph-40', 'html' => 'When you request a <a href="/contacts">free quote</a> you will have a chance to learn more about your options and speak with a licensed home improvement professional. We&#x27;ll make sure that you have the information you need to make a well thought out decision that&#x27;s right for you.<br/>'],
+                ],
+            ],
+            [
+                'id'    => 'editing-pages',
+                'title' => 'Energy Efficient Windows',
+                'blocks' => [
+                    ['tag' => 'h4', 'class' => 'mg-bottom-extra-small', 'html' => 'What are Green or Energy Efficient windows?'],
+                    ['tag' => 'p', 'class' => 'mg-bottom-default', 'html' => 'Green or energy efficient, windows are windows that transmit the least amount of heat and reduce your home energy output. They also protect your home temperature from being affected by the external weather.<br/><br/>- Most of the heat loss in the home is caused by the windows, because of the type of glass and/or type of frame. This is because older windows, typically aluminum windows, are conductors meaning they transmit heat and cold.<br/>- Installing green windows into your home will not only maintain the desired temperature of your home but in the long run will save you money on heating and cooling bills. Windows that are considered &quot;green&quot; insulate your home and decrease heat transfer making your home more energy efficient.'],
+                    ['tag' => 'h4', 'class' => 'mg-bottom-extra-small', 'html' => 'What determines energy efficiency of a window?'],
+                    ['tag' => 'p', 'class' => 'mg-bottom-default', 'html' => 'The type of glass used for a window, determines its efficiency rate how much and what kind of light will be let in. <br/>- The newest technology for glass allows for a large reduction in heat loss. With a particular type of glass called &quot;Low-E,&quot; or low emissivity, energy efficiency becomes possible.<br/>- Low-E glass allows the visible light to enter the home, but blocks the bad light that damages skin and cause colors to fade. For the highest efficiency, the space between the panes is filled with argon gas to further insulate.<br/>- Warm edge spacers in between the panes also reduce heat transfer as well as insulate the edges creating a highly efficient &quot;green&quot; window.<br/>- For even greater efficiency, the frames of energy efficient windows are made with materials that also help reduce heat transfer while increasing insulation, like vinyl or fiberglass.<br/><br/>The circle graph above shows that one-quarter of your carbon footprint consists of home energy use, but this can vary depending on the kinds of energy sources available to power your home. ENERGY STAR calculates carbon savings for ENERGY STAR windows, doors, and skylights based on the mix of fuels in a region and the estimated energy use for a typical home.'],
+                ],
+            ],
+            [
+                'id'    => 'useful-notes',
+                'title' => 'Energy Star',
+                'blocks' => [
+                    ['tag' => 'p', 'class' => 'paragraph-41', 'html' => 'ENERGY STAR is the trusted, government-backed symbol for energy efficiency helping us all save money and protect the environment through energy-efficient products and practices.<br/>‍<br/>The ENERGY STAR label was established to:Reduce greenhouse gas emissions and other pollutants caused by the inefficient use of energy; andMake it easy for consumers to identify and purchase energy-efficient products that offer savings on energy bills without sacrificing performance, features, and comfort.'],
+                    ['tag' => 'h4', 'class' => 'mg-bottom-extra-small', 'html' => 'How Does EPA Choose which Products Earn the Label?'],
+                    ['tag' => 'p', 'class' => 'mg-bottom-default', 'html' => 'Products can earn the ENERGY STAR label by meeting the energy efficiency requirements set forth in ENERGY STAR product specifications. EPA establishes these specifications based on the following set of key guiding principles:<br/>- Product categories must contribute significant energy savings nationwide.<br/>- Qualified products must deliver the features and performance demanded by consumers, in addition to increased energy efficiency.<br/>- If the qualified product costs more than a conventional, less-efficient counterpart, purchasers will recover their investment in increased energy efficiency through utility bill savings, within a reasonable period of time.<br/>- Energy efficiency can be achieved through broadly available, non-proprietary technologies offered by more than one manufacturer.<br/>- Product energy consumption and performance can be measured and verified with testing.<br/>- Labeling would effectively differentiate products and be visible for purchasers.<br/><br/>ENERGY STAR is the trusted, government-backed symbol for energy efficiency helping us all save money and protect the environment through energy-efficient products and practices.<br/><br/>The ENERGY STAR label was established to:<br/>- Reduce greenhouse gas emissions and other pollutants caused by the inefficient use of energy; <br/>- Make it easy for consumers to identify and purchase energy-efficient products that offer savings on energy bills without sacrificing performance, features, and comfort.'],
+                    ['tag' => 'h4', 'class' => 'mg-bottom-extra-small', 'html' => 'How Does EPA Choose which Products Earn the Label?'],
+                    ['tag' => 'p', 'class' => 'paragraph-42', 'html' => 'Products can earn the ENERGY STAR label by meeting the energy efficiency requirements set forth in ENERGY STAR product specifications. EPA establishes these specifications based on the following set of key guiding principles:<br/>- Product categories must contribute significant energy savings nationwide.<br/>- Qualified products must deliver the features and performance demanded by consumers, in addition to increased energy efficiency.<br/>- If the qualified product costs more than a conventional, less-efficient counterpart, purchasers will recover their investment in increased energy efficiency through utility bill savings, within a reasonable period of time.<br/>- Energy efficiency can be achieved through broadly available, non-proprietary technologies offered by more than one manufacturer.<br/>- Product energy consumption and performance can be measured and verified with testing.Labeling would effectively differentiate products and be visible for purchasers.'],
+                ],
+            ],
+        ];
+
+        return view('glossary', compact('seoTitle', 'seoDescription', 'ogImage', 'navItems', 'sections'));
+    }
+
+    public function faq()
+    {
+        $seoTitle       = 'Window & Door FAQs | Deluxe Windows – Bay Area';
+        $seoDescription = 'Have questions about window or door replacement in San Francisco? Get expert answers from Deluxe Windows on installation timelines, permits, energy savings, and costs.';
+        $ogImage        = 'https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/684da952cef202b8dda5788c_Meta%20cover-2.jpg';
+
+        $navItems = [
+            ['id' => 'materials', 'label' => 'Which material is best for your windows?'],
+            ['id' => 'obtain', 'label' => 'Will I need to obtain a permit?'],
+            ['id' => 'new', 'label' => 'When do I need new windows?'],
+            ['id' => 'causes', 'label' => 'What causes condensation?'],
+            ['id' => 'retrofit', 'label' => 'Will I need retrofit or new construction installation?'],
+            ['id' => 'brands', 'label' => 'How to choose windows brands and styles?'],
+        ];
+
+        $sections = [
+            [
+                'id'    => 'materials',
+                'title' => 'Which material is best for your windows?',
+                'blocks' => [
+                    ['tag' => 'h4', 'class' => 'mg-bottom-extra-small', 'html' => 'Vinyl windows'],
+                    ['tag' => 'p', 'class' => 'mg-bottom-default', 'html' => 'Made from a plastic material, energy efficient and low maintenance. These windows work best in a stable climate without extreme weather conditions. Vinyl windows last a long time due to the durable and sturdy material from which they&#x27;re made.'],
+                    ['tag' => 'h4', 'class' => 'mg-bottom-extra-small', 'html' => 'Wood windows '],
+                    ['tag' => 'p', 'class' => 'mg-bottom-default', 'html' => 'Typically used to preserve the existing look of a home. More costly than other types of windows they require some maintenance and upkeep. These windows are beautiful hand-crafted pieces of furniture adding to the overall aesthetic nature of your home. Wood windows are a unique and elegant addition to your home that no other window can match.'],
+                    ['tag' => 'h4', 'class' => 'mg-bottom-extra-small', 'html' => 'Wood-Cladwindows'],
+                    ['tag' => 'p', 'class' => 'mg-bottom-default', 'html' => 'A combination material with a wood interior and either vinyl/aluminum/fiberglass exterior, provide the same look as fully wood windows without the required maintenance over time.'],
+                    ['tag' => 'h4', 'class' => 'mg-bottom-extra-small', 'html' => 'Aluminum windows'],
+                    ['tag' => 'p', 'class' => 'mg-bottom-default', 'html' => 'Strong, light, and require minimal maintenance. Aluminum is sensitive to temperature changes resulting in lower insulation levels and may be subject to condensation. Though these characteristics cause aluminum to be less energy efficient, it offers the thinnest frame, allowing for maximum daylight exposure throughout the day. To increase energy efficiency there are thermal broken aluminum windows. These windows have thermal breakers, also known as spacers, which are inserted in-between the aluminum frame, in order to reduce conductivity. This makes the window less conducive and more energy efficient.<br/>'],
+                    ['tag' => 'h4', 'class' => 'mg-bottom-extra-small', 'html' => 'Fiberglass windows'],
+                    ['tag' => 'p', 'class' => 'mg-bottom-default', 'html' => 'Have become a top of the line product because of the durable and long lasting window framing material. Fiberglass is about 3 times stronger than aluminum and 9 times stronger than vinyl, so these windows should last the longest. Fiberglass windows are durable and are practically maintenance free. Since full fiberglass windows are quite costly, there are fiberglass composite windows, which are not full fiberglass windows. Fibrex windows, a type of composite window, are made from few durable materials combined. The composite contains wood particles as well as fiberglass and therefore are considered very durable. These windows are supposed to last longer than vinyl windows with minimal maintenance.<br/>'],
+                ],
+            ],
+            [
+                'id'    => 'obtain',
+                'title' => 'Will I need to obtain a permit?',
+                'blocks' => [
+                    ['tag' => 'p', 'class' => 'mg-bottom-default', 'html' => 'Many cities, such as San Francisco, Oakland, Berkeley and many others, have area specific requirements to meet historic preservation and other city codes. It is best to contact your city Planning/Building department to help you determine whether a permit is required for your home.<br/><br/>If you reside in a home that is part of a Homeowner&#x27;s Association (H.O.A.), it is best to check their requirements first. The H.O.A. will typically have a certain style or brand that they require and will have to approve your project before a permit can be obtained.<br/><br/>If a permit is required, Deluxe Windows can walk you through the process, or take care of it for you. The permit process is typically long and tedious including forms, floor plan drawings, pictures and other items may be required by the city. That&#x27;s why choosing BAWP Inc. brings you extra benefits. After years of dealing with building departments our expertise on what is required expedites the process, getting your project approved and on the way faster and and more efficiently.'],
+                ],
+            ],
+            [
+                'id'    => 'new',
+                'title' => 'When do I need new windows?',
+                'blocks' => [
+                    ['tag' => 'p', 'class' => 'paragraph-45', 'html' => 'If you aren&#x27;t sure whether your windows need replacing, Deluxe Windos, Inc. can come to your home for a free consultation.<br/>‍<br/>Signs that it may be time to change your windows are:<br/>- High electric billsYour home is way too hot in summer, and way too cold in winter;<br/>- Consistent condensation on the panes of your windows; <br/>- Drafty or leaking windows;<br/>- Difficult to open or close.'],
+                ],
+            ],
+            [
+                'id'    => 'causes',
+                'title' => 'What causes condensation?',
+                'blocks' => [
+                    ['tag' => 'p', 'class' => 'paragraph-46', 'html' => 'Condensation occurs because of humidity that is naturally present in the air. When water vapor comes into contact with surfaces that are cooler than it is, the vapor forms into visible moisture, which gets trapped in between the glass. Old windows have a tendency to have this problem because insulation technology was not as advanced as it is today.'],
+                ],
+            ],
+            [
+                'id'    => 'retrofit',
+                'title' => 'Will I need retrofit or new construction installation?',
+                'blocks' => [
+                    ['tag' => 'p', 'class' => 'paragraph-47', 'html' => 'Most people will choose to get retrofit installation because it is an easier, shorter, and a cheaper process than new construction installation. A retrofit window is custom fit to the existing opening, and is installed without disturbing the exterior area around the window. Retrofit windows slightly decrease the existing daylight opening in order for the window to fit inside the existing opening. A new construction installation removes the entire window including the surrounding frame. The new window is installed in multiple steps, like waterproofing and flashing, before the new trim and caulking takes place. '],
+                ],
+            ],
+            [
+                'id'    => 'brands',
+                'title' => 'How to choose windows brands and styles?',
+                'blocks' => [
+                    ['tag' => 'p', 'class' => 'paragraph-48', 'html' => 'The answer to this question can only be answered once we come to your home for a free consultation. Every home is different, and when our professional window replacement specialist comes out to assess your house, we can factor in all the different aspects to suggest which product, style and price range will work best for you. Since Deluxe Windows, Inc. carries over 20 different brands we can offer you a wide range of choices to specifically fit your needs.<br/>'],
+                ],
+            ],
+        ];
+
+        return view('faq', compact('seoTitle', 'seoDescription', 'ogImage', 'navItems', 'sections'));
+    }
+
+    public function testimonials()
+    {
+        $seoTitle       = 'Customer Reviews | Deluxe Windows – Bay Area';
+        $seoDescription = 'See why Bay Area homeowners trust Deluxe Windows. Read verified customer reviews on window and door installations, service quality, and overall experience.';
+        $ogImage        = 'https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/684da952cef202b8dda5788c_Meta%20cover-2.jpg';
+
+        return view('testimonials', compact('seoTitle', 'seoDescription', 'ogImage'));
+    }
+
+    public function financing()
+    {
+        $seoTitle       = 'Window & Door Financing | Deluxe Windows – Bay Area';
+        $seoDescription = 'Make your window and door replacement affordable. Deluxe Windows offers flexible financing options in San Francisco so Bay Area homeowners can upgrade now and pay over time.';
+        $ogImage        = 'https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/684da952cef202b8dda5788c_Meta%20cover-2.jpg';
+
+        return view('financing', compact('seoTitle', 'seoDescription', 'ogImage'));
+    }
+
     public function about()
     {
         return view('about');
@@ -304,6 +522,29 @@ class ClassicSiteController extends Controller
                 ];
             })
             ->filter(fn ($w) => $w['slug'] !== '')
+            ->values();
+    }
+
+    private function resolveLearnMoreDoors(DoorsWebflowItem $door): \Illuminate\Support\Collection
+    {
+        return DoorsWebflowItem::query()
+            ->where('is_archived', false)
+            ->where('is_draft', false)
+            ->orderBy('id')
+            ->get()
+            ->map(function ($item) {
+                $fd = is_array($item->field_data) ? $item->field_data : [];
+                $itemSlug = $fd['slug'] ?? '';
+
+                return $itemSlug !== ''
+                    ? [
+                        'name'  => $fd['name'] ?? '',
+                        'slug'  => $itemSlug,
+                        'image' => $this->extractImageUrl($fd, ['blog-post---thumbnail-image-v1', 'blog-post---featured-image']),
+                    ]
+                    : null;
+            })
+            ->filter()
             ->values();
     }
 

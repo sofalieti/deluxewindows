@@ -7,6 +7,9 @@ Route::get('/', [ClassicSiteController::class, 'home']);
 Route::get('/windows/{slug}', [ClassicSiteController::class, 'windowBySlug'])
     ->where('slug', '[A-Za-z0-9\-]+');
 
+Route::get('/doors/{slug}', [ClassicSiteController::class, 'doorBySlug'])
+    ->where('slug', '[A-Za-z0-9\-]+');
+
 Route::get('/brands/{slug}', [ClassicSiteController::class, 'brandBySlug'])
     ->where('slug', '[A-Za-z0-9\-]+');
 
@@ -22,6 +25,10 @@ Route::get('/blog/{slug}', [ClassicSiteController::class, 'blogBySlug'])
     ->where('slug', '[A-Za-z0-9\-]+');
 
 Route::get('/gallery', [ClassicSiteController::class, 'gallery']);
+Route::get('/glossary', [ClassicSiteController::class, 'glossary']);
+Route::get('/faq', [ClassicSiteController::class, 'faq']);
+Route::get('/testimonials', [ClassicSiteController::class, 'testimonials']);
+Route::get('/financing', [ClassicSiteController::class, 'financing']);
 Route::get('/about', [ClassicSiteController::class, 'about']);
 Route::get('/contacts', [ClassicSiteController::class, 'contacts']);
 Route::get('/special-offers', [ClassicSiteController::class, 'specialOffers']);

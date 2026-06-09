@@ -1,47 +1,59 @@
 ﻿@php
-  $brandLikeHero = !empty($brandHero) || !empty($windowTypeHero) || !empty($collectionHero);
+  $brandLikeHero = !empty($brandHero) || !empty($windowTypeHero) || !empty($collectionHero) || !empty($doorHero);
   $heroPageId = !empty($collectionHero)
     ? '69366119c296b5e2e8bdbfb8'
     : (!empty($windowTypeHero)
       ? '688e50676f1dbd8cba0e091a'
       : (!empty($brandHero)
         ? '6841ddf8ace3d9d9facb1583'
-        : (!empty($windowHeroImage) ? '6841ddf8ace3d9d9facb1582' : '6841df5688ca2f74fd53ec90')));
+        : (!empty($doorHero)
+          ? '6841ddf8ace3d9d9facb156f'
+          : (!empty($windowHeroImage) ? '6841ddf8ace3d9d9facb1582' : '6841df5688ca2f74fd53ec90'))));
   $heroElementId = !empty($collectionHero)
     ? '89b9e427-c9d3-6d8b-0afb-075923310b6c'
     : (!empty($windowTypeHero)
       ? '3ab01c22-18de-4545-ffef-5a89d31afac2'
       : (!empty($brandHero)
         ? 'dc04ee7a-918f-7eb9-bff0-f9899431c4c3'
-        : (!empty($windowHeroImage) ? '0d2c5edc-6a74-d360-f6d2-0a02682efe78' : 'c3765d23-1eba-01a8-993c-c59200a6f722')));
+        : (!empty($doorHero)
+          ? '553713b0-acde-64e1-6dce-d76cee8c0ff6'
+          : (!empty($windowHeroImage) ? '0d2c5edc-6a74-d360-f6d2-0a02682efe78' : 'c3765d23-1eba-01a8-993c-c59200a6f722'))));
   $heroEmailNode = !empty($collectionHero)
     ? 'w-node-_89b9e427-c9d3-6d8b-0afb-075923310b7e-e8bdbfb8'
     : (!empty($windowTypeHero)
       ? 'w-node-_3ab01c22-18de-4545-ffef-5a89d31afad4-ba0e091a'
       : (!empty($brandHero)
         ? 'w-node-dc04ee7a-918f-7eb9-bff0-f9899431c4d5-facb1583'
-        : (!empty($windowHeroImage) ? 'w-node-_0d2c5edc-6a74-d360-f6d2-0a02682efe8a-facb1582' : 'w-node-c3765d23-1eba-01a8-993c-c59200a6f734-fd53ec90')));
+        : (!empty($doorHero)
+          ? 'w-node-_553713b0-acde-64e1-6dce-d76cee8c1008-facb156f'
+          : (!empty($windowHeroImage) ? 'w-node-_0d2c5edc-6a74-d360-f6d2-0a02682efe8a-facb1582' : 'w-node-c3765d23-1eba-01a8-993c-c59200a6f734-fd53ec90'))));
   $heroPhoneNode = !empty($collectionHero)
     ? 'w-node-_89b9e427-c9d3-6d8b-0afb-075923310b86-e8bdbfb8'
     : (!empty($windowTypeHero)
       ? 'w-node-_3ab01c22-18de-4545-ffef-5a89d31afadc-ba0e091a'
       : (!empty($brandHero)
         ? 'w-node-dc04ee7a-918f-7eb9-bff0-f9899431c4dd-facb1583'
-        : (!empty($windowHeroImage) ? 'w-node-_0d2c5edc-6a74-d360-f6d2-0a02682efe92-facb1582' : 'w-node-c3765d23-1eba-01a8-993c-c59200a6f73c-fd53ec90')));
+        : (!empty($doorHero)
+          ? 'w-node-_553713b0-acde-64e1-6dce-d76cee8c1010-facb156f'
+          : (!empty($windowHeroImage) ? 'w-node-_0d2c5edc-6a74-d360-f6d2-0a02682efe92-facb1582' : 'w-node-c3765d23-1eba-01a8-993c-c59200a6f73c-fd53ec90'))));
   $heroCityNode = !empty($collectionHero)
     ? 'w-node-_89b9e427-c9d3-6d8b-0afb-075923310b8e-e8bdbfb8'
     : (!empty($windowTypeHero)
       ? 'w-node-_3ab01c22-18de-4545-ffef-5a89d31afae4-ba0e091a'
       : (!empty($brandHero)
         ? 'w-node-dc04ee7a-918f-7eb9-bff0-f9899431c4e5-facb1583'
-        : (!empty($windowHeroImage) ? 'w-node-_0d2c5edc-6a74-d360-f6d2-0a02682efe9a-facb1582' : 'w-node-c3765d23-1eba-01a8-993c-c59200a6f744-fd53ec90')));
+        : (!empty($doorHero)
+          ? 'w-node-_553713b0-acde-64e1-6dce-d76cee8c1018-facb156f'
+          : (!empty($windowHeroImage) ? 'w-node-_0d2c5edc-6a74-d360-f6d2-0a02682efe9a-facb1582' : 'w-node-c3765d23-1eba-01a8-993c-c59200a6f744-fd53ec90'))));
   $heroMessageNode = !empty($collectionHero)
     ? 'w-node-_89b9e427-c9d3-6d8b-0afb-075923310b95-e8bdbfb8'
     : (!empty($windowTypeHero)
       ? 'w-node-_3ab01c22-18de-4545-ffef-5a89d31afaeb-ba0e091a'
       : (!empty($brandHero)
         ? 'w-node-dc04ee7a-918f-7eb9-bff0-f9899431c4ec-facb1583'
-        : (!empty($windowHeroImage) ? 'w-node-_0d2c5edc-6a74-d360-f6d2-0a02682efea1-facb1582' : 'w-node-c3765d23-1eba-01a8-993c-c59200a6f74b-fd53ec90')));
+        : (!empty($doorHero)
+          ? 'w-node-_553713b0-acde-64e1-6dce-d76cee8c101f-facb156f'
+          : (!empty($windowHeroImage) ? 'w-node-_0d2c5edc-6a74-d360-f6d2-0a02682efea1-facb1582' : 'w-node-c3765d23-1eba-01a8-993c-c59200a6f74b-fd53ec90'))));
   $heroPricingBlockClass = !empty($collectionHero)
     ? 'rich-text-block-3'
     : (!empty($windowTypeHero) ? 'rich-text-block-7' : 'rich-text-block-5');
@@ -58,6 +70,9 @@
         @if(!empty($heroBackgroundImage))
           {{-- Static hero background (brand pages etc.) --}}
           <div style="background-image:url('{{ thumbnail_url($heroBackgroundImage, 'hero_bg') }}')" class="div-block-61"></div>
+        @elseif(!empty($doorHeroImage))
+          {{-- Doors detail page: featured image as background --}}
+          <div style="background-image:url('{{ thumbnail_url($doorHeroImage, 'hero_bg') }}')" class="div-block-61"></div>
         @elseif(!empty($windowHeroImage))
           {{-- Windows detail page: static product image as background --}}
           <div style="background-image:url('{{ thumbnail_url($windowHeroImage, 'hero_bg') }}')" class="div-block-61"></div>
@@ -99,8 +114,8 @@
               <div class="inner-container _640px _100-tablet">
                 <div class="inner-container _450px---tablet">
                   <div class="inner-container _400px---mbl">
-                    @if($brandLikeHero || !empty($windowHeroImage))
-                    @if($brandLikeHero)
+                    @if($brandLikeHero || !empty($windowHeroImage) || !empty($doorHero))
+                    @if($brandLikeHero || !empty($doorHero))
                     <div class="div-block-60">
                     @endif
                     <div class="rich-text-block-2 w-richtext">
@@ -110,7 +125,7 @@
                         <h2 style="font-size: 21px; color: #fff" data-city="">Local Installers</h2>
                       </div>
                     </div>
-                    @if($brandLikeHero)
+                    @if($brandLikeHero || !empty($doorHero))
                     </div>
                     @endif
                     @else
@@ -152,6 +167,11 @@
                     <label for="email-banner" class="body-14"></label>
                     <div class="{{ $heroPricingBlockClass }} w-richtext">
                       {!! $heroPricingHtml !!}
+                    </div>
+                    @elseif(!empty($doorHero) && !empty($doorDiscountHtml))
+                    <label for="email-banner" class="body-14"></label>
+                    <div class="rich-text-block-6 w-richtext">
+                      {!! $doorDiscountHtml !!}
                     </div>
                     @elseif(!empty($windowHeroImage) && !empty($windowDiscountHtml))
                     <label for="email-banner" class="body-14"></label>
