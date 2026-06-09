@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Webflow\BlogWebflowItem;
 use App\Models\Webflow\BrandCollectionsWebflowItem;
 use App\Models\Webflow\BrandsWebflowItem;
+use App\Models\Webflow\CollectionsTabsWebflowItem;
 use App\Models\Webflow\GalleryWebflowItem;
 use App\Models\Webflow\WindowTypeWebflowItem;
 use App\Models\Webflow\WindowsWebflowItem;
@@ -542,7 +543,7 @@ class ClassicSiteController extends Controller
         }
 
         // Collections tab details – window types, glass, colors, options etc.
-        $tabDetails = $collection->webflowReferences('collections-tabs-details')
+        $tabDetails = $this->resolveBrandCollectionTabItems($collection)
             ->map(function ($tab) {
                 $fd = is_array($tab->field_data) ? $tab->field_data : [];
                 $picture = null;
@@ -955,6 +956,54 @@ class ClassicSiteController extends Controller
         }
 
         return $groups;
+    }
+
+    /**
+     * Resolve Collections Tab items for a brand collection.
+     *
+     * Webflow links tabs in two directions:
+     * - brand-collections.collections-tabs-details → collections-tabs (explicit subset)
+     * - collections-tabs.collections-new-template → brand-collections (full set)
+     */
+    private function resolveBrandCollectionTabItems(BrandCollectionsWebflowItem $collection): \Illuminate\Support\Collection
+    {
+        $collectionWebflowId = (string) ($collection->webflow_item_id ?? '');
+        if ($collectionWebflowId === '') {
+            return collect();
+        }
+
+        $directTabs = $collection->webflowReferences('collections-tabs-details')
+            ->filter(fn ($tab) => ! ($tab->is_draft ?? false) && ! ($tab->is_archived ?? false));
+
+        $reverseTabs = CollectionsTabsWebflowItem::query()
+            ->where('is_archived', false)
+            ->where('is_draft', false)
+            ->where(function ($query) use ($collectionWebflowId) {
+                $query->whereJsonContains('field_data->collections-new-template', $collectionWebflowId)
+                    ->orWhereJsonContains('wf_collections_new_template', $collectionWebflowId);
+            })
+            ->get();
+
+        $seen = [];
+        $ordered = [];
+
+        foreach ($directTabs as $tab) {
+            $id = (string) ($tab->webflow_item_id ?? '');
+            if ($id !== '' && ! isset($seen[$id])) {
+                $seen[$id] = true;
+                $ordered[] = $tab;
+            }
+        }
+
+        foreach ($reverseTabs as $tab) {
+            $id = (string) ($tab->webflow_item_id ?? '');
+            if ($id !== '' && ! isset($seen[$id])) {
+                $seen[$id] = true;
+                $ordered[] = $tab;
+            }
+        }
+
+        return collect($ordered);
     }
 
     private function resolveCollectionHeroPricing(BrandCollectionsWebflowItem $collection, array $fieldData): string
