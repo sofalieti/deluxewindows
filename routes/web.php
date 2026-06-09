@@ -13,6 +13,9 @@ Route::get('/brands/{slug}', [ClassicSiteController::class, 'brandBySlug'])
 Route::get('/brand-collections/{slug}', [ClassicSiteController::class, 'brandCollectionBySlug'])
     ->where('slug', '[A-Za-z0-9\-]+');
 
+Route::get('/window-type/{slug}', [ClassicSiteController::class, 'windowTypeBySlug'])
+    ->where('slug', '[A-Za-z0-9\-]+');
+
 Route::get('/blog', [ClassicSiteController::class, 'blogIndex']);
 
 Route::get('/blog/{slug}', [ClassicSiteController::class, 'blogBySlug'])

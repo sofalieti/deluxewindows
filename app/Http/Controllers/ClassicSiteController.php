@@ -6,6 +6,7 @@ use App\Models\Webflow\BlogWebflowItem;
 use App\Models\Webflow\BrandCollectionsWebflowItem;
 use App\Models\Webflow\BrandsWebflowItem;
 use App\Models\Webflow\GalleryWebflowItem;
+use App\Models\Webflow\WindowTypeWebflowItem;
 use App\Models\Webflow\WindowsWebflowItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -389,6 +390,105 @@ class ClassicSiteController extends Controller
             'ogTitle'         => $ogTitle,
             'ogDescription'   => $ogDescription,
             'ogImage'         => $ogImage,
+        ]);
+    }
+
+    public function windowTypeBySlug(string $slug)
+    {
+        $slug = strtolower(trim($slug));
+
+        $windowType = WindowTypeWebflowItem::query()
+            ->where('field_data->slug', $slug)
+            ->orWhere('webflow_item_id', $slug)
+            ->orderByDesc('id')
+            ->first();
+
+        abort_if(! $windowType, 404);
+
+        $fieldData = is_array($windowType->field_data ?? null) ? $windowType->field_data : [];
+
+        $name  = $fieldData['name'] ?? 'Window Type';
+        $about = $fieldData['property-listing---about'] ?? '';
+        $featuredImage = $this->extractImageUrl($fieldData, [
+            'property-listing---featured-image',
+            'property-listing---thumbnail-image-v1',
+        ]);
+
+        $parentBrand = $windowType->webflowReference('property-listing---agent');
+        abort_if(! $parentBrand, 404);
+
+        $brandFd = is_array($parentBrand->field_data) ? $parentBrand->field_data : [];
+        $brandName = $brandFd['name'] ?? '';
+        $brandSlug = $brandFd['slug'] ?? '';
+        $brandLogo = $this->extractImageUrl($brandFd, ['logo-svg', 'brand-logo', 'agent---avatar-photo', 'agent-avatar-photo']);
+
+        $windowTypes = $parentBrand->webflowReferences('window-types')
+            ->map(function ($wt) {
+                $fd = is_array($wt->field_data) ? $wt->field_data : [];
+                $wtSlug = $fd['slug'] ?? '';
+                $wtName = $fd['name'] ?? '';
+                $wtImage = $this->extractImageUrl($fd, [
+                    'property-listing---thumbnail-image-v1',
+                    'property-listing---featured-image',
+                ]);
+
+                return $wtSlug !== ''
+                    ? ['name' => $wtName, 'slug' => $wtSlug, 'image' => $wtImage ?? '']
+                    : null;
+            })
+            ->filter()
+            ->values();
+
+        $sidebarMaterialGroups = $this->buildBrandSidebarMaterialGroups($parentBrand, $brandFd);
+
+        $collectionsField = ($fieldData['new-template'] ?? false)
+            ? 'collections-new-template'
+            : 'window-type-collection';
+
+        $collections = $windowType->webflowReferences($collectionsField)
+            ->map(function ($collection) {
+                $fd = is_array($collection->field_data) ? $collection->field_data : [];
+                $image = $this->extractImageUrl($fd, ['featured-image', 'property-type---icon']);
+                if ($image === null && is_array($collection->wf_featured_image ?? null)) {
+                    $image = $collection->wf_featured_image['url'] ?? null;
+                }
+
+                return [
+                    'name'  => $fd['name'] ?? '',
+                    'slug'  => $fd['slug'] ?? '',
+                    'image' => $image ?? '',
+                ];
+            })
+            ->filter(fn ($c) => $c['name'] !== '' && $c['slug'] !== '')
+            ->values();
+
+        $collectionsTitle = $fieldData['title'] ?? "Explore {$brandName} Collections";
+        $heroFormHtml     = $this->resolveWindowTypeHeroPricing($windowType, $fieldData);
+
+        $seoTitle       = $fieldData['seo-title'] ?? $name;
+        $seoDescription = $fieldData['seo-description'] ?? '';
+        $ogTitle        = $fieldData['opengraph-title'] ?? $seoTitle;
+        $ogDescription  = $fieldData['opengraph-description'] ?? $seoDescription;
+        $ogImage        = $fieldData['opengraph-image'] ?? $featuredImage ?? $brandLogo ?? '';
+
+        return view('window-types.show', [
+            'name'                  => $name,
+            'slug'                  => $fieldData['slug'] ?? $slug,
+            'aboutHtml'             => $about,
+            'featuredImage'         => $featuredImage,
+            'brandName'             => $brandName,
+            'brandSlug'             => $brandSlug,
+            'logo'                  => $brandLogo,
+            'windowTypes'           => $windowTypes,
+            'sidebarMaterialGroups' => $sidebarMaterialGroups,
+            'collections'           => $collections,
+            'collectionsTitle'      => $collectionsTitle,
+            'heroFormHtml'          => $heroFormHtml,
+            'seoTitle'              => $seoTitle,
+            'seoDescription'        => $seoDescription,
+            'ogTitle'               => $ogTitle,
+            'ogDescription'         => $ogDescription,
+            'ogImage'               => $ogImage,
         ]);
     }
 
@@ -827,6 +927,21 @@ class ClassicSiteController extends Controller
         }
 
         return $groups;
+    }
+
+    private function resolveWindowTypeHeroPricing(WindowTypeWebflowItem $windowType, array $fieldData): string
+    {
+        $material = $windowType->webflowReference('windor-type-material');
+        if ($material) {
+            $materialFd = is_array($material->field_data) ? $material->field_data : [];
+            $discount   = $materialFd['discounttext'] ?? '';
+
+            if (is_string($discount) && trim(strip_tags($discount)) !== '') {
+                return $discount;
+            }
+        }
+
+        return '<p>Starting from $1199 per window installed.</p><p><strong>Special pricing available upon request! </strong>‍</p>';
     }
 
     private function brandCollectionMatchesMaterial(array $collection, string $materialName, ?string $materialWebflowId): bool
