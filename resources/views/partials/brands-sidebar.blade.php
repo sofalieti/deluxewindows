@@ -73,9 +73,11 @@
               </div>
             </div>
 
+            @if(empty($hideSidebarInlineForm))
             @include('partials.brand-sidebar-form-card', [
               'variant' => 'brands',
               'wfPageId' => $wfPageId ?? null,
             ])
+            @endif
           </nav>
         </div>

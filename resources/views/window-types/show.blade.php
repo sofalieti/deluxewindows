@@ -118,13 +118,9 @@
                     'name' => $brandName,
                     'logo' => $logo,
                     'wfPageId' => '688e50676f1dbd8cba0e091a',
+                    'hideSidebarInlineForm' => true,
                   ])
                 </section>
-
-                @include('partials.brand-sidebar-form-card', [
-                  'variant' => 'hero-section',
-                  'wfPageId' => '688e50676f1dbd8cba0e091a',
-                ])
               </div>
             </div>
 
