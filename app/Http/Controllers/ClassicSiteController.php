@@ -347,6 +347,7 @@ class ClassicSiteController extends Controller
         $ogDescription  = $fieldData['opengraph-description']  ?? $seoDescription;
         $ogImage        = $fieldData['opengraph-image']        ?? $logo ?? '';
         $windowsTitle   = $fieldData['windows-titles']         ?? "Explore {$name}'s Window Types";
+        $sidebarMaterialGroups = $this->buildBrandSidebarMaterialGroups($brand, $fieldData);
 
         return view('brands.show', [
             'brandFieldData'  => $fieldData,
@@ -355,6 +356,7 @@ class ClassicSiteController extends Controller
             'logo'            => $logo,
             'description'     => $description,
             'windowTypes'     => $windowTypes,
+            'sidebarMaterialGroups' => $sidebarMaterialGroups,
             'windowsTitle'    => $windowsTitle,
             'seoTitle'        => $seoTitle,
             'seoDescription'  => $seoDescription,
@@ -711,5 +713,108 @@ class ClassicSiteController extends Controller
         }
 
         return null;
+    }
+
+    /**
+     * Sidebar material groups for brand pages (matches deluxewindows.com/brands/* layout).
+     *
+     * @return \Illuminate\Support\Collection<int, array{name: string, sublabel: ?string, collections: \Illuminate\Support\Collection, visible: bool, insertWindowTypesAfter: bool}>
+     */
+    private function buildBrandSidebarMaterialGroups(BrandsWebflowItem $brand, array $fieldData): \Illuminate\Support\Collection
+    {
+        $materialOrder = [
+            'Aluminum Windows',
+            'Fiberglass Windows',
+            'Wood Clad Windows',
+            'Wood Windows',
+            'Aluminum Clad Windows',
+            'Steel Windows',
+            'Vinyl Windows',
+        ];
+
+        $materialIdsByName = WindowsWebflowItem::query()
+            ->where('is_archived', false)
+            ->where('is_draft', false)
+            ->get()
+            ->mapWithKeys(function ($item) {
+                $fd = is_array($item->field_data) ? $item->field_data : [];
+                $name = $fd['name'] ?? '';
+
+                return $name !== '' ? [$name => $item->webflow_item_id] : [];
+            });
+
+        $brandCollections = BrandCollectionsWebflowItem::query()
+            ->where('is_archived', false)
+            ->where('is_draft', false)
+            ->where('field_data->parent-brand', $brand->webflow_item_id)
+            ->get()
+            ->map(function ($collection) {
+                $fd = is_array($collection->field_data) ? $collection->field_data : [];
+
+                return [
+                    'name'         => $fd['name'] ?? '',
+                    'slug'         => $fd['slug'] ?? '',
+                    'material'     => $fd['material'] ?? '',
+                    'mainmaterial' => $fd['mainmaterial'] ?? null,
+                    'materials'    => is_array($fd['materials'] ?? null) ? $fd['materials'] : [],
+                    'image'        => $this->extractImageUrl($fd, ['property-type---icon', 'featured-image']) ?? '',
+                ];
+            })
+            ->filter(fn ($c) => $c['name'] !== '' && $c['slug'] !== '')
+            ->values();
+
+        $showVinylSubcategories = (bool) ($fieldData['new-construction-replacement-categories'] ?? false);
+        $groups = collect();
+        $insertWindowTypesAfterFirst = true;
+
+        foreach ($materialOrder as $materialName) {
+            if ($materialName === 'Vinyl Windows' && $showVinylSubcategories) {
+                foreach (['/ New Construction', '/ Replacement'] as $sublabel) {
+                    $groups->push([
+                        'name'                   => $materialName,
+                        'sublabel'               => $sublabel,
+                        'collections'            => collect(),
+                        'visible'                => false,
+                        'insertWindowTypesAfter' => false,
+                    ]);
+                }
+
+                continue;
+            }
+
+            $materialId = $materialIdsByName->get($materialName);
+            $matched = $brandCollections
+                ->filter(fn ($c) => $this->brandCollectionMatchesMaterial($c, $materialName, $materialId))
+                ->values();
+
+            $groups->push([
+                'name'                   => $materialName,
+                'sublabel'               => null,
+                'collections'            => $matched,
+                'visible'                => $matched->isNotEmpty(),
+                'insertWindowTypesAfter' => $insertWindowTypesAfterFirst && $matched->isNotEmpty(),
+            ]);
+
+            if ($matched->isNotEmpty()) {
+                $insertWindowTypesAfterFirst = false;
+            }
+        }
+
+        return $groups;
+    }
+
+    private function brandCollectionMatchesMaterial(array $collection, string $materialName, ?string $materialWebflowId): bool
+    {
+        if ($materialWebflowId !== null) {
+            if (in_array($materialWebflowId, $collection['materials'], true)) {
+                return true;
+            }
+
+            if ($collection['mainmaterial'] === $materialWebflowId) {
+                return true;
+            }
+        }
+
+        return strcasecmp($collection['material'], $materialName) === 0;
     }
 }
