@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html
   data-wf-domain="www.deluxewindows.com"
+  data-wf-page="6841ddf8ace3d9d9facb1583"
   data-wf-site="6841ddf8ace3d9d9facb14fd"
   lang="en"
 >
@@ -40,9 +41,7 @@
     <link href="/webflow-assets/images/favicon.png" rel="shortcut icon" type="image/x-icon" />
     <link href="/webflow-assets/images/webclip-bg.png" rel="apple-touch-icon" />
 
-    <style>
-      .w-webflow-badge { display: none !important; }
-    </style>
+    @include('partials.classic-layout-styles')
 
     <!-- Google tag -->
     <script>
@@ -82,13 +81,14 @@
       @include('partials.navbar')
 
       @include('partials.hero', [
-        'heroBackgroundImage' => '/webflow-assets/images/hero-brand-placeholder.jpg',
+        'brandHero' => true,
+        'brandLogo' => $logo,
+        'heroBackgroundImage' => $featuredImage ?? '/webflow-assets/images/hero-brand-placeholder.jpg',
         'windowHeroImage' => null,
       ])
 
       @include('partials.trust-badges')
 
-      {{-- Breadcrumbs --}}
       <section class="section_breadcrumbs section-121">
         <div class="w-layout-blockcontainer container-default breadcrumbs-container w-container">
           <div class="breadcrumbs-wrapper">
@@ -101,66 +101,36 @@
         </div>
       </section>
 
-      {{-- Brand main section: sidebar + content --}}
-      <section class="section_sidebar brands">
-        @include('partials.brands-sidebar')
+      <div class="w-layout-blockcontainer container-default w-container">
+        <div class="mg-top-extra-large brands">
+          <div class="w-layout-grid grid-2-columns listing-grid sidebar-left">
+            <div id="w-node-_399819b6-70a2-6968-e585-c5e3fab5d7ee-facb1583" class="inner-container _408px _100-mbl">
+              <div class="sticky-top brands">
+                <section class="section_sidebar brands">
+                  @include('partials.brands-sidebar')
+                </section>
 
-        {{-- Desktop hero form card --}}
-        <div class="card-2 sidebar-v1---card new-design hero-section">
-          <div class="inner-container _400px---mbl">
-            <div class="text-titles-3">
-              <div class="display-41 mid">Get Deluxe Windows for Less. 40% OFF* Windows</div>
+                @include('partials.brand-sidebar-form-card', ['variant' => 'hero-section'])
+              </div>
             </div>
-            <div class="mg-top-small-4">
-              <p class="text-titles-3"><em>Request a FREE No-Obligation Quote &amp; Expert Advice!</em></p>
-            </div>
-          </div>
-          <div class="mg-top-default-4">
-            <div class="sidebar-form-block-v1 sidebar w-form">
-              <form name="wf-form-Brand-Hero" method="get" class="form-wrapper" aria-label="Brand Hero Form">
-                <div class="grid-1-column-2 gap-row-12">
-                  <div class="input-wrapper-5">
-                    <div class="input-line-icon-wrapper-4"><div class="filled-icons-font">&#xF416;</div></div>
-                    <input class="input-2 icon-left w-input" maxlength="256" name="Name" placeholder="Full name" type="text" required />
-                  </div>
-                  <div class="input-wrapper-5">
-                    <div class="input-line-icon-wrapper-4"><div class="filled-icons-font">&#xF40F;</div></div>
-                    <input class="input-2 icon-left w-input" maxlength="256" name="Email" placeholder="Email address" type="email" required />
-                  </div>
-                  <div class="input-wrapper-5">
-                    <div class="input-line-icon-wrapper-4"><div class="filled-icons-font">&#xF0B3;</div></div>
-                    <input class="input-2 icon-left w-input" maxlength="256" name="Phone" placeholder="Phone number" type="tel" required />
-                  </div>
-                  <div class="input-wrapper-5">
-                    <input class="input-2 icon-left w-input" maxlength="256" name="Subject" placeholder="City" type="text" required />
-                    <div class="input-line-icon-wrapper">
-                      <img loading="eager" src="/webflow-assets/images/6841ddf8ace3d9d9facb194d_star-icon-property-x-webflow-template.svg" alt="Star Icon" style="width:18px;height:18px;object-fit:contain;" />
-                    </div>
-                  </div>
-                  <div class="primary-button-6 space-between-v1">
-                    <input type="submit" data-wait="Please wait..." class="inside-input-button-4 text-light w-button" value="Get Your Free Estimate" />
-                  </div>
-                </div>
-              </form>
+
+            <div id="w-node-_399819b6-70a2-6968-e585-c5e3fab5d7b3-facb1583" class="inner-container _690px _100-tablet">
+              <div class="div-block-52 brandmob">
+                <h1 class="display-8 mid types">{{ $name }}</h1>
+                <div class="mg-top-default"><div class="property-details"></div></div>
+                <div class="mg-top-default"><div class="property-details"></div></div>
+              </div>
+              @if($description)
+              <div class="rich-text-v2 mg-bottom--16px w-richtext">
+                {!! $description !!}
+              </div>
+              @endif
             </div>
           </div>
         </div>
+        <div class="image-wrapper border-radius-image-default"></div>
+      </div>
 
-        {{-- Brand name + description --}}
-        <div class="inner-container _690px _100-tablet">
-          <div class="div-block-52 brandmob">
-            <h1 class="display-8 mid types">{{ $name }}</h1>
-          </div>
-          @if($description)
-          <div class="rich-text-v2 mg-bottom--16px w-richtext">
-            {!! nl2br(e($description)) !!}
-          </div>
-          @endif
-        </div>
-
-      </section>
-
-      {{-- Explore Brand's Window Types --}}
       @if($windowTypes->count() > 0)
       <div class="w-layout-blockcontainer container-default w-container">
         <div class="title-left---content-right">
@@ -191,71 +161,333 @@
       </div>
       @endif
 
-      {{-- Our Guarantee --}}
-      <div class="f-section-large-3">
-        <div class="f-container-regular-3">
-          <div class="title-left---content-right dva">
-            <h2 class="heading-23">Our Guarantee</h2>
-          </div>
-          <div class="w-layout-grid f-grid-three-column-2 newww">
-            <div class="f-feature-card-filled">
-              <div class="f-margin-bottom-129">
-                <h5 class="f-h5-heading">{{ $name }}</h5>
-                <div class="rich-text-block-10 w-richtext">
-                  <p><strong>Full lifetime</strong> transferable warranty on parts and labor</p>
+      <section class="section top-none">
+        <div class="w-layout-blockcontainer container-default w-container">
+          <div class="w-layout-grid grid-2-columns values-wrapper-grid">
+            <div class="sticky-top static---tablet">
+              <div class="inner-container _500px _100-tablet">
+                <div class="inner-container _600px---tablet">
+                  <div class="mg-top-default"><h2 class="heading-10">4 Easy Steps</h2></div>
+                  <div class="mg-top-small">
+                    <p>Our step-by-step process is designed to make replacing your windows and doors easy, stress-free, and fully tailored to your needs — from the first estimate to the final inspection.</p>
+                  </div>
+                  <div class="mg-top-default"><div class="buttons-row left"></div></div>
                 </div>
               </div>
             </div>
-            <div class="f-feature-card-filled">
-              <div class="f-margin-bottom-129">
-                <h5 class="f-h5-heading">Manufacturer&#x27;s warranty on glass and frame</h5>
+            <div id="w-node-af15576f-600c-91c7-8a14-0ad4711ae30e-facb1583" class="inner-container _592px _100-tablet">
+              <div class="w-layout-grid grid-2-columns values-grid">
+                <div class="value-wrapper">
+                  <div class="image-wrapper"><img src="/webflow-assets/images/684d86f32d344f16ce6ec364_flag_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" loading="eager" alt="For-architects-deluxe-windows" class="image" /></div>
+                  <div class="mg-top-small"><h3 class="display-5 mid">Start</h3></div>
+                  <div class="mg-top-extra-small"><p class="paragraph-5">Looking to replace your windows and doors? Reach out to Deluxe Windows for a complimentary estimate.</p></div>
+                </div>
+                <div class="value-wrapper">
+                  <div class="image-wrapper"><img src="/webflow-assets/images/684d86ff1fff20336f975d74_shopping_bag_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" loading="eager" alt="For-contractors-deluxe-windows" class="image" /></div>
+                  <div class="mg-top-small"><h3 class="display-5 mid">Manufacture</h3></div>
+                  <div class="mg-top-extra-small"><p class="paragraph-6">If you are satisfied with the provided estimate and approve it, we will order windows and doors according to your specifications and needs.</p></div>
+                </div>
+                <div class="value-wrapper">
+                  <div class="image-wrapper"><img src="/webflow-assets/images/684d870c533c4f729eb8094c_settings_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" loading="eager" alt="For-property-managers-owners-deluxe-windows" class="image" /></div>
+                  <div class="mg-top-small"><h3 class="display-5 mid">Remove and install</h3></div>
+                  <div class="mg-top-extra-small"><p class="paragraph-7">Once the products are ready, we will arrange a convenient time for installation and ensure your new windows and doors are expertly fitted.</p></div>
+                </div>
+                <div class="value-wrapper">
+                  <div class="image-wrapper"><img src="/webflow-assets/images/684d8718e99d2a34dfef7e4d_home_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" loading="eager" alt="For-property-managers-owners-deluxe-windows" class="image" /></div>
+                  <div class="mg-top-small"><h3 class="display-5 mid">Final product</h3></div>
+                  <div class="mg-top-extra-small"><p class="paragraph-7">Upon completion, each window and door will be thoroughly inspected to ensure they operate correctly and meet the highest standards of fit and finish.</p></div>
+                </div>
+                <div class="divider show-in-mbp"></div>
               </div>
-              <p class="f-paragraph-large-2"><br /><strong>Lifetime</strong></p>
-            </div>
-            <div class="f-feature-card-filled">
-              <div class="f-margin-bottom-129">
-                <h5 class="f-h5-heading">All Other Parts</h5>
-              </div>
-              <p class="f-paragraph-large-2"><strong><br />10&nbsp;Years</strong> Warranty</p>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {{-- 4 Easy Steps --}}
-      <section class="section top-none"><div class="w-layout-blockcontainer container-default w-container"><div class="w-layout-grid grid-2-columns values-wrapper-grid"><div class="sticky-top static---tablet"><div class="inner-container _500px _100-tablet"><div class="inner-container _600px---tablet"><div class="mg-top-default"><h2 class="heading-8">4 Easy Steps</h2></div><div class="mg-top-small"><p class="paragraph-34">Our step-by-step process is designed to make replacing your windows and doors easy, stress-free, and fully tailored to your needs - from the first estimate to the final inspection.</p></div></div></div></div><div class="inner-container _592px _100-tablet"><div class="w-layout-grid grid-2-columns values-grid"><div class="value-wrapper"><div class="image-wrapper"><img src="/webflow-assets/images/684d86f32d344f16ce6ec364_flag_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" loading="eager" alt="For-architects-deluxe-windows" class="image"/></div><div class="mg-top-small"><h3 class="display-5 mid">Start</h3></div><div class="mg-top-extra-small"><p class="paragraph-5">Looking to replace your windows and doors? Reach out to Deluxe Windows for a complimentary estimate.</p></div></div><div class="value-wrapper"><div class="image-wrapper"><img src="/webflow-assets/images/684d86ff1fff20336f975d74_shopping_bag_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" loading="eager" alt="For-contractors-deluxe-windows" class="image"/></div><div class="mg-top-small"><h3 class="display-5 mid">Manufacture</h3></div><div class="mg-top-extra-small"><p class="paragraph-6">If you are satisfied with the provided estimate and approve it, we will order windows and doors according to your specifications and needs.</p></div></div><div class="value-wrapper"><div class="image-wrapper"><img src="/webflow-assets/images/684d870c533c4f729eb8094c_settings_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" loading="eager" alt="For-property-managers-owners-deluxe-windows" class="image"/></div><div class="mg-top-small"><h3 class="display-5 mid">Remove and install</h3></div><div class="mg-top-extra-small"><p class="paragraph-7">Once the products are ready, we will arrange a convenient time for installation and ensure your new windows and doors are expertly fitted.</p></div></div><div class="value-wrapper"><div class="image-wrapper"><img src="/webflow-assets/images/684d8718e99d2a34dfef7e4d_home_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" loading="eager" alt="For-property-managers-owners-deluxe-windows" class="image"/></div><div class="mg-top-small"><h3 class="display-5 mid">Final product</h3></div><div class="mg-top-extra-small"><p class="paragraph-7">Upon completion, each window and door will be thoroughly inspected to ensure they operate correctly and meet the highest standards of fit and finish.</p></div></div></div></div></div></div></section>
+      @include('partials.guarantee')
 
-      {{-- CTA --}}
-      <section class="section-card-wrapper"><div class="section-card cta-v3"><div class="w-layout-blockcontainer container-default w-container"><div class="w-layout-grid grid-2-columns cta-v3-grid"><div class="z-index-1"><div class="inner-container _500px---mbl"><div class="inner-container _480px"><div class="inner-container _450px"><div class="inner-container _300px---mbp"><div class="mg-top-small"><h2 class="heading-25">Your dream home starts here.</h2></div></div></div><div class="mg-top-small"><div class="text-neutral-light"><p class="paragraph-20">Tell us about your project - we'll take care of the rest.</p></div></div><div class="mg-top-default"><div class="buttons-row left"><a href="#" class="primary-button w-inline-block"><div class="text-block">Free Consultation</div></a></div></div></div></div></div><div class="image-wrapper cta-v3-image"><x-img src="/webflow-assets/images/687ca4b70b8583ef4890bad4_iPad.avif" preset="cta" loading="eager" alt="Deluxe-windows" class="image"/></div></div></div></div></section>
+      @if($doorTypes->count() > 0)
+      <section class="section top-none">
+        <div class="w-layout-blockcontainer container-default w-container">
+          <div class="title-left---content-right">
+            <h2 class="heading-20">{{ $doorsTitle }}</h2>
+          </div>
+          <div class="mg-top-large">
+            <div class="w-dyn-list">
+              <div role="list" class="grid-2-columns properties-grid---v1 collection-list w-dyn-items">
+                @foreach($doorTypes as $dt)
+                <div id="w-node-f1e283f4-b9e9-78d7-fe2e-ed04f27d4c51-facb1583" role="listitem" class="w-dyn-item">
+                  <a href="/door-types/{{ $dt['slug'] }}" class="property-wrapper-v1 w-inline-block">
+                    <div class="property-card-top-content-v1">
+                      <div class="image-wrapper border-radius-image-default property-card-top-content-v1---image">
+                        @if($dt['image'])
+                        <x-img :src="$dt['image']" preset="card" loading="eager" :alt="$dt['name']" class="image cover-image" />
+                        @endif
+                      </div>
+                    </div>
+                    <div class="property-card-bottom-content-v1">
+                      <div><h3 class="display-5">{{ $dt['name'] }}</h3></div>
+                    </div>
+                  </a>
+                </div>
+                @endforeach
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      @endif
 
-      {{-- FAQ --}}
-      <section class="section top-none"><div class="w-layout-blockcontainer container-default w-container"><div class="w-layout-grid grid-2-columns faqs-grid-v3"><div class="sticky-top static---mbl"><div class="inner-container _450px---mbl"><div class="inner-container _275px---tablet _100-mbl"><div class="inner-container _340px _100-mbl"><div class="mg-top-small"><h2 class="heading-44">Do You Have Any Question?</h2></div><div class="div-block-49"><p class="paragraph-2">Call us at <a href="tel:855-355-0515">(650) 461-4446</a> to <br/>ask your questions. </p></div></div></div></div></div><div class="inner-container _763px width-100"><div class="card accordion-card v2"><div class="w-layout-grid grid-1-column accordion-v6"><div class="accordion-item-wrapper v2 first"><div class="accordion-top"><div class="text-titles"><h3 class="faqs-title">Which material is best for your windows?</h3></div><div class="accordion-icon-wrapper"><div class="accordion-icon-line vertical"></div><div class="accordion-icon-line"></div></div></div><div class="accordion-bottom v1"><p class="accordion-paragraph">The best window material depends on your home&#x27;s style, climate, energy efficiency needs, and budget. We offer a variety of options like vinyl, wood, aluminum, and fiberglass - each with its own benefits.</p></div></div><div data-w-id="faq-2" class="accordion-wrapper"><div class="accordion-item-wrapper v2"><div class="accordion-top"><div class="text-titles"><h3 class="faqs-title">Is consultation for free?</h3></div><div class="accordion-icon-wrapper"><div class="accordion-icon-line vertical"></div><div class="accordion-icon-line"></div></div></div><div class="accordion-bottom v1"><p class="accordion-paragraph">To get a free consultation, please fill out the form.</p></div></div></div><div data-w-id="faq-3" class="accordion-wrapper"><div class="accordion-item-wrapper v2"><div class="accordion-top"><div class="text-titles"><h3 class="faqs-title">When do I need new windows?</h3></div><div class="accordion-icon-wrapper"><div class="accordion-icon-line vertical"></div><div class="accordion-icon-line"></div></div></div><div class="accordion-bottom v1"><p class="accordion-paragraph">If you aren&#x27;t sure whether your windows need replacing, Deluxe Windows, Inc. can come to your home for a free consultation.</p></div></div></div><div data-w-id="faq-4" class="accordion-wrapper"><div class="accordion-item-wrapper v2 last"><div class="accordion-top"><div class="text-titles"><h3 class="faqs-title">How to choose windows brands and styles?</h3></div><div class="accordion-icon-wrapper"><div class="accordion-icon-line vertical"></div><div class="accordion-icon-line"></div></div></div><div class="accordion-bottom v1"><p class="accordion-paragraph">The answer to this question can only be answered once we come to your home for a free consultation. Every home is different, and when our professional window replacement specialist comes out to assess your house, we can factor in all the different aspects to suggest which product, style and price range will work best for you.</p></div></div></div></div></div></div></div></div></section>
+      <section class="section-card-wrapper">
+        <div class="section-card cta-v3">
+          <div class="w-layout-blockcontainer container-default w-container">
+            <div class="w-layout-grid grid-2-columns cta-v3-grid">
+              <div id="w-node-c14ce41c-c2b6-1a85-c6de-b161b257ae64-facb1583" class="z-index-1">
+                <div class="inner-container _500px---mbl">
+                  <div class="inner-container _480px">
+                    <div class="inner-container _450px">
+                      <div class="inner-container _300px---mbp">
+                        <div class="mg-top-small"><h2 class="heading-38">Your Dream Home Starts Here.</h2></div>
+                      </div>
+                    </div>
+                    <div class="mg-top-small">
+                      <div class="text-neutral-light"><p class="paragraph-20">Tell us about your project — we’ll take care of the rest.</p></div>
+                    </div>
+                    <div class="mg-top-default">
+                      <div class="buttons-row left">
+                        <a href="/contacts" class="primary-button w-inline-block"><div class="text-block">Free Consultation</div></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="image-wrapper cta-v3-image">
+                <x-img src="/webflow-assets/images/687ca4b70b8583ef4890bad4_iPad.avif" preset="cta" loading="eager" alt="Deluxe-windows" class="image" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <section class="new-section"><div class="w-layout-blockcontainer container-default w-container"><div class="text-block-44">* Price applies to minimum window installation size of 24&quot;x24&quot;</div></div></section>
+      @include('partials.faq')
+
+      <section id="contact" class="section hero-v4">
+        <div class="w-layout-blockcontainer container-default w-container">
+          <div class="w-layout-grid grid-2-columns contact-grid-v2">
+            <div id="w-node-_1bf01939-5bf2-786b-3a31-18563ba6ae1f-facb1583" class="inner-container _440px _100-tablet">
+              <div class="inner-container _550px---tablet">
+                <h1>Contact Us</h1>
+                <div class="mg-top-small"><p class="paragraph-8">We’re here to help with all your door and window needs.</p></div>
+              </div>
+              <div class="mg-top-default">
+                <div class="w-layout-grid grid-2-columns contact-links-grid-v1">
+                  <div class="contact-link---icon-left">
+                    <img src="/webflow-assets/images/6841ddf8ace3d9d9facb1950_phone-icon-property-x-webflow-template.svg" loading="eager" alt="Phone Icon - Property X Webflow Template" class="contact-icon" />
+                    <div>
+                      <div class="div-block"><div class="text-block-3">Phone number</div></div>
+                      <div class="mg-top-tiny">
+                        <a href="tel:+18887304144" class="link mid w-inline-block"><div>888-730-4144</div></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="w-node-_1bf01939-5bf2-786b-3a31-18563ba6ae32-facb1583" class="inner-container _659px width-100 _100-tablet">
+              <div class="form-block-2 w-form">
+                <form id="email-form-2" name="email-form-2" data-name="Email Form 2" method="get" class="form-3" data-wf-page-id="6841ddf8ace3d9d9facb1583" aria-label="Email Form 2">
+                  <div class="div-block-22">
+                    <h2 class="display-4">Get Deluxe Windows for Less. 40%&nbsp;OFF* Windows</h2>
+                    <label for="email-banner" class="body-14"><em class="italic-text">*Windows Replacement. Offer Expires </em><span data-last-day="us-short" class="date-span italic-span"></span></label>
+                    <label for="email-banner" class="body-14">Request a FREE No-Obligation Quote &amp; Expert Advice!</label>
+                  </div>
+                  <div class="div-block-23">
+                    <div>
+                      <label for="Name-2">Full name*</label>
+                      <div class="input-wrapper">
+                        <input class="input icon-left w-input" maxlength="256" name="Name" data-name="Name" placeholder="Full name" type="text" id="name" required="" />
+                        <div class="input-line-icon-wrapper"><div class="filled-icons-font"></div></div>
+                      </div>
+                    </div>
+                    <div id="w-node-_1bf01939-5bf2-786b-3a31-18563ba6ae46-facb1583" class="div-block-30">
+                      <label for="Email-2">Email address*</label>
+                      <div class="input-wrapper">
+                        <input class="input icon-left w-input" maxlength="256" name="Email" data-name="Email" placeholder="example@email.com" type="email" id="email" required="" />
+                        <div class="input-line-icon-wrapper"><div class="filled-icons-font"></div></div>
+                      </div>
+                    </div>
+                    <div id="w-node-_1bf01939-5bf2-786b-3a31-18563ba6ae4e-facb1583">
+                      <label for="Phone-2">Phone number*</label>
+                      <div class="input-wrapper">
+                        <input class="input icon-left w-input" maxlength="256" name="Phone" data-name="Phone" placeholder="(650) 461-4446" type="tel" id="phone" required="" />
+                        <div class="input-line-icon-wrapper"><div class="filled-icons-font"></div></div>
+                      </div>
+                    </div>
+                    <div id="w-node-_1bf01939-5bf2-786b-3a31-18563ba6ae56-facb1583">
+                      <label for="Company">City</label>
+                      <div class="input-wrapper">
+                        <input class="input icon-left w-input" maxlength="256" name="Subject" data-name="Subject" placeholder="San Francisco" type="text" id="subject" required="" />
+                        <div class="input-line-icon-wrapper">
+                          <img loading="eager" src="/webflow-assets/images/6841ddf8ace3d9d9facb194d_star-icon-property-x-webflow-template.svg" alt="Star Icon - Property X Webflow Template" />
+                        </div>
+                      </div>
+                    </div>
+                    <div id="w-node-_1bf01939-5bf2-786b-3a31-18563ba6ae5d-facb1583" class="text-area-wrapper">
+                      <label for="Message-2">Listing short description</label>
+                      <div class="input-wrapper">
+                        <textarea id="message" name="Message" maxlength="5000" data-name="Message" placeholder="Write your message here..." required="" class="text-area icon-left w-input"></textarea>
+                        <div class="text-area-icon-wrapper">
+                          <img loading="eager" src="/webflow-assets/images/6841ddf8ace3d9d9facb192f_lisiting-icon-property-x-webflow-template.svg" alt="Listing Icon - Property X Webflow Template" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="primary-button space-between-v1">
+                    <input type="submit" data-wait="Please wait..." class="inside-input-button text-light w-button" value="Get your free  in-home estimate" />
+                  </div>
+                </form>
+                <div class="w-form-done" tabindex="-1" role="region" aria-label="Email Form 2 success">
+                  <div>Thank you! Your submission has been received!</div>
+                </div>
+                <div class="w-form-fail" tabindex="-1" role="region" aria-label="Email Form 2 failure">
+                  <div>Oops! Something went wrong while submitting the form.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="new-section">
+        <div class="w-layout-blockcontainer container-default w-container">
+          <div class="text-block-44">* Price applies to minimum window installation size of 24&quot;x24&quot;</div>
+        </div>
+      </section>
 
       @include('partials.footer')
 
-    </div>{{-- end .page-wrapper --}}
+    </div>
 
     <div id="menuDimmer" style="opacity: 0; pointer-events: none"></div>
 
     <script src="/webflow-assets/js/jquery-3.5.1.min.js" type="text/javascript"></script>
     <script src="/webflow-assets/js/webflow-brands.js" type="text/javascript"></script>
 
+    <style>
+      .scroll-block {
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: #E79800 transparent;
+      }
+      .scroll-block::-webkit-scrollbar { width: 6px; }
+      .scroll-block::-webkit-scrollbar-thumb {
+        background: #E79800;
+        border-radius: 999px;
+      }
+      .scroll-block {
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        touch-action: pan-y !important;
+        overscroll-behavior: contain;
+        pointer-events: auto !important;
+      }
+    </style>
+
     <script>
       (function () {
-        const TRACK_PARAMS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "gclid", "fbclid", "msclkid"];
-        const urlParams = new URLSearchParams(window.location.search);
-        const hasSavedUtm = TRACK_PARAMS.some(p => localStorage.getItem("lead_param_" + p));
-        if (!hasSavedUtm) {
-          TRACK_PARAMS.forEach(param => {
-            const val = urlParams.get(param);
-            if (val) localStorage.setItem("lead_param_" + param, val);
+        if (window.innerWidth > 992) return;
+
+        const toggles = document.querySelectorAll('[data-dd="toggle"]');
+        const lists = [];
+
+        function applyScrollBlock(list) {
+          const sb = list.querySelector('.scroll-block');
+          if (!sb) return;
+          const sbRect = sb.getBoundingClientRect();
+          const pad = 20;
+          const topPos = sbRect.top > 0 ? sbRect.top : 150;
+          const availableHeight = window.innerHeight - topPos - pad;
+          sb.style.maxHeight = Math.max(120, availableHeight) + 'px';
+        }
+
+        toggles.forEach(toggle => {
+          const list = toggle.parentElement.querySelector('[data-dd="list"]');
+          if (!list) return;
+
+          const icon = toggle.querySelector('.tab-icon-line.second');
+          const sidebarIcon = toggle.querySelector('.sidebar-icon');
+
+          if (!lists.includes(list)) {
+            lists.push(list);
+            list.style.overflow = 'hidden';
+            list.style.maxHeight = '0px';
+            list.style.transition = 'max-height 0.35s ease';
+            list.dataset.open = 'false';
+            list.style.display = 'none';
+          }
+
+          toggle.addEventListener('click', () => {
+            const isOpen = list.dataset.open === 'true';
+
+            lists.forEach(other => {
+              if (other !== list && other.dataset.open === 'true') {
+                const otherToggle = other.parentElement.querySelector('[data-dd="toggle"]');
+                const otherIcon = otherToggle?.querySelector('.tab-icon-line.second');
+                const otherSidebarIcon = otherToggle?.querySelector('.sidebar-icon');
+                other.style.overflow = 'hidden';
+                other.style.display = 'block';
+                other.style.maxHeight = other.scrollHeight + 'px';
+                requestAnimationFrame(() => { other.style.maxHeight = '0px'; });
+                other.dataset.open = 'false';
+                setTimeout(() => {
+                  if (other.dataset.open === 'false') other.style.display = 'none';
+                }, 360);
+                if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
+                if (otherSidebarIcon) otherSidebarIcon.style.transform = 'rotate(0deg)';
+              }
+            });
+
+            if (isOpen) {
+              list.style.overflow = 'hidden';
+              list.style.display = 'block';
+              list.style.maxHeight = list.scrollHeight + 'px';
+              requestAnimationFrame(() => { list.style.maxHeight = '0px'; });
+              list.dataset.open = 'false';
+              setTimeout(() => {
+                if (list.dataset.open === 'false') list.style.display = 'none';
+              }, 360);
+              if (icon) icon.style.transform = 'rotate(0deg)';
+              if (sidebarIcon) sidebarIcon.style.transform = 'rotate(0deg)';
+            } else {
+              list.style.display = 'block';
+              list.style.overflow = 'hidden';
+              list.style.maxHeight = '0px';
+              requestAnimationFrame(() => { list.style.maxHeight = list.scrollHeight + 'px'; });
+              list.dataset.open = 'true';
+              if (icon) {
+                icon.style.transition = 'transform 0.35s ease';
+                icon.style.transform = 'rotate(90deg)';
+              }
+              if (sidebarIcon) {
+                sidebarIcon.style.transition = 'transform 0.35s ease';
+                sidebarIcon.style.transform = 'rotate(180deg)';
+              }
+              setTimeout(() => {
+                if (list.dataset.open === 'true') {
+                  list.style.maxHeight = 'none';
+                  list.style.overflow = 'visible';
+                  applyScrollBlock(list);
+                }
+              }, 360);
+            }
           });
-        }
-        if (!localStorage.getItem("lead_param_landing_page")) {
-          localStorage.setItem("lead_param_landing_page", window.location.pathname);
-        }
+        });
+
+        window.addEventListener('resize', () => {
+          lists.forEach(l => {
+            if (l.dataset.open === 'true') requestAnimationFrame(() => applyScrollBlock(l));
+          });
+        }, { passive: true });
       })();
     </script>
   </body>

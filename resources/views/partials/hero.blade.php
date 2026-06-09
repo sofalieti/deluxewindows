@@ -45,7 +45,10 @@
               <div class="inner-container _640px _100-tablet">
                 <div class="inner-container _450px---tablet">
                   <div class="inner-container _400px---mbl">
-                    @if(!empty($windowHeroImage))
+                    @if(!empty($brandHero) || !empty($windowHeroImage))
+                    @if(!empty($brandHero))
+                    <div class="div-block-60">
+                    @endif
                     <div class="rich-text-block-2 w-richtext">
                       <h2 class="heading-49">Upgrade to Energy Efficient Windows and&nbsp;Doors for Less</h2>
                       <p>‍</p>
@@ -53,6 +56,9 @@
                         <h2 style="font-size: 21px; color: #fff" data-city="">Local Installers</h2>
                       </div>
                     </div>
+                    @if(!empty($brandHero))
+                    </div>
+                    @endif
                     @else
                     <h1 class="heading-4">Looking to Replace Your Windows in the Bay Area?</h1>
                     <p
@@ -80,12 +86,20 @@
                   data-name="Main Form"
                   method="get"
                   class="form-3"
-                  data-wf-page-id="{{ !empty($windowHeroImage) ? '6841ddf8ace3d9d9facb1582' : '6841df5688ca2f74fd53ec90' }}"
-                  data-wf-element-id="{{ !empty($windowHeroImage) ? '0d2c5edc-6a74-d360-f6d2-0a02682efe78' : 'c3765d23-1eba-01a8-993c-c59200a6f722' }}"
-                  @if(empty($windowHeroImage)) aria-label="Main Form" @endif
+                  data-wf-page-id="{{ !empty($brandHero) ? '6841ddf8ace3d9d9facb1583' : (!empty($windowHeroImage) ? '6841ddf8ace3d9d9facb1582' : '6841df5688ca2f74fd53ec90') }}"
+                  data-wf-element-id="{{ !empty($brandHero) ? 'dc04ee7a-918f-7eb9-bff0-f9899431c4c3' : (!empty($windowHeroImage) ? '0d2c5edc-6a74-d360-f6d2-0a02682efe78' : 'c3765d23-1eba-01a8-993c-c59200a6f722') }}"
+                  @if(empty($windowHeroImage) && empty($brandHero)) aria-label="Main Form" @endif
                 >
                   <div class="div-block-22">
-                    @if(!empty($windowHeroImage) && !empty($windowDiscountHtml))
+                    @if(!empty($brandHero))
+                    @if(!empty($brandLogo))
+                    <img loading="lazy" src="{{ $brandLogo }}" alt="" class="svg50 sidebar-svg top-svg" />
+                    @endif
+                    <label for="email-banner" class="body-14"></label>
+                    <div class="rich-text-block-5 w-richtext">
+                      {!! $brandHeroFormHtml ?? '<p>Starting from $999 per window installed.</p><p><strong>Special pricing available upon request!</strong>‍</p>' !!}
+                    </div>
+                    @elseif(!empty($windowHeroImage) && !empty($windowDiscountHtml))
                     <label for="email-banner" class="body-14"></label>
                     <div class="rich-text-block-4 w-richtext">
                       {!! $windowDiscountHtml !!}
@@ -112,7 +126,7 @@
                         <div class="input-line-icon-wrapper"><div class="filled-icons-font"></div></div>
                       </div>
                     </div>
-                    <div id="{{ !empty($windowHeroImage) ? 'w-node-_0d2c5edc-6a74-d360-f6d2-0a02682efe8a-facb1582' : 'w-node-c3765d23-1eba-01a8-993c-c59200a6f734-fd53ec90' }}" class="div-block-29">
+                    <div id="{{ !empty($brandHero) ? 'w-node-dc04ee7a-918f-7eb9-bff0-f9899431c4d5-facb1583' : (!empty($windowHeroImage) ? 'w-node-_0d2c5edc-6a74-d360-f6d2-0a02682efe8a-facb1582' : 'w-node-c3765d23-1eba-01a8-993c-c59200a6f734-fd53ec90') }}" class="div-block-29">
                       <label for="Email-2" class="field-label-2">Email*</label>
                       <div class="input-wrapper">
                         <input
@@ -128,7 +142,7 @@
                         <div class="input-line-icon-wrapper"><div class="filled-icons-font"></div></div>
                       </div>
                     </div>
-                    <div id="{{ !empty($windowHeroImage) ? 'w-node-_0d2c5edc-6a74-d360-f6d2-0a02682efe92-facb1582' : 'w-node-c3765d23-1eba-01a8-993c-c59200a6f73c-fd53ec90' }}">
+                    <div id="{{ !empty($brandHero) ? 'w-node-dc04ee7a-918f-7eb9-bff0-f9899431c4dd-facb1583' : (!empty($windowHeroImage) ? 'w-node-_0d2c5edc-6a74-d360-f6d2-0a02682efe92-facb1582' : 'w-node-c3765d23-1eba-01a8-993c-c59200a6f73c-fd53ec90') }}">
                       <label for="Phone-2" class="field-label-3">Phone*</label>
                       <div class="input-wrapper">
                         <input
@@ -144,7 +158,7 @@
                         <div class="input-line-icon-wrapper"><div class="filled-icons-font"></div></div>
                       </div>
                     </div>
-                    <div id="{{ !empty($windowHeroImage) ? 'w-node-_0d2c5edc-6a74-d360-f6d2-0a02682efe9a-facb1582' : 'w-node-c3765d23-1eba-01a8-993c-c59200a6f744-fd53ec90' }}">
+                    <div id="{{ !empty($brandHero) ? 'w-node-dc04ee7a-918f-7eb9-bff0-f9899431c4e5-facb1583' : (!empty($windowHeroImage) ? 'w-node-_0d2c5edc-6a74-d360-f6d2-0a02682efe9a-facb1582' : 'w-node-c3765d23-1eba-01a8-993c-c59200a6f744-fd53ec90') }}">
                       <label for="Company" class="field-label-4">City</label>
                       <div class="input-wrapper">
                         <input
@@ -167,7 +181,7 @@
                         </div>
                       </div>
                     </div>
-                    <div id="{{ !empty($windowHeroImage) ? 'w-node-_0d2c5edc-6a74-d360-f6d2-0a02682efea1-facb1582' : 'w-node-c3765d23-1eba-01a8-993c-c59200a6f74b-fd53ec90' }}" class="text-area-wrapper">
+                    <div id="{{ !empty($brandHero) ? 'w-node-dc04ee7a-918f-7eb9-bff0-f9899431c4ec-facb1583' : (!empty($windowHeroImage) ? 'w-node-_0d2c5edc-6a74-d360-f6d2-0a02682efea1-facb1582' : 'w-node-c3765d23-1eba-01a8-993c-c59200a6f74b-fd53ec90') }}" class="text-area-wrapper">
                       <label for="Message-2" class="field-label-5">Description</label>
                       <div class="input-wrapper">
                         <textarea

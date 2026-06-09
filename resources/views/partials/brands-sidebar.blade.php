@@ -10,7 +10,7 @@
           <nav data-dd="list" class="dropdown-list-4 sidebar-list w-dropdown-list">
             <div class="sidebar_content-wrapper-2 bottom brands">
               @if($logo)
-              <img loading="lazy" src="{{ $logo }}" alt="{{ $name }}" class="svg50 sidebar-svg top-svg" width="300" height="150" />
+              <img loading="lazy" src="{{ $logo }}" alt="{{ $name }}" class="svg50 sidebar-svg top-svg" />
               @endif
               <a href="/brands" class="all-brands-block w-inline-block" tabindex="0">
                 <div class="icon-font-rounded arrow">&#xE824;</div>
@@ -73,37 +73,6 @@
               </div>
             </div>
 
-            {{-- Sidebar form (mobile) --}}
-            <div class="card-2 sidebar-v1---card new-design brands">
-              <div class="form-sidebar">
-                <div class="form-block-3 w-form">
-                  <form name="wf-form-Brand-Sidebar" method="get" class="form-wrapper" aria-label="Brand Form">
-                    <div class="grid-1-column-2 gap-row-12">
-                      <div class="input-wrapper-5">
-                        <div class="input-line-icon-wrapper-4"><div class="filled-icons-font">&#xF416;</div></div>
-                        <input class="input-2 icon-left w-input" maxlength="256" name="Name" placeholder="Full name" type="text" required />
-                      </div>
-                      <div class="input-wrapper-5">
-                        <div class="input-line-icon-wrapper-4"><div class="filled-icons-font">&#xF40F;</div></div>
-                        <input class="input-2 icon-left w-input" maxlength="256" name="Email" placeholder="Email address" type="email" required />
-                      </div>
-                      <div class="input-wrapper-5">
-                        <div class="input-line-icon-wrapper-4"><div class="filled-icons-font">&#xF0B3;</div></div>
-                        <input class="input-2 icon-left w-input" maxlength="256" name="Phone" placeholder="Phone number" type="tel" required />
-                      </div>
-                      <div class="input-wrapper-5">
-                        <input class="input-2 icon-left w-input" maxlength="256" name="Subject" placeholder="City" type="text" required />
-                        <div class="input-line-icon-wrapper">
-                          <img loading="lazy" src="/webflow-assets/images/6841ddf8ace3d9d9facb194d_star-icon-property-x-webflow-template.svg" alt="Star Icon" style="width:18px;height:18px;object-fit:contain;" />
-                        </div>
-                      </div>
-                      <div class="primary-button-6 space-between-v1">
-                        <input type="submit" data-wait="Please wait..." class="inside-input-button-4 text-light w-button" value="Get Your Free Estimate" />
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
+            @include('partials.brand-sidebar-form-card', ['variant' => 'brands'])
           </nav>
         </div>

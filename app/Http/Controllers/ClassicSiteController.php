@@ -319,8 +319,13 @@ class ClassicSiteController extends Controller
 
         $fieldData = is_array($brand->field_data ?? null) ? $brand->field_data : [];
 
-        $logo        = $this->extractImageUrl($fieldData, ['brand-logo', 'logo-svg', 'agent-avatar-photo']);
-        $description = $fieldData['agent-about'] ?? '';
+        $logoSvg     = $this->extractImageUrl($fieldData, ['logo-svg']);
+        $logo        = $logoSvg ?? $this->extractImageUrl($fieldData, ['brand-logo', 'agent---avatar-photo', 'agent-avatar-photo']);
+        $description = $fieldData['agent---about'] ?? $brand->wf_agent_about ?? '';
+        $featuredImage = $this->extractImageUrl($fieldData, ['featured-image']);
+        if ($featuredImage === null && is_array($brand->wf_featured_image ?? null)) {
+            $featuredImage = $brand->wf_featured_image['url'] ?? null;
+        }
         $name        = $fieldData['name'] ?? 'Brand';
 
         // Window types referenced by this brand
@@ -341,12 +346,30 @@ class ClassicSiteController extends Controller
             ->filter()
             ->values();
 
+        $doorTypes = $brand->webflowReferences('doors-type-marvin')
+            ->map(function ($dt) {
+                $fd = is_array($dt->field_data) ? $dt->field_data : [];
+                $dtSlug = $fd['slug'] ?? '';
+                $dtName = $fd['name'] ?? '';
+                $dtImage = $this->extractImageUrl($fd, [
+                    'property-listing---thumbnail-image-v1',
+                    'property-listing---featured-image',
+                ]);
+
+                return $dtSlug !== ''
+                    ? ['name' => $dtName, 'slug' => $dtSlug, 'image' => $dtImage ?? '']
+                    : null;
+            })
+            ->filter()
+            ->values();
+
         $seoTitle       = $fieldData['seo-title']              ?? $name;
         $seoDescription = $fieldData['seo-description']        ?? '';
         $ogTitle        = $fieldData['opengraph-title']        ?? $seoTitle;
         $ogDescription  = $fieldData['opengraph-description']  ?? $seoDescription;
         $ogImage        = $fieldData['opengraph-image']        ?? $logo ?? '';
         $windowsTitle   = $fieldData['windows-titles']         ?? "Explore {$name}'s Window Types";
+        $doorsTitle     = $fieldData['doors-title']            ?? "Explore {$name}'s Door Types";
         $sidebarMaterialGroups = $this->buildBrandSidebarMaterialGroups($brand, $fieldData);
 
         return view('brands.show', [
@@ -354,10 +377,13 @@ class ClassicSiteController extends Controller
             'name'            => $name,
             'slug'            => $fieldData['slug'] ?? $slug,
             'logo'            => $logo,
+            'featuredImage'   => $featuredImage,
             'description'     => $description,
             'windowTypes'     => $windowTypes,
+            'doorTypes'       => $doorTypes,
             'sidebarMaterialGroups' => $sidebarMaterialGroups,
             'windowsTitle'    => $windowsTitle,
+            'doorsTitle'      => $doorsTitle,
             'seoTitle'        => $seoTitle,
             'seoDescription'  => $seoDescription,
             'ogTitle'         => $ogTitle,
