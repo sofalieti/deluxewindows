@@ -548,6 +548,25 @@ class ClassicSiteController extends Controller
             ->values();
     }
 
+    public function brandIndex()
+    {
+        $seoTitle       = 'Top Window & Door Brands | Deluxe Windows – Bay Area';
+        $seoDescription = 'Deluxe Windows partners with Andersen, Marvin, Milgard, Simonton & more. Explore premium window and door brands trusted by Bay Area homeowners. Request a free estimate.';
+        $ogImage        = 'https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/684da9f6a8d9aab7e88572b2_Meta%20cover-windows.jpg';
+
+        $brands = BrandsWebflowItem::query()
+            ->where('is_archived', false)
+            ->where('is_draft', false)
+            ->get()
+            ->sortBy(fn ($brand) => (int) data_get($brand->field_data, 'order', 999))
+            ->values()
+            ->map(fn ($brand) => $this->mapBrandIndexCard($brand))
+            ->filter(fn ($card) => ($card['slug'] ?? '') !== '')
+            ->values();
+
+        return view('brand.index', compact('seoTitle', 'seoDescription', 'ogImage', 'brands'));
+    }
+
     public function brandBySlug(string $slug)
     {
         $slug = strtolower(trim($slug));
@@ -1316,5 +1335,62 @@ class ClassicSiteController extends Controller
         }
 
         return strcasecmp($collection['material'], $materialName) === 0;
+    }
+
+    private function mapBrandIndexCard(BrandsWebflowItem $brand): array
+    {
+        $fd = is_array($brand->field_data) ? $brand->field_data : [];
+
+        $logo = $this->extractImageUrl($fd, ['logo-svg', 'brand-logo', 'agent---avatar-photo']);
+
+        $materials = $brand->webflowReferences('materials')
+            ->map(function ($material) {
+                $mfd = is_array($material->field_data) ? $material->field_data : [];
+                $name = $mfd['name'] ?? '';
+                $slug = $mfd['slug'] ?? '';
+
+                if ($name === '' || $slug === '') {
+                    return null;
+                }
+
+                return [
+                    'name'         => $name,
+                    'slug'         => $slug,
+                    'filter_value' => $this->brandMaterialFilterValue($name),
+                ];
+            })
+            ->filter()
+            ->values()
+            ->all();
+
+        $priceSlots = [
+            ['field' => 'price1', 'label' => '$',     'active' => (bool) ($fd['field-5'] ?? false)],
+            ['field' => 'price2', 'label' => '$$',    'active' => (bool) ($fd['field-2'] ?? false)],
+            ['field' => 'price3', 'label' => '$$$',   'active' => (bool) ($fd['field-3'] ?? false)],
+            ['field' => 'price4', 'label' => '$$$$',  'active' => (bool) ($fd['field-4'] ?? false)],
+            ['field' => 'price5', 'label' => '$$$$$', 'active' => (bool) ($fd['field'] ?? false)],
+        ];
+
+        return [
+            'name'        => $fd['name'] ?? '',
+            'slug'        => $fd['slug'] ?? '',
+            'logo'        => $logo ?? '',
+            'materials'   => $materials,
+            'price_range' => $fd['price-range'] ?? '',
+            'price_slots' => $priceSlots,
+            'features'    => [
+                ['title' => 'KEY FEATURES',       'text' => $fd['brand-feature-description-1'] ?? ''],
+                ['title' => 'Energy Efficiency',  'text' => $fd['brand-feature-description-2'] ?? ''],
+                ['title' => 'Sound Insulation',   'text' => $fd['brand-feature-description-3'] ?? ''],
+                ['title' => 'Warranty',           'text' => $fd['brand-feature-description-4'] ?? ''],
+            ],
+        ];
+    }
+
+    private function brandMaterialFilterValue(string $materialName): string
+    {
+        $short = preg_replace('/\s+Windows$/i', '', trim($materialName));
+
+        return is_string($short) && $short !== '' ? $short : $materialName;
     }
 }
