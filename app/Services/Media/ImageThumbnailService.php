@@ -10,16 +10,31 @@ use Throwable;
 class ImageThumbnailService
 {
     /**
-     * @return array{width: int, height: int|null}
+     * @return array{width: int, height: int|null, fit: string}
      */
     public function presetDimensions(string $preset): array
     {
+        $def = $this->presetConfig($preset);
+
+        return [
+            'width'  => $def['width'],
+            'height' => $def['height'],
+            'fit'    => $def['fit'],
+        ];
+    }
+
+    /**
+     * @return array{width: int, height: int|null, fit: string}
+     */
+    private function presetConfig(string $preset): array
+    {
         $presets = config('media.presets', []);
-        $def = $presets[$preset] ?? $presets['card'] ?? ['width' => 640, 'height' => null];
+        $def = $presets[$preset] ?? $presets['card'] ?? ['width' => 640, 'height' => null, 'fit' => 'contain'];
 
         return [
             'width'  => (int) ($def['width'] ?? 640),
             'height' => isset($def['height']) ? (int) $def['height'] : null,
+            'fit'    => (string) ($def['fit'] ?? 'contain'),
         ];
     }
 
@@ -45,12 +60,14 @@ class ImageThumbnailService
         }
 
         if (is_string($presetOrWidth) && ! is_numeric($presetOrWidth)) {
-            $dims = $this->presetDimensions($presetOrWidth);
+            $dims = $this->presetConfig($presetOrWidth);
             $maxWidth = $dims['width'];
             $maxHeight = $height ?? $dims['height'];
+            $fit = $dims['fit'];
         } else {
             $maxWidth = (int) $presetOrWidth;
             $maxHeight = $height;
+            $fit = ($maxHeight !== null && $height !== null) ? 'cover' : 'contain';
         }
 
         $absolutePath = $this->resolveSourcePath($source);
@@ -58,7 +75,7 @@ class ImageThumbnailService
             return $source;
         }
 
-        $cachePath = $this->buildCachePath($absolutePath, $maxWidth, $maxHeight);
+        $cachePath = $this->buildCachePath($absolutePath, $maxWidth, $maxHeight, $fit);
         $disk = Storage::disk(config('media.disk', 'public'));
 
         if ($disk->exists($cachePath)) {
@@ -68,7 +85,7 @@ class ImageThumbnailService
         }
 
         try {
-            $generated = $this->generate($absolutePath, $maxWidth, $maxHeight);
+            $generated = $this->generate($absolutePath, $maxWidth, $maxHeight, $fit);
             if ($generated === null) {
                 return $source;
             }
@@ -154,6 +171,14 @@ class ImageThumbnailService
         if (preg_match('~^https?://~i', $source)) {
             $path = parse_url($source, PHP_URL_PATH);
             if (is_string($path) && $path !== '') {
+                $basename = basename(rawurldecode($path));
+                if ($basename !== '') {
+                    $mirrored = public_path('webflow-assets/images/'.$basename);
+                    if (is_file($mirrored)) {
+                        return $mirrored;
+                    }
+                }
+
                 return $this->resolveSourcePath($path);
             }
 
@@ -192,16 +217,16 @@ class ImageThumbnailService
         return is_file($publicFile);
     }
 
-    private function buildCachePath(string $absolutePath, int $maxWidth, ?int $maxHeight): string
+    private function buildCachePath(string $absolutePath, int $maxWidth, ?int $maxHeight, string $fit = 'contain'): string
     {
         $mtime = (string) @filemtime($absolutePath);
-        $hash = substr(hash('sha256', $absolutePath.'|'.$mtime.'|'.$maxWidth.'|'.($maxHeight ?? 0)), 0, 32);
+        $hash = substr(hash('sha256', $absolutePath.'|'.$mtime.'|'.$maxWidth.'|'.($maxHeight ?? 0).'|'.$fit), 0, 32);
         $format = config('media.format', 'webp');
 
         return trim(config('media.directory', 'thumbnails'), '/').'/'.$hash.'_'.$maxWidth.'w.'.($maxHeight ? $maxHeight.'h.' : '').$format;
     }
 
-    private function generate(string $absolutePath, int $maxWidth, ?int $maxHeight): ?string
+    private function generate(string $absolutePath, int $maxWidth, ?int $maxHeight, string $fit = 'contain'): ?string
     {
         $image = $this->loadImage($absolutePath);
         if ($image === null) {
@@ -216,22 +241,53 @@ class ImageThumbnailService
             return null;
         }
 
-        $skipWithin = (int) config('media.skip_within_px', 8);
-        $needsResize = $origW > ($maxWidth + $skipWithin)
-            || ($maxHeight !== null && $origH > ($maxHeight + $skipWithin));
+        $useCover = $fit === 'cover' && $maxHeight !== null;
 
-        if (! $needsResize) {
-            imagedestroy($image);
+        if ($useCover) {
+            if ($origW === $maxWidth && $origH === $maxHeight) {
+                imagedestroy($image);
 
+                return null;
+            }
+
+            $canvas = $this->coverCrop($image, $origW, $origH, $maxWidth, $maxHeight);
+        } else {
+            $skipWithin = (int) config('media.skip_within_px', 8);
+            $needsResize = $origW > ($maxWidth + $skipWithin)
+                || ($maxHeight !== null && $origH > ($maxHeight + $skipWithin));
+
+            if (! $needsResize) {
+                imagedestroy($image);
+
+                return null;
+            }
+
+            [$newW, $newH] = $this->fitDimensions($origW, $origH, $maxWidth, $maxHeight);
+            $canvas = $this->resizeCanvas($image, $origW, $origH, $newW, $newH);
+        }
+
+        imagedestroy($image);
+
+        if ($canvas === null) {
             return null;
         }
 
-        [$newW, $newH] = $this->fitDimensions($origW, $origH, $maxWidth, $maxHeight);
+        ob_start();
+        $quality = (int) config('media.quality', 82);
+        $ok = imagewebp($canvas, null, $quality);
+        $binary = ob_get_clean();
+        imagedestroy($canvas);
 
+        return ($ok && is_string($binary) && $binary !== '') ? $binary : null;
+    }
+
+    /**
+     * @return \GdImage|null
+     */
+    private function resizeCanvas(mixed $image, int $origW, int $origH, int $newW, int $newH): mixed
+    {
         $canvas = imagecreatetruecolor($newW, $newH);
         if ($canvas === false) {
-            imagedestroy($image);
-
             return null;
         }
 
@@ -241,15 +297,51 @@ class ImageThumbnailService
         imagefill($canvas, 0, 0, $transparent);
 
         imagecopyresampled($canvas, $image, 0, 0, 0, 0, $newW, $newH, $origW, $origH);
-        imagedestroy($image);
 
-        ob_start();
-        $quality = (int) config('media.quality', 82);
-        $ok = imagewebp($canvas, null, $quality);
-        $binary = ob_get_clean();
-        imagedestroy($canvas);
+        return $canvas;
+    }
 
-        return ($ok && is_string($binary) && $binary !== '') ? $binary : null;
+    /**
+     * Center-crop to an exact target aspect ratio (CSS object-fit: cover).
+     *
+     * @return \GdImage|null
+     */
+    private function coverCrop(mixed $image, int $origW, int $origH, int $targetW, int $targetH): mixed
+    {
+        $scale = max($targetW / $origW, $targetH / $origH);
+        $scaledW = max(1, (int) round($origW * $scale));
+        $scaledH = max(1, (int) round($origH * $scale));
+
+        $scaled = imagecreatetruecolor($scaledW, $scaledH);
+        if ($scaled === false) {
+            return null;
+        }
+
+        imagealphablending($scaled, false);
+        imagesavealpha($scaled, true);
+        $transparent = imagecolorallocatealpha($scaled, 0, 0, 0, 127);
+        imagefill($scaled, 0, 0, $transparent);
+
+        imagecopyresampled($scaled, $image, 0, 0, 0, 0, $scaledW, $scaledH, $origW, $origH);
+
+        $srcX = max(0, (int) round(($scaledW - $targetW) / 2));
+        $srcY = max(0, (int) round(($scaledH - $targetH) / 2));
+
+        $canvas = imagecreatetruecolor($targetW, $targetH);
+        if ($canvas === false) {
+            imagedestroy($scaled);
+
+            return null;
+        }
+
+        imagealphablending($canvas, false);
+        imagesavealpha($canvas, true);
+        imagefill($canvas, 0, 0, $transparent);
+
+        imagecopy($canvas, $scaled, 0, 0, $srcX, $srcY, $targetW, $targetH);
+        imagedestroy($scaled);
+
+        return $canvas;
     }
 
     /**
