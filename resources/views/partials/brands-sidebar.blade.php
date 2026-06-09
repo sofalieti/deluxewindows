@@ -73,6 +73,9 @@
               </div>
             </div>
 
-            @include('partials.brand-sidebar-form-card', ['variant' => 'brands'])
+            @include('partials.brand-sidebar-form-card', [
+              'variant' => 'brands',
+              'wfPageId' => $wfPageId ?? null,
+            ])
           </nav>
         </div>

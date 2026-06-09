@@ -19,7 +19,7 @@
                 data-name="Property Form"
                 method="get"
                 class="form-wrapper"
-                data-wf-page-id="6841ddf8ace3d9d9facb1583"
+                data-wf-page-id="{{ $wfPageId ?? '6841ddf8ace3d9d9facb1583' }}"
                 aria-label="Property Form"
               >
                 <div class="grid-1-column-2 gap-row-12">
