@@ -544,10 +544,8 @@
   }
 }
 
-/* Sections without default white strip background */
 .section.section-bg-none {
-  background: none !important;
-  background-color: transparent !important;
+  background-color: var(--relume-library-lite--rl-white);
 }
 
 .contact-link---icon-left .contact-icon {

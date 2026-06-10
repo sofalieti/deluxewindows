@@ -1148,9 +1148,10 @@ class ClassicSiteController extends Controller
                     }
 
                     return [
-                        'name'  => $fd['name'] ?? '',
-                        'slug'  => $postSlug,
-                        'image' => $this->extractImageUrl($fd, ['main-project-image', 'client-logo']) ?? '',
+                        'name'      => $fd['name'] ?? '',
+                        'slug'      => $postSlug,
+                        'image'     => $this->extractImageUrl($fd, ['main-project-image', 'client-logo']) ?? '',
+                        'published' => $this->formatBlogPublishedDate($post->webflow_published_on),
                     ];
                 })
                 ->filter()
@@ -1171,9 +1172,10 @@ class ClassicSiteController extends Controller
                     }
 
                     return [
-                        'name'  => $fd['name'] ?? '',
-                        'slug'  => $postSlug,
-                        'image' => $this->extractImageUrl($fd, ['main-project-image', 'client-logo']) ?? '',
+                        'name'      => $fd['name'] ?? '',
+                        'slug'      => $postSlug,
+                        'image'     => $this->extractImageUrl($fd, ['main-project-image', 'client-logo']) ?? '',
+                        'published' => $this->formatBlogPublishedDate($item['lastPublished'] ?? null),
                     ];
                 })
                 ->filter()

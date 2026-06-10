@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html
   data-wf-domain="www.deluxewindows.com"
-  data-wf-page="6841df5688ca2f74fd53ec90"
+  data-wf-page="687b79c6ee572b31129b17c3"
   data-wf-site="6841ddf8ace3d9d9facb14fd"
   lang="en"
+  data-wf-collection="687b79c5ee572b31129b17bf"
+  data-wf-item-slug="{{ $slug }}"
   class="w-mod-js w-mod-ix"
 >
   <head>
@@ -21,7 +23,7 @@
     @if($heroImage)
     <meta content="{{ $heroImage }}" name="twitter:image" />
     @endif
-    <meta property="og:type" content="article" />
+    <meta property="og:type" content="website" />
     <meta content="summary_large_image" name="twitter:card" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link href="/webflow-assets/css/webflow.min.css" rel="stylesheet" type="text/css" />
@@ -44,81 +46,6 @@
     <link href="/webflow-assets/images/webclip-bg.png" rel="apple-touch-icon" />
 
     @include('partials.classic-layout-styles')
-
-    <style>
-      .blog-post-body p,
-      .blog-post-body li {
-        font-size: 1.05rem;
-        line-height: 1.8;
-        color: #333;
-      }
-      .blog-post-body p { margin-bottom: 20px; }
-      .blog-post-body h2 {
-        font-size: 1.7rem;
-        font-weight: 700;
-        color: #1a1a1a;
-        margin-top: 48px;
-        margin-bottom: 16px;
-      }
-      .blog-post-body h3,
-      .blog-post-body h4 {
-        font-size: 1.25rem;
-        font-weight: 700;
-        color: #1E73B9;
-        margin-top: 32px;
-        margin-bottom: 12px;
-      }
-      .blog-post-body h5 {
-        font-size: 1.1rem;
-        font-weight: 700;
-        color: #1a1a1a;
-        margin-top: 24px;
-        margin-bottom: 10px;
-      }
-      .blog-post-body ol,
-      .blog-post-body ul { padding-left: 24px; margin-bottom: 20px; }
-      .blog-post-body li { margin-bottom: 8px; }
-      .blog-post-body img {
-        width: 100%;
-        border-radius: 10px;
-        margin: 32px 0;
-        display: block;
-      }
-
-      .blog-related-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
-      }
-      .blog-related-card {
-        background: #fff;
-        border-radius: 12px;
-        overflow: hidden;
-        text-decoration: none;
-        color: inherit;
-        box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-        transition: box-shadow 0.2s;
-        display: flex;
-        flex-direction: column;
-      }
-      .blog-related-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.13); }
-      .blog-related-card img {
-        width: 100%;
-        aspect-ratio: 16/9;
-        object-fit: cover;
-      }
-      .blog-related-card-body { padding: 20px; }
-      .blog-related-card-title {
-        font-size: 1rem;
-        font-weight: 700;
-        color: #1a1a1a;
-        line-height: 1.4;
-      }
-
-      @media (max-width: 900px) {
-        .blog-related-grid { grid-template-columns: 1fr; }
-      }
-    </style>
 
     <!-- Google tag -->
     <script>
@@ -152,7 +79,7 @@
     <link href="https://core.service.elfsight.com/" rel="preconnect" crossorigin="" />
   </head>
 
-  <body class="body-18 height-auto blog-page">
+  <body class="body-18 height-auto">
     <div class="page-wrapper">
 
       @include('partials.navbar')
@@ -170,60 +97,72 @@
         </div>
       </section>
 
-      <section class="section pd-120px top-none">
+      <section class="section hero-v4">
         <div class="w-layout-blockcontainer container-default w-container">
-          <div class="mg-top-extra-large">
-            <div class="inner-container _800px _100-tablet">
-              <h1 class="display-8 mid">{{ $title }}</h1>
-
-              @if($heroImage)
-              <div class="mg-top-default">
-                <div class="image-wrapper border-radius-image-default">
-                  <img
-                    src="{{ $heroImage }}"
-                    loading="eager"
-                    alt="{{ $title }}"
-                    class="image cover-image"
-                  />
+          <div class="blog-post-single---top-content">
+            <div class="inner-container _770px">
+              <div class="inner-container _550px---tablet">
+                <div class="mg-top-small">
+                  <h1 class="display-9 mid">{{ $title }}</h1>
                 </div>
               </div>
-              @endif
-
-              @if($bodyHtml)
-              <div class="mg-top-default">
-                <div class="rich-text-v2 w-richtext blog-post-body">
-                  {!! $bodyHtml !!}
-                </div>
-              </div>
-              @endif
             </div>
           </div>
+
+          @if($heroImage)
+          <div class="mg-top-extra-large">
+            <div class="image-wrapper border-radius-image-default">
+              <img
+                src="{{ $heroImage }}"
+                loading="eager"
+                alt="{{ $title }}"
+                class="image post---featured-image"
+              />
+            </div>
+          </div>
+          @endif
+
+          @if($bodyHtml)
+          <div class="mg-top-section-large">
+            <div class="inner-container _690px center">
+              <div class="rich-text-v1 mg-bottom--16px w-richtext">
+                {!! $bodyHtml !!}
+              </div>
+            </div>
+          </div>
+          @endif
         </div>
       </section>
 
       @if($relatedPosts->count() > 0)
-      <section class="section top-none">
+      <section class="section pd-120px">
         <div class="w-layout-blockcontainer container-default w-container">
           <div class="title-left---content-right">
-            <h2 class="heading-23">Read More Articles</h2>
+            <div class="width-100-mobile-portrait">
+              <h2 class="display-8 mid">Read More Articles</h2>
+            </div>
           </div>
           <div class="mg-top-large">
-            <div class="blog-related-grid">
-              @foreach($relatedPosts as $post)
-              <a href="/blog/{{ $post['slug'] }}" class="blog-related-card">
-                @if($post['image'])
-                <img src="{{ $post['image'] }}" alt="{{ $post['name'] }}" loading="lazy" />
-                @endif
-                <div class="blog-related-card-body">
-                  <div class="blog-related-card-title">{{ $post['name'] }}</div>
-                </div>
-              </a>
-              @endforeach
+            <div class="w-dyn-list">
+              <div role="list" class="collection-list-8 w-dyn-items">
+                @foreach($relatedPosts as $post)
+                  @include('partials.blog-index-card', [
+                    'post' => $post,
+                    'loading' => $loop->first ? 'eager' : 'lazy',
+                  ])
+                @endforeach
+              </div>
             </div>
           </div>
         </div>
       </section>
       @endif
+
+      @include('partials.blog-page-bottom', [
+        'wfPageId' => '687b79c6ee572b31129b17c3',
+        'ctaHeadingClass' => 'heading-43',
+        'contactHeadingClass' => 'heading-34',
+      ])
 
       @include('partials.footer')
 

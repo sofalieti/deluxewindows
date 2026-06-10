@@ -10,7 +10,7 @@
                     <div class="inner-container _450px">
                       <div class="inner-container _300px---mbp">
                         <div class="mg-top-small">
-                          <h2 class="heading-28">Your Dream Home Starts Here.</h2>
+                          <h2 class="{{ $ctaHeadingClass ?? 'heading-28' }}">Your Dream Home Starts Here.</h2>
                         </div>
                       </div>
                     </div>
@@ -50,7 +50,7 @@
           <div class="w-layout-grid grid-2-columns contact-grid-v2">
             <div id="w-node-_824fa87e-09e3-541d-f82c-49c3ae0a3f2b-ec241dd4" class="inner-container _440px _100-tablet">
               <div class="inner-container _550px---tablet">
-                <h1>Contact us</h1>
+                <h1 class="{{ $contactHeadingClass ?? '' }}">Contact Us</h1>
                 <div class="mg-top-small">
                   <p class="paragraph-8">We’re here to help with all your door and window needs.</p>
                 </div>
@@ -82,7 +82,7 @@
                   data-name="Email Form 2"
                   method="get"
                   class="form-3"
-                  data-wf-page-id="688097fa174129b5ec241dd4"
+                  data-wf-page-id="{{ $wfPageId ?? '688097fa174129b5ec241dd4' }}"
                   aria-label="Email Form 2"
                 >
                   <div class="div-block-22">
