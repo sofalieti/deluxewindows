@@ -27,6 +27,12 @@ Route::get('/blog', [ClassicSiteController::class, 'blogIndex']);
 Route::get('/blog/{slug}', [ClassicSiteController::class, 'blogBySlug'])
     ->where('slug', '[A-Za-z0-9\-]+');
 
+Route::get('/county-hub-pages/{slug}', [ClassicSiteController::class, 'countyHubBySlug'])
+    ->where('slug', '[A-Za-z0-9\-]+');
+
+Route::get('/window-replacement/{slug}', [ClassicSiteController::class, 'windowReplacementBySlug'])
+    ->where('slug', '[A-Za-z0-9\-]+');
+
 Route::get('/gallery', [ClassicSiteController::class, 'gallery']);
 Route::get('/glossary', [ClassicSiteController::class, 'glossary']);
 Route::get('/faq', [ClassicSiteController::class, 'faq']);

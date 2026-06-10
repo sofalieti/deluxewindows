@@ -6,8 +6,10 @@ use App\Models\Webflow\BlogWebflowItem;
 use App\Models\Webflow\BrandCollectionsWebflowItem;
 use App\Models\Webflow\BrandsWebflowItem;
 use App\Models\Webflow\CollectionsTabsWebflowItem;
+use App\Models\Webflow\CountyHubPagesWebflowItem;
 use App\Models\Webflow\DoorsWebflowItem;
 use App\Models\Webflow\GalleryWebflowItem;
+use App\Models\Webflow\WindowReplacementWebflowItem;
 use App\Models\Webflow\WindowTypeWebflowItem;
 use App\Models\Webflow\WindowsWebflowItem;
 use Illuminate\Http\Request;
@@ -1194,6 +1196,486 @@ class ClassicSiteController extends Controller
             'bodyHtml',
             'relatedPosts',
         ));
+    }
+
+    public function countyHubBySlug(string $slug)
+    {
+        $slug = strtolower(trim($slug));
+        $fieldData = $this->findCountyHubFieldData($slug);
+
+        abort_if(! is_array($fieldData), 404);
+
+        $countyName = $fieldData['county-name'] ?? $fieldData['name'] ?? 'Bay Area';
+        $metaTitle = $fieldData['meta-title'] ?? "{$countyName} Window Replacement | Deluxe Windows";
+        $metaDescription = $fieldData['meta-description'] ?? '';
+        $heroImage = $this->extractImageUrl($fieldData, ['hero-image']) ?? '';
+        $countyIntro = $fieldData['county-intro'] ?? '';
+        $cities = $this->resolveCountyHubCities($fieldData);
+
+        return view('county-hub-pages.show', compact(
+            'slug',
+            'countyName',
+            'metaTitle',
+            'metaDescription',
+            'heroImage',
+            'countyIntro',
+            'cities',
+        ));
+    }
+
+    public function windowReplacementBySlug(string $slug)
+    {
+        $slug = strtolower(trim($slug));
+        $fieldData = $this->findWindowReplacementFieldData($slug);
+
+        abort_if(! is_array($fieldData), 404);
+
+        $cityName = $fieldData['city-name'] ?? $fieldData['name'] ?? '';
+        $cityLabel = $cityName !== '' ? "{$cityName}, CA" : 'Bay Area, CA';
+        $countyName = $fieldData['county'] ?? '';
+        $metaTitle = $fieldData['meta-title'] ?? "{$cityName} Window Replacement | Deluxe Windows";
+        $metaDescription = $fieldData['meta-description'] ?? '';
+        $heroImage = $this->extractImageUrl($fieldData, ['hero-image', 'og-image']) ?? '';
+        $paragraph1 = $fieldData['city-paragraph-1'] ?? '';
+        $paragraph2 = $fieldData['city-paragraph-2'] ?? '';
+        $faqs = $this->resolveServiceAreaFaqs($fieldData);
+        $windowTypes = $this->loadServiceAreaWindowTypes();
+        $featuredBrands = $this->resolveServiceAreaFeaturedBrands($fieldData);
+        $countyHubSlug = $this->resolveCountyHubSlug($fieldData['county-page'] ?? null);
+        $schemaScripts = $this->buildServiceAreaSchemaScripts($fieldData, $cityName, $slug, $faqs, $metaDescription);
+
+        return view('window-replacement.show', compact(
+            'slug',
+            'cityName',
+            'cityLabel',
+            'countyName',
+            'metaTitle',
+            'metaDescription',
+            'heroImage',
+            'paragraph1',
+            'paragraph2',
+            'faqs',
+            'windowTypes',
+            'featuredBrands',
+            'countyHubSlug',
+            'schemaScripts',
+        ));
+    }
+
+    private function findWindowReplacementFieldData(string $slug): ?array
+    {
+        try {
+            $item = WindowReplacementWebflowItem::query()
+                ->where('is_archived', false)
+                ->where('is_draft', false)
+                ->where(function ($query) use ($slug) {
+                    $query->where('field_data->city-slug', $slug)
+                        ->orWhere('field_data->slug', $slug);
+                })
+                ->orderByDesc('id')
+                ->first();
+
+            if ($item) {
+                return is_array($item->field_data) ? $item->field_data : null;
+            }
+        } catch (\Throwable) {
+            // Table may be missing on staging — fall back to import JSON.
+        }
+
+        foreach ($this->loadWindowReplacementImportItems() as $importItem) {
+            if (($importItem['isDraft'] ?? false) || ($importItem['isArchived'] ?? false)) {
+                continue;
+            }
+
+            $fd = is_array($importItem['fieldData'] ?? null) ? $importItem['fieldData'] : [];
+            if (($fd['city-slug'] ?? '') === $slug || ($fd['slug'] ?? '') === $slug) {
+                return $fd;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * @return list<array{question: string, answer: string, answer_plain: string}>
+     */
+    private function resolveServiceAreaFaqs(array $fieldData): array
+    {
+        $faqs = [];
+
+        for ($i = 1; $i <= 5; $i++) {
+            $question = trim((string) ($fieldData["faq-{$i}-question"] ?? ''));
+            if ($question === '') {
+                continue;
+            }
+
+            $answerHtml = (string) ($fieldData["faq-{$i}-answer"] ?? '');
+            $answerPlain = trim((string) ($fieldData["faq-{$i}-answer-plain-text"] ?? ''));
+
+            $faqs[] = [
+                'question'     => $question,
+                'answer'       => $answerHtml !== '' ? $answerHtml : '<p>'.e($answerPlain).'</p>',
+                'answer_plain' => $answerPlain,
+            ];
+        }
+
+        return $faqs;
+    }
+
+    /**
+     * @return \Illuminate\Support\Collection<int, array{name: string, slug: string, image: string}>
+     */
+    private function loadServiceAreaWindowTypes(): \Illuminate\Support\Collection
+    {
+        $slugs = array_slice(self::WINDOWS_INDEX_SLUG_ORDER, 0, 6);
+
+        try {
+            return WindowsWebflowItem::query()
+                ->where('is_archived', false)
+                ->where('is_draft', false)
+                ->get()
+                ->filter(function ($item) use ($slugs) {
+                    $itemSlug = (string) data_get($item->field_data, 'slug', '');
+
+                    return in_array($itemSlug, $slugs, true);
+                })
+                ->sortBy(function ($item) use ($slugs) {
+                    $itemSlug = (string) data_get($item->field_data, 'slug', '');
+                    $pos = array_search($itemSlug, $slugs, true);
+
+                    return $pos === false ? 999 : $pos;
+                })
+                ->map(fn ($item) => $this->mapWindowsIndexCard($item))
+                ->filter(fn ($card) => ($card['slug'] ?? '') !== '')
+                ->values();
+        } catch (\Throwable) {
+            return collect();
+        }
+    }
+
+    /**
+     * @return \Illuminate\Support\Collection<int, array{name: string, slug: string, logo: string}>
+     */
+    private function resolveServiceAreaFeaturedBrands(array $fieldData): \Illuminate\Support\Collection
+    {
+        $brandIds = $fieldData['featured-brands'] ?? [];
+        if (! is_array($brandIds) || $brandIds === []) {
+            return collect();
+        }
+
+        $brands = collect();
+
+        try {
+            $items = BrandsWebflowItem::query()
+                ->whereIn('webflow_item_id', $brandIds)
+                ->where('is_archived', false)
+                ->where('is_draft', false)
+                ->get()
+                ->keyBy('webflow_item_id');
+
+            foreach ($brandIds as $brandId) {
+                $item = $items->get($brandId);
+                if ($item === null) {
+                    continue;
+                }
+
+                $card = $this->mapBrandIndexCard($item);
+                if (($card['slug'] ?? '') !== '') {
+                    $brands->push([
+                        'name' => $card['name'],
+                        'slug' => $card['slug'],
+                        'logo' => $card['logo'],
+                    ]);
+                }
+            }
+        } catch (\Throwable) {
+            $brands = collect();
+        }
+
+        if ($brands->isNotEmpty()) {
+            return $brands;
+        }
+
+        foreach ($this->loadBrandsImportItems() as $importItem) {
+            if (($importItem['isDraft'] ?? false) || ($importItem['isArchived'] ?? false)) {
+                continue;
+            }
+
+            $id = $importItem['id'] ?? '';
+            if (! in_array($id, $brandIds, true)) {
+                continue;
+            }
+
+            $fd = is_array($importItem['fieldData'] ?? null) ? $importItem['fieldData'] : [];
+            $brandSlug = $fd['slug'] ?? '';
+            if ($brandSlug === '') {
+                continue;
+            }
+
+            $brands->push([
+                'name' => $fd['name'] ?? '',
+                'slug' => $brandSlug,
+                'logo' => $this->extractImageUrl($fd, ['logo-svg', 'brand-logo', 'agent---avatar-photo']) ?? '',
+            ]);
+        }
+
+        return $brands->values();
+    }
+
+    private function resolveCountyHubSlug(mixed $countyPageId): ?string
+    {
+        if (! is_string($countyPageId) || $countyPageId === '') {
+            return null;
+        }
+
+        try {
+            $item = CountyHubPagesWebflowItem::query()
+                ->where('webflow_item_id', $countyPageId)
+                ->first();
+
+            if ($item) {
+                $fd = is_array($item->field_data) ? $item->field_data : [];
+
+                return $fd['county-slug'] ?? $fd['slug'] ?? null;
+            }
+        } catch (\Throwable) {
+            // Fall back to import JSON.
+        }
+
+        foreach ($this->loadCountyHubImportItems() as $importItem) {
+            if (($importItem['id'] ?? '') !== $countyPageId) {
+                continue;
+            }
+
+            $fd = is_array($importItem['fieldData'] ?? null) ? $importItem['fieldData'] : [];
+
+            return $fd['county-slug'] ?? $fd['slug'] ?? null;
+        }
+
+        return null;
+    }
+
+    /**
+     * @param  list<array{question: string, answer: string, answer_plain: string}>  $faqs
+     * @return list<string>
+     */
+    private function buildServiceAreaSchemaScripts(
+        array $fieldData,
+        string $cityName,
+        string $slug,
+        array $faqs,
+        string $metaDescription,
+    ): array {
+        $custom = trim((string) ($fieldData['schema-json'] ?? ''));
+        if ($custom !== '') {
+            return [$custom];
+        }
+
+        $cityLabel = "{$cityName}, CA";
+        $scripts = [];
+
+        $scripts[] = json_encode([
+            '@context'    => 'https://schema.org',
+            '@type'       => 'Service',
+            'name'        => "Window Replacement in {$cityLabel}",
+            'provider'    => [
+                '@type'     => 'HomeAndConstructionBusiness',
+                'name'      => 'Deluxe Windows',
+                'telephone' => '+18887304144',
+                'url'       => 'https://www.deluxewindows.com',
+            ],
+            'areaServed'  => [
+                '@type'            => 'City',
+                'name'             => $cityName,
+                'containedInPlace' => [
+                    '@type' => 'State',
+                    'name'  => 'California',
+                ],
+            ],
+            'serviceType' => 'Window Replacement',
+            'description' => $metaDescription !== ''
+                ? $metaDescription
+                : "Professional window and door replacement in {$cityLabel}.",
+            'offers'      => [
+                '@type'         => 'Offer',
+                'name'          => 'Free Quote',
+                'price'         => '0',
+                'priceCurrency' => 'USD',
+            ],
+        ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+
+        if ($faqs !== []) {
+            $mainEntity = [];
+            foreach ($faqs as $faq) {
+                $answerText = $faq['answer_plain'] !== ''
+                    ? $faq['answer_plain']
+                    : trim(strip_tags($faq['answer']));
+
+                if ($answerText === '') {
+                    continue;
+                }
+
+                $mainEntity[] = [
+                    '@type'          => 'Question',
+                    'name'           => $faq['question'],
+                    'acceptedAnswer' => [
+                        '@type' => 'Answer',
+                        'text'  => $answerText,
+                    ],
+                ];
+            }
+
+            if ($mainEntity !== []) {
+                $scripts[] = json_encode([
+                    '@context'   => 'https://schema.org',
+                    '@type'      => 'FAQPage',
+                    'mainEntity' => $mainEntity,
+                ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+            }
+        }
+
+        return $scripts;
+    }
+
+    private function loadBrandsImportItems(): array
+    {
+        $path = base_path('webflow-data/current/collections/brands/items.json');
+        if (! File::exists($path)) {
+            return [];
+        }
+
+        $payload = json_decode((string) File::get($path), true);
+        $items = $payload['items'] ?? [];
+
+        return is_array($items) ? $items : [];
+    }
+
+    private function findCountyHubFieldData(string $slug): ?array
+    {
+        try {
+            $item = CountyHubPagesWebflowItem::query()
+                ->where('is_archived', false)
+                ->where('is_draft', false)
+                ->where(function ($query) use ($slug) {
+                    $query->where('field_data->slug', $slug)
+                        ->orWhere('field_data->county-slug', $slug);
+                })
+                ->orderByDesc('id')
+                ->first();
+
+            if ($item) {
+                return is_array($item->field_data) ? $item->field_data : null;
+            }
+        } catch (\Throwable) {
+            // Table may be missing on staging — fall back to import JSON.
+        }
+
+        foreach ($this->loadCountyHubImportItems() as $importItem) {
+            $fd = is_array($importItem['fieldData'] ?? null) ? $importItem['fieldData'] : [];
+            if (($fd['slug'] ?? '') === $slug || ($fd['county-slug'] ?? '') === $slug) {
+                return $fd;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * @return \Illuminate\Support\Collection<int, array{name: string, slug: string}>
+     */
+    private function resolveCountyHubCities(array $fieldData): \Illuminate\Support\Collection
+    {
+        $cityIds = $fieldData['cities-in-county'] ?? [];
+        if (! is_array($cityIds) || $cityIds === []) {
+            return collect();
+        }
+
+        $ordered = collect();
+
+        try {
+            $items = WindowReplacementWebflowItem::query()
+                ->whereIn('webflow_item_id', $cityIds)
+                ->where('is_archived', false)
+                ->where('is_draft', false)
+                ->get()
+                ->keyBy('webflow_item_id');
+
+            foreach ($cityIds as $cityId) {
+                $item = $items->get($cityId);
+                if ($item === null) {
+                    continue;
+                }
+
+                $fd = is_array($item->field_data) ? $item->field_data : [];
+                $citySlug = $fd['city-slug'] ?? $fd['slug'] ?? '';
+                $cityName = $fd['city-name'] ?? $fd['name'] ?? '';
+
+                if ($citySlug !== '' && $cityName !== '') {
+                    $ordered->push([
+                        'name' => $cityName,
+                        'slug' => $citySlug,
+                    ]);
+                }
+            }
+        } catch (\Throwable) {
+            $ordered = collect();
+        }
+
+        if ($ordered->isNotEmpty()) {
+            return $ordered;
+        }
+
+        $importItems = collect($this->loadWindowReplacementImportItems())->keyBy('id');
+
+        foreach ($cityIds as $cityId) {
+            $importItem = $importItems->get($cityId);
+            if ($importItem === null) {
+                continue;
+            }
+
+            $fd = is_array($importItem['fieldData'] ?? null) ? $importItem['fieldData'] : [];
+            $citySlug = $fd['city-slug'] ?? $fd['slug'] ?? '';
+            $cityName = $fd['city-name'] ?? $fd['name'] ?? '';
+
+            if ($citySlug !== '' && $cityName !== '') {
+                $ordered->push([
+                    'name' => $cityName,
+                    'slug' => $citySlug,
+                ]);
+            }
+        }
+
+        return $ordered;
+    }
+
+    private function loadCountyHubImportItems(): array
+    {
+        $path = base_path('webflow-data/current/imports/county-hub-pages.json');
+        if (! File::exists($path)) {
+            $path = base_path('webflow-data/current/collections/county-hub-pages/items.json');
+        }
+
+        if (! File::exists($path)) {
+            return [];
+        }
+
+        $payload = json_decode((string) File::get($path), true);
+        $items = $payload['items'] ?? [];
+
+        return is_array($items) ? $items : [];
+    }
+
+    private function loadWindowReplacementImportItems(): array
+    {
+        $path = base_path('webflow-data/current/imports/window-replacement.json');
+        if (! File::exists($path)) {
+            return [];
+        }
+
+        $payload = json_decode((string) File::get($path), true);
+        $items = $payload['items'] ?? [];
+
+        return is_array($items) ? $items : [];
     }
 
     private function findBlogFieldData(string $slug): ?array
