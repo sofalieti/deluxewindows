@@ -1241,6 +1241,7 @@ window.$zoho = window.$zoho || {};
       };
     </script>
     <link href="https://core.service.elfsight.com/" rel="preconnect" crossorigin="" />
+    <link rel="stylesheet" href="/webflow-overrides/mobile-home.css" />
   </head>
 <body class="body-18 height-auto">
   <div class="page-wrapper">

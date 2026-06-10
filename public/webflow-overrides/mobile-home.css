@@ -1,0 +1,342 @@
+/* ================================================================
+   DELUXE WINDOWS — MOBILE LAYOUT OVERRIDES
+   Fixes specific layout issues on the home page.
+   Only overrides what Webflow's webflow.min.css does not handle.
+
+   Breakpoints (matching Webflow):
+     991px  — tablet
+     767px  — mobile landscape
+     479px  — mobile portrait
+   ================================================================ */
+
+
+/* ─── 1. TRUST BADGES BAR (.grid.grid-543) ──────────────────────
+   Problem: Webflow collapses .grid-543 to 1 column at 991px,
+   stacking 4 items vertically — very long and wastes screen space.
+   Fix: 2×2 grid on tablet/mobile, single column only at 479px.     */
+
+@media screen and (max-width: 991px) {
+  .grid.grid-543 {
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: auto auto !important;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    gap: 10px;
+  }
+
+  .div-block-65 {
+    justify-content: center;
+    text-align: center;
+    gap: 4px;
+    padding: 6px 0;
+  }
+
+  .text-block-46 {
+    font-size: 14px;
+  }
+
+  .text-block-47 {
+    font-size: 13px;
+    line-height: 1.3;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .grid.grid-543 {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto !important;
+    gap: 8px;
+  }
+}
+
+
+/* ─── 2. BRANDS STRIP (.div-block-51 / .collection-list-9) ─────────
+   Problem: At 480–767px the brand logo grid stays at 6 columns
+   (inherited from 991px). Each logo gets ~80–128 px — too small.
+   Fix: Horizontal scroll strip so logos remain clear and tappable.  */
+
+@media screen and (max-width: 767px) {
+  .div-block-51 {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    padding-left: 16px;
+    padding-right: 16px;
+    scrollbar-width: none;
+  }
+
+  .div-block-51::-webkit-scrollbar {
+    display: none;
+  }
+
+  .collection-list-wrapper-9 {
+    overflow: visible;
+  }
+
+  .collection-list-9.third-item,
+  .collection-list-9 {
+    grid-auto-flow: column !important;
+    grid-template-rows: 1fr !important;
+    grid-template-columns: unset !important;
+    width: max-content;
+    gap: 8px;
+  }
+
+  .brand-link {
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .image-26.brand-hero {
+    max-width: 120px !important;
+    max-height: 48px !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain;
+  }
+}
+
+
+/* ─── 3. DOORS SECTION (.collection-list-3) ─────────────────────────
+   Problem: Webflow has no 767px override for .collection-list-3.
+   It keeps the 3-column layout. With scroll-horiz only having
+   max-width:100% (no overflow-x), cards clip at that breakpoint.
+   Fix: Single-column stacked list at mobile landscape.               */
+
+@media screen and (max-width: 767px) {
+  .scroll-horiz {
+    overflow-x: visible;
+  }
+
+  .collection-list-3 {
+    grid-template-columns: 1fr !important;
+    grid-auto-flow: row !important;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .collection-item-3 {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+
+/* ─── 4. CERTIFICATIONS GRID (.f-grid-three-column) ────────────────
+   Problem: Webflow correctly collapses to 1-col at 767px, but then
+   the 479px media block reverts it to 3 columns — a Webflow bug.
+   Fix: Re-apply 1-col at 479px.                                      */
+
+@media screen and (max-width: 479px) {
+  .f-grid-three-column {
+    grid-template-columns: 1fr !important;
+    grid-auto-flow: row !important;
+  }
+}
+
+
+/* ─── 5. SECTION LARGE PADDING (.f-section-large-2/3) ──────────────
+   Problem: Both sections use padding: 92px 5% on all screens.
+   That is far too generous on mobile.
+   Fix: Reduce to comfortable but spacious mobile values.             */
+
+@media screen and (max-width: 767px) {
+  .f-section-large-2,
+  .f-section-large-3 {
+    padding-top: 52px !important;
+    padding-bottom: 52px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .f-section-large-2,
+  .f-section-large-3 {
+    padding-top: 36px !important;
+    padding-bottom: 36px !important;
+  }
+}
+
+
+/* ─── 6. HERO SECTION ────────────────────────────────────────────────
+   Webflow stacks the two-column layout at 767px (flex-flow:column).
+   Fine-tune spacing, form sizing, and hide the long Description
+   field to keep the mobile form short and conversion-friendly.        */
+
+@media screen and (max-width: 767px) {
+  /* Ensure the hero content area has comfortable top/bottom breathing room */
+  .title-left---content-right.paragraph-content.alt.hero-page {
+    padding-top: 28px !important;
+    padding-bottom: 28px !important;
+    gap: 20px !important;
+    align-items: stretch !important;
+  }
+
+  /* Form card */
+  .form-block-2 .form-3 {
+    padding: 16px !important;
+    border-radius: 16px !important;
+  }
+
+  /* Hide Description textarea on mobile — reduces form friction */
+  .text-area-wrapper {
+    display: none !important;
+  }
+
+  /* Form inputs — prevent iOS auto-zoom (font-size must be ≥ 16px) */
+  .input.icon-left,
+  .text-area.icon-left,
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .form-block-2 .form-3 {
+    padding: 12px !important;
+    border-radius: 14px !important;
+  }
+
+  /* Hero heading — Webflow CSS uses variables for this but doesn't
+     set a hard pixel override for the h1 on 479px. Ensure legibility. */
+  .heading-4 {
+    font-size: clamp(22px, 6vw, 28px) !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Hero sub-heading in form card */
+  .display-4 {
+    font-size: clamp(17px, 4.5vw, 22px) !important;
+    line-height: 1.3 !important;
+  }
+}
+
+
+/* ─── 7. FOR PROFESSIONALS — sticky panel fix ───────────────────────
+   The left column uses position:sticky which collapses strangely
+   inside a display:block container on some mobile browsers.          */
+
+@media screen and (max-width: 767px) {
+  .sticky-top.static---tablet {
+    position: static !important;
+    top: auto !important;
+  }
+}
+
+
+/* ─── 8. CTA SECTION — image on very small screens ─────────────────
+   The iPad image in the CTA .grid-2-columns.cta-v3-grid stacks
+   below the text (Webflow handles the grid). Constrain image height
+   on tiny screens so it doesn't dominate the viewport.               */
+
+@media screen and (max-width: 479px) {
+  .image-wrapper.cta-v3-image {
+    max-height: 220px;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+
+  .image-wrapper.cta-v3-image .image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: top center;
+  }
+}
+
+
+/* ─── 9. SECTION PADDING REDUCTION ─────────────────────────────────
+   The .section class used for Windows and For-Professionals has no
+   mobile padding override in webflow.min.css. Trim for mobile.       */
+
+@media screen and (max-width: 767px) {
+  /* Reviews section */
+  .section-122 {
+    padding-top: 36px !important;
+    padding-bottom: 36px !important;
+  }
+}
+
+
+/* ─── 10. GUARANTEE SECTION CARDS ──────────────────────────────────
+   .f-feature-card-filled cards have 32px padding. Reduce for mobile. */
+
+@media screen and (max-width: 479px) {
+  .f-feature-card-filled {
+    padding: 20px 16px !important;
+  }
+}
+
+
+/* ─── 11. TOP-BAR CLEANUP (≤ 767px) ────────────────────────────────
+   At 480–767px the top thin bar shows 4 items in a row:
+   [phone icon + Special Offers] | [slogan] | [empty] | [(888)…]
+   The slogan and phone text are redundant next to the compact nav.
+   Hide them to prevent overflow and keep the bar tidy.               */
+
+@media screen and (max-width: 767px) {
+  /* Hide "We are 100% employee owned" slogan block */
+  .header-container-2 .div-block-17:not(.phone3) {
+    display: none !important;
+  }
+
+  /* Hide duplicate phone number text in top bar */
+  .header-container-2 .div-block-16 {
+    display: none !important;
+  }
+}
+
+
+/* ─── 12. BUTTONS FULL WIDTH ON PORTRAIT PHONES ─────────────────────
+   "See all windows / See all doors / Learn More / Free Consultation"
+   buttons sit inside .buttons-row. On tiny screens make them full-
+   width for easier tapping.                                          */
+
+@media screen and (max-width: 479px) {
+  .buttons-row:not(.left) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .buttons-row:not(.left) .primary-button.w-inline-block {
+    width: 100% !important;
+    justify-content: center;
+    text-align: center;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+
+
+/* ─── 13. WINDOWS CARDS — ensure single col fills screen ────────────
+   At 767px Webflow already makes .posts-right---grid single-col.
+   Make sure each card image doesn't overflow. */
+
+@media screen and (max-width: 767px) {
+  .image-wrapper.wrapperimage2 {
+    min-height: 200px;
+    max-height: 260px;
+  }
+
+  .image-wrapper.wrapperimage2 .image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+
+/* ─── 14. PREVENT HORIZONTAL OVERFLOW ──────────────────────────────
+   Catch-all to prevent any section causing page-level overflow-x.   */
+
+@media screen and (max-width: 767px) {
+  .page-wrapper {
+    overflow-x: hidden;
+  }
+}
