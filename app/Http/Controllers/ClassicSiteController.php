@@ -662,6 +662,7 @@ class ClassicSiteController extends Controller
                 return $pos === false ? 999 : $pos;
             })
             ->values()
+            ->take(6)
             ->map(fn ($item) => $this->mapWindowsIndexCard($item))
             ->filter(fn ($card) => ($card['slug'] ?? '') !== '')
             ->values();

@@ -325,53 +325,18 @@
         </div>
       </section>
 
-      {{-- Our Guarantee (window-specific) --}}
-      <div class="f-section-large-3">
-        <div class="f-container-regular-3">
-          <div class="title-left---content-right dva">
-            <h2 class="heading-23">Our Guarantee</h2>
-          </div>
-          <div class="w-layout-grid f-grid-three-column-2 newww">
-            <div class="f-feature-card-filled">
-              <div class="f-margin-bottom-129">
-                <h5 class="f-h5-heading">{{ $title }}</h5>
-                @if($warrantyHtml)
-                <div class="rich-text-block-10 w-richtext">
-                  {!! $warrantyHtml !!}
-                </div>
-                @else
-                <div class="rich-text-block-10 w-richtext">
-                  <p><strong>Full lifetime</strong> transferable warranty on parts and labor</p>
-                </div>
-                @endif
-              </div>
-            </div>
-            <div class="f-feature-card-filled">
-              <div class="f-margin-bottom-129">
-                <h5 class="f-h5-heading">Manufacturer&#x27;s warranty on glass and frame</h5>
-              </div>
-              <p class="f-paragraph-large-2"><br /><strong>Lifetime</strong></p>
-            </div>
-            <div class="f-feature-card-filled">
-              <div class="f-margin-bottom-129">
-                <h5 class="f-h5-heading">All Other Parts<br />‍</h5>
-              </div>
-              <p class="f-paragraph-large-2"><strong><br />10&nbsp;Years</strong> Warranty</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      @include('partials.guarantee')
 
       {{-- Top Window Brands (brands-types) --}}
       @if($brandTypes->count() > 0)
-      <section class="section top-none">
+      <section class="section top-none window-brands-section">
         <div class="w-layout-blockcontainer container-default w-container">
           <div class="title-left---content-right">
             <h2 class="heading-23">{{ $brandsTitle }}</h2>
           </div>
-          <div class="mg-top-large">
+          <div class="mg-top-large window-brands-section__list">
             <div class="collection-list-wrapper-5 w-dyn-list">
-              <div role="list" class="collection-list-2 w-dyn-items">
+              <div role="list" class="collection-list-2 w-dyn-items window-brands-section__grid">
                 @foreach($brandTypes as $bt)
                 <div role="listitem" class="w-dyn-item">
                   <a href="/window-type/{{ $bt['slug'] }}" class="property-wrapper-v1 w-inline-block">
@@ -529,8 +494,7 @@
       {{-- 4 Easy Steps --}}
       <section class="section top-none"><div class="w-layout-blockcontainer container-default w-container"><div class="w-layout-grid grid-2-columns values-wrapper-grid"><div class="sticky-top static---tablet"><div class="inner-container _500px _100-tablet"><div class="inner-container _600px---tablet"><div class="mg-top-default"><h2 class="heading-8">4 Easy Steps</h2></div><div class="mg-top-small"><p class="paragraph-34">Our step-by-step process is designed to make replacing your windows and doors easy, stress-free, and fully tailored to your needs — from the first estimate to the final inspection.</p></div><div class="mg-top-default"><div class="buttons-row left"></div></div></div></div></div><div class="inner-container _592px _100-tablet"><div class="w-layout-grid grid-2-columns values-grid"><div class="value-wrapper"><div class="image-wrapper"><img src="/webflow-assets/images/684d86f32d344f16ce6ec364_flag_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" loading="eager" alt="For-architects-deluxe-windows" class="image"/></div><div class="mg-top-small"><h3 class="display-5 mid">Start</h3></div><div class="mg-top-extra-small"><p class="paragraph-5">Looking to replace your windows and doors? Reach out to Deluxe Windows for a complimentary estimate.</p></div></div><div class="value-wrapper"><div class="image-wrapper"><img src="/webflow-assets/images/684d86ff1fff20336f975d74_shopping_bag_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" loading="eager" alt="For-contractors-deluxe-windows" class="image"/></div><div class="mg-top-small"><h3 class="display-5 mid">Manufacture</h3></div><div class="mg-top-extra-small"><p class="paragraph-6">If you are satisfied with the provided estimate and approve it, we will order windows and doors according to your specifications and needs.</p></div></div><div class="value-wrapper"><div class="image-wrapper"><img src="/webflow-assets/images/684d870c533c4f729eb8094c_settings_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" loading="eager" alt="For-property-managers-owners-deluxe-windows" class="image"/></div><div class="mg-top-small"><h3 class="display-5 mid">Remove and install</h3></div><div class="mg-top-extra-small"><p class="paragraph-7">Once the products are ready, we will arrange a convenient time for installation and ensure your new windows and doors are expertly fitted.</p></div></div><div class="value-wrapper"><div class="image-wrapper"><img src="/webflow-assets/images/684d8718e99d2a34dfef7e4d_home_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" loading="eager" alt="For-property-managers-owners-deluxe-windows" class="image"/></div><div class="mg-top-small"><h3 class="display-5 mid">Final product</h3></div><div class="mg-top-extra-small"><p class="paragraph-7">Upon completion, each window and door will be thoroughly inspected to ensure they operate correctly and meet the highest standards of fit and finish.</p></div></div><div class="divider show-in-mbp"></div></div></div></div></div></section>
 
-      {{-- CTA section --}}
-      <section class="section-card-wrapper"><div class="section-card cta-v3"><div class="w-layout-blockcontainer container-default w-container"><div class="w-layout-grid grid-2-columns cta-v3-grid"><div class="z-index-1"><div class="inner-container _500px---mbl"><div class="inner-container _480px"><div class="inner-container _450px"><div class="inner-container _300px---mbp"><div class="mg-top-small"><h2 class="heading-25">Your dream home starts here.</h2></div></div></div><div class="mg-top-small"><div class="text-neutral-light"><p class="paragraph-20">Tell us about your project — we'll take care of the rest.</p></div></div><div class="mg-top-default"><div class="buttons-row left"><a href="#" class="primary-button w-inline-block"><div class="text-block">Free Consultation</div></a></div></div></div></div></div><div class="image-wrapper cta-v3-image"><x-img src="/webflow-assets/images/687ca4b70b8583ef4890bad4_iPad.avif" preset="cta" loading="eager" alt="Deluxe-windows" class="image"/></div></div></div></div></section>
+      @include('partials.cta')
 
       {{-- FAQ section --}}
       <section class="section top-none"><div class="w-layout-blockcontainer container-default w-container"><div class="w-layout-grid grid-2-columns faqs-grid-v3"><div class="sticky-top static---mbl"><div class="inner-container _450px---mbl"><div class="inner-container _275px---tablet _100-mbl"><div class="inner-container _340px _100-mbl"><div class="mg-top-small"><h2 class="heading-44">Do You Have Any Question?</h2></div><div class="div-block-49"><p class="paragraph-2">Call us at <a href="tel:855-355-0515">(650) 461-4446</a> to <br/>ask your questions. </p></div></div></div></div></div><div class="inner-container _763px width-100"><div class="card accordion-card v2"><div class="w-layout-grid grid-1-column accordion-v6"><div class="accordion-item-wrapper v2 first"><div class="accordion-top"><div class="text-titles"><h3 class="faqs-title">Which material is best for your windows?<br/></h3></div><div class="accordion-icon-wrapper"><div class="accordion-icon-line vertical"></div><div class="accordion-icon-line"></div></div></div><div class="accordion-bottom v1"><p class="accordion-paragraph">The best window material depends on your home&#x27;s style, climate, energy efficiency needs, and budget. We offer a variety of options like vinyl, wood, aluminum, and fiberglass — each with its own benefits.<br/><br/>To find the perfect fit for your home, we recommend speaking with one of our experts. Contact us today for a personalized consultation</p></div></div><div data-w-id="5e6fa5f4-992b-f428-8721-43b1fd267cb8" class="accordion-wrapper"><div class="accordion-item-wrapper v2"><div class="accordion-top"><div class="text-titles"><h3 class="faqs-title">Is consultation for free?</h3></div><div class="accordion-icon-wrapper"><div class="accordion-icon-line vertical"></div><div class="accordion-icon-line"></div></div></div><div class="accordion-bottom v1"><p class="accordion-paragraph">To get a free consultation, please fill out the <a href="#">form</a>.</p></div></div></div><div data-w-id="5e6fa5f4-992b-f428-8721-43b1fd267cc6" class="accordion-wrapper"><div class="accordion-item-wrapper v2"><div class="accordion-top"><div class="text-titles"><h3 class="faqs-title">When do I need new windows?</h3></div><div class="accordion-icon-wrapper"><div class="accordion-icon-line vertical"></div><div class="accordion-icon-line"></div></div></div><div class="accordion-bottom v1"><p class="accordion-paragraph">If you aren&#x27;t sure whether your windows need replacing, Deluxe Windows, Inc. can come to your home for a free consultation.</p></div></div></div><div data-w-id="5e6fa5f4-992b-f428-8721-43b1fd267cd6" class="accordion-wrapper"><div class="accordion-item-wrapper v2 last"><div class="accordion-top"><div class="text-titles"><h3 class="faqs-title">How to choose windows brands and styles?</h3></div><div class="accordion-icon-wrapper"><div class="accordion-icon-line vertical"></div><div class="accordion-icon-line"></div></div></div><div class="accordion-bottom v1"><p class="accordion-paragraph">The answer to this question can only be answered once we come to your home for a free consultation. Every home is different, and when our professional window replacement specialist comes out to assess your house, we can factor in all the different aspects to suggest which product, style and price range will work best for you.</p></div></div></div></div></div></div></div></div></section>
