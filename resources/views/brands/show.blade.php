@@ -267,9 +267,9 @@
         </div>
       </section>
 
-      @include('partials.faq')
+      @include('partials.faq', ['sectionExtraClass' => 'section-bg-none'])
 
-      <section id="contact" class="section hero-v4">
+      <section id="contact" class="section hero-v4 section-bg-none">
         <div class="w-layout-blockcontainer container-default w-container">
           <div class="w-layout-grid grid-2-columns contact-grid-v2">
             <div id="w-node-_1bf01939-5bf2-786b-3a31-18563ba6ae1f-facb1583" class="inner-container _440px _100-tablet">
@@ -280,7 +280,7 @@
               <div class="mg-top-default">
                 <div class="w-layout-grid grid-2-columns contact-links-grid-v1">
                   <div class="contact-link---icon-left">
-                    <img src="/webflow-assets/images/6841ddf8ace3d9d9facb1950_phone-icon-property-x-webflow-template.svg" loading="eager" alt="Phone Icon - Property X Webflow Template" class="contact-icon" />
+                    @include('partials.contact-phone-icon')
                     <div>
                       <div class="div-block"><div class="text-block-3">Phone number</div></div>
                       <div class="mg-top-tiny">

@@ -1,4 +1,4 @@
-      <section class="section top-none">
+      <section class="section top-none{{ !empty($sectionExtraClass) ? ' ' . $sectionExtraClass : '' }}">
         <div class="w-layout-blockcontainer container-default w-container">
           <div class="w-layout-grid grid-2-columns faqs-grid-v3">
             <div class="sticky-top static---mbl">

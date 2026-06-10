@@ -544,6 +544,29 @@
   }
 }
 
+/* Sections without default white strip background */
+.section.section-bg-none {
+  background: none !important;
+  background-color: transparent !important;
+}
+
+.contact-link---icon-left .contact-icon {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  min-width: 25px;
+  max-width: 25px;
+  height: 25px;
+}
+
+.contact-link---icon-left .contact-icon svg {
+  display: block;
+  width: 25px;
+  height: 25px;
+}
+
 /* Brand index — logo area (no gray tile; centered like Webflow) */
 .brand-card > div > a.image-wrapper.is-brand-logo {
   display: flex;
@@ -617,26 +640,4 @@
     padding: 22px 24px;
     min-height: 88px;
   }
-}
-
-/* FAQ + Contact — no separate white section/card background */
-.section.top-none:has(.faqs-grid-v3) {
-  background: none !important;
-}
-
-.faqs-grid-v3 .card.accordion-card.v2 {
-  background: none !important;
-  box-shadow: none !important;
-}
-
-section#contact.section.hero-v4,
-.section.hero-v4#contact {
-  background: none !important;
-}
-
-.contact-link---icon-left .contact-icon {
-  display: block;
-  width: 25px;
-  height: 25px;
-  flex: 0 0 25px;
 }
