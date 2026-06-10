@@ -72,10 +72,11 @@
     </script>
   </head>
 
-  <body>
-    <div class="page-wrapper full-height-page">
+  <body class="body-18 height-auto">
+    <div class="page-wrapper">
 
       @include('partials.navbar')
+      @include('partials.header-scripts')
 
       <section class="section_breadcrumbs section-121">
         <div class="w-layout-blockcontainer container-default breadcrumbs-container w-container">
@@ -122,7 +123,7 @@
     <div id="menuDimmer" style="opacity: 0; pointer-events: none"></div>
 
     <script src="/webflow-assets/js/jquery-3.5.1.min.js" type="text/javascript"></script>
-    <script src="/webflow-assets/js/webflow.min.js" type="text/javascript"></script>
+    <script src="/webflow-assets/js/webflow.js" type="text/javascript"></script>
 
     <script>
       (function () {

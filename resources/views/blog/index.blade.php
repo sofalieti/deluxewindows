@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html
   data-wf-domain="www.deluxewindows.com"
-  data-wf-page="6841df5688ca2f74fd53ec90"
+  data-wf-page="688097fa174129b5ec241dd4"
   data-wf-site="6841ddf8ace3d9d9facb14fd"
   lang="en"
   class="w-mod-js w-mod-ix"
@@ -80,7 +80,7 @@
           <div class="breadcrumbs-wrapper">
             <a href="/" class="breadcrumb-link">Home</a>
             <div class="breadcrumb-div">/</div>
-            <div class="breadcrumb-text">Knowledge Articles</div>
+            <div class="breadcrumb-text">Blog</div>
           </div>
         </div>
       </section>
@@ -110,6 +110,8 @@
           </div>
         </div>
       </section>
+
+      @include('partials.blog-page-bottom')
 
       @include('partials.footer')
 
