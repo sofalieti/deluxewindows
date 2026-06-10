@@ -1,4 +1,4 @@
-﻿      <div class="header-container-2">
+      <div class="header-container-2">
         <div
           data-animation="default"
           data-collapse="tiny"

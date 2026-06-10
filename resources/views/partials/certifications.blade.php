@@ -1,4 +1,4 @@
-﻿      <div class="f-section-large-2">
+      <div class="f-section-large-2">
         <img
           src="/webflow-assets/images/69986e6eb764fe1619060131_achievement-award-medal-icon.svg"
           loading="lazy"

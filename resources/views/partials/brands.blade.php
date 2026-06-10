@@ -1,6 +1,6 @@
-﻿      <div class="div-block-51">
-        <div class="collection-list-wrapper-9 w-dyn-list">
-          <div role="list" class="collection-list-9 third-item w-dyn-items">
+      <div class="div-block-51">
+        <div class="brand-marquee w-dyn-list" aria-label="Partner brands">
+          <div role="list" class="brand-marquee-track collection-list-9 third-item w-dyn-items">
             <div role="listitem" class="w-dyn-item">
               <a
                 data-w-id="d191f61a-0390-1664-5c05-49ba21aea545"
@@ -153,5 +153,4 @@
             </div>
           </div>
         </div>
-        <div class="w-embed"></div>
       </div>

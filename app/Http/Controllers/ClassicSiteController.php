@@ -32,14 +32,34 @@ class ClassicSiteController extends Controller
         $homeWindows = WindowsWebflowItem::query()
             ->where('is_archived', false)
             ->where('is_draft', false)
-            ->take(6)
             ->get()
+            ->filter(function ($item) {
+                $fd = is_array($item->field_data) ? $item->field_data : [];
+
+                if (($fd['hide'] ?? false) === true) {
+                    return false;
+                }
+
+                if (($fd['parent-collection'] ?? '') !== 'Windows') {
+                    return false;
+                }
+
+                return ($fd['slug'] ?? '') !== '';
+            })
+            ->sortBy(function ($item) {
+                $slug = (string) data_get($item->field_data, 'slug', '');
+                $pos = array_search($slug, self::WINDOWS_INDEX_SLUG_ORDER, true);
+
+                return $pos === false ? 999 : $pos;
+            })
+            ->values()
+            ->take(4)
             ->map(function ($w) {
                 $fd = is_array($w->field_data) ? $w->field_data : [];
                 $wSlug = $fd['slug'] ?? '';
                 $wName = $fd['name'] ?? '';
                 $wImage = $this->extractImageUrl($fd, ['property-listing---featured-image']);
-                $wSummary = $fd['property-listing---summary'] ?? '';
+                $wSummary = $fd['property-listing---excerpt'] ?? '';
 
                 return $wSlug !== ''
                     ? ['name' => $wName, 'slug' => $wSlug, 'image' => $wImage ?? '', 'summary' => $wSummary]

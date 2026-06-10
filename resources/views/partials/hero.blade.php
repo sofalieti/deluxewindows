@@ -1,4 +1,4 @@
-﻿@php
+@php
   $brandLikeHero = !empty($brandHero) || !empty($windowTypeHero) || !empty($collectionHero) || !empty($doorHero);
   $heroPageId = !empty($collectionHero)
     ? '69366119c296b5e2e8bdbfb8'
