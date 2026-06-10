@@ -37,68 +37,6 @@
 
     @include('partials.classic-layout-styles')
 
-    <style>
-      .blog-index-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 28px;
-      }
-      .blog-index-card {
-        background: #fff;
-        border-radius: 14px;
-        overflow: hidden;
-        text-decoration: none;
-        color: inherit;
-        box-shadow: 0 2px 14px rgba(0,0,0,0.07);
-        transition: box-shadow 0.2s, transform 0.2s;
-        display: flex;
-        flex-direction: column;
-      }
-      .blog-index-card:hover {
-        box-shadow: 0 8px 28px rgba(0,0,0,0.13);
-        transform: translateY(-2px);
-      }
-      .blog-index-card-img {
-        width: 100%;
-        aspect-ratio: 16/9;
-        object-fit: cover;
-        display: block;
-        background: #e8edf2;
-      }
-      .blog-index-card-body {
-        padding: 20px 22px 24px;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
-      .blog-index-card-title {
-        font-size: 1.05rem;
-        font-weight: 700;
-        color: #1a1a1a;
-        line-height: 1.45;
-        margin-bottom: 14px;
-      }
-      .blog-index-card-date {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        font-size: 0.82rem;
-        color: #888;
-      }
-      .blog-index-card-date svg {
-        flex-shrink: 0;
-        opacity: 0.6;
-      }
-
-      @media (max-width: 900px) {
-        .blog-index-grid { grid-template-columns: repeat(2, 1fr); }
-      }
-      @media (max-width: 540px) {
-        .blog-index-grid { grid-template-columns: 1fr; }
-      }
-    </style>
-
     <!-- Google tag -->
     <script>
       (function () {
@@ -147,40 +85,25 @@
         </div>
       </section>
 
-      <section class="section pd-120px top-none">
+      <section class="section pd-120px">
         <div class="w-layout-blockcontainer container-default w-container">
-          <div class="mg-top-extra-large">
-            <div class="title-left---content-right">
-              <h1 class="display-9 mid">Knowledge Articles</h1>
+          <div class="inner-container _600px center">
+            <div class="text-center">
+              <div class="inner-container _500px---mbl center">
+                <h1 class="display-9 mid">Knowledge Articles<br /></h1>
+              </div>
             </div>
-            <div class="mg-top-large">
-              <div class="blog-index-grid">
+          </div>
+        </div>
+        <div class="w-layout-blockcontainer container-default w-container">
+          <div class="mg-top-large">
+            <div class="collection-list-wrapper-8 w-dyn-list">
+              <div role="list" class="collection-list-5 w-dyn-items">
                 @foreach($posts as $post)
-                <a href="/blog/{{ $post['slug'] }}" class="blog-index-card">
-                  @if($post['image'])
-                  <img
-                    class="blog-index-card-img"
-                    src="{{ $post['image'] }}"
-                    alt="{{ $post['name'] }}"
-                    loading="lazy"
-                  />
-                  @else
-                  <div class="blog-index-card-img"></div>
-                  @endif
-                  <div class="blog-index-card-body">
-                    <div class="blog-index-card-title">{{ $post['name'] }}</div>
-                    @if($post['published'])
-                    <div class="blog-index-card-date">
-                      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="1" y="2" width="14" height="13" rx="2" stroke="currentColor" stroke-width="1.5"/>
-                        <path d="M1 6h14" stroke="currentColor" stroke-width="1.5"/>
-                        <path d="M5 1v2M11 1v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                      </svg>
-                      {{ $post['published'] }}
-                    </div>
-                    @endif
-                  </div>
-                </a>
+                  @include('partials.blog-index-card', [
+                    'post' => $post,
+                    'loading' => $loop->first ? 'eager' : 'lazy',
+                  ])
                 @endforeach
               </div>
             </div>

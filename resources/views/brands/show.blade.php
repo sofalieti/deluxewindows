@@ -107,10 +107,8 @@
             <div id="w-node-_399819b6-70a2-6968-e585-c5e3fab5d7ee-facb1583" class="inner-container _408px _100-mbl">
               <div class="sticky-top brands">
                 <section class="section_sidebar brands">
-                  @include('partials.brands-sidebar')
+                  @include('partials.brands-sidebar', ['hideSidebarInlineForm' => true])
                 </section>
-
-                @include('partials.brand-sidebar-form-card', ['variant' => 'hero-section'])
               </div>
             </div>
 

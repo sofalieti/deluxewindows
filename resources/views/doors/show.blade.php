@@ -396,10 +396,10 @@
                   <div class="mg-top-default"><div class="divider"></div></div>
                   <div class="div-block-44">
                     <div class="w-layout-grid grid-1-column gap-row-16px">
-                      <div class="feature-wrapper dark v1"><div class="check-icon feature-plan"></div><div class="display-2">No Credit Score Required</div></div>
-                      <div class="feature-wrapper dark v1"><div class="check-icon feature-plan"></div><div class="display-2">Fast &amp; Simple Approval</div></div>
-                      <div class="feature-wrapper dark v1"><div class="check-icon feature-plan"></div><div class="display-2">Improve Home Value Now</div></div>
-                      <div class="feature-wrapper dark v1"><div class="check-icon feature-plan"></div><div class="display-2">Second Chance Financing</div></div>
+                      <div class="feature-wrapper dark v1"><div class="check-icon feature-plan" aria-hidden="true">&#xE82F;</div><div class="display-2">No Credit Score Required</div></div>
+                      <div class="feature-wrapper dark v1"><div class="check-icon feature-plan" aria-hidden="true">&#xE82F;</div><div class="display-2">Fast &amp; Simple Approval</div></div>
+                      <div class="feature-wrapper dark v1"><div class="check-icon feature-plan" aria-hidden="true">&#xE82F;</div><div class="display-2">Improve Home Value Now</div></div>
+                      <div class="feature-wrapper dark v1"><div class="check-icon feature-plan" aria-hidden="true">&#xE82F;</div><div class="display-2">Second Chance Financing</div></div>
                     </div>
                   </div>
                 </div>
@@ -418,10 +418,10 @@
                   <div class="mg-top-default"><div class="divider"></div></div>
                   <div class="div-block-43">
                     <div class="w-layout-grid grid-1-column gap-row-16px">
-                      <div class="feature-wrapper dark v1"><div class="check-icon feature-plan"></div><div class="display-2">Budget-Friendly Payments</div></div>
-                      <div class="feature-wrapper dark v1"><div class="check-icon feature-plan"></div><div class="display-2">Long-Term Savings</div></div>
-                      <div class="feature-wrapper dark v1"><div class="check-icon feature-plan"></div><div class="display-2">Secure &amp; Stable</div></div>
-                      <div class="feature-wrapper dark v1"><div class="check-icon feature-plan"></div><div class="display-2">Immediate Upgrades</div></div>
+                      <div class="feature-wrapper dark v1"><div class="check-icon feature-plan" aria-hidden="true">&#xE82F;</div><div class="display-2">Budget-Friendly Payments</div></div>
+                      <div class="feature-wrapper dark v1"><div class="check-icon feature-plan" aria-hidden="true">&#xE82F;</div><div class="display-2">Long-Term Savings</div></div>
+                      <div class="feature-wrapper dark v1"><div class="check-icon feature-plan" aria-hidden="true">&#xE82F;</div><div class="display-2">Secure &amp; Stable</div></div>
+                      <div class="feature-wrapper dark v1"><div class="check-icon feature-plan" aria-hidden="true">&#xE82F;</div><div class="display-2">Immediate Upgrades</div></div>
                     </div>
                   </div>
                 </div>
@@ -440,10 +440,10 @@
                   <div class="mg-top-default"><div class="divider"></div></div>
                   <div class="div-block-42">
                     <div class="w-layout-grid grid-1-column gap-row-16px">
-                      <div class="feature-wrapper dark v1"><div class="check-icon feature-plan"></div><div class="display-2">Custom Repayment Plans</div></div>
-                      <div class="feature-wrapper dark v1"><div class="check-icon feature-plan"></div><div class="display-2">More Buying Power</div></div>
-                      <div class="feature-wrapper dark v1"><div class="check-icon feature-plan"></div><div class="display-2">Up to 30-Year Terms</div></div>
-                      <div class="feature-wrapper dark v1"><div class="check-icon feature-plan"></div><div class="display-2">Upgrade Without Stress</div></div>
+                      <div class="feature-wrapper dark v1"><div class="check-icon feature-plan" aria-hidden="true">&#xE82F;</div><div class="display-2">Custom Repayment Plans</div></div>
+                      <div class="feature-wrapper dark v1"><div class="check-icon feature-plan" aria-hidden="true">&#xE82F;</div><div class="display-2">More Buying Power</div></div>
+                      <div class="feature-wrapper dark v1"><div class="check-icon feature-plan" aria-hidden="true">&#xE82F;</div><div class="display-2">Up to 30-Year Terms</div></div>
+                      <div class="feature-wrapper dark v1"><div class="check-icon feature-plan" aria-hidden="true">&#xE82F;</div><div class="display-2">Upgrade Without Stress</div></div>
                     </div>
                   </div>
                 </div>
