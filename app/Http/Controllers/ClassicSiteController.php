@@ -497,18 +497,37 @@ class ClassicSiteController extends Controller
 
     private function resolveLearnMoreWindows(WindowsWebflowItem $window): \Illuminate\Support\Collection
     {
-        $referenced = $window->webflowReferences('collections')
-            ->map(function ($item) {
-                $fd = is_array($item->field_data) ? $item->field_data : [];
-                $itemSlug = $fd['slug'] ?? '';
+        $currentSlug = strtolower(trim((string) data_get($window->field_data, 'slug', '')));
 
-                return $itemSlug !== ''
-                    ? [
-                        'name'  => $fd['name'] ?? '',
-                        'slug'  => $itemSlug,
-                        'image' => $this->extractImageUrl($fd, ['featured-image', 'property-listing---featured-image']),
-                    ]
-                    : null;
+        $referenced = $window->webflowReferences('collections')
+            ->map(function ($item) use ($currentSlug) {
+                $fd = is_array($item->field_data) ? $item->field_data : [];
+                $itemSlug = strtolower(trim((string) ($fd['slug'] ?? '')));
+
+                if ($itemSlug === '' || $itemSlug === $currentSlug) {
+                    return null;
+                }
+
+                $linkedWindow = WindowsWebflowItem::query()
+                    ->where('is_archived', false)
+                    ->where('is_draft', false)
+                    ->where('field_data->slug', $itemSlug)
+                    ->first();
+
+                if ($linkedWindow !== null) {
+                    $winFd = is_array($linkedWindow->field_data) ? $linkedWindow->field_data : [];
+                    if (! $this->isVisibleWindowsMaterialPage($winFd)) {
+                        return null;
+                    }
+
+                    return $this->mapLearnMoreWindowCard($linkedWindow);
+                }
+
+                return [
+                    'name'  => $fd['name'] ?? '',
+                    'slug'  => $itemSlug,
+                    'image' => $this->extractImageUrl($fd, ['featured-image', 'property-listing---featured-image']) ?? '',
+                ];
             })
             ->filter()
             ->values();
@@ -517,23 +536,57 @@ class ClassicSiteController extends Controller
             return $referenced;
         }
 
-        $fallbackSlugs = ['marvin-modern', 'marvin-ultimate', 'martin-elevate'];
+        return $this->learnMoreMaterialWindows($currentSlug);
+    }
 
+    private function learnMoreMaterialWindows(string $excludeSlug): \Illuminate\Support\Collection
+    {
         return WindowsWebflowItem::query()
-            ->whereIn('field_data->slug', $fallbackSlugs)
+            ->where('is_archived', false)
+            ->where('is_draft', false)
             ->get()
-            ->sortBy(fn ($w) => array_search($w->field_data['slug'] ?? '', $fallbackSlugs, true))
-            ->map(function ($w) {
-                $fd = is_array($w->field_data) ? $w->field_data : [];
+            ->filter(function ($item) use ($excludeSlug) {
+                $fd = is_array($item->field_data) ? $item->field_data : [];
 
-                return [
-                    'name'  => $fd['name'] ?? '',
-                    'slug'  => $fd['slug'] ?? '',
-                    'image' => $this->extractImageUrl($fd, ['property-listing---featured-image']),
-                ];
+                return $this->isVisibleWindowsMaterialPage($fd, $excludeSlug);
             })
-            ->filter(fn ($w) => $w['slug'] !== '')
+            ->sortBy(function ($item) {
+                $slug = (string) data_get($item->field_data, 'slug', '');
+                $pos = array_search($slug, self::WINDOWS_INDEX_SLUG_ORDER, true);
+
+                return $pos === false ? 999 : $pos;
+            })
+            ->map(fn ($item) => $this->mapLearnMoreWindowCard($item))
             ->values();
+    }
+
+    private function isVisibleWindowsMaterialPage(array $fieldData, string $excludeSlug = ''): bool
+    {
+        if (($fieldData['hide'] ?? false) === true) {
+            return false;
+        }
+
+        if (($fieldData['parent-collection'] ?? '') !== 'Windows') {
+            return false;
+        }
+
+        $slug = strtolower(trim((string) ($fieldData['slug'] ?? '')));
+
+        return $slug !== '' && $slug !== strtolower($excludeSlug);
+    }
+
+    private function mapLearnMoreWindowCard(WindowsWebflowItem $window): array
+    {
+        $fd = is_array($window->field_data) ? $window->field_data : [];
+
+        return [
+            'name'  => $fd['name'] ?? '',
+            'slug'  => $fd['slug'] ?? '',
+            'image' => $this->extractImageUrl($fd, [
+                'property-listing---featured-image',
+                'property-listing---thumbnail-image-v1',
+            ]) ?? '',
+        ];
     }
 
     private function resolveLearnMoreDoors(DoorsWebflowItem $door): \Illuminate\Support\Collection
