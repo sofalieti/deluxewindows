@@ -544,6 +544,18 @@
   }
 }
 
+/* Brand index — logo area (no gray tile; centered like Webflow) */
+.brand-card > div > a.image-wrapper.is-brand-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+}
+
+.brand-card .image.is-brandlogo {
+  mix-blend-mode: normal;
+}
+
 /* Window detail — brands grid below guarantee */
 .window-brands-section {
   padding-top: 72px !important;
@@ -561,15 +573,33 @@
 
 .window-brands-section .dw-brand-logo-slot.image-wrapper.is-brand-logo,
 .window-brands-section .dw-brand-logo-slot.image-wrapper.property-card-top-content-v1---image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: #fafbfc;
+  border: none !important;
+  border-bottom: none !important;
+  border-radius: 12px;
   padding: 28px 32px;
+  width: 100%;
+  min-width: 100%;
   height: auto;
   min-height: 104px;
   max-height: none;
+  overflow: hidden;
 }
 
 .window-brands-section .dw-brand-logo-slot .dw-brand-logo-img {
+  mix-blend-mode: darken;
+  object-fit: contain;
+  width: auto !important;
+  max-width: 65% !important;
+  min-width: 0 !important;
   max-height: 56px !important;
+  height: auto !important;
+  aspect-ratio: auto !important;
+  min-height: 0 !important;
+  border-radius: 0 !important;
 }
 
 @media (max-width: 767px) {
@@ -587,4 +617,26 @@
     padding: 22px 24px;
     min-height: 88px;
   }
+}
+
+/* FAQ + Contact — no separate white section/card background */
+.section.top-none:has(.faqs-grid-v3) {
+  background: none !important;
+}
+
+.faqs-grid-v3 .card.accordion-card.v2 {
+  background: none !important;
+  box-shadow: none !important;
+}
+
+section#contact.section.hero-v4,
+.section.hero-v4#contact {
+  background: none !important;
+}
+
+.contact-link---icon-left .contact-icon {
+  display: block;
+  width: 25px;
+  height: 25px;
+  flex: 0 0 25px;
 }
