@@ -1319,14 +1319,27 @@ class ClassicSiteController extends Controller
 
         foreach ($materialOrder as $materialName) {
             if ($materialName === 'Vinyl Windows' && $showVinylSubcategories) {
+                $materialId = $materialIdsByName->get($materialName);
+                $vinylCollections = $brandCollections
+                    ->filter(fn ($c) => $this->brandCollectionMatchesMaterial($c, $materialName, $materialId))
+                    ->values();
+
                 foreach (['/ New Construction', '/ Replacement'] as $sublabel) {
+                    $matched = $vinylCollections
+                        ->filter(fn ($c) => $this->brandCollectionMatchesVinylSubcategory($c, $sublabel))
+                        ->values();
+
                     $groups->push([
                         'name'                   => $materialName,
                         'sublabel'               => $sublabel,
-                        'collections'            => collect(),
-                        'visible'                => false,
+                        'collections'            => $matched,
+                        'visible'                => $matched->isNotEmpty(),
                         'insertWindowTypesAfter' => false,
                     ]);
+                }
+
+                if ($vinylCollections->isNotEmpty()) {
+                    $insertWindowTypesAfterFirst = false;
                 }
 
                 continue;
@@ -1457,6 +1470,36 @@ class ClassicSiteController extends Controller
         }
 
         return strcasecmp($collection['material'], $materialName) === 0;
+    }
+
+    /**
+     * Match vinyl subcategory groups (New Construction / Replacement) via plain-text Material field.
+     */
+    private function brandCollectionMatchesVinylSubcategory(array $collection, string $sublabel): bool
+    {
+        $subtype = $this->normalizeBrandCollectionMaterialSubtype($collection['material'] ?? '');
+        if ($subtype === null) {
+            return false;
+        }
+
+        $expectedSubtype = trim(str_replace('/', '', $sublabel));
+
+        return strcasecmp($subtype, $expectedSubtype) === 0;
+    }
+
+    private function normalizeBrandCollectionMaterialSubtype(string $material): ?string
+    {
+        $normalized = strtolower(trim($material));
+
+        if ($normalized === 'replacement') {
+            return 'Replacement';
+        }
+
+        if (in_array($normalized, ['new construction', 'new construcion'], true)) {
+            return 'New Construction';
+        }
+
+        return null;
     }
 
     private function mapWindowsIndexCard(WindowsWebflowItem $window): array

@@ -23,7 +23,7 @@
                     <div class="dropdown-toogle-2 dd-toggle sidebar-toggle w-dropdown-toggle" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0">
                       <div class="{{ $group['sublabel'] ? 'text-block-42 ' : '' }}text-size-16 text-color-grey">{{ $group['name'] }}</div>
                       @if($group['sublabel'])
-                      <div class="text-block-42 text-size-16 text-color-grey w-condition-invisible">{{ $group['sublabel'] }}</div>
+                      <div class="text-block-42 text-size-16 text-color-grey">{{ $group['sublabel'] }}</div>
                       @endif
                       <div class="icon-font-rounded-2 dropdown-arrow sidebar-icon hidden">&#x0494;</div>
                     </div>
