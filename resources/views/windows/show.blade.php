@@ -376,11 +376,10 @@
                 <div role="listitem" class="w-dyn-item">
                   <a href="/window-type/{{ $bt['slug'] }}" class="property-wrapper-v1 w-inline-block">
                     <div class="property-card-top-content-v1">
-                      <div class="image-wrapper border-radius-image-default property-card-top-content-v1---image">
-                        @if($bt['image'])
-                        <img src="{{ $bt['image'] }}" loading="eager" alt="{{ $bt['name'] }}" class="image cover-image" />
-                        @endif
-                      </div>
+                      @include('partials.brand-logo-slot', [
+                        'image' => $bt['image'] ?? '',
+                        'alt' => $bt['name'] ?? '',
+                      ])
                     </div>
                   </a>
                 </div>

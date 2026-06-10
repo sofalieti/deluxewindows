@@ -10,10 +10,11 @@
 <div role="listitem" class="collection-item-11 w-dyn-item">
   <div class="brand-card">
     <div>
-      <a href="/brands/{{ $brand['slug'] }}" class="image-wrapper border-radius-image-default property-card-top-content-v1---image is-brand-logo w-inline-block">
-        @if($brand['logo'])
-        <img src="{{ $brand['logo'] }}" loading="eager" alt="" class="image cover-image is-brandlogo" />
-        @endif
+      <a href="/brands/{{ $brand['slug'] }}" class="w-inline-block">
+        @include('partials.brand-logo-slot', [
+          'image' => $brand['logo'] ?? '',
+          'alt' => $brand['name'] ?? '',
+        ])
       </a>
       <div class="brand_card-content">
         @if(count($brand['materials']))

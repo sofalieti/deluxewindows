@@ -16,6 +16,17 @@ use Illuminate\Support\Facades\File;
 
 class ClassicSiteController extends Controller
 {
+    /** @var list<string> */
+    private const WINDOWS_INDEX_SLUG_ORDER = [
+        'aluminum-clad-windows',
+        'vinyl-windows',
+        'wood-clad-windows',
+        'fiberglass-windows',
+        'wood-windows',
+        'aluminum-windows',
+        'steel-windows',
+    ];
+
     public function home()
     {
         $homeWindows = WindowsWebflowItem::query()
@@ -546,6 +557,43 @@ class ClassicSiteController extends Controller
             })
             ->filter()
             ->values();
+    }
+
+    public function windowsIndex()
+    {
+        $seoTitle       = 'Windows for Bay Area Homes | Deluxe Windows California';
+        $seoDescription = 'Discover high-performance windows for San Francisco homes. Deluxe Windows installs vinyl, wood, aluminum, and fiberglass windows with expert craftsmanship. Get a free quote.';
+        $ogImage        = 'https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/684da9f6a8d9aab7e88572b2_Meta%20cover-windows.jpg';
+
+        $windows = WindowsWebflowItem::query()
+            ->where('is_archived', false)
+            ->where('is_draft', false)
+            ->get()
+            ->filter(function ($item) {
+                $fd = is_array($item->field_data) ? $item->field_data : [];
+
+                if (($fd['hide'] ?? false) === true) {
+                    return false;
+                }
+
+                if (($fd['parent-collection'] ?? '') !== 'Windows') {
+                    return false;
+                }
+
+                return ($fd['slug'] ?? '') !== '';
+            })
+            ->sortBy(function ($item) {
+                $slug = (string) data_get($item->field_data, 'slug', '');
+                $pos = array_search($slug, self::WINDOWS_INDEX_SLUG_ORDER, true);
+
+                return $pos === false ? 999 : $pos;
+            })
+            ->values()
+            ->map(fn ($item) => $this->mapWindowsIndexCard($item))
+            ->filter(fn ($card) => ($card['slug'] ?? '') !== '')
+            ->values();
+
+        return view('windows.index', compact('seoTitle', 'seoDescription', 'ogImage', 'windows'));
     }
 
     public function brandIndex()
@@ -1335,6 +1383,22 @@ class ClassicSiteController extends Controller
         }
 
         return strcasecmp($collection['material'], $materialName) === 0;
+    }
+
+    private function mapWindowsIndexCard(WindowsWebflowItem $window): array
+    {
+        $fd = is_array($window->field_data) ? $window->field_data : [];
+
+        $image = $this->extractImageUrl($fd, [
+            'property-listing---featured-image',
+            'property-listing---thumbnail-image-v1',
+        ]);
+
+        return [
+            'name'  => $fd['name'] ?? '',
+            'slug'  => $fd['slug'] ?? '',
+            'image' => $image ?? '',
+        ];
     }
 
     private function mapBrandIndexCard(BrandsWebflowItem $brand): array
