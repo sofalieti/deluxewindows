@@ -185,7 +185,7 @@
                           </div>
                           <div class="input-wrapper-5">
                             <div class="input-line-icon-wrapper-4"><div class="filled-icons-font">&#xE873;</div></div>
-                            <input class="input-2 icon-left w-input" maxlength="256" name="Phone" placeholder="Phone number" type="tel" id="phone-col" required="" />
+                            <input class="input-2 icon-left w-input" maxlength="256" name="Phone" placeholder="{{ site_phone_display() }}" type="tel" id="phone-col" required="" />
                           </div>
                           <div class="input-wrapper-5">
                             <input class="input-2 icon-left w-input" maxlength="256" name="Subject" placeholder="City" type="text" id="subject-col" required="" />

@@ -1,13 +1,3 @@
-@php
-  $contactRegions = [
-    ['area' => 'San Francisco/North Bay', 'display' => '(415) 651-2321', 'tel' => '+14156512321'],
-    ['area' => 'San Mateo/Burlingame (Peninsula)', 'display' => site_phone_display(), 'tel' => site_phone_tel()],
-    ['area' => 'East Bay', 'display' => '(510) 244-6500', 'tel' => '+15102446500'],
-    ['area' => 'South Bay', 'display' => '(408) 516-1200', 'tel' => '+14085161200'],
-    ['area' => 'Lamorinda', 'display' => '(925) 430-5135', 'tel' => '+19254305135'],
-  ];
-@endphp
-
       <section id="contact" class="section hero-v4">
         <div class="w-layout-blockcontainer container-default w-container">
           <h1 class="heading-31">Contact Us</h1>
@@ -19,8 +9,7 @@
                 </div>
               </div>
               <div class="mg-top-default">
-                <div class="w-layout-grid grid-2-columns contact-links-grid-v1 contacts-grid">
-                  @foreach($contactRegions as $region)
+                <div class="w-layout-grid grid-2-columns contact-links-grid-v1">
                   <div class="contact-link---icon-left">
                     <img
                       src="/webflow-assets/images/6841ddf8ace3d9d9facb1950_phone-icon-property-x-webflow-template.svg"
@@ -29,13 +18,12 @@
                       class="contact-icon"
                     />
                     <div>
-                      <div class="div-block"><div class="text-block-3">{{ $region['area'] }}</div></div>
+                      <div class="div-block"><div class="text-block-3">Phone number</div></div>
                       <div class="mg-top-tiny">
-                        <a href="tel:{{ $region['tel'] }}" class="link mid w-inline-block"><div>{{ $region['display'] }}</div></a>
+                        <a href="tel:{{ site_phone_tel() }}" class="link mid w-inline-block"><div>{{ site_phone_display() }}</div></a>
                       </div>
                     </div>
                   </div>
-                  @endforeach
                 </div>
               </div>
             </div>
