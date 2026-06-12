@@ -69,7 +69,7 @@
                           "
                         >
                           To get a free consultation, please fill out the
-                          <a href="/#">form</a>.
+                          <a href="{{ $faqFormHref ?? '/contacts#wf-form-Contact-V1-Form' }}">form</a>.
                         </p>
                       </div>
                     </div>
