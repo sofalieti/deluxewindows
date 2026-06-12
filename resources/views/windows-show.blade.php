@@ -136,7 +136,7 @@
         "@type": "HomeAndConstructionBusiness",
         "name": "Deluxe Windows",
         "url": "/",
-        "telephone": "+18887304144",
+        "telephone": "{{ site_phone_tel() }}",
         "description": "Premium window and door replacement for San Francisco Bay Area homes. 30+ years, 100% employee owned.",
         "priceRange": "$$",
         "aggregateRating": {
@@ -177,7 +177,7 @@
         "@type": "HomeAndConstructionBusiness",
         "name": "Deluxe Windows",
         "url": "/",
-        "telephone": "+18887304144",
+        "telephone": "{{ site_phone_tel() }}",
         "description": "Premium window and door replacement for San Francisco Bay Area homes. 30+ years, 100% employee owned.",
         "priceRange": "$$",
         "aggregateRating": {
@@ -239,7 +239,7 @@
           <div class="container-default-2 w-container">
             <div data-w-id="632206d9-3c73-e5be-be34-15992c2e8311" class="header-container-wrapper-2">
               <div class="div-block-17 phone3">
-                <a href="tel:+18887304144" class="link-block phone w-inline-block"
+                <a href="tel:{{ site_phone_tel() }}" class="link-block phone w-inline-block"
                   ><img
                     width="20"
                     loading="lazy"
@@ -263,7 +263,7 @@
                 </div>
               </div>
               <div class="nav-menu-left-side-2"></div>
-              <div class="div-block-16"><div class="text-block-15">(888) 730-4144</div></div>
+              <div class="div-block-16"><div class="text-block-15">{{ site_phone_display() }}</div></div>
             </div>
           </div>
         </div>
@@ -903,7 +903,7 @@
                     alt=""
                     src="/webflow-assets/images/686acba4611e759fd8169f9d_photo_2025-07-06-22.14.41.avif"
                     class="image-24" /></a
-                ><a href="tel:(888)730-4144" class="link-15"><strong>Sales: </strong> (888) 730-4144</a>
+                ><a href="tel:{{ site_phone_tel() }}" class="link-15"><strong>Sales: </strong> {{ site_phone_display() }}</a>
                 <nav role="navigation" class="nav-menu-wrapper-4 w-nav-menu">
                   <ul role="list" class="nav-menu-2 w-list-unstyled">
                     <li class="menu">
@@ -1066,7 +1066,7 @@
                       </div>
                     </li>
                   </ul>
-                  <a href="tel:(888)730-4144"> (888) 730-4144</a>
+                  <a href="tel:{{ site_phone_tel() }}"> {{ site_phone_display() }}</a>
                 </nav>
                 <div class="menu-button w-nav-button"><div class="icon w-icon-nav-menu"></div></div>
               </div>
@@ -1435,7 +1435,7 @@
                           maxlength="256"
                           name="Phone"
                           data-name="Phone"
-                          placeholder="(650) 461-4446"
+                          placeholder="{{ site_phone_display() }}"
                           type="tel"
                           id="phone"
                           required=""
@@ -2662,7 +2662,7 @@
                     <div class="mg-top-small"><h2 class="heading-44">Do You Have Any Question?</h2></div>
                     <div class="div-block-49">
                       <p class="paragraph-2">
-                        Call us at <a href="tel:855-355-0515">(650) 461-4446</a> to <br />ask your questions.
+                        Call us at <a href="tel:{{ site_phone_tel() }}">{{ site_phone_display() }}</a> to <br />ask your questions.
                       </p>
                     </div>
                   </div>

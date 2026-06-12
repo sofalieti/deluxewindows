@@ -1481,7 +1481,7 @@ class ClassicSiteController extends Controller
             'provider'    => [
                 '@type'     => 'HomeAndConstructionBusiness',
                 'name'      => 'Deluxe Windows',
-                'telephone' => '+18887304144',
+                'telephone' => site_phone_tel(),
                 'url'       => 'https://www.deluxewindows.com',
             ],
             'areaServed'  => [

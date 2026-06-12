@@ -266,7 +266,7 @@
                   <div>
                     <div class="div-block"><div class="text-block-3">Phone number</div></div>
                     <div class="mg-top-tiny">
-                      <a href="tel:+18887304144" class="link mid w-inline-block"><div>(888) 730-4144</div></a>
+                      <a href="tel:{{ site_phone_tel() }}" class="link mid w-inline-block"><div>{{ site_phone_display() }}</div></a>
                     </div>
                   </div>
                 </div>
@@ -299,7 +299,7 @@
                   <div id="w-node-_324983b2-578c-4b96-a818-252e8c7a8405-ba0e091a">
                     <label for="Phone-2">Phone number*</label>
                     <div class="input-wrapper">
-                      <input class="input icon-left w-input" maxlength="256" name="Phone" data-name="Phone" placeholder="(650) 461-4446" type="tel" id="phone" required="" />
+                      <input class="input icon-left w-input" maxlength="256" name="Phone" data-name="Phone" placeholder="{{ site_phone_display() }}" type="tel" id="phone" required="" />
                       <div class="input-line-icon-wrapper"><div class="filled-icons-font"></div></div>
                     </div>
                   </div>

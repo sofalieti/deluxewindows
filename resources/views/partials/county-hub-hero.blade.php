@@ -64,7 +64,7 @@
                     <div id="w-node-dcd175c2-d86f-a2d9-1064-979a34e6bdda-1bcf1ae2">
                       <label for="Phone-2" class="field-label-3">Phone*</label>
                       <div class="input-wrapper">
-                        <input class="input icon-left w-input" maxlength="256" name="Phone" data-name="Phone" placeholder="(650) 461-4446" type="tel" id="phone" required="" />
+                        <input class="input icon-left w-input" maxlength="256" name="Phone" data-name="Phone" placeholder="{{ site_phone_display() }}" type="tel" id="phone" required="" />
                         <div class="input-line-icon-wrapper"><div class="filled-icons-font">&#xE873;</div></div>
                       </div>
                     </div>

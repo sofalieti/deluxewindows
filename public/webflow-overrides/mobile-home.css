@@ -276,7 +276,7 @@
 
 /* ─── 11. TOP-BAR CLEANUP (≤ 767px) ────────────────────────────────
    At 480–767px the top thin bar shows 4 items in a row:
-   [phone icon + Special Offers] | [slogan] | [empty] | [(888)…]
+   [phone icon + Special Offers] | [slogan] | [empty] | [(650) 461-4446]
    The slogan and phone text are redundant next to the compact nav.
    Hide them to prevent overflow and keep the bar tidy.               */
 

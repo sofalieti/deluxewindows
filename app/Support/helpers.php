@@ -4,6 +4,20 @@ declare(strict_types=1);
 
 use App\Services\Media\ImageThumbnailService;
 
+if (! function_exists('site_phone_display')) {
+    function site_phone_display(): string
+    {
+        return '(650) 461-4446';
+    }
+}
+
+if (! function_exists('site_phone_tel')) {
+    function site_phone_tel(): string
+    {
+        return '+16504614446';
+    }
+}
+
 if (! function_exists('thumbnail_url')) {
     /**
      * Return a cached, resized image URL when the source is larger than the preset.

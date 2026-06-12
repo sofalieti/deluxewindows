@@ -306,7 +306,7 @@
                       <div>
                         <div class="div-block"><div class="text-block-3">Phone number</div></div>
                         <div class="mg-top-tiny">
-                          <a href="tel:(650)461-4446" class="link mid w-inline-block"><div>(650) 461-4446</div></a>
+                          <a href="tel:{{ site_phone_tel() }}" class="link mid w-inline-block"><div>{{ site_phone_display() }}</div></a>
                         </div>
                       </div>
                     </div>
@@ -335,7 +335,7 @@
                         <div>
                           <label for="phone">Phone number*</label>
                           <div class="input-wrapper">
-                            <input class="input icon-left w-input" maxlength="256" name="Phone" data-name="Phone" placeholder="(650) 461-4446" type="tel" id="phone" required="" />
+                            <input class="input icon-left w-input" maxlength="256" name="Phone" data-name="Phone" placeholder="{{ site_phone_display() }}" type="tel" id="phone" required="" />
                             <div class="input-line-icon-wrapper"><div class="filled-icons-font"></div></div>
                           </div>
                         </div>
@@ -393,7 +393,7 @@
                   <div class="inner-container _340px _100-mbl">
                     <div class="mg-top-small"><h2 class="heading-44">Do You Have Any Question?</h2></div>
                     <div class="div-block-49">
-                      <p class="paragraph-2">Call us at <a href="tel:855-355-0515">(650) 461-4446</a> to <br/>ask your questions. </p>
+                      <p class="paragraph-2">Call us at <a href="tel:{{ site_phone_tel() }}">{{ site_phone_display() }}</a> to <br/>ask your questions. </p>
                     </div>
                   </div>
                 </div>

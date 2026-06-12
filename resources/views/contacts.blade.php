@@ -243,70 +243,20 @@
         </div>
       </section>
 
-      {{-- Regional Phone Numbers --}}
+      {{-- Phone --}}
       <section class="section" style="padding-top:16px;padding-bottom:60px;">
         <div class="w-layout-blockcontainer container-default w-container">
-          <div class="contacts-phones-grid">
-            <a href="tel:+14156512321" class="contact-phone-card">
-              <div class="contact-phone-region">North Bay</div>
-              <div class="contact-phone-area">San Francisco &amp; North Bay</div>
-              <div class="contact-phone-number">
+          <div class="contacts-phones-grid" style="max-width:420px;margin:0 auto;">
+            <a href="tel:{{ site_phone_tel() }}" class="contact-phone-card" style="background:linear-gradient(135deg,#0f4d89,#0a3b69);border-color:transparent;">
+              <div class="contact-phone-region" style="color:rgba(255,255,255,0.75);">Bay Area</div>
+              <div class="contact-phone-area" style="color:#fff;">Call Deluxe Windows</div>
+              <div class="contact-phone-number" style="color:#fff;">
                 <span class="contact-phone-icon">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
                 </span>
-                (415) 651-2321
+                {{ site_phone_display() }}
               </div>
             </a>
-            <a href="tel:+16504614446" class="contact-phone-card">
-              <div class="contact-phone-region">Peninsula</div>
-              <div class="contact-phone-area">San Mateo / Burlingame</div>
-              <div class="contact-phone-number">
-                <span class="contact-phone-icon">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
-                </span>
-                (650) 461-4446
-              </div>
-            </a>
-            <a href="tel:+15102446500" class="contact-phone-card">
-              <div class="contact-phone-region">East Bay</div>
-              <div class="contact-phone-area">East Bay Area</div>
-              <div class="contact-phone-number">
-                <span class="contact-phone-icon">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
-                </span>
-                (510) 244-6500
-              </div>
-            </a>
-            <a href="tel:+14085161200" class="contact-phone-card">
-              <div class="contact-phone-region">South Bay</div>
-              <div class="contact-phone-area">South Bay Area</div>
-              <div class="contact-phone-number">
-                <span class="contact-phone-icon">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
-                </span>
-                (408) 516-1200
-              </div>
-            </a>
-            <a href="tel:+19254305135" class="contact-phone-card">
-              <div class="contact-phone-region">Lamorinda</div>
-              <div class="contact-phone-area">Lamorinda Area</div>
-              <div class="contact-phone-number">
-                <span class="contact-phone-icon">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
-                </span>
-                (925) 430-5135
-              </div>
-            </a>
-            <div class="contact-phone-card" style="background:linear-gradient(135deg,#0f4d89,#0a3b69);border-color:transparent;display:flex;flex-direction:column;justify-content:center;">
-              <div style="font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.7);margin-bottom:6px;">Toll Free</div>
-              <div style="font-size:1rem;font-weight:700;color:#fff;margin-bottom:14px;">Available Everywhere</div>
-              <a href="tel:+18887304144" style="display:flex;align-items:center;gap:10px;font-size:1.25rem;font-weight:800;color:#fff;text-decoration:none;letter-spacing:-0.01em;">
-                <span style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
-                </span>
-                (888) 730-4144
-              </a>
-            </div>
           </div>
         </div>
       </section>

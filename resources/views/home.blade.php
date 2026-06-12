@@ -1129,7 +1129,7 @@ window.$zoho = window.$zoho || {};
   "@type": "HomeAndConstructionBusiness",
   "name": "Deluxe Windows",
   "url": "https://www.deluxewindows.com",
-  "telephone": "+18887304144",
+  "telephone": "{{ site_phone_tel() }}",
   "description": "Premium window and door replacement for San Francisco Bay Area homes. 30+ years, 100% employee owned.",
   "priceRange": "$$",
   "aggregateRating": {
@@ -1170,7 +1170,7 @@ window.$zoho = window.$zoho || {};
   "@type": "HomeAndConstructionBusiness",
   "name": "Deluxe Windows",
   "url": "https://www.deluxewindows.com",
-  "telephone": "+18887304144",
+  "telephone": "{{ site_phone_tel() }}",
   "description": "Premium window and door replacement for San Francisco Bay Area homes. 30+ years, 100% employee owned.",
   "priceRange": "$$",
   "aggregateRating": {

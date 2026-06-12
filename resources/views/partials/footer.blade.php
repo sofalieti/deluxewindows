@@ -13,7 +13,7 @@
                     <div class="display-7 mid">Need Help? <br />Call Us Now</div>
                   </div>
                   <div class="mg-top-small">
-                    <div class="text-neutral-light"><p class="paragraph-15">(650) 461-4446</p></div>
+                    <div class="text-neutral-light"><p class="paragraph-15"><a href="tel:{{ site_phone_tel() }}" class="footer-item-link w-inline-block" style="color:inherit;text-decoration:none;"><div>{{ site_phone_display() }}</div></a></p></div>
                   </div>
                 </div>
                 <div class="mg-top-small mg-top-16px---mbl">

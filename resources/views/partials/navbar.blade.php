@@ -11,7 +11,7 @@
           <div class="container-default-2 w-container">
             <div data-w-id="632206d9-3c73-e5be-be34-15992c2e8311" class="header-container-wrapper-2" style="opacity: 0">
               <div class="div-block-17 phone3">
-                <a href="tel:+18887304144" class="link-block phone w-inline-block"
+                <a href="tel:{{ site_phone_tel() }}" class="link-block phone w-inline-block"
                   ><img
                     width="20"
                     loading="lazy"
@@ -37,7 +37,7 @@
                 </div>
               </div>
               <div class="nav-menu-left-side-2"></div>
-              <div class="div-block-16"><div class="text-block-15">(888) 730-4144</div></div>
+              <div class="div-block-16"><div class="text-block-15">{{ site_phone_display() }}</div></div>
             </div>
           </div>
           <div
@@ -907,7 +907,7 @@
                     src="/webflow-assets/images/686acba4611e759fd8169f9d_photo_2025-07-06-22.14.41.avif"
                     preset="nav_logo"
                     class="image-24" /></a
-                ><a href="tel:(888)730-4144" class="link-15"><strong>Sales:&nbsp;</strong>&nbsp;(888) 730-4144</a>
+                ><a href="tel:{{ site_phone_tel() }}" class="link-15"><strong>Sales:&nbsp;</strong>&nbsp;{{ site_phone_display() }}</a>
                 <nav role="navigation" class="nav-menu-wrapper-4 w-nav-menu">
                   <ul role="list" class="nav-menu-2 w-list-unstyled">
                     <li class="menu">
@@ -1307,7 +1307,7 @@
                       </div>
                     </li>
                   </ul>
-                  <a href="tel:(888)730-4144">&nbsp;(888) 730-4144</a>
+                  <a href="tel:{{ site_phone_tel() }}">&nbsp;{{ site_phone_display() }}</a>
                 </nav>
                 <div
                   class="menu-button w-nav-button"

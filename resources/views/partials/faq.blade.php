@@ -8,7 +8,7 @@
                     <div class="mg-top-small"><h2 class="heading-44">Do You Have Any Question?</h2></div>
                     <div class="div-block-49">
                       <p class="paragraph-2">
-                        Call us at <a href="tel:855-355-0515">(650) 461-4446</a> to <br />ask your questions.
+                        Call us at <a href="tel:{{ site_phone_tel() }}">{{ site_phone_display() }}</a> to <br />ask your questions.
                       </p>
                     </div>
                   </div>

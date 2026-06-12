@@ -224,7 +224,7 @@
                           maxlength="256"
                           name="Phone"
                           data-name="Phone"
-                          placeholder="(650) 461-4446"
+                          placeholder="{{ site_phone_display() }}"
                           type="tel"
                           id="phone"
                           required=""
