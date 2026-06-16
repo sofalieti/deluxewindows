@@ -66,6 +66,11 @@
   margin-bottom: 4px;
 }
 
+.promo-price-tag-line--start,
+.w-richtext .promo-price-tag-line--start {
+  margin-bottom: 0;
+}
+
 .promo-price-tag-label,
 .w-richtext .promo-price-tag-label {
   font-size: 12px !important;
@@ -88,12 +93,27 @@
   line-height: 1 !important;
 }
 
+.promo-price-tag-start,
+.w-richtext .promo-price-tag-start {
+  color: #fff !important;
+  font-size: 24px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+}
+
 .promo-price-tag-note,
 .w-richtext .promo-price-tag-note {
   font-size: 11px !important;
   color: rgba(255, 255, 255, 0.92) !important;
   letter-spacing: 0.2px;
   line-height: 1.2;
+}
+
+.promo-offer-note,
+.w-richtext .promo-offer-note {
+  margin-top: 6px;
+  font-size: 12px !important;
+  color: #6b7280 !important;
 }
 
 .rich-text-block-4.w-richtext,

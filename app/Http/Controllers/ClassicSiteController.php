@@ -145,7 +145,7 @@ class ClassicSiteController extends Controller
             (string) ($fieldData['slug'] ?? $slug)
         );
         $discountHtml   = $windowPricing
-            ? $controls->priceHtml($windowPricing['base'], $windowPricing['final'], 'per window installed')
+            ? $controls->pricingHtmlFromMap($windowPricing, 'per window installed')
             : $this->legacyDiscountToPromoHtml((string) ($fieldData['discounttext'] ?? ''), 'per window installed');
 
         return view('windows.show', [
@@ -858,7 +858,7 @@ class ClassicSiteController extends Controller
             $controls
         );
         $brandHeroFormHtml = $brandPricing
-            ? $controls->priceHtml($brandPricing['base'], $brandPricing['final'])
+            ? $controls->pricingHtmlFromMap($brandPricing, 'per window installed')
             : null;
 
         return view('brands.show', [
@@ -2011,10 +2011,7 @@ class ClassicSiteController extends Controller
             $seriesSlug
         );
         if ($seriesPricing !== null) {
-            return $controls->priceHtml(
-                $seriesPricing['base'],
-                $seriesPricing['final']
-            );
+            return $controls->pricingHtmlFromMap($seriesPricing, 'per window installed');
         }
 
         // Default for collection pages: inherit from Mainmaterial (Windows item).
@@ -2033,7 +2030,7 @@ class ClassicSiteController extends Controller
                         $mainSlug
                     );
                     if ($inherited !== null) {
-                        return $controls->priceHtml($inherited['base'], $inherited['final']);
+                        return $controls->pricingHtmlFromMap($inherited, 'per window installed');
                     }
                 }
             }
@@ -2073,10 +2070,7 @@ class ClassicSiteController extends Controller
             $windowTypeSlug
         );
         if ($windowTypePricing !== null) {
-            return app(PromotionControlService::class)->priceHtml(
-                $windowTypePricing['base'],
-                $windowTypePricing['final']
-            );
+            return app(PromotionControlService::class)->pricingHtmlFromMap($windowTypePricing, 'per window installed');
         }
 
         $material = $windowType->webflowReference('windor-type-material');

@@ -117,9 +117,9 @@ class PromotionsScreen extends Screen
                         ->required()
                         ->help('Single end date shown on all discount-related sections.'),
                 ]),
-                'Window Types' => Layout::rows($this->pricingRows('window_type_prices', $this->windowTypeItems(), 'Price per Windows item')),
-                'Series' => Layout::rows($this->pricingRows('series_prices', $this->seriesItems(), 'Price per series')),
-                'Brands' => Layout::rows($this->pricingRows('brand_prices', $this->brandItems(), 'Brand override price. Leave empty to inherit from linked Windows type.')),
+                'Window Types' => Layout::rows($this->pricingRows('window_type_prices', $this->windowTypeItems(), 'Price per Windows item. Base and Final are required.')),
+                'Series' => Layout::rows($this->pricingRows('series_prices', $this->seriesItems(), 'Series price. Final is required, Base is optional (Starting from template).')),
+                'Brands' => Layout::rows($this->pricingRows('brand_prices', $this->brandItems(), 'Brand override price. Final is required, Base is optional. Leave empty to inherit from linked Windows type.')),
             ]),
         ];
     }
@@ -131,9 +131,9 @@ class PromotionsScreen extends Screen
         $discountPercent = (int) ($data['global_discount_percent'] ?? 40);
         $endDate = trim((string) ($data['global_end_date'] ?? ''));
 
-        $windowTypePrices = $this->normalizePricingMap($data['window_type_prices'] ?? []);
-        $seriesPrices = $this->normalizePricingMap($data['series_prices'] ?? []);
-        $brandPrices = $this->normalizePricingMap($data['brand_prices'] ?? []);
+        $windowTypePrices = $this->normalizePricingMap($data['window_type_prices'] ?? [], true);
+        $seriesPrices = $this->normalizePricingMap($data['series_prices'] ?? [], false);
+        $brandPrices = $this->normalizePricingMap($data['brand_prices'] ?? [], false);
 
         $control = $this->controls->get();
         $control->global_promotion_name = $promotionName;
@@ -160,7 +160,7 @@ class PromotionsScreen extends Screen
     /**
      * @return array<string, array{base: string, final: string}>
      */
-    private function normalizePricingMap(mixed $input): array
+    private function normalizePricingMap(mixed $input, bool $requireBase): array
     {
         if (! is_array($input)) {
             return [];
@@ -173,7 +173,7 @@ class PromotionsScreen extends Screen
             }
             $base = trim((string) ($values['base'] ?? ''));
             $final = trim((string) ($values['final'] ?? ''));
-            if ($base === '' || $final === '') {
+            if ($final === '' || ($requireBase && $base === '')) {
                 continue;
             }
             $normalized[$itemId] = ['base' => $base, 'final' => $final];

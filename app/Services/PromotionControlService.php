@@ -147,11 +147,30 @@ class PromotionControlService
         $base = trim((string) ($item['base'] ?? ''));
         $final = trim((string) ($item['final'] ?? ''));
 
-        if ($base === '' || $final === '') {
+        if ($final === '') {
             return null;
         }
 
         return ['base' => $base, 'final' => $final];
+    }
+
+    /**
+     * @param array{base?: string, final: string} $pricing
+     */
+    public function pricingHtmlFromMap(array $pricing, string $suffix = 'per window installed'): string
+    {
+        $base = trim((string) ($pricing['base'] ?? ''));
+        $final = trim((string) ($pricing['final'] ?? ''));
+
+        if ($final === '') {
+            return $this->priceHtml('915', '$549', $suffix);
+        }
+
+        if ($base === '') {
+            return $this->priceHtmlStartingFrom($final, $suffix);
+        }
+
+        return $this->priceHtml($base, $final, $suffix);
     }
 
     public function priceHtml(string $base, string $final, string $suffix = 'per window'): string
@@ -171,6 +190,24 @@ class PromotionControlService
             .'<div class="promo-price-tag-line promo-price-tag-line--new"><span class="promo-price-tag-label">Now</span><span class="promo-price-tag-new">'.$final.'</span></div>'
             .'<div class="promo-price-tag-note">'.$suffix.'</div>'
             .'</div>'
+            .'</div>';
+    }
+
+    public function priceHtmlStartingFrom(string $final, string $suffix = 'per window installed'): string
+    {
+        $final = e($this->normalizeMoney($final));
+        $suffix = e($suffix);
+        $discount = e($this->globalDiscountLabel());
+        $promoName = e($this->globalPromotionName());
+
+        return '<div class="promo-offer-card">'
+            .'<h3 class="promo-offer-title">'.$promoName.'</h3>'
+            .'<div class="promo-offer-headline">'.$discount.'</div>'
+            .'<div class="promo-offer-subtitle">Special pricing available upon request!</div>'
+            .'<div class="promo-price-tag">'
+            .'<div class="promo-price-tag-line promo-price-tag-line--start"><span class="promo-price-tag-label">Starting from</span><span class="promo-price-tag-start">'.$final.'</span></div>'
+            .'</div>'
+            .'<div class="promo-offer-note">'.$suffix.'</div>'
             .'</div>';
     }
 
