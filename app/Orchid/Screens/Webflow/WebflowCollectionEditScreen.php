@@ -118,7 +118,7 @@ class WebflowCollectionEditScreen extends Screen
 
                 Switcher::make('entity.is_draft')
                     ->title('Draft'),
-            ]),
+            ]);
         ];
 
         if ($this->collectionSlug === 'global-settings') {
@@ -144,7 +144,7 @@ class WebflowCollectionEditScreen extends Screen
                         ->rows(16)
                         ->help('Optional: paste full JSON to override field values above.'),
                 ]),
-            ]),
+            ]);
         ];
 
         return $layouts;
