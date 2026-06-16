@@ -1996,13 +1996,33 @@ class ClassicSiteController extends Controller
 
     private function resolveCollectionHeroPricing(BrandCollectionsWebflowItem $collection, array $fieldData): string
     {
+        $controls = app(PromotionControlService::class);
         $seriesSlug = (string) ($fieldData['slug'] ?? '');
-        $seriesPricing = app(PromotionControlService::class)->seriesPricing($seriesSlug);
+        $seriesPricing = $controls->seriesPricing($seriesSlug);
         if ($seriesPricing !== null) {
-            return app(PromotionControlService::class)->priceHtml(
+            return $controls->priceHtml(
                 $seriesPricing['base'],
                 $seriesPricing['final']
             );
+        }
+
+        // Default for collection pages: inherit from Mainmaterial (Windows item).
+        $mainMaterialRef = (string) ($fieldData['mainmaterial'] ?? '');
+        if ($mainMaterialRef !== '') {
+            $mainMaterial = WindowsWebflowItem::query()
+                ->where('webflow_item_id', $mainMaterialRef)
+                ->orWhere('field_data->slug', $mainMaterialRef)
+                ->first();
+            if ($mainMaterial instanceof WindowsWebflowItem) {
+                $mainFd = is_array($mainMaterial->field_data) ? $mainMaterial->field_data : [];
+                $mainSlug = trim((string) ($mainFd['slug'] ?? ''));
+                if ($mainSlug !== '') {
+                    $inherited = $controls->windowTypePricing($mainSlug);
+                    if ($inherited !== null) {
+                        return $controls->priceHtml($inherited['base'], $inherited['final']);
+                    }
+                }
+            }
         }
 
         $materialName = $fieldData['material'] ?? $collection->wf_material ?? '';
