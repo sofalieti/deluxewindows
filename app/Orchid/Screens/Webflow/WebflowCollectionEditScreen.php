@@ -118,7 +118,7 @@ class WebflowCollectionEditScreen extends Screen
 
                 Switcher::make('entity.is_draft')
                     ->title('Draft'),
-            ]);
+            ]),
         ];
 
         if ($this->collectionSlug === 'global-settings') {
