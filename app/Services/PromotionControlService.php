@@ -7,6 +7,7 @@ namespace App\Services;
 use App\Models\PromotionControl;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Schema;
 
 class PromotionControlService
 {
@@ -14,6 +15,17 @@ class PromotionControlService
 
     public function get(): PromotionControl
     {
+        if (! Schema::hasTable('promotion_controls')) {
+            return new PromotionControl([
+                'scope' => 'default',
+                'global_discount_percent' => 40,
+                'global_end_date' => null,
+                'window_type_prices' => [],
+                'series_prices' => [],
+                'brand_prices' => [],
+            ]);
+        }
+
         return Cache::remember(self::CACHE_KEY, now()->addHour(), function () {
             return PromotionControl::query()->firstOrCreate(
                 ['scope' => 'default'],
