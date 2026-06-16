@@ -145,7 +145,6 @@ class WebflowCollectionEditScreen extends Screen
                         ->help('Optional: paste full JSON to override field values above.'),
                 ]),
             ]);
-        ];
 
         return $layouts;
     }
