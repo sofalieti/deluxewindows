@@ -138,6 +138,11 @@ class ClassicSiteController extends Controller
         $ogTitle        = $fieldData['opengraph-title'] ?? $seoTitle;
         $ogDescription  = $fieldData['opengraph-description'] ?? $seoDescription;
         $ogImage        = $fieldData['opengraph-image'] ?? $heroImage ?? '';
+        $controls       = app(PromotionControlService::class);
+        $windowPricing  = $controls->windowTypePricing((string) ($fieldData['slug'] ?? $slug));
+        $discountHtml   = $windowPricing
+            ? $controls->priceHtml($windowPricing['base'], $windowPricing['final'], 'per window installed')
+            : (string) ($fieldData['discounttext'] ?? '');
 
         return view('windows.show', [
             'windowFieldData'  => $fieldData,
@@ -149,7 +154,7 @@ class ClassicSiteController extends Controller
             'title'            => $fieldData['name'] ?? 'Window',
             'summary'          => $fieldData['property-listing---summary'] ?? '',
             'aboutHtml'        => $fieldData['property-listing---about'] ?? '',
-            'discountHtml'     => $fieldData['discounttext'] ?? '',
+            'discountHtml'     => $discountHtml,
             'warrantyHtml'     => $fieldData['warrantytext'] ?? '',
             'heroImage'        => $heroImage ?? '',
             'galleryImages'    => $galleryImages,

@@ -126,14 +126,30 @@ class PromotionControlService
 
     public function priceHtml(string $base, string $final, string $suffix = 'per window'): string
     {
-        $base = e($base);
-        $final = e($final);
+        $base = e($this->normalizeMoney($base));
+        $final = e($this->normalizeMoney($final));
         $suffix = e($suffix);
         $discount = e($this->globalDiscountLabel());
 
-        return "<h3><strong><code>{$discount} for limited time</code></strong></h3>"
-            ."<p>Starting from <s>{$base}</s> {$final}<sup>*</sup></p>"
-            ."<p><code>{$suffix}</code></p>";
+        return "<h3><strong>{$discount} Limited-Time Savings</strong></h3>"
+            ."<p><strong>Regular price:</strong> <s>{$base}</s></p>"
+            ."<p><strong>Your price:</strong> {$final}<sup>*</sup> <em>{$suffix}</em></p>";
+    }
+
+    private function normalizeMoney(string $value): string
+    {
+        $trimmed = trim($value);
+        if ($trimmed === '') {
+            return $trimmed;
+        }
+        if (str_starts_with($trimmed, '$')) {
+            return $trimmed;
+        }
+        if (is_numeric(str_replace(',', '', $trimmed))) {
+            return '$'.$trimmed;
+        }
+
+        return $trimmed;
     }
 }
 

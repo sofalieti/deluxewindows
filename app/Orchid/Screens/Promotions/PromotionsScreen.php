@@ -114,7 +114,7 @@ class PromotionsScreen extends Screen
                 ]),
                 'Window Types' => Layout::rows($this->pricingRows('window_type_prices', $this->windowTypeItems(), 'Price per Windows item')),
                 'Series' => Layout::rows($this->pricingRows('series_prices', $this->seriesItems(), 'Price per series')),
-                'Brands' => Layout::rows($this->pricingRows('brand_prices', $this->brandItems(), 'Brand override price')),
+                'Brands' => Layout::rows($this->pricingRows('brand_prices', $this->brandItems(), 'Brand override price. Leave empty to inherit from linked Windows type.')),
             ]),
         ];
     }
