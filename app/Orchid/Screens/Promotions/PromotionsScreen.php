@@ -13,13 +13,30 @@ use App\Services\PromotionSettingsService;
 use Illuminate\Http\Request;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Fields\Group;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Layout;
 use Orchid\Support\Facades\Toast;
 
 class PromotionsScreen extends Screen
 {
+    /** @var array<int, array{id: string, slug: string, name: string}> */
+    private array $windowTypeList = [];
+
+    /** @var array<int, array{id: string, slug: string, name: string}> */
+    private array $seriesList = [];
+
+    /** @var array<int, array{id: string, slug: string, name: string}> */
+    private array $brandList = [];
+
+    /** @var array<string, array{base: string, final: string}> */
+    private array $windowTypePricesForView = [];
+
+    /** @var array<string, array{base: string, final: string}> */
+    private array $seriesPricesForView = [];
+
+    /** @var array<string, array{base: string, final: string}> */
+    private array $brandPricesForView = [];
+
     public function __construct(
         private readonly PromotionControlService $controls,
         private readonly PromotionSettingsService $legacyPromotionSettings,
@@ -36,6 +53,10 @@ class PromotionsScreen extends Screen
         $windowTypes = $this->windowTypeItems();
         $series = $this->seriesItems();
         $brands = $this->brandItems();
+
+        $this->windowTypeList = $windowTypes;
+        $this->seriesList = $series;
+        $this->brandList = $brands;
 
         $windowTypePrices = [];
         foreach ($windowTypes as $item) {
@@ -63,6 +84,10 @@ class PromotionsScreen extends Screen
                 'final' => (string) ($brandMap[$key]['final'] ?? $brandMap[$item['slug']]['final'] ?? ''),
             ];
         }
+
+        $this->windowTypePricesForView = $windowTypePrices;
+        $this->seriesPricesForView = $seriesPrices;
+        $this->brandPricesForView = $brandPrices;
 
         return [
             'promotions' => [
@@ -117,9 +142,24 @@ class PromotionsScreen extends Screen
                         ->required()
                         ->help('Single end date shown on all discount-related sections.'),
                 ]),
-                'Window Types' => Layout::rows($this->pricingRows('window_type_prices', $this->windowTypeItems(), 'Price per Windows item. Base and Final are required.')),
-                'Series' => Layout::rows($this->pricingRows('series_prices', $this->seriesItems(), 'Series price. Final is required, Base is optional (Starting from template).')),
-                'Brands' => Layout::rows($this->pricingRows('brand_prices', $this->brandItems(), 'Brand override price. Final is required, Base is optional. Leave empty to inherit from linked Windows type.')),
+                'Window Types' => Layout::view('admin.promotions.pricing-tab', [
+                    'scope' => 'window_type_prices',
+                    'items' => $this->windowTypeList,
+                    'values' => $this->windowTypePricesForView,
+                    'help' => 'Price per Windows item. Base and Final are required.',
+                ]),
+                'Series' => Layout::view('admin.promotions.pricing-tab', [
+                    'scope' => 'series_prices',
+                    'items' => $this->seriesList,
+                    'values' => $this->seriesPricesForView,
+                    'help' => 'Series price. Final is required, Base is optional (Starting from template).',
+                ]),
+                'Brands' => Layout::view('admin.promotions.pricing-tab', [
+                    'scope' => 'brand_prices',
+                    'items' => $this->brandList,
+                    'values' => $this->brandPricesForView,
+                    'help' => 'Brand override price. Final is required, Base is optional. Leave empty to inherit from linked Windows type.',
+                ]),
             ]),
         ];
     }
@@ -180,44 +220,6 @@ class PromotionsScreen extends Screen
         }
 
         return $normalized;
-    }
-
-    /**
-     * @param  array<int, array{id: string, slug: string, name: string}>  $items
-     * @return array<int, \Orchid\Screen\Field>
-     */
-    private function pricingRows(string $scope, array $items, string $help): array
-    {
-        $rows = [];
-
-        foreach ($items as $item) {
-            $id = $item['id'];
-            $slug = $item['slug'];
-            $name = $item['name'];
-
-            $rows[] = Group::make([
-                Input::make("meta.{$scope}.{$id}.name")
-                    ->title('Name')
-                    ->readonly()
-                    ->value("{$name} ({$slug}) [{$id}]"),
-                Input::make("promotions.{$scope}.{$id}.base")
-                    ->title('Base')
-                    ->placeholder('e.g. 1199')
-                    ->help($help),
-                Input::make("promotions.{$scope}.{$id}.final")
-                    ->title('Final')
-                    ->placeholder('e.g. 799'),
-            ]);
-        }
-
-        if ($rows === []) {
-            $rows[] = Input::make("promotions.{$scope}.__empty")
-                ->title('No items found')
-                ->readonly()
-                ->value('No records available for this tab.');
-        }
-
-        return $rows;
     }
 
     /**
