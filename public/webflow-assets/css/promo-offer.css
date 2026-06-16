@@ -1,0 +1,75 @@
+.promo-offer-card,
+.w-richtext .promo-offer-card {
+  position: relative;
+  display: block;
+  border-radius: 16px;
+  padding: 14px 14px 12px;
+  background: linear-gradient(145deg, #fff6f6 0%, #ffe9e9 100%) !important;
+  border: 1px solid #ffcfcf !important;
+  box-shadow: 0 8px 20px rgba(165, 32, 32, 0.14) !important;
+  margin: 0 0 8px 0;
+}
+
+.promo-offer-badge,
+.w-richtext .promo-offer-badge {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #d62020 !important;
+  color: #fff !important;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.4px;
+  line-height: 1.2;
+}
+
+.promo-offer-title,
+.w-richtext .promo-offer-title {
+  margin: 0 0 10px 0 !important;
+  font-size: 17px !important;
+  line-height: 1.35 !important;
+  color: #3a1212 !important;
+}
+
+.promo-offer-price-row,
+.w-richtext .promo-offer-price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.promo-offer-price-row--highlight,
+.w-richtext .promo-offer-price-row--highlight {
+  margin-bottom: 4px;
+}
+
+.promo-offer-label,
+.w-richtext .promo-offer-label {
+  font-size: 12px !important;
+  color: #7b3a3a !important;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.promo-offer-old-price,
+.w-richtext .promo-offer-old-price {
+  color: #7b3a3a !important;
+  font-weight: 600;
+}
+
+.promo-offer-new-price,
+.w-richtext .promo-offer-new-price {
+  color: #b21111 !important;
+  font-size: 24px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+}
+
+.promo-offer-note,
+.w-richtext .promo-offer-note {
+  font-size: 12px !important;
+  color: #7b3a3a !important;
+}
+
