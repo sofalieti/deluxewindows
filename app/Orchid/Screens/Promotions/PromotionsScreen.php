@@ -5,12 +5,15 @@ declare(strict_types=1);
 namespace App\Orchid\Screens\Promotions;
 
 use App\Models\Webflow\GlobalSettingsWebflowItem;
+use App\Models\Webflow\BrandCollectionsWebflowItem;
+use App\Models\Webflow\BrandsWebflowItem;
+use App\Models\Webflow\WindowTypeWebflowItem;
 use App\Services\PromotionControlService;
 use App\Services\PromotionSettingsService;
 use Illuminate\Http\Request;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Fields\TextArea;
+use Orchid\Screen\Fields\Group;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Layout;
 use Orchid\Support\Facades\Toast;
@@ -26,14 +29,48 @@ class PromotionsScreen extends Screen
     public function query(): iterable
     {
         $control = $this->controls->get();
+        $windowTypeMap = is_array($control->window_type_prices) ? $control->window_type_prices : [];
+        $seriesMap = is_array($control->series_prices) ? $control->series_prices : [];
+        $brandMap = is_array($control->brand_prices) ? $control->brand_prices : [];
+
+        $windowTypes = $this->windowTypeItems();
+        $series = $this->seriesItems();
+        $brands = $this->brandItems();
+
+        $windowTypePrices = [];
+        foreach ($windowTypes as $item) {
+            $slug = $item['slug'];
+            $windowTypePrices[$slug] = [
+                'base' => (string) ($windowTypeMap[$slug]['base'] ?? ''),
+                'final' => (string) ($windowTypeMap[$slug]['final'] ?? ''),
+            ];
+        }
+
+        $seriesPrices = [];
+        foreach ($series as $item) {
+            $slug = $item['slug'];
+            $seriesPrices[$slug] = [
+                'base' => (string) ($seriesMap[$slug]['base'] ?? ''),
+                'final' => (string) ($seriesMap[$slug]['final'] ?? ''),
+            ];
+        }
+
+        $brandPrices = [];
+        foreach ($brands as $item) {
+            $slug = $item['slug'];
+            $brandPrices[$slug] = [
+                'base' => (string) ($brandMap[$slug]['base'] ?? ''),
+                'final' => (string) ($brandMap[$slug]['final'] ?? ''),
+            ];
+        }
 
         return [
             'promotions' => [
                 'global_discount_percent' => $control->global_discount_percent,
                 'global_end_date' => optional($control->global_end_date)->format('Y-m-d') ?? '',
-                'window_type_prices_json' => json_encode($control->window_type_prices ?? [], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) ?: '{}',
-                'series_prices_json' => json_encode($control->series_prices ?? [], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) ?: '{}',
-                'brand_prices_json' => json_encode($control->brand_prices ?? [], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) ?: '{}',
+                'window_type_prices' => $windowTypePrices,
+                'series_prices' => $seriesPrices,
+                'brand_prices' => $brandPrices,
             ],
         ];
     }
@@ -75,22 +112,9 @@ class PromotionsScreen extends Screen
                         ->required()
                         ->help('Single end date shown on all discount-related sections.'),
                 ]),
-                'Window Types & Series' => Layout::rows([
-                    TextArea::make('promotions.window_type_prices_json')
-                        ->title('Window Type Prices (JSON by slug)')
-                        ->rows(8)
-                        ->help('Format: {"double-hung":{"base":"1199","final":"799"}}'),
-                    TextArea::make('promotions.series_prices_json')
-                        ->title('Series Prices (Brand Collections, JSON by slug)')
-                        ->rows(8)
-                        ->help('Format: {"vinyl-series":{"base":"915","final":"549"}}'),
-                ]),
-                'Brands' => Layout::rows([
-                    TextArea::make('promotions.brand_prices_json')
-                        ->title('Brand Prices Overrides (JSON by brand slug)')
-                        ->rows(8)
-                        ->help('Format: {"milgard":{"base":"1299","final":"899"}}'),
-                ]),
+                'Window Types' => Layout::rows($this->pricingRows('window_type_prices', $this->windowTypeItems(), 'Price per window type')),
+                'Series' => Layout::rows($this->pricingRows('series_prices', $this->seriesItems(), 'Price per series')),
+                'Brands' => Layout::rows($this->pricingRows('brand_prices', $this->brandItems(), 'Brand override price')),
             ]),
         ];
     }
@@ -101,9 +125,9 @@ class PromotionsScreen extends Screen
         $discountPercent = (int) ($data['global_discount_percent'] ?? 40);
         $endDate = trim((string) ($data['global_end_date'] ?? ''));
 
-        $windowTypePrices = $this->decodePricingMap((string) ($data['window_type_prices_json'] ?? '{}'));
-        $seriesPrices = $this->decodePricingMap((string) ($data['series_prices_json'] ?? '{}'));
-        $brandPrices = $this->decodePricingMap((string) ($data['brand_prices_json'] ?? '{}'));
+        $windowTypePrices = $this->normalizePricingMap($data['window_type_prices'] ?? []);
+        $seriesPrices = $this->normalizePricingMap($data['series_prices'] ?? []);
+        $brandPrices = $this->normalizePricingMap($data['brand_prices'] ?? []);
 
         $control = $this->controls->get();
         $control->global_discount_percent = max(0, min(95, $discountPercent));
@@ -126,15 +150,14 @@ class PromotionsScreen extends Screen
     /**
      * @return array<string, array{base: string, final: string}>
      */
-    private function decodePricingMap(string $json): array
+    private function normalizePricingMap(mixed $input): array
     {
-        $decoded = json_decode(trim($json), true);
-        if (! is_array($decoded)) {
+        if (! is_array($input)) {
             return [];
         }
 
         $normalized = [];
-        foreach ($decoded as $slug => $values) {
+        foreach ($input as $slug => $values) {
             if (! is_string($slug) || ! is_array($values)) {
                 continue;
             }
@@ -147,6 +170,118 @@ class PromotionsScreen extends Screen
         }
 
         return $normalized;
+    }
+
+    /**
+     * @param  array<int, array{slug: string, name: string}>  $items
+     * @return array<int, \Orchid\Screen\Field>
+     */
+    private function pricingRows(string $scope, array $items, string $help): array
+    {
+        $rows = [];
+
+        foreach ($items as $item) {
+            $slug = $item['slug'];
+            $name = $item['name'];
+
+            $rows[] = Group::make([
+                Input::make("meta.{$scope}.{$slug}.name")
+                    ->title('Name')
+                    ->readonly()
+                    ->value("{$name} ({$slug})"),
+                Input::make("promotions.{$scope}.{$slug}.base")
+                    ->title('Base')
+                    ->placeholder('e.g. 1199')
+                    ->help($help),
+                Input::make("promotions.{$scope}.{$slug}.final")
+                    ->title('Final')
+                    ->placeholder('e.g. 799'),
+            ]);
+        }
+
+        if ($rows === []) {
+            $rows[] = Input::make("promotions.{$scope}.__empty")
+                ->title('No items found')
+                ->readonly()
+                ->value('No records available for this tab.');
+        }
+
+        return $rows;
+    }
+
+    /**
+     * @return array<int, array{slug: string, name: string}>
+     */
+    private function windowTypeItems(): array
+    {
+        return WindowTypeWebflowItem::query()
+            ->where('is_archived', false)
+            ->where('is_draft', false)
+            ->orderBy('id')
+            ->get()
+            ->map(function (WindowTypeWebflowItem $item): ?array {
+                $fd = is_array($item->field_data) ? $item->field_data : [];
+                $slug = trim((string) ($fd['slug'] ?? ''));
+                $name = trim((string) ($fd['name'] ?? ''));
+                if ($slug === '' || $name === '') {
+                    return null;
+                }
+
+                return ['slug' => $slug, 'name' => $name];
+            })
+            ->filter()
+            ->values()
+            ->all();
+    }
+
+    /**
+     * @return array<int, array{slug: string, name: string}>
+     */
+    private function seriesItems(): array
+    {
+        return BrandCollectionsWebflowItem::query()
+            ->where('is_archived', false)
+            ->where('is_draft', false)
+            ->orderBy('id')
+            ->get()
+            ->map(function (BrandCollectionsWebflowItem $item): ?array {
+                $fd = is_array($item->field_data) ? $item->field_data : [];
+                $slug = trim((string) ($fd['slug'] ?? ''));
+                $name = trim((string) ($fd['name'] ?? ''));
+                if ($slug === '' || $name === '') {
+                    return null;
+                }
+
+                return ['slug' => $slug, 'name' => $name];
+            })
+            ->filter()
+            ->values()
+            ->all();
+    }
+
+    /**
+     * @return array<int, array{slug: string, name: string}>
+     */
+    private function brandItems(): array
+    {
+        return BrandsWebflowItem::query()
+            ->where('is_archived', false)
+            ->where('is_draft', false)
+            ->orderBy('id')
+            ->get()
+            ->map(function (BrandsWebflowItem $item): ?array {
+                $fd = is_array($item->field_data) ? $item->field_data : [];
+                $slug = trim((string) ($fd['slug'] ?? ''));
+                $name = trim((string) ($fd['name'] ?? ''));
+                if ($slug === '' || $name === '') {
+                    return null;
+                }
+
+                return ['slug' => $slug, 'name' => $name];
+            })
+            ->filter()
+            ->values()
+            ->all();
     }
 
     private function syncLegacyGlobalSettings(?string $endDate): void
