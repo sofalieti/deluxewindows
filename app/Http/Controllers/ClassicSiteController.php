@@ -140,7 +140,10 @@ class ClassicSiteController extends Controller
         $ogDescription  = $fieldData['opengraph-description'] ?? $seoDescription;
         $ogImage        = $fieldData['opengraph-image'] ?? $heroImage ?? '';
         $controls       = app(PromotionControlService::class);
-        $windowPricing  = $controls->windowTypePricing((string) ($fieldData['slug'] ?? $slug));
+        $windowPricing  = $controls->windowTypePricing(
+            (string) ($window->webflow_item_id ?? ''),
+            (string) ($fieldData['slug'] ?? $slug)
+        );
         $discountHtml   = $windowPricing
             ? $controls->priceHtml($windowPricing['base'], $windowPricing['final'], 'per window installed')
             : $this->legacyDiscountToPromoHtml((string) ($fieldData['discounttext'] ?? ''), 'per window installed');
@@ -848,7 +851,12 @@ class ClassicSiteController extends Controller
         $doorsTitle     = $fieldData['doors-title']            ?? "Explore {$name}'s Door Types";
         $sidebarMaterialGroups = $this->buildBrandSidebarMaterialGroups($brand, $fieldData);
         $controls = app(PromotionControlService::class);
-        $brandPricing = $this->resolveBrandPromotionPricing($brand, (string) ($fieldData['slug'] ?? $slug), $controls);
+        $brandPricing = $this->resolveBrandPromotionPricing(
+            $brand,
+            (string) ($fieldData['slug'] ?? $slug),
+            (string) ($brand->webflow_item_id ?? ''),
+            $controls
+        );
         $brandHeroFormHtml = $brandPricing
             ? $controls->priceHtml($brandPricing['base'], $brandPricing['final'])
             : null;
@@ -1998,7 +2006,10 @@ class ClassicSiteController extends Controller
     {
         $controls = app(PromotionControlService::class);
         $seriesSlug = (string) ($fieldData['slug'] ?? '');
-        $seriesPricing = $controls->seriesPricing($seriesSlug);
+        $seriesPricing = $controls->seriesPricing(
+            (string) ($collection->webflow_item_id ?? ''),
+            $seriesSlug
+        );
         if ($seriesPricing !== null) {
             return $controls->priceHtml(
                 $seriesPricing['base'],
@@ -2017,7 +2028,10 @@ class ClassicSiteController extends Controller
                 $mainFd = is_array($mainMaterial->field_data) ? $mainMaterial->field_data : [];
                 $mainSlug = trim((string) ($mainFd['slug'] ?? ''));
                 if ($mainSlug !== '') {
-                    $inherited = $controls->windowTypePricing($mainSlug);
+                    $inherited = $controls->windowTypePricing(
+                        (string) ($mainMaterial->webflow_item_id ?? ''),
+                        $mainSlug
+                    );
                     if ($inherited !== null) {
                         return $controls->priceHtml($inherited['base'], $inherited['final']);
                     }
@@ -2054,7 +2068,10 @@ class ClassicSiteController extends Controller
     private function resolveWindowTypeHeroPricing(WindowTypeWebflowItem $windowType, array $fieldData): string
     {
         $windowTypeSlug = (string) ($fieldData['slug'] ?? '');
-        $windowTypePricing = app(PromotionControlService::class)->windowTypePricing($windowTypeSlug);
+        $windowTypePricing = app(PromotionControlService::class)->windowTypePricing(
+            (string) ($windowType->webflow_item_id ?? ''),
+            $windowTypeSlug
+        );
         if ($windowTypePricing !== null) {
             return app(PromotionControlService::class)->priceHtml(
                 $windowTypePricing['base'],
@@ -2103,9 +2120,10 @@ class ClassicSiteController extends Controller
     private function resolveBrandPromotionPricing(
         BrandsWebflowItem $brand,
         string $brandSlug,
+        string $brandWebflowId,
         PromotionControlService $controls,
     ): ?array {
-        $override = $controls->brandPricing($brandSlug);
+        $override = $controls->brandPricing($brandWebflowId, $brandSlug);
         if ($override !== null) {
             return $override;
         }
@@ -2116,7 +2134,10 @@ class ClassicSiteController extends Controller
             $mainTypeFd = is_array($mainType->field_data) ? $mainType->field_data : [];
             $mainTypeSlug = trim((string) ($mainTypeFd['slug'] ?? ''));
             if ($mainTypeSlug !== '') {
-                $inherited = $controls->windowTypePricing($mainTypeSlug);
+                $inherited = $controls->windowTypePricing(
+                    (string) ($mainType->webflow_item_id ?? ''),
+                    $mainTypeSlug
+                );
                 if ($inherited !== null) {
                     return $inherited;
                 }
@@ -2134,7 +2155,10 @@ class ClassicSiteController extends Controller
                 $mainTypeFd = is_array($mainTypeRow->field_data) ? $mainTypeRow->field_data : [];
                 $mainTypeSlug = trim((string) ($mainTypeFd['slug'] ?? ''));
                 if ($mainTypeSlug !== '') {
-                    $inherited = $controls->windowTypePricing($mainTypeSlug);
+                    $inherited = $controls->windowTypePricing(
+                        (string) ($mainTypeRow->webflow_item_id ?? ''),
+                        $mainTypeSlug
+                    );
                     if ($inherited !== null) {
                         return $inherited;
                     }
@@ -2149,7 +2173,10 @@ class ClassicSiteController extends Controller
             if ($materialSlug === '') {
                 continue;
             }
-            $inherited = $controls->windowTypePricing($materialSlug);
+            $inherited = $controls->windowTypePricing(
+                (string) ($material->webflow_item_id ?? ''),
+                $materialSlug
+            );
             if ($inherited !== null) {
                 return $inherited;
             }

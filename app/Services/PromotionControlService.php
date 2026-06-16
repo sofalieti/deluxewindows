@@ -88,38 +88,58 @@ class PromotionControlService
     /**
      * @return array{base: string, final: string}|null
      */
-    public function windowTypePricing(string $slug): ?array
+    public function windowTypePricing(?string $webflowItemId = null, ?string $slug = null): ?array
     {
-        return $this->lookupPricing($this->get()->window_type_prices, $slug);
+        return $this->lookupPricing($this->get()->window_type_prices, $webflowItemId, $slug);
     }
 
     /**
      * @return array{base: string, final: string}|null
      */
-    public function seriesPricing(string $slug): ?array
+    public function seriesPricing(?string $webflowItemId = null, ?string $slug = null): ?array
     {
-        return $this->lookupPricing($this->get()->series_prices, $slug);
+        return $this->lookupPricing($this->get()->series_prices, $webflowItemId, $slug);
     }
 
     /**
      * @return array{base: string, final: string}|null
      */
-    public function brandPricing(string $slug): ?array
+    public function brandPricing(?string $webflowItemId = null, ?string $slug = null): ?array
     {
-        return $this->lookupPricing($this->get()->brand_prices, $slug);
+        return $this->lookupPricing($this->get()->brand_prices, $webflowItemId, $slug);
     }
 
     /**
      * @param  array<string, mixed>|null  $map
      * @return array{base: string, final: string}|null
      */
-    private function lookupPricing(?array $map, string $slug): ?array
+    private function lookupPricing(?array $map, ?string $webflowItemId = null, ?string $slug = null): ?array
     {
-        if (! is_array($map) || $slug === '') {
+        if (! is_array($map)) {
             return null;
         }
 
-        $item = $map[$slug] ?? null;
+        $candidates = [];
+        $id = trim((string) ($webflowItemId ?? ''));
+        if ($id !== '') {
+            $candidates[] = $id;
+        }
+        $legacySlug = trim((string) ($slug ?? ''));
+        if ($legacySlug !== '') {
+            $candidates[] = $legacySlug;
+        }
+
+        if ($candidates === []) {
+            return null;
+        }
+
+        $item = null;
+        foreach ($candidates as $key) {
+            if (isset($map[$key]) && is_array($map[$key])) {
+                $item = $map[$key];
+                break;
+            }
+        }
         if (! is_array($item)) {
             return null;
         }

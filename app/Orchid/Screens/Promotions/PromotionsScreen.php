@@ -39,28 +39,28 @@ class PromotionsScreen extends Screen
 
         $windowTypePrices = [];
         foreach ($windowTypes as $item) {
-            $slug = $item['slug'];
-            $windowTypePrices[$slug] = [
-                'base' => (string) ($windowTypeMap[$slug]['base'] ?? ''),
-                'final' => (string) ($windowTypeMap[$slug]['final'] ?? ''),
+            $key = $item['id'];
+            $windowTypePrices[$key] = [
+                'base' => (string) ($windowTypeMap[$key]['base'] ?? $windowTypeMap[$item['slug']]['base'] ?? ''),
+                'final' => (string) ($windowTypeMap[$key]['final'] ?? $windowTypeMap[$item['slug']]['final'] ?? ''),
             ];
         }
 
         $seriesPrices = [];
         foreach ($series as $item) {
-            $slug = $item['slug'];
-            $seriesPrices[$slug] = [
-                'base' => (string) ($seriesMap[$slug]['base'] ?? ''),
-                'final' => (string) ($seriesMap[$slug]['final'] ?? ''),
+            $key = $item['id'];
+            $seriesPrices[$key] = [
+                'base' => (string) ($seriesMap[$key]['base'] ?? $seriesMap[$item['slug']]['base'] ?? ''),
+                'final' => (string) ($seriesMap[$key]['final'] ?? $seriesMap[$item['slug']]['final'] ?? ''),
             ];
         }
 
         $brandPrices = [];
         foreach ($brands as $item) {
-            $slug = $item['slug'];
-            $brandPrices[$slug] = [
-                'base' => (string) ($brandMap[$slug]['base'] ?? ''),
-                'final' => (string) ($brandMap[$slug]['final'] ?? ''),
+            $key = $item['id'];
+            $brandPrices[$key] = [
+                'base' => (string) ($brandMap[$key]['base'] ?? $brandMap[$item['slug']]['base'] ?? ''),
+                'final' => (string) ($brandMap[$key]['final'] ?? $brandMap[$item['slug']]['final'] ?? ''),
             ];
         }
 
@@ -167,8 +167,8 @@ class PromotionsScreen extends Screen
         }
 
         $normalized = [];
-        foreach ($input as $slug => $values) {
-            if (! is_string($slug) || ! is_array($values)) {
+        foreach ($input as $itemId => $values) {
+            if (! is_string($itemId) || ! is_array($values)) {
                 continue;
             }
             $base = trim((string) ($values['base'] ?? ''));
@@ -176,14 +176,14 @@ class PromotionsScreen extends Screen
             if ($base === '' || $final === '') {
                 continue;
             }
-            $normalized[$slug] = ['base' => $base, 'final' => $final];
+            $normalized[$itemId] = ['base' => $base, 'final' => $final];
         }
 
         return $normalized;
     }
 
     /**
-     * @param  array<int, array{slug: string, name: string}>  $items
+     * @param  array<int, array{id: string, slug: string, name: string}>  $items
      * @return array<int, \Orchid\Screen\Field>
      */
     private function pricingRows(string $scope, array $items, string $help): array
@@ -191,19 +191,20 @@ class PromotionsScreen extends Screen
         $rows = [];
 
         foreach ($items as $item) {
+            $id = $item['id'];
             $slug = $item['slug'];
             $name = $item['name'];
 
             $rows[] = Group::make([
-                Input::make("meta.{$scope}.{$slug}.name")
+                Input::make("meta.{$scope}.{$id}.name")
                     ->title('Name')
                     ->readonly()
-                    ->value("{$name} ({$slug})"),
-                Input::make("promotions.{$scope}.{$slug}.base")
+                    ->value("{$name} ({$slug}) [{$id}]"),
+                Input::make("promotions.{$scope}.{$id}.base")
                     ->title('Base')
                     ->placeholder('e.g. 1199')
                     ->help($help),
-                Input::make("promotions.{$scope}.{$slug}.final")
+                Input::make("promotions.{$scope}.{$id}.final")
                     ->title('Final')
                     ->placeholder('e.g. 799'),
             ]);
@@ -220,7 +221,7 @@ class PromotionsScreen extends Screen
     }
 
     /**
-     * @return array<int, array{slug: string, name: string}>
+     * @return array<int, array{id: string, slug: string, name: string}>
      */
     private function windowTypeItems(): array
     {
@@ -231,16 +232,17 @@ class PromotionsScreen extends Screen
             ->get()
             ->map(function (WindowsWebflowItem $item): ?array {
                 $fd = is_array($item->field_data) ? $item->field_data : [];
+                $id = trim((string) ($item->webflow_item_id ?? ''));
                 $slug = trim((string) ($fd['slug'] ?? ''));
                 $name = trim((string) ($fd['name'] ?? ''));
-                if ($slug === '' || $name === '') {
+                if ($id === '' || $slug === '' || $name === '') {
                     return null;
                 }
                 if (($fd['parent-collection'] ?? '') !== 'Windows') {
                     return null;
                 }
 
-                return ['slug' => $slug, 'name' => $name];
+                return ['id' => $id, 'slug' => $slug, 'name' => $name];
             })
             ->filter()
             ->values()
@@ -248,7 +250,7 @@ class PromotionsScreen extends Screen
     }
 
     /**
-     * @return array<int, array{slug: string, name: string}>
+     * @return array<int, array{id: string, slug: string, name: string}>
      */
     private function seriesItems(): array
     {
@@ -259,13 +261,14 @@ class PromotionsScreen extends Screen
             ->get()
             ->map(function (BrandCollectionsWebflowItem $item): ?array {
                 $fd = is_array($item->field_data) ? $item->field_data : [];
+                $id = trim((string) ($item->webflow_item_id ?? ''));
                 $slug = trim((string) ($fd['slug'] ?? ''));
                 $name = trim((string) ($fd['name'] ?? ''));
-                if ($slug === '' || $name === '') {
+                if ($id === '' || $slug === '' || $name === '') {
                     return null;
                 }
 
-                return ['slug' => $slug, 'name' => $name];
+                return ['id' => $id, 'slug' => $slug, 'name' => $name];
             })
             ->filter()
             ->values()
@@ -273,7 +276,7 @@ class PromotionsScreen extends Screen
     }
 
     /**
-     * @return array<int, array{slug: string, name: string}>
+     * @return array<int, array{id: string, slug: string, name: string}>
      */
     private function brandItems(): array
     {
@@ -284,13 +287,14 @@ class PromotionsScreen extends Screen
             ->get()
             ->map(function (BrandsWebflowItem $item): ?array {
                 $fd = is_array($item->field_data) ? $item->field_data : [];
+                $id = trim((string) ($item->webflow_item_id ?? ''));
                 $slug = trim((string) ($fd['slug'] ?? ''));
                 $name = trim((string) ($fd['name'] ?? ''));
-                if ($slug === '' || $name === '') {
+                if ($id === '' || $slug === '' || $name === '') {
                     return null;
                 }
 
-                return ['slug' => $slug, 'name' => $name];
+                return ['id' => $id, 'slug' => $slug, 'name' => $name];
             })
             ->filter()
             ->values()
