@@ -86,7 +86,7 @@
                   aria-label="Email Form 2"
                 >
                   <div class="div-block-22">
-                    <h2 class="display-4">Get Deluxe Windows for Less. 40%&nbsp;OFF* Windows</h2>
+                    <h2 class="display-4">Get Deluxe Windows for Less. {{ promotion_percent_label() }}* Windows</h2>
                     <label for="email-banner" class="body-14"><em class="italic-text">*Windows Replacement. Offer Expires </em><span class="date-span italic-span">{{ promotion_date('us-short') }}</span></label>
                     <label for="email-banner" class="body-14">Request a FREE No-Obligation Quote &amp; Expert Advice!</label>
                   </div>

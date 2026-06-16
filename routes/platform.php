@@ -17,6 +17,7 @@ use App\Orchid\Screens\Role\RoleListScreen;
 use App\Orchid\Screens\User\UserEditScreen;
 use App\Orchid\Screens\User\UserListScreen;
 use App\Orchid\Screens\User\UserProfileScreen;
+use App\Orchid\Screens\Promotions\PromotionsScreen;
 use App\Http\Controllers\Admin\WebflowExportController;
 use App\Http\Controllers\Admin\WebflowImageUploadController;
 use App\Orchid\Screens\Webflow\WebflowCollectionEditScreen;
@@ -38,6 +39,9 @@ use Tabuna\Breadcrumbs\Trail;
 // Main
 Route::screen('/main', PlatformScreen::class)
     ->name('platform.main');
+
+Route::screen('promotions', PromotionsScreen::class)
+    ->name('platform.promotions');
 
 // Platform > Profile
 Route::screen('profile', UserProfileScreen::class)

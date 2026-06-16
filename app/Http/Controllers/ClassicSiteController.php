@@ -12,10 +12,14 @@ use App\Models\Webflow\GalleryWebflowItem;
 use App\Models\Webflow\WindowReplacementWebflowItem;
 use App\Models\Webflow\WindowTypeWebflowItem;
 use App\Models\Webflow\WindowsWebflowItem;
+use App\Services\PromotionControlService;
 use App\Services\PromotionSettingsService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class ClassicSiteController extends Controller
 {
@@ -518,17 +522,83 @@ class ClassicSiteController extends Controller
 
     public function submitContactForm(Request $request)
     {
-        $request->validate([
+        $payload = [
+            'full_name' => trim((string) ($request->input('full_name') ?: $request->input('Name'))),
+            'email' => trim((string) ($request->input('email') ?: $request->input('Email'))),
+            'phone' => trim((string) ($request->input('phone') ?: $request->input('Phone'))),
+            'city' => trim((string) ($request->input('city') ?: $request->input('Subject'))),
+            'message' => trim((string) ($request->input('message') ?: $request->input('Message'))),
+            'page_url' => trim((string) ($request->input('page_url') ?: $request->headers->get('referer', ''))),
+            'utm_source' => trim((string) $request->input('utm_source')),
+            'utm_medium' => trim((string) $request->input('utm_medium')),
+            'utm_campaign' => trim((string) $request->input('utm_campaign')),
+        ];
+
+        $validated = validator($payload, [
             'full_name' => 'required|string|max:255',
-            'email'     => 'required|email|max:255',
-            'phone'     => 'required|string|max:50',
-            'city'      => 'nullable|string|max:100',
-            'message'   => 'nullable|string|max:2000',
-        ]);
+            'email' => 'required|email|max:255',
+            'phone' => 'required|string|max:50',
+            'city' => 'nullable|string|max:100',
+            'message' => 'nullable|string|max:3000',
+            'page_url' => 'nullable|string|max:1000',
+            'utm_source' => 'nullable|string|max:255',
+            'utm_medium' => 'nullable|string|max:255',
+            'utm_campaign' => 'nullable|string|max:255',
+        ])->validate();
+
+        $subject = 'New Deluxe Windows lead: '.$validated['full_name'];
+        $bodyLines = [
+            'Name: '.$validated['full_name'],
+            'Email: '.$validated['email'],
+            'Phone: '.$validated['phone'],
+            'City: '.($validated['city'] !== '' ? $validated['city'] : '-'),
+            'Message: '.($validated['message'] !== '' ? $validated['message'] : '-'),
+            'Page: '.($validated['page_url'] !== '' ? $validated['page_url'] : '-'),
+            'UTM Source: '.($validated['utm_source'] !== '' ? $validated['utm_source'] : '-'),
+            'UTM Medium: '.($validated['utm_medium'] !== '' ? $validated['utm_medium'] : '-'),
+            'UTM Campaign: '.($validated['utm_campaign'] !== '' ? $validated['utm_campaign'] : '-'),
+        ];
+
+        Mail::raw(implode("\n", $bodyLines), function ($message) use ($subject, $validated): void {
+            $message->to('sofalieti@gmail.com')
+                ->replyTo($validated['email'], $validated['full_name'])
+                ->subject($subject);
+        });
+
+        $bridgeUrls = (array) config('services.lead_bridge.urls', []);
+        foreach ($bridgeUrls as $bridgeUrl) {
+            if (! is_string($bridgeUrl) || trim($bridgeUrl) === '') {
+                continue;
+            }
+            try {
+                Http::asForm()
+                    ->timeout(8)
+                    ->post($bridgeUrl, [
+                        'Name' => $validated['full_name'],
+                        'Email' => $validated['email'],
+                        'Phone' => $validated['phone'],
+                        'Subject' => $validated['city'],
+                        'Message' => $validated['message'],
+                        'URL' => $validated['page_url'],
+                        'utm_source' => $validated['utm_source'],
+                        'utm_medium' => $validated['utm_medium'],
+                        'utm_campaign' => $validated['utm_campaign'],
+                    ]);
+            } catch (\Throwable $e) {
+                Log::warning('Lead bridge request failed', [
+                    'url' => $bridgeUrl,
+                    'error' => $e->getMessage(),
+                ]);
+            }
+        }
 
         session()->flash('contact_success', true);
 
-        return redirect()->back();
+        if ($request->expectsJson() || $request->ajax()) {
+            return response()->json(['ok' => true]);
+        }
+
+        return redirect()->back()->with('contact_success', true);
     }
 
     private function resolveLearnMoreWindows(WindowsWebflowItem $window): \Illuminate\Support\Collection
@@ -771,6 +841,11 @@ class ClassicSiteController extends Controller
         $windowsTitle   = $fieldData['windows-titles']         ?? "Explore {$name}'s Window Types";
         $doorsTitle     = $fieldData['doors-title']            ?? "Explore {$name}'s Door Types";
         $sidebarMaterialGroups = $this->buildBrandSidebarMaterialGroups($brand, $fieldData);
+        $controls = app(PromotionControlService::class);
+        $brandPricing = $controls->brandPricing((string) ($fieldData['slug'] ?? $slug));
+        $brandHeroFormHtml = $brandPricing
+            ? $controls->priceHtml($brandPricing['base'], $brandPricing['final'])
+            : null;
 
         return view('brands.show', [
             'brandFieldData'  => $fieldData,
@@ -789,6 +864,7 @@ class ClassicSiteController extends Controller
             'ogTitle'         => $ogTitle,
             'ogDescription'   => $ogDescription,
             'ogImage'         => $ogImage,
+            'brandHeroFormHtml' => $brandHeroFormHtml,
         ]);
     }
 
@@ -1914,6 +1990,15 @@ class ClassicSiteController extends Controller
 
     private function resolveCollectionHeroPricing(BrandCollectionsWebflowItem $collection, array $fieldData): string
     {
+        $seriesSlug = (string) ($fieldData['slug'] ?? '');
+        $seriesPricing = app(PromotionControlService::class)->seriesPricing($seriesSlug);
+        if ($seriesPricing !== null) {
+            return app(PromotionControlService::class)->priceHtml(
+                $seriesPricing['base'],
+                $seriesPricing['final']
+            );
+        }
+
         $materialName = $fieldData['material'] ?? $collection->wf_material ?? '';
 
         if ($materialName !== '') {
@@ -1937,11 +2022,20 @@ class ClassicSiteController extends Controller
             }
         }
 
-        return '<h3><strong><code>40% off for limited time</code></strong></h3><p>Starting from <s>915</s> $549<sup>*</sup></p><p><code>per window</code></p>';
+        return app(PromotionControlService::class)->priceHtml('915', '$549');
     }
 
     private function resolveWindowTypeHeroPricing(WindowTypeWebflowItem $windowType, array $fieldData): string
     {
+        $windowTypeSlug = (string) ($fieldData['slug'] ?? '');
+        $windowTypePricing = app(PromotionControlService::class)->windowTypePricing($windowTypeSlug);
+        if ($windowTypePricing !== null) {
+            return app(PromotionControlService::class)->priceHtml(
+                $windowTypePricing['base'],
+                $windowTypePricing['final']
+            );
+        }
+
         $material = $windowType->webflowReference('windor-type-material');
         if ($material) {
             $materialFd = is_array($material->field_data) ? $material->field_data : [];

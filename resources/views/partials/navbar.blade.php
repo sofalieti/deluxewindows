@@ -9,7 +9,7 @@
           class="navbar w-nav"
         >
           <div class="container-default-2 w-container">
-            <div data-w-id="632206d9-3c73-e5be-be34-15992c2e8311" class="header-container-wrapper-2" style="opacity: 0">
+            <div data-w-id="632206d9-3c73-e5be-be34-15992c2e8311" class="header-container-wrapper-2">
               <div class="div-block-17 phone3">
                 <a href="tel:{{ site_phone_tel() }}" class="link-block phone w-inline-block"
                   ><img
@@ -271,14 +271,14 @@
                                 class="mega-menu-banner w-clearfix"
                               >
                                 <x-img
-                                  alt="40% OFF Windows"
+                                  alt="{{ promotion_percent_label() }} Windows"
                                   src="/webflow-assets/images/6862abfc8f55643864a69255_Frame%201.avif"
                                   preset="card_sm"
                                   loading="lazy"
                                   class="image-14 cover-image property-wrapper-v3---image"
                                 />
                                 <div class="w-layout-blockcontainer container-2 w-container">
-                                  <h5>40% OFF Windows</h5>
+                                  <h5>{{ promotion_percent_label() }} Windows</h5>
                                   <div class="text-regular-2">
                                     Offer ends <span class="date-span">{{ promotion_date('us-short-no-year') }}</span
                                     ><br />
@@ -489,14 +489,14 @@
                                 class="mega-menu-banner w-clearfix"
                               >
                                 <x-img
-                                  alt="40% OFF Doors"
+                                  alt="{{ promotion_percent_label() }} Doors"
                                   src="/webflow-assets/images/6845713efb9f90434a8611f6_4.avif"
                                   preset="card_sm"
                                   loading="lazy"
                                   class="image-14 cover-image property-wrapper-v3---image"
                                 />
                                 <div class="w-layout-blockcontainer container-2 w-container">
-                                  <h5>40% OFF Doors</h5>
+                                  <h5>{{ promotion_percent_label() }} Doors</h5>
                                   <div class="text-regular-2">
                                     Offer ends <span class="date-span">{{ promotion_date('us-short-no-year') }}</span
                                     ><br />
@@ -620,14 +620,14 @@
                                 class="mega-menu-banner w-clearfix"
                               >
                                 <x-img
-                                  alt="40% OFF Windows"
+                                  alt="{{ promotion_percent_label() }} Windows"
                                   src="/webflow-assets/images/6862abfc8f55643864a69255_Frame%201.avif"
                                   preset="card_sm"
                                   loading="lazy"
                                   class="image-14 cover-image property-wrapper-v3---image"
                                 />
                                 <div class="w-layout-blockcontainer container-2 w-container">
-                                  <h5>40% OFF Windows</h5>
+                                  <h5>{{ promotion_percent_label() }} Windows</h5>
                                   <div class="text-regular-2">
                                     Offer ends <span class="date-span">{{ promotion_date('us-short-no-year') }}</span
                                     ><br />
@@ -826,14 +826,14 @@
                                 class="mega-menu-banner w-clearfix"
                               >
                                 <x-img
-                                  alt="40% OFF Windows"
+                                  alt="{{ promotion_percent_label() }} Windows"
                                   src="/webflow-assets/images/6862abfc8f55643864a69255_Frame%201.avif"
                                   preset="card_sm"
                                   loading="lazy"
                                   class="image-14 cover-image property-wrapper-v3---image"
                                 />
                                 <div class="w-layout-blockcontainer container-2 w-container">
-                                  <h5>40% OFF Windows</h5>
+                                  <h5>{{ promotion_percent_label() }} Windows</h5>
                                   <div class="text-regular-2">
                                     Offer ends <span class="date-span">{{ promotion_date('us-short-no-year') }}</span
                                     ><br />

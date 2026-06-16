@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Services\Media\ImageThumbnailService;
+use App\Services\PromotionControlService;
 use App\Services\PromotionSettingsService;
 
 if (! function_exists('site_phone_display')) {
@@ -50,6 +51,11 @@ if (! function_exists('promotion_date')) {
     /** Formats: us-short, us-short-no-year, long */
     function promotion_date(string $format = 'us-short'): string
     {
+        $date = app(PromotionControlService::class)->endDate();
+        if ($date !== null) {
+            return app(PromotionSettingsService::class)->format($date, $format);
+        }
+
         return app(PromotionSettingsService::class)->formatGlobal($format);
     }
 }
@@ -58,5 +64,12 @@ if (! function_exists('promotion_name')) {
     function promotion_name(): string
     {
         return app(PromotionSettingsService::class)->promotionName();
+    }
+}
+
+if (! function_exists('promotion_percent_label')) {
+    function promotion_percent_label(): string
+    {
+        return app(PromotionControlService::class)->globalDiscountLabel();
     }
 }

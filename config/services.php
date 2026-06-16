@@ -41,4 +41,17 @@ return [
         'site_id' => env('WEBFLOW_SITE_ID'),
     ],
 
+    'google' => [
+        'ga4_id' => env('GOOGLE_GA4_ID', 'G-JHYBB0THJM'),
+        'ads_id' => env('GOOGLE_ADS_ID', 'AW-1030787786'),
+        'conversion_send_to' => env('GOOGLE_ADS_CONVERSION_SEND_TO', 'AW-1030787786/Hs9eCP7MwngQyqXC6wM'),
+    ],
+
+    'lead_bridge' => [
+        'urls' => array_values(array_filter([
+            env('LEAD_BRIDGE_URL_1', 'https://script.google.com/macros/s/AKfycbyJGhNROpBI8TUkGn9RtdNtIDxNjxsI52kyHgBtDIUauSEWgzVIqCFPic0-chwjxNxU/exec'),
+            env('LEAD_BRIDGE_URL_2', 'https://script.google.com/macros/s/AKfycbwp7eg4fm8OZtiHLjAFrbNyPaSyDjZWmfTJyhkiAZ2UsWYmE6l7euH9K0RtdgODH44Rmg/exec'),
+        ])),
+    ],
+
 ];

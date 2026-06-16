@@ -58,7 +58,7 @@
     ? 'rich-text-block-3'
     : (!empty($windowTypeHero) ? 'rich-text-block-7' : 'rich-text-block-5');
   $heroPricingHtml = !empty($collectionHero)
-    ? ($heroFormHtml ?? '<h3><strong><code>40% off for limited time</code></strong></h3><p>Starting from <s>915</s> $549<sup>*</sup></p><p><code>per window</code></p>')
+    ? ($heroFormHtml ?? app(\App\Services\PromotionControlService::class)->priceHtml('915', '$549'))
     : (!empty($windowTypeHero)
       ? ($heroFormHtml ?? '<p>Starting from $1199 per window installed.</p><p><strong>Special pricing available upon request! </strong>‍</p>')
       : ($brandHeroFormHtml ?? '<p>Starting from $999 per window installed.</p><p><strong>Special pricing available upon request!</strong>‍</p>'));
@@ -140,7 +140,7 @@
                       "
                       class="paragraph-29"
                     >
-                      Get Deluxe Windows <br />for Less. 40%&nbsp;OFF* Windows.<br />
+                      Get Deluxe Windows <br />for Less. {{ promotion_percent_label() }}* Windows.<br />
                     </p>
                     @endif
                   </div>
@@ -179,7 +179,7 @@
                       {!! $windowDiscountHtml !!}
                     </div>
                     @else
-                    <h2 class="display-4">Get Deluxe Windows for Less. <br />40%&nbsp;OFF* Windows</h2>
+                    <h2 class="display-4">Get Deluxe Windows for Less. <br />{{ promotion_percent_label() }}* Windows</h2>
                     <label for="email-banner" class="body-14"></label>
                     @endif
                   </div>

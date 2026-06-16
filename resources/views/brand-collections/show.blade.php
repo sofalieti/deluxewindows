@@ -165,7 +165,7 @@
                 <div class="card-2 sidebar-v1---card new-design hero-section">
                   <div class="inner-container _400px---mbl">
                     <div class="text-titles-3">
-                      <div class="display-41 mid">Get Deluxe Windows for Less. 40% OFF* Windows</div>
+                      <div class="display-41 mid">Get Deluxe Windows for Less. {{ promotion_percent_label() }}* Windows</div>
                     </div>
                     <div class="mg-top-small-4">
                       <p class="text-titles-3"><em>Request a FREE No-Obligation Quote &amp; Expert Advice!</em><br /></p>

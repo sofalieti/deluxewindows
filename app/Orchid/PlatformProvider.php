@@ -43,6 +43,11 @@ class PlatformProvider extends OrchidServiceProvider
         }
 
         $baseMenu = [
+            Menu::make('Promotions')
+                ->icon('bs.megaphone')
+                ->route('platform.promotions')
+                ->title('Marketing'),
+
             Menu::make('Get Started')
                 ->icon('bs.book')
                 ->title('Navigation')
