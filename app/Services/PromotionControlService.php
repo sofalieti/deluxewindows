@@ -143,16 +143,14 @@ class PromotionControlService
         $promoName = e($this->globalPromotionName());
 
         return '<div class="promo-offer-card">'
-            .'<div class="promo-offer-headline">'.$discount.'</div>'
             .'<h3 class="promo-offer-title">'.$promoName.'</h3>'
+            .'<div class="promo-offer-headline">'.$discount.'</div>'
             .'<div class="promo-offer-subtitle">Limited-time pricing</div>'
-            .'<div class="promo-price-tag-wrap">'
             .'<div class="promo-price-tag">'
             .'<div class="promo-price-tag-line"><span class="promo-price-tag-label">Regular</span><span class="promo-price-tag-old"><s>'.$base.'</s></span></div>'
             .'<div class="promo-price-tag-line promo-price-tag-line--new"><span class="promo-price-tag-label">Now</span><span class="promo-price-tag-new">'.$final.'</span></div>'
+            .'<div class="promo-price-tag-note">'.$suffix.'</div>'
             .'</div>'
-            .'</div>'
-            .'<div class="promo-offer-note">'.$suffix.'</div>'
             .'</div>';
     }
 
