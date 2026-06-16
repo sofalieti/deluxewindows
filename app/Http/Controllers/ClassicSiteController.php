@@ -92,10 +92,14 @@ class ClassicSiteController extends Controller
 
         $fieldData = is_array($window->field_data ?? null) ? $window->field_data : [];
 
-        $heroImage = $this->extractImageUrl($fieldData, [
-            'property-listing---thumbnail-image-v1',
-            'property-listing---featured-image',
-        ]);
+        $generatedHeroImage = $this->generatedWindowTypeHeroImageUrl((string) ($fieldData['slug'] ?? $slug));
+
+        $heroImage = $window->customHeroImageUrl()
+            ?? $generatedHeroImage
+            ?? $this->extractImageUrl($fieldData, [
+                'property-listing---thumbnail-image-v1',
+                'property-listing---featured-image',
+            ]);
 
         $galleryImages = collect(data_get($fieldData, 'property-listing---featured-images', []))
             ->map(fn ($img) => is_array($img) ? ($img['url'] ?? null) : (is_string($img) ? $img : null))
@@ -1842,6 +1846,19 @@ class ClassicSiteController extends Controller
         }
 
         return null;
+    }
+
+    private function generatedWindowTypeHeroImageUrl(string $slug): ?string
+    {
+        $slug = strtolower(trim($slug));
+        if ($slug === '') {
+            return null;
+        }
+
+        $relativePath = "webflow-assets/images/window-type-hero/{$slug}-hero-lux-wall-v1.avif";
+        $absolutePath = public_path($relativePath);
+
+        return File::exists($absolutePath) ? asset($relativePath) : null;
     }
 
     /**
