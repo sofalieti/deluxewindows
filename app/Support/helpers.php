@@ -63,7 +63,7 @@ if (! function_exists('promotion_date')) {
 if (! function_exists('promotion_name')) {
     function promotion_name(): string
     {
-        return app(PromotionSettingsService::class)->promotionName();
+        return app(PromotionControlService::class)->globalPromotionName();
     }
 }
 

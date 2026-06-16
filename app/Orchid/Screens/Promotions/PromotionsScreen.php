@@ -66,6 +66,7 @@ class PromotionsScreen extends Screen
 
         return [
             'promotions' => [
+                'global_promotion_name' => (string) ($control->global_promotion_name ?? ''),
                 'global_discount_percent' => $control->global_discount_percent,
                 'global_end_date' => optional($control->global_end_date)->format('Y-m-d') ?? '',
                 'window_type_prices' => $windowTypePrices,
@@ -99,6 +100,10 @@ class PromotionsScreen extends Screen
         return [
             Layout::tabs([
                 'Global' => Layout::rows([
+                    Input::make('promotions.global_promotion_name')
+                        ->title('Global Promotion Title')
+                        ->required()
+                        ->help('Shown on discount cards (brand/window pages).'),
                     Input::make('promotions.global_discount_percent')
                         ->title('Global Discount Percent')
                         ->type('number')
@@ -122,6 +127,7 @@ class PromotionsScreen extends Screen
     public function save(Request $request)
     {
         $data = $request->input('promotions', []);
+        $promotionName = trim((string) ($data['global_promotion_name'] ?? ''));
         $discountPercent = (int) ($data['global_discount_percent'] ?? 40);
         $endDate = trim((string) ($data['global_end_date'] ?? ''));
 
@@ -130,6 +136,7 @@ class PromotionsScreen extends Screen
         $brandPrices = $this->normalizePricingMap($data['brand_prices'] ?? []);
 
         $control = $this->controls->get();
+        $control->global_promotion_name = $promotionName;
         $control->global_discount_percent = max(0, min(95, $discountPercent));
         $control->global_end_date = $endDate === '' ? null : $endDate;
         $control->window_type_prices = $windowTypePrices;
@@ -137,7 +144,10 @@ class PromotionsScreen extends Screen
         $control->brand_prices = $brandPrices;
         $control->save();
 
-        $this->syncLegacyGlobalSettings($control->global_end_date?->format('n/j/y'));
+        $this->syncLegacyGlobalSettings(
+            $control->global_end_date?->format('n/j/y'),
+            $promotionName
+        );
 
         $this->controls->forgetCache();
         $this->legacyPromotionSettings->forgetCache();
@@ -287,7 +297,7 @@ class PromotionsScreen extends Screen
             ->all();
     }
 
-    private function syncLegacyGlobalSettings(?string $endDate): void
+    private function syncLegacyGlobalSettings(?string $endDate, string $promotionName): void
     {
         $item = GlobalSettingsWebflowItem::query()
             ->where('is_archived', false)
@@ -305,8 +315,10 @@ class PromotionsScreen extends Screen
 
         $fieldData = is_array($item->field_data) ? $item->field_data : [];
         $fieldData['end-date'] = $endDate ?? '';
+        $fieldData['promotion-name'] = $promotionName;
         $item->field_data = $fieldData;
         $item->wf_end_date = $endDate;
+        $item->wf_promotion_name = $promotionName;
         $item->save();
     }
 }

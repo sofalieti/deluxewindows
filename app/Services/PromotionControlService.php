@@ -12,12 +12,14 @@ use Illuminate\Support\Facades\Schema;
 class PromotionControlService
 {
     private const CACHE_KEY = 'promotion.control.default';
+    private const DEFAULT_PROMOTION_NAME = 'Upgrade to Energy Efficient Windows and Doors for Less';
 
     public function get(): PromotionControl
     {
         if (! Schema::hasTable('promotion_controls')) {
             return new PromotionControl([
                 'scope' => 'default',
+                'global_promotion_name' => self::DEFAULT_PROMOTION_NAME,
                 'global_discount_percent' => 40,
                 'global_end_date' => null,
                 'window_type_prices' => [],
@@ -30,6 +32,7 @@ class PromotionControlService
             return PromotionControl::query()->firstOrCreate(
                 ['scope' => 'default'],
                 [
+                    'global_promotion_name' => self::DEFAULT_PROMOTION_NAME,
                     'global_discount_percent' => 40,
                     'window_type_prices' => [],
                     'series_prices' => [],
@@ -54,6 +57,13 @@ class PromotionControlService
     public function globalDiscountLabel(): string
     {
         return $this->globalDiscountPercent().'% OFF';
+    }
+
+    public function globalPromotionName(): string
+    {
+        $value = trim((string) ($this->get()->global_promotion_name ?? ''));
+
+        return $value !== '' ? $value : self::DEFAULT_PROMOTION_NAME;
     }
 
     public function endDate(): ?Carbon
@@ -130,10 +140,21 @@ class PromotionControlService
         $final = e($this->normalizeMoney($final));
         $suffix = e($suffix);
         $discount = e($this->globalDiscountLabel());
+        $promoName = e($this->globalPromotionName());
 
-        return "<h3><strong>{$discount} Limited-Time Savings</strong></h3>"
-            ."<p><strong>Regular price:</strong> <s>{$base}</s></p>"
-            ."<p><strong>Your price:</strong> {$final}<sup>*</sup> <em>{$suffix}</em></p>";
+        return '<div class="promo-offer-card">'
+            .'<div class="promo-offer-badge">'.$discount.'</div>'
+            .'<h3 class="promo-offer-title">'.$promoName.'</h3>'
+            .'<div class="promo-offer-price-row">'
+            .'<span class="promo-offer-label">Regular</span>'
+            .'<span class="promo-offer-old-price"><s>'.$base.'</s></span>'
+            .'</div>'
+            .'<div class="promo-offer-price-row promo-offer-price-row--highlight">'
+            .'<span class="promo-offer-label">Now</span>'
+            .'<span class="promo-offer-new-price">'.$final.'</span>'
+            .'</div>'
+            .'<div class="promo-offer-note">'.$suffix.'</div>'
+            .'</div>';
     }
 
     private function normalizeMoney(string $value): string

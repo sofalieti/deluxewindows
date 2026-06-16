@@ -13,6 +13,7 @@ return new class extends Migration
         Schema::create('promotion_controls', function (Blueprint $table): void {
             $table->id();
             $table->string('scope')->unique()->default('default');
+            $table->string('global_promotion_name')->nullable();
             $table->unsignedTinyInteger('global_discount_percent')->default(40);
             $table->date('global_end_date')->nullable();
             $table->json('window_type_prices')->nullable();

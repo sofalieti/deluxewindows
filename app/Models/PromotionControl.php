@@ -10,6 +10,7 @@ class PromotionControl extends Model
 {
     protected $fillable = [
         'scope',
+        'global_promotion_name',
         'global_discount_percent',
         'global_end_date',
         'window_type_prices',
