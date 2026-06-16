@@ -2063,11 +2063,11 @@ class ClassicSiteController extends Controller
         }
 
         if (preg_match('/<s>\s*\$?\s*([0-9][0-9,]*(?:\.[0-9]{1,2})?)\s*<\/s>/i', $legacyHtml, $baseMatch) !== 1) {
-            return $legacyHtml;
+            return app(PromotionControlService::class)->priceHtml('915', '$549', $suffix);
         }
 
         if (preg_match('/<\/s>\s*\$?\s*([0-9][0-9,]*(?:\.[0-9]{1,2})?)/i', $legacyHtml, $finalMatch) !== 1) {
-            return $legacyHtml;
+            return app(PromotionControlService::class)->priceHtml('915', '$549', $suffix);
         }
 
         return app(PromotionControlService::class)->priceHtml($baseMatch[1], $finalMatch[1], $suffix);
