@@ -9,7 +9,7 @@
 <div class="promo-pricing-tab" data-tab-id="{{ $tabId }}">
   <div class="d-flex align-items-center justify-content-between mb-3">
     <div class="text-muted">{{ $help }}</div>
-    <button type="button" class="btn btn-sm btn-outline-primary" data-action="expand-all">Развернуть все</button>
+    <button type="button" class="btn btn-sm btn-outline-primary" data-action="toggle-list" data-list-mode="filled">Показать все</button>
   </div>
 
   @if($items === [])
@@ -81,25 +81,55 @@
           return;
         }
 
-        const expandAllBtn = event.target.closest('[data-action="expand-all"]');
-        if (!expandAllBtn) {
+        const toggleListBtn = event.target.closest('[data-action="toggle-list"]');
+        if (!toggleListBtn) {
           return;
         }
 
         event.preventDefault();
-        const tab = expandAllBtn.closest('.promo-pricing-tab');
+        const tab = toggleListBtn.closest('.promo-pricing-tab');
         if (!tab) {
           return;
         }
 
         const items = tab.querySelectorAll('[data-role="pricing-item"]');
-        items.forEach(function (item) {
-          item.classList.remove('d-none');
-          const body = item.querySelector('[data-role="item-body"]');
-          if (body) {
-            body.style.display = '';
-          }
+        const mode = toggleListBtn.getAttribute('data-list-mode') || 'filled';
+
+        if (mode === 'filled') {
+          items.forEach(function (item) {
+            item.classList.remove('d-none');
+          });
+          toggleListBtn.setAttribute('data-list-mode', 'all');
+          toggleListBtn.textContent = 'Показать заполненные';
+        } else {
+          items.forEach(function (item) {
+            const isEmpty = item.getAttribute('data-empty') === '1';
+            if (isEmpty) {
+              item.classList.add('d-none');
+            } else {
+              item.classList.remove('d-none');
+            }
+          });
+          toggleListBtn.setAttribute('data-list-mode', 'filled');
+          toggleListBtn.textContent = 'Показать все';
+        }
+      });
+
+      document.querySelectorAll('.promo-pricing-tab [data-action="toggle-list"]').forEach(function (btn) {
+        const tab = btn.closest('.promo-pricing-tab');
+        if (!tab) {
+          return;
+        }
+        const hasHidden = Array.from(tab.querySelectorAll('[data-role="pricing-item"]')).some(function (item) {
+          return item.classList.contains('d-none');
         });
+        if (!hasHidden) {
+          btn.setAttribute('data-list-mode', 'all');
+          btn.textContent = 'Показать заполненные';
+        } else {
+          btn.setAttribute('data-list-mode', 'filled');
+          btn.textContent = 'Показать все';
+        }
       });
     }
   })();
