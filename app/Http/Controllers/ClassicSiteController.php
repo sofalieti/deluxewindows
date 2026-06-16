@@ -2090,6 +2090,39 @@ class ClassicSiteController extends Controller
             return $override;
         }
 
+        // Default brand pricing source: linked Windows main type.
+        $mainType = $brand->webflowReference('windowmaintype');
+        if ($mainType instanceof WindowsWebflowItem) {
+            $mainTypeFd = is_array($mainType->field_data) ? $mainType->field_data : [];
+            $mainTypeSlug = trim((string) ($mainTypeFd['slug'] ?? ''));
+            if ($mainTypeSlug !== '') {
+                $inherited = $controls->windowTypePricing($mainTypeSlug);
+                if ($inherited !== null) {
+                    return $inherited;
+                }
+            }
+        }
+
+        // Defensive fallback when reference resolver is unavailable.
+        $mainTypeId = trim((string) (is_array($brand->field_data) ? ($brand->field_data['windowmaintype'] ?? '') : ''));
+        if ($mainTypeId !== '') {
+            $mainTypeRow = WindowsWebflowItem::query()
+                ->where('webflow_item_id', $mainTypeId)
+                ->orWhere('field_data->slug', $mainTypeId)
+                ->first();
+            if ($mainTypeRow instanceof WindowsWebflowItem) {
+                $mainTypeFd = is_array($mainTypeRow->field_data) ? $mainTypeRow->field_data : [];
+                $mainTypeSlug = trim((string) ($mainTypeFd['slug'] ?? ''));
+                if ($mainTypeSlug !== '') {
+                    $inherited = $controls->windowTypePricing($mainTypeSlug);
+                    if ($inherited !== null) {
+                        return $inherited;
+                    }
+                }
+            }
+        }
+
+        // Legacy fallback for older links that still rely on materials references.
         foreach ($brand->webflowReferences('materials') as $material) {
             $fd = is_array($material->field_data) ? $material->field_data : [];
             $materialSlug = trim((string) ($fd['slug'] ?? ''));
