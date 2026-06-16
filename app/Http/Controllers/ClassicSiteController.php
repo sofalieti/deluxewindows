@@ -12,6 +12,7 @@ use App\Models\Webflow\GalleryWebflowItem;
 use App\Models\Webflow\WindowReplacementWebflowItem;
 use App\Models\Webflow\WindowTypeWebflowItem;
 use App\Models\Webflow\WindowsWebflowItem;
+use App\Services\PromotionSettingsService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\File;
@@ -497,9 +498,22 @@ class ClassicSiteController extends Controller
         return view('contacts');
     }
 
-    public function specialOffers()
+    public function specialOffers(PromotionSettingsService $promotions)
     {
-        return view('special-offers');
+        $coupons = $promotions->publishedCoupons()->map(function ($coupon) use ($promotions) {
+            $fieldData = is_array($coupon->field_data) ? $coupon->field_data : [];
+            $featured = $fieldData['featured-image'] ?? $coupon->wf_featured_image;
+            $imageUrl = is_array($featured) ? ($featured['url'] ?? '') : '';
+
+            return [
+                'name' => (string) ($fieldData['name'] ?? ''),
+                'description' => (string) ($fieldData['blog-post-category---description'] ?? ''),
+                'image' => $imageUrl,
+                'expires_label' => $promotions->couponExpiresLabel($coupon, 'long'),
+            ];
+        });
+
+        return view('special-offers', compact('coupons'));
     }
 
     public function submitContactForm(Request $request)

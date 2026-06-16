@@ -288,8 +288,8 @@
                   </div>
                   <label for="email-banner" class="body-14"
                     ><em class="italic-text">*Windows Replacement. Offer Expires </em
-                    ><span data-last-day="us-short" class="date-span italic-span"
-                      ><em class="italic-text">03/10/26</em></span
+                    ><span class="date-span italic-span"
+                      ><em class="italic-text">{{ promotion_date('us-short') }}</em></span
                     ></label
                   >
                 </form>

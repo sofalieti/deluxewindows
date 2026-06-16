@@ -296,7 +296,7 @@
                 <form id="email-form-2" name="email-form-2" data-name="Email Form 2" method="get" class="form-3" data-wf-page-id="6841ddf8ace3d9d9facb1583" aria-label="Email Form 2">
                   <div class="div-block-22">
                     <h2 class="display-4">Get Deluxe Windows for Less. 40%&nbsp;OFF* Windows</h2>
-                    <label for="email-banner" class="body-14"><em class="italic-text">*Windows Replacement. Offer Expires </em><span data-last-day="us-short" class="date-span italic-span"></span></label>
+                    <label for="email-banner" class="body-14"><em class="italic-text">*Windows Replacement. Offer Expires </em><span class="date-span italic-span">{{ promotion_date('us-short') }}</span></label>
                     <label for="email-banner" class="body-14">Request a FREE No-Obligation Quote &amp; Expert Advice!</label>
                   </div>
                   <div class="div-block-23">

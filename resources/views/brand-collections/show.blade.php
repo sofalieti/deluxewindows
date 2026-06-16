@@ -737,25 +737,12 @@
         function initLazy() {
           if (lazyLoaded) return;
           lazyLoaded = true;
-          initDate();
           initForms();
           loadZoho();
         }
         window.addEventListener("scroll", initLazy, { once: true });
         window.addEventListener("click", initLazy, { once: true });
         setTimeout(initLazy, 4000);
-        function initDate() {
-          const now = new Date();
-          const lastDayDate = new Date(now.getFullYear(), now.getMonth() + 1, 0);
-          document.querySelectorAll("[data-last-day]").forEach(el => {
-            const format = el.getAttribute("data-last-day");
-            const m = lastDayDate.getMonth() + 1;
-            const d = lastDayDate.getDate();
-            const y = lastDayDate.getFullYear();
-            if (format === "us-short") el.textContent = m + "/" + d + "/" + String(y).slice(-2);
-            else if (format === "us-short-no-year") el.textContent = m + "/" + d;
-          });
-        }
         function initForms() {
           let ipData = {};
           function waitIP(timeout) {

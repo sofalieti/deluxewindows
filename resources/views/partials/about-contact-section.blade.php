@@ -43,7 +43,7 @@
                     <h2 class="display-4">Get Deluxe Windows for Less. 40% OFF* Windows</h2>
                     <label for="email-banner" class="body-14">
                       <em class="italic-text">*Windows Replacement. Offer Expires </em>
-                      <span data-last-day="us-short" class="date-span italic-span"><em class="italic-text"></em></span>
+                      <span class="date-span italic-span"><em class="italic-text">{{ promotion_date('us-short') }}</em></span>
                     </label>
                     <label for="email-banner" class="body-14">Request a FREE No-Obligation Quote &amp; Expert Advice!</label>
                   </div>

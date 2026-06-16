@@ -278,7 +278,7 @@
               <form id="email-form-2" name="email-form-2" data-name="Email Form 2" method="get" class="form-3" data-wf-page-id="688e50676f1dbd8cba0e091a" aria-label="Email Form 2">
                 <div class="div-block-22">
                   <h2 class="display-4">Get Deluxe Windows for Less. 40%&nbsp;OFF* Windows</h2>
-                  <label for="email-banner" class="body-14"><em class="italic-text">*Windows Replacement. Offer Expires </em><span data-last-day="us-short" class="date-span italic-span"></span></label>
+                  <label for="email-banner" class="body-14"><em class="italic-text">*Windows Replacement. Offer Expires </em><span class="date-span italic-span">{{ promotion_date('us-short') }}</span></label>
                   <label for="email-banner" class="body-14">Request a FREE No-Obligation Quote &amp; Expert Advice!</label>
                 </div>
                 <div class="div-block-23">
@@ -441,25 +441,12 @@
         function initLazy() {
           if (lazyLoaded) return;
           lazyLoaded = true;
-          initDate();
           initForms();
           loadZoho();
         }
         window.addEventListener("scroll", initLazy, { once: true });
         window.addEventListener("click", initLazy, { once: true });
         setTimeout(initLazy, 4000);
-        function initDate() {
-          const now = new Date();
-          const lastDayDate = new Date(now.getFullYear(), now.getMonth() + 1, 0);
-          document.querySelectorAll("[data-last-day]").forEach(el => {
-            const format = el.getAttribute("data-last-day");
-            const m = lastDayDate.getMonth() + 1;
-            const d = lastDayDate.getDate();
-            const y = lastDayDate.getFullYear();
-            if (format === "us-short") el.textContent = m + "/" + d + "/" + String(y).slice(-2);
-            else if (format === "us-short-no-year") el.textContent = m + "/" + d;
-          });
-        }
         function initForms() {
           let ipData = {};
           function waitIP(timeout) {

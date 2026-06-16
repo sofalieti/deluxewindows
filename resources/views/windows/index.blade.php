@@ -196,24 +196,11 @@
         function initLazy() {
           if (lazyLoaded) return;
           lazyLoaded = true;
-          initDate();
           loadZoho();
         }
         window.addEventListener("scroll", initLazy, { once: true });
         window.addEventListener("click", initLazy, { once: true });
         setTimeout(initLazy, 4000);
-        function initDate() {
-          const now = new Date();
-          const lastDayDate = new Date(now.getFullYear(), now.getMonth() + 1, 0);
-          document.querySelectorAll("[data-last-day]").forEach(el => {
-            const format = el.getAttribute("data-last-day");
-            const m = lastDayDate.getMonth() + 1;
-            const d = lastDayDate.getDate();
-            const y = lastDayDate.getFullYear();
-            if (format === "us-short") el.textContent = m + "/" + d + "/" + String(y).slice(-2);
-            else if (format === "us-short-no-year") el.textContent = m + "/" + d;
-          });
-        }
         function loadZoho() {
           const script = document.createElement("script");
           script.src = "https://salesiq.zohopublic.com/widget?wc=siqfe34762ee44eb77120f2a13c55fed7c0984ca603ae60aafcaf2adda4331dc65a";

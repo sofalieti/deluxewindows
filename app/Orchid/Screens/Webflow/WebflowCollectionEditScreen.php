@@ -6,6 +6,7 @@ namespace App\Orchid\Screens\Webflow;
 
 use App\Support\WebflowCollectionRegistry;
 use App\Support\WebflowReferenceRegistry;
+use App\Services\PromotionSettingsService;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
@@ -23,6 +24,13 @@ use Orchid\Support\Facades\Toast;
 
 class WebflowCollectionEditScreen extends Screen
 {
+    /** @var array<string, string> */
+    private const GLOBAL_SETTINGS_PROMOTION_FIELDS = [
+        'promotion-name' => 'Promotion name',
+        'start-date' => 'Start date',
+        'end-date' => 'End date',
+    ];
+
     protected string $collectionSlug = '';
 
     protected array $collectionMeta = [];
@@ -90,7 +98,7 @@ class WebflowCollectionEditScreen extends Screen
 
     public function layout(): iterable
     {
-        return [
+        $layouts = [
             Layout::view('admin.webflow-image-upload-script'),
 
             Layout::rows([
@@ -111,8 +119,17 @@ class WebflowCollectionEditScreen extends Screen
                 Switcher::make('entity.is_draft')
                     ->title('Draft'),
             ]),
+        ];
 
-            Layout::tabs([
+        if ($this->collectionSlug === 'global-settings') {
+            $layouts[] = Layout::block(
+                Layout::rows($this->buildGlobalSettingsPromotionEditors())
+            )
+                ->title('Site-wide promotion')
+                ->description('Promotion name and dates for offers across the site. The name is stored only — it is not shown on pages yet.');
+        }
+
+        $layouts[] = Layout::tabs([
                 'Main Data' => Layout::rows($this->buildFieldDataEditorsByCategory('main')),
                 'Relations' => Layout::rows(array_merge(
                     $this->buildReferenceInputEditors(),
@@ -129,6 +146,8 @@ class WebflowCollectionEditScreen extends Screen
                 ]),
             ]),
         ];
+
+        return $layouts;
     }
 
     public function save(string $collection, int $item, Request $request)
@@ -175,11 +194,73 @@ class WebflowCollectionEditScreen extends Screen
         $entity->is_archived = (bool) $request->boolean('entity.is_archived');
         $entity->is_draft = (bool) $request->boolean('entity.is_draft');
         $entity->field_data = $fieldData;
+
+        if ($collection === 'global-settings') {
+            $this->syncGlobalSettingsColumns($entity, $fieldData);
+        }
+
         $entity->save();
+
+        if (in_array($collection, ['global-settings', 'coupons'], true)) {
+            app(PromotionSettingsService::class)->forgetCache();
+        }
 
         Toast::info('Webflow item was saved.');
 
         return redirect()->route('platform.webflow.collection', ['collection' => $collection]);
+    }
+
+    /**
+     * @return Field[]
+     */
+    private function buildGlobalSettingsPromotionEditors(): array
+    {
+        $fields = [];
+
+        foreach (self::GLOBAL_SETTINGS_PROMOTION_FIELDS as $slug => $title) {
+            $value = (string) ($this->fieldData[$slug] ?? '');
+            $name = $this->buildFieldInputName($slug);
+
+            if ($slug === 'promotion-name') {
+                $fields[] = Input::make($name)
+                    ->title($title)
+                    ->value($value)
+                    ->help('Title of the current promotion. Saved for future use — not displayed on the site yet.');
+                continue;
+            }
+
+            $fields[] = Input::make($name)
+                ->title($title)
+                ->value($value)
+                ->help('Format: M/D/YY or M/D/YYYY');
+        }
+
+        return $fields;
+    }
+
+    /**
+     * @param  array<string, mixed>  $fieldData
+     */
+    private function syncGlobalSettingsColumns(Model $entity, array $fieldData): void
+    {
+        if (! Schema::hasColumn($entity->getTable(), 'wf_promotion_name')) {
+            return;
+        }
+
+        $entity->wf_promotion_name = $this->nullableTrimmedString($fieldData['promotion-name'] ?? null);
+        $entity->wf_start_date = $this->nullableTrimmedString($fieldData['start-date'] ?? null);
+        $entity->wf_end_date = $this->nullableTrimmedString($fieldData['end-date'] ?? null);
+    }
+
+    private function nullableTrimmedString(mixed $value): ?string
+    {
+        if (! is_scalar($value)) {
+            return null;
+        }
+
+        $trimmed = trim((string) $value);
+
+        return $trimmed === '' ? null : $trimmed;
     }
 
     /**
@@ -194,6 +275,13 @@ class WebflowCollectionEditScreen extends Screen
         $fields = [];
         foreach ($this->fieldData as $key => $value) {
             if (array_key_exists((string) $key, $this->referenceFields)) {
+                continue;
+            }
+
+            if (
+                $this->collectionSlug === 'global-settings'
+                && array_key_exists((string) $key, self::GLOBAL_SETTINGS_PROMOTION_FIELDS)
+            ) {
                 continue;
             }
 

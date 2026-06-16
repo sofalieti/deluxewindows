@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Services\Media\ImageThumbnailService;
+use App\Services\PromotionSettingsService;
 
 if (! function_exists('site_phone_display')) {
     function site_phone_display(): string
@@ -42,5 +43,20 @@ if (! function_exists('thumbnail_responsive')) {
         ?string $sizes = null,
     ): array {
         return app(ImageThumbnailService::class)->responsive($source, $presetOrWidth, $displayWidth, $height, $sizes);
+    }
+}
+
+if (! function_exists('promotion_date')) {
+    /** Formats: us-short, us-short-no-year, long */
+    function promotion_date(string $format = 'us-short'): string
+    {
+        return app(PromotionSettingsService::class)->formatGlobal($format);
+    }
+}
+
+if (! function_exists('promotion_name')) {
+    function promotion_name(): string
+    {
+        return app(PromotionSettingsService::class)->promotionName();
     }
 }

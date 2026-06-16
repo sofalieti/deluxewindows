@@ -1,6 +1,5 @@
 @php
   $cdn = 'https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd';
-  $cdnOffers = 'https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586';
   $calendarIcon = '/webflow-assets/images/6841ddf8ace3d9d9facb1894_calendar-icon-property-x-webflow-template.svg';
 @endphp
 <!DOCTYPE html>
@@ -139,108 +138,29 @@
           <div class="mg-top-large mg-top-40px---mbl">
             <div class="w-dyn-list">
               <div role="list" class="grid-1-column featured-blog-grid-v3 w-dyn-items">
-
+                @foreach($coupons as $coupon)
                 <div role="listitem" class="featured-blog-card-v3 w-dyn-item">
+                  @if($coupon['image'] !== '')
                   <a href="#email-form-2" class="image-wrapper featured-blog-v3 w-inline-block">
-                    <img
-                      src="{{ $cdnOffers }}/688236fed9cc28b78fb10d04_IMG_2963%201.avif"
-                      loading="eager"
-                      alt=""
-                      sizes="(max-width: 767px) 100vw, (max-width: 991px) 95vw, 938.8375244140625px"
-                      srcset="{{ $cdnOffers }}/688236fed9cc28b78fb10d04_IMG_2963%201-p-500.avif 500w, {{ $cdnOffers }}/688236fed9cc28b78fb10d04_IMG_2963%201-p-800.avif 800w, {{ $cdnOffers }}/688236fed9cc28b78fb10d04_IMG_2963%201.avif 1629w"
-                      class="image cover-image"
-                    />
+                    <img src="{{ $coupon['image'] }}" loading="eager" alt="" class="image cover-image" />
                   </a>
+                  @endif
                   <a href="#email-form-2" class="card featured-card-blog-v3 w-inline-block">
                     <div>
                       <div class="card-post-date">
                         <img src="{{ $calendarIcon }}" loading="eager" alt="Calendary Icon - Property X Webflow Template" />
-                        <div class="text-neutral-light"><div data-last-day="long"></div></div>
+                        <div class="text-neutral-light"><div>{{ $coupon['expires_label'] }}</div></div>
                       </div>
                     </div>
                     <div class="inner-container _450px---mbl">
-                      <div class="mg-top-default"><h2 class="display-6">40% OFF Windows</h2></div>
+                      <div class="mg-top-default"><h2 class="display-6">{{ $coupon['name'] }}</h2></div>
                       <div class="mg-top-small">
-                        <p class="paragraph-50">*30% national window discount requires minimum purchase of 3 Comfort 365 Windows®. Earn up to an additional 10% off with participation in the YES! Program (up to $2,000), making your window discount a total of up to 40% off. ‍</p>
+                        <p class="paragraph-50">{{ $coupon['description'] }}</p>
                       </div>
                     </div>
                   </a>
                 </div>
-
-                <div role="listitem" class="featured-blog-card-v3 w-dyn-item">
-                  <a href="#email-form-2" class="image-wrapper featured-blog-v3 w-inline-block">
-                    <img src="{{ $cdnOffers }}/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif" loading="eager" alt="" class="image cover-image" />
-                  </a>
-                  <a href="#email-form-2" class="card featured-card-blog-v3 w-inline-block">
-                    <div>
-                      <div class="card-post-date">
-                        <img src="{{ $calendarIcon }}" loading="eager" alt="Calendary Icon - Property X Webflow Template" />
-                        <div class="text-neutral-light"><div data-last-day="long"></div></div>
-                      </div>
-                    </div>
-                    <div class="inner-container _450px---mbl">
-                      <div class="mg-top-default"><h2 class="display-6">40% OFF Doors</h2></div>
-                      <div class="mg-top-small">
-                        <p class="paragraph-50">*30% national door discount requires minimum purchase of 3 Comfort 365 Windows®. Earn up to an additional 10% off with participation in the YES! Program (up to $2,000), making your window discount a total of up to 40% off.</p>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-
-                <div role="listitem" class="featured-blog-card-v3 w-dyn-item">
-                  <a href="#email-form-2" class="image-wrapper featured-blog-v3 w-inline-block">
-                    <img
-                      src="{{ $cdnOffers }}/688238f1c9cdbcae6e14caea_a-c-cmYXzX-r3mY-unsplash.avif"
-                      loading="eager"
-                      alt=""
-                      sizes="(max-width: 767px) 100vw, (max-width: 991px) 95vw, 938.8375244140625px"
-                      srcset="{{ $cdnOffers }}/688238f1c9cdbcae6e14caea_a-c-cmYXzX-r3mY-unsplash-p-500.avif 500w, {{ $cdnOffers }}/688238f1c9cdbcae6e14caea_a-c-cmYXzX-r3mY-unsplash-p-800.avif 800w, {{ $cdnOffers }}/688238f1c9cdbcae6e14caea_a-c-cmYXzX-r3mY-unsplash-p-1080.avif 1080w, {{ $cdnOffers }}/688238f1c9cdbcae6e14caea_a-c-cmYXzX-r3mY-unsplash-p-1600.avif 1600w, {{ $cdnOffers }}/688238f1c9cdbcae6e14caea_a-c-cmYXzX-r3mY-unsplash-p-2000.avif 2000w, {{ $cdnOffers }}/688238f1c9cdbcae6e14caea_a-c-cmYXzX-r3mY-unsplash.avif 4930w"
-                      class="image cover-image"
-                    />
-                  </a>
-                  <a href="#email-form-2" class="card featured-card-blog-v3 w-inline-block">
-                    <div>
-                      <div class="card-post-date">
-                        <img src="{{ $calendarIcon }}" loading="eager" alt="Calendary Icon - Property X Webflow Template" />
-                        <div class="text-neutral-light"><div data-last-day="long"></div></div>
-                      </div>
-                    </div>
-                    <div class="inner-container _450px---mbl">
-                      <div class="mg-top-default"><h2 class="display-6">Senior Citizen Discount</h2></div>
-                      <div class="mg-top-small">
-                        <p class="paragraph-50">Receive an additional 5% off your entire project. Eligible parties must be 55 years of age or older. Proof of eligibility include a state-issued photo ID for proof of age at the time of appointment. Certain restrictions may apply.‍</p>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-
-                <div role="listitem" class="featured-blog-card-v3 w-dyn-item">
-                  <a href="#email-form-2" class="image-wrapper featured-blog-v3 w-inline-block">
-                    <img
-                      src="{{ $cdnOffers }}/6882394edeeffd727ef123a8_aaron-burden-9C8r4QUwZRQ-unsplash.avif"
-                      loading="eager"
-                      alt=""
-                      sizes="(max-width: 767px) 100vw, (max-width: 991px) 95vw, 938.8375244140625px"
-                      srcset="{{ $cdnOffers }}/6882394edeeffd727ef123a8_aaron-burden-9C8r4QUwZRQ-unsplash-p-500.avif 500w, {{ $cdnOffers }}/6882394edeeffd727ef123a8_aaron-burden-9C8r4QUwZRQ-unsplash-p-800.avif 800w, {{ $cdnOffers }}/6882394edeeffd727ef123a8_aaron-burden-9C8r4QUwZRQ-unsplash-p-1080.avif 1080w, {{ $cdnOffers }}/6882394edeeffd727ef123a8_aaron-burden-9C8r4QUwZRQ-unsplash-p-1600.avif 1600w, {{ $cdnOffers }}/6882394edeeffd727ef123a8_aaron-burden-9C8r4QUwZRQ-unsplash-p-2000.avif 2000w, {{ $cdnOffers }}/6882394edeeffd727ef123a8_aaron-burden-9C8r4QUwZRQ-unsplash-p-2600.avif 2600w, {{ $cdnOffers }}/6882394edeeffd727ef123a8_aaron-burden-9C8r4QUwZRQ-unsplash.avif 4479w"
-                      class="image cover-image"
-                    />
-                  </a>
-                  <a href="#email-form-2" class="card featured-card-blog-v3 w-inline-block">
-                    <div>
-                      <div class="card-post-date">
-                        <img src="{{ $calendarIcon }}" loading="eager" alt="Calendary Icon - Property X Webflow Template" />
-                        <div class="text-neutral-light"><div data-last-day="long"></div></div>
-                      </div>
-                    </div>
-                    <div class="inner-container _450px---mbl">
-                      <div class="mg-top-default"><h2 class="display-6">Military Discount</h2></div>
-                      <div class="mg-top-small">
-                        <p class="paragraph-50">Eligible parties include active duty members, reserves and veterans/retirees within 2 years of separation or retirement of the U.S. Air Force, Army, Navy, Marines, National Guard, Space Force or Coast Guard. Proof of eligibility required copy of Leave and Earnings Statement, Delayed Entry/Enlistment (DEP) form, or Veteran/Retiree (DD-214) form and copy of current driver's license. Certain restrictions may apply.</p>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-
+                @endforeach
               </div>
             </div>
           </div>

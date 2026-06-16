@@ -444,7 +444,7 @@
                                 <div class="w-layout-blockcontainer container-2 w-container">
                                   <h5>40% OFF Windows</h5>
                                   <div class="text-regular-2">
-                                    Offer ends <span data-last-day="us-short-no-year" class="date-span">7/31</span
+                                    Offer ends <span class="date-span">{{ promotion_date('us-short-no-year') }}</span
                                     ><br />
                                   </div>
                                   <a
@@ -609,7 +609,7 @@
                                 <div class="w-layout-blockcontainer container-2 w-container">
                                   <h5>40% OFF Doors</h5>
                                   <div class="text-regular-2">
-                                    Offer ends <span data-last-day="us-short-no-year" class="date-span">7/31</span
+                                    Offer ends <span class="date-span">{{ promotion_date('us-short-no-year') }}</span
                                     ><br />
                                   </div>
                                   <a
@@ -709,7 +709,7 @@
                                 <div class="w-layout-blockcontainer container-2 w-container">
                                   <h5>40% OFF Windows</h5>
                                   <div class="text-regular-2">
-                                    Offer ends <span data-last-day="us-short-no-year" class="date-span">7/31</span
+                                    Offer ends <span class="date-span">{{ promotion_date('us-short-no-year') }}</span
                                     ><br />
                                   </div>
                                   <a
@@ -847,7 +847,7 @@
                                 <div class="w-layout-blockcontainer container-2 w-container">
                                   <h5>40% OFF Windows</h5>
                                   <div class="text-regular-2">
-                                    Offer ends <span data-last-day="us-short-no-year" class="date-span">7/31</span
+                                    Offer ends <span class="date-span">{{ promotion_date('us-short-no-year') }}</span
                                     ><br />
                                   </div>
                                   <a
@@ -1497,8 +1497,8 @@
                   </div>
                   <label for="email-banner" class="body-14"
                     ><em class="italic-text">*Windows Replacement. Offer Expires </em
-                    ><span data-last-day="us-short" class="date-span italic-span"
-                      ><em class="italic-text">03/10/26</em></span
+                    ><span class="date-span italic-span"
+                      ><em class="italic-text">{{ promotion_date('us-short') }}</em></span
                     ></label
                   >
                 </form>

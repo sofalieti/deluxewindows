@@ -13,6 +13,7 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->singleton(\App\Services\Media\ImageThumbnailService::class);
+        $this->app->singleton(\App\Services\PromotionSettingsService::class);
     }
 
     /**
