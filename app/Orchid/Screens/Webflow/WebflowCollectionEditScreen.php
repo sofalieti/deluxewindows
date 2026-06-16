@@ -58,6 +58,7 @@ class WebflowCollectionEditScreen extends Screen
         $model = $meta['model'];
         $entity = $model::query()->findOrFail($item);
         $fieldData = is_array($entity->field_data) ? $entity->field_data : [];
+        $fieldData = $this->ensureWindowsCustomHeroField($fieldData);
         $this->fieldData = $fieldData;
         $this->referenceFields = WebflowReferenceRegistry::forModel($meta['model']);
         $this->relationOptions = $this->buildRelationOptions($this->referenceFields);
@@ -70,6 +71,29 @@ class WebflowCollectionEditScreen extends Screen
             'fieldDataJson' => json_encode($fieldData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) ?: '{}',
             'referencePreview' => $this->referencePreview,
         ];
+    }
+
+    /**
+     * @param  array<string, mixed>  $fieldData
+     * @return array<string, mixed>
+     */
+    private function ensureWindowsCustomHeroField(array $fieldData): array
+    {
+        if ($this->collectionSlug !== 'windows') {
+            return $fieldData;
+        }
+
+        if (array_key_exists('custom-hero-image', $fieldData)) {
+            return $fieldData;
+        }
+
+        $fieldData['custom-hero-image'] = [
+            'fileId' => null,
+            'url' => '',
+            'alt' => null,
+        ];
+
+        return $fieldData;
     }
 
     public function name(): ?string

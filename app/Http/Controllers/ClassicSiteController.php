@@ -92,10 +92,7 @@ class ClassicSiteController extends Controller
 
         $fieldData = is_array($window->field_data ?? null) ? $window->field_data : [];
 
-        $generatedHeroImage = $this->generatedWindowTypeHeroImageUrl((string) ($fieldData['slug'] ?? $slug));
-
         $heroImage = $window->customHeroImageUrl()
-            ?? $generatedHeroImage
             ?? $this->extractImageUrl($fieldData, [
                 'property-listing---thumbnail-image-v1',
                 'property-listing---featured-image',
@@ -1842,27 +1839,6 @@ class ClassicSiteController extends Controller
             }
             if (is_string($value) && $value !== '') {
                 return $value;
-            }
-        }
-
-        return null;
-    }
-
-    private function generatedWindowTypeHeroImageUrl(string $slug): ?string
-    {
-        $slug = strtolower(trim($slug));
-        if ($slug === '') {
-            return null;
-        }
-
-        $candidates = [
-            "webflow-assets/images/window-type-hero/{$slug}-hero-bg-v1.avif",
-            "webflow-assets/images/window-type-hero/{$slug}-hero-lux-wall-v1.avif",
-        ];
-
-        foreach ($candidates as $relativePath) {
-            if (File::exists(public_path($relativePath))) {
-                return asset($relativePath);
             }
         }
 
