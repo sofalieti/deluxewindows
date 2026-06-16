@@ -842,7 +842,7 @@ class ClassicSiteController extends Controller
         $doorsTitle     = $fieldData['doors-title']            ?? "Explore {$name}'s Door Types";
         $sidebarMaterialGroups = $this->buildBrandSidebarMaterialGroups($brand, $fieldData);
         $controls = app(PromotionControlService::class);
-        $brandPricing = $controls->brandPricing((string) ($fieldData['slug'] ?? $slug));
+        $brandPricing = $this->resolveBrandPromotionPricing($brand, (string) ($fieldData['slug'] ?? $slug), $controls);
         $brandHeroFormHtml = $brandPricing
             ? $controls->priceHtml($brandPricing['base'], $brandPricing['final'])
             : null;
@@ -2047,6 +2047,38 @@ class ClassicSiteController extends Controller
         }
 
         return '<p>Starting from $1199 per window installed.</p><p><strong>Special pricing available upon request! </strong>‍</p>';
+    }
+
+    /**
+     * Brand price priority:
+     * 1) explicit brand override in Promotions tab
+     * 2) inherited from first linked Windows-type (materials relation)
+     *
+     * @return array{base: string, final: string}|null
+     */
+    private function resolveBrandPromotionPricing(
+        BrandsWebflowItem $brand,
+        string $brandSlug,
+        PromotionControlService $controls,
+    ): ?array {
+        $override = $controls->brandPricing($brandSlug);
+        if ($override !== null) {
+            return $override;
+        }
+
+        foreach ($brand->webflowReferences('materials') as $material) {
+            $fd = is_array($material->field_data) ? $material->field_data : [];
+            $materialSlug = trim((string) ($fd['slug'] ?? ''));
+            if ($materialSlug === '') {
+                continue;
+            }
+            $inherited = $controls->windowTypePricing($materialSlug);
+            if ($inherited !== null) {
+                return $inherited;
+            }
+        }
+
+        return null;
     }
 
     private function brandCollectionMatchesMaterial(array $collection, string $materialName, ?string $materialWebflowId): bool

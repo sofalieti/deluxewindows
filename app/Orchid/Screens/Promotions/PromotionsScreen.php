@@ -7,7 +7,7 @@ namespace App\Orchid\Screens\Promotions;
 use App\Models\Webflow\GlobalSettingsWebflowItem;
 use App\Models\Webflow\BrandCollectionsWebflowItem;
 use App\Models\Webflow\BrandsWebflowItem;
-use App\Models\Webflow\WindowTypeWebflowItem;
+use App\Models\Webflow\WindowsWebflowItem;
 use App\Services\PromotionControlService;
 use App\Services\PromotionSettingsService;
 use Illuminate\Http\Request;
@@ -112,7 +112,7 @@ class PromotionsScreen extends Screen
                         ->required()
                         ->help('Single end date shown on all discount-related sections.'),
                 ]),
-                'Window Types' => Layout::rows($this->pricingRows('window_type_prices', $this->windowTypeItems(), 'Price per window type')),
+                'Window Types' => Layout::rows($this->pricingRows('window_type_prices', $this->windowTypeItems(), 'Price per Windows item')),
                 'Series' => Layout::rows($this->pricingRows('series_prices', $this->seriesItems(), 'Price per series')),
                 'Brands' => Layout::rows($this->pricingRows('brand_prices', $this->brandItems(), 'Brand override price')),
             ]),
@@ -214,16 +214,19 @@ class PromotionsScreen extends Screen
      */
     private function windowTypeItems(): array
     {
-        return WindowTypeWebflowItem::query()
+        return WindowsWebflowItem::query()
             ->where('is_archived', false)
             ->where('is_draft', false)
             ->orderBy('id')
             ->get()
-            ->map(function (WindowTypeWebflowItem $item): ?array {
+            ->map(function (WindowsWebflowItem $item): ?array {
                 $fd = is_array($item->field_data) ? $item->field_data : [];
                 $slug = trim((string) ($fd['slug'] ?? ''));
                 $name = trim((string) ($fd['name'] ?? ''));
                 if ($slug === '' || $name === '') {
+                    return null;
+                }
+                if (($fd['parent-collection'] ?? '') !== 'Windows') {
                     return null;
                 }
 
