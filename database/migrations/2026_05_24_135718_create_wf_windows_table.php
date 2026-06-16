@@ -19,6 +19,7 @@ return new class extends Migration
             $table->boolean('is_draft')->default(false);
             $table->json('field_data')->nullable();
             $table->longText('wf_discounttext')->nullable();
+            $table->json('wf_custom_hero_image')->nullable();
             $table->json('wf_property_listing_featured_image')->nullable();
             $table->json('wf_property_listing_featured_images')->nullable();
             $table->json('wf_property_listing_thumbnail_image_v1')->nullable();

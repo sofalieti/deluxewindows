@@ -21,6 +21,7 @@ class WindowsWebflowItem extends Model
             'field_data' => 'array',
             'is_archived' => 'boolean',
             'is_draft' => 'boolean',
+            'wf_custom_hero_image' => 'array',
         ];
     }
 

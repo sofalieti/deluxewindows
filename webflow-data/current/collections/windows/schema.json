@@ -17,6 +17,16 @@
       "validations": null
     },
     {
+      "id": "f62b2d87b8f149a9b86f5f4708ed1de1",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Image",
+      "slug": "custom-hero-image",
+      "displayName": "Custom Hero Background Image",
+      "helpText": "Optional extra background image for hero section",
+      "validations": null
+    },
+    {
       "id": "64d248618a46106d2001518617d5cbb4",
       "isEditable": true,
       "isRequired": false,

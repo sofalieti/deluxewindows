@@ -4,6 +4,7 @@
   "collectionSlug": "windows",
   "flattenedFieldMap": {
     "discounttext": "wf_discounttext",
+    "custom-hero-image": "wf_custom_hero_image",
     "property-listing---featured-image": "wf_property_listing_featured_image",
     "property-listing---featured-images": "wf_property_listing_featured_images",
     "property-listing---thumbnail-image-v1": "wf_property_listing_thumbnail_image_v1",
@@ -517,7 +518,12 @@
         "twitter-card": "summary_large_image",
         "hide": false,
         "name": "Vinyl Windows",
-        "slug": "vinyl-windows"
+        "slug": "vinyl-windows",
+        "custom-hero-image": {
+          "fileId": null,
+          "url": "/webflow-assets/images/window-type-hero/vinyl-windows-hero-bg-v1.avif",
+          "alt": "Vinyl Windows hero background"
+        }
       }
     },
     {

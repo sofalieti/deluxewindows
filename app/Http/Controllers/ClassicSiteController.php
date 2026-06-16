@@ -1855,10 +1855,18 @@ class ClassicSiteController extends Controller
             return null;
         }
 
-        $relativePath = "webflow-assets/images/window-type-hero/{$slug}-hero-lux-wall-v1.avif";
-        $absolutePath = public_path($relativePath);
+        $candidates = [
+            "webflow-assets/images/window-type-hero/{$slug}-hero-bg-v1.avif",
+            "webflow-assets/images/window-type-hero/{$slug}-hero-lux-wall-v1.avif",
+        ];
 
-        return File::exists($absolutePath) ? asset($relativePath) : null;
+        foreach ($candidates as $relativePath) {
+            if (File::exists(public_path($relativePath))) {
+                return asset($relativePath);
+            }
+        }
+
+        return null;
     }
 
     /**
