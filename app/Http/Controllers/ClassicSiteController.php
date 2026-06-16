@@ -143,7 +143,7 @@ class ClassicSiteController extends Controller
         $windowPricing  = $controls->windowTypePricing((string) ($fieldData['slug'] ?? $slug));
         $discountHtml   = $windowPricing
             ? $controls->priceHtml($windowPricing['base'], $windowPricing['final'], 'per window installed')
-            : (string) ($fieldData['discounttext'] ?? '');
+            : $this->legacyDiscountToPromoHtml((string) ($fieldData['discounttext'] ?? ''), 'per window installed');
 
         return view('windows.show', [
             'windowFieldData'  => $fieldData,
@@ -2023,7 +2023,7 @@ class ClassicSiteController extends Controller
                 $discount   = $materialFd['discounttext'] ?? '';
 
                 if (is_string($discount) && trim(strip_tags($discount)) !== '') {
-                    return $discount;
+                    return $this->legacyDiscountToPromoHtml($discount);
                 }
             }
         }
@@ -2048,11 +2048,29 @@ class ClassicSiteController extends Controller
             $discount   = $materialFd['discounttext'] ?? '';
 
             if (is_string($discount) && trim(strip_tags($discount)) !== '') {
-                return $discount;
+                return $this->legacyDiscountToPromoHtml($discount);
             }
         }
 
         return '<p>Starting from $1199 per window installed.</p><p><strong>Special pricing available upon request! </strong>‍</p>';
+    }
+
+    private function legacyDiscountToPromoHtml(string $legacyHtml, string $suffix = 'per window'): string
+    {
+        $legacyHtml = trim($legacyHtml);
+        if ($legacyHtml === '') {
+            return app(PromotionControlService::class)->priceHtml('915', '$549', $suffix);
+        }
+
+        if (preg_match('/<s>\s*\$?\s*([0-9][0-9,]*(?:\.[0-9]{1,2})?)\s*<\/s>/i', $legacyHtml, $baseMatch) !== 1) {
+            return $legacyHtml;
+        }
+
+        if (preg_match('/<\/s>\s*\$?\s*([0-9][0-9,]*(?:\.[0-9]{1,2})?)/i', $legacyHtml, $finalMatch) !== 1) {
+            return $legacyHtml;
+        }
+
+        return app(PromotionControlService::class)->priceHtml($baseMatch[1], $finalMatch[1], $suffix);
     }
 
     /**

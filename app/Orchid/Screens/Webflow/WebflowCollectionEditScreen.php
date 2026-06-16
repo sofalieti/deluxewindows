@@ -295,8 +295,9 @@ class WebflowCollectionEditScreen extends Screen
             return [];
         }
 
+        $fieldDataEntries = $this->orderedFieldDataEntries($this->fieldData, $category);
         $fields = [];
-        foreach ($this->fieldData as $key => $value) {
+        foreach ($fieldDataEntries as $key => $value) {
             if (array_key_exists((string) $key, $this->referenceFields)) {
                 continue;
             }
@@ -360,6 +361,33 @@ class WebflowCollectionEditScreen extends Screen
         }
 
         return $fields;
+    }
+
+    /**
+     * Keep important fields pinned to the top of their section.
+     *
+     * @param  array<string, mixed>  $fieldData
+     * @return array<string, mixed>
+     */
+    private function orderedFieldDataEntries(array $fieldData, string $category): array
+    {
+        if ($this->collectionSlug !== 'windows' || $category !== 'main') {
+            return $fieldData;
+        }
+
+        if (! array_key_exists('custom-hero-image', $fieldData)) {
+            return $fieldData;
+        }
+
+        $ordered = ['custom-hero-image' => $fieldData['custom-hero-image']];
+        foreach ($fieldData as $key => $value) {
+            if ($key === 'custom-hero-image') {
+                continue;
+            }
+            $ordered[$key] = $value;
+        }
+
+        return $ordered;
     }
 
     private function hydrateFieldValue(mixed $value, mixed $existing): mixed
