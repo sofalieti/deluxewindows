@@ -1072,7 +1072,7 @@
       document.documentElement.className = document.documentElement.className
         .replace(/\bwf-loading\b/g, 'wf-active')
         .replace(/\bwf-exo-[^\s]+/g, '');
-    </script>
+</script>
     <script type="text/javascript">
       !(function (o, c) {
         var n = c.documentElement,
@@ -1080,7 +1080,7 @@
         ((n.className += t + "js"),
           ("ontouchstart" in o || (o.DocumentTouch && c instanceof DocumentTouch)) && (n.className += t + "touch"));
       })(window, document);
-    </script>
+</script>
     <link href="/webflow-assets/images/favicon.png" rel="shortcut icon" type="image/x-icon" />
     <link href="/webflow-assets/images/webclip-bg.png" rel="apple-touch-icon" />
 
