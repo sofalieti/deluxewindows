@@ -5,6 +5,10 @@
           }
 
           @media (max-width: 991px) {
+            .header-container-2 > .navbar.w-nav {
+              display: none !important;
+            }
+
             .navbar-3 {
               position: sticky;
               top: 0;
