@@ -33,10 +33,12 @@
 
             .mobile-top-strip__inner {
               min-height: 44px;
-              padding: 7px 14px;
+              width: 100%;
+              max-width: none;
+              padding: 7px 12px;
               display: flex;
               align-items: center;
-              justify-content: center;
+              justify-content: flex-start;
               gap: 0;
             }
 
@@ -45,7 +47,8 @@
               font-size: 12px;
               line-height: 1.2;
               white-space: normal;
-              text-align: center;
+              text-align: left;
+              width: 100%;
             }
 
             body.mobile-strip-collapsed .mobile-top-strip {
@@ -61,6 +64,8 @@
             .navbar-3 .container-regular {
               width: 100%;
               max-width: none;
+              padding-left: 12px;
+              padding-right: 12px;
             }
 
             .navbar-3 .navbar-wrapper {
@@ -93,6 +98,11 @@
           }
 
           @media (max-width: 479px) {
+            .mobile-top-strip__inner {
+              padding-left: max(12px, env(safe-area-inset-left));
+              padding-right: max(12px, env(safe-area-inset-right));
+            }
+
             .navbar-3 .container-regular {
               padding-left: max(12px, env(safe-area-inset-left));
               padding-right: max(12px, env(safe-area-inset-right));
