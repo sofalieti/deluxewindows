@@ -66,6 +66,68 @@
 
 @include('partials.header-scripts')
 
+@once
+  <style>
+    /* Hero headline block where "Upgrade to Energy Efficient Windows and Doors for Less" is shown */
+    .title-left---content-right.paragraph-content.alt.hero-page .rich-text-block-2 {
+      text-align: center;
+    }
+
+    .title-left---content-right.paragraph-content.alt.hero-page .rich-text-block-2 .heading-49 {
+      margin: 0;
+      line-height: 1.1;
+      font-size: clamp(34px, 3vw, 52px);
+    }
+
+    .title-left---content-right.paragraph-content.alt.hero-page .rich-text-block-2 .w-embed h2[data-city] {
+      margin: 0;
+      font-size: clamp(18px, 1.35vw, 24px) !important;
+      line-height: 1.25;
+    }
+
+    /* Larger and more premium headline treatment on high resolutions */
+    @media (min-width: 1680px) {
+      .title-left---content-right.paragraph-content.alt.hero-page .rich-text-block-2 .heading-49 {
+        font-size: clamp(46px, 2.8vw, 64px);
+      }
+
+      .title-left---content-right.paragraph-content.alt.hero-page .rich-text-block-2 .w-embed h2[data-city] {
+        font-size: clamp(22px, 1.2vw, 30px) !important;
+      }
+    }
+
+    /* Compact mobile hero: less top space, smaller text, cleaner edges */
+    @media (max-width: 767px) {
+      .title-left---content-right.paragraph-content.alt.hero-page {
+        padding-top: 10px !important;
+        padding-bottom: 16px !important;
+        gap: 12px !important;
+      }
+
+      .div-block-59 > .w-layout-blockcontainer.container-default {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+      }
+
+      .title-left---content-right.paragraph-content.alt.hero-page .inner-container._640px._100-tablet,
+      .title-left---content-right.paragraph-content.alt.hero-page .inner-container._450px---tablet,
+      .title-left---content-right.paragraph-content.alt.hero-page .inner-container._400px---mbl {
+        width: 100% !important;
+        max-width: none !important;
+      }
+
+      .title-left---content-right.paragraph-content.alt.hero-page .rich-text-block-2 .heading-49 {
+        font-size: clamp(24px, 6vw, 30px) !important;
+        line-height: 1.16 !important;
+      }
+
+      .title-left---content-right.paragraph-content.alt.hero-page .rich-text-block-2 .w-embed h2[data-city] {
+        font-size: clamp(14px, 3.8vw, 17px) !important;
+      }
+    }
+  </style>
+@endonce
+
       <div class="div-block-59">
         @if(!empty($heroBackgroundImage))
           {{-- Static hero background (brand pages etc.) --}}
