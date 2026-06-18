@@ -134,19 +134,18 @@
               display: inline-flex;
               align-items: center;
               justify-content: center;
-              min-height: 34px;
+              min-height: 36px;
               padding: 0 10px;
-              border-radius: 999px;
-              border: 1px solid #d6e2f1;
-              background: #f7fbff;
-              color: #0f2740;
-              font-size: 11px;
-              line-height: 1;
-              font-weight: 800;
-              letter-spacing: 0.01em;
-              text-decoration: none;
               white-space: nowrap;
-              cursor: pointer;
+            }
+
+            .navbar-3 .mobile-estimate-btn > div {
+              font-size: 10px;
+              line-height: 1.05;
+              font-weight: 700;
+              letter-spacing: 0.01em;
+              text-align: center;
+              white-space: nowrap;
             }
 
             .navbar-3 .mobile-estimate-btn:active {
@@ -204,7 +203,10 @@
             .navbar-3 .mobile-estimate-btn {
               min-height: 32px;
               padding: 0 8px;
-              font-size: 10px;
+            }
+
+            .navbar-3 .mobile-estimate-btn > div {
+              font-size: 9px;
             }
           }
 
@@ -1080,9 +1082,10 @@
               </div>
               <div class="nav-menu-right-side-2">
                 <a
-                  href="/contacts"
+                  href="#"
                   id="w-node-_632206d9-3c73-e5be-be34-15992c2e8416-2c2e830e"
                   class="primary-button-2 w-inline-block"
+                  data-open-estimate-modal
                   ><div>Request a Free Estimate</div></a
                 >
                 <div
@@ -1152,7 +1155,7 @@
                     class="link-15__icon"
                   /><span class="link-15__label">{{ site_phone_display() }}</span></a
                 >
-                <button type="button" class="mobile-estimate-btn" data-open-estimate-modal>Free Quote</button>
+                <a href="#" class="primary-button-2 mobile-estimate-btn w-inline-block" data-open-estimate-modal><div>Request a Free Estimate</div></a>
                 <nav role="navigation" class="nav-menu-wrapper-4 w-nav-menu">
                   <ul role="list" class="nav-menu-2 w-list-unstyled">
                     <li class="menu">
@@ -1578,8 +1581,9 @@
             <button type="button" class="mobile-estimate-modal__close" data-close-estimate-modal aria-label="Close form">×</button>
             <h3 id="mobileEstimateTitle" class="mobile-estimate-modal__title">Request a Free Estimate</h3>
             <div class="mobile-estimate-modal__promo">
-              <strong>{{ promotion_name() }}</strong><br />
-              {{ promotion_percent_label() }} • Offer ends {{ promotion_date('us-short') }}
+              <div class="mobile-estimate-modal__promo-kicker">Limited-Time Deal</div>
+              <div class="mobile-estimate-modal__promo-main">{{ promotion_percent_label() }}</div>
+              <div class="mobile-estimate-modal__promo-sub">{{ promotion_name() }} • Ends {{ promotion_date('us-short') }}</div>
             </div>
             <div class="mobile-estimate-modal__form-wrap w-form">
               <form id="wf-form-Mobile-Estimate-Modal" name="wf-form-Mobile-Estimate-Modal" method="get" class="mobile-estimate-modal__form js-laravel-lead-form">
@@ -1626,13 +1630,13 @@
               left: 50%;
               top: 50%;
               transform: translate(-50%, -50%);
-              width: min(92vw, 420px);
+              width: min(92vw, 520px);
               max-height: min(86vh, 760px);
               overflow: auto;
               background: #fff;
               border-radius: 14px;
               box-shadow: 0 22px 55px rgba(15, 23, 42, 0.3);
-              padding: 18px 14px 14px;
+              padding: 20px 16px 16px;
             }
 
             .mobile-estimate-modal__close {
@@ -1656,13 +1660,35 @@
 
             .mobile-estimate-modal__promo {
               margin-bottom: 12px;
-              border: 1px solid #f1d7b2;
-              background: #fff8ee;
+              border: 1px solid #f7b553;
+              background: linear-gradient(135deg, #ff8a00 0%, #ffb347 100%);
               border-radius: 10px;
-              padding: 9px 10px;
-              font-size: 13px;
-              line-height: 1.3;
-              color: #4b2e12;
+              padding: 10px 12px;
+              color: #ffffff;
+              box-shadow: 0 8px 18px rgba(255, 138, 0, 0.28);
+            }
+
+            .mobile-estimate-modal__promo-kicker {
+              font-size: 11px;
+              line-height: 1.2;
+              opacity: 0.95;
+              letter-spacing: 0.04em;
+              text-transform: uppercase;
+              font-weight: 700;
+            }
+
+            .mobile-estimate-modal__promo-main {
+              margin-top: 2px;
+              font-size: 24px;
+              line-height: 1.05;
+              font-weight: 800;
+            }
+
+            .mobile-estimate-modal__promo-sub {
+              margin-top: 2px;
+              font-size: 12px;
+              line-height: 1.25;
+              font-weight: 600;
             }
 
             .mobile-estimate-modal__form .w-input {
@@ -1680,16 +1706,14 @@
             .mobile-estimate-modal__form .w-button {
               width: 100%;
               margin-top: 2px;
-              border-radius: 10px;
-              background: #0e4a84;
-              min-height: 42px;
-              font-weight: 700;
-            }
-
-            @media (min-width: 992px) {
-              .mobile-estimate-modal {
-                display: none !important;
-              }
+              min-height: 44px;
+              border-radius: 999px;
+              border: 1px solid #ef8a00;
+              background: linear-gradient(180deg, #f7a71a 0%, #ef8a00 100%);
+              color: #ffffff;
+              font-weight: 800;
+              letter-spacing: 0.01em;
+              box-shadow: 0 8px 16px rgba(239, 138, 0, 0.28);
             }
           </style>
         @endonce

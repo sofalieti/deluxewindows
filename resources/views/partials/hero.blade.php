@@ -62,23 +62,48 @@
     : (!empty($windowTypeHero)
       ? ($heroFormHtml ?? '<p>Starting from $1199 per window installed.</p><p><strong>Special pricing available upon request! </strong>‍</p>')
       : ($brandHeroFormHtml ?? '<p>Starting from $999 per window installed.</p><p><strong>Special pricing available upon request!</strong>‍</p>'));
-  $windowTypeHeroHeadlines = [
-    'vinyl-windows' => 'Upgrade to Energy Efficient Vinyl Windows for Lasting Comfort',
-    'wood-clad-windows' => 'Upgrade to Energy Efficient Wood-Clad Windows for Premium Style',
-    'fiberglass-windows' => 'Upgrade to Energy Efficient Fiberglass Windows for Strong Performance',
-    'wood-windows' => 'Upgrade to Energy Efficient Wood Windows for Timeless Beauty',
-    'aluminum-windows' => 'Upgrade to Energy Efficient Aluminum Windows with Modern Design',
-    'aluminum-clad-windows' => 'Upgrade to Energy Efficient Aluminum-Clad Windows for Hybrid Performance',
-    'steel-windows' => 'Upgrade to Energy Efficient Steel Windows for Sleek Durability',
+  $windowTypeHeroCopy = [
+    'vinyl-windows' => [
+      'headline' => 'Upgrade to Energy Efficient Vinyl Windows for Less',
+      'description' => 'Low-maintenance comfort, strong insulation, and clean style at a budget-friendly price.',
+    ],
+    'wood-clad-windows' => [
+      'headline' => 'Upgrade to Energy Efficient Wood-Clad Windows for Less',
+      'description' => 'Warm wood interior beauty with weather-resistant exterior performance and better savings.',
+    ],
+    'fiberglass-windows' => [
+      'headline' => 'Upgrade to Energy Efficient Fiberglass Windows for Less',
+      'description' => 'Engineered strength, stable performance, and year-round efficiency with lower operating cost.',
+    ],
+    'wood-windows' => [
+      'headline' => 'Upgrade to Energy Efficient Wood Windows for Less',
+      'description' => 'Timeless natural character with improved efficiency for comfort and long-term value.',
+    ],
+    'aluminum-windows' => [
+      'headline' => 'Upgrade to Energy Efficient Aluminum Windows for Less',
+      'description' => 'Modern slim frames, crisp lines, and durable performance with practical energy savings.',
+    ],
+    'aluminum-clad-windows' => [
+      'headline' => 'Upgrade to Energy Efficient Aluminum-Clad Windows for Less',
+      'description' => 'Hybrid wood-and-metal construction that balances premium style, protection, and value.',
+    ],
+    'steel-windows' => [
+      'headline' => 'Upgrade to Energy Efficient Steel Windows for Less',
+      'description' => 'Sleek architectural look, exceptional durability, and efficient comfort at a better price.',
+    ],
   ];
   $windowTypeSlug = isset($slug) ? strtolower((string) $slug) : '';
   if ($windowTypeSlug === '' && isset($windowFieldData['slug'])) {
     $windowTypeSlug = strtolower((string) $windowFieldData['slug']);
   }
   $isWindowsMaterialHero = !empty($windowTypeHero) || !empty($windowHeroImage);
+  $heroMaterialCopy = $windowTypeHeroCopy[$windowTypeSlug] ?? null;
   $heroHeadlineText = $isWindowsMaterialHero
-    ? ($windowTypeHeroHeadlines[$windowTypeSlug] ?? 'Upgrade to Energy Efficient Windows for Less')
+    ? (($heroMaterialCopy['headline'] ?? null) ?: 'Upgrade to Energy Efficient Windows for Less')
     : 'Upgrade to Energy Efficient Windows and Doors for Less';
+  $heroMiniDescription = $isWindowsMaterialHero
+    ? (($heroMaterialCopy['description'] ?? null) ?: 'Get high-performance window solutions with better comfort and pricing for your home.')
+    : '';
 @endphp
 
 @include('partials.header-scripts')
@@ -110,6 +135,14 @@
       line-height: 1.25;
     }
 
+    .title-left---content-right.paragraph-content.alt.hero-page .hero-mini-description {
+      margin: 8px 0 0;
+      color: rgba(255, 255, 255, 0.92);
+      font-size: clamp(14px, 0.95vw, 17px);
+      line-height: 1.35;
+      max-width: 48ch;
+    }
+
     .hero-mobile-estimate-cta {
       display: none;
     }
@@ -132,8 +165,8 @@
       }
     }
 
-    /* Compact mobile hero: much tighter top spacing and centered text only on mobile */
-    @media (max-width: 767px) {
+    /* Mobile/tablet: keep hero vertically centered across full viewport */
+    @media (max-width: 991px) {
       .div-block-59 {
         min-height: 100svh !important;
       }
@@ -152,17 +185,32 @@
 
       .div-block-59 > .w-layout-blockcontainer.container-default .title-left---content-right.paragraph-content.alt.hero-page {
         width: 100%;
+        min-height: inherit;
+        display: flex;
+        align-items: center;
+      }
+
+      .title-left---content-right.paragraph-content.alt.hero-page {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+      }
+    }
+
+    /* Compact mobile hero: much tighter spacing and centered text only on mobile */
+    @media (max-width: 767px) {
+      .div-block-59 {
+        min-height: 100svh !important;
+      }
+
+      .div-block-59 > .w-layout-blockcontainer.container-default {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
       }
 
       .title-left---content-right.paragraph-content.alt.hero-page {
         padding-top: 2px !important;
         padding-bottom: 10px !important;
         gap: 8px !important;
-      }
-
-      .div-block-59 > .w-layout-blockcontainer.container-default {
-        padding-left: 12px !important;
-        padding-right: 12px !important;
       }
 
       .title-left---content-right.paragraph-content.alt.hero-page .inner-container._640px._100-tablet,
@@ -183,6 +231,13 @@
 
       .title-left---content-right.paragraph-content.alt.hero-page .rich-text-block-2 .w-embed h2[data-city] {
         font-size: clamp(13px, 3.3vw, 15px) !important;
+      }
+
+      .title-left---content-right.paragraph-content.alt.hero-page .hero-mini-description {
+        margin-top: 6px;
+        font-size: clamp(12px, 3.1vw, 14px) !important;
+        line-height: 1.32;
+        max-width: none;
       }
     }
 
@@ -301,6 +356,9 @@
                     @endif
                     <div class="rich-text-block-2 w-richtext">
                       <h2 class="heading-49">{{ $heroHeadlineText }}</h2>
+                      @if($heroMiniDescription !== '')
+                        <p class="hero-mini-description">{{ $heroMiniDescription }}</p>
+                      @endif
                       <p>‍</p>
                       <div class="w-embed">
                         <h2 style="font-size: 21px; color: #fff" data-city="">Local Installers</h2>

@@ -212,7 +212,6 @@
 
           <script>
             (function () {
-              const mobileMq = window.matchMedia("(max-width: 991px)");
               const modal = document.getElementById("mobileEstimateModal");
               if (!modal) return;
 
@@ -227,7 +226,6 @@
               }
 
               function openModal() {
-                if (!mobileMq.matches) return;
                 setOpenState(true);
               }
 
@@ -266,9 +264,6 @@
                 });
               }
 
-              mobileMq.addEventListener("change", () => {
-                if (!mobileMq.matches) closeModal();
-              });
             })();
           </script>
         </div>
