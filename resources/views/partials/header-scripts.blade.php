@@ -209,5 +209,67 @@
               document.addEventListener("DOMContentLoaded", sync);
             })();
           </script>
+
+          <script>
+            (function () {
+              const mobileMq = window.matchMedia("(max-width: 991px)");
+              const modal = document.getElementById("mobileEstimateModal");
+              if (!modal) return;
+
+              const openBtnSelector = "[data-open-estimate-modal]";
+              const closeSelector = "[data-close-estimate-modal]";
+              const form = modal.querySelector("form");
+
+              function setOpenState(isOpen) {
+                modal.classList.toggle("is-open", isOpen);
+                modal.setAttribute("aria-hidden", isOpen ? "false" : "true");
+                document.body.style.overflow = isOpen ? "hidden" : "";
+              }
+
+              function openModal() {
+                if (!mobileMq.matches) return;
+                setOpenState(true);
+              }
+
+              function closeModal() {
+                setOpenState(false);
+              }
+
+              document.addEventListener("click", (e) => {
+                const opener = e.target.closest(openBtnSelector);
+                if (opener) {
+                  e.preventDefault();
+                  openModal();
+                  return;
+                }
+
+                if (e.target.closest(closeSelector)) {
+                  e.preventDefault();
+                  closeModal();
+                }
+              });
+
+              document.addEventListener("keydown", (e) => {
+                if (e.key === "Escape" && modal.classList.contains("is-open")) {
+                  closeModal();
+                }
+              });
+
+              if (form) {
+                form.addEventListener("submit", () => {
+                  setTimeout(() => {
+                    const done = modal.querySelector(".w-form-done");
+                    if (done && done.style.display === "block") {
+                      closeModal();
+                    }
+                  }, 350);
+                });
+              }
+
+              mobileMq.addEventListener("change", () => {
+                if (!mobileMq.matches) closeModal();
+              });
+            })();
+          </script>
         </div>
       </div>

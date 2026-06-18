@@ -6,7 +6,8 @@
       'form#wf-form-Main-Form',
       'form#wf-form-Property-Form',
       'form#wf-form-Contact-V1-Form',
-      'form#email-form-2'
+      'form#email-form-2',
+      'form.js-laravel-lead-form'
     ];
 
     function toPayload(form) {

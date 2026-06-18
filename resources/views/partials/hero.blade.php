@@ -157,6 +157,17 @@
         font-size: clamp(13px, 3.3vw, 15px) !important;
       }
     }
+
+    /* Hide hero form on mobile/tablet widths */
+    @media (max-width: 991px) {
+      .title-left---content-right.paragraph-content.alt.hero-page .inner-container._660px._100-tablet {
+        display: none !important;
+      }
+
+      .title-left---content-right.paragraph-content.alt.hero-page .width-100-mobile-landscape {
+        width: 100% !important;
+      }
+    }
   </style>
 @endonce
 

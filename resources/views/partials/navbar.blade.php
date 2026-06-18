@@ -4,6 +4,10 @@
             display: none;
           }
 
+          .mobile-estimate-btn {
+            display: none;
+          }
+
           @media (max-width: 991px) {
             .header-container-2 > .navbar.w-nav,
             .header-container-2 > .header-wrapper-2.w-nav {
@@ -81,10 +85,10 @@
             .navbar-3 .navbar-wrapper {
               min-height: 60px;
               display: grid;
-              grid-template-columns: 1fr auto;
-              grid-template-areas: "logo menu";
+              grid-template-columns: minmax(0, 1fr) auto auto;
+              grid-template-areas: "logo cta menu";
               align-items: center;
-              gap: 10px;
+              gap: 8px;
             }
 
             .navbar-3 .navbar-brand {
@@ -123,6 +127,30 @@
               justify-self: end;
               position: relative;
               z-index: 1302;
+            }
+
+            .navbar-3 .mobile-estimate-btn {
+              grid-area: cta;
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              min-height: 34px;
+              padding: 0 10px;
+              border-radius: 999px;
+              border: 1px solid #d6e2f1;
+              background: #f7fbff;
+              color: #0f2740;
+              font-size: 11px;
+              line-height: 1;
+              font-weight: 800;
+              letter-spacing: 0.01em;
+              text-decoration: none;
+              white-space: nowrap;
+              cursor: pointer;
+            }
+
+            .navbar-3 .mobile-estimate-btn:active {
+              transform: translateY(1px);
             }
 
             .navbar-3 .w-nav-overlay {
@@ -171,6 +199,12 @@
 
             .navbar-3 .image-24 {
               max-width: 112px;
+            }
+
+            .navbar-3 .mobile-estimate-btn {
+              min-height: 32px;
+              padding: 0 8px;
+              font-size: 10px;
             }
           }
 
@@ -1118,6 +1152,7 @@
                     class="link-15__icon"
                   /><span class="link-15__label">{{ site_phone_display() }}</span></a
                 >
+                <button type="button" class="mobile-estimate-btn" data-open-estimate-modal>Free Quote</button>
                 <nav role="navigation" class="nav-menu-wrapper-4 w-nav-menu">
                   <ul role="list" class="nav-menu-2 w-list-unstyled">
                     <li class="menu">
@@ -1536,3 +1571,125 @@
             <div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-2"></div>
           </div>
         </div>
+
+        <div class="mobile-estimate-modal" id="mobileEstimateModal" aria-hidden="true">
+          <div class="mobile-estimate-modal__backdrop" data-close-estimate-modal></div>
+          <div class="mobile-estimate-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="mobileEstimateTitle">
+            <button type="button" class="mobile-estimate-modal__close" data-close-estimate-modal aria-label="Close form">×</button>
+            <h3 id="mobileEstimateTitle" class="mobile-estimate-modal__title">Request a Free Estimate</h3>
+            <div class="mobile-estimate-modal__promo">
+              <strong>{{ promotion_name() }}</strong><br />
+              {{ promotion_percent_label() }} • Offer ends {{ promotion_date('us-short') }}
+            </div>
+            <div class="mobile-estimate-modal__form-wrap w-form">
+              <form id="wf-form-Mobile-Estimate-Modal" name="wf-form-Mobile-Estimate-Modal" method="get" class="mobile-estimate-modal__form js-laravel-lead-form">
+                <input type="text" name="Name" placeholder="Full name*" required class="w-input" />
+                <input type="email" name="Email" placeholder="Email*" required class="w-input" />
+                <input type="tel" name="Phone" placeholder="{{ site_phone_display() }}" required class="w-input" />
+                <input type="text" name="Subject" placeholder="City" class="w-input" />
+                <textarea name="Message" maxlength="5000" placeholder="Tell us about your project" class="w-input"></textarea>
+                <input type="submit" value="Send Request" class="w-button" />
+              </form>
+              <div class="w-form-done" tabindex="-1" role="region" aria-label="Mobile Estimate Form success">
+                <div>Thank you! Your submission has been received!</div>
+              </div>
+              <div class="w-form-fail" tabindex="-1" role="region" aria-label="Mobile Estimate Form failure">
+                <div>Oops! Something went wrong while submitting the form.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        @once
+          <style>
+            .mobile-estimate-modal {
+              position: fixed;
+              inset: 0;
+              z-index: 2400;
+              display: none;
+            }
+
+            .mobile-estimate-modal.is-open {
+              display: block;
+            }
+
+            .mobile-estimate-modal__backdrop {
+              position: absolute;
+              inset: 0;
+              background: rgba(15, 23, 42, 0.6);
+              backdrop-filter: blur(2px);
+              -webkit-backdrop-filter: blur(2px);
+            }
+
+            .mobile-estimate-modal__dialog {
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%, -50%);
+              width: min(92vw, 420px);
+              max-height: min(86vh, 760px);
+              overflow: auto;
+              background: #fff;
+              border-radius: 14px;
+              box-shadow: 0 22px 55px rgba(15, 23, 42, 0.3);
+              padding: 18px 14px 14px;
+            }
+
+            .mobile-estimate-modal__close {
+              position: absolute;
+              right: 10px;
+              top: 8px;
+              border: 0;
+              background: transparent;
+              font-size: 28px;
+              line-height: 1;
+              color: #334155;
+              cursor: pointer;
+            }
+
+            .mobile-estimate-modal__title {
+              margin: 0 28px 8px 0;
+              font-size: 20px;
+              line-height: 1.2;
+              color: #0f172a;
+            }
+
+            .mobile-estimate-modal__promo {
+              margin-bottom: 12px;
+              border: 1px solid #f1d7b2;
+              background: #fff8ee;
+              border-radius: 10px;
+              padding: 9px 10px;
+              font-size: 13px;
+              line-height: 1.3;
+              color: #4b2e12;
+            }
+
+            .mobile-estimate-modal__form .w-input {
+              margin-bottom: 8px;
+              min-height: 42px;
+              border-radius: 9px;
+              border-color: #dbe5ef;
+            }
+
+            .mobile-estimate-modal__form textarea.w-input {
+              min-height: 88px;
+              resize: vertical;
+            }
+
+            .mobile-estimate-modal__form .w-button {
+              width: 100%;
+              margin-top: 2px;
+              border-radius: 10px;
+              background: #0e4a84;
+              min-height: 42px;
+              font-weight: 700;
+            }
+
+            @media (min-width: 992px) {
+              .mobile-estimate-modal {
+                display: none !important;
+              }
+            }
+          </style>
+        @endonce
