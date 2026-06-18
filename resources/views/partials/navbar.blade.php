@@ -10,11 +10,16 @@
             }
 
             .navbar-3 {
+              position: -webkit-sticky !important;
               position: sticky !important;
               top: 0 !important;
               z-index: 1200 !important;
               background: #fff;
               box-shadow: 0 6px 20px rgba(16, 24, 40, 0.08);
+              left: 0;
+              right: 0;
+              width: 100%;
+              transform: none !important;
             }
 
             .mobile-top-strip {
@@ -51,6 +56,58 @@
 
             .navbar-3 .navbar-container {
               background: #fff;
+            }
+
+            .navbar-3 .container-regular {
+              width: 100%;
+              max-width: none;
+            }
+
+            .navbar-3 .navbar-wrapper {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              gap: 10px;
+              min-width: 0;
+            }
+
+            .navbar-3 .navbar-brand {
+              flex: 0 1 auto;
+              min-width: 0;
+            }
+
+            .navbar-3 .image-24 {
+              width: auto;
+              max-width: 170px;
+              height: auto;
+            }
+
+            .navbar-3 .link-15 {
+              display: none !important;
+            }
+
+            .navbar-3 .menu-button {
+              margin-left: auto;
+              flex: 0 0 auto;
+            }
+          }
+
+          @media (max-width: 479px) {
+            .navbar-3 .container-regular {
+              padding-left: max(12px, env(safe-area-inset-left));
+              padding-right: max(12px, env(safe-area-inset-right));
+            }
+
+            .navbar-3 .image-24 {
+              max-width: 146px;
+            }
+          }
+
+          @supports (-webkit-touch-callout: none) {
+            @media (max-width: 991px) {
+              .navbar-3 {
+                top: env(safe-area-inset-top) !important;
+              }
             }
           }
         </style>
