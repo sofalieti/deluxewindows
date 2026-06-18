@@ -12,8 +12,8 @@
 
             .mobile-top-strip {
               display: block;
-              background: #0f172a;
-              border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+              background: #ffffff;
+              border-bottom: 1px solid #e6eaf0;
             }
 
             .mobile-top-strip__inner {
@@ -25,11 +25,30 @@
             }
 
             .mobile-top-strip__text {
-              color: #f8fafc;
+              color: #334155;
               font-size: 12px;
               line-height: 1.2;
               text-align: center;
               letter-spacing: 0.01em;
+            }
+
+            .mobile-top-strip__phone {
+              display: none;
+              align-items: center;
+              gap: 6px;
+              color: #0f172a;
+              text-decoration: none;
+              font-size: 12px;
+              font-weight: 700;
+              line-height: 1.2;
+              white-space: nowrap;
+            }
+
+            .mobile-top-strip__phone-icon {
+              width: 13px;
+              height: 13px;
+              object-fit: contain;
+              flex: 0 0 auto;
             }
 
             .navbar-3 {
@@ -44,6 +63,8 @@
 
             .navbar-3 .navbar-container {
               background: #fff;
+              position: relative;
+              z-index: 1301;
             }
 
             .navbar-3 .container-regular {
@@ -62,6 +83,7 @@
             }
 
             .navbar-3 .navbar-brand {
+              grid-area: logo;
               min-width: 0;
             }
 
@@ -73,11 +95,16 @@
             }
 
             .navbar-3 .link-15 {
+              grid-area: phone;
               display: block !important;
               min-width: 0;
               text-align: center;
               font-size: 13px;
               font-weight: 700;
+              display: inline-flex !important;
+              align-items: center;
+              justify-content: center;
+              gap: 6px;
               line-height: 1.2;
               white-space: nowrap;
               overflow: hidden;
@@ -90,8 +117,50 @@
               display: none;
             }
 
+            .navbar-3 .link-15__icon {
+              width: 14px;
+              height: 14px;
+              object-fit: contain;
+              flex: 0 0 auto;
+            }
+
+            .navbar-3 .link-15__label {
+              min-width: 0;
+            }
+
             .navbar-3 .menu-button {
+              grid-area: menu;
               justify-self: end;
+              position: relative;
+              z-index: 1302;
+            }
+
+            .navbar-3 .w-nav-overlay {
+              z-index: 1300 !important;
+              background: rgba(15, 23, 42, 0.62);
+              backdrop-filter: blur(3px);
+              -webkit-backdrop-filter: blur(3px);
+            }
+
+            .navbar-3 .nav-menu-wrapper-4.w-nav-menu {
+              width: 100%;
+              max-width: 100%;
+              height: 100dvh;
+              padding: 86px 16px 24px;
+              background: #ffffff;
+              overflow-y: auto;
+              -webkit-overflow-scrolling: touch;
+            }
+
+            .navbar-3 .nav-menu-2 {
+              display: flex;
+              flex-direction: column;
+              gap: 12px;
+            }
+
+            .navbar-3 .nav-button-wrapper .primary-button-2 {
+              width: 100%;
+              justify-content: center;
             }
           }
 
@@ -112,6 +181,33 @@
 
             .navbar-3 .link-15 {
               font-size: 12px;
+            }
+          }
+
+          @media (max-width: 390px) {
+            .mobile-top-strip__inner {
+              justify-content: space-between;
+            }
+
+            .mobile-top-strip__phone {
+              display: inline-flex;
+            }
+
+            .navbar-3 .navbar-wrapper {
+              min-height: 70px;
+              grid-template-columns: 1fr auto;
+              grid-template-areas:
+                "phone phone"
+                "logo menu";
+              row-gap: 6px;
+            }
+
+            .navbar-3 .link-15 {
+              display: none !important;
+            }
+
+            .navbar-3 .image-24 {
+              max-width: 104px;
             }
           }
 
@@ -136,7 +232,7 @@
                     width="20"
                     loading="lazy"
                     alt=""
-                    src="/webflow-assets/images/687559a123cece2e95a41a6f_phone_enabled_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg"
+                    src="/webflow-assets/images/6841ddf8ace3d9d9facb1950_phone-icon-property-x-webflow-template.svg"
                     class="image-38"
                 /></a>
                 <div class="link-block odsf">
@@ -1006,6 +1102,15 @@
         <div class="navbar-3">
           <div class="mobile-top-strip" aria-label="Company info">
             <div class="mobile-top-strip__inner">
+              <a href="tel:{{ site_phone_tel() }}" class="mobile-top-strip__phone">
+                <img
+                  src="/webflow-assets/images/687559a123cece2e95a41a6f_phone_enabled_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg"
+                  alt=""
+                  loading="lazy"
+                  class="mobile-top-strip__phone-icon"
+                />
+                <span>{{ site_phone_display() }}</span>
+              </a>
               <span class="mobile-top-strip__text">We are – 100% employee owned &amp; over 30 years in business!</span>
             </div>
           </div>
@@ -1032,7 +1137,14 @@
                     src="/webflow-assets/images/686acba4611e759fd8169f9d_photo_2025-07-06-22.14.41.avif"
                     preset="nav_logo"
                     class="image-24" /></a
-                ><a href="tel:{{ site_phone_tel() }}" class="link-15"><strong>Sales:&nbsp;</strong>&nbsp;{{ site_phone_display() }}</a>
+                ><a href="tel:{{ site_phone_tel() }}" class="link-15"
+                  ><img
+                    src="/webflow-assets/images/687559a123cece2e95a41a6f_phone_enabled_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg"
+                    alt=""
+                    loading="lazy"
+                    class="link-15__icon"
+                  /><span class="link-15__label">{{ site_phone_display() }}</span></a
+                >
                 <nav role="navigation" class="nav-menu-wrapper-4 w-nav-menu">
                   <ul role="list" class="nav-menu-2 w-list-unstyled">
                     <li class="menu">

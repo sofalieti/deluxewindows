@@ -78,35 +78,35 @@
           <div style="background-image:url('{{ thumbnail_url($windowHeroImage, 'hero_bg') }}')" class="div-block-61"></div>
         @else
           {{-- Homepage: video background --}}
-          <div class="code-embed-5 w-embed w-script">
-            <div id="hero-bg-wrapper" class="video-bg-container">
-              <video autoplay="" loop="" muted="" playsinline="">
-                <source
+        <div class="code-embed-5 w-embed w-script">
+          <div id="hero-bg-wrapper" class="video-bg-container">
+            <video autoplay="" loop="" muted="" playsinline="">
+              <source
                   src="/webflow-assets/videos/687ca10e41cc245f5cdacfd5_0719_2-copy.mp4"
-                  type="video/mp4"
-                />
-              </video>
-            </div>
+                type="video/mp4"
+              />
+            </video>
+          </div>
 
-            <script>
-              const bgWrapper = document.getElementById("hero-bg-wrapper");
+          <script>
+            const bgWrapper = document.getElementById("hero-bg-wrapper");
               // Local asset paths:
               const videoUrl = "/webflow-assets/videos/687ca10e41cc245f5cdacfd5_0719_2-copy.mp4";
               const imageUrl = @json(thumbnail_url('/webflow-assets/images/69ce36fd76a6aaff9c68df7e_01.webp', 'hero_mobile'));
 
-              if (window.innerWidth > 767) {
+            if (window.innerWidth > 767) {
                 // Desktop: show video
-                bgWrapper.innerHTML = `
-        <video autoplay loop muted playsinline>
-          <source src="${videoUrl}" type="video/mp4">
-        </video>
-      `;
-              } else {
+              bgWrapper.innerHTML = `
+      <video autoplay loop muted playsinline>
+        <source src="${videoUrl}" type="video/mp4">
+      </video>
+    `;
+            } else {
                 // Mobile: show static image
-                bgWrapper.style.backgroundImage = `url('${imageUrl}')`;
-              }
-            </script>
-          </div>
+              bgWrapper.style.backgroundImage = `url('${imageUrl}')`;
+            }
+          </script>
+        </div>
         @endif
         <div class="w-layout-blockcontainer container-default w-container">
           <div class="title-left---content-right paragraph-content alt hero-page">
