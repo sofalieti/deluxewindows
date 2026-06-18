@@ -10,9 +10,9 @@
             }
 
             .navbar-3 {
-              position: sticky;
-              top: 0;
-              z-index: 1200;
+              position: sticky !important;
+              top: 0 !important;
+              z-index: 1200 !important;
               background: #fff;
               box-shadow: 0 6px 20px rgba(16, 24, 40, 0.08);
             }
