@@ -106,6 +106,10 @@
       line-height: 1.25;
     }
 
+    .hero-mobile-estimate-cta {
+      display: none;
+    }
+
     /* Pull hero content a bit higher on non-mobile screens */
     @media (min-width: 768px) {
       .title-left---content-right.paragraph-content.alt.hero-page {
@@ -166,6 +170,51 @@
 
       .title-left---content-right.paragraph-content.alt.hero-page .width-100-mobile-landscape {
         width: 100% !important;
+      }
+
+      .hero-mobile-estimate-cta {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        margin-top: 10px;
+      }
+
+      .hero-mobile-estimate-cta__badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.14);
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        color: #ffffff;
+        font-size: 12px;
+        line-height: 1.2;
+        text-align: center;
+      }
+
+      .hero-mobile-estimate-cta__badge-icon {
+        font-size: 12px;
+        line-height: 1;
+      }
+
+      .hero-mobile-estimate-cta__button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 40px;
+        padding: 0 16px;
+        border-radius: 999px;
+        border: 0;
+        background: #f59e0b;
+        color: #0f172a;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.01em;
+        text-decoration: none;
+        cursor: pointer;
       }
     }
   </style>
@@ -231,6 +280,13 @@
                       <p>‍</p>
                       <div class="w-embed">
                         <h2 style="font-size: 21px; color: #fff" data-city="">Local Installers</h2>
+                      </div>
+                      <div class="hero-mobile-estimate-cta">
+                        <div class="hero-mobile-estimate-cta__badge">
+                          <span class="hero-mobile-estimate-cta__badge-icon">🏷</span>
+                          <span>{{ promotion_name() }} • {{ promotion_percent_label() }} • {{ promotion_date('us-short-no-year') }}</span>
+                        </div>
+                        <button type="button" class="hero-mobile-estimate-cta__button" data-open-estimate-modal>Get Free Quote</button>
                       </div>
                     </div>
                     @if($brandLikeHero || !empty($doorHero))
