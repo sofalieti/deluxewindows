@@ -12,16 +12,15 @@
 
             .mobile-top-strip {
               display: block;
-              background: #ffffff;
-              border-bottom: 1px solid #e6eaf0;
+              background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+              border-bottom: 1px solid #e7edf5;
             }
 
             .mobile-top-strip__inner {
-              min-height: 36px;
+              position: relative;
+              min-height: 38px;
               padding: 8px 14px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
+              display: block;
             }
 
             .mobile-top-strip__text {
@@ -30,11 +29,16 @@
               line-height: 1.2;
               text-align: center;
               letter-spacing: 0.01em;
+              display: block;
+              padding: 0 88px;
             }
 
             .mobile-top-strip__phone {
-              display: none;
-              align-items: center;
+              display: inline-flex;
+              position: absolute;
+              left: 14px;
+              top: 50%;
+              transform: translateY(-50%);
               gap: 6px;
               color: #0f172a;
               text-decoration: none;
@@ -77,7 +81,8 @@
             .navbar-3 .navbar-wrapper {
               min-height: 60px;
               display: grid;
-              grid-template-columns: auto 1fr auto;
+              grid-template-columns: 1fr auto;
+              grid-template-areas: "logo menu";
               align-items: center;
               gap: 10px;
             }
@@ -95,22 +100,7 @@
             }
 
             .navbar-3 .link-15 {
-              grid-area: phone;
-              display: block !important;
-              min-width: 0;
-              text-align: center;
-              font-size: 13px;
-              font-weight: 700;
-              display: inline-flex !important;
-              align-items: center;
-              justify-content: center;
-              gap: 6px;
-              line-height: 1.2;
-              white-space: nowrap;
-              overflow: hidden;
-              text-overflow: ellipsis;
-              color: #0f172a;
-              text-decoration: none;
+              display: none !important;
             }
 
             .navbar-3 .link-15 strong {
@@ -170,6 +160,10 @@
               padding-right: max(12px, env(safe-area-inset-right));
             }
 
+            .mobile-top-strip__phone {
+              left: max(12px, env(safe-area-inset-left));
+            }
+
             .navbar-3 .container-regular {
               padding-left: max(12px, env(safe-area-inset-left));
               padding-right: max(12px, env(safe-area-inset-right));
@@ -178,32 +172,11 @@
             .navbar-3 .image-24 {
               max-width: 112px;
             }
-
-            .navbar-3 .link-15 {
-              font-size: 12px;
-            }
           }
 
           @media (max-width: 390px) {
-            .mobile-top-strip__inner {
-              justify-content: space-between;
-            }
-
-            .mobile-top-strip__phone {
-              display: inline-flex;
-            }
-
-            .navbar-3 .navbar-wrapper {
-              min-height: 70px;
-              grid-template-columns: 1fr auto;
-              grid-template-areas:
-                "phone phone"
-                "logo menu";
-              row-gap: 6px;
-            }
-
-            .navbar-3 .link-15 {
-              display: none !important;
+            .mobile-top-strip__text {
+              padding-right: 72px;
             }
 
             .navbar-3 .image-24 {
