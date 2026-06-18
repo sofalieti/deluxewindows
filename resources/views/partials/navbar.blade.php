@@ -30,8 +30,8 @@
               display: block;
               max-height: 44px;
               overflow: hidden;
-              border-bottom: 1px solid #eceff4;
-              background: #ffffff;
+              border-bottom: 1px solid #0f0f0f;
+              background: #000000;
               transition: max-height 0.28s ease, opacity 0.22s ease, border-color 0.22s ease;
             }
 
@@ -47,7 +47,7 @@
             }
 
             .mobile-top-strip__text {
-              color: #434a59;
+              color: #ffffff;
               font-size: 12px;
               line-height: 1.2;
               white-space: normal;
