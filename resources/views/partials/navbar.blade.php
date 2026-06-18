@@ -1,3 +1,98 @@
+      @once
+        <style>
+          .mobile-top-strip {
+            display: none;
+          }
+
+          @media (max-width: 991px) {
+            .navbar-3 {
+              position: sticky;
+              top: 0;
+              z-index: 1200;
+              background: #fff;
+              box-shadow: 0 6px 20px rgba(16, 24, 40, 0.08);
+            }
+
+            .mobile-top-strip {
+              display: block;
+              max-height: 48px;
+              overflow: hidden;
+              border-bottom: 1px solid #eceff4;
+              background: linear-gradient(90deg, #f8f9fb 0%, #ffffff 100%);
+              transition: max-height 0.28s ease, opacity 0.22s ease, border-color 0.22s ease;
+            }
+
+            .mobile-top-strip__inner {
+              min-height: 48px;
+              padding: 8px 14px;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              gap: 10px;
+            }
+
+            .mobile-top-strip__left {
+              display: flex;
+              align-items: center;
+              gap: 8px;
+              flex-wrap: wrap;
+              font-size: 12px;
+              line-height: 1.2;
+              color: #2f3545;
+            }
+
+            .mobile-top-strip__link {
+              color: #181c25;
+              font-weight: 700;
+              text-decoration: none;
+              white-space: nowrap;
+            }
+
+            .mobile-top-strip__link--sale {
+              color: #b42318;
+            }
+
+            .mobile-top-strip__text {
+              color: #5d6473;
+              white-space: nowrap;
+            }
+
+            body.mobile-strip-collapsed .mobile-top-strip {
+              max-height: 0;
+              opacity: 0;
+              border-color: transparent;
+            }
+
+            .navbar-3 .navbar-container {
+              background: #fff;
+            }
+          }
+        </style>
+        <script>
+          (function () {
+            const MOBILE = window.matchMedia("(max-width: 991px)");
+            const COLLAPSE_AT = 18;
+
+            function syncStripState() {
+              if (!MOBILE.matches) {
+                document.body.classList.remove("mobile-strip-collapsed");
+                return;
+              }
+
+              if (window.scrollY > COLLAPSE_AT) {
+                document.body.classList.add("mobile-strip-collapsed");
+              } else {
+                document.body.classList.remove("mobile-strip-collapsed");
+              }
+            }
+
+            document.addEventListener("DOMContentLoaded", syncStripState);
+            window.addEventListener("scroll", syncStripState, { passive: true });
+            window.addEventListener("resize", syncStripState, { passive: true });
+          })();
+        </script>
+      @endonce
+
       <div class="header-container-2">
         <div
           data-animation="default"
@@ -884,6 +979,16 @@
           <div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-1"></div>
         </div>
         <div class="navbar-3">
+          <div class="mobile-top-strip" aria-label="Quick contacts and offers">
+            <div class="mobile-top-strip__inner">
+              <div class="mobile-top-strip__left">
+                <a href="tel:{{ site_phone_tel() }}" class="mobile-top-strip__link">{{ site_phone_display() }}</a>
+                <span class="mobile-top-strip__text">|</span>
+                <a href="/special-offers" class="mobile-top-strip__link mobile-top-strip__link--sale">Special Offers</a>
+              </div>
+              <span class="mobile-top-strip__text">We are 100% employee-owned</span>
+            </div>
+          </div>
           <div
             data-animation="default"
             data-collapse="medium"

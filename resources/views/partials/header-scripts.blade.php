@@ -47,9 +47,8 @@
           <script>
             (function () {
               const NAVBAR = ".navbar-3";
+              const NAV = `${NAVBAR} .navbar-container.w-nav`;
               const BTN = `${NAVBAR} .w-nav-button`;
-              const OVSEL = ".w-nav-overlay";
-              const MENU = ".w-nav-overlay .w-nav-menu";
               const MOBILE = "(max-width: 991px)";
               const isMobile = () => window.matchMedia(MOBILE).matches;
 
@@ -60,11 +59,23 @@
                 document.body.appendChild(dimmer);
               }
 
-              const $ = (s) => document.querySelector(s);
+              const $ = (s, root = document) => root.querySelector(s);
               const btn = () => $(BTN);
-              const ov = () => $(OVSEL);
-              const menu = () => $(MENU);
-              const open = () => !!$(`${BTN}.w--open`);
+              const navRoot = () => $(NAV);
+              const overlayFromButton = () => {
+                const b = btn();
+                if (!b) return null;
+                const overlayId = b.getAttribute("aria-controls");
+                if (!overlayId) return null;
+                return document.getElementById(overlayId);
+              };
+              const ov = () => overlayFromButton() || $(".w-nav-overlay", navRoot() || document);
+              const menu = () => $(".w-nav-menu", navRoot() || document);
+              const open = () => {
+                const b = btn();
+                if (!b) return false;
+                return b.classList.contains("w--open") || b.getAttribute("aria-expanded") === "true";
+              };
 
               const lockScroll = () => {
                 document.documentElement.style.overflow = "hidden";
