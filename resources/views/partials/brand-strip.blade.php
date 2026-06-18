@@ -31,21 +31,26 @@
       align-items: center;
       justify-content: center;
       width: 100%;
-      min-height: 84px;
-      padding: 10px 12px;
-      border: 1px solid #e5e7eb;
-      border-radius: 10px;
-      background: #fff;
+      min-height: 48px;
+      padding: 6px 8px;
+      border: none;
+      border-radius: 0;
+      background: transparent;
       text-decoration: none;
     }
 
     .brand-strip__image {
       max-width: 100%;
-      max-height: 56px;
+      max-height: 28px;
       width: auto;
       height: auto;
       object-fit: contain;
       display: block;
+      mix-blend-mode: darken;
+    }
+
+    .brand-strip__item--dup {
+      display: none;
     }
 
     @media (max-width: 991px) {
@@ -55,18 +60,45 @@
     }
 
     @media (max-width: 767px) {
+      .brand-strip {
+        overflow: hidden;
+      }
+
       .brand-strip__list {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 18px;
+        width: max-content;
+        min-width: 200%;
+        animation: brand-strip-scroll 18s linear infinite;
+      }
+
+      .brand-strip__item {
+        flex: 0 0 auto;
+      }
+
+      .brand-strip__item--dup {
+        display: block;
       }
 
       .brand-strip__link {
-        justify-content: flex-start;
-        min-height: 72px;
-        padding: 10px 14px;
+        justify-content: center;
+        min-height: 42px;
+        padding: 0;
       }
 
       .brand-strip__image {
-        max-height: 44px;
+        max-height: 14px;
+      }
+    }
+
+    @keyframes brand-strip-scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
       }
     }
   </style>
@@ -90,6 +122,23 @@
         <a href="{{ $href !== '' ? $href : '#' }}" class="brand-strip__link w-inline-block">
           @if($image !== '')
             <img src="{{ $image }}" alt="{{ $alt }}" loading="lazy" class="brand-strip__image" />
+          @else
+            <span class="text-muted">{{ $alt !== '' ? $alt : 'Brand' }}</span>
+          @endif
+        </a>
+      </div>
+    @endforeach
+
+    @foreach($items as $item)
+      @php
+        $href = trim((string) ($item['href'] ?? ''));
+        $image = trim((string) ($item['image'] ?? ''));
+        $alt = trim((string) ($item['alt'] ?? ''));
+      @endphp
+      <div class="brand-strip__item brand-strip__item--dup" aria-hidden="true">
+        <a href="{{ $href !== '' ? $href : '#' }}" class="brand-strip__link w-inline-block" tabindex="-1">
+          @if($image !== '')
+            <img src="{{ $image }}" alt="" loading="lazy" class="brand-strip__image" />
           @else
             <span class="text-muted">{{ $alt !== '' ? $alt : 'Brand' }}</span>
           @endif
