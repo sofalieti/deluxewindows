@@ -72,7 +72,11 @@
     'steel-windows' => 'Upgrade to Energy Efficient Steel Windows for Sleek Durability',
   ];
   $windowTypeSlug = isset($slug) ? strtolower((string) $slug) : '';
-  $heroHeadlineText = !empty($windowTypeHero)
+  if ($windowTypeSlug === '' && isset($windowFieldData['slug'])) {
+    $windowTypeSlug = strtolower((string) $windowFieldData['slug']);
+  }
+  $isWindowsMaterialHero = !empty($windowTypeHero) || !empty($windowHeroImage);
+  $heroHeadlineText = $isWindowsMaterialHero
     ? ($windowTypeHeroHeadlines[$windowTypeSlug] ?? 'Upgrade to Energy Efficient Windows for Less')
     : 'Upgrade to Energy Efficient Windows and Doors for Less';
 @endphp
@@ -130,6 +134,26 @@
 
     /* Compact mobile hero: much tighter top spacing and centered text only on mobile */
     @media (max-width: 767px) {
+      .div-block-59 {
+        min-height: 100svh !important;
+      }
+
+      @supports (height: 100dvh) {
+        .div-block-59 {
+          min-height: 100dvh !important;
+        }
+      }
+
+      .div-block-59 > .w-layout-blockcontainer.container-default {
+        min-height: inherit;
+        display: flex;
+        align-items: center;
+      }
+
+      .div-block-59 > .w-layout-blockcontainer.container-default .title-left---content-right.paragraph-content.alt.hero-page {
+        width: 100%;
+      }
+
       .title-left---content-right.paragraph-content.alt.hero-page {
         padding-top: 2px !important;
         padding-bottom: 10px !important;
