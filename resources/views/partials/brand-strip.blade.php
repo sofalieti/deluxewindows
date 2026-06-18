@@ -9,6 +9,7 @@
   <style>
     .brand-strip {
       width: 100%;
+      overflow: hidden;
     }
 
     .brand-strip__title {
@@ -16,13 +17,17 @@
     }
 
     .brand-strip__list {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 12px;
-      width: 100%;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      gap: 22px;
+      width: max-content;
+      min-width: 200%;
+      animation: brand-strip-scroll 22s linear infinite;
     }
 
     .brand-strip__item {
+      flex: 0 0 auto;
       min-width: 0;
     }
 
@@ -50,36 +55,13 @@
     }
 
     .brand-strip__item--dup {
-      display: none;
-    }
-
-    @media (max-width: 991px) {
-      .brand-strip__list {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
+      display: block;
     }
 
     @media (max-width: 767px) {
-      .brand-strip {
-        overflow: hidden;
-      }
-
       .brand-strip__list {
-        display: flex;
-        flex-wrap: nowrap;
-        align-items: center;
         gap: 18px;
-        width: max-content;
-        min-width: 200%;
         animation: brand-strip-scroll 18s linear infinite;
-      }
-
-      .brand-strip__item {
-        flex: 0 0 auto;
-      }
-
-      .brand-strip__item--dup {
-        display: block;
       }
 
       .brand-strip__link {

@@ -1,13 +1,9 @@
-      <footer data-w-id="080cd6ed-2ec3-ab0f-3fec-cc4bec09a603" class="footer-wrapper">
+      <footer class="footer-wrapper">
         <div class="footer-top-cards-wrapper---pd"></div>
         <div class="footer-card">
           <div class="w-layout-blockcontainer container-default w-container">
             <div class="footer-v1-content-wrapper">
-              <div
-                data-w-id="080cd6ed-2ec3-ab0f-3fec-cc4bec09a622"
-                class="inner-container _420px _100-tablet"
-                style="opacity: 0"
-              >
+              <div class="inner-container _420px _100-tablet">
                 <div class="inner-container _400px---tablet _100-mbp">
                   <div class="text-light">
                     <div class="display-7 mid">Need Help? <br />Call Us Now</div>
@@ -34,9 +30,7 @@
               </div>
               <div
                 id="w-node-_080cd6ed-2ec3-ab0f-3fec-cc4bec09a642-ec09a603"
-                data-w-id="080cd6ed-2ec3-ab0f-3fec-cc4bec09a642"
                 class="footer-v1---right-content"
-                style="opacity: 0"
               >
                 <div>
                   <div class="w-layout-grid footer-main-pages">

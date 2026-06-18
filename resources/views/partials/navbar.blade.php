@@ -15,46 +15,28 @@
 
             .mobile-top-strip {
               display: block;
-              max-height: 48px;
+              max-height: 44px;
               overflow: hidden;
               border-bottom: 1px solid #eceff4;
-              background: linear-gradient(90deg, #f8f9fb 0%, #ffffff 100%);
+              background: #ffffff;
               transition: max-height 0.28s ease, opacity 0.22s ease, border-color 0.22s ease;
             }
 
             .mobile-top-strip__inner {
-              min-height: 48px;
-              padding: 8px 14px;
+              min-height: 44px;
+              padding: 7px 14px;
               display: flex;
               align-items: center;
-              justify-content: space-between;
-              gap: 10px;
-            }
-
-            .mobile-top-strip__left {
-              display: flex;
-              align-items: center;
-              gap: 8px;
-              flex-wrap: wrap;
-              font-size: 12px;
-              line-height: 1.2;
-              color: #2f3545;
-            }
-
-            .mobile-top-strip__link {
-              color: #181c25;
-              font-weight: 700;
-              text-decoration: none;
-              white-space: nowrap;
-            }
-
-            .mobile-top-strip__link--sale {
-              color: #b42318;
+              justify-content: center;
+              gap: 0;
             }
 
             .mobile-top-strip__text {
-              color: #5d6473;
-              white-space: nowrap;
+              color: #434a59;
+              font-size: 12px;
+              line-height: 1.2;
+              white-space: normal;
+              text-align: center;
             }
 
             body.mobile-strip-collapsed .mobile-top-strip {
@@ -104,7 +86,7 @@
           class="navbar w-nav"
         >
           <div class="container-default-2 w-container">
-            <div data-w-id="632206d9-3c73-e5be-be34-15992c2e8311" class="header-container-wrapper-2">
+            <div class="header-container-wrapper-2">
               <div class="div-block-17 phone3">
                 <a href="tel:{{ site_phone_tel() }}" class="link-block phone w-inline-block"
                   ><img
@@ -152,7 +134,7 @@
           class="header-wrapper-2 w-nav"
         >
           <div class="container-default-2 w-container">
-            <div data-w-id="632206d9-3c73-e5be-be34-15992c2e8332" class="header-container-wrapper-2" style="opacity: 0">
+            <div class="header-container-wrapper-2">
               <div class="nav-menu-left-side-2">
                 <div class="logo-wrapper v1">
                   <a
@@ -979,14 +961,9 @@
           <div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-1"></div>
         </div>
         <div class="navbar-3">
-          <div class="mobile-top-strip" aria-label="Quick contacts and offers">
+          <div class="mobile-top-strip" aria-label="Company info">
             <div class="mobile-top-strip__inner">
-              <div class="mobile-top-strip__left">
-                <a href="tel:{{ site_phone_tel() }}" class="mobile-top-strip__link">{{ site_phone_display() }}</a>
-                <span class="mobile-top-strip__text">|</span>
-                <a href="/special-offers" class="mobile-top-strip__link mobile-top-strip__link--sale">Special Offers</a>
-              </div>
-              <span class="mobile-top-strip__text">We are 100% employee-owned</span>
+              <span class="mobile-top-strip__text">We are – 100% employee owned &amp; over 30 years in business!</span>
             </div>
           </div>
           <div
