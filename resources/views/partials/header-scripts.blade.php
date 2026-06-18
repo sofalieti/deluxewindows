@@ -46,167 +46,89 @@
 
           <script>
             (function () {
-              const NAVBAR = ".navbar-3";
-              const NAV = `${NAVBAR} .navbar-container.w-nav`;
-              const BTN = `${NAVBAR} .w-nav-button`;
               const MOBILE = "(max-width: 991px)";
               const isMobile = () => window.matchMedia(MOBILE).matches;
-
-              let dimmer = document.getElementById("menuDimmer");
-              if (!dimmer) {
-                dimmer = document.createElement("div");
-                dimmer.id = "menuDimmer";
-                document.body.appendChild(dimmer);
-              }
+              const BODY_OPEN_CLASS = "dw-mobile-menu-open";
+              const TOGGLE_SELECTOR = ".dw-mobile-menu-toggle";
+              const PANEL_SELECTOR = "#dw-mobile-menu-panel";
+              const BACKDROP_SELECTOR = "[data-role='dw-mobile-menu-backdrop']";
+              const LINK_SELECTOR = ".dw-mobile-menu-link, .dw-mobile-menu-cta a";
 
               const $ = (s, root = document) => root.querySelector(s);
-              const btn = () => $(BTN);
-              const navRoot = () => $(NAV);
-              const overlayFromButton = () => {
-                const b = btn();
-                if (!b) return null;
-                const overlayId = b.getAttribute("aria-controls");
-                if (!overlayId) return null;
-                return document.getElementById(overlayId);
-              };
-              const ov = () => overlayFromButton() || $(".w-nav-overlay", navRoot() || document);
-              const menu = () => $(".w-nav-menu", navRoot() || document);
-              const open = () => {
-                const b = btn();
-                if (!b) return false;
-                return b.classList.contains("w--open") || b.getAttribute("aria-expanded") === "true";
-              };
+              const toggleBtn = () => $(TOGGLE_SELECTOR);
+              const panel = () => $(PANEL_SELECTOR);
+              const backdrop = () => $(BACKDROP_SELECTOR);
+              const isOpen = () => document.body.classList.contains(BODY_OPEN_CLASS);
 
-              const lockScroll = () => {
+              function lockScroll() {
                 document.documentElement.style.overflow = "hidden";
                 document.body.style.overflow = "hidden";
-              };
-              const unlockScroll = () => {
+              }
+
+              function unlockScroll() {
                 document.documentElement.style.overflow = "";
                 document.body.style.overflow = "";
-              };
-
-              function navHeight() {
-                const el = $(NAVBAR);
-                const h = el ? Math.round(el.getBoundingClientRect().height) : 70;
-                return h || 70;
               }
 
-              function placeUnderHeader() {
-                const h = navHeight();
-
-                const o = ov();
-                if (o) {
-                  if (o.parentNode !== document.body) document.body.appendChild(o);
-                  Object.assign(o.style, {
-                    position: "fixed",
-                    top: "0",
-                    left: "0",
-                    right: "0",
-                    bottom: "0",
-                    width: "100%",
-                    overflow: "visible",
-                    display: "block",
-                    pointerEvents: "auto",
-                  });
-                }
-
-                const m = menu();
-                if (m) {
-                  Object.assign(m.style, {
-                    position: "fixed",
-                    top: "0",
-                    left: "0",
-                    right: "0",
-                    bottom: "0",
-                    overflowY: "auto",
-                    maxHeight: "none",
-                    WebkitOverflowScrolling: "touch",
-                    paddingTop: h + "px",
-                  });
-                }
-
-                dimmer.style.top = "0";
+              function renderState(open) {
+                const btn = toggleBtn();
+                const p = panel();
+                if (btn) btn.setAttribute("aria-expanded", open ? "true" : "false");
+                if (p) p.setAttribute("aria-hidden", open ? "false" : "true");
               }
 
-              function show() {
+              function openMenu() {
                 if (!isMobile()) return;
-
-                document.body.classList.add("mobile-menu-open");
-                placeUnderHeader();
-
-                dimmer.style.opacity = "1";
-                dimmer.style.pointerEvents = "auto";
-
+                document.body.classList.add(BODY_OPEN_CLASS);
                 lockScroll();
+                renderState(true);
               }
 
-              function hide() {
-                dimmer.style.opacity = "0";
-                dimmer.style.pointerEvents = "none";
-
-                document.body.classList.remove("mobile-menu-open");
+              function closeMenu() {
+                document.body.classList.remove(BODY_OPEN_CLASS);
                 unlockScroll();
-
-                const o = ov();
-                if (o) {
-                  o.style.pointerEvents = "none";
-                  o.style.display = "none";
-                  o.style.height = "";
-                }
-
-                const m = menu();
-                if (m) {
-                  m.style.paddingTop = "";
-                }
+                renderState(false);
               }
 
-              function sync() {
-                if (!isMobile()) {
-                  hide();
+              function toggleMenu() {
+                if (isOpen()) closeMenu();
+                else openMenu();
+              }
+
+              document.addEventListener("click", (event) => {
+                const t = event.target;
+                if (!(t instanceof Element)) return;
+
+                if (t.closest(TOGGLE_SELECTOR)) {
+                  event.preventDefault();
+                  toggleMenu();
                   return;
                 }
-                if (open()) show();
-                else hide();
-              }
 
-              document.addEventListener("click", (e) => {
-                if (e.target.closest(BTN)) {
-                  setTimeout(sync, 0);
+                if (t.closest(BACKDROP_SELECTOR)) {
+                  event.preventDefault();
+                  closeMenu();
+                  return;
+                }
+
+                if (t.closest(LINK_SELECTOR) && isOpen()) {
+                  closeMenu();
                 }
               });
 
-              dimmer.addEventListener("click", () => {
-                const b = btn();
-                if (b && (b.classList.contains("w--open") || b.getAttribute("aria-expanded") === "true")) b.click();
+              document.addEventListener("keydown", (event) => {
+                if (event.key === "Escape" && isOpen()) {
+                  closeMenu();
+                }
               });
 
-              const mo = new MutationObserver(() => setTimeout(sync, 0));
-              mo.observe(document.documentElement, {
-                subtree: true,
-                childList: true,
-                attributes: true,
-                attributeFilter: ["class", "style", "data-nav-menu-open"],
+              window.addEventListener("resize", () => {
+                if (!isMobile() && isOpen()) closeMenu();
               });
 
-              window.addEventListener(
-                "resize",
-                () => {
-                  if (open()) placeUnderHeader();
-                  sync();
-                },
-                { passive: true },
-              );
-
-              window.addEventListener(
-                "scroll",
-                () => {
-                  if (open()) placeUnderHeader();
-                },
-                { passive: true },
-              );
-
-              document.addEventListener("DOMContentLoaded", sync);
+              document.addEventListener("DOMContentLoaded", () => {
+                renderState(false);
+              });
             })();
           </script>
         </div>

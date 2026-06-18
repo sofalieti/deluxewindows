@@ -1,189 +1,265 @@
       @once
         <style>
-          .mobile-top-strip {
+          .dw-mobile-shell {
             display: none;
           }
 
           @media (max-width: 991px) {
             .header-container-2 > .navbar.w-nav,
-            .header-container-2 > .header-wrapper-2.w-nav {
+            .header-container-2 > .header-wrapper-2.w-nav,
+            .navbar-3 > .navbar-container.w-nav {
               display: none !important;
             }
 
-            .mobile-top-strip {
-              display: block;
-              background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
-              border-bottom: 1px solid #e7edf5;
+            .navbar-3 {
+              position: sticky;
+              top: 0;
+              z-index: 1400;
+              background: #fff;
             }
 
-            .mobile-top-strip__inner {
+            .dw-mobile-shell {
+              display: block;
+              border-bottom: 1px solid #e6edf6;
+              background: #fff;
+              box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+            }
+
+            .dw-mobile-topline {
               position: relative;
-              min-height: 38px;
-              padding: 8px 14px;
-              display: block;
+              min-height: 36px;
+              padding: 7px 14px;
+              border-bottom: 1px solid #edf2f8;
+              background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
             }
 
-            .mobile-top-strip__text {
-              color: #334155;
+            .dw-mobile-topline__slogan {
+              display: block;
+              text-align: center;
               font-size: 12px;
               line-height: 1.2;
-              text-align: center;
+              color: #3b4759;
               letter-spacing: 0.01em;
-              display: block;
-              padding: 0 88px;
+              padding: 0 96px;
             }
 
-            .mobile-top-strip__phone {
-              display: inline-flex;
+            .dw-mobile-topline__call {
               position: absolute;
               left: 14px;
               top: 50%;
               transform: translateY(-50%);
+              display: inline-flex;
+              align-items: center;
               gap: 6px;
               color: #0f172a;
               text-decoration: none;
               font-size: 12px;
               font-weight: 700;
-              line-height: 1.2;
+              line-height: 1;
               white-space: nowrap;
             }
 
-            .mobile-top-strip__phone-icon {
+            .dw-mobile-topline__icon {
               width: 13px;
               height: 13px;
               object-fit: contain;
               flex: 0 0 auto;
             }
 
-            .navbar-3 {
-              position: sticky !important;
-              top: 0 !important;
-              z-index: 1200 !important;
-              background: #ffffff;
-              border-bottom: 1px solid #e6eaf0;
-              box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
-              transform: none !important;
-            }
-
-            .navbar-3 .navbar-container {
-              background: #fff;
-              position: relative;
-              z-index: 1301;
-            }
-
-            .navbar-3 .container-regular {
-              width: 100%;
-              max-width: none;
-              padding-left: 14px;
-              padding-right: 14px;
-            }
-
-            .navbar-3 .navbar-wrapper {
-              min-height: 60px;
+            .dw-mobile-bar {
+              min-height: 62px;
+              padding: 0 14px;
               display: grid;
               grid-template-columns: 1fr auto;
-              grid-template-areas: "logo menu";
               align-items: center;
               gap: 10px;
+              background: #fff;
             }
 
-            .navbar-3 .navbar-brand {
-              grid-area: logo;
+            .dw-mobile-brand {
+              display: inline-flex;
+              align-items: center;
               min-width: 0;
             }
 
-            .navbar-3 .image-24 {
+            .dw-mobile-logo {
               display: block;
               width: auto;
-              max-width: 124px;
               height: auto;
+              max-width: 124px;
             }
 
-            .navbar-3 .link-15 {
-              display: none !important;
+            .dw-mobile-menu-toggle {
+              width: 42px;
+              height: 42px;
+              border: 1px solid #d7e1ee;
+              border-radius: 12px;
+              background: #fff;
+              color: #0f172a;
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              cursor: pointer;
+              transition: background-color 0.2s ease, border-color 0.2s ease;
             }
 
-            .navbar-3 .link-15 strong {
+            .dw-mobile-menu-toggle:hover,
+            .dw-mobile-menu-toggle:focus-visible {
+              background: #f4f8ff;
+              border-color: #b7cae6;
+              outline: none;
+            }
+
+            .dw-mobile-menu-toggle-icon {
+              font-size: 20px;
+              line-height: 1;
+              font-weight: 600;
+            }
+
+            .dw-mobile-menu-toggle .dw-mobile-menu-toggle-icon--close {
               display: none;
             }
 
-            .navbar-3 .link-15__icon {
-              width: 14px;
-              height: 14px;
-              object-fit: contain;
-              flex: 0 0 auto;
+            body.dw-mobile-menu-open .dw-mobile-menu-toggle .dw-mobile-menu-toggle-icon--open {
+              display: none;
             }
 
-            .navbar-3 .link-15__label {
-              min-width: 0;
+            body.dw-mobile-menu-open .dw-mobile-menu-toggle .dw-mobile-menu-toggle-icon--close {
+              display: inline;
             }
 
-            .navbar-3 .menu-button {
-              grid-area: menu;
-              justify-self: end;
-              position: relative;
-              z-index: 1302;
+            .dw-mobile-menu-backdrop {
+              position: fixed;
+              inset: 0;
+              z-index: 1398;
+              background: rgba(9, 16, 29, 0.6);
+              opacity: 0;
+              pointer-events: none;
+              transition: opacity 0.2s ease;
             }
 
-            .navbar-3 .w-nav-overlay {
-              z-index: 1300 !important;
-              background: rgba(15, 23, 42, 0.62);
-              backdrop-filter: blur(3px);
-              -webkit-backdrop-filter: blur(3px);
-            }
-
-            .navbar-3 .nav-menu-wrapper-4.w-nav-menu {
-              width: 100%;
-              max-width: 100%;
-              height: 100dvh;
-              padding: 86px 16px 24px;
-              background: #ffffff;
+            .dw-mobile-menu-panel {
+              position: fixed;
+              inset: 0;
+              z-index: 1399;
+              background: #fff;
+              transform: translateY(8px);
+              opacity: 0;
+              pointer-events: none;
+              transition: transform 0.22s ease, opacity 0.22s ease;
               overflow-y: auto;
               -webkit-overflow-scrolling: touch;
+              padding: 114px 16px 28px;
             }
 
-            .navbar-3 .nav-menu-2 {
-              display: flex;
-              flex-direction: column;
-              gap: 12px;
+            .dw-mobile-menu-sections {
+              display: grid;
+              gap: 14px;
             }
 
-            .navbar-3 .nav-button-wrapper .primary-button-2 {
+            .dw-mobile-menu-card {
+              border: 1px solid #e5ecf7;
+              border-radius: 14px;
+              background: #fff;
+              padding: 12px;
+            }
+
+            .dw-mobile-menu-title {
+              font-size: 12px;
+              font-weight: 700;
+              letter-spacing: 0.06em;
+              text-transform: uppercase;
+              color: #617189;
+              margin-bottom: 8px;
+            }
+
+            .dw-mobile-menu-grid {
+              display: grid;
+              gap: 8px;
+            }
+
+            .dw-mobile-menu-link {
+              display: block;
+              padding: 11px 12px;
+              border-radius: 10px;
+              text-decoration: none;
+              color: #0f172a;
+              background: #f8fbff;
+              border: 1px solid #ecf2fb;
+              font-size: 14px;
+              line-height: 1.25;
+              font-weight: 600;
+            }
+
+            .dw-mobile-menu-link:active {
+              background: #eef5ff;
+            }
+
+            .dw-mobile-menu-cta {
+              margin-top: 6px;
+            }
+
+            .dw-mobile-menu-cta .primary-button-2 {
               width: 100%;
               justify-content: center;
+            }
+
+            body.dw-mobile-menu-open .dw-mobile-menu-backdrop {
+              opacity: 1;
+              pointer-events: auto;
+            }
+
+            body.dw-mobile-menu-open .dw-mobile-menu-panel {
+              transform: translateY(0);
+              opacity: 1;
+              pointer-events: auto;
             }
           }
 
           @media (max-width: 479px) {
-            .mobile-top-strip__inner {
+            .dw-mobile-topline {
               padding-left: max(12px, env(safe-area-inset-left));
               padding-right: max(12px, env(safe-area-inset-right));
             }
 
-            .mobile-top-strip__phone {
+            .dw-mobile-topline__call {
               left: max(12px, env(safe-area-inset-left));
             }
 
-            .navbar-3 .container-regular {
+            .dw-mobile-bar {
               padding-left: max(12px, env(safe-area-inset-left));
               padding-right: max(12px, env(safe-area-inset-right));
             }
 
-            .navbar-3 .image-24 {
-              max-width: 112px;
+            .dw-mobile-logo {
+              max-width: 114px;
             }
           }
 
           @media (max-width: 390px) {
-            .mobile-top-strip__text {
-              padding-right: 72px;
+            .dw-mobile-topline {
+              padding-top: 6px;
+              padding-bottom: 6px;
             }
 
-            .navbar-3 .image-24 {
-              max-width: 104px;
+            .dw-mobile-topline__slogan {
+              padding: 0;
+              display: block;
+              text-align: center;
+            }
+
+            .dw-mobile-topline__call {
+              position: static;
+              transform: none;
+              margin-top: 4px;
+              width: 100%;
+              justify-content: center;
+            }
+
+            .dw-mobile-menu-panel {
+              padding-top: 120px;
             }
           }
-
         </style>
       @endonce
 
@@ -1073,18 +1149,90 @@
           <div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-1"></div>
         </div>
         <div class="navbar-3">
-          <div class="mobile-top-strip" aria-label="Company info">
-            <div class="mobile-top-strip__inner">
-              <a href="tel:{{ site_phone_tel() }}" class="mobile-top-strip__phone">
+          <div class="dw-mobile-shell" aria-label="Mobile navigation">
+            <div class="dw-mobile-topline">
+              <a href="tel:{{ site_phone_tel() }}" class="dw-mobile-topline__call">
                 <img
                   src="/webflow-assets/images/687559a123cece2e95a41a6f_phone_enabled_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg"
                   alt=""
                   loading="lazy"
-                  class="mobile-top-strip__phone-icon"
+                  class="dw-mobile-topline__icon"
                 />
                 <span>{{ site_phone_display() }}</span>
               </a>
-              <span class="mobile-top-strip__text">We are – 100% employee owned &amp; over 30 years in business!</span>
+              <span class="dw-mobile-topline__slogan">We are – 100% employee owned &amp; over 30 years in business!</span>
+            </div>
+
+            <div class="dw-mobile-bar">
+              <a href="/" class="dw-mobile-brand" aria-label="Home">
+                <x-img
+                  width="283"
+                  loading="lazy"
+                  alt="Deluxe Windows"
+                  src="/webflow-assets/images/686acba4611e759fd8169f9d_photo_2025-07-06-22.14.41.avif"
+                  preset="nav_logo"
+                  class="dw-mobile-logo"
+                />
+              </a>
+              <button
+                type="button"
+                class="dw-mobile-menu-toggle"
+                aria-label="Toggle mobile menu"
+                aria-controls="dw-mobile-menu-panel"
+                aria-expanded="false"
+              >
+                <span class="dw-mobile-menu-toggle-icon dw-mobile-menu-toggle-icon--open">☰</span>
+                <span class="dw-mobile-menu-toggle-icon dw-mobile-menu-toggle-icon--close">✕</span>
+              </button>
+            </div>
+
+            <div class="dw-mobile-menu-backdrop" data-role="dw-mobile-menu-backdrop"></div>
+            <div class="dw-mobile-menu-panel" id="dw-mobile-menu-panel" aria-hidden="true">
+              <div class="dw-mobile-menu-sections">
+                <div class="dw-mobile-menu-card">
+                  <div class="dw-mobile-menu-title">Windows</div>
+                  <div class="dw-mobile-menu-grid">
+                    <a href="/windows" class="dw-mobile-menu-link">All Window Types</a>
+                    <a href="/windows/vinyl-windows" class="dw-mobile-menu-link">Vinyl Windows</a>
+                    <a href="/windows/fiberglass-windows" class="dw-mobile-menu-link">Fiberglass Windows</a>
+                    <a href="/brand" class="dw-mobile-menu-link">Window Brands</a>
+                  </div>
+                </div>
+
+                <div class="dw-mobile-menu-card">
+                  <div class="dw-mobile-menu-title">Doors</div>
+                  <div class="dw-mobile-menu-grid">
+                    <a href="/doors" class="dw-mobile-menu-link">All Door Types</a>
+                    <a href="/doors/fiberglass-doors" class="dw-mobile-menu-link">Fiberglass Doors</a>
+                    <a href="/doors/wood-doors" class="dw-mobile-menu-link">Wood Doors</a>
+                    <a href="/doors/aluminum-doors" class="dw-mobile-menu-link">Aluminum Doors</a>
+                  </div>
+                </div>
+
+                <div class="dw-mobile-menu-card">
+                  <div class="dw-mobile-menu-title">Learn</div>
+                  <div class="dw-mobile-menu-grid">
+                    <a href="/special-offers" class="dw-mobile-menu-link">Special Offers</a>
+                    <a href="/financing" class="dw-mobile-menu-link">Financing</a>
+                    <a href="/blog" class="dw-mobile-menu-link">Knowledge Articles</a>
+                    <a href="/faq" class="dw-mobile-menu-link">FAQ</a>
+                  </div>
+                </div>
+
+                <div class="dw-mobile-menu-card">
+                  <div class="dw-mobile-menu-title">Company</div>
+                  <div class="dw-mobile-menu-grid">
+                    <a href="/about" class="dw-mobile-menu-link">About Us</a>
+                    <a href="/gallery" class="dw-mobile-menu-link">Gallery</a>
+                    <a href="/testimonials" class="dw-mobile-menu-link">Testimonials</a>
+                    <a href="/contacts" class="dw-mobile-menu-link">Contact Us</a>
+                  </div>
+                </div>
+
+                <div class="dw-mobile-menu-cta">
+                  <a href="/contacts" class="primary-button-2 w-inline-block"><div>Request a Free Estimate</div></a>
+                </div>
+              </div>
             </div>
           </div>
           <div
@@ -1110,14 +1258,7 @@
                     src="/webflow-assets/images/686acba4611e759fd8169f9d_photo_2025-07-06-22.14.41.avif"
                     preset="nav_logo"
                     class="image-24" /></a
-                ><a href="tel:{{ site_phone_tel() }}" class="link-15"
-                  ><img
-                    src="/webflow-assets/images/687559a123cece2e95a41a6f_phone_enabled_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg"
-                    alt=""
-                    loading="lazy"
-                    class="link-15__icon"
-                  /><span class="link-15__label">{{ site_phone_display() }}</span></a
-                >
+                ><a href="tel:{{ site_phone_tel() }}" class="link-15"><strong>Sales:&nbsp;</strong>&nbsp;{{ site_phone_display() }}</a>
                 <nav role="navigation" class="nav-menu-wrapper-4 w-nav-menu">
                   <ul role="list" class="nav-menu-2 w-list-unstyled">
                     <li class="menu">
