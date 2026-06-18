@@ -172,7 +172,7 @@
 
               dimmer.addEventListener("click", () => {
                 const b = btn();
-                if (b && b.classList.contains("w--open")) b.click();
+                if (b && (b.classList.contains("w--open") || b.getAttribute("aria-expanded") === "true")) b.click();
               });
 
               const mo = new MutationObserver(() => setTimeout(sync, 0));

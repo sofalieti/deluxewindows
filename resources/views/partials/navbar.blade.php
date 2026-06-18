@@ -9,6 +9,10 @@
               display: none !important;
             }
 
+            .header-container-2 > .header-wrapper-2.w-nav {
+              display: none !important;
+            }
+
             .navbar-3 {
               position: -webkit-sticky !important;
               position: sticky !important;
@@ -113,13 +117,6 @@
             }
           }
 
-          @supports (-webkit-touch-callout: none) {
-            @media (max-width: 991px) {
-              .navbar-3 {
-                top: env(safe-area-inset-top) !important;
-              }
-            }
-          }
         </style>
         <script>
           (function () {
