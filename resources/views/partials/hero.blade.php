@@ -69,13 +69,13 @@
       <div class="div-block-59">
         @if(!empty($heroBackgroundImage))
           {{-- Static hero background (brand pages etc.) --}}
-          <div style="background-image:url('{{ thumbnail_url($heroBackgroundImage, 'hero_bg') }}')" class="div-block-61"></div>
+          <div style="background-image:url('{{ thumbnail_url($heroBackgroundImage, 'hero_bg') }}');background-position:center center;background-size:cover;background-repeat:no-repeat;" class="div-block-61"></div>
         @elseif(!empty($doorHeroImage))
           {{-- Doors detail page: featured image as background --}}
-          <div style="background-image:url('{{ thumbnail_url($doorHeroImage, 'hero_bg') }}')" class="div-block-61"></div>
+          <div style="background-image:url('{{ thumbnail_url($doorHeroImage, 'hero_bg') }}');background-position:center center;background-size:cover;background-repeat:no-repeat;" class="div-block-61"></div>
         @elseif(!empty($windowHeroImage))
           {{-- Windows detail page: static product image as background --}}
-          <div style="background-image:url('{{ thumbnail_url($windowHeroImage, 'hero_bg') }}')" class="div-block-61"></div>
+          <div style="background-image:url('{{ thumbnail_url($windowHeroImage, 'hero_bg') }}');background-position:center center;background-size:cover;background-repeat:no-repeat;" class="div-block-61"></div>
         @else
           {{-- Homepage: video background --}}
         <div class="code-embed-5 w-embed w-script">
