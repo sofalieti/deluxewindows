@@ -20,21 +20,14 @@
       </section>
       @if($featuredBrands->count() > 0)
       <div class="w-layout-blockcontainer container-default w-container">
-        <div class="div-block-51 asdfsdf">
-          <div class="collection-list-wrapper-19 w-dyn-list">
-            <div role="list" class="collection-list-12 w-dyn-items w-row">
-              @foreach($featuredBrands as $brand)
-              <div role="listitem" class="collection-item-12 w-dyn-item w-col w-col-6">
-                <a href="/brands/{{ $brand['slug'] }}" class="brand-link w-inline-block">
-                  @if($brand['logo'])
-                  <img src="{{ $brand['logo'] }}" loading="lazy" alt="{{ $brand['name'] }}" />
-                  @endif
-                </a>
-              </div>
-              @endforeach
-            </div>
-          </div>
-        </div>
+        @include('partials.brand-strip', [
+          'items' => collect($featuredBrands)->map(fn ($brand) => [
+            'href' => '/brands/'.$brand['slug'],
+            'image' => (string) ($brand['logo'] ?? ''),
+            'alt' => (string) ($brand['name'] ?? ''),
+          ])->values()->all(),
+          'wrapperClass' => 'div-block-51 asdfsdf',
+        ])
       </div>
       @endif
     </section>

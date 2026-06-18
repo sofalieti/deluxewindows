@@ -48,6 +48,10 @@ class PlatformProvider extends OrchidServiceProvider
                 ->route('platform.promotions')
                 ->title('Marketing'),
 
+            Menu::make('Leads')
+                ->icon('bs.inbox')
+                ->route('platform.leads'),
+
             Menu::make('Get Started')
                 ->icon('bs.book')
                 ->title('Navigation')

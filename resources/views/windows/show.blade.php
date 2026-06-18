@@ -308,27 +308,15 @@
       @if($brandTypes->count() > 0)
       <section class="section top-none window-brands-section">
         <div class="w-layout-blockcontainer container-default w-container">
-          <div class="title-left---content-right">
-            <h2 class="heading-23">{{ $brandsTitle }}</h2>
-          </div>
-          <div class="mg-top-large window-brands-section__list">
-            <div class="collection-list-wrapper-5 w-dyn-list">
-              <div role="list" class="collection-list-2 w-dyn-items window-brands-section__grid">
-                @foreach($brandTypes as $bt)
-                <div role="listitem" class="w-dyn-item">
-                  <a href="/window-type/{{ $bt['slug'] }}" class="property-wrapper-v1 w-inline-block">
-                    <div class="property-card-top-content-v1">
-                      @include('partials.brand-logo-slot', [
-                        'image' => $bt['image'] ?? '',
-                        'alt' => $bt['name'] ?? '',
-                      ])
-                    </div>
-                  </a>
-                </div>
-                @endforeach
-              </div>
-            </div>
-          </div>
+          @include('partials.brand-strip', [
+            'title' => $brandsTitle,
+            'items' => collect($brandTypes)->map(fn ($bt) => [
+              'href' => '/window-type/'.$bt['slug'],
+              'image' => (string) ($bt['image'] ?? ''),
+              'alt' => (string) ($bt['name'] ?? ''),
+            ])->values()->all(),
+            'wrapperClass' => 'mg-top-large window-brands-section__list',
+          ])
         </div>
       </section>
       @endif

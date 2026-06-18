@@ -33,7 +33,7 @@
             <span class="badge badge-light float-right">{{ $hasValue ? 'filled' : 'empty' }}</span>
           </button>
         </div>
-        <div class="card-body pt-3 pb-2" data-role="item-body" style="display:none;">
+        <div class="card-body pt-3 pb-2" data-role="item-body">
           <input type="hidden" name="meta[{{ $scope }}][{{ $id }}][name]" value="{{ $name }} ({{ $slug }}) [{{ $id }}]" />
 
           <div class="row">

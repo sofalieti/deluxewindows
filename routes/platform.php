@@ -11,6 +11,7 @@ use App\Orchid\Screens\Examples\ExampleGridScreen;
 use App\Orchid\Screens\Examples\ExampleLayoutsScreen;
 use App\Orchid\Screens\Examples\ExampleScreen;
 use App\Orchid\Screens\Examples\ExampleTextEditorsScreen;
+use App\Orchid\Screens\Leads\LeadListScreen;
 use App\Orchid\Screens\PlatformScreen;
 use App\Orchid\Screens\Role\RoleEditScreen;
 use App\Orchid\Screens\Role\RoleListScreen;
@@ -42,6 +43,9 @@ Route::screen('/main', PlatformScreen::class)
 
 Route::screen('promotions', PromotionsScreen::class)
     ->name('platform.promotions');
+
+Route::screen('leads', LeadListScreen::class)
+    ->name('platform.leads');
 
 // Platform > Profile
 Route::screen('profile', UserProfileScreen::class)

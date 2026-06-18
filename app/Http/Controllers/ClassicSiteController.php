@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Lead;
 use App\Models\Webflow\BlogWebflowItem;
 use App\Models\Webflow\BrandCollectionsWebflowItem;
 use App\Models\Webflow\BrandsWebflowItem;
@@ -554,6 +555,24 @@ class ClassicSiteController extends Controller
             'utm_medium' => 'nullable|string|max:255',
             'utm_campaign' => 'nullable|string|max:255',
         ])->validate();
+
+        Lead::query()->create([
+            'full_name' => $validated['full_name'],
+            'email' => $validated['email'],
+            'phone' => $validated['phone'],
+            'city' => $validated['city'],
+            'message' => $validated['message'],
+            'page_url' => $validated['page_url'],
+            'utm_source' => $validated['utm_source'],
+            'utm_medium' => $validated['utm_medium'],
+            'utm_campaign' => $validated['utm_campaign'],
+            'ip_address' => $request->ip(),
+            'user_agent' => (string) $request->userAgent(),
+            'meta' => [
+                'request_id' => (string) $request->headers->get('x-request-id', ''),
+                'via' => 'classic-site-contact-form',
+            ],
+        ]);
 
         $subject = 'New Deluxe Windows lead: '.$validated['full_name'];
         $bodyLines = [
