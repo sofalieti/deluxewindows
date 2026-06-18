@@ -241,9 +241,8 @@
 
           {{-- Custom gallery (replaces Webflow lightbox grid) --}}
           @php
-            $allGalleryImages = collect();
-            if ($heroImage) $allGalleryImages->push($heroImage);
-            foreach ($galleryImages as $gi) $allGalleryImages->push($gi);
+            // Do not inject hero image into the bottom gallery.
+            $allGalleryImages = collect($galleryImages)->filter()->values();
             $galleryMainUrl = function ($url) {
                 try {
                     return thumbnail_url($url, 'gallery_main') ?: $url;

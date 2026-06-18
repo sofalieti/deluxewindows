@@ -54,7 +54,7 @@
     @include('partials.hero', [
       'windowTypeHero' => true,
       'brandLogo' => $logo,
-      'heroBackgroundImage' => $featuredImage ?? '/webflow-assets/images/hero-brand-placeholder.jpg',
+      'heroBackgroundImage' => $featuredImage,
       'heroFormHtml' => $heroFormHtml,
       'windowHeroImage' => null,
     ])

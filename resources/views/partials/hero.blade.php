@@ -62,6 +62,19 @@
     : (!empty($windowTypeHero)
       ? ($heroFormHtml ?? '<p>Starting from $1199 per window installed.</p><p><strong>Special pricing available upon request! </strong>‍</p>')
       : ($brandHeroFormHtml ?? '<p>Starting from $999 per window installed.</p><p><strong>Special pricing available upon request!</strong>‍</p>'));
+  $windowTypeHeroHeadlines = [
+    'vinyl-windows' => 'Upgrade to Energy Efficient Vinyl Windows for Lasting Comfort',
+    'wood-clad-windows' => 'Upgrade to Energy Efficient Wood-Clad Windows for Premium Style',
+    'fiberglass-windows' => 'Upgrade to Energy Efficient Fiberglass Windows for Strong Performance',
+    'wood-windows' => 'Upgrade to Energy Efficient Wood Windows for Timeless Beauty',
+    'aluminum-windows' => 'Upgrade to Energy Efficient Aluminum Windows with Modern Design',
+    'aluminum-clad-windows' => 'Upgrade to Energy Efficient Aluminum-Clad Windows for Hybrid Performance',
+    'steel-windows' => 'Upgrade to Energy Efficient Steel Windows for Sleek Durability',
+  ];
+  $windowTypeSlug = isset($slug) ? strtolower((string) $slug) : '';
+  $heroHeadlineText = !empty($windowTypeHero)
+    ? ($windowTypeHeroHeadlines[$windowTypeSlug] ?? 'Upgrade to Energy Efficient Windows for Less')
+    : 'Upgrade to Energy Efficient Windows and Doors for Less';
 @endphp
 
 @include('partials.header-scripts')
@@ -69,39 +82,54 @@
 @once
   <style>
     /* Hero headline block where "Upgrade to Energy Efficient Windows and Doors for Less" is shown */
+    .div-block-59 > .div-block-61 {
+      background-color: #123f72;
+      background-image: none;
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
     .title-left---content-right.paragraph-content.alt.hero-page .rich-text-block-2 {
-      text-align: center;
+      text-align: left;
     }
 
     .title-left---content-right.paragraph-content.alt.hero-page .rich-text-block-2 .heading-49 {
       margin: 0;
       line-height: 1.1;
-      font-size: clamp(34px, 3vw, 52px);
+      font-size: clamp(30px, 2.3vw, 42px);
     }
 
     .title-left---content-right.paragraph-content.alt.hero-page .rich-text-block-2 .w-embed h2[data-city] {
       margin: 0;
-      font-size: clamp(18px, 1.35vw, 24px) !important;
+      font-size: clamp(16px, 1.05vw, 20px) !important;
       line-height: 1.25;
     }
 
-    /* Larger and more premium headline treatment on high resolutions */
-    @media (min-width: 1680px) {
-      .title-left---content-right.paragraph-content.alt.hero-page .rich-text-block-2 .heading-49 {
-        font-size: clamp(46px, 2.8vw, 64px);
-      }
-
-      .title-left---content-right.paragraph-content.alt.hero-page .rich-text-block-2 .w-embed h2[data-city] {
-        font-size: clamp(22px, 1.2vw, 30px) !important;
+    /* Pull hero content a bit higher on non-mobile screens */
+    @media (min-width: 768px) {
+      .title-left---content-right.paragraph-content.alt.hero-page {
+        padding-top: 18px !important;
       }
     }
 
-    /* Compact mobile hero: less top space, smaller text, cleaner edges */
+    /* Larger screens: still premium, but less oversized than before */
+    @media (min-width: 1680px) {
+      .title-left---content-right.paragraph-content.alt.hero-page .rich-text-block-2 .heading-49 {
+        font-size: clamp(38px, 2.2vw, 52px);
+      }
+
+      .title-left---content-right.paragraph-content.alt.hero-page .rich-text-block-2 .w-embed h2[data-city] {
+        font-size: clamp(18px, 0.95vw, 24px) !important;
+      }
+    }
+
+    /* Compact mobile hero: much tighter top spacing and centered text only on mobile */
     @media (max-width: 767px) {
       .title-left---content-right.paragraph-content.alt.hero-page {
-        padding-top: 10px !important;
-        padding-bottom: 16px !important;
-        gap: 12px !important;
+        padding-top: 2px !important;
+        padding-bottom: 10px !important;
+        gap: 8px !important;
       }
 
       .div-block-59 > .w-layout-blockcontainer.container-default {
@@ -116,13 +144,17 @@
         max-width: none !important;
       }
 
+      .title-left---content-right.paragraph-content.alt.hero-page .rich-text-block-2 {
+        text-align: center;
+      }
+
       .title-left---content-right.paragraph-content.alt.hero-page .rich-text-block-2 .heading-49 {
-        font-size: clamp(24px, 6vw, 30px) !important;
-        line-height: 1.16 !important;
+        font-size: clamp(20px, 5.2vw, 26px) !important;
+        line-height: 1.14 !important;
       }
 
       .title-left---content-right.paragraph-content.alt.hero-page .rich-text-block-2 .w-embed h2[data-city] {
-        font-size: clamp(14px, 3.8vw, 17px) !important;
+        font-size: clamp(13px, 3.3vw, 15px) !important;
       }
     }
   </style>
@@ -138,6 +170,9 @@
         @elseif(!empty($windowHeroImage))
           {{-- Windows detail page: static product image as background --}}
           <div style="background-image:url('{{ thumbnail_url($windowHeroImage, 'hero_bg') }}');background-position:center center;background-size:cover;background-repeat:no-repeat;" class="div-block-61"></div>
+        @elseif($brandLikeHero || !empty($doorHero))
+          {{-- Fallback for hero-based templates without image: solid blue background only --}}
+          <div class="div-block-61"></div>
         @else
           {{-- Homepage: video background --}}
         <div class="code-embed-5 w-embed w-script">
@@ -181,7 +216,7 @@
                     <div class="div-block-60">
                     @endif
                     <div class="rich-text-block-2 w-richtext">
-                      <h2 class="heading-49">Upgrade to Energy Efficient Windows and&nbsp;Doors for Less</h2>
+                      <h2 class="heading-49">{{ $heroHeadlineText }}</h2>
                       <p>‍</p>
                       <div class="w-embed">
                         <h2 style="font-size: 21px; color: #fff" data-city="">Local Installers</h2>

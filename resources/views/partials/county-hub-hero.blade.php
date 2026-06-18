@@ -4,7 +4,7 @@
         @endif
         class="div-block-59 sfdg"
       >
-        <div class="div-block-61"></div>
+        <div class="div-block-61" style="background-color:#123f72;background-image:none;"></div>
         <div class="w-layout-blockcontainer container-default w-container">
           <div class="title-left---content-right paragraph-content alt hero-page">
             <div class="width-100-mobile-landscape">
