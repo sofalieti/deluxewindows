@@ -193,29 +193,6 @@
       }
     </style>
 
-    <!-- Google tag -->
-    <script>
-      (function () {
-        let gtagLoaded = false;
-        function loadGtag() {
-          if (gtagLoaded) return;
-          gtagLoaded = true;
-          const script = document.createElement("script");
-          script.src = "https://www.googletagmanager.com/gtag/js?id=G-JHYBB0THJM";
-          script.async = true;
-          document.head.appendChild(script);
-          window.dataLayer = window.dataLayer || [];
-          function gtag() { dataLayer.push(arguments); }
-          window.gtag = gtag;
-          gtag("js", new Date());
-          gtag("config", "G-JHYBB0THJM");
-        }
-        document.addEventListener("DOMContentLoaded", loadGtag);
-        document.addEventListener("mousemove", loadGtag, { once: true });
-        document.addEventListener("touchstart", loadGtag, { once: true });
-        document.addEventListener("scroll", loadGtag, { once: true });
-      })();
-    </script>
   </head>
 
   <body class="body">

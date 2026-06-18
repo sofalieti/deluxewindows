@@ -60,32 +60,6 @@
       .collection-paragraph.align-center.no-hidden { display: block; }
     </style>
 
-    <script>
-      (function () {
-        let gtagLoaded = false;
-        function loadGtag() {
-          if (gtagLoaded) return;
-          gtagLoaded = true;
-          const script = document.createElement("script");
-          script.src = "https://www.googletagmanager.com/gtag/js?id=G-JHYBB0THJM";
-          script.async = true;
-          document.head.appendChild(script);
-          window.dataLayer = window.dataLayer || [];
-          function gtag() { dataLayer.push(arguments); }
-          window.gtag = gtag;
-          gtag("js", new Date());
-          gtag("config", "G-JHYBB0THJM");
-          gtag("config", "AW-1030787786");
-        }
-        window.addEventListener("scroll", loadGtag, { once: true });
-        window.addEventListener("click", loadGtag, { once: true });
-        setTimeout(loadGtag, 3000);
-      })();
-    </script>
-    <script>
-      window.$zoho = window.$zoho || {};
-      $zoho.salesiq = $zoho.salesiq || { ready: function () {} };
-    </script>
   </head>
 
   <body>
@@ -738,7 +712,6 @@
           if (lazyLoaded) return;
           lazyLoaded = true;
           initForms();
-          loadZoho();
         }
         window.addEventListener("scroll", initLazy, { once: true });
         window.addEventListener("click", initLazy, { once: true });
@@ -753,9 +726,6 @@
           }
           document.querySelectorAll("form").forEach(form => {
             form.addEventListener("submit", function () {
-              if (typeof gtag === "function") {
-                gtag("event", "conversion", { send_to: "AW-1030787786/Hs9eCP7MwngQyqXC6wM" });
-              }
               waitIP().then(() => {
                 const formData = new FormData(form);
                 formData.append("ip_address", ipData.ip || "");
@@ -766,12 +736,6 @@
               });
             });
           });
-        }
-        function loadZoho() {
-          const script = document.createElement("script");
-          script.src = "https://salesiq.zohopublic.com/widget?wc=siqfe34762ee44eb77120f2a13c55fed7c0984ca603ae60aafcaf2adda4331dc65a";
-          script.defer = true;
-          document.body.appendChild(script);
         }
       })();
     </script>

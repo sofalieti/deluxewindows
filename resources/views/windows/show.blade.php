@@ -168,11 +168,6 @@
       }
     </style>
 
-    <script>
-      window.$zoho = window.$zoho || {};
-      $zoho.salesiq = $zoho.salesiq || { ready: function () {} };
-    </script>
-
     <link href="https://core.service.elfsight.com/" rel="preconnect" crossorigin="" />
   </head>
 

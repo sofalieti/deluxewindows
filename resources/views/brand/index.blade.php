@@ -44,34 +44,6 @@
       .brand-filters_dropdown.is-open .brand_dropdown-list { display: block; }
     </style>
 
-    <script>
-      (function () {
-        let gtagLoaded = false;
-        function loadGtag() {
-          if (gtagLoaded) return;
-          gtagLoaded = true;
-          const script = document.createElement("script");
-          script.src = "https://www.googletagmanager.com/gtag/js?id=G-JHYBB0THJM";
-          script.async = true;
-          document.head.appendChild(script);
-          window.dataLayer = window.dataLayer || [];
-          function gtag() { dataLayer.push(arguments); }
-          window.gtag = gtag;
-          gtag("js", new Date());
-          gtag("config", "G-JHYBB0THJM");
-          gtag("config", "AW-1030787786");
-        }
-        window.addEventListener("scroll", loadGtag, { once: true });
-        window.addEventListener("click", loadGtag, { once: true });
-        setTimeout(loadGtag, 3000);
-      })();
-    </script>
-
-    <script>
-      window.$zoho = window.$zoho || {};
-      $zoho.salesiq = $zoho.salesiq || { ready: function () {} };
-    </script>
-
     <script async type="module" src="https://cdn.jsdelivr.net/npm/@finsweet/attributes@2/attributes.js" fs-list></script>
   </head>
 
@@ -254,21 +226,6 @@
         document.addEventListener("DOMContentLoaded", function () {
           document.querySelectorAll("form").forEach(injectHiddenFields);
         });
-        let lazyLoaded = false;
-        function initLazy() {
-          if (lazyLoaded) return;
-          lazyLoaded = true;
-          loadZoho();
-        }
-        window.addEventListener("scroll", initLazy, { once: true });
-        window.addEventListener("click", initLazy, { once: true });
-        setTimeout(initLazy, 4000);
-        function loadZoho() {
-          const script = document.createElement("script");
-          script.src = "https://salesiq.zohopublic.com/widget?wc=siqfe34762ee44eb77120f2a13c55fed7c0984ca603ae60aafcaf2adda4331dc65a";
-          script.defer = true;
-          document.body.appendChild(script);
-        }
       })();
     </script>
   </body>

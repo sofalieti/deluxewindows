@@ -48,34 +48,6 @@
 
     @include('partials.classic-layout-styles')
 
-    <script>
-      (function () {
-        let gtagLoaded = false;
-        function loadGtag() {
-          if (gtagLoaded) return;
-          gtagLoaded = true;
-          const script = document.createElement("script");
-          script.src = "https://www.googletagmanager.com/gtag/js?id=G-JHYBB0THJM";
-          script.async = true;
-          document.head.appendChild(script);
-          window.dataLayer = window.dataLayer || [];
-          function gtag() { dataLayer.push(arguments); }
-          window.gtag = gtag;
-          gtag("js", new Date());
-          gtag("config", "G-JHYBB0THJM");
-          gtag("config", "AW-1030787786");
-        }
-        window.addEventListener("scroll", loadGtag, { once: true });
-        window.addEventListener("click", loadGtag, { once: true });
-        setTimeout(loadGtag, 3000);
-      })();
-    </script>
-
-    <script>
-      window.$zoho = window.$zoho || {};
-      $zoho.salesiq = $zoho.salesiq || { ready: function () {} };
-    </script>
-
     <link href="https://core.service.elfsight.com/" rel="preconnect" crossorigin="" />
   </head>
 

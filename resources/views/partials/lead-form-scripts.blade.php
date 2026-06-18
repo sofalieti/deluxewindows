@@ -54,9 +54,6 @@
           throw new Error('Lead submit failed');
         }
         showState(form, true);
-        if (typeof window.gtag_report_conversion === 'function') {
-          window.gtag_report_conversion();
-        }
       } catch (_) {
         showState(form, false);
       } finally {

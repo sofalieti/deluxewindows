@@ -1084,45 +1084,6 @@
     <link href="/webflow-assets/images/favicon.png" rel="shortcut icon" type="image/x-icon" />
     <link href="/webflow-assets/images/webclip-bg.png" rel="apple-touch-icon" />
 
-<!-- ✅ Google tag (один раз!) -->
-<script>
-(function () {
-  let gtagLoaded = false;
-
-  function loadGtag() {
-    if (gtagLoaded) return;
-    gtagLoaded = true;
-
-          const script = document.createElement("script");
-    script.src = "https://www.googletagmanager.com/gtag/js?id=G-JHYBB0THJM";
-    script.async = true;
-    document.head.appendChild(script);
-
-    window.dataLayer = window.dataLayer || [];
-          function gtag() {
-            dataLayer.push(arguments);
-          }
-    window.gtag = gtag;
-
-          gtag("js", new Date());
-          gtag("config", "G-JHYBB0THJM");
-          gtag("config", "AW-1030787786");
-  }
-
-  // 🚀 грузим при первом взаимодействии
-        window.addEventListener("scroll", loadGtag, { once: true });
-        window.addEventListener("click", loadGtag, { once: true });
-
-  // fallback — через 3 сек
-  setTimeout(loadGtag, 3000);
-})();
-</script>
-
-<!-- Zoho placeholder (не грузим сразу) -->
-<script>
-window.$zoho = window.$zoho || {};
-      $zoho.salesiq = $zoho.salesiq || { ready: function () {} };
-</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
