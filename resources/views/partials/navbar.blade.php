@@ -24,10 +24,7 @@
               position: relative;
               min-height: 38px;
               padding: 8px 14px;
-              display: flex;
-              align-items: center;
-              justify-content: space-between;
-              gap: 10px;
+              display: block;
             }
 
             .mobile-top-strip__text {
@@ -37,15 +34,16 @@
               text-align: left;
               letter-spacing: 0.01em;
               display: block;
-              flex: 1 1 auto;
               min-width: 0;
-              padding: 0;
+              padding: 0 42px 0 0;
             }
 
             .mobile-top-strip__phone {
               display: inline-flex;
-              position: static;
-              transform: none;
+              position: absolute;
+              right: 14px;
+              top: 50%;
+              transform: translateY(-50%);
               align-items: center;
               justify-content: center;
               width: 28px;
@@ -63,6 +61,7 @@
               height: 14px;
               object-fit: contain;
               flex: 0 0 auto;
+              filter: brightness(0) saturate(100%);
             }
 
             .mobile-top-strip__phone span {
@@ -144,14 +143,15 @@
               display: inline-flex;
               align-items: center;
               justify-content: center;
-              min-height: 36px;
-              padding: 0 10px;
+              min-height: 38px;
+              min-width: 172px;
+              padding: 0 12px;
               white-space: nowrap;
             }
 
             .navbar-3 .mobile-estimate-btn > div {
-              font-size: 10px;
-              line-height: 1.05;
+              font-size: 9.5px;
+              line-height: 1;
               font-weight: 700;
               letter-spacing: 0.01em;
               text-align: center;
@@ -197,6 +197,10 @@
               padding-right: max(12px, env(safe-area-inset-right));
             }
 
+            .mobile-top-strip__phone {
+              right: max(12px, env(safe-area-inset-right));
+            }
+
             .navbar-3 .container-regular {
               padding-left: max(12px, env(safe-area-inset-left));
               padding-right: max(12px, env(safe-area-inset-right));
@@ -208,11 +212,12 @@
 
             .navbar-3 .mobile-estimate-btn {
               min-height: 32px;
-              padding: 0 8px;
+              min-width: 150px;
+              padding: 0 10px;
             }
 
             .navbar-3 .mobile-estimate-btn > div {
-              font-size: 9px;
+              font-size: 8.5px;
             }
           }
 
@@ -1116,7 +1121,7 @@
             <div class="mobile-top-strip__inner">
               <a href="tel:{{ site_phone_tel() }}" class="mobile-top-strip__phone">
                 <img
-                  src="/webflow-assets/images/687559a123cece2e95a41a6f_phone_enabled_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg"
+                  src="/webflow-assets/images/6841ddf8ace3d9d9facb1950_phone-icon-property-x-webflow-template.svg"
                   alt=""
                   loading="lazy"
                   class="mobile-top-strip__phone-icon"
