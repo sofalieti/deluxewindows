@@ -322,6 +322,11 @@
 
   // Link trust badges section background to hero background on mobile.
   (function () {
+    function applyHeroMenuClass() {
+      const hasHero = !!document.querySelector(".div-block-59");
+      document.body.classList.toggle("has-hero-menu", hasHero);
+    }
+
     function linkTrustBadgesToHeroBg() {
       if (!window.matchMedia("(max-width: 991px)").matches) return;
       const bar = document.getElementById("trustBadgesBar");
@@ -334,6 +339,8 @@
       bar.classList.add("trust-badges--hero-linked");
     }
 
+    onReady(applyHeroMenuClass);
+    window.addEventListener("resize", applyHeroMenuClass, { passive: true });
     onReady(linkTrustBadgesToHeroBg);
     window.addEventListener("resize", linkTrustBadgesToHeroBg, { passive: true });
   })();
