@@ -523,7 +523,7 @@ class ClassicSiteController extends Controller
                 'name' => (string) ($fieldData['name'] ?? ''),
                 'description' => (string) ($fieldData['blog-post-category---description'] ?? ''),
                 'image' => $imageUrl,
-                'expires_label' => $promotions->couponExpiresLabel($coupon, 'long'),
+                'expires_label' => $promotions->formatGlobal('long') ?: $promotions->couponExpiresLabel($coupon, 'long'),
             ];
         });
 

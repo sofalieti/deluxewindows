@@ -183,18 +183,6 @@
                     @endif
                     @else
                     <h1 class="heading-4">Looking to Replace Your Windows in the Bay Area?</h1>
-                    <p
-                      data-w-id="c3765d23-1eba-01a8-993c-c59200a6f71b"
-                      style="
-                        transform: translate3d(0px, 6%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
-                          skew(0deg, 0deg);
-                        opacity: 0;
-                        transform-style: preserve-3d;
-                      "
-                      class="paragraph-29"
-                    >
-                      Get Deluxe Windows <br />for Less. <span class="hero-offer-pill">{{ promotion_percent_label() }} Windows</span><br />
-                    </p>
                     @endif
                   </div>
                 </div>
