@@ -193,7 +193,7 @@
                       "
                       class="paragraph-29"
                     >
-                      Get Deluxe Windows <br />for Less. {{ promotion_percent_label() }}* Windows.<br />
+                      Get Deluxe Windows <br />for Less. <span class="hero-offer-pill">{{ promotion_percent_label() }} Windows</span><br />
                     </p>
                     @endif
                   </div>
@@ -232,7 +232,7 @@
                       {!! $windowDiscountHtml !!}
                     </div>
                     @else
-                    <h2 class="display-4">Get Deluxe Windows for Less. <br />{{ promotion_percent_label() }}* Windows</h2>
+                    <h2 class="display-4">Get Deluxe Windows for Less. <br /><span class="hero-offer-pill">{{ promotion_percent_label() }} Windows</span></h2>
                     <label for="email-banner" class="body-14"></label>
                     @endif
                   </div>
