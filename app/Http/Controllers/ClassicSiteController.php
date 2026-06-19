@@ -864,6 +864,11 @@ class ClassicSiteController extends Controller
         if ($featuredImage === null && is_array($brand->wf_featured_image ?? null)) {
             $featuredImage = $brand->wf_featured_image['url'] ?? null;
         }
+        // Local brand hero image takes priority over Webflow featured image
+        $localBrandHero = "/webflow-assets/images/brand-hero/{$slug}.avif";
+        if (file_exists(public_path("webflow-assets/images/brand-hero/{$slug}.avif"))) {
+            $featuredImage = $localBrandHero;
+        }
         $name        = $fieldData['name'] ?? 'Brand';
 
         // Window types referenced by this brand
