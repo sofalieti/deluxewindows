@@ -8,60 +8,6 @@
             display: none;
           }
 
-          .primary-button-2,
-          .primary-button-2.add,
-          .primary-button-2.custom {
-            border-radius: 10px !important;
-          }
-
-          @media (min-width: 992px) {
-            /* Desktop dropdown width should follow content */
-            .header-wrapper-2 .dropdown-wrapper.dropdown-default {
-              position: relative;
-            }
-
-            .header-wrapper-2 .dropdown-toogle-2.w-dropdown-toggle {
-              display: inline-flex !important;
-              align-items: center !important;
-              justify-content: flex-start;
-              column-gap: 6px !important;
-              min-height: 56px;
-              padding-top: 0 !important;
-              padding-bottom: 0 !important;
-            }
-
-            .header-wrapper-2 .dropdown-toogle-2.w-dropdown-toggle > div:first-child {
-              display: inline-flex !important;
-              align-items: center !important;
-              line-height: 1.1 !important;
-              min-height: 56px;
-            }
-
-            .header-wrapper-2 .dropdown-toogle-2.w-dropdown-toggle .dropdown-arrow {
-              display: inline-flex !important;
-              align-items: center !important;
-              line-height: 1 !important;
-            }
-
-            .header-wrapper-2 .dropdown-list-2.dropdown-v1.w-dropdown-list {
-              left: 0 !important;
-              right: auto !important;
-              width: max-content !important;
-              min-width: 520px;
-              max-width: min(94vw, 1120px) !important;
-            }
-
-            .header-wrapper-2 .dropdown-pd-2.dropdown-v4 {
-              width: auto !important;
-              max-width: 100% !important;
-            }
-
-            .header-wrapper-2 .w-layout-grid.grid-2-columns-2.dropdown-link-column.v4 {
-              width: max-content !important;
-              max-width: 100% !important;
-            }
-          }
-
           @media (max-width: 991px) {
             .header-container-2 > .navbar.w-nav,
             .header-container-2 > .header-wrapper-2.w-nav {
@@ -75,12 +21,13 @@
             }
 
             .mobile-top-strip__inner {
-              min-height: 40px;
+              position: relative;
+              min-height: 38px;
               padding: 8px 14px;
-              display: grid;
-              grid-template-columns: minmax(0, 1fr) auto;
+              display: flex;
               align-items: center;
-              column-gap: 10px;
+              justify-content: space-between;
+              gap: 10px;
             }
 
             .mobile-top-strip__text {
@@ -90,25 +37,25 @@
               text-align: left;
               letter-spacing: 0.01em;
               display: block;
+              flex: 1 1 auto;
               min-width: 0;
               padding: 0;
-              margin: 0;
-              order: 1;
             }
 
             .mobile-top-strip__phone {
               display: inline-flex;
+              position: static;
+              transform: none;
               align-items: center;
               justify-content: center;
-              width: 30px;
-              height: 30px;
+              width: 28px;
+              height: 28px;
               border-radius: 999px;
               border: 1px solid #d9e3ee;
               background: #ffffff;
               color: #0f172a;
               text-decoration: none;
-              justify-self: end;
-              order: 2;
+              flex: 0 0 auto;
             }
 
             .mobile-top-strip__phone-icon {
@@ -135,7 +82,7 @@
             .navbar-3 .navbar-container {
               background: #fff;
               position: relative;
-              z-index: 1302;
+              z-index: 1301;
             }
 
             .navbar-3 .container-regular {
@@ -146,25 +93,23 @@
             }
 
             .navbar-3 .navbar-wrapper {
-              min-height: 62px;
+              min-height: 60px;
               display: grid;
               grid-template-columns: minmax(0, 1fr) auto auto;
               grid-template-areas: "logo cta menu";
               align-items: center;
-              column-gap: 8px;
+              gap: 8px;
             }
 
             .navbar-3 .navbar-brand {
               grid-area: logo;
               min-width: 0;
-              display: inline-flex;
-              align-items: center;
             }
 
             .navbar-3 .image-24 {
               display: block;
               width: auto;
-              max-width: 116px;
+              max-width: 124px;
               height: auto;
             }
 
@@ -192,36 +137,6 @@
               justify-self: end;
               position: relative;
               z-index: 1302;
-              width: 44px;
-              height: 44px;
-              margin: 0 !important;
-              padding: 0 !important;
-              display: inline-flex;
-              align-items: center;
-              justify-content: center;
-              background: transparent !important;
-              color: inherit !important;
-              border: 0;
-              transform: none !important;
-              left: auto !important;
-              right: auto !important;
-            }
-
-            .navbar-3 .menu-button.w--open {
-              margin: 0 !important;
-              padding: 0 !important;
-              background: transparent !important;
-              color: inherit !important;
-              transform: none !important;
-              left: auto !important;
-              right: auto !important;
-            }
-
-            .navbar-3 .menu-button .icon {
-              color: #0f172a !important;
-              transform: none !important;
-              font-size: 25px;
-              line-height: 1;
             }
 
             .navbar-3 .mobile-estimate-btn {
@@ -230,18 +145,17 @@
               align-items: center;
               justify-content: center;
               min-height: 36px;
-              min-width: 174px;
-              padding: 0 12px;
-              margin: 0;
+              padding: 0 10px;
+              white-space: nowrap;
             }
 
             .navbar-3 .mobile-estimate-btn > div {
               font-size: 10px;
-              line-height: 1.1;
+              line-height: 1.05;
               font-weight: 700;
               letter-spacing: 0.01em;
               text-align: center;
-              white-space: normal;
+              white-space: nowrap;
             }
 
             .navbar-3 .mobile-estimate-btn:active {
@@ -294,8 +208,7 @@
 
             .navbar-3 .mobile-estimate-btn {
               min-height: 32px;
-              min-width: 156px;
-              padding: 0 10px;
+              padding: 0 8px;
             }
 
             .navbar-3 .mobile-estimate-btn > div {
@@ -1203,7 +1116,7 @@
             <div class="mobile-top-strip__inner">
               <a href="tel:{{ site_phone_tel() }}" class="mobile-top-strip__phone">
                 <img
-                  src="/webflow-assets/images/6841ddf8ace3d9d9facb1950_phone-icon-property-x-webflow-template.svg"
+                  src="/webflow-assets/images/687559a123cece2e95a41a6f_phone_enabled_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg"
                   alt=""
                   loading="lazy"
                   class="mobile-top-strip__phone-icon"
@@ -1236,6 +1149,13 @@
                     src="/webflow-assets/images/686acba4611e759fd8169f9d_photo_2025-07-06-22.14.41.avif"
                     preset="nav_logo"
                     class="image-24" /></a
+                ><a href="tel:{{ site_phone_tel() }}" class="link-15"
+                  ><img
+                    src="/webflow-assets/images/687559a123cece2e95a41a6f_phone_enabled_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg"
+                    alt=""
+                    loading="lazy"
+                    class="link-15__icon"
+                  /><span class="link-15__label">{{ site_phone_display() }}</span></a
                 >
                 <a href="#" class="primary-button-2 mobile-estimate-btn w-inline-block" data-open-estimate-modal><div>Request a Free Estimate</div></a>
                 <nav role="navigation" class="nav-menu-wrapper-4 w-nav-menu">
@@ -1799,5 +1719,3 @@
             }
           </style>
         @endonce
-
-        @include('partials.header-scripts')
