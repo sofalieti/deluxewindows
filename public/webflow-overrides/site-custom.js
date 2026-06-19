@@ -343,6 +343,42 @@
     });
   })();
 
+  // Hero parallax background effect (desktop only).
+  (function () {
+    var isDesktop = window.matchMedia("(hover: hover) and (pointer: fine) and (min-width: 992px)");
+    var ticking = false;
+
+    function updateParallax() {
+      ticking = false;
+      if (!isDesktop.matches) return;
+      var bg = document.querySelector(".div-block-59 .div-block-61[data-parallax]");
+      if (!bg) return;
+      var hero = bg.closest(".div-block-59");
+      if (!hero) return;
+      var rect = hero.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+      // Move background at 25% of scroll speed → smooth slow lag
+      var offset = -rect.top * 0.25;
+      bg.style.transform = "translateY(" + offset + "px)";
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        requestAnimationFrame(updateParallax);
+        ticking = true;
+      }
+    }
+
+    function init() {
+      var bg = document.querySelector(".div-block-59 .div-block-61[data-parallax]");
+      if (!bg) return;
+      window.addEventListener("scroll", onScroll, { passive: true });
+      updateParallax();
+    }
+
+    onReady(init);
+  })();
+
   // Link trust badges section background to hero background on mobile.
   (function () {
     function linkTrustBadgesToHeroBg() {

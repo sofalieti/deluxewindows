@@ -1,5 +1,16 @@
 /* Consolidated custom UI overrides (navbar/hero/trust/modal). */
 
+/* ── Hero parallax background ───────────────────────────────── */
+.div-block-59 {
+  overflow: hidden;
+}
+.div-block-61[data-parallax] {
+  height: 120% !important;
+  top: -10% !important;
+  will-change: transform;
+  transition: none;
+}
+
 .w-webflow-badge { display: none !important; }
 
 /* ── Brand-collections page ─────────────────────────────────── */

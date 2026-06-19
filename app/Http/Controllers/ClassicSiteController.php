@@ -865,9 +865,11 @@ class ClassicSiteController extends Controller
             $featuredImage = $brand->wf_featured_image['url'] ?? null;
         }
         // Local brand hero image takes priority over Webflow featured image
-        $localBrandHero = "/webflow-assets/images/brand-hero/{$slug}.avif";
-        if (file_exists(public_path("webflow-assets/images/brand-hero/{$slug}.avif"))) {
-            $featuredImage = $localBrandHero;
+        $localBrandHeroPath = "webflow-assets/images/brand-hero/{$slug}.avif";
+        $localBrandHeroAbsolute = public_path($localBrandHeroPath);
+        if (file_exists($localBrandHeroAbsolute)) {
+            $v = @filemtime($localBrandHeroAbsolute) ?: 1;
+            $featuredImage = '/'.$localBrandHeroPath.'?v='.$v;
         }
         $name        = $fieldData['name'] ?? 'Brand';
 
@@ -1927,14 +1929,18 @@ class ClassicSiteController extends Controller
         $base = 'webflow-assets/images/window-type-hero/'.$slug;
         foreach (['avif', 'png', 'webp', 'jpg', 'jpeg'] as $extension) {
             $relativePath = $base.'.'.$extension;
-            if (File::exists(public_path($relativePath))) {
-                return '/'.$relativePath;
+            $absolutePath = public_path($relativePath);
+            if (File::exists($absolutePath)) {
+                $v = @filemtime($absolutePath) ?: 1;
+                return '/'.$relativePath.'?v='.$v;
             }
         }
 
         $legacyPath = 'webflow-assets/images/window-type-hero/'.$slug.'-hero-bg-v1.avif';
-        if (File::exists(public_path($legacyPath))) {
-            return '/'.$legacyPath;
+        $legacyAbsolute = public_path($legacyPath);
+        if (File::exists($legacyAbsolute)) {
+            $v = @filemtime($legacyAbsolute) ?: 1;
+            return '/'.$legacyPath.'?v='.$v;
         }
 
         return null;

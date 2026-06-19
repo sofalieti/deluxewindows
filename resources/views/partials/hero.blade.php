@@ -109,13 +109,13 @@
       <div class="div-block-59">
         @if(!empty($heroBackgroundImage))
           {{-- Static hero background (brand pages etc.) --}}
-          <div style="background-image:url('{{ thumbnail_url($heroBackgroundImage, 'hero_bg') }}');background-position:center center;background-size:cover;background-repeat:no-repeat;" class="div-block-61"></div>
+          <div data-parallax="1" style="background-image:url('{{ thumbnail_url($heroBackgroundImage, 'hero_bg') }}');background-position:center center;background-size:cover;background-repeat:no-repeat;" class="div-block-61"></div>
         @elseif(!empty($doorHeroImage))
           {{-- Doors detail page: featured image as background --}}
-          <div style="background-image:url('{{ thumbnail_url($doorHeroImage, 'hero_bg') }}');background-position:center center;background-size:cover;background-repeat:no-repeat;" class="div-block-61"></div>
+          <div data-parallax="1" style="background-image:url('{{ thumbnail_url($doorHeroImage, 'hero_bg') }}');background-position:center center;background-size:cover;background-repeat:no-repeat;" class="div-block-61"></div>
         @elseif(!empty($windowHeroImage))
           {{-- Windows detail page: static product image as background --}}
-          <div style="background-image:url('{{ thumbnail_url($windowHeroImage, 'hero_bg') }}');background-position:center center;background-size:cover;background-repeat:no-repeat;" class="div-block-61"></div>
+          <div data-parallax="1" style="background-image:url('{{ thumbnail_url($windowHeroImage, 'hero_bg') }}');background-position:center center;background-size:cover;background-repeat:no-repeat;" class="div-block-61"></div>
         @elseif($brandLikeHero || !empty($doorHero))
           {{-- Fallback for hero-based templates without image: solid blue background only --}}
           <div class="div-block-61"></div>
