@@ -100,7 +100,7 @@
                   if (o.parentNode !== document.body) document.body.appendChild(o);
                   Object.assign(o.style, {
                     position: "fixed",
-                    top: "0",
+                    top: h + "px",
                     left: "0",
                     right: "0",
                     bottom: "0",
@@ -108,6 +108,7 @@
                     overflow: "visible",
                     display: "block",
                     pointerEvents: "auto",
+                    zIndex: "1300",
                   });
                 }
 
@@ -115,18 +116,26 @@
                 if (m) {
                   Object.assign(m.style, {
                     position: "fixed",
-                    top: "0",
+                    top: h + "px",
                     left: "0",
                     right: "0",
                     bottom: "0",
                     overflowY: "auto",
                     maxHeight: "none",
                     WebkitOverflowScrolling: "touch",
-                    paddingTop: h + "px",
+                    zIndex: "1301",
+                    paddingTop: "0",
                   });
                 }
 
-                dimmer.style.top = "0";
+                Object.assign(dimmer.style, {
+                  position: "fixed",
+                  top: h + "px",
+                  left: "0",
+                  right: "0",
+                  bottom: "0",
+                  zIndex: "1299",
+                });
               }
 
               function show() {

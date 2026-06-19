@@ -14,44 +14,6 @@
               position: relative;
             }
 
-            /* Desktop nav vertical alignment fix */
-            .header-wrapper-2 .header-container-wrapper-2 {
-              align-items: center;
-            }
-
-            .header-wrapper-2 .nav-menu-left-side-2,
-            .header-wrapper-2 .list-nav-menu-2 {
-              display: flex;
-              align-items: center;
-            }
-
-            .header-wrapper-2 .list-nav-menu-2 {
-              gap: 0;
-            }
-
-            .header-wrapper-2 .link-nav-item {
-              display: flex;
-              align-items: center;
-              margin: 0;
-            }
-
-            .header-wrapper-2 .dropdown-wrapper.dropdown-default {
-              display: flex;
-              align-items: center;
-            }
-
-            .header-wrapper-2 .dropdown-toogle-2.w-dropdown-toggle {
-              display: inline-flex;
-              align-items: center;
-              min-height: 64px;
-              padding-top: 0;
-              padding-bottom: 0;
-            }
-
-            .header-wrapper-2 .dropdown-toogle-2.w-dropdown-toggle > div {
-              line-height: 1.1;
-            }
-
             .header-wrapper-2 .dropdown-list-2.dropdown-v1.w-dropdown-list {
               left: 0 !important;
               right: auto !important;
