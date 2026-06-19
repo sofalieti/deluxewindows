@@ -276,6 +276,110 @@
 
             })();
           </script>
+
+          <script>
+            (function () {
+              const DESKTOP = "(min-width: 992px)";
+              const MOBILE = "(max-width: 991px)";
+
+              function enforceDesktopDropdownAlignment() {
+                if (!window.matchMedia(DESKTOP).matches) return;
+                document.querySelectorAll(".header-wrapper-2 .dropdown-toogle-2.w-dropdown-toggle").forEach((toggle) => {
+                  toggle.style.display = "inline-flex";
+                  toggle.style.alignItems = "center";
+                  toggle.style.justifyContent = "flex-start";
+                  toggle.style.columnGap = "6px";
+                  toggle.style.minHeight = "56px";
+                  toggle.style.paddingTop = "0";
+                  toggle.style.paddingBottom = "0";
+
+                  const first = toggle.firstElementChild;
+                  if (first) {
+                    first.style.display = "inline-flex";
+                    first.style.alignItems = "center";
+                    first.style.lineHeight = "1.1";
+                    first.style.minHeight = "56px";
+                  }
+
+                  const arrow = toggle.querySelector(".dropdown-arrow");
+                  if (arrow) {
+                    arrow.style.display = "inline-flex";
+                    arrow.style.alignItems = "center";
+                    arrow.style.lineHeight = "1";
+                  }
+                });
+              }
+
+              function enforceMobileMenuButtonLock() {
+                if (!window.matchMedia(MOBILE).matches) return;
+                const btn = document.querySelector(".navbar-3 .menu-button.w-nav-button");
+                if (!btn) return;
+
+                btn.style.width = "44px";
+                btn.style.height = "44px";
+                btn.style.margin = "0";
+                btn.style.padding = "0";
+                btn.style.transform = "none";
+                btn.style.left = "auto";
+                btn.style.right = "auto";
+                btn.style.background = "transparent";
+
+                const icon = btn.querySelector(".icon");
+                if (icon) {
+                  icon.style.color = "#0f172a";
+                  icon.style.transform = "none";
+                }
+              }
+
+              function apply() {
+                enforceDesktopDropdownAlignment();
+                enforceMobileMenuButtonLock();
+              }
+
+              if (document.readyState === "loading") {
+                document.addEventListener("DOMContentLoaded", apply, { once: true });
+              } else {
+                apply();
+              }
+
+              window.addEventListener("resize", apply, { passive: true });
+
+              const mo = new MutationObserver(() => apply());
+              mo.observe(document.documentElement, {
+                subtree: true,
+                childList: true,
+                attributes: true,
+                attributeFilter: ["class", "style"],
+              });
+            })();
+          </script>
+
+          <script>
+            (function () {
+              function syncContainerDefault2Padding() {
+                const source = document.querySelector(".container-default");
+                if (!source) return;
+
+                const cs = window.getComputedStyle(source);
+                const left = cs.paddingLeft;
+                const right = cs.paddingRight;
+                if (!left || !right) return;
+
+                document.querySelectorAll(".container-default-2").forEach((el) => {
+                  el.style.paddingLeft = left;
+                  el.style.paddingRight = right;
+                });
+              }
+
+              if (document.readyState === "loading") {
+                document.addEventListener("DOMContentLoaded", syncContainerDefault2Padding, { once: true });
+              } else {
+                syncContainerDefault2Padding();
+              }
+
+              window.addEventListener("resize", syncContainerDefault2Padding, { passive: true });
+            })();
+          </script>
         </div>
+        @endonce
       </div>
-      @endonce
