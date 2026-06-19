@@ -8,6 +8,31 @@
             display: none;
           }
 
+          @media (min-width: 992px) {
+            /* Desktop dropdown width should follow content */
+            .header-wrapper-2 .dropdown-wrapper.dropdown-default {
+              position: relative;
+            }
+
+            .header-wrapper-2 .dropdown-list-2.dropdown-v1.w-dropdown-list {
+              left: 0 !important;
+              right: auto !important;
+              width: max-content !important;
+              min-width: 520px;
+              max-width: min(94vw, 1120px) !important;
+            }
+
+            .header-wrapper-2 .dropdown-pd-2.dropdown-v4 {
+              width: auto !important;
+              max-width: 100% !important;
+            }
+
+            .header-wrapper-2 .w-layout-grid.grid-2-columns-2.dropdown-link-column.v4 {
+              width: max-content !important;
+              max-width: 100% !important;
+            }
+          }
+
           @media (max-width: 991px) {
             .header-container-2 > .navbar.w-nav,
             .header-container-2 > .header-wrapper-2.w-nav {
@@ -24,39 +49,49 @@
               position: relative;
               min-height: 38px;
               padding: 8px 14px;
-              display: block;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              gap: 10px;
             }
 
             .mobile-top-strip__text {
               color: #334155;
               font-size: 12px;
               line-height: 1.2;
-              text-align: center;
+              text-align: left;
               letter-spacing: 0.01em;
               display: block;
-              padding: 0 88px;
+              flex: 1 1 auto;
+              min-width: 0;
+              padding: 0;
             }
 
             .mobile-top-strip__phone {
               display: inline-flex;
-              position: absolute;
-              left: 14px;
-              top: 50%;
-              transform: translateY(-50%);
-              gap: 6px;
+              position: static;
+              transform: none;
+              align-items: center;
+              justify-content: center;
+              width: 28px;
+              height: 28px;
+              border-radius: 999px;
+              border: 1px solid #d9e3ee;
+              background: #ffffff;
               color: #0f172a;
               text-decoration: none;
-              font-size: 12px;
-              font-weight: 700;
-              line-height: 1.2;
-              white-space: nowrap;
+              flex: 0 0 auto;
             }
 
             .mobile-top-strip__phone-icon {
-              width: 13px;
-              height: 13px;
+              width: 14px;
+              height: 14px;
               object-fit: contain;
               flex: 0 0 auto;
+            }
+
+            .mobile-top-strip__phone span {
+              display: none;
             }
 
             .navbar-3 {
@@ -135,7 +170,8 @@
               align-items: center;
               justify-content: center;
               min-height: 36px;
-              padding: 0 10px;
+              min-width: 168px;
+              padding: 0 12px;
               white-space: nowrap;
             }
 
@@ -187,10 +223,6 @@
               padding-right: max(12px, env(safe-area-inset-right));
             }
 
-            .mobile-top-strip__phone {
-              left: max(12px, env(safe-area-inset-left));
-            }
-
             .navbar-3 .container-regular {
               padding-left: max(12px, env(safe-area-inset-left));
               padding-right: max(12px, env(safe-area-inset-right));
@@ -202,7 +234,8 @@
 
             .navbar-3 .mobile-estimate-btn {
               min-height: 32px;
-              padding: 0 8px;
+              min-width: 150px;
+              padding: 0 10px;
             }
 
             .navbar-3 .mobile-estimate-btn > div {
@@ -211,10 +244,6 @@
           }
 
           @media (max-width: 390px) {
-            .mobile-top-strip__text {
-              padding-right: 72px;
-            }
-
             .navbar-3 .image-24 {
               max-width: 104px;
             }

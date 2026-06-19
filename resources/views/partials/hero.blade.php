@@ -123,6 +123,12 @@
       text-align: left;
     }
 
+    @media (min-width: 992px) {
+      .title-left---content-right.paragraph-content.alt.hero-page .rich-text-block-2 {
+        transform: translateY(-33%);
+      }
+    }
+
     .title-left---content-right.paragraph-content.alt.hero-page .rich-text-block-2 .heading-49 {
       margin: 0;
       line-height: 1.1;
