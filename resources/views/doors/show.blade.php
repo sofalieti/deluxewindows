@@ -149,6 +149,59 @@
           box-shadow: 0 1px 6px rgba(0,0,0,.15);
         }
       }
+
+      /* Door brands block: static 4-column cards, gray background, darken logos */
+      .door-brands-grid.collection-list-2.w-dyn-items {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+      }
+
+      .door-brands-grid.collection-list-2.w-dyn-items > .w-dyn-item {
+        flex: 0 0 calc((100% - 3 * 18px) / 4);
+        max-width: calc((100% - 3 * 18px) / 4);
+        min-width: 0;
+      }
+
+      .door-brands-grid .property-wrapper-v1 {
+        display: block;
+      }
+
+      .door-brands-grid .property-card-top-content-v1---image {
+        min-height: 84px;
+        border-radius: 12px;
+        background: #f1f5f9;
+        padding: 14px 18px;
+      }
+
+      .door-brands-grid .property-card-top-content-v1---image .image.cover-image {
+        object-fit: contain;
+        max-height: 30px;
+        mix-blend-mode: darken;
+      }
+
+      @media (max-width: 991px) {
+        .door-brands-grid.collection-list-2.w-dyn-items > .w-dyn-item {
+          flex: 0 0 calc((100% - 2 * 14px) / 3);
+          max-width: calc((100% - 2 * 14px) / 3);
+        }
+      }
+
+      @media (max-width: 767px) {
+        .door-brands-grid.collection-list-2.w-dyn-items {
+          gap: 12px;
+        }
+
+        .door-brands-grid.collection-list-2.w-dyn-items > .w-dyn-item {
+          flex: 0 0 calc((100% - 12px) / 2);
+          max-width: calc((100% - 12px) / 2);
+        }
+
+        .door-brands-grid .property-card-top-content-v1---image {
+          min-height: 64px;
+          padding: 10px 12px;
+        }
+      }
     </style>
 
     <link href="https://core.service.elfsight.com/" rel="preconnect" crossorigin="" />
@@ -277,7 +330,7 @@
           </div>
           <div class="mg-top-large">
             <div class="collection-list-wrapper-5 w-dyn-list">
-              <div role="list" class="collection-list-2 w-dyn-items">
+              <div role="list" class="collection-list-2 door-brands-grid w-dyn-items">
                 @foreach($doorBrands as $brand)
                 <div role="listitem" class="w-dyn-item">
                   <a href="/brands/{{ $brand['slug'] }}" class="property-wrapper-v1 w-inline-block">

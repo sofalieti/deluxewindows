@@ -123,25 +123,6 @@
       text-align: left;
     }
 
-    /* Keep hero text column aligned with page content left edge */
-    .title-left---content-right.paragraph-content.alt.hero-page .width-100-mobile-landscape {
-      width: 100% !important;
-    }
-
-    .title-left---content-right.paragraph-content.alt.hero-page .inner-container._640px._100-tablet,
-    .title-left---content-right.paragraph-content.alt.hero-page .inner-container._450px---tablet,
-    .title-left---content-right.paragraph-content.alt.hero-page .inner-container._400px---mbl {
-      width: 100% !important;
-      max-width: none !important;
-      margin-left: 0 !important;
-      margin-right: 0 !important;
-    }
-
-    .title-left---content-right.paragraph-content.alt.hero-page .rich-text-block-2 {
-      margin-left: 0 !important;
-      margin-right: 0 !important;
-    }
-
     @media (min-width: 992px) {
       .title-left---content-right.paragraph-content.alt.hero-page .rich-text-block-2 {
         transform: translateY(-33%);
