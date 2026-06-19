@@ -31,6 +31,25 @@
         border-radius: 10px !important;
       }
 
+      .container-default-2 {
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+      }
+
+      @media (max-width: 991px) {
+        .container-default-2 {
+          padding-left: 20px !important;
+          padding-right: 20px !important;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .container-default-2 {
+          padding-left: 12px !important;
+          padding-right: 12px !important;
+        }
+      }
+
       /* Hard overrides to avoid Webflow state drift */
       @media (min-width: 992px) {
         .header-wrapper-2 .dropdown-toogle-2.w-dropdown-toggle {

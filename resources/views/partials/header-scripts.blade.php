@@ -354,32 +354,6 @@
             })();
           </script>
 
-          <script>
-            (function () {
-              function syncContainerDefault2Padding() {
-                const source = document.querySelector(".container-default");
-                if (!source) return;
-
-                const cs = window.getComputedStyle(source);
-                const left = cs.paddingLeft;
-                const right = cs.paddingRight;
-                if (!left || !right) return;
-
-                document.querySelectorAll(".container-default-2").forEach((el) => {
-                  el.style.paddingLeft = left;
-                  el.style.paddingRight = right;
-                });
-              }
-
-              if (document.readyState === "loading") {
-                document.addEventListener("DOMContentLoaded", syncContainerDefault2Padding, { once: true });
-              } else {
-                syncContainerDefault2Padding();
-              }
-
-              window.addEventListener("resize", syncContainerDefault2Padding, { passive: true });
-            })();
-          </script>
         </div>
         @endonce
       </div>
