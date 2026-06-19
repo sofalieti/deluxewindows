@@ -92,11 +92,15 @@
   }
 
   .header-wrapper-2 .dropdown-list-2.dropdown-v1.w-dropdown-list {
+    position: absolute !important;
     left: 0 !important;
     right: auto !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
     width: max-content !important;
     min-width: 520px;
     max-width: min(94vw, 1120px) !important;
+    transform-origin: left top !important;
   }
 
   .header-wrapper-2 .dropdown-pd-2.dropdown-v4 {

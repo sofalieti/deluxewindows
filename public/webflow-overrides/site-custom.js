@@ -282,6 +282,24 @@
           arrow.style.lineHeight = "1";
         }
       });
+
+      document.querySelectorAll(".header-wrapper-2 .dropdown-list-2.dropdown-v1.w-dropdown-list").forEach((list) => {
+        list.style.position = "absolute";
+        list.style.left = "0";
+        list.style.right = "auto";
+        list.style.marginLeft = "0";
+        list.style.marginRight = "0";
+        list.style.transformOrigin = "left top";
+
+        // Keep Y animation from Webflow but remove any accidental X shift.
+        const inlineTransform = list.style.transform || "";
+        if (inlineTransform.includes("translate3d(") && inlineTransform.includes("px")) {
+          list.style.transform = inlineTransform.replace(
+            /translate3d\(\s*[-\d.]+px\s*,\s*([-\d.]+px)\s*,\s*([-\d.]+px)\s*\)/,
+            "translate3d(0px, $1, $2)",
+          );
+        }
+      });
     }
 
     function enforceMobileMenuButtonLock() {
