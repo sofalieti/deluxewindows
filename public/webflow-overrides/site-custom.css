@@ -45,6 +45,16 @@
   right: 0%;
 }
 
+.header-container-wrapper-2 {
+  grid-column-gap: 16px;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  display: flex;
+}
+
 .container-default-2 {
   max-width: 1248px;
   margin-left: auto;
