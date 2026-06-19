@@ -1,25 +1,3 @@
-      @once
-        <style>
-          .trust-badges-bar {
-            --trust-badges-bg-image: none;
-          }
-
-          @media (max-width: 991px) {
-            .trust-badges-bar.trust-badges--hero-linked {
-              background-image: linear-gradient(rgba(11, 37, 66, 0.58), rgba(11, 37, 66, 0.58)), var(--trust-badges-bg-image) !important;
-              background-size: cover !important;
-              background-position: center center !important;
-              background-repeat: no-repeat !important;
-            }
-
-            .trust-badges-bar.trust-badges--hero-linked .container-default {
-              position: relative;
-              z-index: 1;
-            }
-          }
-        </style>
-      @endonce
-
       <div
         data-animation="default"
         data-collapse="tiny"
@@ -55,31 +33,3 @@
         </div>
         <div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-3"></div>
       </div>
-
-      @once
-        <script>
-          (function () {
-            function linkTrustBadgesToHeroBg() {
-              if (!window.matchMedia("(max-width: 991px)").matches) return;
-
-              const bar = document.getElementById("trustBadgesBar");
-              if (!bar) return;
-
-              const heroBgLayer = document.querySelector(".div-block-59 > .div-block-61");
-              if (!heroBgLayer) return;
-
-              const bgImage = window.getComputedStyle(heroBgLayer).backgroundImage;
-              if (!bgImage || bgImage === "none") return;
-
-              bar.style.setProperty("--trust-badges-bg-image", bgImage);
-              bar.classList.add("trust-badges--hero-linked");
-            }
-
-            if (document.readyState === "loading") {
-              document.addEventListener("DOMContentLoaded", linkTrustBadgesToHeroBg, { once: true });
-            } else {
-              linkTrustBadgesToHeroBg();
-            }
-          })();
-        </script>
-      @endonce
