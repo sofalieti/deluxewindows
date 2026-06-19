@@ -58,6 +58,11 @@
       .scroll-block::-webkit-scrollbar { width: 6px; }
       .scroll-block::-webkit-scrollbar-thumb { background: #E79800; border-radius: 999px; }
       .collection-paragraph.align-center.no-hidden { display: block; }
+      .section_tabs-2,
+      .section_tabs-wrapper {
+        position: static !important;
+        top: auto !important;
+      }
     </style>
 
   </head>
