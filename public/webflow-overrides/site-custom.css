@@ -1,11 +1,5 @@
 /* Consolidated custom UI overrides (navbar/hero/trust/modal). */
 
-/* ── Hero brand name highlight ──────────────────────────────── */
-.hero-brand-highlight {
-  color: #E79800;
-  font-style: normal;
-}
-
 /* ── Hero parallax background ───────────────────────────────── */
 .div-block-59 {
   overflow: hidden;

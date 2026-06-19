@@ -66,6 +66,9 @@
               'wfPageId' => '69366119c296b5e2e8bdbfb8',
             ])
 
+            @include('partials.brand-sidebar-form-card', [
+              'wfPageId' => '69366119c296b5e2e8bdbfb8',
+            ])
           </section>
 
           <div class="main-pages-3 relative">
