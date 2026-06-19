@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ClassicSiteController::class, 'home']);
 Route::get('/windows', [ClassicSiteController::class, 'windowsIndex']);
+Route::get('/doors', [ClassicSiteController::class, 'doorsIndex']);
 Route::get('/windows/{slug}', [ClassicSiteController::class, 'windowBySlug'])
     ->where('slug', '[A-Za-z0-9\-]+');
 

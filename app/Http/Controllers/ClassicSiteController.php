@@ -784,6 +784,52 @@ class ClassicSiteController extends Controller
         return view('windows.index', compact('seoTitle', 'seoDescription', 'ogImage', 'windows'));
     }
 
+    public function doorsIndex()
+    {
+        $seoTitle       = 'Doors for Bay Area Homes | Deluxe Windows California';
+        $seoDescription = 'Discover high-performance doors for San Francisco homes. Deluxe Windows installs stylish, durable, and energy-efficient entry and patio doors. Get a free quote.';
+        $ogImage        = 'https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/684da9f6a8d9aab7e88572b2_Meta%20cover-windows.jpg';
+
+        $doors = DoorsWebflowItem::query()
+            ->where('is_archived', false)
+            ->where('is_draft', false)
+            ->get()
+            ->filter(function ($item) {
+                $fd = is_array($item->field_data) ? $item->field_data : [];
+
+                if (($fd['hide'] ?? false) === true) {
+                    return false;
+                }
+
+                return ($fd['slug'] ?? '') !== '';
+            })
+            ->sortBy(fn ($item) => (int) data_get($item->field_data, 'order', 999))
+            ->values()
+            ->map(function ($item) {
+                $fd = is_array($item->field_data) ? $item->field_data : [];
+                $slug = (string) ($fd['slug'] ?? '');
+
+                if ($slug === '') {
+                    return null;
+                }
+
+                return [
+                    'name' => (string) ($fd['name'] ?? ''),
+                    'slug' => $slug,
+                    'image' => $this->extractImageUrl($fd, [
+                        'blog-post---thumbnail-image-v1',
+                        'blog-post---featured-image',
+                        'property-listing---thumbnail-image-v1',
+                        'property-listing---featured-image',
+                    ]) ?? '',
+                ];
+            })
+            ->filter(fn ($card) => ($card['slug'] ?? '') !== '')
+            ->values();
+
+        return view('doors.index', compact('seoTitle', 'seoDescription', 'ogImage', 'doors'));
+    }
+
     public function brandIndex()
     {
         $seoTitle       = 'Top Window & Door Brands | Deluxe Windows – Bay Area';
