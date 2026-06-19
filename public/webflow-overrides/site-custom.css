@@ -198,8 +198,27 @@
 
   .navbar-3 .navbar-container {
     background: #fff;
-    position: relative;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    margin-top: 0 !important;
     z-index: 1301;
+  }
+
+  .navbar-3 .navbar-wrapper {
+    margin-top: 0 !important;
+  }
+
+  body.mobile-menu-open .navbar-3 {
+    position: sticky !important;
+  }
+
+  body.mobile-menu-open .navbar-3 .navbar-container.w-nav {
+    position: relative !important;
+    margin-top: 0 !important;
+    top: auto !important;
   }
 
   .navbar-3 .container-regular {
