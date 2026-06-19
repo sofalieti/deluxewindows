@@ -8,6 +8,12 @@
             display: none;
           }
 
+          .primary-button-2,
+          .primary-button-2.add,
+          .primary-button-2.custom {
+            border-radius: 10px !important;
+          }
+
           @media (min-width: 992px) {
             /* Desktop dropdown width should follow content */
             .header-wrapper-2 .dropdown-wrapper.dropdown-default {
