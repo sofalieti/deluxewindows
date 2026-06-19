@@ -64,6 +64,17 @@
 
 /* Desktop menu reset (rebuilt from scratch, no animations) */
 @media (min-width: 992px) {
+  .header-container-2 {
+    overflow: visible !important;
+  }
+
+  .header-wrapper-2 {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1250 !important;
+    background: #ffffff;
+  }
+
   .header-container-2 .navbar .div-block-16 .text-block-15,
   .header-container-2 .navbar a[href^="tel:"] {
     color: #ffffff !important;
