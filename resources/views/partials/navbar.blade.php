@@ -14,6 +14,44 @@
               position: relative;
             }
 
+            /* Desktop nav vertical alignment fix */
+            .header-wrapper-2 .header-container-wrapper-2 {
+              align-items: center;
+            }
+
+            .header-wrapper-2 .nav-menu-left-side-2,
+            .header-wrapper-2 .list-nav-menu-2 {
+              display: flex;
+              align-items: center;
+            }
+
+            .header-wrapper-2 .list-nav-menu-2 {
+              gap: 0;
+            }
+
+            .header-wrapper-2 .link-nav-item {
+              display: flex;
+              align-items: center;
+              margin: 0;
+            }
+
+            .header-wrapper-2 .dropdown-wrapper.dropdown-default {
+              display: flex;
+              align-items: center;
+            }
+
+            .header-wrapper-2 .dropdown-toogle-2.w-dropdown-toggle {
+              display: inline-flex;
+              align-items: center;
+              min-height: 64px;
+              padding-top: 0;
+              padding-bottom: 0;
+            }
+
+            .header-wrapper-2 .dropdown-toogle-2.w-dropdown-toggle > div {
+              line-height: 1.1;
+            }
+
             .header-wrapper-2 .dropdown-list-2.dropdown-v1.w-dropdown-list {
               left: 0 !important;
               right: auto !important;
@@ -65,6 +103,7 @@
               flex: 1 1 auto;
               min-width: 0;
               padding: 0;
+              order: 1;
             }
 
             .mobile-top-strip__phone {
@@ -81,6 +120,7 @@
               color: #0f172a;
               text-decoration: none;
               flex: 0 0 auto;
+              order: 2;
             }
 
             .mobile-top-strip__phone-icon {
@@ -162,6 +202,34 @@
               justify-self: end;
               position: relative;
               z-index: 1302;
+              width: 44px;
+              height: 44px;
+              margin: 0 !important;
+              padding: 0 !important;
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              background: transparent !important;
+              color: inherit !important;
+              border: 0;
+              transform: none !important;
+              left: auto !important;
+              right: auto !important;
+            }
+
+            .navbar-3 .menu-button.w--open {
+              margin: 0 !important;
+              padding: 0 !important;
+              background: transparent !important;
+              color: inherit !important;
+              transform: none !important;
+              left: auto !important;
+              right: auto !important;
+            }
+
+            .navbar-3 .menu-button .icon {
+              color: #0f172a !important;
+              transform: none !important;
             }
 
             .navbar-3 .mobile-estimate-btn {
@@ -1143,7 +1211,7 @@
             <div class="mobile-top-strip__inner">
               <a href="tel:{{ site_phone_tel() }}" class="mobile-top-strip__phone">
                 <img
-                  src="/webflow-assets/images/687559a123cece2e95a41a6f_phone_enabled_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg"
+                  src="/webflow-assets/images/6841ddf8ace3d9d9facb1950_phone-icon-property-x-webflow-template.svg"
                   alt=""
                   loading="lazy"
                   class="mobile-top-strip__phone-icon"
