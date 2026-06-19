@@ -65,14 +65,6 @@
   <body>
     <div class="page-wrapper">
       @include('partials.navbar')
-
-      @include('partials.hero', [
-        'collectionHero' => true,
-        'brandLogo' => $brandLogo,
-        'heroBackgroundImage' => $featuredImage,
-        'heroFormHtml' => $heroFormHtml,
-      ])
-
       @include('partials.trust-badges')
 
       <div class="container-default">
@@ -87,6 +79,10 @@
               'currentCollectionSlug' => $slug,
               'allBrandsHref' => '/brands',
               'hideSidebarInlineForm' => true,
+              'wfPageId' => '69366119c296b5e2e8bdbfb8',
+            ])
+
+            @include('partials.brand-sidebar-form-card', [
               'wfPageId' => '69366119c296b5e2e8bdbfb8',
             ])
           </section>
@@ -133,55 +129,6 @@
                     <p class="collection-paragraph black-p price-span"> <span class="text-span">|</span> </p>
                     <p class="collection-paragraph black-p">{{ $priceCategory }}</p>
                     @endif
-                  </div>
-                </div>
-
-                <div class="card-2 sidebar-v1---card new-design hero-section">
-                  <div class="inner-container _400px---mbl">
-                    <div class="text-titles-3">
-                      <div class="display-41 mid">Get Deluxe Windows for Less. {{ promotion_percent_label() }}* Windows</div>
-                    </div>
-                    <div class="mg-top-small-4">
-                      <p class="text-titles-3"><em>Request a FREE No-Obligation Quote &amp; Expert Advice!</em><br /></p>
-                    </div>
-                  </div>
-                  <div class="mg-top-default-4">
-                    <div class="sidebar-form-block-v1 sidebar w-form">
-                      <form id="wf-form-Property-Form" name="wf-form-Property-Form" data-name="Property Form" method="get" class="form-wrapper" data-wf-page-id="69366119c296b5e2e8bdbfb8" data-wf-element-id="d31ddaf8-92d6-93cc-d8da-704255f3b4df">
-                        <div class="grid-1-column-2 gap-row-12">
-                          <div class="input-wrapper-5">
-                            <div class="input-line-icon-wrapper-4"><div class="filled-icons-font">&#xE896;</div></div>
-                            <input class="input-2 icon-left w-input" maxlength="256" name="Name" placeholder="Full name" type="text" id="name-col" required="" />
-                          </div>
-                          <div class="input-wrapper-5">
-                            <div class="input-line-icon-wrapper-4"><div class="filled-icons-font">&#xE88F;</div></div>
-                            <input class="input-2 icon-left w-input" maxlength="256" name="Email" placeholder="Email address" type="email" id="email-col" required="" />
-                          </div>
-                          <div class="input-wrapper-5">
-                            <div class="input-line-icon-wrapper-4"><div class="filled-icons-font">&#xE873;</div></div>
-                            <input class="input-2 icon-left w-input" maxlength="256" name="Phone" placeholder="{{ site_phone_display() }}" type="tel" id="phone-col" required="" />
-                          </div>
-                          <div class="input-wrapper-5">
-                            <input class="input-2 icon-left w-input" maxlength="256" name="Subject" placeholder="City" type="text" id="subject-col" required="" />
-                            <div class="input-line-icon-wrapper">
-                              <img loading="eager" src="/webflow-assets/images/6841ddf8ace3d9d9facb194d_star-icon-property-x-webflow-template.svg" alt="Star Icon" width="18" height="18" />
-                            </div>
-                          </div>
-                          <div id="w-node-_8eaa605b-e431-72a2-7836-7179252ad1a4-e8bdbfb8" class="primary-button-6 space-between-v1">
-                            <input type="submit" data-wait="Please wait..." class="inside-input-button-4 text-light w-button" value="Get Your Free Estimate" />
-                          </div>
-                        </div>
-                      </form>
-                      <div class="success-message-wrapper w-form-done" tabindex="-1" role="region">
-                        <div class="item-icon-left"><div class="icon-font-rounded-5 success-message-icon">&#xE832;</div></div>
-                        <div class="mg-top-extra-small-2">
-                          <div class="text-titles-3"><div class="display-40">Thank you! We'll get back to you soon<br /></div></div>
-                        </div>
-                      </div>
-                      <div class="error-message-wrapper-4 w-form-fail" tabindex="-1" role="region">
-                        <div>Oops! Something went wrong.</div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>

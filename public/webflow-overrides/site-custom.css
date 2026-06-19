@@ -71,6 +71,7 @@
 
   .header-wrapper-2 .header-container-wrapper-2 {
     position: relative;
+    overflow: visible !important;
   }
 
   .header-wrapper-2 .dropdown-wrapper.w-dropdown {
@@ -89,6 +90,7 @@
     transform-origin: left top !important;
     transition: none !important;
     animation: none !important;
+    overflow: visible !important;
   }
 
   .header-wrapper-2 .dropdown-pd-2.dropdown-v4 {
@@ -97,11 +99,13 @@
     transform: none !important;
     transition: none !important;
     animation: none !important;
+    overflow: visible !important;
   }
 
   .header-wrapper-2 .w-layout-grid.grid-2-columns-2.dropdown-link-column.v4 {
     width: 100% !important;
     max-width: 100% !important;
+    overflow: visible !important;
   }
 }
 

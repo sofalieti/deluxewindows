@@ -769,14 +769,8 @@ class ClassicSiteController extends Controller
 
                 return ($fd['slug'] ?? '') !== '';
             })
-            ->sortBy(function ($item) {
-                $slug = (string) data_get($item->field_data, 'slug', '');
-                $pos = array_search($slug, self::WINDOWS_INDEX_SLUG_ORDER, true);
-
-                return $pos === false ? 999 : $pos;
-            })
+            ->sortBy(fn ($item) => (int) data_get($item->field_data, 'order', 999))
             ->values()
-            ->take(6)
             ->map(fn ($item) => $this->mapWindowsIndexCard($item))
             ->filter(fn ($card) => ($card['slug'] ?? '') !== '')
             ->values();
