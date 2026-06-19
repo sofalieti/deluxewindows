@@ -27,6 +27,10 @@
         transition: none !important;
       }
 
+      .primary-button-2 {
+        border-radius: 10px !important;
+      }
+
       /* Blog pages: no hero form block */
       .blog-page .div-block-59 { display: none !important; }
 

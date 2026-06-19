@@ -46,13 +46,12 @@
             }
 
             .mobile-top-strip__inner {
-              position: relative;
-              min-height: 38px;
+              min-height: 40px;
               padding: 8px 14px;
-              display: flex;
+              display: grid;
+              grid-template-columns: minmax(0, 1fr) auto;
               align-items: center;
-              justify-content: space-between;
-              gap: 10px;
+              column-gap: 10px;
             }
 
             .mobile-top-strip__text {
@@ -62,26 +61,24 @@
               text-align: left;
               letter-spacing: 0.01em;
               display: block;
-              flex: 1 1 auto;
               min-width: 0;
               padding: 0;
+              margin: 0;
               order: 1;
             }
 
             .mobile-top-strip__phone {
               display: inline-flex;
-              position: static;
-              transform: none;
               align-items: center;
               justify-content: center;
-              width: 28px;
-              height: 28px;
+              width: 30px;
+              height: 30px;
               border-radius: 999px;
               border: 1px solid #d9e3ee;
               background: #ffffff;
               color: #0f172a;
               text-decoration: none;
-              flex: 0 0 auto;
+              justify-self: end;
               order: 2;
             }
 
@@ -109,7 +106,7 @@
             .navbar-3 .navbar-container {
               background: #fff;
               position: relative;
-              z-index: 1301;
+              z-index: 1302;
             }
 
             .navbar-3 .container-regular {
@@ -120,23 +117,25 @@
             }
 
             .navbar-3 .navbar-wrapper {
-              min-height: 60px;
+              min-height: 62px;
               display: grid;
               grid-template-columns: minmax(0, 1fr) auto auto;
               grid-template-areas: "logo cta menu";
               align-items: center;
-              gap: 8px;
+              column-gap: 8px;
             }
 
             .navbar-3 .navbar-brand {
               grid-area: logo;
               min-width: 0;
+              display: inline-flex;
+              align-items: center;
             }
 
             .navbar-3 .image-24 {
               display: block;
               width: auto;
-              max-width: 124px;
+              max-width: 116px;
               height: auto;
             }
 
@@ -192,6 +191,8 @@
             .navbar-3 .menu-button .icon {
               color: #0f172a !important;
               transform: none !important;
+              font-size: 25px;
+              line-height: 1;
             }
 
             .navbar-3 .mobile-estimate-btn {
@@ -200,18 +201,18 @@
               align-items: center;
               justify-content: center;
               min-height: 36px;
-              min-width: 168px;
+              min-width: 174px;
               padding: 0 12px;
-              white-space: nowrap;
+              margin: 0;
             }
 
             .navbar-3 .mobile-estimate-btn > div {
               font-size: 10px;
-              line-height: 1.05;
+              line-height: 1.1;
               font-weight: 700;
               letter-spacing: 0.01em;
               text-align: center;
-              white-space: nowrap;
+              white-space: normal;
             }
 
             .navbar-3 .mobile-estimate-btn:active {
@@ -264,7 +265,7 @@
 
             .navbar-3 .mobile-estimate-btn {
               min-height: 32px;
-              min-width: 150px;
+              min-width: 156px;
               padding: 0 10px;
             }
 
@@ -1206,13 +1207,6 @@
                     src="/webflow-assets/images/686acba4611e759fd8169f9d_photo_2025-07-06-22.14.41.avif"
                     preset="nav_logo"
                     class="image-24" /></a
-                ><a href="tel:{{ site_phone_tel() }}" class="link-15"
-                  ><img
-                    src="/webflow-assets/images/687559a123cece2e95a41a6f_phone_enabled_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg"
-                    alt=""
-                    loading="lazy"
-                    class="link-15__icon"
-                  /><span class="link-15__label">{{ site_phone_display() }}</span></a
                 >
                 <a href="#" class="primary-button-2 mobile-estimate-btn w-inline-block" data-open-estimate-modal><div>Request a Free Estimate</div></a>
                 <nav role="navigation" class="nav-menu-wrapper-4 w-nav-menu">

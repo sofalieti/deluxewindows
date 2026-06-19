@@ -309,6 +309,7 @@
               'image' => (string) ($bt['image'] ?? ''),
               'alt' => (string) ($bt['name'] ?? ''),
             ])->values()->all(),
+            'marquee' => false,
             'wrapperClass' => 'mg-top-large window-brands-section__list',
           ])
         </div>
