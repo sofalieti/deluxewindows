@@ -304,47 +304,9 @@
     });
   })();
 
-  // Enforce alignment/positioning in case Webflow mutates state styles.
+  // Keep mobile menu button stable when Webflow mutates styles.
   (function () {
-    const DESKTOP = "(min-width: 992px)";
     const MOBILE = "(max-width: 991px)";
-
-    function enforceDesktopDropdownAlignment() {
-      if (!window.matchMedia(DESKTOP).matches) return;
-      document.querySelectorAll(".header-wrapper-2 .dropdown-toogle-2.w-dropdown-toggle").forEach((toggle) => {
-        toggle.style.display = "inline-flex";
-        toggle.style.alignItems = "center";
-        toggle.style.justifyContent = "flex-start";
-        toggle.style.columnGap = "6px";
-        toggle.style.minHeight = "56px";
-        toggle.style.paddingTop = "0";
-        toggle.style.paddingBottom = "0";
-
-        const first = toggle.firstElementChild;
-        if (first) {
-          first.style.display = "inline-flex";
-          first.style.alignItems = "center";
-          first.style.lineHeight = "1.1";
-          first.style.minHeight = "56px";
-        }
-
-        const arrow = toggle.querySelector(".dropdown-arrow");
-        if (arrow) {
-          arrow.style.display = "inline-flex";
-          arrow.style.alignItems = "center";
-          arrow.style.lineHeight = "1";
-        }
-      });
-
-      document.querySelectorAll(".header-wrapper-2 .dropdown-list-2.dropdown-v1.w-dropdown-list").forEach((list) => {
-        list.style.position = "absolute";
-        list.style.left = "0";
-        list.style.right = "auto";
-        list.style.marginLeft = "0";
-        list.style.marginRight = "0";
-        list.style.transformOrigin = "left top";
-      });
-    }
 
     function enforceMobileMenuButtonLock() {
       if (!window.matchMedia(MOBILE).matches) return;
@@ -366,7 +328,6 @@
     }
 
     function apply() {
-      enforceDesktopDropdownAlignment();
       enforceMobileMenuButtonLock();
     }
 
