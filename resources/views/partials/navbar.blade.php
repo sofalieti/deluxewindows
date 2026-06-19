@@ -14,6 +14,18 @@
               position: relative;
             }
 
+            .header-wrapper-2 .dropdown-toogle-2.w-dropdown-toggle {
+              display: inline-flex;
+              align-items: center;
+              column-gap: 6px;
+            }
+
+            .header-wrapper-2 .dropdown-toogle-2.w-dropdown-toggle > div:first-child {
+              display: inline-flex;
+              align-items: center;
+              line-height: 1.1;
+            }
+
             .header-wrapper-2 .dropdown-list-2.dropdown-v1.w-dropdown-list {
               left: 0 !important;
               right: auto !important;
