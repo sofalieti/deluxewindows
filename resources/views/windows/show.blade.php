@@ -166,6 +166,65 @@
           box-shadow: 0 1px 6px rgba(0,0,0,.15);
         }
       }
+
+      /* Top brands block on window detail pages: static 4-column cards (no marquee) */
+      .window-brands-section__list.brand-strip {
+        overflow: visible;
+      }
+
+      .window-brands-section__list .brand-strip__list {
+        width: 100% !important;
+        min-width: 0 !important;
+        flex-wrap: wrap !important;
+        justify-content: flex-start !important;
+        gap: 18px !important;
+        animation: none !important;
+      }
+
+      .window-brands-section__list .brand-strip__item--dup {
+        display: none !important;
+      }
+
+      .window-brands-section__list .brand-strip__item {
+        flex: 0 0 calc((100% - 3 * 18px) / 4);
+        max-width: calc((100% - 3 * 18px) / 4);
+        min-width: 0;
+      }
+
+      .window-brands-section__list .brand-strip__link {
+        min-height: 84px;
+        padding: 14px 18px;
+        border-radius: 12px;
+        background: #f1f5f9;
+      }
+
+      .window-brands-section__list .brand-strip__image {
+        max-height: 30px;
+        mix-blend-mode: darken !important;
+      }
+
+      @media (max-width: 991px) {
+        .window-brands-section__list .brand-strip__item {
+          flex: 0 0 calc((100% - 2 * 14px) / 3);
+          max-width: calc((100% - 2 * 14px) / 3);
+        }
+      }
+
+      @media (max-width: 767px) {
+        .window-brands-section__list .brand-strip__list {
+          gap: 12px !important;
+        }
+
+        .window-brands-section__list .brand-strip__item {
+          flex: 0 0 calc((100% - 12px) / 2);
+          max-width: calc((100% - 12px) / 2);
+        }
+
+        .window-brands-section__list .brand-strip__link {
+          min-height: 64px;
+          padding: 10px 12px;
+        }
+      }
     </style>
 
     <link href="https://core.service.elfsight.com/" rel="preconnect" crossorigin="" />
