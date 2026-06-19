@@ -69,6 +69,20 @@
     color: #ffffff !important;
   }
 
+  .header-wrapper-2 .mega-menu-banner .menu-offer-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 8px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    background: #d61f2c;
+    color: #ffffff !important;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: 0.01em;
+  }
+
   .header-wrapper-2 .dropdown-wrapper.w-dropdown {
     position: relative;
   }

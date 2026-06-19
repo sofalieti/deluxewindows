@@ -286,7 +286,7 @@
                                   class="image-14 cover-image property-wrapper-v3---image"
                                 />
                                 <div class="w-layout-blockcontainer container-2 w-container">
-                                  <h5>{{ promotion_percent_label() }} Windows</h5>
+                                  <h5 class="menu-offer-pill">{{ promotion_percent_label() }} Windows</h5>
                                   <div class="text-regular-2">
                                     Offer ends <span class="date-span">{{ promotion_date('us-short-no-year') }}</span
                                     ><br />
@@ -504,7 +504,7 @@
                                   class="image-14 cover-image property-wrapper-v3---image"
                                 />
                                 <div class="w-layout-blockcontainer container-2 w-container">
-                                  <h5>{{ promotion_percent_label() }} Doors</h5>
+                                  <h5 class="menu-offer-pill">{{ promotion_percent_label() }} Doors</h5>
                                   <div class="text-regular-2">
                                     Offer ends <span class="date-span">{{ promotion_date('us-short-no-year') }}</span
                                     ><br />
@@ -635,7 +635,7 @@
                                   class="image-14 cover-image property-wrapper-v3---image"
                                 />
                                 <div class="w-layout-blockcontainer container-2 w-container">
-                                  <h5>{{ promotion_percent_label() }} Windows</h5>
+                                  <h5 class="menu-offer-pill">{{ promotion_percent_label() }} Windows</h5>
                                   <div class="text-regular-2">
                                     Offer ends <span class="date-span">{{ promotion_date('us-short-no-year') }}</span
                                     ><br />
@@ -841,7 +841,7 @@
                                   class="image-14 cover-image property-wrapper-v3---image"
                                 />
                                 <div class="w-layout-blockcontainer container-2 w-container">
-                                  <h5>{{ promotion_percent_label() }} Windows</h5>
+                                  <h5 class="menu-offer-pill">{{ promotion_percent_label() }} Windows</h5>
                                   <div class="text-regular-2">
                                     Offer ends <span class="date-span">{{ promotion_date('us-short-no-year') }}</span
                                     ><br />
