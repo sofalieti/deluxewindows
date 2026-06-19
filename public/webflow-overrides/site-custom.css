@@ -64,6 +64,11 @@
 
 /* Desktop dropdown sizing and vertical alignment */
 @media (min-width: 992px) {
+  .header-container-2 .navbar .div-block-16 .text-block-15,
+  .header-container-2 .navbar a[href^="tel:"] {
+    color: #ffffff !important;
+  }
+
   .header-wrapper-2 .dropdown-wrapper.dropdown-default {
     position: relative;
   }
@@ -468,6 +473,15 @@
   .title-left---content-right.paragraph-content.alt.hero-page {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
+  }
+
+  .title-left---content-right.paragraph-content.alt.hero-page .rich-text-block-2 {
+    text-align: center;
+  }
+
+  .title-left---content-right.paragraph-content.alt.hero-page .hero-mini-description {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .title-left---content-right.paragraph-content.alt.hero-page .inner-container._660px._100-tablet {

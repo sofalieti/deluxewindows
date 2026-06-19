@@ -175,8 +175,61 @@
       else hide();
     }
 
+    function forceOpenFallback() {
+      const b = btn();
+      const o = ov();
+      const m = menu();
+      if (b) {
+        b.classList.add("w--open");
+        b.setAttribute("aria-expanded", "true");
+        b.dataset.dwFallbackOpen = "1";
+      }
+      if (o) {
+        o.style.display = "block";
+        o.style.pointerEvents = "auto";
+      }
+      if (m) {
+        m.classList.add("w--open");
+        m.style.display = "block";
+      }
+      show();
+    }
+
+    function forceCloseFallback() {
+      const b = btn();
+      const o = ov();
+      const m = menu();
+      if (b) {
+        b.classList.remove("w--open");
+        b.setAttribute("aria-expanded", "false");
+        delete b.dataset.dwFallbackOpen;
+      }
+      if (m) {
+        m.classList.remove("w--open");
+        m.style.display = "none";
+      }
+      if (o) {
+        o.style.display = "none";
+        o.style.pointerEvents = "none";
+      }
+      hide();
+    }
+
     document.addEventListener("click", (e) => {
-      if (e.target.closest(BTN)) setTimeout(sync, 0);
+      const trigger = e.target.closest(BTN);
+      if (!trigger) return;
+      const wasOpen = open();
+      setTimeout(() => {
+        const nowOpen = open();
+        if (!isMobile()) return sync();
+        // If Webflow failed to toggle state, fallback to manual toggle.
+        if (nowOpen === wasOpen) {
+          if (wasOpen) forceCloseFallback();
+          else forceOpenFallback();
+          return;
+        }
+        sync();
+      }, 120);
     });
 
     dimmer.addEventListener("click", () => {
