@@ -24,15 +24,22 @@
 .scroll-block::-webkit-scrollbar { width: 6px; }
 .scroll-block::-webkit-scrollbar-thumb { background: #E79800; border-radius: 999px; }
 
-/* Make the form card always visible when placed in the collection body (not in sidebar) */
+/* Make the form card always visible when placed outside of hero/sidebar context */
+.card-2.sidebar-v1---card.new-design.hero-section {
+  display: block !important;
+}
+
 .container-default-7 .sidebar-v1---card,
-.container-default-7 .card-2.new-design {
+.container-default-7 .card-2.new-design,
+.section_sidebar .sidebar-v1---card,
+.section_sidebar .card-2.new-design {
   display: block !important;
   position: static !important;
   margin-top: 24px;
 }
 
-.container-default-7 .sidebar-v1---card .sidebar-form-block-v1.sidebar {
+.container-default-7 .sidebar-v1---card .sidebar-form-block-v1.sidebar,
+.section_sidebar .sidebar-v1---card .sidebar-form-block-v1.sidebar {
   display: block !important;
 }
 /* ─────────────────────────────────────────────────────────────── */
