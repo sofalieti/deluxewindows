@@ -1782,3 +1782,5 @@
             }
           </style>
         @endonce
+
+        @include('partials.header-scripts')

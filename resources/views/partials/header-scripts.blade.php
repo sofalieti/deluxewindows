@@ -1,3 +1,4 @@
+        @once
         <div class="code-embed-3 w-embed w-script">
           <script>
             (function () {
@@ -277,3 +278,4 @@
           </script>
         </div>
       </div>
+      @endonce
