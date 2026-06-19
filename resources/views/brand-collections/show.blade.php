@@ -43,27 +43,6 @@
 
     @include('partials.classic-layout-styles')
 
-    <style>
-      .w-webflow-badge { display: none !important; }
-      .collection-item-7:last-child .text-span { display: none; }
-      .w--current { color: #1b73bb; pointer-events: none; cursor: default; }
-      .scroll-block {
-        overflow-y: auto;
-        scrollbar-width: thin;
-        scrollbar-color: #E79800 transparent;
-        -webkit-overflow-scrolling: touch !important;
-        touch-action: pan-y !important;
-        overscroll-behavior: contain;
-      }
-      .scroll-block::-webkit-scrollbar { width: 6px; }
-      .scroll-block::-webkit-scrollbar-thumb { background: #E79800; border-radius: 999px; }
-      .collection-paragraph.align-center.no-hidden { display: block; }
-      .section_tabs-2,
-      .section_tabs-wrapper {
-        position: static !important;
-        top: auto !important;
-      }
-    </style>
 
   </head>
 
