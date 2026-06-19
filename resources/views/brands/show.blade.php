@@ -54,6 +54,7 @@
       @include('partials.hero', [
         'brandHero' => true,
         'brandLogo' => $logo,
+        'heroBrandName' => $name,
         'heroBackgroundImage' => $featuredImage,
         'windowHeroImage' => null,
       ])

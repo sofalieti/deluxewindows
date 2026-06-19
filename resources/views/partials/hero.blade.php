@@ -104,6 +104,13 @@
   $heroMiniDescription = $isWindowsMaterialHero
     ? (($heroMaterialCopy['description'] ?? null) ?: 'Get high-performance window solutions with better comfort and pricing for your home.')
     : '';
+  // Brand pages: inject brand name into headline with colour highlight
+  $heroBrandNameSafe = isset($heroBrandName) ? e(trim($heroBrandName)) : '';
+  if ($heroBrandNameSafe !== '') {
+    $heroHeadlineHtml = 'Upgrade to Energy Efficient <span class="hero-brand-highlight">' . $heroBrandNameSafe . '</span> Windows for Less';
+  } else {
+    $heroHeadlineHtml = null;
+  }
 @endphp
 
       <div class="div-block-59">
@@ -162,7 +169,7 @@
                     <div class="div-block-60">
                     @endif
                     <div class="rich-text-block-2 w-richtext">
-                      <h2 class="heading-49">{{ $heroHeadlineText }}</h2>
+                      <h2 class="heading-49">{!! $heroHeadlineHtml ?? e($heroHeadlineText) !!}</h2>
                       @if($heroMiniDescription !== '')
                         <p class="hero-mini-description">{{ $heroMiniDescription }}</p>
                       @endif
