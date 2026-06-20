@@ -127,3 +127,10 @@ if (! function_exists('promotion_home_html')) {
         return app(PromotionControlService::class)->homePriceHtml();
     }
 }
+
+if (! function_exists('promotion_home_mobile_html')) {
+    function promotion_home_mobile_html(): string
+    {
+        return app(PromotionControlService::class)->homeMobilePromoHtml();
+    }
+}

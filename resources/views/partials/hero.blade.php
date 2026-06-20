@@ -194,8 +194,8 @@
                     @endif
                     @else
                     <h1 class="heading-4">Looking to Replace Your Windows in the Bay Area?</h1>
-                    <div class="rich-text-block-4 w-richtext hero-home-promo hero-home-promo--mobile">
-                      {!! promotion_home_html() !!}
+                    <div class="hero-home-promo hero-home-promo--mobile">
+                      {!! promotion_home_mobile_html() !!}
                     </div>
                     @endif
                   </div>

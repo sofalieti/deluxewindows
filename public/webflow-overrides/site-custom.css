@@ -179,11 +179,9 @@
   }
 }
 
-/* Home hero promo card (percent discount badge) */
+/* Home hero promo — desktop form card + mobile badge only */
 .hero-home-promo--mobile {
   display: none;
-  margin-top: 14px;
-  text-align: left;
 }
 
 .hero-home-promo--form {
@@ -192,44 +190,55 @@
 
 @media (max-width: 991px) {
   .hero-home-promo--mobile {
-    display: block;
-    max-width: 360px;
-    margin-left: auto;
-    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 16px;
+    text-align: center;
   }
 
   .hero-home-promo--form {
     display: none;
   }
 
-  .hero-home-promo--mobile .promo-offer-card {
-    padding: 12px 14px 14px;
-    text-align: left;
+  .hero-home-promo-mobile {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 240px;
   }
 
-  .hero-home-promo--mobile .promo-price-tag {
-    position: static;
-    transform: none;
+  .hero-home-promo-mobile__badge {
+    position: static !important;
+    transform: rotate(-7deg) !important;
     width: auto;
-    max-width: 220px;
-    margin-top: 10px;
+    min-width: 168px;
+    margin: 0;
     display: inline-block;
+    padding-bottom: 9px;
   }
 
-  .promo-offer-card__estimate-btn {
-    display: none;
+  .hero-home-promo-mobile__expires {
+    margin-top: 5px;
+    font-size: 9px !important;
+    font-weight: 600 !important;
+    line-height: 1.2;
+    letter-spacing: 0.15px;
+    text-transform: none !important;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9) !important;
   }
 
-  .hero-home-promo--mobile .promo-offer-card__estimate-btn {
+  .hero-home-promo-mobile__btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     min-height: 44px;
-    margin-top: 14px;
-    padding: 0 16px;
+    padding: 0 18px;
     border: 1px solid #ef8a00;
     border-radius: 10px;
     background: linear-gradient(180deg, #f7a71a 0%, #ef8a00 100%);
@@ -243,7 +252,7 @@
     box-shadow: 0 8px 20px rgba(239, 138, 0, 0.28);
   }
 
-  .hero-home-promo--mobile .promo-offer-card__estimate-btn:active {
+  .hero-home-promo-mobile__btn:active {
     transform: translateY(1px);
     box-shadow: 0 4px 12px rgba(239, 138, 0, 0.24);
   }
