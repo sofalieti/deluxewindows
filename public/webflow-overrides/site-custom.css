@@ -1,5 +1,11 @@
 /* Consolidated custom UI overrides (navbar/hero/trust/modal). */
 
+/* Desktop header — no fixed min-height from Webflow */
+.header-container-2 {
+  min-height: 0 !important;
+  height: auto !important;
+}
+
 /* ── Hero parallax background ───────────────────────────────── */
 .div-block-59 {
   overflow: hidden;
@@ -125,6 +131,8 @@
 
   .header-container-2 {
     overflow: visible !important;
+    min-height: 0 !important;
+    height: auto !important;
   }
 
   .header-wrapper-2 {
