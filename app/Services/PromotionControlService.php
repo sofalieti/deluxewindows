@@ -193,6 +193,23 @@ class PromotionControlService
             .'</div>';
     }
 
+    public function homePriceHtml(string $base = '915', string $final = '$549', string $suffix = 'per window'): string
+    {
+        $base = e($this->normalizeMoney($base));
+        $final = e($this->normalizeMoney($final));
+        $suffix = e($suffix);
+
+        return '<div class="promo-offer-card promo-offer-card--home">'
+            .'<h3 class="promo-offer-title">Get Deluxe Windows for Less</h3>'
+            .'<div class="promo-offer-subtitle">Limited-time pricing</div>'
+            .'<div class="promo-price-tag">'
+            .'<div class="promo-price-tag-line"><span class="promo-price-tag-label">Regular</span><span class="promo-price-tag-old"><s>'.$base.'</s></span></div>'
+            .'<div class="promo-price-tag-line promo-price-tag-line--new"><span class="promo-price-tag-label">Now</span><span class="promo-price-tag-new">'.$final.'</span></div>'
+            .'<div class="promo-price-tag-note">'.$suffix.'</div>'
+            .'</div>'
+            .'</div>';
+    }
+
     public function priceHtmlStartingFrom(string $final, string $suffix = 'per window installed'): string
     {
         $final = e($this->normalizeMoney($final));

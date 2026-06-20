@@ -120,3 +120,10 @@ if (! function_exists('promotion_percent_label')) {
         return app(PromotionControlService::class)->globalDiscountLabel();
     }
 }
+
+if (! function_exists('promotion_home_html')) {
+    function promotion_home_html(): string
+    {
+        return app(PromotionControlService::class)->homePriceHtml();
+    }
+}

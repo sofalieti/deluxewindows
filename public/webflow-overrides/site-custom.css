@@ -179,18 +179,42 @@
   }
 }
 
-.hero-offer-pill {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin: 2px 0;
-  padding: 7px 12px;
-  border-radius: 10px;
-  background: #d61f2c;
-  color: #ffffff !important;
-  font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: 0.01em;
+/* Home hero promo card (price badge, not percent pill) */
+.hero-home-promo--mobile {
+  display: none;
+  margin-top: 14px;
+  text-align: left;
+}
+
+.hero-home-promo--form {
+  display: block;
+}
+
+@media (max-width: 991px) {
+  .hero-home-promo--mobile {
+    display: block;
+    max-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-home-promo--form {
+    display: none;
+  }
+
+  .hero-home-promo--mobile .promo-offer-card {
+    padding: 12px 14px;
+    text-align: left;
+  }
+
+  .hero-home-promo--mobile .promo-price-tag {
+    position: static;
+    transform: none;
+    width: auto;
+    max-width: 220px;
+    margin-top: 10px;
+    display: inline-block;
+  }
 }
 
 /* Mobile header layout */

@@ -104,7 +104,18 @@
   $heroMiniDescription = $isWindowsMaterialHero
     ? (($heroMaterialCopy['description'] ?? null) ?: 'Get high-performance window solutions with better comfort and pricing for your home.')
     : '';
+  $isHomeHero = empty($brandLikeHero) && empty($windowHeroImage) && empty($doorHero);
 @endphp
+
+      @if($isHomeHero)
+        @once
+          @php
+            $promoOfferCssPath = public_path('webflow-assets/css/promo-offer.css');
+            $promoOfferCssVersion = file_exists($promoOfferCssPath) ? (string) filemtime($promoOfferCssPath) : '1';
+          @endphp
+          <link href="/webflow-assets/css/promo-offer.css?v={{ $promoOfferCssVersion }}" rel="stylesheet" type="text/css" />
+        @endonce
+      @endif
 
       <div class="div-block-59">
         @if(!empty($heroBackgroundImage))
@@ -183,6 +194,9 @@
                     @endif
                     @else
                     <h1 class="heading-4">Looking to Replace Your Windows in the Bay Area?</h1>
+                    <div class="rich-text-block-4 w-richtext hero-home-promo hero-home-promo--mobile">
+                      {!! promotion_home_html() !!}
+                    </div>
                     @endif
                   </div>
                 </div>
@@ -220,7 +234,9 @@
                       {!! $windowDiscountHtml !!}
                     </div>
                     @else
-                    <h2 class="display-4">Get Deluxe Windows for Less. <br /><span class="hero-offer-pill">{{ promotion_percent_label() }} Windows</span></h2>
+                    <div class="rich-text-block-4 w-richtext hero-home-promo hero-home-promo--form">
+                      {!! promotion_home_html() !!}
+                    </div>
                     <label for="email-banner" class="body-14"></label>
                     @endif
                   </div>
