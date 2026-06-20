@@ -133,13 +133,15 @@ if (! function_exists('promotion_hero_mobile_price_tag_html')) {
         ?string $heroPricingHtml = null,
         bool $isCollection = false,
         bool $isWindowType = false,
+        ?array $pricing = null,
+        string $suffix = 'per window installed',
     ): string {
-        $service = app(PromotionControlService::class);
-
-        if ($heroPricingHtml !== null && trim($heroPricingHtml) !== '') {
-            return $service->resolveHeroMobilePriceTagHtml($heroPricingHtml, $isCollection, $isWindowType);
-        }
-
-        return $service->defaultHeroMobilePriceTagHtml();
+        return app(PromotionControlService::class)->resolveHeroMobilePriceTagHtml(
+            $heroPricingHtml,
+            $isCollection,
+            $isWindowType,
+            $pricing,
+            $suffix,
+        );
     }
 }

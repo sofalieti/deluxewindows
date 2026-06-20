@@ -220,50 +220,72 @@ class PromotionControlService
             return null;
         }
 
-        if (! preg_match('/<div class="promo-price-tag[^"]*">[\s\S]*?<\/div>/', $html, $tagMatch)) {
+        $start = strpos($html, '<div class="promo-price-tag');
+        if ($start === false) {
             return null;
         }
 
-        $tag = $tagMatch[0];
-        if (str_contains($tag, 'promo-price-tag-note')) {
-            return $tag;
+        $openEnd = strpos($html, '>', $start);
+        if ($openEnd === false) {
+            return null;
         }
 
-        if (preg_match('/<div class="promo-offer-note[^"]*">([^<]*)<\/div>/', $html, $noteMatch) !== 1) {
-            return $tag;
+        $depth = 1;
+        $pos = $openEnd + 1;
+        $length = strlen($html);
+
+        while ($pos < $length && $depth > 0) {
+            $nextOpen = strpos($html, '<div', $pos);
+            $nextClose = strpos($html, '</div>', $pos);
+
+            if ($nextClose === false) {
+                return null;
+            }
+
+            if ($nextOpen !== false && $nextOpen < $nextClose) {
+                $depth++;
+                $pos = $nextOpen + 4;
+                continue;
+            }
+
+            $depth--;
+            $pos = $nextClose + 6;
+
+            if ($depth === 0) {
+                return substr($html, $start, $pos - $start);
+            }
         }
 
-        $note = trim(html_entity_decode(strip_tags($noteMatch[1]), ENT_QUOTES | ENT_HTML5, 'UTF-8'));
-        if ($note === '') {
-            return $tag;
-        }
-
-        return preg_replace(
-            '/<\/div>\s*$/',
-            '<div class="promo-price-tag-note">'.e($note).'</div></div>',
-            $tag
-        ) ?? $tag;
+        return null;
     }
 
     public function resolveHeroMobilePriceTagHtml(
-        string $heroPricingHtml,
+        ?string $heroPricingHtml = null,
         bool $isCollection = false,
         bool $isWindowType = false,
+        ?array $pricing = null,
+        string $suffix = 'per window installed',
     ): string {
-        $extracted = $this->extractPriceTagFromPromoHtml($heroPricingHtml);
+        if (is_array($pricing) && trim((string) ($pricing['final'] ?? '')) !== '') {
+            return $this->pricingTagHtmlFromMap($pricing, $suffix);
+        }
+
+        $extracted = $heroPricingHtml !== null
+            ? $this->extractPriceTagFromPromoHtml($heroPricingHtml)
+            : null;
         if ($extracted !== null) {
             return $extracted;
         }
 
         if ($isWindowType) {
-            return $this->priceTagHtmlStartingFrom('$1199', 'per window installed');
+            return $this->priceTagHtmlStartingFrom('$1199', $suffix);
         }
 
         if ($isCollection) {
-            return $this->priceTagHtml('915', '$549', 'per window installed');
+            return $this->priceTagHtml('915', '$549', $suffix);
         }
 
-        return $this->priceTagHtmlStartingFrom('$999', 'per window installed');
+        return $this->priceTagHtml('915', '$549', $suffix);
     }
 
     public function defaultHeroMobilePriceTagHtml(): string

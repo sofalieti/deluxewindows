@@ -945,6 +945,7 @@ class ClassicSiteController extends Controller
             'ogDescription'   => $ogDescription,
             'ogImage'         => $ogImage,
             'brandHeroFormHtml' => $brandHeroFormHtml,
+            'brandPromotionPricing' => $brandPricing,
         ]);
     }
 

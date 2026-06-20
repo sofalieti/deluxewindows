@@ -56,6 +56,8 @@
         'brandLogo' => $logo,
         'heroBackgroundImage' => $featuredImage,
         'windowHeroImage' => null,
+        'brandHeroFormHtml' => $brandHeroFormHtml,
+        'brandPromotionPricing' => $brandPromotionPricing ?? null,
       ])
 
       @include('partials.trust-badges')

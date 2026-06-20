@@ -787,13 +787,13 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding-top: 20svh;
+    padding-top: 30svh;
     box-sizing: border-box;
   }
 
   @supports (height: 100dvh) {
     .div-block-59 > .w-layout-blockcontainer.container-default {
-      padding-top: 20dvh;
+      padding-top: 30dvh;
     }
   }
 
@@ -869,12 +869,12 @@
     padding-right: 12px !important;
     justify-content: flex-start !important;
     align-items: center !important;
-    padding-top: 20svh !important;
+    padding-top: 30svh !important;
   }
 
   @supports (height: 100dvh) {
     .div-block-59 > .w-layout-blockcontainer.container-default {
-      padding-top: 20dvh !important;
+      padding-top: 30dvh !important;
     }
   }
 

@@ -66,6 +66,7 @@
     $heroPricingHtml,
     !empty($collectionHero),
     !empty($windowTypeHero),
+    $brandPromotionPricing ?? $heroPromotionPricing ?? null,
   );
   $windowTypeHeroCopy = [
     'vinyl-windows' => [
