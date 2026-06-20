@@ -179,30 +179,31 @@
   }
 }
 
-/* Home hero promo — desktop form card + mobile badge only */
-.hero-home-promo--mobile {
+/* Hero mobile promo — unified badge + CTA for all hero sections */
+.hero-mobile-promo-slot--mobile {
   display: none;
 }
 
-.hero-home-promo--form {
+.hero-mobile-promo-slot--form {
   display: block;
 }
 
 @media (max-width: 991px) {
-  .hero-home-promo--mobile {
+  .hero-mobile-promo-slot--mobile {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 12px;
     margin-top: 16px;
+    width: 100%;
     text-align: center;
   }
 
-  .hero-home-promo--form {
+  .hero-mobile-promo-slot--form {
     display: none;
   }
 
-  .hero-home-promo-mobile {
+  .hero-mobile-promo {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -211,7 +212,7 @@
     max-width: 240px;
   }
 
-  .hero-home-promo-mobile__btn {
+  .hero-mobile-promo__btn {
     position: relative;
     z-index: 3;
     margin-top: -4px;
@@ -234,12 +235,12 @@
     box-shadow: 0 8px 20px rgba(239, 138, 0, 0.28);
   }
 
-  .hero-home-promo-mobile__btn:active {
+  .hero-mobile-promo__btn:active {
     transform: translateY(1px);
     box-shadow: 0 4px 12px rgba(239, 138, 0, 0.24);
   }
 
-  .hero-home-promo-mobile__badge {
+  .hero-mobile-promo__badge {
     position: relative !important;
     z-index: 1 !important;
     transform: rotate(-7deg) !important;
@@ -250,7 +251,21 @@
     padding-bottom: 9px;
   }
 
-  .hero-home-promo-mobile__expires {
+  .hero-mobile-promo__badge--copy {
+    min-width: 200px;
+    max-width: 260px;
+    padding: 10px 12px 9px !important;
+  }
+
+  .hero-mobile-promo__badge-copy {
+    font-size: 11px;
+    line-height: 1.3;
+    font-weight: 700;
+    text-align: center;
+    color: #ffffff;
+  }
+
+  .hero-mobile-promo__expires {
     margin-top: 5px;
     font-size: 9px !important;
     font-weight: 600 !important;
@@ -733,7 +748,7 @@
   max-width: 48ch;
 }
 
-.hero-mobile-estimate-cta { display: none; }
+.hero-mobile-estimate-cta { display: none !important; }
 
 @media (min-width: 768px) {
   .title-left---content-right.paragraph-content.alt.hero-page {
@@ -812,7 +827,11 @@
     text-align: center;
   }
 
-  .div-block-59 .title-left---content-right.paragraph-content.alt.hero-page .heading-4 {
+  .div-block-59 .title-left---content-right.paragraph-content.alt.hero-page .heading-4,
+  .div-block-59 .title-left---content-right.paragraph-content.alt.hero-page .heading-49,
+  .div-block-59 .title-left---content-right.paragraph-content.alt.hero-page .paragraph-62,
+  .div-block-59 .title-left---content-right.paragraph-content.alt.hero-page .code-embed-7,
+  .div-block-59 .title-left---content-right.paragraph-content.alt.hero-page .text-block-47 {
     text-align: center;
     color: #ffffff !important;
     text-shadow:
@@ -821,54 +840,9 @@
       0 0 1px rgba(0, 0, 0, 1);
   }
 
-  .hero-home-promo--mobile {
+  .hero-mobile-promo-slot--mobile {
     width: 100%;
     align-items: center;
-  }
-
-  .hero-mobile-estimate-cta {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    margin-top: 10px;
-  }
-
-  .hero-mobile-estimate-cta__badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    padding: 6px 10px;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.14);
-    border: 1px solid rgba(255, 255, 255, 0.28);
-    color: #ffffff;
-    font-size: 12px;
-    line-height: 1.2;
-    text-align: center;
-  }
-
-  .hero-mobile-estimate-cta__badge-icon {
-    font-size: 12px;
-    line-height: 1;
-  }
-
-  .hero-mobile-estimate-cta__button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 40px;
-    padding: 0 16px;
-    border-radius: 999px;
-    border: 0;
-    background: #f59e0b;
-    color: #0f172a;
-    font-size: 13px;
-    font-weight: 800;
-    letter-spacing: 0.01em;
-    text-decoration: none;
-    cursor: pointer;
   }
 }
 

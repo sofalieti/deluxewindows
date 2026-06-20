@@ -104,18 +104,7 @@
   $heroMiniDescription = $isWindowsMaterialHero
     ? (($heroMaterialCopy['description'] ?? null) ?: 'Get high-performance window solutions with better comfort and pricing for your home.')
     : '';
-  $isHomeHero = empty($brandLikeHero) && empty($windowHeroImage) && empty($doorHero);
 @endphp
-
-      @if($isHomeHero)
-        @once
-          @php
-            $promoOfferCssPath = public_path('webflow-assets/css/promo-offer.css');
-            $promoOfferCssVersion = file_exists($promoOfferCssPath) ? (string) filemtime($promoOfferCssPath) : '1';
-          @endphp
-          <link href="/webflow-assets/css/promo-offer.css?v={{ $promoOfferCssVersion }}" rel="stylesheet" type="text/css" />
-        @endonce
-      @endif
 
       <div class="div-block-59">
         @if(!empty($heroBackgroundImage))
@@ -181,21 +170,24 @@
                       <div class="w-embed">
                         <h2 style="font-size: 21px; color: #fff" data-city="">Local Installers</h2>
                       </div>
-                      <div class="hero-mobile-estimate-cta">
-                        <div class="hero-mobile-estimate-cta__badge">
-                          <span class="hero-mobile-estimate-cta__badge-icon">🏷</span>
-                          <span>{{ promotion_name() }} • {{ promotion_percent_label() }} • {{ promotion_date('us-short-no-year') }}</span>
-                        </div>
-                        <button type="button" class="hero-mobile-estimate-cta__button" data-open-estimate-modal>Get Free Quote</button>
-                      </div>
+                    </div>
+                    <div class="hero-mobile-promo-slot hero-mobile-promo-slot--mobile">
+                      @include('partials.hero-mobile-promo', [
+                        'variant' => 'copy',
+                        'badgeCopy' => promotion_name() . ' • ' . promotion_percent_label() . ' • ' . promotion_date('us-short-no-year'),
+                        'buttonLabel' => 'Get Free Quote',
+                        'showExpires' => false,
+                      ])
                     </div>
                     @if($brandLikeHero || !empty($doorHero))
                     </div>
                     @endif
                     @else
                     <h1 class="heading-4">Looking to Replace Your Windows in the Bay Area?</h1>
-                    <div class="hero-home-promo hero-home-promo--mobile">
-                      {!! promotion_home_mobile_html() !!}
+                    <div class="hero-mobile-promo-slot hero-mobile-promo-slot--mobile">
+                      @include('partials.hero-mobile-promo', [
+                        'buttonLabel' => 'Request a Free Estimate',
+                      ])
                     </div>
                     @endif
                   </div>
@@ -234,7 +226,7 @@
                       {!! $windowDiscountHtml !!}
                     </div>
                     @else
-                    <div class="rich-text-block-4 w-richtext hero-home-promo hero-home-promo--form">
+                    <div class="rich-text-block-4 w-richtext hero-mobile-promo-slot hero-mobile-promo-slot--form">
                       {!! promotion_home_html() !!}
                     </div>
                     <label for="email-banner" class="body-14"></label>

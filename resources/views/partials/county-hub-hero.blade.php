@@ -26,6 +26,11 @@
                         <div><div class="text-block-46">✔</div><div class="text-block-47">Licensed &amp; Insure</div></div>
                       </div>
                     </div>
+                    <div class="hero-mobile-promo-slot hero-mobile-promo-slot--mobile">
+                      @include('partials.hero-mobile-promo', [
+                        'buttonLabel' => 'Request a Free Estimate',
+                      ])
+                    </div>
                   </div>
                 </div>
               </div>

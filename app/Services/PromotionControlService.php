@@ -209,25 +209,6 @@ class PromotionControlService
             .'</div>';
     }
 
-    public function homeMobilePromoHtml(): string
-    {
-        $percent = e($this->globalDiscountPercent().'%');
-        $endDate = $this->endDate();
-        $settings = app(PromotionSettingsService::class);
-        $expires = e($endDate !== null
-            ? $settings->format($endDate, 'us-short-no-year')
-            : $settings->formatGlobal('us-short-no-year'));
-
-        return '<div class="hero-home-promo-mobile">'
-            .'<div class="hero-home-promo-mobile__badge promo-price-tag promo-price-tag--percent">'
-            .'<div class="promo-price-tag-line promo-price-tag-line--new"><span class="promo-price-tag-new">'.$percent.'</span></div>'
-            .'<div class="promo-price-tag-note">OFF Windows</div>'
-            .'<div class="hero-home-promo-mobile__expires">Offer ends '.$expires.'</div>'
-            .'</div>'
-            .'<button type="button" class="hero-home-promo-mobile__btn" data-open-estimate-modal>Request a Free Estimate</button>'
-            .'</div>';
-    }
-
     public function priceHtmlStartingFrom(string $final, string $suffix = 'per window installed'): string
     {
         $final = e($this->normalizeMoney($final));
