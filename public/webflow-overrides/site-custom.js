@@ -77,8 +77,15 @@
       if (!overlayId) return null;
       return document.getElementById(overlayId);
     };
-    const ov = () => overlayFromButton() || $(".w-nav-overlay", navRoot() || document);
-    const menu = () => $(".w-nav-menu", navRoot() || document);
+    const ov = () => overlayFromButton() || $(`${NAVBAR} .w-nav-overlay`);
+    const menu = () => {
+      const o = ov();
+      if (o) {
+        const inOverlay = o.querySelector(".w-nav-menu");
+        if (inOverlay) return inOverlay;
+      }
+      return navRoot()?.querySelector(".w-nav-menu") || null;
+    };
     const open = () => {
       const b = btn();
       if (!b) return false;
@@ -98,6 +105,13 @@
       const el = $(NAVBAR);
       const h = el ? Math.round(el.getBoundingClientRect().height) : 70;
       return h || 70;
+    }
+
+    function ensureMenuInOverlay() {
+      const o = ov();
+      const m = menu();
+      if (!o || !m || m.parentNode === o) return;
+      o.appendChild(m);
     }
 
     function placeUnderHeader() {
@@ -131,7 +145,8 @@
           maxHeight: "none",
           WebkitOverflowScrolling: "touch",
           zIndex: "1301",
-          paddingTop: "0",
+          paddingTop: "16px",
+          display: "block",
         });
       }
 
@@ -147,6 +162,7 @@
 
     function show() {
       if (!isMobile()) return;
+      ensureMenuInOverlay();
       document.body.classList.add("mobile-menu-open");
       placeUnderHeader();
       dimmer.style.opacity = "1";
@@ -166,7 +182,10 @@
         o.style.height = "";
       }
       const m = menu();
-      if (m) m.style.paddingTop = "";
+      if (m) {
+        m.style.paddingTop = "";
+        if (!open()) m.style.display = "";
+      }
     }
 
     function sync() {
@@ -175,34 +194,32 @@
       else hide();
     }
 
-    function forceOpenFallback() {
+    function forceOpen() {
       const b = btn();
       const o = ov();
       const m = menu();
       if (b) {
         b.classList.add("w--open");
         b.setAttribute("aria-expanded", "true");
-        b.dataset.dwFallbackOpen = "1";
-      }
-      if (o) {
-        o.style.display = "block";
-        o.style.pointerEvents = "auto";
       }
       if (m) {
         m.classList.add("w--open");
         m.style.display = "block";
       }
+      if (o) {
+        o.style.display = "block";
+        o.style.pointerEvents = "auto";
+      }
       show();
     }
 
-    function forceCloseFallback() {
+    function forceClose() {
       const b = btn();
       const o = ov();
       const m = menu();
       if (b) {
         b.classList.remove("w--open");
         b.setAttribute("aria-expanded", "false");
-        delete b.dataset.dwFallbackOpen;
       }
       if (m) {
         m.classList.remove("w--open");
@@ -217,24 +234,15 @@
 
     document.addEventListener("click", (e) => {
       const trigger = e.target.closest(BTN);
-      if (!trigger) return;
-      const wasOpen = open();
-      setTimeout(() => {
-        const nowOpen = open();
-        if (!isMobile()) return sync();
-        // If Webflow failed to toggle state, fallback to manual toggle.
-        if (nowOpen === wasOpen) {
-          if (wasOpen) forceCloseFallback();
-          else forceOpenFallback();
-          return;
-        }
-        sync();
-      }, 120);
-    });
+      if (!trigger || !isMobile()) return;
+      e.preventDefault();
+      e.stopPropagation();
+      if (open()) forceClose();
+      else forceOpen();
+    }, true);
 
     dimmer.addEventListener("click", () => {
-      const b = btn();
-      if (b && (b.classList.contains("w--open") || b.getAttribute("aria-expanded") === "true")) b.click();
+      if (open()) forceClose();
     });
 
     const mo = new MutationObserver(() => setTimeout(sync, 0));
