@@ -280,8 +280,20 @@
       btn.style.left = "auto";
       btn.style.right = "auto";
       btn.style.background = "transparent";
+      btn.style.display = "inline-flex";
+      btn.style.alignItems = "center";
+      btn.style.justifyContent = "center";
       const icon = btn.querySelector(".icon");
       if (icon) {
+        icon.style.display = "flex";
+        icon.style.alignItems = "center";
+        icon.style.justifyContent = "center";
+        icon.style.width = "100%";
+        icon.style.height = "100%";
+        icon.style.margin = "0";
+        icon.style.padding = "0";
+        icon.style.lineHeight = "1";
+        icon.style.position = "static";
         icon.style.color = "#0f172a";
         icon.style.transform = "none";
       }
