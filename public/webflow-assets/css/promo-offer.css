@@ -109,6 +109,27 @@
   line-height: 1.2;
 }
 
+.promo-price-tag--percent .promo-price-tag-line--new,
+.w-richtext .promo-price-tag--percent .promo-price-tag-line--new {
+  justify-content: center;
+  margin-bottom: 2px;
+}
+
+.promo-price-tag--percent .promo-price-tag-new,
+.w-richtext .promo-price-tag--percent .promo-price-tag-new {
+  font-size: 30px !important;
+  letter-spacing: -0.5px;
+}
+
+.promo-price-tag--percent .promo-price-tag-note,
+.w-richtext .promo-price-tag--percent .promo-price-tag-note {
+  text-align: center;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
 .promo-offer-note,
 .w-richtext .promo-offer-note {
   margin-top: 6px;

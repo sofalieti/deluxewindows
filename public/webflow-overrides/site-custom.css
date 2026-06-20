@@ -179,7 +179,7 @@
   }
 }
 
-/* Home hero promo card (price badge, not percent pill) */
+/* Home hero promo card (percent discount badge) */
 .hero-home-promo--mobile {
   display: none;
   margin-top: 14px;

@@ -193,19 +193,18 @@ class PromotionControlService
             .'</div>';
     }
 
-    public function homePriceHtml(string $base = '915', string $final = '$549', string $suffix = 'per window'): string
+    public function homePriceHtml(): string
     {
-        $base = e($this->normalizeMoney($base));
-        $final = e($this->normalizeMoney($final));
-        $suffix = e($suffix);
+        $discount = e($this->globalDiscountLabel());
+        $percent = e($this->globalDiscountPercent().'%');
 
         return '<div class="promo-offer-card promo-offer-card--home">'
             .'<h3 class="promo-offer-title">Get Deluxe Windows for Less</h3>'
-            .'<div class="promo-offer-subtitle">Limited-time pricing</div>'
-            .'<div class="promo-price-tag">'
-            .'<div class="promo-price-tag-line"><span class="promo-price-tag-label">Regular</span><span class="promo-price-tag-old"><s>'.$base.'</s></span></div>'
-            .'<div class="promo-price-tag-line promo-price-tag-line--new"><span class="promo-price-tag-label">Now</span><span class="promo-price-tag-new">'.$final.'</span></div>'
-            .'<div class="promo-price-tag-note">'.$suffix.'</div>'
+            .'<div class="promo-offer-headline">'.$discount.'</div>'
+            .'<div class="promo-offer-subtitle">Limited-time window replacement offer</div>'
+            .'<div class="promo-price-tag promo-price-tag--percent">'
+            .'<div class="promo-price-tag-line promo-price-tag-line--new"><span class="promo-price-tag-new">'.$percent.'</span></div>'
+            .'<div class="promo-price-tag-note">OFF Windows</div>'
             .'</div>'
             .'</div>';
     }
