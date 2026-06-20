@@ -879,12 +879,15 @@
           </div>
           <div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-1"></div>
         </div>
-        <div class="navbar-3">
-          <div class="mobile-top-strip" aria-label="Company info">
-            <div class="mobile-top-strip__inner">
-              <span class="mobile-top-strip__text">We are – 100% employee owned &amp; over 30 years in business!</span>
-            </div>
+      </div>
+
+      <div class="mobile-header-shell">
+        <div class="mobile-top-strip" aria-label="Company info">
+          <div class="mobile-top-strip__inner">
+            <span class="mobile-top-strip__text">We are – 100% employee owned &amp; over 30 years in business!</span>
           </div>
+        </div>
+        <div class="navbar-3">
           <div
             data-animation="default"
             data-collapse="medium"
@@ -1333,8 +1336,9 @@
             <div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-2"></div>
           </div>
         </div>
+      </div>
 
-        <a href="#" class="mobile-fab-estimate" data-open-estimate-modal aria-label="Request a Free Estimate">
+      <a href="#" class="mobile-fab-estimate" data-open-estimate-modal aria-label="Request a Free Estimate">
           <svg class="mobile-fab-estimate__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14H7v-2h5v2zm5-4H7v-2h10v2zm0-4H7V7h10v2z"/>
           </svg>

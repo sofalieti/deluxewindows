@@ -55,7 +55,7 @@
   // Mobile dropdown menu (simple panel under header).
   (function () {
     const NAVBAR = ".navbar-3";
-    const NAVBAR_ROW = `${NAVBAR} .navbar-container.w-nav`;
+    const STRIP = ".mobile-header-shell > .mobile-top-strip";
     const BTN = `${NAVBAR} .w-nav-button`;
     const MENU = `${NAVBAR} .nav-menu-wrapper-4.w-nav-menu`;
     const MOBILE = "(max-width: 991px)";
@@ -63,9 +63,86 @@
     const isOpen = () => document.body.classList.contains("mobile-menu-open");
 
     const $ = (s) => document.querySelector(s);
+    let barHeight = 0;
+    let spacer = null;
+    let scrollTicking = false;
+
+    function ensureSpacer() {
+      const bar = $(NAVBAR);
+      if (!bar || spacer) return;
+      spacer = document.createElement("div");
+      spacer.className = "navbar-3-scroll-spacer";
+      spacer.setAttribute("aria-hidden", "true");
+      bar.insertAdjacentElement("afterend", spacer);
+    }
+
+    function measureBar() {
+      const bar = $(NAVBAR);
+      barHeight = bar ? Math.round(bar.getBoundingClientRect().height) : 0;
+    }
+
+    function shouldPinBar() {
+      const strip = $(STRIP);
+      const bar = $(NAVBAR);
+      if (!bar) return false;
+      if (strip) return strip.getBoundingClientRect().bottom <= 0;
+      return bar.getBoundingClientRect().top <= 0;
+    }
+
+    let applyingPin = false;
+
+    function setPinnedState(bar, pinned) {
+      applyingPin = true;
+      bar.classList.toggle("navbar-3--pinned", pinned);
+      bar.dataset.dwPinned = pinned ? "1" : "0";
+
+      if (pinned) {
+        bar.style.setProperty("position", "fixed", "important");
+        bar.style.setProperty("top", "0", "important");
+        bar.style.setProperty("left", "0", "important");
+        bar.style.setProperty("right", "0", "important");
+        bar.style.setProperty("width", "100%", "important");
+        bar.style.setProperty("z-index", "1200", "important");
+      } else {
+        bar.style.removeProperty("position");
+        bar.style.removeProperty("top");
+        bar.style.removeProperty("left");
+        bar.style.removeProperty("right");
+        bar.style.removeProperty("width");
+        bar.style.removeProperty("z-index");
+      }
+
+      if (spacer) spacer.style.height = pinned ? `${barHeight}px` : "0px";
+      applyingPin = false;
+    }
+
+    function updatePinnedBar() {
+      if (!isMobile()) {
+        const bar = $(NAVBAR);
+        if (bar) setPinnedState(bar, false);
+        return;
+      }
+
+      const bar = $(NAVBAR);
+      if (!bar) return;
+      ensureSpacer();
+      measureBar();
+      setPinnedState(bar, shouldPinBar());
+
+      if (isOpen()) syncMenuPosition();
+    }
+
+    function onScrollPin() {
+      if (scrollTicking) return;
+      scrollTicking = true;
+      requestAnimationFrame(() => {
+        updatePinnedBar();
+        scrollTicking = false;
+      });
+    }
 
     function syncMenuPosition() {
-      const bar = $(NAVBAR_ROW);
+      const bar = $(NAVBAR);
       if (!bar) return;
       const bottom = Math.round(bar.getBoundingClientRect().bottom);
       document.documentElement.style.setProperty("--mobile-nav-bottom", `${bottom}px`);
@@ -91,6 +168,7 @@
       } else {
         document.documentElement.style.removeProperty("--mobile-nav-bottom");
       }
+      updatePinnedBar();
     }
 
     function closeMenu() {
@@ -122,12 +200,36 @@
     });
 
     window.addEventListener("resize", () => {
+      measureBar();
+      updatePinnedBar();
       if (!isMobile() && isOpen()) closeMenu();
       if (isOpen()) syncMenuPosition();
     }, { passive: true });
 
-    window.addEventListener("scroll", () => {
-      if (isOpen()) syncMenuPosition();
+    window.addEventListener("scroll", onScrollPin, { passive: true });
+
+    const pinObserver = new MutationObserver(() => {
+      if (applyingPin || !isMobile()) return;
+      const bar = $(NAVBAR);
+      if (!bar) return;
+      const shouldPin = shouldPinBar();
+      if (shouldPin !== (bar.dataset.dwPinned === "1")) {
+        updatePinnedBar();
+      }
+    });
+
+    onReady(() => {
+      measureBar();
+      updatePinnedBar();
+      const bar = $(NAVBAR);
+      if (bar) {
+        pinObserver.observe(bar, { attributes: true, attributeFilter: ["style", "class"] });
+      }
+    });
+
+    window.addEventListener("load", () => {
+      measureBar();
+      updatePinnedBar();
     }, { passive: true });
   })();
 

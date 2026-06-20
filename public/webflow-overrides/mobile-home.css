@@ -337,7 +337,7 @@
 
 @media screen and (max-width: 767px) {
   .page-wrapper {
-    overflow-x: clip;
-    overflow-y: visible;
+    overflow-x: visible !important;
+    overflow-y: visible !important;
   }
 }

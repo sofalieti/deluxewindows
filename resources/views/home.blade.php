@@ -968,15 +968,6 @@
         z-index: 1197;
       }
 
-      body.mobile-menu-open .navbar-3 {
-        top: 0px;
-        left: 0px;
-        right: 0px;
-        transform: translateZ(0px);
-        background: rgb(255, 255, 255);
-        position: fixed !important;
-        z-index: 1200 !important;
-      }
     </style>
     <style rel="stylesheet" type="text/css">
       @charset "utf-8";
