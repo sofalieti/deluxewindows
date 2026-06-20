@@ -233,6 +233,11 @@
     display: flex !important;
     flex-direction: column !important;
     align-items: stretch !important;
+    overflow: visible !important;
+  }
+
+  body.mobile-menu-open .navbar-3 {
+    position: sticky !important;
   }
 
   .navbar-3 > .mobile-top-strip,
@@ -259,26 +264,12 @@
     bottom: auto !important;
     margin-top: 0 !important;
     z-index: 1301;
+    overflow: visible !important;
   }
 
   .navbar-3 .navbar-wrapper {
     margin-top: 0 !important;
-  }
-
-  body.mobile-menu-open .navbar-3 {
-    position: fixed !important;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1200 !important;
-    transform: translateZ(0);
-    background: #fff;
-  }
-
-  body.mobile-menu-open .navbar-3 .navbar-container.w-nav {
-    position: relative !important;
-    margin-top: 0 !important;
-    top: auto !important;
+    position: relative;
   }
 
   .navbar-3 .container-regular {
@@ -286,6 +277,7 @@
     max-width: none;
     padding-left: 14px;
     padding-right: 14px;
+    overflow: visible !important;
   }
 
   .navbar-3 .navbar-wrapper {
@@ -378,59 +370,31 @@
   }
 
   .navbar-3 .w-nav-overlay {
-    z-index: 1300 !important;
-    background: rgba(15, 23, 42, 0.62);
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
+    display: none !important;
+    pointer-events: none !important;
   }
 
   .navbar-3 .nav-menu-wrapper-4.w-nav-menu {
-    position: fixed;
-    top: 0;
+    display: none;
+    position: absolute;
+    top: 100%;
     left: 0;
     right: 0;
-    bottom: 0;
-    z-index: 1301;
+    z-index: 1302;
     width: 100%;
     max-width: 100%;
-    height: 100dvh;
-    padding: 16px 16px 24px;
-    margin: 0;
-    background: #ffffff;
+    max-height: min(72vh, 520px);
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    display: none;
+    padding: 12px 16px 20px;
+    margin: 0;
+    background: #ffffff;
+    border-bottom: 1px solid #e6eaf0;
+    box-shadow: 0 14px 28px rgba(15, 23, 42, 0.1);
   }
 
-  .navbar-3 .nav-menu-wrapper-4.w-nav-menu.w--open,
-  body.mobile-menu-open .navbar-3 .w-nav-overlay .w-nav-menu {
+  body.mobile-menu-open .navbar-3 .nav-menu-wrapper-4.w-nav-menu {
     display: block !important;
-  }
-
-  body:not(.mobile-menu-open) .w-nav-overlay {
-    display: none !important;
-    pointer-events: none !important;
-    height: auto !important;
-  }
-
-  body.mobile-menu-open .w-nav-overlay {
-    pointer-events: auto !important;
-  }
-
-  body.mobile-menu-open .w-nav-overlay .w-nav-menu {
-    -webkit-overflow-scrolling: touch;
-  }
-
-  #menuDimmer {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.55);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.25s ease;
-    z-index: 1299;
   }
 
   .navbar-3 .nav-menu-2 {

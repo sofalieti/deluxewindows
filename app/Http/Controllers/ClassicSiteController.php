@@ -1909,10 +1909,10 @@ class ClassicSiteController extends Controller
         foreach ($fieldKeys as $key) {
             $value = $fieldData[$key] ?? null;
             if (is_array($value) && isset($value['url']) && $value['url'] !== '') {
-                return $value['url'];
+                return webflow_image_url($value['url']);
             }
             if (is_string($value) && $value !== '') {
-                return $value;
+                return webflow_image_url($value);
             }
         }
 

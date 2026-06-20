@@ -52,217 +52,67 @@
     window.addEventListener("resize", bind, { passive: true });
   })();
 
-  // Mobile menu placement and dimmer behavior.
+  // Mobile dropdown menu (simple panel under header).
   (function () {
     const NAVBAR = ".navbar-3";
-    const NAV = `${NAVBAR} .navbar-container.w-nav`;
     const BTN = `${NAVBAR} .w-nav-button`;
+    const MENU = `${NAVBAR} .nav-menu-wrapper-4.w-nav-menu`;
     const MOBILE = "(max-width: 991px)";
     const isMobile = () => window.matchMedia(MOBILE).matches;
+    const isOpen = () => document.body.classList.contains("mobile-menu-open");
 
-    let dimmer = document.getElementById("menuDimmer");
-    if (!dimmer) {
-      dimmer = document.createElement("div");
-      dimmer.id = "menuDimmer";
-      document.body.appendChild(dimmer);
-    }
+    const $ = (s) => document.querySelector(s);
 
-    const $ = (s, root = document) => root.querySelector(s);
-    const btn = () => $(BTN);
-    const navRoot = () => $(NAV);
-    const overlayFromButton = () => {
-      const b = btn();
-      if (!b) return null;
-      const overlayId = b.getAttribute("aria-controls");
-      if (!overlayId) return null;
-      return document.getElementById(overlayId);
-    };
-    const ov = () => overlayFromButton() || $(`${NAVBAR} .w-nav-overlay`);
-    const menu = () => {
-      const o = ov();
-      if (o) {
-        const inOverlay = o.querySelector(".w-nav-menu");
-        if (inOverlay) return inOverlay;
-      }
-      return navRoot()?.querySelector(".w-nav-menu") || null;
-    };
-    const open = () => {
-      const b = btn();
-      if (!b) return false;
-      return b.classList.contains("w--open") || b.getAttribute("aria-expanded") === "true";
-    };
+    function setOpenState(shouldOpen) {
+      const button = $(BTN);
+      const menu = $(MENU);
 
-    const lockScroll = () => {
-      document.documentElement.style.overflow = "hidden";
-      document.body.style.overflow = "hidden";
-    };
-    const unlockScroll = () => {
-      document.documentElement.style.overflow = "";
-      document.body.style.overflow = "";
-    };
+      document.body.classList.toggle("mobile-menu-open", shouldOpen);
 
-    function navHeight() {
-      const el = $(NAVBAR);
-      const h = el ? Math.round(el.getBoundingClientRect().height) : 70;
-      return h || 70;
-    }
-
-    function ensureMenuInOverlay() {
-      const o = ov();
-      const m = menu();
-      if (!o || !m || m.parentNode === o) return;
-      o.appendChild(m);
-    }
-
-    function placeUnderHeader() {
-      const h = navHeight();
-      const o = ov();
-      if (o) {
-        if (o.parentNode !== document.body) document.body.appendChild(o);
-        Object.assign(o.style, {
-          position: "fixed",
-          top: h + "px",
-          left: "0",
-          right: "0",
-          bottom: "0",
-          width: "100%",
-          overflow: "visible",
-          display: "block",
-          pointerEvents: "auto",
-          zIndex: "1300",
-        });
+      if (button) {
+        button.classList.toggle("w--open", shouldOpen);
+        button.setAttribute("aria-expanded", shouldOpen ? "true" : "false");
       }
 
-      const m = menu();
-      if (m) {
-        Object.assign(m.style, {
-          position: "fixed",
-          top: h + "px",
-          left: "0",
-          right: "0",
-          bottom: "0",
-          overflowY: "auto",
-          maxHeight: "none",
-          WebkitOverflowScrolling: "touch",
-          zIndex: "1301",
-          paddingTop: "16px",
-          display: "block",
-        });
+      if (menu) {
+        menu.classList.toggle("w--open", shouldOpen);
       }
 
-      Object.assign(dimmer.style, {
-        position: "fixed",
-        top: h + "px",
-        left: "0",
-        right: "0",
-        bottom: "0",
-        zIndex: "1299",
-      });
+      document.documentElement.style.overflow = shouldOpen ? "hidden" : "";
+      document.body.style.overflow = shouldOpen ? "hidden" : "";
     }
 
-    function show() {
+    function closeMenu() {
+      setOpenState(false);
+    }
+
+    function toggleMenu() {
       if (!isMobile()) return;
-      ensureMenuInOverlay();
-      document.body.classList.add("mobile-menu-open");
-      placeUnderHeader();
-      dimmer.style.opacity = "1";
-      dimmer.style.pointerEvents = "auto";
-      lockScroll();
-    }
-
-    function hide() {
-      dimmer.style.opacity = "0";
-      dimmer.style.pointerEvents = "none";
-      document.body.classList.remove("mobile-menu-open");
-      unlockScroll();
-      const o = ov();
-      if (o) {
-        o.style.pointerEvents = "none";
-        o.style.display = "none";
-        o.style.height = "";
-      }
-      const m = menu();
-      if (m) {
-        m.style.paddingTop = "";
-        if (!open()) m.style.display = "";
-      }
-    }
-
-    function sync() {
-      if (!isMobile()) return hide();
-      if (open()) show();
-      else hide();
-    }
-
-    function forceOpen() {
-      const b = btn();
-      const o = ov();
-      const m = menu();
-      if (b) {
-        b.classList.add("w--open");
-        b.setAttribute("aria-expanded", "true");
-      }
-      if (m) {
-        m.classList.add("w--open");
-        m.style.display = "block";
-      }
-      if (o) {
-        o.style.display = "block";
-        o.style.pointerEvents = "auto";
-      }
-      show();
-    }
-
-    function forceClose() {
-      const b = btn();
-      const o = ov();
-      const m = menu();
-      if (b) {
-        b.classList.remove("w--open");
-        b.setAttribute("aria-expanded", "false");
-      }
-      if (m) {
-        m.classList.remove("w--open");
-        m.style.display = "none";
-      }
-      if (o) {
-        o.style.display = "none";
-        o.style.pointerEvents = "none";
-      }
-      hide();
+      setOpenState(!isOpen());
     }
 
     document.addEventListener("click", (e) => {
-      const trigger = e.target.closest(BTN);
-      if (!trigger || !isMobile()) return;
-      e.preventDefault();
-      e.stopPropagation();
-      if (open()) forceClose();
-      else forceOpen();
+      if (!isMobile()) return;
+
+      if (e.target.closest(BTN)) {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleMenu();
+        return;
+      }
+
+      if (isOpen() && !e.target.closest(MENU)) {
+        closeMenu();
+      }
     }, true);
 
-    dimmer.addEventListener("click", () => {
-      if (open()) forceClose();
-    });
-
-    const mo = new MutationObserver(() => setTimeout(sync, 0));
-    mo.observe(document.documentElement, {
-      subtree: true,
-      childList: true,
-      attributes: true,
-      attributeFilter: ["class", "style", "data-nav-menu-open"],
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && isOpen()) closeMenu();
     });
 
     window.addEventListener("resize", () => {
-      if (open()) placeUnderHeader();
-      sync();
+      if (!isMobile() && isOpen()) closeMenu();
     }, { passive: true });
-
-    window.addEventListener("scroll", () => {
-      if (open()) placeUnderHeader();
-    }, { passive: true });
-
-    onReady(sync);
   })();
 
   // Estimate modal open/close behavior.

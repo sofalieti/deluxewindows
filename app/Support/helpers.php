@@ -20,6 +20,53 @@ if (! function_exists('site_phone_tel')) {
     }
 }
 
+if (! function_exists('webflow_image_url')) {
+    /**
+     * Resolve Webflow CDN or legacy image paths to a working local URL when possible.
+     */
+    function webflow_image_url(?string $source): string
+    {
+        if ($source === null || ($source = trim($source)) === '') {
+            return '';
+        }
+
+        $alsideLogo = '6915b29da8bcdcb16ec593b6_alside-logo.svg';
+
+        if (str_contains($source, '6915b29da8bcdcb16ec593b6')) {
+            $local = public_path('webflow-assets/images/'.$alsideLogo);
+            if (is_file($local)) {
+                return '/webflow-assets/images/'.$alsideLogo;
+            }
+        }
+
+        $path = parse_url($source, PHP_URL_PATH);
+        if (! is_string($path) || $path === '') {
+            return $source;
+        }
+
+        $basename = basename($path);
+        if ($basename === '') {
+            return $source;
+        }
+
+        $decodedBasename = rawurldecode($basename);
+        $candidates = array_unique([
+            $basename,
+            $decodedBasename,
+            str_replace(' ', '%20', $decodedBasename),
+        ]);
+
+        foreach ($candidates as $name) {
+            $file = public_path('webflow-assets/images/'.$name);
+            if (is_file($file)) {
+                return '/webflow-assets/images/'.$name;
+            }
+        }
+
+        return $source;
+    }
+}
+
 if (! function_exists('thumbnail_url')) {
     /**
      * Return a cached, resized image URL when the source is larger than the preset.

@@ -35,6 +35,7 @@ class ImageThumbnailService
         }
 
         $source = trim($source);
+        $source = webflow_image_url($source);
 
         if (! $this->isEnabled()) {
             return $source;
