@@ -1,57 +1,21 @@
-<!DOCTYPE html>
-<html
-  data-wf-domain="www.deluxewindows.com"
-  data-wf-page="6841ddf8ace3d9d9facb15ce"
-  data-wf-site="6841ddf8ace3d9d9facb14fd"
-  lang="en"
-  class="w-mod-js w-mod-ix"
->
-  <head>
-    <meta charset="utf-8" />
-    <link href="https://cdn.prod.website-files.com" rel="preconnect" crossorigin="anonymous" />
-    <title>{{ $seoTitle }}</title>
-    <meta content="{{ $seoDescription }}" name="description" />
-    <meta content="{{ $seoTitle }}" property="og:title" />
-    <meta content="{{ $seoDescription }}" property="og:description" />
-    <meta content="{{ $ogImage }}" property="og:image" />
-    <meta content="{{ $seoTitle }}" name="twitter:title" />
-    <meta content="{{ $seoDescription }}" name="twitter:description" />
-    <meta property="og:type" content="website" />
-    <meta content="summary_large_image" name="twitter:card" />
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <link href="/webflow-assets/css/webflow.min.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="/webflow-assets/css/fonts.css" media="all" />
-    <script type="text/javascript">
-      document.documentElement.className = document.documentElement.className
-        .replace(/\bwf-loading\b/g, 'wf-active')
-        .replace(/\bwf-exo-[^\s]+/g, '');
-    </script>
-    <script type="text/javascript">
-      !(function (o, c) {
-        var n = c.documentElement, t = " w-mod-";
-        n.className += t + "js";
-        ("ontouchstart" in o || (o.DocumentTouch && c instanceof DocumentTouch)) && (n.className += t + "touch");
-      })(window, document);
-    </script>
-    <link href="/webflow-assets/images/favicon.png" rel="shortcut icon" type="image/x-icon" />
-    <link href="/webflow-assets/images/webclip-bg.png" rel="apple-touch-icon" />
+@extends('layouts.classic')
 
-    @include('partials.classic-layout-styles')
+@section('wfPage', '6841ddf8ace3d9d9facb15ce')
+@section('pageWrapperClass', 'full-height-page')
+@section('title', $seoTitle)
+@section('metaDescription', $seoDescription)
+@section('ogImage', $ogImage)
 
+@section('head')
     <style>
-      .w-webflow-badge { display: none !important; }
       .brand_dropdown-list { display: none; }
       .brand-filters_dropdown.is-open .brand_dropdown-list { display: block; }
     </style>
 
     <script async type="module" src="https://cdn.jsdelivr.net/npm/@finsweet/attributes@2/attributes.js" fs-list></script>
-  </head>
+@endsection
 
-  <body>
-    <div class="page-wrapper full-height-page">
-
-      @include('partials.navbar')
-
+@section('content')
       <section class="section_breadcrumbs section-121">
         <div class="w-layout-blockcontainer container-default breadcrumbs-container w-container">
           <div class="breadcrumbs-wrapper">
@@ -152,9 +116,9 @@
         </div>
       </section>
 
-      @include('partials.footer')
-    </div>
+@endsection
 
+@section('bodyScripts')
     <script src="/webflow-assets/js/jquery-3.5.1.min.js" type="text/javascript"></script>
     <script src="/webflow-assets/js/webflow.js" type="text/javascript"></script>
     <script src="/webflow-assets/js/webflow-brand-index.js" type="text/javascript"></script>
@@ -228,5 +192,4 @@
         });
       })();
     </script>
-  </body>
-</html>
+@endsection

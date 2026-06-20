@@ -1,14 +1,13 @@
-﻿<!DOCTYPE html>
-<!-- This site was created in Webflow. https://webflow.com --><!-- Last Published: Tue May 26 2026 07:52:04 GMT+0000 (Coordinated Universal Time) -->
-<html
-  data-wf-domain="www.deluxewindows.com"
-  data-wf-page="6841df5688ca2f74fd53ec90"
-  data-wf-site="6841ddf8ace3d9d9facb14fd"
-  lang="en"
-  class="wf-loading w-mod-js wf-exo-n1-loading wf-exo-i1-loading wf-exo-n2-loading wf-exo-i2-loading wf-exo-n3-loading wf-exo-i3-loading wf-exo-n4-loading wf-exo-i4-loading wf-exo-n5-loading wf-exo-i5-loading wf-exo-n6-loading wf-exo-i6-loading wf-exo-n7-loading wf-exo-i7-loading wf-exo-n8-loading wf-exo-i8-loading wf-exo-n9-loading wf-exo-i9-loading w-mod-ix"
->
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+﻿@extends('layouts.classic')
+
+@section('wfPage', '6841df5688ca2f74fd53ec90')
+@section('htmlClass', 'wf-loading w-mod-js wf-exo-n1-loading wf-exo-i1-loading wf-exo-n2-loading wf-exo-i2-loading wf-exo-n3-loading wf-exo-i3-loading wf-exo-n4-loading wf-exo-i4-loading wf-exo-n5-loading wf-exo-i5-loading wf-exo-n6-loading wf-exo-i6-loading wf-exo-n7-loading wf-exo-i7-loading wf-exo-n8-loading wf-exo-i8-loading wf-exo-n9-loading wf-exo-i9-loading w-mod-ix')
+@section('bodyClass', 'body-18 height-auto')
+@section('title', 'Deluxe Windows | Window Replacement – San Francisco Bay Area')
+@section('metaDescription', 'Upgrade your Bay Area home with energy-efficient windows. Deluxe Windows offers 20+ years of expert installation of vinyl, aluminum, fiberglass &amp; wood. Free quotes.')
+@section('ogImage', '/webflow-assets/images/684da952cef202b8dda5788c_Meta%20cover-2.jpg')
+
+@section('head')
     <style rel="stylesheet" type="text/css">
       @charset "utf-8";
 
@@ -1030,46 +1029,6 @@
         border-radius: 999px;
       }
     </style>
-    <link href="/webflow-assets/css/webflow.min.css" rel="stylesheet" type="text/css" />
-    <title>Deluxe Windows | Window Replacement – San Francisco Bay Area</title>
-    <meta
-      content="Upgrade your Bay Area home with energy-efficient windows. Deluxe Windows offers 20+ years of expert installation of vinyl, aluminum, fiberglass &amp; wood. Free quotes."
-      name="description"
-    />
-    <meta content="Deluxe Windows | Window Replacement – San Francisco Bay Area" property="og:title" />
-    <meta
-      content="Upgrade your Bay Area home with energy-efficient windows. Deluxe Windows offers 20+ years of expert installation of vinyl, aluminum, fiberglass &amp; wood. Free quotes."
-      property="og:description"
-    />
-    <meta
-      content="/webflow-assets/images/684da952cef202b8dda5788c_Meta%20cover-2.jpg"
-      property="og:image"
-    />
-    <meta content="Deluxe Windows | Window Replacement – San Francisco Bay Area" name="twitter:title" />
-    <meta
-      content="Upgrade your Bay Area home with energy-efficient windows. Deluxe Windows offers 20+ years of expert installation of vinyl, aluminum, fiberglass &amp; wood. Free quotes."
-      name="twitter:description"
-    />
-    <meta property="og:type" content="website" />
-    <meta content="summary_large_image" name="twitter:card" />
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <meta content="Webflow" name="generator" />
-    <link rel="stylesheet" href="/webflow-assets/css/fonts.css" media="all" />
-    <script type="text/javascript">
-      document.documentElement.className = document.documentElement.className
-        .replace(/\bwf-loading\b/g, 'wf-active')
-        .replace(/\bwf-exo-[^\s]+/g, '');
-</script>
-    <script type="text/javascript">
-      !(function (o, c) {
-        var n = c.documentElement,
-          t = " w-mod-";
-        ((n.className += t + "js"),
-          ("ontouchstart" in o || (o.DocumentTouch && c instanceof DocumentTouch)) && (n.className += t + "touch"));
-      })(window, document);
-</script>
-    <link href="/webflow-assets/images/favicon.png" rel="shortcut icon" type="image/x-icon" />
-    <link href="/webflow-assets/images/webclip-bg.png" rel="apple-touch-icon" />
 
 <script type="application/ld+json">
 {
@@ -1188,14 +1147,10 @@
         hideDecimalForWholeNumbers: false,
       };
     </script>
-    <link href="https://core.service.elfsight.com/" rel="preconnect" crossorigin="" />
     <link rel="stylesheet" href="/webflow-overrides/mobile-home.css" />
-  </head>
-<body class="body-18 height-auto">
-  <div class="page-wrapper">
+@endsection
 
-    @include('partials.navbar')
-
+@section('content')
     @include('partials.hero')
 
     @include('partials.trust-badges')
@@ -1218,14 +1173,9 @@
 
     @include('partials.faq')
 
-    @include('partials.footer')
+@endsection
 
-    </div>
-
-  <div id="menuDimmer" style="opacity: 0; pointer-events: none"></div>
+@section('bodyScripts')
   <script src="/webflow-assets/js/jquery-3.5.1.min.js" type="text/javascript"></script>
   <script src="/webflow-assets/js/webflow.js" type="text/javascript"></script>
-
-  {{-- SCROLL STYLE --}}
-</body>
-</html>
+@endsection
