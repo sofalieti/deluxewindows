@@ -55,7 +55,6 @@
   // Mobile dropdown menu (simple panel under header).
   (function () {
     const NAVBAR = ".navbar-3";
-    const STRIP = ".mobile-header-shell > .mobile-top-strip";
     const BTN = `${NAVBAR} .w-nav-button`;
     const MENU = `${NAVBAR} .nav-menu-wrapper-4.w-nav-menu`;
     const MOBILE = "(max-width: 991px)";
@@ -82,10 +81,9 @@
     }
 
     function shouldPinBar() {
-      const strip = $(STRIP);
       const bar = $(NAVBAR);
       if (!bar) return false;
-      if (strip) return strip.getBoundingClientRect().bottom <= 0;
+      // Pin the logo/phone/menu row when it reaches the top — not the text strip above it
       return bar.getBoundingClientRect().top <= 0;
     }
 
@@ -95,22 +93,6 @@
       applyingPin = true;
       bar.classList.toggle("navbar-3--pinned", pinned);
       bar.dataset.dwPinned = pinned ? "1" : "0";
-
-      if (pinned) {
-        bar.style.setProperty("position", "fixed", "important");
-        bar.style.setProperty("top", "0", "important");
-        bar.style.setProperty("left", "0", "important");
-        bar.style.setProperty("right", "0", "important");
-        bar.style.setProperty("width", "100%", "important");
-        bar.style.setProperty("z-index", "1200", "important");
-      } else {
-        bar.style.removeProperty("position");
-        bar.style.removeProperty("top");
-        bar.style.removeProperty("left");
-        bar.style.removeProperty("right");
-        bar.style.removeProperty("width");
-        bar.style.removeProperty("z-index");
-      }
 
       if (spacer) spacer.style.height = pinned ? `${barHeight}px` : "0px";
       applyingPin = false;

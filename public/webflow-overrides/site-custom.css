@@ -117,6 +117,12 @@
 
 /* Desktop menu reset (rebuilt from scratch, no animations) */
 @media (min-width: 992px) {
+  .mobile-header-shell,
+  .mobile-fab-estimate,
+  .navbar-3-scroll-spacer {
+    display: none !important;
+  }
+
   .header-container-2 {
     overflow: visible !important;
   }
@@ -195,24 +201,25 @@
   html,
   body,
   .page-wrapper,
-  .header-container-2,
   .mobile-header-shell {
     overflow: visible !important;
   }
 
-  .header-container-2 > .navbar.w-nav,
-  .header-container-2 > .header-wrapper-2.w-nav {
+  /* Desktop header fully off on mobile — only mobile-header-shell is shown */
+  .header-container-2 {
     display: none !important;
   }
 
   .mobile-header-shell > .mobile-top-strip {
     display: block;
+    position: relative;
     background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
     border-bottom: 1px solid #e7edf5;
   }
 
   .mobile-top-strip {
     display: block;
+    position: relative;
     background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
     border-bottom: 1px solid #e7edf5;
   }
