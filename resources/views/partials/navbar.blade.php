@@ -882,15 +882,6 @@
         <div class="navbar-3">
           <div class="mobile-top-strip" aria-label="Company info">
             <div class="mobile-top-strip__inner">
-              <a href="tel:{{ site_phone_tel() }}" class="mobile-top-strip__phone">
-                <img
-                  src="/webflow-assets/images/6841ddf8ace3d9d9facb1950_phone-icon-property-x-webflow-template.svg"
-                  alt=""
-                  loading="lazy"
-                  class="mobile-top-strip__phone-icon"
-                />
-                <span>{{ site_phone_display() }}</span>
-              </a>
               <span class="mobile-top-strip__text">We are – 100% employee owned &amp; over 30 years in business!</span>
             </div>
           </div>
@@ -917,7 +908,7 @@
                     src="/webflow-assets/images/686acba4611e759fd8169f9d_photo_2025-07-06-22.14.41.avif"
                     preset="nav_logo"
                     class="image-24" /></a
-                ><a href="tel:{{ site_phone_tel() }}" class="link-15"
+                ><a href="tel:{{ site_phone_tel() }}" class="link-15" aria-label="Call {{ site_phone_display() }}"
                   ><img
                     src="/webflow-assets/images/687559a123cece2e95a41a6f_phone_enabled_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg"
                     alt=""
@@ -925,7 +916,6 @@
                     class="link-15__icon"
                   /><span class="link-15__label">{{ site_phone_display() }}</span></a
                 >
-                <a href="#" class="primary-button-2 mobile-estimate-btn w-inline-block" data-open-estimate-modal><div>Request a Free Estimate</div></a>
                 <nav role="navigation" class="nav-menu-wrapper-4 w-nav-menu">
                   <ul role="list" class="nav-menu-2 w-list-unstyled">
                     <li class="menu">
@@ -1344,6 +1334,13 @@
             <div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-2"></div>
           </div>
         </div>
+
+        <a href="#" class="mobile-fab-estimate" data-open-estimate-modal aria-label="Request a Free Estimate">
+          <svg class="mobile-fab-estimate__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14H7v-2h5v2zm5-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+          </svg>
+          <span class="mobile-fab-estimate__label">Free Estimate</span>
+        </a>
 
         <div class="mobile-estimate-modal" id="mobileEstimateModal" aria-hidden="true">
           <div class="mobile-estimate-modal__backdrop" data-close-estimate-modal></div>

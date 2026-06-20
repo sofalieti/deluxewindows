@@ -189,7 +189,7 @@
 
 /* Mobile header layout */
 .mobile-top-strip { display: none; }
-.mobile-estimate-btn { display: none; }
+.mobile-fab-estimate { display: none; }
 
 @media (max-width: 991px) {
   .header-container-2 > .navbar.w-nav,
@@ -204,51 +204,23 @@
   }
 
   .mobile-top-strip__inner {
-    position: relative;
-    min-height: 38px;
-    padding: 8px 14px;
-    display: block;
+    min-height: 34px;
+    padding: 7px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .mobile-top-strip__text {
     color: #334155;
-    font-size: 12px;
-    line-height: 1.2;
-    text-align: left;
+    font-size: 11px;
+    line-height: 1.25;
+    text-align: center;
     letter-spacing: 0.01em;
     display: block;
     min-width: 0;
-    padding: 0 42px 0 0;
     margin: 0;
   }
-
-  .mobile-top-strip__phone {
-    display: inline-flex;
-    position: absolute;
-    right: 14px;
-    top: 50%;
-    transform: translateY(-50%);
-    align-items: center;
-    justify-content: center;
-    width: 28px;
-    height: 28px;
-    border-radius: 999px;
-    border: 1px solid #d9e3ee;
-    background: #ffffff;
-    color: #0f172a;
-    text-decoration: none;
-    flex: 0 0 auto;
-  }
-
-  .mobile-top-strip__phone-icon {
-    width: 14px;
-    height: 14px;
-    object-fit: contain;
-    flex: 0 0 auto;
-    filter: brightness(0) saturate(100%);
-  }
-
-  .mobile-top-strip__phone span { display: none; }
 
   .navbar-3 {
     position: sticky !important;
@@ -311,10 +283,10 @@
   }
 
   .navbar-3 .navbar-wrapper {
-    min-height: 60px;
+    min-height: 52px;
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto auto;
-    grid-template-areas: "logo cta menu";
+    grid-template-areas: "logo phone menu";
     align-items: center;
     gap: 8px;
   }
@@ -327,11 +299,40 @@
   .navbar-3 .image-24 {
     display: block;
     width: auto;
-    max-width: 124px;
+    max-width: 96px;
     height: auto;
   }
 
-  .navbar-3 .link-15 { display: none !important; }
+  .navbar-3 .link-15 {
+    grid-area: phone;
+    display: inline-flex !important;
+    align-items: center;
+    gap: 6px;
+    min-height: 36px;
+    padding: 0 10px;
+    border-radius: 999px;
+    border: 1px solid #d9e3ee;
+    background: #f8fbff;
+    color: #0f172a;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+    flex: 0 0 auto;
+  }
+
+  .navbar-3 .link-15__icon {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    flex: 0 0 auto;
+    filter: brightness(0) saturate(100%);
+  }
+
+  .navbar-3 .link-15:active {
+    transform: translateY(1px);
+  }
 
   .navbar-3 .menu-button {
     grid-area: menu;
@@ -368,30 +369,6 @@
     transform: none !important;
   }
 
-  .navbar-3 .mobile-estimate-btn {
-    grid-area: cta;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 38px;
-    min-width: 172px;
-    padding: 0 12px;
-    white-space: nowrap;
-  }
-
-  .navbar-3 .mobile-estimate-btn > div {
-    font-size: 9.5px;
-    line-height: 1;
-    font-weight: 700;
-    letter-spacing: 0.01em;
-    text-align: center;
-    white-space: nowrap;
-  }
-
-  .navbar-3 .mobile-estimate-btn:active {
-    transform: translateY(1px);
-  }
-
   .navbar-3 .w-nav-overlay {
     z-index: 1300 !important;
     background: rgba(15, 23, 42, 0.62);
@@ -419,6 +396,47 @@
     width: 100%;
     justify-content: center;
   }
+
+  .mobile-fab-estimate {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    position: fixed;
+    right: max(16px, env(safe-area-inset-right));
+    bottom: max(16px, env(safe-area-inset-bottom));
+    z-index: 1150;
+    min-height: 48px;
+    padding: 0 16px 0 14px;
+    border-radius: 999px;
+    border: 0;
+    background: #d61f2c;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.01em;
+    box-shadow: 0 10px 28px rgba(214, 31, 44, 0.38);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .mobile-fab-estimate__icon {
+    flex: 0 0 auto;
+    display: block;
+  }
+
+  .mobile-fab-estimate__label {
+    white-space: nowrap;
+  }
+
+  .mobile-fab-estimate:active {
+    transform: translateY(1px);
+    box-shadow: 0 6px 18px rgba(214, 31, 44, 0.32);
+  }
+
+  body.mobile-menu-open .mobile-fab-estimate {
+    display: none;
+  }
 }
 
 @media (max-width: 479px) {
@@ -427,8 +445,8 @@
     padding-right: max(12px, env(safe-area-inset-right));
   }
 
-  .mobile-top-strip__phone {
-    right: max(12px, env(safe-area-inset-right));
+  .mobile-top-strip__text {
+    font-size: 10px;
   }
 
   .navbar-3 .container-regular {
@@ -437,23 +455,61 @@
   }
 
   .navbar-3 .image-24 {
-    max-width: 112px;
+    max-width: 84px;
   }
 
-  .navbar-3 .mobile-estimate-btn {
-    min-height: 32px;
-    min-width: 150px;
-    padding: 0 10px;
+  .navbar-3 .link-15 {
+    padding: 0 8px;
+    font-size: 11px;
+    gap: 5px;
   }
 
-  .navbar-3 .mobile-estimate-btn > div {
-    font-size: 8.5px;
+  .navbar-3 .link-15__icon {
+    width: 15px;
+    height: 15px;
+  }
+
+  .mobile-fab-estimate {
+    min-height: 44px;
+    padding: 0 14px 0 12px;
+    font-size: 12px;
+    gap: 6px;
+  }
+
+  .mobile-fab-estimate__icon {
+    width: 18px;
+    height: 18px;
   }
 }
 
 @media (max-width: 390px) {
   .navbar-3 .image-24 {
-    max-width: 104px;
+    max-width: 72px;
+  }
+
+  .navbar-3 .link-15__label {
+    display: none;
+  }
+
+  .navbar-3 .link-15 {
+    width: 36px;
+    height: 36px;
+    min-height: 36px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .mobile-fab-estimate__label {
+    display: none;
+  }
+
+  .mobile-fab-estimate {
+    width: 52px;
+    height: 52px;
+    min-height: 52px;
+    padding: 0;
+    justify-content: center;
+    border-radius: 50%;
   }
 }
 
