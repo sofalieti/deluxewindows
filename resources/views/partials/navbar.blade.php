@@ -1315,7 +1315,6 @@
                       </div>
                     </li>
                   </ul>
-                  <a href="tel:{{ site_phone_tel() }}">&nbsp;{{ site_phone_display() }}</a>
                 </nav>
                 <div
                   class="menu-button w-nav-button"

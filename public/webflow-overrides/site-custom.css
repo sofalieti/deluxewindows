@@ -223,12 +223,11 @@
   }
 
   .navbar-3 {
-    position: sticky !important;
-    top: 0 !important;
-    z-index: 1200 !important;
-    background: #ffffff;
-    border-bottom: 1px solid #e6eaf0;
-    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+    position: static !important;
+    z-index: auto !important;
+    background: transparent;
+    border-bottom: 0;
+    box-shadow: none;
     transform: none !important;
     display: flex !important;
     flex-direction: column !important;
@@ -236,12 +235,26 @@
     overflow: visible !important;
   }
 
-  body.mobile-menu-open .navbar-3 {
+  .navbar-3 > .navbar-container.w-nav {
     position: sticky !important;
     top: 0 !important;
+    z-index: 1200 !important;
+    background: #ffffff;
+    border-bottom: 1px solid #e6eaf0;
+    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+  }
+
+  body.mobile-menu-open .navbar-3 {
+    position: static !important;
+    top: auto !important;
     left: auto !important;
     right: auto !important;
     transform: none !important;
+  }
+
+  body.mobile-menu-open .navbar-3 > .navbar-container.w-nav {
+    position: sticky !important;
+    top: 0 !important;
   }
 
   body.mobile-menu-open .w-nav-overlay .w-nav-menu {
@@ -267,11 +280,6 @@
 
   .navbar-3 .navbar-container {
     background: #fff;
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
-    bottom: auto !important;
     margin-top: 0 !important;
     z-index: 1301;
     overflow: visible !important;

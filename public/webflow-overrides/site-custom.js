@@ -55,6 +55,7 @@
   // Mobile dropdown menu (simple panel under header).
   (function () {
     const NAVBAR = ".navbar-3";
+    const NAVBAR_ROW = `${NAVBAR} .navbar-container.w-nav`;
     const BTN = `${NAVBAR} .w-nav-button`;
     const MENU = `${NAVBAR} .nav-menu-wrapper-4.w-nav-menu`;
     const MOBILE = "(max-width: 991px)";
@@ -64,9 +65,9 @@
     const $ = (s) => document.querySelector(s);
 
     function syncMenuPosition() {
-      const navbar = $(NAVBAR);
-      if (!navbar) return;
-      const bottom = Math.round(navbar.getBoundingClientRect().bottom);
+      const bar = $(NAVBAR_ROW);
+      if (!bar) return;
+      const bottom = Math.round(bar.getBoundingClientRect().bottom);
       document.documentElement.style.setProperty("--mobile-nav-bottom", `${bottom}px`);
     }
 
