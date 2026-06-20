@@ -1310,13 +1310,6 @@
                         </nav>
                       </div>
                     </li>
-                    <li class="menu">
-                      <div class="nav-button-wrapper">
-                        <a href="/contacts" class="primary-button-2 w-inline-block"
-                          ><div class="text-block-35">Get Quote</div></a
-                        >
-                      </div>
-                    </li>
                   </ul>
                 </nav>
                 <div

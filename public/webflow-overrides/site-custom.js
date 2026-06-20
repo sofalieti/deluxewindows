@@ -351,6 +351,45 @@
     onReady(init);
   })();
 
+  // Mobile FAB: fade in after scrolling past the hero section.
+  (function () {
+    const MOBILE = "(max-width: 991px)";
+    const FAB = ".mobile-fab-estimate";
+    const HERO = ".div-block-59";
+    let ticking = false;
+
+    function shouldShowFab() {
+      const hero = document.querySelector(HERO);
+      if (hero) return hero.getBoundingClientRect().bottom <= 0;
+      return window.scrollY > 80;
+    }
+
+    function updateFabVisibility() {
+      ticking = false;
+      const fab = document.querySelector(FAB);
+      if (!fab) return;
+
+      if (!window.matchMedia(MOBILE).matches) {
+        fab.classList.remove("mobile-fab-estimate--visible");
+        return;
+      }
+
+      fab.classList.toggle("mobile-fab-estimate--visible", shouldShowFab());
+    }
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(updateFabVisibility);
+    }
+
+    onReady(() => {
+      updateFabVisibility();
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", updateFabVisibility, { passive: true });
+    });
+  })();
+
   // Link trust badges section background to hero background on mobile.
   (function () {
     function linkTrustBadgesToHeroBg() {
