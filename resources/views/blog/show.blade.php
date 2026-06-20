@@ -1,61 +1,18 @@
-<!DOCTYPE html>
-<html
-  data-wf-domain="www.deluxewindows.com"
-  data-wf-page="687b79c6ee572b31129b17c3"
-  data-wf-site="6841ddf8ace3d9d9facb14fd"
-  lang="en"
-  data-wf-collection="687b79c5ee572b31129b17bf"
-  data-wf-item-slug="{{ $slug }}"
-  class="w-mod-js w-mod-ix"
->
-  <head>
-    <meta charset="utf-8" />
-    <link href="https://cdn.prod.website-files.com" rel="preconnect" crossorigin="anonymous" />
-    <title>{{ $seoTitle }} | Deluxe Windows Blog</title>
-    <meta content="{{ $seoDescription }}" name="description" />
-    <meta content="{{ $ogTitle }}" property="og:title" />
-    <meta content="{{ $ogDescription }}" property="og:description" />
-    @if($heroImage)
-    <meta content="{{ $heroImage }}" property="og:image" />
-    @endif
-    <meta content="{{ $ogTitle }}" name="twitter:title" />
-    <meta content="{{ $ogDescription }}" name="twitter:description" />
-    @if($heroImage)
-    <meta content="{{ $heroImage }}" name="twitter:image" />
-    @endif
-    <meta property="og:type" content="website" />
-    <meta content="summary_large_image" name="twitter:card" />
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <link href="/webflow-assets/css/webflow.min.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="/webflow-assets/css/fonts.css" media="all" />
-    <script type="text/javascript">
-      document.documentElement.className = document.documentElement.className
-        .replace(/\bwf-loading\b/g, 'wf-active')
-        .replace(/\bwf-exo-[^\s]+/g, '');
-    </script>
-    <script type="text/javascript">
-      !(function (o, c) {
-        var n = c.documentElement,
-          t = " w-mod-";
-        n.className += t + "js";
-        ("ontouchstart" in o || (o.DocumentTouch && c instanceof DocumentTouch)) &&
-          (n.className += t + "touch");
-      })(window, document);
-    </script>
-    <link href="/webflow-assets/images/favicon.png" rel="shortcut icon" type="image/x-icon" />
-    <link href="/webflow-assets/images/webclip-bg.png" rel="apple-touch-icon" />
+@extends('layouts.classic')
 
-    @include('partials.classic-layout-styles')
+@section('wfPage', '687b79c6ee572b31129b17c3')
+@section('wfCollection', '687b79c5ee572b31129b17bf')
+@section('wfItemSlug', $slug)
+@section('bodyClass', 'body-18 height-auto')
+@section('title', $seoTitle . ' | Deluxe Windows Blog')
+@section('metaDescription', $seoDescription)
+@section('ogTitle', $ogTitle)
+@section('ogDescription', $ogDescription)
+@if($heroImage)
+@section('ogImage', $heroImage)
+@endif
 
-    <link href="https://core.service.elfsight.com/" rel="preconnect" crossorigin="" />
-  </head>
-
-  <body class="body-18 height-auto">
-    <div class="page-wrapper">
-
-      @include('partials.navbar')
-      @include('partials.header-scripts')
-
+@section('content')
       <section class="section_breadcrumbs section-121">
         <div class="w-layout-blockcontainer container-default breadcrumbs-container w-container">
           <div class="breadcrumbs-wrapper">
@@ -134,30 +91,8 @@
         'ctaHeadingClass' => 'heading-43',
         'contactHeadingClass' => 'heading-34',
       ])
+@endsection
 
-      @include('partials.footer')
-
-    </div>{{-- end .page-wrapper --}}
-
-    <div id="menuDimmer" style="opacity: 0; pointer-events: none"></div>
-
-    @include('partials.classic-site-scripts')
-
-    <script>
-      (function () {
-        const TRACK_PARAMS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "gclid", "fbclid", "msclkid"];
-        const urlParams = new URLSearchParams(window.location.search);
-        const hasSavedUtm = TRACK_PARAMS.some(p => localStorage.getItem("lead_param_" + p));
-        if (!hasSavedUtm) {
-          TRACK_PARAMS.forEach(param => {
-            const val = urlParams.get(param);
-            if (val) localStorage.setItem("lead_param_" + param, val);
-          });
-        }
-        if (!localStorage.getItem("lead_param_landing_page")) {
-          localStorage.setItem("lead_param_landing_page", window.location.pathname);
-        }
-      })();
-    </script>
-  </body>
-</html>
+@push('scripts')
+@include('partials.utm-tracking')
+@endpush

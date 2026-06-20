@@ -2,9 +2,9 @@
         @if($heroImage)
         style="background-image:url('{{ thumbnail_url($heroImage, 'hero_bg') }}')"
         @endif
-        class="div-block-59 sfdg"
+        class="div-block-59"
       >
-        <div class="div-block-61" style="background-color:#123f72;background-image:none;"></div>
+        <div class="div-block-61"></div>
         <div class="w-layout-blockcontainer container-default w-container">
           <div class="title-left---content-right paragraph-content alt hero-page">
             <div class="width-100-mobile-landscape">
@@ -14,8 +14,8 @@
                     <div class="div-block-60">
                       <div class="code-embed-7 w-embed">⚲ Serving {{ $countyName }}</div>
                       <div class="code-embed-6 w-embed">
-                        <h1 class="heading-4" style="font-size:40px">
-                          Window Replacement<br>in <span class="city-highlight"><span style="color:#e87722;">{{ $countyName }}</span></span>
+                        <h1 class="heading-4">
+                          Window Replacement<br>in <span class="city-highlight">{{ $countyName }}</span>
                         </h1>
                       </div>
                       <p class="paragraph-62">Professional window &amp; door installation by Bay Area's most trusted team. Vinyl, fiberglass, wood &amp; aluminum — every brand, every style, free estimate.</p>

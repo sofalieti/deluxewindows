@@ -1,43 +1,11 @@
-<!DOCTYPE html>
-<html
-  data-wf-domain="www.deluxewindows.com"
-  data-wf-page="6841ddf8ace3d9d9facb1638"
-  data-wf-site="6841ddf8ace3d9d9facb14fd"
-  lang="en"
-  class="w-mod-js w-mod-ix"
->
-  <head>
-    <meta charset="utf-8" />
-    <link href="https://cdn.prod.website-files.com" rel="preconnect" crossorigin="anonymous" />
-    <title>Contact Deluxe Windows | Bay Area Window Experts</title>
-    <meta content="Get in touch with Deluxe Windows in San Francisco. Call, email, or request a free quote for window and door installation across the Bay Area. We respond fast." name="description" />
-    <meta content="Contact Deluxe Windows | Bay Area Window Experts" property="og:title" />
-    <meta content="Get in touch with Deluxe Windows in San Francisco. Call, email, or request a free quote for window and door installation across the Bay Area. We respond fast." property="og:description" />
-    <meta content="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/684da952cef202b8dda5788c_Meta%20cover-2.jpg" property="og:image" />
-    <meta content="Contact Deluxe Windows | Bay Area Window Experts" name="twitter:title" />
-    <meta content="Get in touch with Deluxe Windows in San Francisco. Call, email, or request a free quote for window and door installation across the Bay Area. We respond fast." name="twitter:description" />
-    <meta property="og:type" content="website" />
-    <meta content="summary_large_image" name="twitter:card" />
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <link href="/webflow-assets/css/webflow.min.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="/webflow-assets/css/fonts.css" media="all" />
-    <script type="text/javascript">
-      document.documentElement.className = document.documentElement.className
-        .replace(/\bwf-loading\b/g, 'wf-active')
-        .replace(/\bwf-exo-[^\s]+/g, '');
-    </script>
-    <script type="text/javascript">
-      !(function (o, c) {
-        var n = c.documentElement, t = " w-mod-";
-        n.className += t + "js";
-        ("ontouchstart" in o || (o.DocumentTouch && c instanceof DocumentTouch)) && (n.className += t + "touch");
-      })(window, document);
-    </script>
-    <link href="/webflow-assets/images/favicon.png" rel="shortcut icon" type="image/x-icon" />
-    <link href="/webflow-assets/images/webclip-bg.png" rel="apple-touch-icon" />
+@extends('layouts.classic')
 
-    @include('partials.classic-layout-styles')
+@section('wfPage', '6841ddf8ace3d9d9facb1638')
+@section('title', 'Contact Deluxe Windows | Bay Area Window Experts')
+@section('metaDescription', 'Get in touch with Deluxe Windows in San Francisco. Call, email, or request a free quote for window and door installation across the Bay Area. We respond fast.')
+@section('ogImage', 'https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/684da952cef202b8dda5788c_Meta%20cover-2.jpg')
 
+@section('head')
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -78,27 +46,13 @@
       }
     }
     </script>
+@endsection
 
-    <link href="https://core.service.elfsight.com/" rel="preconnect" crossorigin="" />
-  </head>
-
-  <body>
-    <div class="page-wrapper">
-      @include('partials.navbar')
-      @include('partials.header-scripts')
-
+@section('content')
       @include('partials.contacts-webflow-section')
 
       @include('partials.faq', [
         'sectionExtraClass' => ' top-none',
         'faqFormHref' => '#wf-form-Contact-V1-Form',
       ])
-
-      @include('partials.footer')
-    </div>
-
-    <div id="menuDimmer" style="opacity: 0; pointer-events: none"></div>
-
-    @include('partials.classic-site-scripts')
-  </body>
-</html>
+@endsection

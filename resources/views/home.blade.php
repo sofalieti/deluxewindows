@@ -24,10 +24,6 @@
       }
 
       /* === Layout spacing fixes === */
-      /* Remove gap between hero section and trust-badges bar below it */
-      .div-block-59 { margin-bottom: 0 !important; }
-      .div-block-59 > .w-layout-blockcontainer.container-default { padding-bottom: 0 !important; }
-
       /* Remove extra top padding on Doors section */
       .section.pd-top-80px { padding-top: 0 !important; }
 

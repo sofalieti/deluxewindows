@@ -1,40 +1,11 @@
-<!DOCTYPE html>
-<html
-  data-wf-domain="www.deluxewindows.com"
-  data-wf-page="gallery"
-  data-wf-site="6841ddf8ace3d9d9facb14fd"
-  lang="en"
-  class="w-mod-js w-mod-ix"
->
-  <head>
-    <meta charset="utf-8" />
-    <link href="https://cdn.prod.website-files.com" rel="preconnect" crossorigin="anonymous" />
-    <title>Photo Gallery | Deluxe Windows – Bay Area</title>
-    <meta content="Browse our photo gallery of completed window and door replacement projects across the Bay Area by Deluxe Windows." name="description" />
-    <meta content="Photo Gallery | Deluxe Windows – Bay Area" property="og:title" />
-    <meta content="Browse our photo gallery of completed window and door replacement projects across the Bay Area by Deluxe Windows." property="og:description" />
-    <meta property="og:type" content="website" />
-    <meta content="summary_large_image" name="twitter:card" />
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <link href="/webflow-assets/css/webflow.min.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="/webflow-assets/css/fonts.css" media="all" />
-    <script type="text/javascript">
-      document.documentElement.className = document.documentElement.className
-        .replace(/\bwf-loading\b/g, 'wf-active')
-        .replace(/\bwf-exo-[^\s]+/g, '');
-    </script>
-    <script type="text/javascript">
-      !(function (o, c) {
-        var n = c.documentElement, t = " w-mod-";
-        n.className += t + "js";
-        ("ontouchstart" in o || (o.DocumentTouch && c instanceof DocumentTouch)) && (n.className += t + "touch");
-      })(window, document);
-    </script>
-    <link href="/webflow-assets/images/favicon.png" rel="shortcut icon" type="image/x-icon" />
-    <link href="/webflow-assets/images/webclip-bg.png" rel="apple-touch-icon" />
+@extends('layouts.classic')
 
-    @include('partials.classic-layout-styles')
+@section('wfPage', 'gallery')
+@section('bodyClass', 'body-18 height-auto gallery-page')
+@section('title', 'Photo Gallery | Deluxe Windows – Bay Area')
+@section('metaDescription', 'Browse our photo gallery of completed window and door replacement projects across the Bay Area by Deluxe Windows.')
 
+@section('head')
     <style>
       .dw-gallery-grid {
         columns: 4;
@@ -74,6 +45,9 @@
         margin-top: 10px;
         font-style: italic;
       }
+      .dw-gallery-section {
+        padding-top: 32px;
+      }
       @media (max-width: 991px) {
         .dw-gallery-grid { columns: 3; }
       }
@@ -82,16 +56,9 @@
         .dw-gallery-item { margin-bottom: 6px; border-radius: 7px; }
       }
     </style>
+@endsection
 
-    <link href="https://core.service.elfsight.com/" rel="preconnect" crossorigin="" />
-  </head>
-
-  <body class="body-18 height-auto gallery-page">
-    <div class="page-wrapper">
-
-      @include('partials.navbar')
-      @include('partials.header-scripts')
-
+@section('content')
       <section class="section_breadcrumbs section-121">
         <div class="w-layout-blockcontainer container-default breadcrumbs-container w-container">
           <div class="breadcrumbs-wrapper">
@@ -120,7 +87,7 @@
         </div>
       </section>
 
-      <section class="section" style="padding-top:32px;">
+      <section class="section dw-gallery-section">
         <div class="w-layout-blockcontainer container-default w-container">
           <div class="dw-gallery-grid">
             @foreach($images as $image)
@@ -133,29 +100,8 @@
       </section>
 
       @include('partials.cta')
-      @include('partials.footer')
+@endsection
 
-    </div>
-
-    <div id="menuDimmer" style="opacity: 0; pointer-events: none"></div>
-
-    @include('partials.classic-site-scripts')
-
-    <script>
-      (function () {
-        const TRACK_PARAMS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "gclid", "fbclid", "msclkid"];
-        const urlParams = new URLSearchParams(window.location.search);
-        const hasSavedUtm = TRACK_PARAMS.some(p => localStorage.getItem("lead_param_" + p));
-        if (!hasSavedUtm) {
-          TRACK_PARAMS.forEach(param => {
-            const val = urlParams.get(param);
-            if (val) localStorage.setItem("lead_param_" + param, val);
-          });
-        }
-        if (!localStorage.getItem("lead_param_landing_page")) {
-          localStorage.setItem("lead_param_landing_page", window.location.pathname);
-        }
-      })();
-    </script>
-  </body>
-</html>
+@push('scripts')
+@include('partials.utm-tracking')
+@endpush

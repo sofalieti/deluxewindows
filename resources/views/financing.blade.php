@@ -1,56 +1,15 @@
-<!DOCTYPE html>
-<html
-  data-wf-domain="www.deluxewindows.com"
-  data-wf-page="6841ddf8ace3d9d9facb1672"
-  data-wf-site="6841ddf8ace3d9d9facb14fd"
-  lang="en"
-  class="w-mod-js w-mod-ix"
->
-  <head>
-    <meta charset="utf-8" />
-    <link href="https://cdn.prod.website-files.com" rel="preconnect" crossorigin="anonymous" />
-    <title>{{ $seoTitle }}</title>
-    <meta content="{{ $seoDescription }}" name="description" />
-    <meta content="{{ $seoTitle }}" property="og:title" />
-    <meta content="{{ $seoDescription }}" property="og:description" />
-    <meta content="{{ $ogImage }}" property="og:image" />
-    <meta content="{{ $seoTitle }}" name="twitter:title" />
-    <meta content="{{ $seoDescription }}" name="twitter:description" />
-    <meta property="og:type" content="website" />
-    <meta content="summary_large_image" name="twitter:card" />
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <link href="/webflow-assets/css/webflow.min.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="/webflow-assets/css/fonts.css" media="all" />
-    <script type="text/javascript">
-      document.documentElement.className = document.documentElement.className
-        .replace(/\bwf-loading\b/g, 'wf-active')
-        .replace(/\bwf-exo-[^\s]+/g, '');
-    </script>
-    <script type="text/javascript">
-      !(function (o, c) {
-        var n = c.documentElement, t = " w-mod-";
-        n.className += t + "js";
-        ("ontouchstart" in o || (o.DocumentTouch && c instanceof DocumentTouch)) && (n.className += t + "touch");
-      })(window, document);
-    </script>
-    <link href="/webflow-assets/images/favicon.png" rel="shortcut icon" type="image/x-icon" />
-    <link href="/webflow-assets/images/webclip-bg.png" rel="apple-touch-icon" />
+@php
+  $cdn = 'https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd';
+@endphp
+@extends('layouts.classic')
 
-    @include('partials.classic-layout-styles')
+@section('wfPage', '6841ddf8ace3d9d9facb1672')
+@section('pageWrapperClass', 'full-height-page')
+@section('title', $seoTitle)
+@section('metaDescription', $seoDescription)
+@section('ogImage', $ogImage)
 
-    <style>
-      .w-webflow-badge { display: none !important; }
-    </style>
-
-  </head>
-
-  <body>
-    @php $cdn = 'https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd'; @endphp
-
-    <div class="page-wrapper full-height-page">
-
-      @include('partials.navbar')
-
+@section('content')
       <div>
         <section class="section hero-v4">
           <div class="w-layout-blockcontainer container-default w-container">
@@ -295,21 +254,21 @@
                           <label for="name">Full name*</label>
                           <div class="input-wrapper">
                             <input class="input icon-left w-input" maxlength="256" name="Name" data-name="Name" placeholder="Full name" type="text" id="name" required="" />
-                            <div class="input-line-icon-wrapper"><div class="filled-icons-font"></div></div>
+                            <div class="input-line-icon-wrapper"><div class="filled-icons-font"></div></div>
                           </div>
                         </div>
                         <div>
                           <label for="email">Email address*</label>
                           <div class="input-wrapper">
                             <input class="input icon-left w-input" maxlength="256" name="Email" data-name="Email" placeholder="example@email.com" type="email" id="email" required="" />
-                            <div class="input-line-icon-wrapper"><div class="filled-icons-font"></div></div>
+                            <div class="input-line-icon-wrapper"><div class="filled-icons-font"></div></div>
                           </div>
                         </div>
                         <div>
                           <label for="phone">Phone number*</label>
                           <div class="input-wrapper">
                             <input class="input icon-left w-input" maxlength="256" name="Phone" data-name="Phone" placeholder="{{ site_phone_display() }}" type="tel" id="phone" required="" />
-                            <div class="input-line-icon-wrapper"><div class="filled-icons-font"></div></div>
+                            <div class="input-line-icon-wrapper"><div class="filled-icons-font"></div></div>
                           </div>
                         </div>
                         <div>
@@ -338,7 +297,7 @@
                       </div>
                     </form>
                     <div class="success-message-wrapp w-form-done">
-                      <div class="success-icon"><div class="icon-font-rounded"></div></div>
+                      <div class="success-icon"><div class="icon-font-rounded"></div></div>
                       <div class="mg-top-default">
                         <div class="text-titles">
                           <div class="display-5 mid">Thank you! We’ll get back to <span class="text-no-wrap">you soon</span></div>
@@ -435,15 +394,9 @@
           </div>
         </div>
       </section>
+@endsection
 
-      @include('partials.footer')
-
-    </div>
-
-    <div id="menuDimmer" style="opacity: 0; pointer-events: none"></div>
-
-    @include('partials.classic-site-scripts')
-
+@push('scripts')
     <script>
       (function () {
         const TRACK_PARAMS = ["utm_source","utm_medium","utm_campaign","utm_term","utm_content","matchtype","device","creative","gclid"];
@@ -508,5 +461,4 @@
         }
       })();
     </script>
-  </body>
-</html>
+@endpush

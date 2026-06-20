@@ -174,7 +174,7 @@
                       @endif
                       <p>‍</p>
                       <div class="w-embed">
-                        <h2 style="font-size: 21px; color: #fff" data-city="">Local Installers</h2>
+                        <h2 data-city="">Local Installers</h2>
                       </div>
                     </div>
                     <div class="hero-mobile-promo-slot hero-mobile-promo-slot--mobile">

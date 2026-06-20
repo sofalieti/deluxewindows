@@ -731,6 +731,16 @@
   background-repeat: no-repeat;
 }
 
+/* City landing hero (service-area / county-hub) — unified heading + highlight */
+.title-left---content-right.paragraph-content.alt.hero-page .code-embed-6 .heading-4 {
+  font-size: clamp(24px, 4vw, 40px);
+  line-height: 1.12;
+}
+
+.title-left---content-right.paragraph-content.alt.hero-page .city-highlight {
+  color: #e87722;
+}
+
 .title-left---content-right.paragraph-content.alt.hero-page .rich-text-block-2 {
   text-align: left;
 }
@@ -749,6 +759,7 @@
 
 .title-left---content-right.paragraph-content.alt.hero-page .rich-text-block-2 .w-embed h2[data-city] {
   margin: 0;
+  color: #ffffff;
   font-size: clamp(16px, 1.05vw, 20px) !important;
   line-height: 1.25;
 }
