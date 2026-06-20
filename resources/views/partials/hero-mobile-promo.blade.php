@@ -1,7 +1,7 @@
 @php
   $variant = $variant ?? 'percent';
   $badgeNote = $badgeNote ?? 'OFF Windows';
-  $badgeCopy = $badgeCopy ?? null;
+  $badgeHtml = $badgeHtml ?? null;
   $buttonLabel = $buttonLabel ?? 'Request a Free Estimate';
   $showExpires = $showExpires ?? true;
   $percent = $percent ?? app(\App\Services\PromotionControlService::class)->globalDiscountPercent() . '%';
@@ -16,9 +16,9 @@
 @endonce
 
 <div class="hero-mobile-promo">
-  @if($variant === 'copy' && $badgeCopy)
-    <div class="hero-mobile-promo__badge promo-price-tag hero-mobile-promo__badge--copy">
-      <div class="hero-mobile-promo__badge-copy">{{ $badgeCopy }}</div>
+  @if($variant === 'price' && $badgeHtml)
+    <div class="hero-mobile-promo__badge">
+      {!! $badgeHtml !!}
     </div>
   @else
     <div class="hero-mobile-promo__badge promo-price-tag promo-price-tag--percent">

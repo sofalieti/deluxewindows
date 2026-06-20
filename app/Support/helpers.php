@@ -127,3 +127,19 @@ if (! function_exists('promotion_home_html')) {
         return app(PromotionControlService::class)->homePriceHtml();
     }
 }
+
+if (! function_exists('promotion_hero_mobile_price_tag_html')) {
+    function promotion_hero_mobile_price_tag_html(
+        ?string $heroPricingHtml = null,
+        bool $isCollection = false,
+        bool $isWindowType = false,
+    ): string {
+        $service = app(PromotionControlService::class);
+
+        if ($heroPricingHtml !== null && trim($heroPricingHtml) !== '') {
+            return $service->resolveHeroMobilePriceTagHtml($heroPricingHtml, $isCollection, $isWindowType);
+        }
+
+        return $service->defaultHeroMobilePriceTagHtml();
+    }
+}

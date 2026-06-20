@@ -62,6 +62,11 @@
     : (!empty($windowTypeHero)
       ? ($heroFormHtml ?? '<p>Starting from $1199 per window installed.</p><p><strong>Special pricing available upon request! </strong>‍</p>')
       : ($brandHeroFormHtml ?? '<p>Starting from $999 per window installed.</p><p><strong>Special pricing available upon request!</strong>‍</p>'));
+  $heroMobilePriceTagHtml = promotion_hero_mobile_price_tag_html(
+    $heroPricingHtml,
+    !empty($collectionHero),
+    !empty($windowTypeHero),
+  );
   $windowTypeHeroCopy = [
     'vinyl-windows' => [
       'headline' => 'Upgrade to Energy Efficient Vinyl Windows for Less',
@@ -173,10 +178,9 @@
                     </div>
                     <div class="hero-mobile-promo-slot hero-mobile-promo-slot--mobile">
                       @include('partials.hero-mobile-promo', [
-                        'variant' => 'copy',
-                        'badgeCopy' => promotion_name() . ' • ' . promotion_percent_label() . ' • ' . promotion_date('us-short-no-year'),
+                        'variant' => 'price',
+                        'badgeHtml' => $heroMobilePriceTagHtml,
                         'buttonLabel' => 'Get Free Quote',
-                        'showExpires' => false,
                       ])
                     </div>
                     @if($brandLikeHero || !empty($doorHero))

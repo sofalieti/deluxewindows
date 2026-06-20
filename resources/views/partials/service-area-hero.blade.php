@@ -28,6 +28,8 @@
                     </div>
                     <div class="hero-mobile-promo-slot hero-mobile-promo-slot--mobile">
                       @include('partials.hero-mobile-promo', [
+                        'variant' => 'price',
+                        'badgeHtml' => promotion_hero_mobile_price_tag_html(),
                         'buttonLabel' => 'Request a Free Estimate',
                       ])
                     </div>

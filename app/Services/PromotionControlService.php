@@ -173,6 +173,104 @@ class PromotionControlService
         return $this->priceHtml($base, $final, $suffix);
     }
 
+    public function pricingTagHtmlFromMap(array $pricing, string $suffix = 'per window installed'): string
+    {
+        $base = trim((string) ($pricing['base'] ?? ''));
+        $final = trim((string) ($pricing['final'] ?? ''));
+
+        if ($final === '') {
+            return $this->priceTagHtml('915', '$549', $suffix);
+        }
+
+        if ($base === '') {
+            return $this->priceTagHtmlStartingFrom($final, $suffix);
+        }
+
+        return $this->priceTagHtml($base, $final, $suffix);
+    }
+
+    public function priceTagHtml(string $base, string $final, string $suffix = 'per window'): string
+    {
+        $base = e($this->normalizeMoney($base));
+        $final = e($this->normalizeMoney($final));
+        $suffix = e($suffix);
+
+        return '<div class="promo-price-tag">'
+            .'<div class="promo-price-tag-line"><span class="promo-price-tag-label">Regular</span><span class="promo-price-tag-old"><s>'.$base.'</s></span></div>'
+            .'<div class="promo-price-tag-line promo-price-tag-line--new"><span class="promo-price-tag-label">Now</span><span class="promo-price-tag-new">'.$final.'</span></div>'
+            .'<div class="promo-price-tag-note">'.$suffix.'</div>'
+            .'</div>';
+    }
+
+    public function priceTagHtmlStartingFrom(string $final, string $suffix = 'per window installed'): string
+    {
+        $final = e($this->normalizeMoney($final));
+        $suffix = e($suffix);
+
+        return '<div class="promo-price-tag">'
+            .'<div class="promo-price-tag-line promo-price-tag-line--start"><span class="promo-price-tag-label">Starting from</span><span class="promo-price-tag-start">'.$final.'</span></div>'
+            .'<div class="promo-price-tag-note">'.$suffix.'</div>'
+            .'</div>';
+    }
+
+    public function extractPriceTagFromPromoHtml(string $html): ?string
+    {
+        $html = trim($html);
+        if ($html === '') {
+            return null;
+        }
+
+        if (! preg_match('/<div class="promo-price-tag[^"]*">[\s\S]*?<\/div>/', $html, $tagMatch)) {
+            return null;
+        }
+
+        $tag = $tagMatch[0];
+        if (str_contains($tag, 'promo-price-tag-note')) {
+            return $tag;
+        }
+
+        if (preg_match('/<div class="promo-offer-note[^"]*">([^<]*)<\/div>/', $html, $noteMatch) !== 1) {
+            return $tag;
+        }
+
+        $note = trim(html_entity_decode(strip_tags($noteMatch[1]), ENT_QUOTES | ENT_HTML5, 'UTF-8'));
+        if ($note === '') {
+            return $tag;
+        }
+
+        return preg_replace(
+            '/<\/div>\s*$/',
+            '<div class="promo-price-tag-note">'.e($note).'</div></div>',
+            $tag
+        ) ?? $tag;
+    }
+
+    public function resolveHeroMobilePriceTagHtml(
+        string $heroPricingHtml,
+        bool $isCollection = false,
+        bool $isWindowType = false,
+    ): string {
+        $extracted = $this->extractPriceTagFromPromoHtml($heroPricingHtml);
+        if ($extracted !== null) {
+            return $extracted;
+        }
+
+        if ($isWindowType) {
+            return $this->priceTagHtmlStartingFrom('$1199', 'per window installed');
+        }
+
+        if ($isCollection) {
+            return $this->priceTagHtml('915', '$549', 'per window installed');
+        }
+
+        return $this->priceTagHtmlStartingFrom('$999', 'per window installed');
+    }
+
+    public function defaultHeroMobilePriceTagHtml(): string
+    {
+        return $this->priceTagHtml('915', '$549', 'per window installed');
+    }
+
     public function priceHtml(string $base, string $final, string $suffix = 'per window'): string
     {
         $base = e($this->normalizeMoney($base));
@@ -185,11 +283,7 @@ class PromotionControlService
             .'<h3 class="promo-offer-title">'.$promoName.'</h3>'
             .'<div class="promo-offer-headline">'.$discount.'</div>'
             .'<div class="promo-offer-subtitle">Limited-time pricing</div>'
-            .'<div class="promo-price-tag">'
-            .'<div class="promo-price-tag-line"><span class="promo-price-tag-label">Regular</span><span class="promo-price-tag-old"><s>'.$base.'</s></span></div>'
-            .'<div class="promo-price-tag-line promo-price-tag-line--new"><span class="promo-price-tag-label">Now</span><span class="promo-price-tag-new">'.$final.'</span></div>'
-            .'<div class="promo-price-tag-note">'.$suffix.'</div>'
-            .'</div>'
+            .$this->priceTagHtml($base, $final, $suffix)
             .'</div>';
     }
 
@@ -220,10 +314,7 @@ class PromotionControlService
             .'<h3 class="promo-offer-title">'.$promoName.'</h3>'
             .'<div class="promo-offer-headline">'.$discount.'</div>'
             .'<div class="promo-offer-subtitle">Special pricing available upon request!</div>'
-            .'<div class="promo-price-tag">'
-            .'<div class="promo-price-tag-line promo-price-tag-line--start"><span class="promo-price-tag-label">Starting from</span><span class="promo-price-tag-start">'.$final.'</span></div>'
-            .'</div>'
-            .'<div class="promo-offer-note">'.$suffix.'</div>'
+            .$this->priceTagHtmlStartingFrom($final, $suffix)
             .'</div>';
     }
 

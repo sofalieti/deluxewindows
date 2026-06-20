@@ -167,10 +167,10 @@
    field to keep the mobile form short and conversion-friendly.        */
 
 @media screen and (max-width: 767px) {
-  /* Keep hero content vertically centered — spacing handled in site-custom.css */
+  /* Hero content starts at 20% from top — spacing handled in site-custom.css */
   .title-left---content-right.paragraph-content.alt.hero-page {
     align-items: center !important;
-    justify-content: center !important;
+    justify-content: flex-start !important;
   }
 
   /* Form card */
