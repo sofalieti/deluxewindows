@@ -55,6 +55,7 @@
   // Mobile dropdown menu (simple panel under header).
   (function () {
     const NAVBAR = ".navbar-3";
+    const STRIP = ".mobile-header-shell > .mobile-top-strip";
     const BTN = `${NAVBAR} .w-nav-button`;
     const MENU = `${NAVBAR} .nav-menu-wrapper-4.w-nav-menu`;
     const MOBILE = "(max-width: 991px)";
@@ -81,10 +82,11 @@
     }
 
     function shouldPinBar() {
-      const bar = $(NAVBAR);
-      if (!bar) return false;
-      // Pin the logo/phone/menu row when it reaches the top — not the text strip above it
-      return bar.getBoundingClientRect().top <= 0;
+      const strip = $(STRIP);
+      if (!strip) return window.scrollY > 1;
+
+      // Use the text strip position — fixed navbar always reports top: 0 in getBoundingClientRect
+      return strip.getBoundingClientRect().bottom <= 0;
     }
 
     let applyingPin = false;
