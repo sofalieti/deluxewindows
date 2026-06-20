@@ -206,6 +206,7 @@ class PromotionControlService
             .'<div class="promo-price-tag-line promo-price-tag-line--new"><span class="promo-price-tag-new">'.$percent.'</span></div>'
             .'<div class="promo-price-tag-note">OFF Windows</div>'
             .'</div>'
+            .'<button type="button" class="promo-offer-card__estimate-btn" data-open-estimate-modal>Request a Free Estimate</button>'
             .'</div>';
     }
 

@@ -203,8 +203,10 @@
   }
 
   .hero-home-promo--mobile .promo-offer-card {
-    padding: 12px 14px;
+    padding: 12px 14px 14px;
     text-align: left;
+    display: flex;
+    flex-direction: column;
   }
 
   .hero-home-promo--mobile .promo-price-tag {
@@ -214,6 +216,36 @@
     max-width: 220px;
     margin-top: 10px;
     display: inline-block;
+  }
+
+  .promo-offer-card__estimate-btn {
+    display: none;
+  }
+
+  .hero-home-promo--mobile .promo-offer-card__estimate-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 44px;
+    margin-top: 14px;
+    padding: 0 16px;
+    border: 1px solid #ef8a00;
+    border-radius: 10px;
+    background: linear-gradient(180deg, #f7a71a 0%, #ef8a00 100%);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(239, 138, 0, 0.28);
+  }
+
+  .hero-home-promo--mobile .promo-offer-card__estimate-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 4px 12px rgba(239, 138, 0, 0.24);
   }
 }
 
