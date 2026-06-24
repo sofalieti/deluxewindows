@@ -12,6 +12,7 @@ class WebflowRefetchMissingImagesCommand extends Command
     protected $signature = 'webflow:refetch-missing-images
         {--collection= : Process only one collection slug}
         {--dry-run : Only report what is missing and what would be fetched}
+        {--list-missing : Only list every missing reference (all fields, multi-value too); no API, no downloads}
         {--export : Re-export local Webflow JSON files after rewriting the database}';
 
     protected $description = 'Find DB image references whose local file is missing, re-fetch a fresh URL from Webflow (by fileId) and download it.';
@@ -21,12 +22,15 @@ class WebflowRefetchMissingImagesCommand extends Command
         $collection = $this->option('collection');
         $collection = is_string($collection) && trim($collection) !== '' ? trim($collection) : null;
         $dryRun = (bool) $this->option('dry-run');
+        $listOnly = (bool) $this->option('list-missing');
 
-        if ($dryRun) {
+        if ($listOnly) {
+            $this->warn('LIST ONLY — enumerating every missing reference (no API, no downloads).');
+        } elseif ($dryRun) {
             $this->warn('DRY RUN — nothing will be downloaded or written.');
         }
 
-        $stats = $service->run($collection, $dryRun, function (string $message): void {
+        $stats = $service->run($collection, $dryRun, $listOnly, function (string $message): void {
             $this->line($message);
         });
 
@@ -42,7 +46,7 @@ class WebflowRefetchMissingImagesCommand extends Command
         $this->line('Rows updated:            '.(int) $stats['rows_updated']);
         $this->line('Unresolved (still missing): '.(int) $stats['unresolved']);
 
-        if (! $dryRun && (bool) $this->option('export')) {
+        if (! $dryRun && ! $listOnly && (bool) $this->option('export')) {
             $this->newLine();
             $this->info('Re-exporting local Webflow JSON files...');
             $this->call('webflow:local', ['action' => 'export']);

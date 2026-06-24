@@ -32,7 +32,7 @@ class WebflowMissingImageRefetchService
      * @param  callable(string):void|null  $log
      * @return array<string,mixed>
      */
-    public function run(?string $onlyCollection, bool $dryRun, ?callable $log = null): array
+    public function run(?string $onlyCollection, bool $dryRun, bool $listOnly = false, ?callable $log = null): array
     {
         $log ??= static function (): void {};
 
@@ -62,7 +62,7 @@ class WebflowMissingImageRefetchService
             }
 
             $collectionId = $slugToCollectionId[$slug] ?? null;
-            $this->processTable($table, $slug, $collectionId, $hasToken, $dryRun, $stats, $log);
+            $this->processTable($table, $slug, $collectionId, $hasToken, $dryRun, $listOnly, $stats, $log);
         }
 
         return $stats;
@@ -74,6 +74,7 @@ class WebflowMissingImageRefetchService
         ?string $collectionId,
         bool $hasToken,
         bool $dryRun,
+        bool $listOnly,
         array &$stats,
         callable $log
     ): void {
@@ -82,22 +83,48 @@ class WebflowMissingImageRefetchService
             return;
         }
 
-        // First pass: are there any missing references at all in this table?
-        $missingExists = false;
+        // First pass: collect every missing reference (ref => column) per row id.
+        $missingByRow = [];
         foreach ($rows as $rowObject) {
-            foreach ($this->collectRefs((array) $rowObject) as $ref) {
+            $row = (array) $rowObject;
+            $id = (int) ($row['id'] ?? 0);
+            if ($id <= 0) {
+                continue;
+            }
+
+            foreach ($this->collectRefs($row) as $ref => $column) {
                 if (! $this->localFileExists($ref)) {
-                    $missingExists = true;
-                    break 2;
+                    $missingByRow[$id][$ref] = $column;
                 }
             }
         }
 
-        if (! $missingExists) {
+        if ($missingByRow === []) {
             return;
         }
 
-        $log("→ {$slug}: found missing images, resolving...");
+        $missingCount = array_sum(array_map('count', $missingByRow));
+        $log("→ {$slug}: {$missingCount} missing reference(s) across ".count($missingByRow).' row(s)');
+
+        if ($listOnly) {
+            foreach ($rows as $rowObject) {
+                $row = (array) $rowObject;
+                $id = (int) ($row['id'] ?? 0);
+                if (! isset($missingByRow[$id])) {
+                    continue;
+                }
+                $webflowItemId = (string) ($row['webflow_item_id'] ?? '');
+                foreach ($missingByRow[$id] as $ref => $column) {
+                    $stats['missing']++;
+                    $stats['unresolved']++;
+                    $log("   MISSING [{$webflowItemId}] {$column}: {$ref}");
+                }
+            }
+
+            $stats['by_collection'][$slug] = ['rows_updated' => 0];
+
+            return;
+        }
 
         // Fetch fresh items from Webflow (itemId => fieldData), only when needed.
         $freshMap = [];
@@ -123,20 +150,16 @@ class WebflowMissingImageRefetchService
         foreach ($rows as $rowObject) {
             $row = (array) $rowObject;
             $id = (int) ($row['id'] ?? 0);
-            if ($id <= 0) {
+            if ($id <= 0 || ! isset($missingByRow[$id])) {
                 continue;
             }
 
             $webflowItemId = (string) ($row['webflow_item_id'] ?? '');
             $replacements = [];
 
-            foreach ($this->collectRefs($row) as $ref) {
-                if ($this->localFileExists($ref)) {
-                    continue;
-                }
-
+            foreach ($missingByRow[$id] as $ref => $column) {
                 $stats['missing']++;
-                $newLocal = $this->resolveMissing($ref, $webflowItemId, $freshMap, $dryRun, $stats, $log);
+                $newLocal = $this->resolveMissing($ref, $column, $webflowItemId, $freshMap, $dryRun, $stats, $log);
 
                 if ($newLocal !== null && $newLocal !== $ref) {
                     $replacements[$ref] = $newLocal;
@@ -165,6 +188,7 @@ class WebflowMissingImageRefetchService
      */
     private function resolveMissing(
         string $ref,
+        string $column,
         string $webflowItemId,
         array $freshMap,
         bool $dryRun,
@@ -221,7 +245,7 @@ class WebflowMissingImageRefetchService
         }
 
         $stats['unresolved']++;
-        $log("   UNRESOLVED: {$basename}");
+        $log("   UNRESOLVED [{$webflowItemId}] {$column}: {$basename}");
 
         return null;
     }
@@ -229,7 +253,11 @@ class WebflowMissingImageRefetchService
     // ----- Reference collection -------------------------------------------------
 
     /**
-     * @return list<string>
+     * Scans every column of the row (plain strings AND JSON columns, including
+     * nested arrays / multi-value image fields) and returns a map of every
+     * image reference to the first column it was found in.
+     *
+     * @return array<string,string> ref => column
      */
     private function collectRefs(array $row): array
     {
@@ -246,16 +274,16 @@ class WebflowMissingImageRefetchService
                 continue;
             }
 
-            $this->collectRefsFromColumn($value, $refs);
+            $this->collectRefsFromColumn($value, $column, $refs);
         }
 
-        return array_values(array_unique($refs));
+        return $refs;
     }
 
     /**
-     * @param  list<string>  $refs
+     * @param  array<string,string>  $refs
      */
-    private function collectRefsFromColumn(string $value, array &$refs): void
+    private function collectRefsFromColumn(string $value, string $column, array &$refs): void
     {
         $trimmed = ltrim($value);
         $looksJson = $trimmed !== '' && in_array($trimmed[0], ['{', '[', '"'], true);
@@ -263,50 +291,50 @@ class WebflowMissingImageRefetchService
         if ($looksJson) {
             $decoded = json_decode($value, true);
             if (json_last_error() === JSON_ERROR_NONE) {
-                $this->collectRefsFromValue($decoded, $refs);
+                $this->collectRefsFromValue($decoded, $column, $refs);
 
                 return;
             }
         }
 
-        $this->findRefsInString($value, $refs);
+        $this->findRefsInString($value, $column, $refs);
     }
 
     /**
-     * @param  list<string>  $refs
+     * @param  array<string,string>  $refs
      */
-    private function collectRefsFromValue(mixed $value, array &$refs): void
+    private function collectRefsFromValue(mixed $value, string $column, array &$refs): void
     {
         if (is_array($value)) {
             foreach ($value as $item) {
-                $this->collectRefsFromValue($item, $refs);
+                $this->collectRefsFromValue($item, $column, $refs);
             }
 
             return;
         }
 
         if (is_string($value) && $value !== '') {
-            $this->findRefsInString($value, $refs);
+            $this->findRefsInString($value, $column, $refs);
         }
     }
 
     /**
-     * @param  list<string>  $refs
+     * @param  array<string,string>  $refs
      */
-    private function findRefsInString(string $value, array &$refs): void
+    private function findRefsInString(string $value, string $column, array &$refs): void
     {
         if (preg_match_all('~https?://[^\s"\'<>(),\\\\]+~i', $value, $m)) {
             foreach ($m[0] as $url) {
-                if ($this->isCdnImage($url)) {
-                    $refs[] = $url;
+                if ($this->isCdnImage($url) && ! isset($refs[$url])) {
+                    $refs[$url] = $column;
                 }
             }
         }
 
         if (preg_match_all('~/'.preg_quote(self::PUBLIC_DIR, '~').'/[^\s"\'<>(),\\\\]+~i', $value, $m2)) {
             foreach ($m2[0] as $path) {
-                if ($this->hasImageExtension($path)) {
-                    $refs[] = $path;
+                if ($this->hasImageExtension($path) && ! isset($refs[$path])) {
+                    $refs[$path] = $column;
                 }
             }
         }
@@ -479,12 +507,65 @@ class WebflowMissingImageRefetchService
 
     private function localFileExists(string $ref): bool
     {
-        $basename = $this->basenameOf($ref);
-        if ($basename === '') {
-            return true; // can't resolve a basename; don't treat as missing
+        foreach ($this->localCandidatePaths($ref) as $candidate) {
+            if (File::exists($candidate)) {
+                return true;
+            }
         }
 
-        return File::exists(public_path(self::PUBLIC_DIR.'/'.$basename));
+        return false;
+    }
+
+    /**
+     * Every disk location a reference could legitimately resolve to. We try the
+     * same name variants that webflow_image_url() serves with, so detection and
+     * rendering never disagree:
+     *  - flat download target: public/webflow-assets/images/<basename>
+     *  - the literal local path incl. sub-folders (e.g. window-type-hero/...)
+     *  - the name as-is, URL-decoded, and re-encoded (space -> %20), since
+     *    "Frame%2039.avif" may be on disk as "Frame%2039.avif" OR "Frame 39.avif".
+     *
+     * @return list<string>
+     */
+    private function localCandidatePaths(string $ref): array
+    {
+        $paths = [];
+
+        $basename = $this->basenameOf($ref);
+        foreach ($this->nameVariants($basename) as $name) {
+            $paths[] = public_path(self::PUBLIC_DIR.'/'.$name);
+        }
+
+        $path = parse_url($ref, PHP_URL_PATH);
+        if (is_string($path) && str_starts_with($path, '/'.self::PUBLIC_DIR.'/')) {
+            $relative = ltrim($path, '/');
+            foreach ($this->nameVariants($relative) as $name) {
+                $paths[] = public_path($name);
+            }
+        }
+
+        return array_values(array_unique($paths));
+    }
+
+    /**
+     * Mirrors webflow_image_url(): the value as-is, fully decoded, and decoded
+     * with spaces re-encoded to %20. Covers every percent-encoding combination.
+     *
+     * @return list<string>
+     */
+    private function nameVariants(string $value): array
+    {
+        if ($value === '') {
+            return [];
+        }
+
+        $decoded = rawurldecode($value);
+
+        return array_values(array_unique([
+            $value,
+            $decoded,
+            str_replace(' ', '%20', $decoded),
+        ]));
     }
 
     private function localUrl(string $basename): string
