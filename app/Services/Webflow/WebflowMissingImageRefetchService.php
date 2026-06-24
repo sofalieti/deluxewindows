@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services\Webflow;
 
+use App\Support\WebflowAssetName;
 use App\Support\WebflowCollectionRegistry;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
@@ -196,7 +197,8 @@ class WebflowMissingImageRefetchService
         callable $log
     ): ?string {
         $basename = $this->basenameOf($ref);
-        if ($basename === '') {
+        $localName = WebflowAssetName::basename($ref);
+        if ($localName === '') {
             $stats['unresolved']++;
 
             return null;
@@ -207,15 +209,15 @@ class WebflowMissingImageRefetchService
             if ($dryRun) {
                 $stats['would_download']++;
 
-                return $this->localUrl($basename);
+                return $this->localUrl($localName);
             }
-            if ($this->download($ref, $basename)) {
+            if ($this->download($ref, $localName)) {
                 $stats['downloaded_direct']++;
-                $log("   downloaded: {$basename}");
+                $log("   downloaded: {$localName}");
 
-                return $this->localUrl($basename);
+                return $this->localUrl($localName);
             }
-            $log("   CDN dead, refetching from Webflow: {$basename}");
+            $log("   CDN dead, refetching from Webflow: {$localName}");
         }
 
         // 2. Re-fetch a fresh URL from the Webflow API by fileId.
@@ -227,25 +229,25 @@ class WebflowMissingImageRefetchService
             $url = $freshUrls[$fileId] ?? null;
 
             if ($url !== null) {
-                $freshBasename = $this->basenameOf($url);
-                if ($freshBasename !== '') {
+                $freshName = WebflowAssetName::basename($url);
+                if ($freshName !== '') {
                     if ($dryRun) {
                         $stats['would_refetch']++;
 
-                        return $this->localUrl($freshBasename);
+                        return $this->localUrl($freshName);
                     }
-                    if ($this->download($url, $freshBasename)) {
+                    if ($this->download($url, $freshName)) {
                         $stats['refetched']++;
-                        $log("   refetched: {$freshBasename}");
+                        $log("   refetched: {$freshName}");
 
-                        return $this->localUrl($freshBasename);
+                        return $this->localUrl($freshName);
                     }
                 }
             }
         }
 
         $stats['unresolved']++;
-        $log("   UNRESOLVED [{$webflowItemId}] {$column}: {$basename}");
+        $log("   UNRESOLVED [{$webflowItemId}] {$column}: {$localName}");
 
         return null;
     }
@@ -534,6 +536,11 @@ class WebflowMissingImageRefetchService
         $basename = $this->basenameOf($ref);
         foreach ($this->nameVariants($basename) as $name) {
             $paths[] = public_path(self::PUBLIC_DIR.'/'.$name);
+        }
+
+        $sanitized = WebflowAssetName::basename($ref);
+        if ($sanitized !== '') {
+            $paths[] = public_path(self::PUBLIC_DIR.'/'.$sanitized);
         }
 
         $path = parse_url($ref, PHP_URL_PATH);

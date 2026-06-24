@@ -62,6 +62,7 @@ if (! function_exists('webflow_image_url')) {
             $basename,
             $decodedBasename,
             str_replace(' ', '%20', $decodedBasename),
+            \App\Support\WebflowAssetName::basename($source),
         ]);
 
         foreach ($candidates as $name) {

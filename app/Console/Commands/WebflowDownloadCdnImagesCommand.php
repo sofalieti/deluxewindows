@@ -246,8 +246,7 @@ class WebflowDownloadCdnImagesCommand extends Command
             return $this->urlCache[$url];
         }
 
-        $path = (string) parse_url($url, PHP_URL_PATH);
-        $basename = basename($path);
+        $basename = \App\Support\WebflowAssetName::basename($url);
         if ($basename === '') {
             return $this->urlCache[$url] = null;
         }
