@@ -1031,6 +1031,11 @@
   resize: vertical;
 }
 
+.mobile-estimate-modal__form .primary-button.space-between-v1 {
+  width: 100%;
+  margin-top: 2px;
+}
+
 /* Trust badges hero-linked background */
 .trust-badges-bar {
   --trust-badges-bg-image: none;
