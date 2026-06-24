@@ -680,11 +680,25 @@ class ClassicSiteController extends Controller
         return [
             'name'  => $fd['name'] ?? '',
             'slug'  => $fd['slug'] ?? '',
-            'image' => $this->extractImageUrl($fd, [
-                'property-listing---featured-image',
-                'property-listing---thumbnail-image-v1',
-            ]) ?? '',
+            'image' => $this->extractWindowsPropertyListingFeaturedImage($window) ?? '',
         ];
+    }
+
+    private function extractWindowsPropertyListingFeaturedImage(WindowsWebflowItem $window): ?string
+    {
+        $fieldData = is_array($window->field_data) ? $window->field_data : [];
+
+        $fromFieldData = $this->extractImageUrl($fieldData, ['property-listing---featured-image']);
+        if ($fromFieldData !== null && $fromFieldData !== '') {
+            return $fromFieldData;
+        }
+
+        $stored = $window->wf_property_listing_featured_image;
+        if (is_array($stored) && ! empty($stored['url'])) {
+            return webflow_image_url((string) $stored['url']);
+        }
+
+        return null;
     }
 
     private function resolveLearnMoreDoors(DoorsWebflowItem $door): \Illuminate\Support\Collection

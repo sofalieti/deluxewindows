@@ -22,6 +22,7 @@ class WindowsWebflowItem extends Model
             'is_archived' => 'boolean',
             'is_draft' => 'boolean',
             'wf_custom_hero_image' => 'array',
+            'wf_property_listing_featured_image' => 'array',
         ];
     }
 
