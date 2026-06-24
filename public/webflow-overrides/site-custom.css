@@ -11,6 +11,11 @@
   display: block;
 }
 
+.odsf .link-10 {
+  cursor: default;
+  text-decoration: none;
+}
+
 /* ── Hero parallax background ───────────────────────────────── */
 .div-block-59 {
   overflow: hidden;
@@ -980,18 +985,33 @@
 
 .mobile-estimate-modal__close {
   position: absolute;
-  right: 10px;
+  right: 8px;
   top: 8px;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
   border: 0;
-  background: transparent;
-  font-size: 28px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.06);
+  font-size: 32px;
   line-height: 1;
-  color: #334155;
+  color: #0f172a;
   cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: background 0.15s ease;
+}
+
+.mobile-estimate-modal__close:hover {
+  background: rgba(15, 23, 42, 0.12);
 }
 
 .mobile-estimate-modal__title {
-  margin: 0 28px 8px 0;
+  margin: 0 48px 8px 0;
   font-size: 20px;
   line-height: 1.2;
   color: #0f172a;
@@ -1058,6 +1078,36 @@
   .trust-badges-bar.trust-badges--hero-linked .container-default {
     position: relative;
     z-index: 1;
+  }
+}
+
+/* ── Mobile: prevent horizontal overflow from button rows ──────────
+   Webflow grid generates per-node "position: relative; left: 25px"
+   offsets on buttons like "See all windows" / "See all doors". On
+   phones that offset (and occasionally an oversized row width) pushes
+   the button past the screen edge and creates a horizontal scrollbar.
+   Neutralize the offset and never let the row/button exceed its box. */
+@media screen and (max-width: 767px) {
+  .buttons-row {
+    max-width: 100% !important;
+  }
+
+  .buttons-row .primary-button.w-inline-block {
+    left: 0 !important;
+    right: auto !important;
+    max-width: 100% !important;
+  }
+}
+
+/* ── Hero rich-text block — soft shadow + desktop left offset ─────── */
+.rich-text-block-2 {
+  text-shadow: 0 1px 7px #000000b8;
+}
+
+@media (min-width: 992px) {
+  .rich-text-block-2 {
+    margin-left: 60px;
+    padding-right: 60px;
   }
 }
 

@@ -29,7 +29,7 @@
                     class="special-offers-icon"
                   />
                   <div class="text-block-17">
-                    <a href="/special-offers" class="link-10">Special Offers</a>
+                    <span class="link-10">Special Offers</span>
                   </div>
                 </div>
               </div>

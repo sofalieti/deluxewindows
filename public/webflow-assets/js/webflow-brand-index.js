@@ -31,7 +31,7 @@
     $$('input[type="checkbox"][fs-list-field]', form).forEach((inp) => {
       inp.checked = false;
       inp.removeAttribute("checked");
-    });
+    });п
     syncWebflowUI();
   };
 
