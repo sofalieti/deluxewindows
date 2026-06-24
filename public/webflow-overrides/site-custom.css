@@ -979,7 +979,7 @@
   background: #fff;
   border-radius: 14px;
   box-shadow: 0 22px 55px rgba(15, 23, 42, 0.3);
-  padding: 20px 0 16px 16px;
+  padding: 20px 16px 16px;
 }
 
 .mobile-estimate-modal__close {
@@ -1002,18 +1002,48 @@
 }
 
 .mobile-estimate-modal__form-wrap {
-  padding-right: 6px;
+  padding-right: 0;
 }
 
 .mobile-estimate-modal__promo {
-  overflow: visible;
+  overflow: hidden;
   margin: 0 0 14px;
-  padding-right: 0;
 }
 
 .mobile-estimate-modal__promo .promo-offer-card {
   margin-bottom: 0;
-  border-radius: 16px 0 0 16px;
+  border-radius: 16px;
+  padding-right: 132px;
+}
+
+.mobile-estimate-modal__promo .promo-price-tag {
+  right: 10px;
+  width: 118px;
+  padding: 8px 10px 7px;
+  transform: translateY(-50%) rotate(-6deg);
+  transform-origin: 100% 50%;
+  box-shadow: 0 8px 16px rgba(120, 10, 10, 0.28);
+}
+
+.mobile-estimate-modal__promo .promo-price-tag-new {
+  font-size: 18px !important;
+}
+
+.mobile-estimate-modal__promo .promo-price-tag-start {
+  font-size: 20px !important;
+}
+
+.mobile-estimate-modal__promo .promo-price-tag--percent {
+  width: 104px;
+}
+
+.mobile-estimate-modal__promo .promo-price-tag--percent .promo-price-tag-new {
+  font-size: 24px !important;
+}
+
+.mobile-estimate-modal__promo .promo-price-tag-label,
+.mobile-estimate-modal__promo .promo-price-tag-note {
+  font-size: 10px !important;
 }
 
 .mobile-estimate-modal__promo .display-4 {
