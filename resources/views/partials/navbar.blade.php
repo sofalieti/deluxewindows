@@ -20,7 +20,14 @@
             <div class="header-container-wrapper-2">
               <div class="div-block-17 phone3">
                 <div class="link-block odsf">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="white" style="flex-shrink:0;display:block"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                  <img
+                    src="/webflow-assets/images/offer-icon.svg"
+                    width="18"
+                    height="18"
+                    loading="lazy"
+                    alt=""
+                    class="special-offers-icon"
+                  />
                   <div class="text-block-17">
                     <a href="/special-offers" class="link-10">Special Offers</a>
                   </div>

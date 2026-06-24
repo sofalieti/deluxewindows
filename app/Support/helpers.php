@@ -9,14 +9,22 @@ use App\Services\PromotionSettingsService;
 if (! function_exists('site_phone_display')) {
     function site_phone_display(): string
     {
-        return '(650) 461-4446';
+        try {
+            return app(PromotionControlService::class)->phoneDisplay();
+        } catch (\Throwable) {
+            return PromotionControlService::DEFAULT_PHONE_DISPLAY;
+        }
     }
 }
 
 if (! function_exists('site_phone_tel')) {
     function site_phone_tel(): string
     {
-        return '+16504614446';
+        try {
+            return app(PromotionControlService::class)->phoneTel();
+        } catch (\Throwable) {
+            return PromotionControlService::DEFAULT_PHONE_TEL;
+        }
     }
 }
 

@@ -212,10 +212,12 @@
                 /></a>
                 <div class="link-block odsf">
                   <img
-                    width="20"
+                    src="/webflow-assets/images/offer-icon.svg"
+                    width="18"
+                    height="18"
                     loading="lazy"
                     alt=""
-                    src="/webflow-assets/images/687e6d1e97ec845884f78baa_sell_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24%201.svg"
+                    class="special-offers-icon"
                   />
                   <div class="text-block-17"><a href="/special-offers" class="link-10">Special Offers</a></div>
                 </div>

@@ -6,6 +6,11 @@
   height: auto !important;
 }
 
+.special-offers-icon {
+  flex-shrink: 0;
+  display: block;
+}
+
 /* ── Hero parallax background ───────────────────────────────── */
 .div-block-59 {
   overflow: hidden;

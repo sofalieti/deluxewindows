@@ -13,6 +13,8 @@ class PromotionControl extends Model
         'global_promotion_name',
         'global_discount_percent',
         'global_end_date',
+        'phone_display',
+        'phone_tel',
         'window_type_prices',
         'series_prices',
         'brand_prices',

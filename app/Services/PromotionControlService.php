@@ -13,6 +13,8 @@ class PromotionControlService
 {
     private const CACHE_KEY = 'promotion.control.default';
     private const DEFAULT_PROMOTION_NAME = 'Upgrade to Energy Efficient Windows and Doors for Less';
+    public const DEFAULT_PHONE_DISPLAY = '(650) 461-4446';
+    public const DEFAULT_PHONE_TEL = '+16504614446';
 
     public function get(): PromotionControl
     {
@@ -22,6 +24,8 @@ class PromotionControlService
                 'global_promotion_name' => self::DEFAULT_PROMOTION_NAME,
                 'global_discount_percent' => 40,
                 'global_end_date' => null,
+                'phone_display' => self::DEFAULT_PHONE_DISPLAY,
+                'phone_tel' => self::DEFAULT_PHONE_TEL,
                 'window_type_prices' => [],
                 'series_prices' => [],
                 'brand_prices' => [],
@@ -64,6 +68,51 @@ class PromotionControlService
         $value = trim((string) ($this->get()->global_promotion_name ?? ''));
 
         return $value !== '' ? $value : self::DEFAULT_PROMOTION_NAME;
+    }
+
+    public function phoneDisplay(): string
+    {
+        $value = trim((string) ($this->get()->phone_display ?? ''));
+
+        return $value !== '' ? $value : self::DEFAULT_PHONE_DISPLAY;
+    }
+
+    public function phoneTel(): string
+    {
+        $value = trim((string) ($this->get()->phone_tel ?? ''));
+        if ($value !== '') {
+            return $value;
+        }
+
+        return self::normalizeTel($this->phoneDisplay());
+    }
+
+    /**
+     * Convert a human-readable phone number into a tel: friendly value (+1XXXXXXXXXX).
+     */
+    public static function normalizeTel(string $value): string
+    {
+        $value = trim($value);
+        if ($value === '') {
+            return self::DEFAULT_PHONE_TEL;
+        }
+
+        $hasPlus = str_starts_with($value, '+');
+        $digits = preg_replace('/\D+/', '', $value) ?? '';
+
+        if ($digits === '') {
+            return self::DEFAULT_PHONE_TEL;
+        }
+
+        if ($hasPlus) {
+            return '+'.$digits;
+        }
+
+        if (strlen($digits) === 10) {
+            return '+1'.$digits;
+        }
+
+        return '+'.$digits;
     }
 
     public function endDate(): ?Carbon

@@ -94,6 +94,8 @@ class PromotionsScreen extends Screen
                 'global_promotion_name' => (string) ($control->global_promotion_name ?? ''),
                 'global_discount_percent' => $control->global_discount_percent,
                 'global_end_date' => optional($control->global_end_date)->format('Y-m-d') ?? '',
+                'phone_display' => (string) ($control->phone_display ?? PromotionControlService::DEFAULT_PHONE_DISPLAY),
+                'phone_tel' => (string) ($control->phone_tel ?? PromotionControlService::DEFAULT_PHONE_TEL),
                 'window_type_prices' => $windowTypePrices,
                 'series_prices' => $seriesPrices,
                 'brand_prices' => $brandPrices,
@@ -142,6 +144,17 @@ class PromotionsScreen extends Screen
                         ->required()
                         ->help('Single end date shown on all discount-related sections.'),
                 ]),
+                'Contact' => Layout::rows([
+                    Input::make('promotions.phone_display')
+                        ->title('Phone Number (as shown)')
+                        ->required()
+                        ->placeholder('(650) 461-4446')
+                        ->help('Displayed everywhere on the site (header, footer, contact sections, forms).'),
+                    Input::make('promotions.phone_tel')
+                        ->title('Phone Number for "tel:" links')
+                        ->placeholder('+16504614446')
+                        ->help('Used in click-to-call links. Leave empty to auto-generate from the number above.'),
+                ]),
                 'Window Types' => Layout::view('admin.promotions.pricing-tab', [
                     'scope' => 'window_type_prices',
                     'items' => $this->windowTypeList,
@@ -171,6 +184,17 @@ class PromotionsScreen extends Screen
         $discountPercent = (int) ($data['global_discount_percent'] ?? 40);
         $endDate = trim((string) ($data['global_end_date'] ?? ''));
 
+        $phoneDisplay = trim((string) ($data['phone_display'] ?? ''));
+        if ($phoneDisplay === '') {
+            $phoneDisplay = PromotionControlService::DEFAULT_PHONE_DISPLAY;
+        }
+        $phoneTel = trim((string) ($data['phone_tel'] ?? ''));
+        if ($phoneTel === '') {
+            $phoneTel = PromotionControlService::normalizeTel($phoneDisplay);
+        } else {
+            $phoneTel = PromotionControlService::normalizeTel($phoneTel);
+        }
+
         $windowTypePrices = $this->normalizePricingMap($data['window_type_prices'] ?? [], true);
         $seriesPrices = $this->normalizePricingMap($data['series_prices'] ?? [], false);
         $brandPrices = $this->normalizePricingMap($data['brand_prices'] ?? [], false);
@@ -179,6 +203,8 @@ class PromotionsScreen extends Screen
         $control->global_promotion_name = $promotionName;
         $control->global_discount_percent = max(0, min(95, $discountPercent));
         $control->global_end_date = $endDate === '' ? null : $endDate;
+        $control->phone_display = $phoneDisplay;
+        $control->phone_tel = $phoneTel;
         $control->window_type_prices = $windowTypePrices;
         $control->series_prices = $seriesPrices;
         $control->brand_prices = $brandPrices;
