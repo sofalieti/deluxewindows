@@ -633,43 +633,6 @@ class ClassicSiteController extends Controller
     {
         $currentSlug = strtolower(trim((string) data_get($window->field_data, 'slug', '')));
 
-        $referenced = $window->webflowReferences('collections')
-            ->map(function ($item) use ($currentSlug) {
-                $fd = is_array($item->field_data) ? $item->field_data : [];
-                $itemSlug = strtolower(trim((string) ($fd['slug'] ?? '')));
-
-                if ($itemSlug === '' || $itemSlug === $currentSlug) {
-                    return null;
-                }
-
-                $linkedWindow = WindowsWebflowItem::query()
-                    ->where('is_archived', false)
-                    ->where('is_draft', false)
-                    ->where('field_data->slug', $itemSlug)
-                    ->first();
-
-                if ($linkedWindow !== null) {
-                    $winFd = is_array($linkedWindow->field_data) ? $linkedWindow->field_data : [];
-                    if (! $this->isVisibleWindowsMaterialPage($winFd)) {
-                        return null;
-                    }
-
-                    return $this->mapLearnMoreWindowCard($linkedWindow);
-                }
-
-                return [
-                    'name'  => $fd['name'] ?? '',
-                    'slug'  => $itemSlug,
-                    'image' => $this->extractImageUrl($fd, ['featured-image', 'property-listing---featured-image']) ?? '',
-                ];
-            })
-            ->filter()
-            ->values();
-
-        if ($referenced->isNotEmpty()) {
-            return $referenced;
-        }
-
         return $this->learnMoreMaterialWindows($currentSlug);
     }
 
@@ -690,6 +653,7 @@ class ClassicSiteController extends Controller
 
                 return $pos === false ? 999 : $pos;
             })
+            ->take(6)
             ->map(fn ($item) => $this->mapLearnMoreWindowCard($item))
             ->values();
     }
