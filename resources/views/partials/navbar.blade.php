@@ -1350,10 +1350,8 @@
           <div class="mobile-estimate-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="mobileEstimateTitle">
             <button type="button" class="mobile-estimate-modal__close" data-close-estimate-modal aria-label="Close form">×</button>
             <h3 id="mobileEstimateTitle" class="mobile-estimate-modal__title">Request a Free Estimate</h3>
-            <div class="mobile-estimate-modal__promo">
-              <div class="mobile-estimate-modal__promo-kicker">Limited-Time Deal</div>
-              <div class="mobile-estimate-modal__promo-main">{{ promotion_percent_label() }}</div>
-              <div class="mobile-estimate-modal__promo-sub">{{ promotion_name() }} • Ends {{ promotion_date('us-short') }}</div>
+            <div class="mobile-estimate-modal__promo w-richtext">
+              {!! promotion_home_html() !!}
             </div>
             <div class="mobile-estimate-modal__form-wrap w-form">
               <form id="wf-form-Mobile-Estimate-Modal" name="wf-form-Mobile-Estimate-Modal" method="get" class="mobile-estimate-modal__form js-laravel-lead-form">
@@ -1362,7 +1360,7 @@
                 <input type="tel" name="Phone" placeholder="{{ site_phone_display() }}" required class="w-input" />
                 <input type="text" name="Subject" placeholder="City" class="w-input" />
                 <textarea name="Message" maxlength="5000" placeholder="Tell us about your project" class="w-input"></textarea>
-                <input type="submit" value="Send Request" class="w-button" />
+                <input type="submit" value="Send Request" class="hero-mobile-promo__btn w-button" />
               </form>
               <div class="w-form-done" tabindex="-1" role="region" aria-label="Mobile Estimate Form success">
                 <div>Thank you! Your submission has been received!</div>
