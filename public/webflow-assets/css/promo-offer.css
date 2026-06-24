@@ -40,8 +40,6 @@
 .promo-price-tag,
 .w-richtext .promo-price-tag {
   position: absolute;
-  right: 18px;
-  top: 25%;
   width: 224px;
   border-radius: 12px;
   padding: 10px 12px 9px;
@@ -51,6 +49,12 @@
   transform: translateY(-50%) rotate(-7deg);
   transform-origin: 100% 50%;
   z-index: 2;
+}
+
+.promo-offer-context--form .promo-price-tag,
+.form-block-2 .estimate-form-promo .promo-price-tag {
+  right: -60px;
+  top: 50%;
 }
 
 .promo-price-tag-line,

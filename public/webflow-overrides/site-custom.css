@@ -1012,6 +1012,12 @@
   overflow: visible;
 }
 
+.promo-offer-context--modal .promo-price-tag,
+.mobile-estimate-modal__promo .promo-price-tag {
+  right: 18px;
+  top: 25%;
+}
+
 .mobile-estimate-modal__promo .display-4 {
   margin: 0;
   font-size: clamp(18px, 4.5vw, 24px);

@@ -1350,7 +1350,7 @@
           <div class="mobile-estimate-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="mobileEstimateTitle">
             <button type="button" class="mobile-estimate-modal__close" data-close-estimate-modal aria-label="Close form">×</button>
             <h3 id="mobileEstimateTitle" class="mobile-estimate-modal__title">Request a Free Estimate</h3>
-            <div class="mobile-estimate-modal__promo w-richtext" data-estimate-modal-promo>
+            <div class="mobile-estimate-modal__promo promo-offer-context--modal w-richtext" data-estimate-modal-promo>
               {!! promotion_home_html() !!}
             </div>
             <div class="mobile-estimate-modal__form-wrap w-form">
