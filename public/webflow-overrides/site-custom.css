@@ -297,10 +297,6 @@
   box-shadow: 0 4px 12px rgba(239, 138, 0, 0.24);
 }
 
-.mobile-estimate-modal__form .hero-mobile-promo__btn {
-  margin-top: 2px;
-}
-
 /* Mobile header layout */
 .mobile-top-strip { display: none; }
 .mobile-fab-estimate { display: none; }
@@ -1013,22 +1009,7 @@
 .mobile-estimate-modal__promo .promo-offer-card {
   margin-bottom: 0;
   border-radius: 16px;
-  padding-right: 162px;
   overflow: visible;
-}
-
-.mobile-estimate-modal__promo .promo-price-tag {
-  right: -18px;
-  width: 210px;
-  padding: 10px 12px 9px;
-  transform: translateY(-50%) rotate(-7deg);
-  transform-origin: 100% 50%;
-  box-shadow: 0 10px 20px rgba(120, 10, 10, 0.35);
-  z-index: 2;
-}
-
-.mobile-estimate-modal__promo .promo-price-tag--percent {
-  width: 200px;
 }
 
 .mobile-estimate-modal__promo .display-4 {

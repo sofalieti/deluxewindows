@@ -1360,7 +1360,14 @@
                 <input type="tel" name="Phone" placeholder="{{ site_phone_display() }}" required class="w-input" />
                 <input type="text" name="Subject" placeholder="City" class="w-input" />
                 <textarea name="Message" maxlength="5000" placeholder="Tell us about your project" class="w-input"></textarea>
-                <input type="submit" value="Send Request" class="hero-mobile-promo__btn w-button" />
+                <div class="primary-button space-between-v1">
+                  <input
+                    type="submit"
+                    data-wait="Please wait..."
+                    class="inside-input-button text-light w-button"
+                    value="Send Request"
+                  />
+                </div>
               </form>
               <div class="w-form-done" tabindex="-1" role="region" aria-label="Mobile Estimate Form success">
                 <div>Thank you! Your submission has been received!</div>

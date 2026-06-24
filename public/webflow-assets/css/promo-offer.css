@@ -40,8 +40,8 @@
 .promo-price-tag,
 .w-richtext .promo-price-tag {
   position: absolute;
-  right: -54px;
-  top: 50%;
+  right: 18px;
+  top: 25%;
   width: 224px;
   border-radius: 12px;
   padding: 10px 12px 9px;
