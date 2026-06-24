@@ -1006,44 +1006,29 @@
 }
 
 .mobile-estimate-modal__promo {
-  overflow: hidden;
+  overflow: visible;
   margin: 0 0 14px;
 }
 
 .mobile-estimate-modal__promo .promo-offer-card {
   margin-bottom: 0;
   border-radius: 16px;
-  padding-right: 132px;
+  padding-right: 162px;
+  overflow: visible;
 }
 
 .mobile-estimate-modal__promo .promo-price-tag {
-  right: 10px;
-  width: 118px;
-  padding: 8px 10px 7px;
-  transform: translateY(-50%) rotate(-6deg);
+  right: -18px;
+  width: 210px;
+  padding: 10px 12px 9px;
+  transform: translateY(-50%) rotate(-7deg);
   transform-origin: 100% 50%;
-  box-shadow: 0 8px 16px rgba(120, 10, 10, 0.28);
-}
-
-.mobile-estimate-modal__promo .promo-price-tag-new {
-  font-size: 18px !important;
-}
-
-.mobile-estimate-modal__promo .promo-price-tag-start {
-  font-size: 20px !important;
+  box-shadow: 0 10px 20px rgba(120, 10, 10, 0.35);
+  z-index: 2;
 }
 
 .mobile-estimate-modal__promo .promo-price-tag--percent {
-  width: 104px;
-}
-
-.mobile-estimate-modal__promo .promo-price-tag--percent .promo-price-tag-new {
-  font-size: 24px !important;
-}
-
-.mobile-estimate-modal__promo .promo-price-tag-label,
-.mobile-estimate-modal__promo .promo-price-tag-note {
-  font-size: 10px !important;
+  width: 200px;
 }
 
 .mobile-estimate-modal__promo .display-4 {
