@@ -217,22 +217,30 @@
                     <img loading="lazy" src="{{ $brandLogo }}" alt="" class="svg50 sidebar-svg top-svg" />
                     @endif
                     <label for="email-banner" class="body-14"></label>
-                    <div class="{{ $heroPricingBlockClass }} w-richtext">
-                      {!! $heroPricingHtml !!}
+                    <div data-estimate-form-promo class="estimate-form-promo">
+                      <div class="{{ $heroPricingBlockClass }} w-richtext">
+                        {!! $heroPricingHtml !!}
+                      </div>
                     </div>
                     @elseif(!empty($doorHero) && !empty($doorDiscountHtml))
                     <label for="email-banner" class="body-14"></label>
-                    <div class="rich-text-block-6 w-richtext">
-                      {!! $doorDiscountHtml !!}
+                    <div data-estimate-form-promo class="estimate-form-promo">
+                      <div class="rich-text-block-6 w-richtext">
+                        {!! $doorDiscountHtml !!}
+                      </div>
                     </div>
                     @elseif(!empty($windowHeroImage) && !empty($windowDiscountHtml))
                     <label for="email-banner" class="body-14"></label>
-                    <div class="rich-text-block-4 w-richtext">
-                      {!! $windowDiscountHtml !!}
+                    <div data-estimate-form-promo class="estimate-form-promo">
+                      <div class="rich-text-block-4 w-richtext">
+                        {!! $windowDiscountHtml !!}
+                      </div>
                     </div>
                     @else
-                    <div class="rich-text-block-4 w-richtext hero-mobile-promo-slot hero-mobile-promo-slot--form">
-                      {!! promotion_home_html() !!}
+                    <div data-estimate-form-promo class="estimate-form-promo hero-mobile-promo-slot hero-mobile-promo-slot--form">
+                      <div class="rich-text-block-4 w-richtext">
+                        {!! promotion_home_html() !!}
+                      </div>
                     </div>
                     <label for="email-banner" class="body-14"></label>
                     @endif

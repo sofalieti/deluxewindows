@@ -50,7 +50,9 @@
                   aria-label="Main Form"
                 >
                   <div class="div-block-22">
-                    <h2 class="display-4">Get Deluxe Windows for Less. <br />{{ promotion_percent_label() }}* Windows</h2>
+                    <div data-estimate-form-promo class="estimate-form-promo">
+                      <h2 class="display-4">Get Deluxe Windows for Less. <br />{{ promotion_percent_label() }}* Windows</h2>
+                    </div>
                     <label for="email-banner" class="body-14"></label>
                   </div>
                   <div class="div-block-23">

@@ -226,6 +226,16 @@
       const openBtnSelector = "[data-open-estimate-modal]";
       const closeSelector = "[data-close-estimate-modal]";
       const form = modal.querySelector("form");
+      const promoTarget = modal.querySelector("[data-estimate-modal-promo]");
+      const defaultPromoHtml = promoTarget ? promoTarget.innerHTML : "";
+
+      function syncModalPromo() {
+        if (!promoTarget) return;
+
+        const source = document.querySelector("#wf-form-Main-Form [data-estimate-form-promo]");
+        promoTarget.innerHTML =
+          source && source.innerHTML.trim() ? source.innerHTML : defaultPromoHtml;
+      }
 
       function setOpenState(isOpen) {
         modal.classList.toggle("is-open", isOpen);
@@ -233,7 +243,10 @@
         document.body.style.overflow = isOpen ? "hidden" : "";
       }
 
-      function openModal() { setOpenState(true); }
+      function openModal() {
+        syncModalPromo();
+        setOpenState(true);
+      }
       function closeModal() { setOpenState(false); }
 
       document.addEventListener("click", (e) => {

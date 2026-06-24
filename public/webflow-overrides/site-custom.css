@@ -1016,6 +1016,13 @@
   border-radius: 16px 0 0 16px;
 }
 
+.mobile-estimate-modal__promo .display-4 {
+  margin: 0;
+  font-size: clamp(18px, 4.5vw, 24px);
+  line-height: 1.25;
+  color: #1f2937;
+}
+
 .mobile-estimate-modal__form .w-input {
   margin-bottom: 8px;
   min-height: 42px;
