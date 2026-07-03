@@ -19,6 +19,7 @@ return new class extends Migration
             $table->boolean('is_draft')->default(false);
             $table->json('field_data')->nullable();
             $table->longText('wf_door_discount')->nullable();
+            $table->json('wf_custom_hero_image')->nullable();
             $table->json('wf_blog_post_featured_image')->nullable();
             $table->json('wf_blog_post_thumbnail_image_v1')->nullable();
             $table->json('wf_blog_post_thumbnail_image_v2')->nullable();

@@ -93,7 +93,8 @@ class ClassicSiteController extends Controller
 
         $fieldData = is_array($window->field_data ?? null) ? $window->field_data : [];
 
-        $heroImage = $this->templateWindowTypeHeroImageUrl((string) ($fieldData['slug'] ?? $slug))
+        $heroImage = $window->customHeroImageUrl()
+            ?? $this->templateWindowTypeHeroImageUrl((string) ($fieldData['slug'] ?? $slug))
             ?? $this->extractImageUrl($fieldData, [
                 'property-listing---thumbnail-image-v1',
                 'property-listing---featured-image',
@@ -183,9 +184,11 @@ class ClassicSiteController extends Controller
 
         $fieldData = is_array($door->field_data ?? null) ? $door->field_data : [];
 
-        $heroImage = $this->extractImageUrl($fieldData, [
-            'blog-post---featured-image',
-        ]);
+        $heroImage = $door->customHeroImageUrl()
+            ?? $this->templateDoorTypeHeroImageUrl((string) ($fieldData['slug'] ?? $slug))
+            ?? $this->extractImageUrl($fieldData, [
+                'blog-post---featured-image',
+            ]);
 
         $mainImage = $this->extractImageUrl($fieldData, [
             'blog-post---thumbnail-image-v1',
@@ -1900,12 +1903,22 @@ class ClassicSiteController extends Controller
 
     private function templateWindowTypeHeroImageUrl(string $slug): ?string
     {
+        return $this->templateMaterialHeroImageUrl('window-type-hero', $slug);
+    }
+
+    private function templateDoorTypeHeroImageUrl(string $slug): ?string
+    {
+        return $this->templateMaterialHeroImageUrl('door-type-hero', $slug);
+    }
+
+    private function templateMaterialHeroImageUrl(string $directory, string $slug): ?string
+    {
         $slug = strtolower(trim($slug));
         if ($slug === '') {
             return null;
         }
 
-        $base = 'webflow-assets/images/window-type-hero/'.$slug;
+        $base = 'webflow-assets/images/'.$directory.'/'.$slug;
         foreach (['avif', 'png', 'webp', 'jpg', 'jpeg'] as $extension) {
             $relativePath = $base.'.'.$extension;
             $absolutePath = public_path($relativePath);
@@ -1915,7 +1928,7 @@ class ClassicSiteController extends Controller
             }
         }
 
-        $legacyPath = 'webflow-assets/images/window-type-hero/'.$slug.'-hero-bg-v1.avif';
+        $legacyPath = 'webflow-assets/images/'.$directory.'/'.$slug.'-hero-bg-v1.avif';
         $legacyAbsolute = public_path($legacyPath);
         if (File::exists($legacyAbsolute)) {
             $v = @filemtime($legacyAbsolute) ?: 1;

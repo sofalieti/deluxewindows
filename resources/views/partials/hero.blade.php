@@ -98,17 +98,50 @@
       'description' => 'Sleek architectural look, exceptional durability, and efficient comfort at a better price.',
     ],
   ];
-  $windowTypeSlug = isset($slug) ? strtolower((string) $slug) : '';
-  if ($windowTypeSlug === '' && isset($windowFieldData['slug'])) {
-    $windowTypeSlug = strtolower((string) $windowFieldData['slug']);
+  $doorTypeHeroCopy = [
+    'vinyl-doors' => [
+      'headline' => 'Upgrade to Energy Efficient Vinyl Doors for Less',
+      'description' => 'Low-maintenance door systems with practical insulation, clean style, and strong value.',
+    ],
+    'wood-clad-doors' => [
+      'headline' => 'Upgrade to Energy Efficient Wood-Clad Doors for Less',
+      'description' => 'Warm wood character inside with durable exterior protection for Bay Area homes.',
+    ],
+    'fiberglass-doors' => [
+      'headline' => 'Upgrade to Energy Efficient Fiberglass Doors for Less',
+      'description' => 'Weather-resistant strength, insulated comfort, and low-maintenance curb appeal.',
+    ],
+    'wood-doors' => [
+      'headline' => 'Upgrade to Energy Efficient Wood Doors for Less',
+      'description' => 'Timeless natural grain, solid construction, and better comfort at the entry.',
+    ],
+    'aluminum-doors' => [
+      'headline' => 'Upgrade to Energy Efficient Aluminum Doors for Less',
+      'description' => 'Slim modern profiles, durable finishes, and bright indoor-outdoor living.',
+    ],
+    'steel-doors' => [
+      'headline' => 'Upgrade to Energy Efficient Steel Doors for Less',
+      'description' => 'Secure insulated entry doors built for strength, comfort, and long-term value.',
+    ],
+  ];
+  $materialTypeSlug = isset($slug) ? strtolower((string) $slug) : '';
+  if ($materialTypeSlug === '' && isset($windowFieldData['slug'])) {
+    $materialTypeSlug = strtolower((string) $windowFieldData['slug']);
   }
   $isWindowsMaterialHero = !empty($windowTypeHero) || !empty($windowHeroImage);
-  $heroMaterialCopy = $windowTypeHeroCopy[$windowTypeSlug] ?? null;
+  $isDoorsMaterialHero = !empty($doorHero) || !empty($doorHeroImage);
+  $heroMaterialCopy = $isDoorsMaterialHero
+    ? ($doorTypeHeroCopy[$materialTypeSlug] ?? null)
+    : ($windowTypeHeroCopy[$materialTypeSlug] ?? null);
   $heroHeadlineText = $isWindowsMaterialHero
     ? (($heroMaterialCopy['headline'] ?? null) ?: 'Upgrade to Energy Efficient Windows for Less')
-    : 'Upgrade to Energy Efficient Windows and Doors for Less';
-  $heroMiniDescription = $isWindowsMaterialHero
-    ? (($heroMaterialCopy['description'] ?? null) ?: 'Get high-performance window solutions with better comfort and pricing for your home.')
+    : ($isDoorsMaterialHero
+      ? (($heroMaterialCopy['headline'] ?? null) ?: 'Upgrade to Energy Efficient Doors for Less')
+      : 'Upgrade to Energy Efficient Windows and Doors for Less');
+  $heroMiniDescription = $isWindowsMaterialHero || $isDoorsMaterialHero
+    ? (($heroMaterialCopy['description'] ?? null) ?: ($isDoorsMaterialHero
+      ? 'Get secure, stylish door solutions with better comfort and pricing for your home.'
+      : 'Get high-performance window solutions with better comfort and pricing for your home.'))
     : '';
 @endphp
 

@@ -58,7 +58,7 @@ class WebflowCollectionEditScreen extends Screen
         $model = $meta['model'];
         $entity = $model::query()->findOrFail($item);
         $fieldData = is_array($entity->field_data) ? $entity->field_data : [];
-        $fieldData = $this->ensureWindowsCustomHeroField($fieldData);
+        $fieldData = $this->ensureMaterialCustomHeroField($fieldData);
         $this->fieldData = $fieldData;
         $this->referenceFields = WebflowReferenceRegistry::forModel($meta['model']);
         $this->relationOptions = $this->buildRelationOptions($this->referenceFields);
@@ -77,9 +77,9 @@ class WebflowCollectionEditScreen extends Screen
      * @param  array<string, mixed>  $fieldData
      * @return array<string, mixed>
      */
-    private function ensureWindowsCustomHeroField(array $fieldData): array
+    private function ensureMaterialCustomHeroField(array $fieldData): array
     {
-        if ($this->collectionSlug !== 'windows') {
+        if (! in_array($this->collectionSlug, ['windows', 'doors'], true)) {
             return $fieldData;
         }
 
@@ -371,7 +371,7 @@ class WebflowCollectionEditScreen extends Screen
      */
     private function orderedFieldDataEntries(array $fieldData, string $category): array
     {
-        if ($this->collectionSlug !== 'windows' || $category !== 'main') {
+        if (! in_array($this->collectionSlug, ['windows', 'doors'], true) || $category !== 'main') {
             return $fieldData;
         }
 
