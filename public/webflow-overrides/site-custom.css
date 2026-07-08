@@ -76,6 +76,12 @@
 .section.top-none { margin-top: 0 !important; }
 .blog-page .div-block-59 { display: none !important; }
 
+@media screen and (max-width: 479px) {
+  .div-block-59 > .w-layout-blockcontainer.container-default {
+    padding-top: 0dvh !important;
+  }
+}
+
 .header-container-wrapper-2 { opacity: 1 !important; }
 .footer-wrapper,
 .footer-wrapper [data-w-id],
