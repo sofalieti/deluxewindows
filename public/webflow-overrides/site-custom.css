@@ -1097,7 +1097,9 @@
   padding-right: 15px;
 }
 
+.trust-badges-bar .w-layout-grid.grid.grid-543,
 .trust-badges-bar .grid.grid-543 {
+  display: grid !important;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   grid-template-rows: auto;
   padding-top: 10px;
@@ -1117,10 +1119,12 @@
 
 .trust-badges-bar .text-block-46 {
   flex-shrink: 0;
+  display: inline-flex !important;
   color: #ffffff;
 }
 
 .trust-badges-bar .text-block-47 {
+  display: inline-flex !important;
   color: #ffffff !important;
   text-align: left;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
@@ -1138,7 +1142,9 @@
 }
 
 @media (max-width: 991px) {
+  .trust-badges-bar .w-layout-grid.grid.grid-543,
   .trust-badges-bar .grid.grid-543 {
+    display: grid !important;
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     grid-template-rows: auto auto !important;
     padding-top: 8px;
@@ -1160,16 +1166,27 @@
 }
 
 @media (max-width: 479px) {
+  .trust-badges-bar .w-layout-grid.grid.grid-543,
   .trust-badges-bar .grid.grid-543 {
+    display: grid !important;
     grid-template-columns: 1fr !important;
     grid-template-rows: auto !important;
     gap: 8px;
   }
 
   .trust-badges-bar .div-block-65 {
+    display: flex !important;
     justify-content: flex-start;
     text-align: left;
     padding: 4px 0;
+  }
+
+  .trust-badges-bar .text-block-46,
+  .trust-badges-bar .text-block-47 {
+    display: inline-flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: #ffffff !important;
   }
 }
 
@@ -1204,6 +1221,24 @@
     margin-top: 150px !important;
     margin-left: 60px !important;
     padding-right: 60px !important;
+  }
+}
+
+/* Last-resort: Webflow hides `.grid { display: none }` at ≤479px */
+@media screen and (max-width: 479px) {
+  #trustBadgesBar.trust-badges-bar .w-layout-grid.grid.grid-543 {
+    display: grid !important;
+  }
+
+  #trustBadgesBar.trust-badges-bar .div-block-65 {
+    display: flex !important;
+    visibility: visible !important;
+  }
+
+  #trustBadgesBar.trust-badges-bar .text-block-46,
+  #trustBadgesBar.trust-badges-bar .text-block-47 {
+    display: inline-flex !important;
+    visibility: visible !important;
   }
 }
 
