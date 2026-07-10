@@ -1075,22 +1075,101 @@
   margin-top: 2px;
 }
 
-/* Trust badges hero-linked background */
+/* Trust badges bar — solid blue on all breakpoints, mobile-friendly grid */
 .trust-badges-bar {
-  --trust-badges-bg-image: none;
+  display: block !important;
+  position: relative !important;
+  width: 100% !important;
+  z-index: 2;
+  background-color: #08446f !important;
+  background-image: none !important;
+  overflow: visible !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.trust-badges-bar .w-nav-overlay {
+  display: none !important;
+}
+
+.trust-badges-bar .container-default {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.trust-badges-bar .grid.grid-543 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  gap: 12px;
+  align-items: center;
+}
+
+.trust-badges-bar .div-block-65 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 0;
+  min-width: 0;
+}
+
+.trust-badges-bar .text-block-46 {
+  flex-shrink: 0;
+  color: #ffffff;
+}
+
+.trust-badges-bar .text-block-47 {
+  color: #ffffff !important;
+  text-align: left;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+  font-size: 14px;
+  line-height: 1.3;
+  min-width: 0;
+}
+
+.trust-badges-bar .w-embed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
 }
 
 @media (max-width: 991px) {
-  .trust-badges-bar.trust-badges--hero-linked {
-    background-image: linear-gradient(rgba(11, 37, 66, 0.58), rgba(11, 37, 66, 0.58)), var(--trust-badges-bg-image) !important;
-    background-size: cover !important;
-    background-position: center center !important;
-    background-repeat: no-repeat !important;
+  .trust-badges-bar .grid.grid-543 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-template-rows: auto auto !important;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    gap: 10px;
   }
 
-  .trust-badges-bar.trust-badges--hero-linked .container-default {
-    position: relative;
-    z-index: 1;
+  .trust-badges-bar .div-block-65 {
+    padding: 6px 4px;
+  }
+
+  .trust-badges-bar .text-block-46 {
+    font-size: 14px;
+  }
+
+  .trust-badges-bar .text-block-47 {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 479px) {
+  .trust-badges-bar .grid.grid-543 {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto !important;
+    gap: 8px;
+  }
+
+  .trust-badges-bar .div-block-65 {
+    justify-content: flex-start;
+    text-align: left;
+    padding: 4px 0;
   }
 }
 

@@ -10,46 +10,6 @@
    ================================================================ */
 
 
-/* ─── 1. TRUST BADGES BAR (.grid.grid-543) ──────────────────────
-   Problem: Webflow collapses .grid-543 to 1 column at 991px,
-   stacking 4 items vertically — very long and wastes screen space.
-   Fix: 2×2 grid on tablet/mobile, single column only at 479px.     */
-
-@media screen and (max-width: 991px) {
-  .grid.grid-543 {
-    grid-template-columns: 1fr 1fr !important;
-    grid-template-rows: auto auto !important;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    gap: 10px;
-  }
-
-  .div-block-65 {
-    justify-content: center;
-    text-align: center;
-    gap: 4px;
-    padding: 6px 0;
-  }
-
-  .text-block-46 {
-    font-size: 14px;
-  }
-
-  .text-block-47 {
-    font-size: 13px;
-    line-height: 1.3;
-  }
-}
-
-@media screen and (max-width: 479px) {
-  .grid.grid-543 {
-    grid-template-columns: 1fr !important;
-    grid-template-rows: auto !important;
-    gap: 8px;
-  }
-}
-
-
 /* ─── 2. BRANDS STRIP (.div-block-51 / .collection-list-9) ─────────
    Problem: At 480–767px the brand logo grid stays at 6 columns
    (inherited from 991px). Each logo gets ~80–128 px — too small.

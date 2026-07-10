@@ -402,23 +402,5 @@
       window.addEventListener("resize", updateFabVisibility, { passive: true });
     });
   })();
-
-  // Link trust badges section background to hero background on mobile.
-  (function () {
-    function linkTrustBadgesToHeroBg() {
-      if (!window.matchMedia("(max-width: 991px)").matches) return;
-      const bar = document.getElementById("trustBadgesBar");
-      if (!bar) return;
-      const heroBgLayer = document.querySelector(".div-block-59 > .div-block-61");
-      if (!heroBgLayer) return;
-      const bgImage = window.getComputedStyle(heroBgLayer).backgroundImage;
-      if (!bgImage || bgImage === "none") return;
-      bar.style.setProperty("--trust-badges-bg-image", bgImage);
-      bar.classList.add("trust-badges--hero-linked");
-    }
-
-    onReady(linkTrustBadgesToHeroBg);
-    window.addEventListener("resize", linkTrustBadgesToHeroBg, { passive: true });
-  })();
 })();
 
