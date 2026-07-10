@@ -843,12 +843,10 @@
   }
 
   .title-left---content-right.paragraph-content.alt.hero-page .rich-text-block-2 {
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+    padding-right: 0 !important;
     text-align: center;
-  }
-
-  .title-left---content-right.paragraph-content.alt.hero-page .hero-mini-description {
-    margin-left: auto;
-    margin-right: auto;
   }
 
   .title-left---content-right.paragraph-content.alt.hero-page .inner-container._660px._100-tablet {
@@ -928,10 +926,11 @@
   }
 
   .title-left---content-right.paragraph-content.alt.hero-page .rich-text-block-2 {
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+    padding-right: 0 !important;
     text-align: center;
   }
-
-  .title-left---content-right.paragraph-content.alt.hero-page .rich-text-block-2 .heading-49 {
     font-size: clamp(20px, 5.2vw, 26px) !important;
     line-height: 1.14 !important;
   }
@@ -1112,15 +1111,19 @@
   }
 }
 
-/* ── Hero rich-text block — soft shadow + desktop left offset ─────── */
+/* ── Hero rich-text block — reset Webflow desktop offsets on mobile ─ */
 .rich-text-block-2 {
   text-shadow: 0 1px 7px #000000b8;
+  margin-top: 0 !important;
+  margin-left: 0 !important;
+  padding-right: 0 !important;
 }
 
 @media (min-width: 992px) {
   .rich-text-block-2 {
-    margin-left: 60px;
-    padding-right: 60px;
+    margin-top: 150px !important;
+    margin-left: 60px !important;
+    padding-right: 60px !important;
   }
 }
 
