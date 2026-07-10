@@ -1415,3 +1415,149 @@
   }
 }
 
+/* Brand sidebar — bottom-left FAB on mobile (like Free Estimate on the right) */
+@media (max-width: 991px) {
+  .listing-grid.sidebar-left > .inner-container._408px._100-mbl,
+  .parent_sticky-wrapper.sidebar-left {
+    height: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  .section_sidebar {
+    position: fixed !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: max(16px, env(safe-area-inset-bottom)) !important;
+    left: max(16px, env(safe-area-inset-left)) !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    height: auto !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    pointer-events: none !important;
+    z-index: 1240 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .section_sidebar .sticky-top,
+  .section_sidebar .sticky-top.brands,
+  .section_sidebar .sticky-top.types {
+    position: static !important;
+    top: auto !important;
+  }
+
+  .section_sidebar .dropdown-tab.sidebar-dropdown {
+    position: static !important;
+    inset: auto !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    max-height: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    pointer-events: none !important;
+    background: transparent !important;
+  }
+
+  .section_sidebar .dropdown-tab.sidebar-dropdown > [data-dd="toggle"] {
+    pointer-events: auto !important;
+    position: relative !important;
+    transform: none !important;
+    top: auto !important;
+    left: auto !important;
+    margin: 0 !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    width: auto !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 48px;
+    padding: 0 16px 0 14px !important;
+    border-radius: 999px !important;
+    background: #ffffff !important;
+    border: 1px solid #dbe5ef !important;
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.18);
+    color: #0f172a !important;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .section_sidebar .toggle-text-tab-2.sidebar-txt {
+    color: #0f172a !important;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.1;
+    position: static;
+    bottom: auto;
+  }
+
+  .section_sidebar .tab-icon-wrapper.sidebar-icon-wrapper {
+    width: 18px;
+    height: 18px;
+    min-height: 0;
+    flex: 0 0 18px;
+    right: auto;
+    bottom: auto;
+  }
+
+  .section_sidebar .dropdown-list-4.sidebar-list {
+    position: fixed !important;
+    top: auto !important;
+    left: max(16px, env(safe-area-inset-left)) !important;
+    right: max(72px, calc(16px + env(safe-area-inset-right) + 48px)) !important;
+    bottom: calc(max(16px, env(safe-area-inset-bottom)) + 56px) !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: min(420px, calc(100vw - 32px - 72px)) !important;
+    max-height: min(68vh, calc(100dvh - 140px)) !important;
+    margin: 0 !important;
+    padding: 12px 0 16px !important;
+    border-radius: 14px !important;
+    background: #ffffff !important;
+    box-shadow: 0 22px 55px rgba(15, 23, 42, 0.22) !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    pointer-events: auto !important;
+    z-index: 1241 !important;
+    inset: auto !important;
+  }
+
+  .section_sidebar .sidebar_content-wrapper-2.bottom.brands {
+    max-width: none !important;
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .section_sidebar .scroll-block {
+    max-height: none;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (max-width: 479px) {
+  .section_sidebar .dropdown-tab.sidebar-dropdown > [data-dd="toggle"] {
+    min-height: 44px;
+    padding: 0 14px 0 12px !important;
+    font-size: 12px;
+  }
+
+  .section_sidebar .dropdown-list-4.sidebar-list {
+    right: max(16px, env(safe-area-inset-right)) !important;
+    max-width: calc(100vw - 32px) !important;
+    max-height: min(62vh, calc(100dvh - 130px)) !important;
+  }
+}
+

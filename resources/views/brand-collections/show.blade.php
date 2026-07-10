@@ -648,6 +648,7 @@
           sb.style.maxHeight = Math.max(120, window.innerHeight - topPos - pad) + "px";
         }
         toggles.forEach(toggle => {
+          if (toggle.closest(".dropdown-tab.sidebar-dropdown")) return;
           const list = toggle.parentElement.querySelector('[data-dd="list"]');
           if (!list) return;
           const icon = toggle.querySelector(".tab-icon-line.second");
