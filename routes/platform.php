@@ -19,6 +19,8 @@ use App\Orchid\Screens\User\UserEditScreen;
 use App\Orchid\Screens\User\UserListScreen;
 use App\Orchid\Screens\User\UserProfileScreen;
 use App\Orchid\Screens\Promotions\PromotionsScreen;
+use App\Orchid\Screens\DoorBrands\DoorBrandListScreen;
+use App\Orchid\Screens\DoorBrands\DoorBrandEditScreen;
 use App\Http\Controllers\Admin\WebflowExportController;
 use App\Http\Controllers\Admin\WebflowImageUploadController;
 use App\Orchid\Screens\Webflow\WebflowCollectionEditScreen;
@@ -46,6 +48,12 @@ Route::screen('promotions', PromotionsScreen::class)
 
 Route::screen('leads', LeadListScreen::class)
     ->name('platform.leads');
+
+Route::screen('door-brands', DoorBrandListScreen::class)
+    ->name('platform.door-brands');
+
+Route::screen('door-brands/{slug}/edit', DoorBrandEditScreen::class)
+    ->name('platform.door-brands.edit');
 
 // Platform > Profile
 Route::screen('profile', UserProfileScreen::class)

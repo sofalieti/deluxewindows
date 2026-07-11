@@ -400,7 +400,7 @@
                                   href="/brand"
                                   class="dropdown-link-2 dropdown-link-title"
                                   tabindex="0"
-                                  >Brands</a
+                                  >Door Brands</a
                                 >
                                 <div class="w-layout-grid main-pages-2">
                                   <div class="w-layout-grid grid-1-column-2 dropdown-link-column small">
@@ -412,31 +412,31 @@
                                       >All</a
                                     ><a
                                       id="w-node-_632206d9-3c73-e5be-be34-15992c2e83a1-2c2e830e"
-                                      href="/brands/marvin"
+                                      href="/door-brands/marvin"
                                       class="dropdown-link-2"
                                       tabindex="0"
                                       >Marvin</a
                                     ><a
                                       id="w-node-_632206d9-3c73-e5be-be34-15992c2e83a3-2c2e830e"
-                                      href="/brands/milgard"
+                                      href="/door-brands/milgard"
                                       class="dropdown-link-2"
                                       tabindex="0"
                                       >Milgard</a
                                     ><a
                                       id="w-node-_632206d9-3c73-e5be-be34-15992c2e83a5-2c2e830e"
-                                      href="/brands/jeld-wen"
+                                      href="/door-brands/jeld-wen"
                                       class="dropdown-link-2"
                                       tabindex="0"
                                       >Jeld-Wen</a
                                     ><a
                                       id="w-node-_632206d9-3c73-e5be-be34-15992c2e83a7-2c2e830e"
-                                      href="/brands/anlin"
+                                      href="/door-brands/anlin"
                                       class="dropdown-link-2"
                                       tabindex="0"
                                       >Anlin</a
                                     ><a
                                       id="w-node-_632206d9-3c73-e5be-be34-15992c2e83a9-2c2e830e"
-                                      href="/brands/italwindows"
+                                      href="/door-brands/italwindows"
                                       class="dropdown-link-2"
                                       tabindex="0"
                                       >Italwindows</a
@@ -448,37 +448,37 @@
                                   >
                                     <a
                                       id="w-node-_632206d9-3c73-e5be-be34-15992c2e83ac-2c2e830e"
-                                      href="/brands/andersen"
+                                      href="/door-brands/andersen"
                                       class="dropdown-link-2"
                                       tabindex="0"
                                       >Andersen</a
                                     ><a
                                       id="w-node-_632206d9-3c73-e5be-be34-15992c2e83ae-2c2e830e"
-                                      href="/brands/ply-gem"
+                                      href="/door-brands/ply-gem"
                                       class="dropdown-link-2"
                                       tabindex="0"
                                       >Ply Gem</a
                                     ><a
                                       id="w-node-_632206d9-3c73-e5be-be34-15992c2e83b0-2c2e830e"
-                                      href="/brands/simonton"
+                                      href="/door-brands/simonton"
                                       class="dropdown-link-2"
                                       tabindex="0"
                                       >Simonton</a
                                     ><a
                                       id="w-node-_632206d9-3c73-e5be-be34-15992c2e83b2-2c2e830e"
-                                      href="/brands/alside"
+                                      href="/door-brands/alside"
                                       class="dropdown-link-2"
                                       tabindex="0"
                                       >Alside</a
                                     ><a
                                       id="w-node-_632206d9-3c73-e5be-be34-15992c2e83b4-2c2e830e"
-                                      href="/brands/western-window-systems"
+                                      href="/door-brands/western-window-systems"
                                       class="dropdown-link-2"
                                       tabindex="0"
                                       >Western Window Systems</a
                                     ><a
                                       id="w-node-_632206d9-3c73-e5be-be34-15992c2e83b6-2c2e830e"
-                                      href="/brands/all-weather-architectural-aluminum"
+                                      href="/door-brands/all-weather-architectural-aluminum"
                                       class="dropdown-link-2"
                                       tabindex="0"
                                       >All Weather Architectural Aluminum</a
@@ -1147,7 +1147,7 @@
                               tabindex="0"
                             >
                               <div class="nav-dropdown-icon-2 w-icon-dropdown-toggle" aria-hidden="true"></div>
-                              <div>Brands</div>
+                              <div>Door Brands</div>
                             </div>
                             <nav
                               class="nav-dropdown-list-2 shadow-three mobile-shadow-hide w-dropdown-list"
@@ -1157,47 +1157,47 @@
                               <a href="/brand" class="nav-dropdown-link-5 w-dropdown-link"
                                 >All</a
                               ><a
-                                href="/brands/marvin"
+                                href="/door-brands/marvin"
                                 class="nav-dropdown-link-5 w-dropdown-link"
                                 >Marvin</a
                               ><a
-                                href="/brands/milgard"
+                                href="/door-brands/milgard"
                                 class="nav-dropdown-link-5 w-dropdown-link"
                                 >Milgard</a
                               ><a
-                                href="/brands/jeld-wen"
+                                href="/door-brands/jeld-wen"
                                 class="nav-dropdown-link-5 w-dropdown-link"
                                 >Jeld-Wen</a
                               ><a
-                                href="/brands/anlin"
+                                href="/door-brands/anlin"
                                 class="nav-dropdown-link-5 w-dropdown-link"
                                 >Anlin</a
                               ><a
-                                href="/brands/italwindows"
+                                href="/door-brands/italwindows"
                                 class="nav-dropdown-link-5 w-dropdown-link"
                                 >Italwindows</a
                               ><a
-                                href="/brands/andersen"
+                                href="/door-brands/andersen"
                                 class="nav-dropdown-link-5 w-dropdown-link"
                                 >Andersen</a
                               ><a
-                                href="/brands/ply-gem"
+                                href="/door-brands/ply-gem"
                                 class="nav-dropdown-link-5 w-dropdown-link"
                                 >Ply Gem</a
                               ><a
-                                href="/brands/simonton"
+                                href="/door-brands/simonton"
                                 class="nav-dropdown-link-5 w-dropdown-link"
                                 >Simonton</a
                               ><a
-                                href="/brands/alside"
+                                href="/door-brands/alside"
                                 class="nav-dropdown-link-5 w-dropdown-link"
                                 >Alside</a
                               ><a
-                                href="/brands/western-window-systems"
+                                href="/door-brands/western-window-systems"
                                 class="nav-dropdown-link-5 w-dropdown-link"
                                 >Western Window Systems</a
                               ><a
-                                href="/brands/all-weather-architectural-aluminum"
+                                href="/door-brands/all-weather-architectural-aluminum"
                                 class="nav-dropdown-link-5 w-dropdown-link"
                                 >All Weather Architectural Aluminum</a
                               >

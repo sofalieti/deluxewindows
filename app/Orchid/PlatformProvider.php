@@ -52,6 +52,10 @@ class PlatformProvider extends OrchidServiceProvider
                 ->icon('bs.inbox')
                 ->route('platform.leads'),
 
+            Menu::make('Door Brands')
+                ->icon('bs.door-open')
+                ->route('platform.door-brands'),
+
             Menu::make('Get Started')
                 ->icon('bs.book')
                 ->title('Navigation')
