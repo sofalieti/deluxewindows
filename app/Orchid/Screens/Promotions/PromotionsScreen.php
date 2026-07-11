@@ -12,6 +12,7 @@ use App\Models\Webflow\WindowsWebflowItem;
 use App\Services\PromotionControlService;
 use App\Services\PromotionSettingsService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Schema;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Screen;
@@ -236,7 +237,9 @@ class PromotionsScreen extends Screen
         $control->window_type_prices = $windowTypePrices;
         $control->series_prices = $seriesPrices;
         $control->brand_prices = $brandPrices;
-        $control->door_prices = $doorPrices;
+        if (Schema::hasColumn('promotion_controls', 'door_prices')) {
+            $control->door_prices = $doorPrices;
+        }
         $control->save();
 
         $this->syncLegacyGlobalSettings(
