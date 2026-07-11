@@ -179,6 +179,8 @@
         'doorHero' => true,
         'doorHeroImage' => $heroImage,
         'doorDiscountHtml' => $discountHtml,
+        'brandHeroFormHtml' => $doorHeroFormHtml,
+        'brandPromotionPricing' => $doorPromotionPricing,
       ])
 
       @include('partials.trust-badges')

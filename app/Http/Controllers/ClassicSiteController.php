@@ -249,6 +249,8 @@ class ClassicSiteController extends Controller
             'summary'        => $fieldData['description'] ?? '',
             'aboutHtml'      => $fieldData['blog-post---rich-text'] ?? $door->wf_blog_post_rich_text ?? '',
             'discountHtml'   => $discountHtml,
+            'doorHeroFormHtml'       => $discountHtml,
+            'doorPromotionPricing'   => $doorPricing,
             'heroImage'      => $heroImage ?? '',
             'mainImage'      => $mainImage ?? '',
             'galleryImages'  => $galleryImages,
