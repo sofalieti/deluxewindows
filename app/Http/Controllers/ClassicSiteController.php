@@ -1031,15 +1031,12 @@ class ClassicSiteController extends Controller
             ? $doorBrand->doors_title
             : ($fieldData['doors-title'] ?? "Explore {$name}'s Door Types");
 
+        // Door-brand hero price = cheapest priced door (Promotions → Door Types)
+        // among all Doors linked to this brand via the `doors-brands` reference.
         $controls = app(PromotionControlService::class);
-        $brandPricing = $this->resolveBrandPromotionPricing(
-            $brand,
-            (string) ($fieldData['slug'] ?? $slug),
-            (string) ($brand->webflow_item_id ?? ''),
-            $controls
-        );
+        $brandPricing = $this->resolveCheapestDoorPricingForBrand($brand, $controls);
         $brandHeroFormHtml = $brandPricing
-            ? $controls->pricingHtmlFromMap($brandPricing, 'per window installed')
+            ? $controls->pricingHtmlFromMap($brandPricing, 'per door installed')
             : null;
 
         return view('door-brands.show', [
@@ -1062,6 +1059,66 @@ class ClassicSiteController extends Controller
             'brandHeroFormHtml' => $brandHeroFormHtml,
             'brandPromotionPricing' => $brandPricing,
         ]);
+    }
+
+    /**
+     * Cheapest priced door linked to a brand.
+     *
+     * Scans the Doors collection for items whose `doors-brands` reference contains
+     * this brand, looks up each door's Promotions price (Door Types tab) and returns
+     * the one with the lowest final price. Returns null when no linked door is priced.
+     *
+     * @return array{base: string, final: string}|null
+     */
+    private function resolveCheapestDoorPricingForBrand(BrandsWebflowItem $brand, PromotionControlService $controls): ?array
+    {
+        $brandId = trim((string) ($brand->webflow_item_id ?? ''));
+        if ($brandId === '') {
+            return null;
+        }
+
+        $best = null;
+        $bestValue = null;
+
+        DoorsWebflowItem::query()
+            ->where('is_archived', false)
+            ->where('is_draft', false)
+            ->get()
+            ->each(function (DoorsWebflowItem $door) use ($brandId, $controls, &$best, &$bestValue) {
+                $fd = is_array($door->field_data) ? $door->field_data : [];
+
+                $brandRefs = $fd['doors-brands'] ?? [];
+                if (! is_array($brandRefs) || ! in_array($brandId, $brandRefs, true)) {
+                    return;
+                }
+
+                $pricing = $controls->doorPricing(
+                    (string) ($door->webflow_item_id ?? ''),
+                    (string) ($fd['slug'] ?? '')
+                );
+                if ($pricing === null) {
+                    return;
+                }
+
+                $value = $this->priceToFloat((string) ($pricing['final'] ?? ''));
+                if ($value === null) {
+                    return;
+                }
+
+                if ($bestValue === null || $value < $bestValue) {
+                    $bestValue = $value;
+                    $best = $pricing;
+                }
+            });
+
+        return $best;
+    }
+
+    private function priceToFloat(string $value): ?float
+    {
+        $clean = preg_replace('/[^0-9.]/', '', $value);
+
+        return ($clean === '' || $clean === null) ? null : (float) $clean;
     }
 
     private function defaultDoorBrandDescription(string $name): string

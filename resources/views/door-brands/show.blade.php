@@ -19,6 +19,7 @@
         'windowHeroImage' => null,
         'brandHeroFormHtml' => $brandHeroFormHtml,
         'brandPromotionPricing' => $brandPromotionPricing ?? null,
+        'hideHeroPromoWhenEmpty' => true,
       ])
 
       @include('partials.trust-badges')

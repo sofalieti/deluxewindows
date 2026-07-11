@@ -68,6 +68,9 @@
     !empty($windowTypeHero),
     $brandPromotionPricing ?? $heroPromotionPricing ?? null,
   );
+  // Hide the hero promo/price block entirely when a page opts in and has no price
+  // (e.g. door-brand pages where no linked door has a Promotions price).
+  $hideHeroPricing = !empty($hideHeroPromoWhenEmpty) && empty($brandHeroFormHtml ?? null);
   $windowTypeHeroCopy = [
     'vinyl-windows' => [
       'headline' => 'Upgrade to Energy Efficient Vinyl Windows for Less',
@@ -210,6 +213,7 @@
                         <h2 data-city="">Local Installers</h2>
                       </div>
                     </div>
+                    @if(!$hideHeroPricing)
                     <div class="hero-mobile-promo-slot hero-mobile-promo-slot--mobile">
                       @include('partials.hero-mobile-promo', [
                         'variant' => 'price',
@@ -217,6 +221,7 @@
                         'buttonLabel' => 'Get Free Quote',
                       ])
                     </div>
+                    @endif
                     @if($brandLikeHero || !empty($doorHero))
                     </div>
                     @endif
@@ -249,12 +254,14 @@
                     @if(!empty($brandLogo))
                     <img loading="lazy" src="{{ $brandLogo }}" alt="" class="svg50 sidebar-svg top-svg" />
                     @endif
+                    @if(!$hideHeroPricing)
                     <label for="email-banner" class="body-14"></label>
                     <div data-estimate-form-promo class="estimate-form-promo promo-offer-context--form">
                       <div class="{{ $heroPricingBlockClass }} w-richtext">
                         {!! $heroPricingHtml !!}
                       </div>
                     </div>
+                    @endif
                     @elseif(!empty($doorHero) && !empty($doorDiscountHtml))
                     <label for="email-banner" class="body-14"></label>
                     <div data-estimate-form-promo class="estimate-form-promo promo-offer-context--form">
