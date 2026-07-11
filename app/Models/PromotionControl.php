@@ -18,6 +18,7 @@ class PromotionControl extends Model
         'window_type_prices',
         'series_prices',
         'brand_prices',
+        'door_prices',
     ];
 
     protected function casts(): array
@@ -27,6 +28,7 @@ class PromotionControl extends Model
             'window_type_prices' => 'array',
             'series_prices' => 'array',
             'brand_prices' => 'array',
+            'door_prices' => 'array',
         ];
     }
 }

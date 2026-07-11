@@ -29,6 +29,7 @@ class PromotionControlService
                 'window_type_prices' => [],
                 'series_prices' => [],
                 'brand_prices' => [],
+                'door_prices' => [],
             ]);
         }
 
@@ -41,6 +42,7 @@ class PromotionControlService
                     'window_type_prices' => [],
                     'series_prices' => [],
                     'brand_prices' => [],
+                    'door_prices' => [],
                 ]
             );
         });
@@ -156,6 +158,14 @@ class PromotionControlService
     public function brandPricing(?string $webflowItemId = null, ?string $slug = null): ?array
     {
         return $this->lookupPricing($this->get()->brand_prices, $webflowItemId, $slug);
+    }
+
+    /**
+     * @return array{base: string, final: string}|null
+     */
+    public function doorPricing(?string $webflowItemId = null, ?string $slug = null): ?array
+    {
+        return $this->lookupPricing($this->get()->door_prices, $webflowItemId, $slug);
     }
 
     /**

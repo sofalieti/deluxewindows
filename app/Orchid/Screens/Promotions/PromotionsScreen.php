@@ -7,6 +7,7 @@ namespace App\Orchid\Screens\Promotions;
 use App\Models\Webflow\GlobalSettingsWebflowItem;
 use App\Models\Webflow\BrandCollectionsWebflowItem;
 use App\Models\Webflow\BrandsWebflowItem;
+use App\Models\Webflow\DoorsWebflowItem;
 use App\Models\Webflow\WindowsWebflowItem;
 use App\Services\PromotionControlService;
 use App\Services\PromotionSettingsService;
@@ -28,6 +29,9 @@ class PromotionsScreen extends Screen
     /** @var array<int, array{id: string, slug: string, name: string}> */
     private array $brandList = [];
 
+    /** @var array<int, array{id: string, slug: string, name: string}> */
+    private array $doorList = [];
+
     /** @var array<string, array{base: string, final: string}> */
     private array $windowTypePricesForView = [];
 
@@ -36,6 +40,9 @@ class PromotionsScreen extends Screen
 
     /** @var array<string, array{base: string, final: string}> */
     private array $brandPricesForView = [];
+
+    /** @var array<string, array{base: string, final: string}> */
+    private array $doorPricesForView = [];
 
     public function __construct(
         private readonly PromotionControlService $controls,
@@ -49,14 +56,17 @@ class PromotionsScreen extends Screen
         $windowTypeMap = is_array($control->window_type_prices) ? $control->window_type_prices : [];
         $seriesMap = is_array($control->series_prices) ? $control->series_prices : [];
         $brandMap = is_array($control->brand_prices) ? $control->brand_prices : [];
+        $doorMap = is_array($control->door_prices) ? $control->door_prices : [];
 
         $windowTypes = $this->windowTypeItems();
         $series = $this->seriesItems();
         $brands = $this->brandItems();
+        $doors = $this->doorItems();
 
         $this->windowTypeList = $windowTypes;
         $this->seriesList = $series;
         $this->brandList = $brands;
+        $this->doorList = $doors;
 
         $windowTypePrices = [];
         foreach ($windowTypes as $item) {
@@ -85,9 +95,19 @@ class PromotionsScreen extends Screen
             ];
         }
 
+        $doorPrices = [];
+        foreach ($doors as $item) {
+            $key = $item['id'];
+            $doorPrices[$key] = [
+                'base' => (string) ($doorMap[$key]['base'] ?? $doorMap[$item['slug']]['base'] ?? ''),
+                'final' => (string) ($doorMap[$key]['final'] ?? $doorMap[$item['slug']]['final'] ?? ''),
+            ];
+        }
+
         $this->windowTypePricesForView = $windowTypePrices;
         $this->seriesPricesForView = $seriesPrices;
         $this->brandPricesForView = $brandPrices;
+        $this->doorPricesForView = $doorPrices;
 
         return [
             'promotions' => [
@@ -99,6 +119,7 @@ class PromotionsScreen extends Screen
                 'window_type_prices' => $windowTypePrices,
                 'series_prices' => $seriesPrices,
                 'brand_prices' => $brandPrices,
+                'door_prices' => $doorPrices,
             ],
         ];
     }
@@ -173,6 +194,12 @@ class PromotionsScreen extends Screen
                     'values' => $this->brandPricesForView,
                     'help' => 'Brand override price. Final is required, Base is optional. Leave empty to inherit from linked Windows type.',
                 ]),
+                'Door Types' => Layout::view('admin.promotions.pricing-tab', [
+                    'scope' => 'door_prices',
+                    'items' => $this->doorList,
+                    'values' => $this->doorPricesForView,
+                    'help' => 'Price per Doors item. Base and Final are required.',
+                ]),
             ]),
         ];
     }
@@ -198,6 +225,7 @@ class PromotionsScreen extends Screen
         $windowTypePrices = $this->normalizePricingMap($data['window_type_prices'] ?? [], true);
         $seriesPrices = $this->normalizePricingMap($data['series_prices'] ?? [], false);
         $brandPrices = $this->normalizePricingMap($data['brand_prices'] ?? [], false);
+        $doorPrices = $this->normalizePricingMap($data['door_prices'] ?? [], true);
 
         $control = $this->controls->get();
         $control->global_promotion_name = $promotionName;
@@ -208,6 +236,7 @@ class PromotionsScreen extends Screen
         $control->window_type_prices = $windowTypePrices;
         $control->series_prices = $seriesPrices;
         $control->brand_prices = $brandPrices;
+        $control->door_prices = $doorPrices;
         $control->save();
 
         $this->syncLegacyGlobalSettings(
@@ -315,6 +344,37 @@ class PromotionsScreen extends Screen
             ->get()
             ->map(function (BrandsWebflowItem $item): ?array {
                 $fd = is_array($item->field_data) ? $item->field_data : [];
+                $id = trim((string) ($item->webflow_item_id ?? ''));
+                $slug = trim((string) ($fd['slug'] ?? ''));
+                $name = trim((string) ($fd['name'] ?? ''));
+                if ($id === '' || $slug === '' || $name === '') {
+                    return null;
+                }
+
+                return ['id' => $id, 'slug' => $slug, 'name' => $name];
+            })
+            ->filter()
+            ->values()
+            ->all();
+    }
+
+    /**
+     * All doors from the Doors collection.
+     *
+     * @return array<int, array{id: string, slug: string, name: string}>
+     */
+    private function doorItems(): array
+    {
+        return DoorsWebflowItem::query()
+            ->where('is_archived', false)
+            ->where('is_draft', false)
+            ->orderBy('id')
+            ->get()
+            ->map(function (DoorsWebflowItem $item): ?array {
+                $fd = is_array($item->field_data) ? $item->field_data : [];
+                if (($fd['hide'] ?? false) === true) {
+                    return null;
+                }
                 $id = trim((string) ($item->webflow_item_id ?? ''));
                 $slug = trim((string) ($fd['slug'] ?? ''));
                 $name = trim((string) ($fd['name'] ?? ''));
