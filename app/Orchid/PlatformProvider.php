@@ -39,10 +39,13 @@ class PlatformProvider extends OrchidServiceProvider
         // Collections moved into a dedicated "Towns And County" section (in this order).
         $townsCollections = ['window-replacement', 'county-hub-pages'];
 
-        // Collections moved into a dedicated "Brands" section (in this order).
-        $brandsCollections = ['brands'];
+        // Everything related to Windows (in this order).
+        $windowCollections = ['windows', 'window-type', 'window-styles', 'brands'];
 
-        $groupedCollections = array_merge($townsCollections, $brandsCollections);
+        // Everything related to Doors (in this order). "Door Brands" is a custom screen added below.
+        $doorCollections = ['doors', 'door-types'];
+
+        $groupedCollections = array_merge($townsCollections, $windowCollections, $doorCollections);
 
         $webflowCollections = array_values(array_filter(
             WebflowCollectionRegistry::all(),
@@ -64,22 +67,34 @@ class PlatformProvider extends OrchidServiceProvider
                 ->title($index === 0 ? 'Webflow CMS' : null);
         }
 
-        $brandsMenu = [];
-        foreach ($brandsCollections as $slug) {
+        $windowsMenu = [];
+        foreach ($windowCollections as $slug) {
             $collection = $collectionsBySlug->get($slug);
             if ($collection === null) {
                 continue;
             }
-            $brandsMenu[] = Menu::make($collection['title'])
-                ->icon('bs.database')
+            $windowsMenu[] = Menu::make($collection['title'])
+                ->icon('bs.window')
                 ->route('platform.webflow.collection', ['collection' => $collection['slug']])
-                ->title($brandsMenu === [] ? 'Brands' : null);
+                ->title($windowsMenu === [] ? 'Windows' : null);
         }
 
-        $brandsMenu[] = Menu::make('Door Brands')
+        $doorsMenu = [];
+        foreach ($doorCollections as $slug) {
+            $collection = $collectionsBySlug->get($slug);
+            if ($collection === null) {
+                continue;
+            }
+            $doorsMenu[] = Menu::make($collection['title'])
+                ->icon('bs.door-open')
+                ->route('platform.webflow.collection', ['collection' => $collection['slug']])
+                ->title($doorsMenu === [] ? 'Doors' : null);
+        }
+
+        $doorsMenu[] = Menu::make('Door Brands')
             ->icon('bs.door-open')
             ->route('platform.door-brands')
-            ->title($brandsMenu === [] ? 'Brands' : null);
+            ->title($doorsMenu === [] ? 'Doors' : null);
 
         $townsMenu = [];
         foreach ($townsCollections as $slug) {
@@ -117,7 +132,7 @@ class PlatformProvider extends OrchidServiceProvider
                 ->permission('platform.systems.roles'),
         ];
 
-        return array_merge($marketingMenu, $webflowMenus, $brandsMenu, $townsMenu, $accessMenu);
+        return array_merge($marketingMenu, $windowsMenu, $doorsMenu, $webflowMenus, $townsMenu, $accessMenu);
     }
 
     /**

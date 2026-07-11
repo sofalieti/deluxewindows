@@ -225,6 +225,18 @@ class ClassicSiteController extends Controller
             ?? $mainImage
             ?? '';
 
+        $controls    = app(PromotionControlService::class);
+        $doorPricing = $controls->doorPricing(
+            (string) ($door->webflow_item_id ?? ''),
+            (string) ($fieldData['slug'] ?? $slug)
+        );
+        $discountHtml = $doorPricing
+            ? $controls->pricingHtmlFromMap($doorPricing, 'per door installed')
+            : $this->legacyDiscountToPromoHtml(
+                (string) ($fieldData['door-discount'] ?? $door->wf_door_discount ?? ''),
+                'per door installed'
+            );
+
         return view('doors.show', [
             'doorFieldData'  => $fieldData,
             'seoTitle'       => $seoTitle,
@@ -236,7 +248,7 @@ class ClassicSiteController extends Controller
             'slug'           => $fieldData['slug'] ?? $slug,
             'summary'        => $fieldData['description'] ?? '',
             'aboutHtml'      => $fieldData['blog-post---rich-text'] ?? $door->wf_blog_post_rich_text ?? '',
-            'discountHtml'   => $fieldData['door-discount'] ?? $door->wf_door_discount ?? '',
+            'discountHtml'   => $discountHtml,
             'heroImage'      => $heroImage ?? '',
             'mainImage'      => $mainImage ?? '',
             'galleryImages'  => $galleryImages,
