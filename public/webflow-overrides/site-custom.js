@@ -403,27 +403,18 @@
     });
   })();
 
-  // Brand "All collections" sidebar — mobile dropdown (bottom-left FAB).
+  // Brand "All collections" sidebar — mobile full-screen panel from the top.
   (function () {
     const MOBILE = "(max-width: 991px)";
 
-    function applyScrollBlock(list) {
-      const sb = list.querySelector(".scroll-block");
-      if (!sb) return;
-      const listRect = list.getBoundingClientRect();
-      const sbTop = sb.getBoundingClientRect().top - listRect.top;
-      const pad = 16;
-      const available = listRect.height - sbTop - pad;
-      sb.style.maxHeight = Math.max(120, available) + "px";
+    function isMobile() {
+      return window.matchMedia(MOBILE).matches;
     }
 
     function bindSidebarDropdowns() {
-      if (!window.matchMedia(MOBILE).matches) return;
-
       const toggles = document.querySelectorAll(
         '.section_sidebar .dropdown-tab.sidebar-dropdown [data-dd="toggle"]',
       );
-      const lists = [];
 
       toggles.forEach((toggle) => {
         if (toggle.dataset.dwSidebarBound === "1") return;
@@ -433,81 +424,75 @@
         if (!list) return;
 
         const sidebarIcon = toggle.querySelector(".sidebar-icon");
+        list.dataset.open = "false";
 
-        if (!lists.includes(list)) {
-          lists.push(list);
-          list.style.overflow = "hidden";
-          list.style.maxHeight = "0px";
-          list.style.transition = "max-height 0.35s ease";
-          list.dataset.open = "false";
-          list.style.display = "none";
+        let closeBtn = list.querySelector(".dw-sidebar-close");
+        if (!closeBtn) {
+          closeBtn = document.createElement("button");
+          closeBtn.type = "button";
+          closeBtn.className = "dw-sidebar-close";
+          closeBtn.setAttribute("aria-label", "Close");
+          closeBtn.innerHTML = "&times;";
+          list.appendChild(closeBtn);
         }
 
-        toggle.addEventListener("click", () => {
-          const isOpen = list.dataset.open === "true";
-
-          lists.forEach((other) => {
-            if (other !== list && other.dataset.open === "true") {
-              const otherToggle = other.parentElement.querySelector('[data-dd="toggle"]');
-              const otherSidebarIcon = otherToggle?.querySelector(".sidebar-icon");
-              other.style.overflow = "hidden";
-              other.style.display = "block";
-              other.style.maxHeight = other.scrollHeight + "px";
-              requestAnimationFrame(() => {
-                other.style.maxHeight = "0px";
-              });
-              other.dataset.open = "false";
-              setTimeout(() => {
-                if (other.dataset.open === "false") other.style.display = "none";
-              }, 360);
-              if (otherSidebarIcon) otherSidebarIcon.style.transform = "rotate(0deg)";
-            }
-          });
-
-          if (isOpen) {
-            list.style.overflow = "hidden";
-            list.style.display = "block";
-            list.style.maxHeight = list.scrollHeight + "px";
-            requestAnimationFrame(() => {
-              list.style.maxHeight = "0px";
-            });
-            list.dataset.open = "false";
-            setTimeout(() => {
-              if (list.dataset.open === "false") list.style.display = "none";
-            }, 360);
-            if (sidebarIcon) sidebarIcon.style.transform = "rotate(0deg)";
-          } else {
-            list.style.display = "block";
-            list.style.overflow = "hidden";
-            list.style.maxHeight = "0px";
-            requestAnimationFrame(() => {
-              list.style.maxHeight = list.scrollHeight + "px";
-            });
-            list.dataset.open = "true";
-            if (sidebarIcon) {
-              sidebarIcon.style.transition = "transform 0.35s ease";
-              sidebarIcon.style.transform = "rotate(180deg)";
-            }
-            setTimeout(() => {
-              if (list.dataset.open === "true") {
-                list.style.maxHeight = "none";
-                list.style.overflow = "auto";
-                applyScrollBlock(list);
-              }
-            }, 360);
+        function openPanel() {
+          list.classList.add("dw-open");
+          list.dataset.open = "true";
+          list.scrollTop = 0;
+          document.body.classList.add("dw-sidebar-lock");
+          toggle.setAttribute("aria-expanded", "true");
+          if (sidebarIcon) {
+            sidebarIcon.style.transition = "transform 0.35s ease";
+            sidebarIcon.style.transform = "rotate(180deg)";
           }
-        });
-      });
+        }
 
-      window.addEventListener(
-        "resize",
-        () => {
-          lists.forEach((l) => {
-            if (l.dataset.open === "true") requestAnimationFrame(() => applyScrollBlock(l));
-          });
-        },
-        { passive: true },
-      );
+        function closePanel() {
+          list.classList.remove("dw-open");
+          list.dataset.open = "false";
+          document.body.classList.remove("dw-sidebar-lock");
+          toggle.setAttribute("aria-expanded", "false");
+          if (sidebarIcon) sidebarIcon.style.transform = "rotate(0deg)";
+        }
+
+        toggle.addEventListener(
+          "click",
+          (e) => {
+            if (!isMobile()) return;
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            if (list.dataset.open === "true") closePanel();
+            else openPanel();
+          },
+          true,
+        );
+
+        closeBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          closePanel();
+        });
+
+        // Close when a real navigation link inside the panel is tapped.
+        list.addEventListener("click", (e) => {
+          const link = e.target.closest("a[href]");
+          if (link) closePanel();
+        });
+
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && list.dataset.open === "true") closePanel();
+        });
+
+        // Reset when leaving the mobile breakpoint.
+        window.addEventListener(
+          "resize",
+          () => {
+            if (!isMobile() && list.dataset.open === "true") closePanel();
+          },
+          { passive: true },
+        );
+      });
     }
 
     onReady(bindSidebarDropdowns);
