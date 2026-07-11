@@ -70,6 +70,11 @@ class DoorBrandListScreen extends Screen
                 ->icon('bs.arrow-repeat')
                 ->method('syncFromFile')
                 ->confirm('Import content from database/data/door-brands.json into the database? Existing rows with matching slugs will be overwritten.'),
+
+            Button::make('Export to file')
+                ->icon('bs.download')
+                ->method('exportToFile')
+                ->confirm('Export the current door-brand content from the database into database/data/door-brands.json?'),
         ];
     }
 
@@ -110,6 +115,14 @@ class DoorBrandListScreen extends Screen
     {
         Artisan::call('door-brands:sync');
         Toast::info('Door brands synced from file: '.Str::of(Artisan::output())->trim());
+
+        return redirect()->route('platform.door-brands');
+    }
+
+    public function exportToFile()
+    {
+        Artisan::call('door-brands:export');
+        Toast::info('Door brands exported to file: '.Str::of(Artisan::output())->trim());
 
         return redirect()->route('platform.door-brands');
     }

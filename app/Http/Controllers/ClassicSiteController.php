@@ -1054,8 +1054,7 @@ class ClassicSiteController extends Controller
     {
         $safe = e($name);
 
-        return '<h2>'.$safe.' Doors</h2>'
-            .'<p>Upgrade your home with '.$safe.' doors, professionally installed by Deluxe Windows. '
+        return '<p>Upgrade your home with '.$safe.' doors, professionally installed by Deluxe Windows. '
             .'From patio and sliding doors that open your living space to the outdoors, to durable, '
             .'energy-efficient entry doors, '.$safe.' combines lasting quality with modern performance.</p>'
             .'<p>Our Bay Area team helps you choose the right door line for your style and budget, then '
