@@ -17,6 +17,9 @@ Route::get('/brand', [ClassicSiteController::class, 'brandIndex']);
 Route::get('/brands/{slug}', [ClassicSiteController::class, 'brandBySlug'])
     ->where('slug', '[A-Za-z0-9\-]+');
 
+Route::get('/door-brands/{slug}', [ClassicSiteController::class, 'doorBrandBySlug'])
+    ->where('slug', '[A-Za-z0-9\-]+');
+
 Route::get('/brand-collections/{slug}', [ClassicSiteController::class, 'brandCollectionBySlug'])
     ->where('slug', '[A-Za-z0-9\-]+');
 

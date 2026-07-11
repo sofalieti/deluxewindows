@@ -1,0 +1,50 @@
+[
+  {
+    "slug": "marvin",
+    "name": "Marvin",
+    "doors_title": "Explore Marvin's Door Types",
+    "description": "<h2>Marvin Doors — Crafted for the Way You Live</h2><p>For over a century, Marvin has built doors that blend timeless craftsmanship with modern performance. From expansive sliding and folding systems that open your home to the outdoors, to solid, beautifully finished entry doors, every Marvin door is engineered for smooth operation, lasting durability, and energy efficiency.</p><p>As an authorized Marvin installer in the Bay Area, Deluxe Windows helps you choose the right door line for your project — whether you want more natural light, better insulation, or a statement entrance that elevates your curb appeal.</p><ul role=\"list\"><li>Premium wood, fiberglass, and aluminum-clad options</li><li>Energy-efficient glass and weather-tight seals</li><li>Custom sizes, finishes, and hardware</li><li>Professional measurement and installation</li></ul>",
+    "faq": [
+      {
+        "question": "Which Marvin door is best for my home?",
+        "answer": "It depends on your goals. Sliding and multi-slide doors are ideal for connecting indoor and outdoor living, hinged patio doors offer a classic look, and Marvin's entry doors make a strong first impression. During your free consultation we'll recommend the best line for your style, budget, and climate."
+      },
+      {
+        "question": "Are Marvin doors energy efficient?",
+        "answer": "Yes. Marvin doors use high-performance Low-E glass, warm-edge spacers, and weather-tight seals to help keep your home comfortable year-round and reduce energy bills. Many configurations meet or exceed ENERGY STAR requirements for our region."
+      },
+      {
+        "question": "Can Marvin doors be customized?",
+        "answer": "Absolutely. Marvin offers a wide range of sizes, materials, finishes, glass options, and hardware so your doors match your home's architecture. We'll help you configure every detail during the design stage."
+      },
+      {
+        "question": "Do you install Marvin doors in the Bay Area?",
+        "answer": "Yes. Deluxe Windows is an authorized installer serving the entire Bay Area. Our team handles precise measurement, professional installation, and a final inspection to make sure your new doors operate perfectly."
+      }
+    ]
+  },
+  {
+    "slug": "milgard",
+    "name": "Milgard",
+    "doors_title": "Explore Milgard's Door Types",
+    "description": "<h2>Milgard Doors — Reliable Comfort, Everyday Value</h2><p>Milgard has spent decades building doors that combine dependable performance with clean, contemporary style. Their patio and entry doors are designed for smooth operation, strong insulation, and low maintenance — a practical, budget-friendly choice for Bay Area homeowners.</p><p>Deluxe Windows installs the full Milgard door lineup, helping you upgrade comfort, security, and efficiency without overspending.</p><ul role=\"list\"><li>Durable vinyl and fiberglass door systems</li><li>Energy-efficient SunCoat Low-E glass</li><li>Low-maintenance finishes</li><li>Backed by a strong warranty</li></ul>",
+    "faq": [
+      {
+        "question": "Are Milgard doors a good value?",
+        "answer": "Yes. Milgard doors deliver dependable performance and solid energy efficiency at a budget-friendly price, which makes them one of the most popular choices for Bay Area homes."
+      },
+      {
+        "question": "Are Milgard doors energy efficient?",
+        "answer": "Milgard doors feature SunCoat Low-E glass and tight weather seals that help keep conditioned air inside and lower your energy costs throughout the year."
+      },
+      {
+        "question": "What warranty comes with Milgard doors?",
+        "answer": "Milgard is known for its strong, homeowner-friendly warranty coverage. We'll walk you through the exact terms for the door line you choose during your consultation."
+      },
+      {
+        "question": "Do you install Milgard doors in the Bay Area?",
+        "answer": "Yes. Deluxe Windows professionally measures and installs Milgard doors across the Bay Area, finishing every job with a detailed inspection."
+      }
+    ]
+  }
+]

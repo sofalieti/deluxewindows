@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DoorBrand;
 use App\Models\Lead;
 use App\Models\Webflow\BlogWebflowItem;
 use App\Models\Webflow\BrandCollectionsWebflowItem;
@@ -928,6 +929,169 @@ class ClassicSiteController extends Controller
             'brandHeroFormHtml' => $brandHeroFormHtml,
             'brandPromotionPricing' => $brandPricing,
         ]);
+    }
+
+    public function doorBrandBySlug(string $slug)
+    {
+        $slug = strtolower(trim($slug));
+
+        $brand = BrandsWebflowItem::query()
+            ->where('field_data->slug', $slug)
+            ->orWhere('webflow_item_id', $slug)
+            ->orderByDesc('id')
+            ->first();
+
+        abort_if(! $brand, 404);
+
+        $fieldData = is_array($brand->field_data ?? null) ? $brand->field_data : [];
+
+        $logoSvg     = $this->extractImageUrl($fieldData, ['logo-svg']);
+        $logo        = $logoSvg ?? $this->extractImageUrl($fieldData, ['brand-logo', 'agent---avatar-photo', 'agent-avatar-photo']);
+        $featuredImage = $this->extractImageUrl($fieldData, ['featured-image']);
+        if ($featuredImage === null && is_array($brand->wf_featured_image ?? null)) {
+            $featuredImage = $brand->wf_featured_image['url'] ?? null;
+        }
+        // Local brand hero image takes priority over Webflow featured image
+        $localBrandHeroPath = "webflow-assets/images/brand-hero/{$slug}.avif";
+        $localBrandHeroAbsolute = public_path($localBrandHeroPath);
+        if (file_exists($localBrandHeroAbsolute)) {
+            $v = @filemtime($localBrandHeroAbsolute) ?: 1;
+            $featuredImage = '/'.$localBrandHeroPath.'?v='.$v;
+        }
+        $name        = $fieldData['name'] ?? 'Brand';
+
+        // Window types referenced by this brand (kept on door-brand pages)
+        $windowTypes = $brand->webflowReferences('window-types')
+            ->map(function ($wt) {
+                $fd    = is_array($wt->field_data) ? $wt->field_data : [];
+                $wtSlug  = $fd['slug'] ?? '';
+                $wtName  = $fd['name'] ?? '';
+                $wtImage = $this->extractImageUrl($fd, [
+                    'property-listing---thumbnail-image-v1',
+                    'property-listing---featured-image',
+                ]);
+
+                return $wtSlug !== ''
+                    ? ['name' => $wtName, 'slug' => $wtSlug, 'image' => $wtImage ?? '']
+                    : null;
+            })
+            ->filter()
+            ->values();
+
+        $doorTypes = $brand->webflowReferences('doors-type-marvin')
+            ->map(function ($dt) {
+                $fd = is_array($dt->field_data) ? $dt->field_data : [];
+                $dtSlug = $fd['slug'] ?? '';
+                $dtName = $fd['name'] ?? '';
+                $dtImage = $this->extractImageUrl($fd, [
+                    'property-listing---thumbnail-image-v1',
+                    'property-listing---featured-image',
+                ]);
+
+                return $dtSlug !== ''
+                    ? ['name' => $dtName, 'slug' => $dtSlug, 'image' => $dtImage ?? '']
+                    : null;
+            })
+            ->filter()
+            ->values();
+
+        // Door-specific content (description + FAQ), synced from database/data/door-brands.json
+        $doorBrand = DoorBrand::query()->where('slug', $slug)->first();
+
+        $description = $doorBrand && trim((string) $doorBrand->description) !== ''
+            ? $doorBrand->description
+            : $this->defaultDoorBrandDescription($name);
+
+        $faqItems = $doorBrand ? $doorBrand->faqItems() : [];
+        if ($faqItems === []) {
+            $faqItems = $this->defaultDoorBrandFaq($name);
+        }
+
+        $seoTitle       = $name.' Doors | Deluxe Windows – Bay Area';
+        $seoDescription = 'Explore '.$name.' doors installed by Deluxe Windows. Premium patio, sliding, and entry doors with energy-efficient performance and professional Bay Area installation.';
+        $ogTitle        = $seoTitle;
+        $ogDescription  = $seoDescription;
+        $ogImage        = $fieldData['opengraph-image'] ?? $logo ?? '';
+        $windowsTitle   = $fieldData['windows-titles']  ?? "Explore {$name}'s Window Types";
+        $doorsTitle     = ($doorBrand && trim((string) $doorBrand->doors_title) !== '')
+            ? $doorBrand->doors_title
+            : ($fieldData['doors-title'] ?? "Explore {$name}'s Door Types");
+
+        $controls = app(PromotionControlService::class);
+        $brandPricing = $this->resolveBrandPromotionPricing(
+            $brand,
+            (string) ($fieldData['slug'] ?? $slug),
+            (string) ($brand->webflow_item_id ?? ''),
+            $controls
+        );
+        $brandHeroFormHtml = $brandPricing
+            ? $controls->pricingHtmlFromMap($brandPricing, 'per window installed')
+            : null;
+
+        return view('door-brands.show', [
+            'brandFieldData'  => $fieldData,
+            'name'            => $name,
+            'slug'            => $fieldData['slug'] ?? $slug,
+            'logo'            => $logo,
+            'featuredImage'   => $featuredImage,
+            'description'     => $description,
+            'windowTypes'     => $windowTypes,
+            'doorTypes'       => $doorTypes,
+            'faqItems'        => $faqItems,
+            'windowsTitle'    => $windowsTitle,
+            'doorsTitle'      => $doorsTitle,
+            'seoTitle'        => $seoTitle,
+            'seoDescription'  => $seoDescription,
+            'ogTitle'         => $ogTitle,
+            'ogDescription'   => $ogDescription,
+            'ogImage'         => $ogImage,
+            'brandHeroFormHtml' => $brandHeroFormHtml,
+            'brandPromotionPricing' => $brandPricing,
+        ]);
+    }
+
+    private function defaultDoorBrandDescription(string $name): string
+    {
+        $safe = e($name);
+
+        return '<h2>'.$safe.' Doors</h2>'
+            .'<p>Upgrade your home with '.$safe.' doors, professionally installed by Deluxe Windows. '
+            .'From patio and sliding doors that open your living space to the outdoors, to durable, '
+            .'energy-efficient entry doors, '.$safe.' combines lasting quality with modern performance.</p>'
+            .'<p>Our Bay Area team helps you choose the right door line for your style and budget, then '
+            .'handles precise measurement, professional installation, and a final inspection so everything '
+            .'operates perfectly.</p>'
+            .'<ul role="list">'
+            .'<li>Energy-efficient glass and weather-tight seals</li>'
+            .'<li>Durable, low-maintenance materials and finishes</li>'
+            .'<li>Custom sizes, hardware, and configurations</li>'
+            .'<li>Authorized Bay Area installation</li>'
+            .'</ul>';
+    }
+
+    /**
+     * @return list<array{question: string, answer: string}>
+     */
+    private function defaultDoorBrandFaq(string $name): array
+    {
+        return [
+            [
+                'question' => 'Which '.$name.' door is right for my home?',
+                'answer' => 'It depends on your goals — sliding and patio doors are great for connecting indoor and outdoor spaces, while entry doors focus on curb appeal and security. During your free consultation we\'ll recommend the best '.$name.' door line for your style, budget, and climate.',
+            ],
+            [
+                'question' => 'Are '.$name.' doors energy efficient?',
+                'answer' => $name.' doors use high-performance Low-E glass and weather-tight seals to keep your home comfortable year-round and help lower energy bills.',
+            ],
+            [
+                'question' => 'Can '.$name.' doors be customized?',
+                'answer' => 'Yes. You can choose from a range of sizes, materials, finishes, glass, and hardware so your doors match your home. We\'ll help you configure every detail during design.',
+            ],
+            [
+                'question' => 'Do you install '.$name.' doors in the Bay Area?',
+                'answer' => 'Yes. Deluxe Windows is a Bay Area installer that handles precise measurement, professional installation, and a final inspection to make sure your new doors work flawlessly.',
+            ],
+        ];
     }
 
     public function windowTypeBySlug(string $slug)
