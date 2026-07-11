@@ -53,26 +53,26 @@
         <div class="image-wrapper border-radius-image-default"></div>
       </div>
 
-      @if($windowTypes->count() > 0)
+      @if($doorTypes->count() > 0)
       <div class="w-layout-blockcontainer container-default w-container">
         <div class="title-left---content-right">
-          <h2 class="heading-20">{{ $windowsTitle }}</h2>
+          <h2 class="heading-20">{{ $doorsTitle }}</h2>
         </div>
         <div class="mg-top-large">
           <div class="collection-list-wrapper-21 w-dyn-list">
             <div role="list" class="grid-2-columns properties-grid---v1 collection-list w-dyn-items">
-              @foreach($windowTypes as $wt)
+              @foreach($doorTypes as $dt)
               <div role="listitem" class="w-dyn-item">
-                <a href="/window-type/{{ $wt['slug'] }}" class="property-wrapper-v1 w-inline-block">
+                <a href="/door-types/{{ $dt['slug'] }}" class="property-wrapper-v1 w-inline-block">
                   <div class="property-card-top-content-v1">
                     <div class="image-wrapper border-radius-image-default property-card-top-content-v1---image">
-                      @if($wt['image'])
-                      <x-img :src="$wt['image']" preset="card" loading="eager" :alt="$wt['name']" class="image cover-image" />
+                      @if($dt['image'])
+                      <x-img :src="$dt['image']" preset="card" loading="eager" :alt="$dt['name']" class="image cover-image" />
                       @endif
                     </div>
                   </div>
                   <div class="property-card-bottom-content-v1">
-                    <div><h3 class="display-5">{{ $wt['name'] }}</h3></div>
+                    <div><h3 class="display-5">{{ $dt['name'] }}</h3></div>
                   </div>
                 </a>
               </div>
@@ -128,27 +128,27 @@
 
       @include('partials.guarantee')
 
-      @if($doorTypes->count() > 0)
+      @if($windowTypes->count() > 0)
       <section class="section top-none">
         <div class="w-layout-blockcontainer container-default w-container">
           <div class="title-left---content-right">
-            <h2 class="heading-20">{{ $doorsTitle }}</h2>
+            <h2 class="heading-20">{{ $windowsTitle }}</h2>
           </div>
           <div class="mg-top-large">
             <div class="w-dyn-list">
               <div role="list" class="grid-2-columns properties-grid---v1 collection-list w-dyn-items">
-                @foreach($doorTypes as $dt)
+                @foreach($windowTypes as $wt)
                 <div role="listitem" class="w-dyn-item">
-                  <a href="/door-types/{{ $dt['slug'] }}" class="property-wrapper-v1 w-inline-block">
+                  <a href="/window-type/{{ $wt['slug'] }}" class="property-wrapper-v1 w-inline-block">
                     <div class="property-card-top-content-v1">
                       <div class="image-wrapper border-radius-image-default property-card-top-content-v1---image">
-                        @if($dt['image'])
-                        <x-img :src="$dt['image']" preset="card" loading="eager" :alt="$dt['name']" class="image cover-image" />
+                        @if($wt['image'])
+                        <x-img :src="$wt['image']" preset="card" loading="eager" :alt="$wt['name']" class="image cover-image" />
                         @endif
                       </div>
                     </div>
                     <div class="property-card-bottom-content-v1">
-                      <div><h3 class="display-5">{{ $dt['name'] }}</h3></div>
+                      <div><h3 class="display-5">{{ $wt['name'] }}</h3></div>
                     </div>
                   </a>
                 </div>
