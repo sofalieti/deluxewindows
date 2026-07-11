@@ -743,6 +743,14 @@
   background-repeat: no-repeat;
 }
 
+/* Mobile: shift hero background ~20% to the left of center */
+@media (max-width: 767px) {
+  .div-block-59 > .div-block-61,
+  .div-block-59 #hero-bg-wrapper {
+    background-position: 30% center !important;
+  }
+}
+
 /* City landing hero (service-area / county-hub) — unified heading + highlight */
 .title-left---content-right.paragraph-content.alt.hero-page .code-embed-6 .heading-4 {
   font-size: clamp(24px, 4vw, 40px);
