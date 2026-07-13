@@ -216,15 +216,13 @@
                         <h2 data-city="">Local Installers</h2>
                       </div>
                     </div>
-                    @if(!$hideHeroPricing)
                     <div class="hero-mobile-promo-slot hero-mobile-promo-slot--mobile">
                       @include('partials.hero-mobile-promo', [
-                        'variant' => 'price',
+                        'variant' => $hasSpecificPagePromotion ? 'price' : 'percent',
                         'badgeHtml' => $heroMobilePriceTagHtml,
                         'buttonLabel' => 'Get Free Quote',
                       ])
                     </div>
-                    @endif
                     @if($brandLikeHero || !empty($doorHero))
                     </div>
                     @endif
