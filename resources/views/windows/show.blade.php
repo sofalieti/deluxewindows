@@ -2,7 +2,7 @@
 
 @section('wfPage', '')
 @section('htmlClass', '')
-@section('bodyClass', 'body-18 height-auto')
+@section('bodyClass', 'body-18 height-auto window-detail-page')
 @section('title', $seoTitle . ' | Deluxe Windows Concord')
 @section('metaDescription', $seoDescription)
 @section('ogTitle', $ogTitle)
@@ -29,169 +29,13 @@
     }
     </script>
 
-    <style>
-      .w-webflow-badge { display: none !important; }
-      .section.top-none { margin-top: 0 !important; }
-
-      /* ── Custom product gallery ── */
-      :root {
-        --dw-gap:   8px;
-        --dw-arrow: 36px;
-      }
-      .image-wrapper.border-radius-image-default .dw-gallery { width: 100%; overflow: visible; margin-top: 0; }
-      .dw-gallery { width: 100%; overflow: visible; }
-
-      /* Main image — 610:343 ratio */
-      .dw-gallery__main {
-        width: 100%;
-        aspect-ratio: 610 / 343;
-        overflow: hidden;
-        border-radius: 12px;
-        margin-bottom: 10px;
-        background: #f1f5f9;
-      }
-      .dw-gallery__main img {
-        width: 100%; height: 100%; object-fit: cover;
-        transition: opacity .2s ease;
-      }
-
-      /* Strip: arrows extend OUTSIDE via negative margin.
-         Track-wrapper gets exactly the same width as main image. */
-      .dw-gallery__row {
-        display: flex;
-        align-items: center;
-        gap: var(--dw-gap);
-        margin-left:  calc(-1 * (var(--dw-arrow) + var(--dw-gap)));
-        margin-right: calc(-1 * (var(--dw-arrow) + var(--dw-gap)));
-      }
-
-      /* Arrows */
-      .dw-gallery__arrow {
-        flex: 0 0 var(--dw-arrow);
-        width: var(--dw-arrow); height: var(--dw-arrow);
-        border-radius: 50%;
-        border: 1.5px solid #cbd5e1;
-        background: #fff;
-        display: flex; align-items: center; justify-content: center;
-        cursor: pointer; color: #334155;
-        transition: background .2s, border-color .2s, color .2s;
-        padding: 0; line-height: 0;
-        box-shadow: 0 1px 4px rgba(0,0,0,.08);
-      }
-      .dw-gallery__arrow:hover    { background: #f1f5f9; border-color: #64748b; color: #0f172a; }
-      .dw-gallery__arrow:disabled { opacity: .35; cursor: default; pointer-events: none; }
-
-      /* Track wrapper = same width as main image */
-      .dw-gallery__track-wrapper { flex: 1; overflow: hidden; min-width: 0; }
-
-      /* Track: set explicit width = wrapper width so % in children works correctly */
-      .dw-gallery__track {
-        display: flex;
-        gap: var(--dw-gap);
-        width: 100%;                        /* = track-wrapper width */
-        transition: transform .3s cubic-bezier(.4,0,.2,1);
-        will-change: transform;
-      }
-
-      /* 6 thumbs + 5 gaps = track width = main image width */
-      .dw-gallery__thumb {
-        flex: 0 0 calc((100% - 5 * var(--dw-gap)) / 6);
-        aspect-ratio: 610 / 343;
-        overflow: hidden;
-        border-radius: 6px;
-        border: 2px solid transparent;
-        cursor: pointer;
-        padding: 0;
-        background: #f1f5f9;
-        transition: border-color .2s;
-      }
-      .dw-gallery__thumb.is-active             { border-color: #2563eb; }
-      .dw-gallery__thumb:hover:not(.is-active) { border-color: #94a3b8; }
-      .dw-gallery__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-      /* ── Mobile: hide main image, show full-width slides ── */
-      @media (max-width: 767px) {
-        .dw-gallery__main { display: none; }
-
-        .dw-gallery__row {
-          margin-left: 0;
-          margin-right: 0;
-        }
-        .dw-gallery__thumb {
-          flex: 0 0 100% !important;
-          aspect-ratio: 610 / 343 !important;
-          border-radius: 10px !important;
-          border-color: transparent !important;
-        }
-        .dw-gallery__thumb.is-active { border-color: transparent !important; }
-        .dw-gallery__arrow {
-          flex: 0 0 40px;
-          width: 40px; height: 40px;
-          background: rgba(255,255,255,.9);
-          border-color: #94a3b8;
-          box-shadow: 0 1px 6px rgba(0,0,0,.15);
-        }
-      }
-
-      /* Top brands block on window detail pages: static 4-column cards (no marquee) */
-      .window-brands-section__list.brand-strip {
-        overflow: visible;
-      }
-
-      .window-brands-section__list .brand-strip__list {
-        width: 100% !important;
-        min-width: 0 !important;
-        flex-wrap: wrap !important;
-        justify-content: flex-start !important;
-        gap: 18px !important;
-        animation: none !important;
-      }
-
-      .window-brands-section__list .brand-strip__item--dup {
-        display: none !important;
-      }
-
-      .window-brands-section__list .brand-strip__item {
-        flex: 0 0 calc((100% - 3 * 18px) / 4);
-        max-width: calc((100% - 3 * 18px) / 4);
-        min-width: 0;
-      }
-
-      .window-brands-section__list .brand-strip__link {
-        min-height: 84px;
-        padding: 14px 18px;
-        border-radius: 12px;
-        background: #f1f5f9;
-      }
-
-      .window-brands-section__list .brand-strip__image {
-        max-height: 30px;
-        mix-blend-mode: darken !important;
-      }
-
-      @media (max-width: 991px) {
-        .window-brands-section__list .brand-strip__item {
-          flex: 0 0 calc((100% - 2 * 14px) / 3);
-          max-width: calc((100% - 2 * 14px) / 3);
-        }
-      }
-
-      @media (max-width: 767px) {
-        .window-brands-section__list .brand-strip__list {
-          gap: 12px !important;
-        }
-
-        .window-brands-section__list .brand-strip__item {
-          flex: 0 0 calc((100% - 12px) / 2);
-          max-width: calc((100% - 12px) / 2);
-        }
-
-        .window-brands-section__list .brand-strip__link {
-          min-height: 64px;
-          padding: 10px 12px;
-        }
-      }
-    </style>
+    @php
+      $windowDetailCssPath = public_path('webflow-overrides/window-detail.css');
+      $windowDetailCssVersion = file_exists($windowDetailCssPath)
+        ? (string) filemtime($windowDetailCssPath)
+        : '1';
+    @endphp
+    <link href="/webflow-overrides/window-detail.css?v={{ $windowDetailCssVersion }}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('content')
