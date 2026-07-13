@@ -1053,6 +1053,14 @@
   overflow: visible;
 }
 
+.mobile-estimate-modal__promo--global-only .promo-offer-card {
+  padding-right: 14px;
+}
+
+.mobile-estimate-modal__promo--global-only .promo-price-tag--percent {
+  display: none;
+}
+
 .promo-offer-context--modal .promo-price-tag,
 .mobile-estimate-modal__promo .promo-price-tag {
   right: 18px;

@@ -235,6 +235,17 @@
         const source = document.querySelector("#wf-form-Main-Form [data-estimate-form-promo]");
         promoTarget.innerHTML =
           source && source.innerHTML.trim() ? source.innerHTML : defaultPromoHtml;
+
+        const isCatalogDetail = /^\/(?:brands|door-brands|window-type|brand-collections)\//.test(
+          window.location.pathname
+        );
+        const hasGlobalPercentOnly = Boolean(
+          promoTarget.querySelector(".promo-price-tag--percent")
+        );
+        promoTarget.classList.toggle(
+          "mobile-estimate-modal__promo--global-only",
+          isCatalogDetail && hasGlobalPercentOnly
+        );
       }
 
       function setOpenState(isOpen) {
