@@ -1538,3 +1538,15 @@
   }
 }
 
+/* Shared guarantee section layout (kept out of Blade markup). */
+.guarantee-section {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.guarantee-container {
+  max-width: var(--core--sizing--container-default--default, 1248px);
+  padding-left: var(--core--container-default--padding--default, 14px);
+  padding-right: var(--core--container-default--padding--default, 14px);
+}
+

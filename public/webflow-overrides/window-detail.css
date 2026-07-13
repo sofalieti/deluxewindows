@@ -177,6 +177,7 @@
   .window-detail-page .section:not(.section_breadcrumbs) h1,
   .window-detail-page .section:not(.section_breadcrumbs) h2,
   .window-detail-page .section:not(.section_breadcrumbs) h3,
+  .window-detail-page .section:not(.section_breadcrumbs) h5,
   .window-detail-page .section:not(.section_breadcrumbs) p,
   .window-detail-page .new-section,
   .window-detail-page .title-left---content-right,
@@ -187,6 +188,26 @@
   .window-detail-page .faqs-title,
   .window-detail-page .accordion-paragraph {
     text-align: left !important;
+  }
+
+  .window-detail-page .guarantee-container {
+    width: 100%;
+    max-width: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+  }
+
+  .window-detail-page .guarantee-section h3,
+  .window-detail-page .guarantee-section h5,
+  .window-detail-page .guarantee-section p,
+  .window-detail-page .guarantee-section .f-max-width-large,
+  .window-detail-page .guarantee-section .f-feature-card-filled {
+    text-align: left !important;
+  }
+
+  .window-detail-page .guarantee-section .f-feature-card-filled {
+    align-items: flex-start !important;
   }
 
   .window-detail-page .inner-container.center,
@@ -203,8 +224,8 @@
   }
 
   .window-detail-page .buttons-row {
-    justify-content: flex-start !important;
-    text-align: left !important;
+    justify-content: center !important;
+    text-align: center !important;
   }
 
   .window-detail-page .dw-gallery__main {
