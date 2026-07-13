@@ -231,7 +231,14 @@
   }
 
   .hero-mobile-promo__badge {
-    display: none;
+    position: relative !important;
+    z-index: 1 !important;
+    display: inline-block;
+    width: auto;
+    min-width: 168px;
+    margin: 0;
+    padding-bottom: 9px;
+    transform: rotate(-7deg) !important;
   }
 
   .hero-mobile-promo__badge .promo-price-tag {

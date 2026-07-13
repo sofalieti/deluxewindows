@@ -8,50 +8,6 @@
     }
   }
 
-  // Desktop dropdown toggles: disable click behavior, keep hover.
-  (function () {
-    const DESKTOP = "(hover: hover) and (pointer: fine) and (min-width: 992px)";
-    const scopeToggles = ".list-nav-menu-2 .dropdown-wrapper.w-dropdown > .w-dropdown-toggle";
-
-    function isDesktop() {
-      return window.matchMedia(DESKTOP).matches;
-    }
-
-    function disableClickOnToggle(toggle) {
-      if (toggle.dataset.dwDesktopBound === "1") return;
-      toggle.dataset.dwDesktopBound = "1";
-
-      const cancel = (e) => {
-        if (!isDesktop()) return;
-        e.preventDefault();
-        e.stopImmediatePropagation();
-      };
-
-      toggle.addEventListener("pointerdown", cancel, true);
-      toggle.addEventListener("mousedown", cancel, true);
-      toggle.addEventListener("mouseup", cancel, true);
-      toggle.addEventListener("click", cancel, true);
-      toggle.addEventListener(
-        "keydown",
-        function (e) {
-          if (!isDesktop()) return;
-          if (e.key === "Enter" || e.key === " ") cancel(e);
-        },
-        true,
-      );
-
-      toggle.setAttribute("aria-disabled", "true");
-    }
-
-    function bind() {
-      if (!isDesktop()) return;
-      document.querySelectorAll(scopeToggles).forEach(disableClickOnToggle);
-    }
-
-    onReady(bind);
-    window.addEventListener("resize", bind, { passive: true });
-  })();
-
   // Mobile dropdown menu (simple panel under header).
   (function () {
     const NAVBAR = ".navbar-3";
