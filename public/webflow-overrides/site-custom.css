@@ -1270,6 +1270,14 @@
     color: #ffffff !important;
     text-align: center !important;
   }
+
+  #trustBadgesBar.trust-badges-bar .text-block-46 {
+    opacity: 1 !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    text-shadow: none !important;
+    font-weight: 700;
+  }
 }
 
 /* FAQ block — comfortable spacing on tablet and phone */
