@@ -1,6 +1,10 @@
 @php
   $variant = $variant ?? 'percent';
-  $badgeNote = $badgeNote ?? 'OFF Windows';
+  $badgeNote = $badgeNote ?? match (promotion_category()) {
+    'doors' => 'OFF Doors',
+    'windows' => 'OFF Windows',
+    default => 'OFF Windows & Doors',
+  };
   $badgeHtml = $badgeHtml ?? null;
   $buttonLabel = $buttonLabel ?? 'Request a Free Estimate';
   $showExpires = $showExpires ?? true;
