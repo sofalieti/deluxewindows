@@ -50,7 +50,7 @@
     <link href="https://core.service.elfsight.com/" rel="preconnect" crossorigin="" />
   </head>
 
-  <body class="@yield('bodyClass')">
+  <body class="classic-public-page @yield('bodyClass')">
     <div class="page-wrapper @yield('pageWrapperClass')">
       @include('partials.navbar')
 

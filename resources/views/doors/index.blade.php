@@ -17,7 +17,7 @@
         </div>
       </section>
 
-      <section class="section hero-v4">
+      <section class="section hero-v4 page-intro-hero">
         <div class="w-layout-blockcontainer container-default w-container">
           <div class="w-layout-vflex inner-container _500px---mbl center">
             <div class="mg-top-small">

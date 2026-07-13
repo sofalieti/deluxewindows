@@ -58,7 +58,7 @@
             <div class="image-wrapper hero-image---v3">
               <img src="{{ $cdn }}/684596fa8657fd035b9c4e62_Mask%20group9.avif" loading="eager" alt="" class="image hero-icon-image---v3" />
             </div>
-            <div class="hero-content-wrapper---v3">
+            <div class="hero-content-wrapper---v3 page-intro-hero">
               <div class="inner-container _620px center">
                 <div class="text-center">
                   <div class="inner-container _500px---tablet">

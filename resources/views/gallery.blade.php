@@ -6,56 +6,11 @@
 @section('metaDescription', 'Browse our photo gallery of completed window and door replacement projects across the Bay Area by Deluxe Windows.')
 
 @section('head')
-    <style>
-      .dw-gallery-grid {
-        columns: 4;
-        column-gap: 8px;
-      }
-      .dw-gallery-item {
-        break-inside: avoid;
-        display: block;
-        margin-bottom: 8px;
-        border-radius: 10px;
-        overflow: hidden;
-        background: #e8edf2;
-        position: relative;
-      }
-      .dw-gallery-item img {
-        width: 100%;
-        display: block;
-        transition: transform 0.35s ease;
-      }
-      .dw-gallery-item::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: rgba(15, 42, 72, 0);
-        transition: background 0.25s ease;
-        pointer-events: none;
-      }
-      .dw-gallery-item:hover img {
-        transform: scale(1.04);
-      }
-      .dw-gallery-item:hover::after {
-        background: rgba(15, 42, 72, 0.1);
-      }
-      .gallery-intro-note {
-        font-size: 0.88rem;
-        color: #7a8fa6;
-        margin-top: 10px;
-        font-style: italic;
-      }
-      .dw-gallery-section {
-        padding-top: 32px;
-      }
-      @media (max-width: 991px) {
-        .dw-gallery-grid { columns: 3; }
-      }
-      @media (max-width: 640px) {
-        .dw-gallery-grid { columns: 2; column-gap: 6px; }
-        .dw-gallery-item { margin-bottom: 6px; border-radius: 7px; }
-      }
-    </style>
+    @php
+      $galleryCssPath = public_path('webflow-overrides/gallery.css');
+      $galleryCssVersion = file_exists($galleryCssPath) ? (string) filemtime($galleryCssPath) : '1';
+    @endphp
+    <link href="/webflow-overrides/gallery.css?v={{ $galleryCssVersion }}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('content')

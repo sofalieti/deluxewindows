@@ -1,29 +1,28 @@
-/* Window detail pages */
-.window-detail-page .w-webflow-badge {
-  display: none !important;
-}
-
-.window-detail-page .section.top-none {
-  margin-top: 0 !important;
-}
-
-/* Product gallery */
-.window-detail-page {
+/* Door detail pages */
+.door-detail-page {
   --dw-gap: 8px;
   --dw-arrow: 36px;
 }
 
-.window-detail-page .image-wrapper.border-radius-image-default .dw-gallery,
-.window-detail-page .dw-gallery {
+.door-detail-page .w-webflow-badge {
+  display: none !important;
+}
+
+.door-detail-page .section.top-none {
+  margin-top: 0 !important;
+}
+
+.door-detail-page .image-wrapper.border-radius-image-default .dw-gallery,
+.door-detail-page .dw-gallery {
   width: 100%;
   overflow: visible;
 }
 
-.window-detail-page .image-wrapper.border-radius-image-default .dw-gallery {
+.door-detail-page .image-wrapper.border-radius-image-default .dw-gallery {
   margin-top: 0;
 }
 
-.window-detail-page .dw-gallery__main {
+.door-detail-page .dw-gallery__main {
   width: 100%;
   aspect-ratio: 610 / 343;
   overflow: hidden;
@@ -32,14 +31,18 @@
   background: #f1f5f9;
 }
 
-.window-detail-page .dw-gallery__main img {
+.door-detail-page .dw-gallery__main img,
+.door-detail-page .dw-gallery__thumb img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.door-detail-page .dw-gallery__main img {
   transition: opacity 0.2s ease;
 }
 
-.window-detail-page .dw-gallery__row {
+.door-detail-page .dw-gallery__row {
   display: flex;
   align-items: center;
   gap: var(--dw-gap);
@@ -47,7 +50,7 @@
   margin-right: calc(-1 * (var(--dw-arrow) + var(--dw-gap)));
 }
 
-.window-detail-page .dw-gallery__arrow {
+.door-detail-page .dw-gallery__arrow {
   flex: 0 0 var(--dw-arrow);
   width: var(--dw-arrow);
   height: var(--dw-arrow);
@@ -65,25 +68,25 @@
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
 }
 
-.window-detail-page .dw-gallery__arrow:hover {
+.door-detail-page .dw-gallery__arrow:hover {
   background: #f1f5f9;
   border-color: #64748b;
   color: #0f172a;
 }
 
-.window-detail-page .dw-gallery__arrow:disabled {
+.door-detail-page .dw-gallery__arrow:disabled {
   opacity: 0.35;
   cursor: default;
   pointer-events: none;
 }
 
-.window-detail-page .dw-gallery__track-wrapper {
+.door-detail-page .dw-gallery__track-wrapper {
   flex: 1;
   overflow: hidden;
   min-width: 0;
 }
 
-.window-detail-page .dw-gallery__track {
+.door-detail-page .dw-gallery__track {
   display: flex;
   gap: var(--dw-gap);
   width: 100%;
@@ -91,7 +94,7 @@
   will-change: transform;
 }
 
-.window-detail-page .dw-gallery__thumb {
+.door-detail-page .dw-gallery__thumb {
   flex: 0 0 calc((100% - 5 * var(--dw-gap)) / 6);
   aspect-ratio: 610 / 343;
   overflow: hidden;
@@ -103,86 +106,76 @@
   transition: border-color 0.2s;
 }
 
-.window-detail-page .dw-gallery__thumb.is-active {
+.door-detail-page .dw-gallery__thumb.is-active {
   border-color: #2563eb;
 }
 
-.window-detail-page .dw-gallery__thumb:hover:not(.is-active) {
+.door-detail-page .dw-gallery__thumb:hover:not(.is-active) {
   border-color: #94a3b8;
 }
 
-.window-detail-page .dw-gallery__thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.door-detail-page .dw-gallery__thumb img {
   display: block;
 }
 
-/* Top brands block: static four-column cards */
-.window-detail-page .window-brands-section__list.brand-strip {
-  overflow: visible;
+.door-detail-page .door-brands-grid.collection-list-2.w-dyn-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
 }
 
-.window-detail-page .window-brands-section__list .brand-strip__list {
-  width: 100% !important;
-  min-width: 0 !important;
-  flex-wrap: wrap !important;
-  justify-content: flex-start !important;
-  gap: 18px !important;
-  animation: none !important;
-}
-
-.window-detail-page .window-brands-section__list .brand-strip__item--dup {
-  display: none !important;
-}
-
-.window-detail-page .window-brands-section__list .brand-strip__item {
+.door-detail-page .door-brands-grid.collection-list-2.w-dyn-items > .w-dyn-item {
   flex: 0 0 calc((100% - 3 * 18px) / 4);
   max-width: calc((100% - 3 * 18px) / 4);
   min-width: 0;
 }
 
-.window-detail-page .window-brands-section__list .brand-strip__link {
-  min-height: 84px;
-  padding: 14px 18px;
-  border-radius: 12px;
-  background: #f1f5f9;
+.door-detail-page .door-brands-grid .property-wrapper-v1 {
+  display: block;
 }
 
-.window-detail-page .window-brands-section__list .brand-strip__image {
+.door-detail-page .door-brands-grid .property-card-top-content-v1---image {
+  min-height: 84px;
+  border-radius: 12px;
+  background: #f1f5f9;
+  padding: 14px 18px;
+}
+
+.door-detail-page .door-brands-grid .property-card-top-content-v1---image .image.cover-image {
+  object-fit: contain;
   max-height: 30px;
-  mix-blend-mode: darken !important;
+  mix-blend-mode: darken;
 }
 
 @media (max-width: 991px) {
-  .window-detail-page .window-brands-section__list .brand-strip__item {
+  .door-detail-page .door-brands-grid.collection-list-2.w-dyn-items > .w-dyn-item {
     flex: 0 0 calc((100% - 2 * 14px) / 3);
     max-width: calc((100% - 2 * 14px) / 3);
   }
 }
 
 @media (max-width: 767px) {
-  .window-detail-page .dw-gallery__main {
+  .door-detail-page .dw-gallery__main {
     display: none;
   }
 
-  .window-detail-page .dw-gallery__row {
+  .door-detail-page .dw-gallery__row {
     margin-left: 0;
     margin-right: 0;
   }
 
-  .window-detail-page .dw-gallery__thumb {
+  .door-detail-page .dw-gallery__thumb {
     flex: 0 0 100% !important;
     aspect-ratio: 610 / 343 !important;
     border-radius: 10px !important;
     border-color: transparent !important;
   }
 
-  .window-detail-page .dw-gallery__thumb.is-active {
+  .door-detail-page .dw-gallery__thumb.is-active {
     border-color: transparent !important;
   }
 
-  .window-detail-page .dw-gallery__arrow {
+  .door-detail-page .dw-gallery__arrow {
     flex: 0 0 40px;
     width: 40px;
     height: 40px;
@@ -191,16 +184,16 @@
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);
   }
 
-  .window-detail-page .window-brands-section__list .brand-strip__list {
-    gap: 12px !important;
+  .door-detail-page .door-brands-grid.collection-list-2.w-dyn-items {
+    gap: 12px;
   }
 
-  .window-detail-page .window-brands-section__list .brand-strip__item {
+  .door-detail-page .door-brands-grid.collection-list-2.w-dyn-items > .w-dyn-item {
     flex: 0 0 calc((100% - 12px) / 2);
     max-width: calc((100% - 12px) / 2);
   }
 
-  .window-detail-page .window-brands-section__list .brand-strip__link {
+  .door-detail-page .door-brands-grid .property-card-top-content-v1---image {
     min-height: 64px;
     padding: 10px 12px;
   }

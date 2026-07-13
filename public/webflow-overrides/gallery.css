@@ -1,0 +1,66 @@
+.gallery-page .dw-gallery-grid {
+  columns: 4;
+  column-gap: 8px;
+}
+
+.gallery-page .dw-gallery-item {
+  break-inside: avoid;
+  display: block;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #e8edf2;
+  position: relative;
+}
+
+.gallery-page .dw-gallery-item img {
+  width: 100%;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.gallery-page .dw-gallery-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 42, 72, 0);
+  transition: background 0.25s ease;
+  pointer-events: none;
+}
+
+.gallery-page .dw-gallery-item:hover img {
+  transform: scale(1.04);
+}
+
+.gallery-page .dw-gallery-item:hover::after {
+  background: rgba(15, 42, 72, 0.1);
+}
+
+.gallery-page .gallery-intro-note {
+  margin-top: 10px;
+  color: #7a8fa6;
+  font-size: 0.88rem;
+  font-style: italic;
+}
+
+.gallery-page .dw-gallery-section {
+  padding-top: 32px;
+}
+
+@media (max-width: 991px) {
+  .gallery-page .dw-gallery-grid {
+    columns: 3;
+  }
+}
+
+@media (max-width: 640px) {
+  .gallery-page .dw-gallery-grid {
+    columns: 2;
+    column-gap: 6px;
+  }
+
+  .gallery-page .dw-gallery-item {
+    margin-bottom: 6px;
+    border-radius: 7px;
+  }
+}

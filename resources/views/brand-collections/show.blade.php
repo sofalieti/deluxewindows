@@ -15,7 +15,7 @@
 @section('content')
       @include('partials.trust-badges')
 
-      <div class="container-default">
+      <div class="container-default page-content-grid">
         <div class="parent_sticky-wrapper sidebar-left">
           <section class="section_sidebar">
             @include('partials.brands-sidebar', [
@@ -504,8 +504,8 @@
 
       <div class="section-120"></div>
 
-      <div class="f-section-large-3">
-        <div class="f-container-regular-3">
+      <div class="f-section-large-3 guarantee-section">
+        <div class="f-container-regular-3 guarantee-container">
           <div class="f-margin-bottom-64">
             <div class="w-layout-grid f-header-grid-asymmetrical">
               <div class="f-max-width-large w-clearfix">

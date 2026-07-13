@@ -28,7 +28,7 @@
 
       <section class="section top-none">
         <div class="w-layout-blockcontainer container-default w-container">
-          <div class="inner-container _600px center">
+          <div class="inner-container _600px center page-intro-hero">
             <div class="center-content">
               <div class="mg-top-small is-vertical">
                 <h1 class="heading-32">Trusted Brands We Work With</h1>

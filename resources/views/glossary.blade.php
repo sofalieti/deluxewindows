@@ -6,7 +6,7 @@
 @section('ogImage', $ogImage)
 
 @section('content')
-      <section class="section-card-wrapper top">
+      <section class="section-card-wrapper top page-intro-hero">
         <div class="section-card hero-card---120px-page">
           <div class="w-layout-blockcontainer container-default w-container">
             <div class="inner-container _850px center">

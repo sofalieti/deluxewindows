@@ -13,7 +13,7 @@
       <div>
         <section class="section hero-v4">
           <div class="w-layout-blockcontainer container-default w-container">
-            <div class="inner-container _600px center">
+            <div class="inner-container _600px center page-intro-hero">
               <div class="text-center">
                 <div class="inner-container _500px---mbl center">
                   <h1 class="display-9 mid">Upgrade to Energy Efficient Windows and Doors for Less</h1>

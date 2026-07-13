@@ -1213,21 +1213,89 @@
   }
 }
 
-/* ── Mobile: prevent horizontal overflow from button rows ──────────
-   Webflow grid generates per-node "position: relative; left: 25px"
-   offsets on buttons like "See all windows" / "See all doors". On
-   phones that offset (and occasionally an oversized row width) pushes
-   the button past the screen edge and creates a horizontal scrollbar.
-   Neutralize the offset and never let the row/button exceed its box. */
+/* Keep button rows within the mobile viewport without changing button offsets. */
 @media screen and (max-width: 767px) {
   .buttons-row {
     max-width: 100% !important;
   }
+}
 
-  .buttons-row .primary-button.w-inline-block {
-    left: 0 !important;
-    right: auto !important;
-    max-width: 100% !important;
+/* Shared brand logo strip. */
+.brand-strip {
+  width: 100%;
+  overflow: hidden;
+}
+
+.brand-strip__title {
+  margin-bottom: 18px;
+}
+
+.brand-strip__list {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 22px;
+  width: max-content;
+  min-width: 300%;
+  animation: brand-strip-scroll 22s linear infinite;
+}
+
+.brand-strip__item {
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
+.brand-strip__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 48px;
+  padding: 6px 8px;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  text-decoration: none;
+}
+
+.brand-strip__image {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 28px;
+  object-fit: contain;
+  mix-blend-mode: darken;
+}
+
+.brand-strip__item--dup {
+  display: block;
+}
+
+@media screen and (max-width: 767px) {
+  .brand-strip__list {
+    gap: 18px;
+    animation-duration: 16s;
+  }
+
+  .brand-strip__link {
+    justify-content: center;
+    min-height: 42px;
+    padding: 0;
+  }
+
+  .brand-strip__image {
+    max-height: 14px;
+  }
+}
+
+@keyframes brand-strip-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-33.333333%);
   }
 }
 
@@ -1548,5 +1616,163 @@
   max-width: var(--core--sizing--container-default--default, 1248px);
   padding-left: var(--core--container-default--padding--default, 14px);
   padding-right: var(--core--container-default--padding--default, 14px);
+}
+
+.contact-form-success {
+  padding: 28px 24px;
+  background: #edf7f1;
+  border: 1px solid #a8d9be;
+  border-radius: 14px;
+  text-align: center;
+  color: #1a5c35;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.contact-form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-form-error {
+  display: block;
+  margin-top: 2px;
+  color: #dc3545;
+  font-size: 0.78rem;
+}
+
+.contact-form-textarea {
+  resize: vertical;
+}
+
+.contact-form-submit {
+  width: 100%;
+  margin-top: 4px;
+}
+
+/* Unified mobile content grid for every classic public page.
+   Hero, navigation, trust badges, logos and gallery controls keep their
+   purpose-built alignment rules. */
+@media screen and (max-width: 767px) {
+  .classic-public-page .section > .container-default,
+  .classic-public-page .section_breadcrumbs > .container-default,
+  .classic-public-page .new-section > .container-default,
+  .classic-public-page .section-card > .container-default,
+  .classic-public-page .sectionmain > .container-default,
+  .classic-public-page .section-main > .container-default,
+  .classic-public-page .page-content-grid,
+  .classic-public-page .guarantee-container {
+    width: 100%;
+    max-width: none;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    box-sizing: border-box;
+  }
+
+  .classic-public-page .section:not(.section_breadcrumbs) h1,
+  .classic-public-page .section:not(.section_breadcrumbs) h2,
+  .classic-public-page .section:not(.section_breadcrumbs) h3,
+  .classic-public-page .section:not(.section_breadcrumbs) h4,
+  .classic-public-page .section:not(.section_breadcrumbs) h5,
+  .classic-public-page .section:not(.section_breadcrumbs) p,
+  .classic-public-page .new-section h1,
+  .classic-public-page .new-section h2,
+  .classic-public-page .new-section h3,
+  .classic-public-page .new-section h4,
+  .classic-public-page .new-section h5,
+  .classic-public-page .new-section p,
+  .classic-public-page .sectionmain h1,
+  .classic-public-page .sectionmain h2,
+  .classic-public-page .sectionmain h3,
+  .classic-public-page .sectionmain h4,
+  .classic-public-page .sectionmain h5,
+  .classic-public-page .sectionmain p,
+  .classic-public-page .section-main h1,
+  .classic-public-page .section-main h2,
+  .classic-public-page .section-main h3,
+  .classic-public-page .section-main h4,
+  .classic-public-page .section-main h5,
+  .classic-public-page .section-main p,
+  .classic-public-page .page-content-grid h1,
+  .classic-public-page .page-content-grid h2,
+  .classic-public-page .page-content-grid h3,
+  .classic-public-page .page-content-grid h4,
+  .classic-public-page .page-content-grid h5,
+  .classic-public-page .page-content-grid p,
+  .classic-public-page .guarantee-section h3,
+  .classic-public-page .guarantee-section h5,
+  .classic-public-page .guarantee-section p,
+  .classic-public-page .faqs-title,
+  .classic-public-page .accordion-paragraph {
+    text-align: left !important;
+  }
+
+  .classic-public-page .section:not(.section_breadcrumbs) .text-center,
+  .classic-public-page .section:not(.section_breadcrumbs) .title-left---content-right,
+  .classic-public-page .section:not(.section_breadcrumbs) .value-wrapper,
+  .classic-public-page .section:not(.section_breadcrumbs) .property-card-bottom-content-v1,
+  .classic-public-page .guarantee-section .f-max-width-large,
+  .classic-public-page .guarantee-section .f-feature-card-filled {
+    text-align: left !important;
+  }
+
+  .classic-public-page .guarantee-section .f-feature-card-filled,
+  .classic-public-page .section:not(.section_breadcrumbs) .value-wrapper {
+    align-items: flex-start !important;
+  }
+
+  .classic-public-page .section:not(.section_breadcrumbs) .inner-container.center,
+  .classic-public-page .section:not(.section_breadcrumbs) .inner-container._500px---mbl.center {
+    width: 100%;
+    max-width: none;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .classic-public-page .buttons-row {
+    width: 100%;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  /* Explicit exceptions: these components are intentionally centered. */
+  .classic-public-page .div-block-59 h1,
+  .classic-public-page .div-block-59 h2,
+  .classic-public-page .div-block-59 h3,
+  .classic-public-page .div-block-59 h4,
+  .classic-public-page .div-block-59 h5,
+  .classic-public-page .div-block-59 p,
+  .classic-public-page .trust-badges-bar,
+  .classic-public-page .trust-badges-bar p,
+  .classic-public-page .hero-mobile-promo,
+  .classic-public-page .hero-mobile-promo p,
+  .classic-public-page .page-intro-hero,
+  .classic-public-page .page-intro-hero h1,
+  .classic-public-page .page-intro-hero h2,
+  .classic-public-page .page-intro-hero h3,
+  .classic-public-page .page-intro-hero h4,
+  .classic-public-page .page-intro-hero h5,
+  .classic-public-page .page-intro-hero p,
+  .classic-public-page .section.page-intro-hero h1,
+  .classic-public-page .section.page-intro-hero h2,
+  .classic-public-page .section.page-intro-hero h3,
+  .classic-public-page .section.page-intro-hero h4,
+  .classic-public-page .section.page-intro-hero h5,
+  .classic-public-page .section.page-intro-hero p,
+  .classic-public-page .section .page-intro-hero h1,
+  .classic-public-page .section .page-intro-hero h2,
+  .classic-public-page .section .page-intro-hero h3,
+  .classic-public-page .section .page-intro-hero h4,
+  .classic-public-page .section .page-intro-hero h5,
+  .classic-public-page .section .page-intro-hero p {
+    text-align: center !important;
+  }
+
+  .classic-public-page .page-intro-hero.inner-container,
+  .classic-public-page .page-intro-hero .inner-container.center {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
 }
 
