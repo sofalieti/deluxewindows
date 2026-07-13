@@ -1041,15 +1041,39 @@
 }
 
 .mobile-estimate-modal__promo .promo-offer-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
   margin-bottom: 0;
+  padding-right: 14px;
   border-radius: 16px;
   overflow: visible;
 }
 
-.promo-offer-context--modal .promo-price-tag,
+.mobile-estimate-modal__promo .promo-offer-headline {
+  order: 1;
+  flex: 0 0 auto;
+  margin: 0 6px 0 0;
+  white-space: nowrap;
+}
+
+.mobile-estimate-modal__promo .promo-offer-title {
+  order: 2;
+  flex: 0 1 auto;
+  min-width: 0;
+  margin: 0 !important;
+  font-size: clamp(11px, 3vw, 16px) !important;
+  white-space: nowrap;
+}
+
+.mobile-estimate-modal__promo .promo-offer-subtitle {
+  order: 3;
+  flex: 0 0 100%;
+  margin-top: 4px;
+}
+
 .mobile-estimate-modal__promo .promo-price-tag {
-  right: 18px;
-  top: 25%;
+  display: none !important;
 }
 
 .mobile-estimate-modal__promo .display-4 {
@@ -1074,39 +1098,6 @@
 .mobile-estimate-modal__form .primary-button.space-between-v1 {
   width: 100%;
   margin-top: 2px;
-}
-
-@media (max-width: 991px) {
-  .mobile-estimate-modal__promo .promo-offer-card {
-    padding-right: 14px;
-  }
-
-  .promo-offer-context--modal .promo-price-tag,
-  .mobile-estimate-modal__promo .promo-price-tag {
-    position: static !important;
-    right: auto !important;
-    top: auto !important;
-    width: auto;
-    margin-top: 10px;
-    padding: 9px 0 0;
-    border-top: 1px solid #e5e7eb;
-    border-radius: 0;
-    background: transparent !important;
-    box-shadow: none;
-    color: #1f2937 !important;
-    transform: none !important;
-  }
-
-  .mobile-estimate-modal__promo .promo-price-tag-label,
-  .mobile-estimate-modal__promo .promo-price-tag-note,
-  .mobile-estimate-modal__promo .promo-price-tag-old {
-    color: #6b7280 !important;
-  }
-
-  .mobile-estimate-modal__promo .promo-price-tag-new,
-  .mobile-estimate-modal__promo .promo-price-tag-start {
-    color: #cf1717 !important;
-  }
 }
 
 /* Trust badges bar — solid blue on all breakpoints, mobile-friendly grid */
