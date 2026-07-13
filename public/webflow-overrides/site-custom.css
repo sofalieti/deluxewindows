@@ -1662,6 +1662,7 @@
   .classic-public-page .sectionmain > .container-default,
   .classic-public-page .section-main > .container-default,
   .classic-public-page .page-content-grid,
+  .classic-public-page .mobile-content-section > .w-container,
   .classic-public-page .guarantee-container {
     width: 100%;
     max-width: none;
@@ -1700,6 +1701,14 @@
   .classic-public-page .page-content-grid h4,
   .classic-public-page .page-content-grid h5,
   .classic-public-page .page-content-grid p,
+  .classic-public-page .mobile-content-section h1,
+  .classic-public-page .mobile-content-section h2,
+  .classic-public-page .mobile-content-section h3,
+  .classic-public-page .mobile-content-section h4,
+  .classic-public-page .mobile-content-section h5,
+  .classic-public-page .mobile-content-section p,
+  .classic-public-page .mobile-content-section .text-block-43,
+  .classic-public-page .mobile-content-section .rich-text-block,
   .classic-public-page .guarantee-section h3,
   .classic-public-page .guarantee-section h5,
   .classic-public-page .guarantee-section p,

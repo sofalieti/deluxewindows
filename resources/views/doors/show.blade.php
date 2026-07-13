@@ -68,7 +68,7 @@
         </div>
       </section>
 
-      <section class="section-5 pd-120px top-none">
+      <section class="section-5 pd-120px top-none mobile-content-section">
         <div class="w-layout-blockcontainer container-default-3 w-container">
           <div class="mg-top-extra-large-3">
             <div class="w-layout-grid grid-2-columns-4 listing-grid">
