@@ -231,14 +231,7 @@
   }
 
   .hero-mobile-promo__badge {
-    position: relative !important;
-    z-index: 1 !important;
-    transform: rotate(-7deg) !important;
-    width: auto;
-    min-width: 168px;
-    margin: 0;
-    display: inline-block;
-    padding-bottom: 9px;
+    display: none;
   }
 
   .hero-mobile-promo__badge .promo-price-tag {
@@ -1053,14 +1046,6 @@
   overflow: visible;
 }
 
-.mobile-estimate-modal__promo--global-only .promo-offer-card {
-  padding-right: 14px;
-}
-
-.mobile-estimate-modal__promo--global-only .promo-price-tag--percent {
-  display: none;
-}
-
 .promo-offer-context--modal .promo-price-tag,
 .mobile-estimate-modal__promo .promo-price-tag {
   right: 18px;
@@ -1089,6 +1074,39 @@
 .mobile-estimate-modal__form .primary-button.space-between-v1 {
   width: 100%;
   margin-top: 2px;
+}
+
+@media (max-width: 991px) {
+  .mobile-estimate-modal__promo .promo-offer-card {
+    padding-right: 14px;
+  }
+
+  .promo-offer-context--modal .promo-price-tag,
+  .mobile-estimate-modal__promo .promo-price-tag {
+    position: static !important;
+    right: auto !important;
+    top: auto !important;
+    width: auto;
+    margin-top: 10px;
+    padding: 9px 0 0;
+    border-top: 1px solid #e5e7eb;
+    border-radius: 0;
+    background: transparent !important;
+    box-shadow: none;
+    color: #1f2937 !important;
+    transform: none !important;
+  }
+
+  .mobile-estimate-modal__promo .promo-price-tag-label,
+  .mobile-estimate-modal__promo .promo-price-tag-note,
+  .mobile-estimate-modal__promo .promo-price-tag-old {
+    color: #6b7280 !important;
+  }
+
+  .mobile-estimate-modal__promo .promo-price-tag-new,
+  .mobile-estimate-modal__promo .promo-price-tag-start {
+    color: #cf1717 !important;
+  }
 }
 
 /* Trust badges bar — solid blue on all breakpoints, mobile-friendly grid */

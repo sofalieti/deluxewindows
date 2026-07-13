@@ -130,10 +130,27 @@ if (! function_exists('promotion_percent_label')) {
     }
 }
 
-if (! function_exists('promotion_home_html')) {
-    function promotion_home_html(): string
+if (! function_exists('promotion_category')) {
+    function promotion_category(): string
     {
-        return app(PromotionControlService::class)->homePriceHtml();
+        $path = trim(request()->path(), '/');
+
+        if (preg_match('/^(doors(?:\/|$)|door-brands(?:\/|$))/', $path) === 1) {
+            return 'doors';
+        }
+
+        if (preg_match('/^(windows(?:\/|$)|brands(?:\/|$)|brand-collections(?:\/|$)|window-type(?:\/|$)|window-replacement(?:\/|$))/', $path) === 1) {
+            return 'windows';
+        }
+
+        return 'general';
+    }
+}
+
+if (! function_exists('promotion_home_html')) {
+    function promotion_home_html(?string $category = null): string
+    {
+        return app(PromotionControlService::class)->homePriceHtml($category ?? promotion_category());
     }
 }
 

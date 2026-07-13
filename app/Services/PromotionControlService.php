@@ -368,18 +368,35 @@ class PromotionControlService
             .'</div>';
     }
 
-    public function homePriceHtml(): string
+    public function homePriceHtml(string $category = 'general'): string
     {
         $discount = e($this->globalDiscountLabel());
         $percent = e($this->globalDiscountPercent().'%');
+        $categoryCopy = match ($category) {
+            'windows' => [
+                'title' => 'Get Deluxe Windows for Less',
+                'subtitle' => 'Limited-time window replacement offer',
+                'note' => 'OFF Windows',
+            ],
+            'doors' => [
+                'title' => 'Get Deluxe Doors for Less',
+                'subtitle' => 'Limited-time door replacement offer',
+                'note' => 'OFF Doors',
+            ],
+            default => [
+                'title' => 'Get Deluxe Windows and Doors for Less',
+                'subtitle' => 'Limited-time home improvement offer',
+                'note' => 'OFF Windows & Doors',
+            ],
+        };
 
         return '<div class="promo-offer-card promo-offer-card--home">'
-            .'<h3 class="promo-offer-title">Get Deluxe Windows for Less</h3>'
+            .'<h3 class="promo-offer-title">'.e($categoryCopy['title']).'</h3>'
             .'<div class="promo-offer-headline">'.$discount.'</div>'
-            .'<div class="promo-offer-subtitle">Limited-time window replacement offer</div>'
+            .'<div class="promo-offer-subtitle">'.e($categoryCopy['subtitle']).'</div>'
             .'<div class="promo-price-tag promo-price-tag--percent">'
             .'<div class="promo-price-tag-line promo-price-tag-line--new"><span class="promo-price-tag-new">'.$percent.'</span></div>'
-            .'<div class="promo-price-tag-note">OFF Windows</div>'
+            .'<div class="promo-price-tag-note">'.e($categoryCopy['note']).'</div>'
             .'</div>'
             .'</div>';
     }

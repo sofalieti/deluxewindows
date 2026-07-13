@@ -233,19 +233,14 @@
         if (!promoTarget) return;
 
         const source = document.querySelector("#wf-form-Main-Form [data-estimate-form-promo]");
-        promoTarget.innerHTML =
-          source && source.innerHTML.trim() ? source.innerHTML : defaultPromoHtml;
+        const hasSpecificPagePromotion =
+          source &&
+          source.dataset.pagePromotion === "specific" &&
+          source.innerHTML.trim();
 
-        const isCatalogDetail = /^\/(?:brands|door-brands|window-type|brand-collections)\//.test(
-          window.location.pathname
-        );
-        const hasGlobalPercentOnly = Boolean(
-          promoTarget.querySelector(".promo-price-tag--percent")
-        );
-        promoTarget.classList.toggle(
-          "mobile-estimate-modal__promo--global-only",
-          isCatalogDetail && hasGlobalPercentOnly
-        );
+        promoTarget.innerHTML = hasSpecificPagePromotion
+          ? source.innerHTML
+          : defaultPromoHtml;
       }
 
       function setOpenState(isOpen) {

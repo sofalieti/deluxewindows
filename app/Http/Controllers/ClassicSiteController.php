@@ -150,6 +150,8 @@ class ClassicSiteController extends Controller
         $discountHtml   = $windowPricing
             ? $controls->pricingHtmlFromMap($windowPricing, 'per window installed')
             : $this->legacyDiscountToPromoHtml((string) ($fieldData['discounttext'] ?? ''), 'per window installed');
+        $pagePromotionAvailable = $windowPricing !== null
+            || trim(strip_tags((string) ($fieldData['discounttext'] ?? ''))) !== '';
 
         return view('windows.show', [
             'windowFieldData'  => $fieldData,
@@ -162,6 +164,7 @@ class ClassicSiteController extends Controller
             'summary'          => $fieldData['property-listing---summary'] ?? '',
             'aboutHtml'        => $fieldData['property-listing---about'] ?? '',
             'discountHtml'     => $discountHtml,
+            'pagePromotionAvailable' => $pagePromotionAvailable,
             'warrantyHtml'     => $fieldData['warrantytext'] ?? '',
             'heroImage'        => $heroImage ?? '',
             'galleryImages'    => $galleryImages,
@@ -236,6 +239,8 @@ class ClassicSiteController extends Controller
                 (string) ($fieldData['door-discount'] ?? $door->wf_door_discount ?? ''),
                 'per door installed'
             );
+        $pagePromotionAvailable = $doorPricing !== null
+            || trim(strip_tags((string) ($fieldData['door-discount'] ?? $door->wf_door_discount ?? ''))) !== '';
 
         return view('doors.show', [
             'doorFieldData'  => $fieldData,
@@ -249,6 +254,7 @@ class ClassicSiteController extends Controller
             'summary'        => $fieldData['description'] ?? '',
             'aboutHtml'      => $fieldData['blog-post---rich-text'] ?? $door->wf_blog_post_rich_text ?? '',
             'discountHtml'   => $discountHtml,
+            'pagePromotionAvailable' => $pagePromotionAvailable,
             'doorHeroFormHtml'       => $discountHtml,
             'doorPromotionPricing'   => $doorPricing,
             'heroImage'      => $heroImage ?? '',
@@ -1235,6 +1241,7 @@ class ClassicSiteController extends Controller
 
         $collectionsTitle = $fieldData['title'] ?? "Explore {$brandName} Collections";
         $heroFormHtml     = $this->resolveWindowTypeHeroPricing($windowType, $fieldData);
+        $pagePromotionAvailable = str_contains($heroFormHtml, 'promo-offer-card');
 
         $seoTitle       = $fieldData['seo-title'] ?? $name;
         $seoDescription = $fieldData['seo-description'] ?? '';
@@ -1255,6 +1262,7 @@ class ClassicSiteController extends Controller
             'collections'           => $collections,
             'collectionsTitle'      => $collectionsTitle,
             'heroFormHtml'          => $heroFormHtml,
+            'pagePromotionAvailable' => $pagePromotionAvailable,
             'seoTitle'              => $seoTitle,
             'seoDescription'        => $seoDescription,
             'ogTitle'               => $ogTitle,

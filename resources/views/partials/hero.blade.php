@@ -68,6 +68,9 @@
     !empty($windowTypeHero),
     $brandPromotionPricing ?? $heroPromotionPricing ?? null,
   );
+  $hasSpecificPagePromotion = !empty($pagePromotionAvailable)
+    || !empty($brandPromotionPricing ?? null)
+    || !empty($heroPromotionPricing ?? null);
   // Hide the hero promo/price block entirely when a page opts in and has no price
   // (e.g. door-brand pages where no linked door has a Promotions price).
   $hideHeroPricing = !empty($hideHeroPromoWhenEmpty) && empty($brandHeroFormHtml ?? null);
@@ -256,7 +259,7 @@
                     @endif
                     @if(!$hideHeroPricing)
                     <label for="email-banner" class="body-14"></label>
-                    <div data-estimate-form-promo class="estimate-form-promo promo-offer-context--form">
+                    <div data-estimate-form-promo data-page-promotion="{{ $hasSpecificPagePromotion ? 'specific' : 'global' }}" class="estimate-form-promo promo-offer-context--form">
                       <div class="{{ $heroPricingBlockClass }} w-richtext">
                         {!! $heroPricingHtml !!}
                       </div>
@@ -264,20 +267,20 @@
                     @endif
                     @elseif(!empty($doorHero) && !empty($doorDiscountHtml))
                     <label for="email-banner" class="body-14"></label>
-                    <div data-estimate-form-promo class="estimate-form-promo promo-offer-context--form">
+                    <div data-estimate-form-promo data-page-promotion="{{ $hasSpecificPagePromotion ? 'specific' : 'global' }}" class="estimate-form-promo promo-offer-context--form">
                       <div class="rich-text-block-6 w-richtext">
                         {!! $doorDiscountHtml !!}
                       </div>
                     </div>
                     @elseif(!empty($windowHeroImage) && !empty($windowDiscountHtml))
                     <label for="email-banner" class="body-14"></label>
-                    <div data-estimate-form-promo class="estimate-form-promo promo-offer-context--form">
+                    <div data-estimate-form-promo data-page-promotion="{{ $hasSpecificPagePromotion ? 'specific' : 'global' }}" class="estimate-form-promo promo-offer-context--form">
                       <div class="rich-text-block-4 w-richtext">
                         {!! $windowDiscountHtml !!}
                       </div>
                     </div>
                     @else
-                    <div data-estimate-form-promo class="estimate-form-promo promo-offer-context--form hero-mobile-promo-slot hero-mobile-promo-slot--form">
+                    <div data-estimate-form-promo data-page-promotion="global" class="estimate-form-promo promo-offer-context--form hero-mobile-promo-slot hero-mobile-promo-slot--form">
                       <div class="rich-text-block-4 w-richtext">
                         {!! promotion_home_html() !!}
                       </div>
