@@ -48,6 +48,11 @@
       </div>
     </section>
 
+    @include('partials.service-area-brands', [
+      'cityName' => $countyName,
+      'featuredBrands' => $featuredBrands,
+    ])
+
     @include('partials.county-hub-pricing', ['countyName' => $countyName])
     @include('partials.county-hub-process', ['countyName' => $countyName])
     @include('partials.county-hub-bottom-cta', ['countyName' => $countyName])

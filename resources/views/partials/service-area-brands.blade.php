@@ -27,6 +27,7 @@
             'alt' => (string) ($brand['name'] ?? ''),
           ])->values()->all(),
           'wrapperClass' => 'div-block-51 asdfsdf',
+          'variant' => 'static',
         ])
       </div>
       @endif

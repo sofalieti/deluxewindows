@@ -3,9 +3,10 @@
   $items = is_array($items ?? null) ? $items : [];
   $title = isset($title) ? trim((string) $title) : '';
   $wrapperClass = trim((string) ($wrapperClass ?? ''));
+  $isStatic = ($variant ?? '') === 'static';
 @endphp
 
-<div class="brand-strip {{ $wrapperClass }}">
+<div class="brand-strip {{ $isStatic ? 'brand-strip--static' : '' }} {{ $wrapperClass }}">
   @if($title !== '')
     <div class="title-left---content-right brand-strip__title">
       <h2 class="heading-23">{{ $title }}</h2>
@@ -30,6 +31,7 @@
       </div>
     @endforeach
 
+    @unless($isStatic)
     @foreach($items as $item)
       @php
         $href = trim((string) ($item['href'] ?? ''));
@@ -63,5 +65,6 @@
         </a>
       </div>
     @endforeach
+    @endunless
   </div>
 </div>

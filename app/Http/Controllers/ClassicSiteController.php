@@ -1611,6 +1611,7 @@ class ClassicSiteController extends Controller
         }
         $countyIntro = $fieldData['county-intro'] ?? '';
         $cities = $this->resolveCountyHubCities($fieldData);
+        $featuredBrands = $this->resolveCountyHubFeaturedBrands($fieldData);
 
         return view('county-hub-pages.show', compact(
             'slug',
@@ -1620,6 +1621,7 @@ class ClassicSiteController extends Controller
             'heroImage',
             'countyIntro',
             'cities',
+            'featuredBrands',
         ));
     }
 
@@ -1757,6 +1759,62 @@ class ClassicSiteController extends Controller
         } catch (\Throwable) {
             return collect();
         }
+    }
+
+    /**
+     * @return \Illuminate\Support\Collection<int, array{name: string, slug: string, logo: string}>
+     */
+    private function resolveCountyHubFeaturedBrands(array $fieldData): \Illuminate\Support\Collection
+    {
+        $cityIds = array_values(array_filter(
+            is_array($fieldData['cities-in-county'] ?? null) ? $fieldData['cities-in-county'] : [],
+            fn ($id) => is_string($id) && $id !== ''
+        ));
+        if ($cityIds === []) {
+            return collect();
+        }
+
+        $brandIds = [];
+
+        try {
+            $items = WindowReplacementWebflowItem::query()
+                ->whereIn('webflow_item_id', $cityIds)
+                ->where('is_archived', false)
+                ->where('is_draft', false)
+                ->get();
+
+            foreach ($items as $item) {
+                $ids = data_get($item->field_data, 'featured-brands', []);
+                if (is_array($ids)) {
+                    $brandIds = array_merge($brandIds, $ids);
+                }
+            }
+        } catch (\Throwable) {
+            $brandIds = [];
+        }
+
+        if ($brandIds === []) {
+            foreach ($this->loadWindowReplacementImportItems() as $importItem) {
+                if (($importItem['isDraft'] ?? false) || ($importItem['isArchived'] ?? false)) {
+                    continue;
+                }
+                if (! in_array((string) ($importItem['id'] ?? ''), $cityIds, true)) {
+                    continue;
+                }
+
+                $ids = data_get($importItem, 'fieldData.featured-brands', []);
+                if (is_array($ids)) {
+                    $brandIds = array_merge($brandIds, $ids);
+                }
+            }
+        }
+
+        $brandIds = array_values(array_unique(array_filter(
+            $brandIds,
+            fn ($id) => is_string($id) && $id !== ''
+        )));
+
+        return $this->resolveServiceAreaFeaturedBrands(['featured-brands' => $brandIds]);
     }
 
     /**
