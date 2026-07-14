@@ -1630,6 +1630,12 @@ class ClassicSiteController extends Controller
         $metaTitle = $fieldData['meta-title'] ?? "{$cityName} Window Replacement | Deluxe Windows";
         $metaDescription = $fieldData['meta-description'] ?? '';
         $heroImage = $this->extractImageUrl($fieldData, ['hero-image', 'og-image']) ?? '';
+        $localServiceAreaHeroPath = "webflow-assets/images/service-area-hero/{$slug}.png";
+        $localServiceAreaHeroAbsolute = public_path($localServiceAreaHeroPath);
+        if (file_exists($localServiceAreaHeroAbsolute)) {
+            $version = @filemtime($localServiceAreaHeroAbsolute) ?: 1;
+            $heroImage = '/'.$localServiceAreaHeroPath.'?v='.$version;
+        }
         $paragraph1 = $fieldData['city-paragraph-1'] ?? '';
         $paragraph2 = $fieldData['city-paragraph-2'] ?? '';
         $faqs = $this->resolveServiceAreaFaqs($fieldData);
