@@ -563,9 +563,20 @@ class ClassicSiteController extends Controller
             'city' => trim((string) ($request->input('city') ?: $request->input('Subject'))),
             'message' => trim((string) ($request->input('message') ?: $request->input('Message'))),
             'page_url' => trim((string) ($request->input('page_url') ?: $request->headers->get('referer', ''))),
+            'landing_page' => trim((string) $request->input('landing_page')),
+            'referrer' => trim((string) $request->input('referrer')),
+            'geo_location' => trim((string) $request->input('geo_location')),
             'utm_source' => trim((string) $request->input('utm_source')),
             'utm_medium' => trim((string) $request->input('utm_medium')),
             'utm_campaign' => trim((string) $request->input('utm_campaign')),
+            'utm_content' => trim((string) $request->input('utm_content')),
+            'utm_term' => trim((string) $request->input('utm_term')),
+            'matchtype' => trim((string) $request->input('matchtype')),
+            'device' => trim((string) $request->input('device')),
+            'creative' => trim((string) $request->input('creative')),
+            'gclid' => trim((string) $request->input('gclid')),
+            'fbclid' => trim((string) $request->input('fbclid')),
+            'msclkid' => trim((string) $request->input('msclkid')),
         ];
 
         $validated = validator($payload, [
@@ -575,9 +586,20 @@ class ClassicSiteController extends Controller
             'city' => 'nullable|string|max:100',
             'message' => 'nullable|string|max:3000',
             'page_url' => 'nullable|string|max:1000',
+            'landing_page' => 'nullable|string|max:1000',
+            'referrer' => 'nullable|string|max:1000',
+            'geo_location' => 'nullable|string|max:255',
             'utm_source' => 'nullable|string|max:255',
             'utm_medium' => 'nullable|string|max:255',
             'utm_campaign' => 'nullable|string|max:255',
+            'utm_content' => 'nullable|string|max:255',
+            'utm_term' => 'nullable|string|max:255',
+            'matchtype' => 'nullable|string|max:255',
+            'device' => 'nullable|string|max:255',
+            'creative' => 'nullable|string|max:255',
+            'gclid' => 'nullable|string|max:255',
+            'fbclid' => 'nullable|string|max:255',
+            'msclkid' => 'nullable|string|max:255',
         ])->validate();
 
         Lead::query()->create([
@@ -595,6 +617,17 @@ class ClassicSiteController extends Controller
             'meta' => [
                 'request_id' => (string) $request->headers->get('x-request-id', ''),
                 'via' => 'classic-site-contact-form',
+                'geo_location' => $validated['geo_location'],
+                'landing_page' => $validated['landing_page'],
+                'referrer' => $validated['referrer'],
+                'utm_content' => $validated['utm_content'],
+                'utm_term' => $validated['utm_term'],
+                'matchtype' => $validated['matchtype'],
+                'device' => $validated['device'],
+                'creative' => $validated['creative'],
+                'gclid' => $validated['gclid'],
+                'fbclid' => $validated['fbclid'],
+                'msclkid' => $validated['msclkid'],
             ],
         ]);
 
@@ -611,11 +644,18 @@ class ClassicSiteController extends Controller
             'UTM Campaign: '.($validated['utm_campaign'] !== '' ? $validated['utm_campaign'] : '-'),
         ];
 
-        Mail::raw(implode("\n", $bodyLines), function ($message) use ($subject, $validated): void {
-            $message->to('sofalieti@gmail.com')
-                ->replyTo($validated['email'], $validated['full_name'])
-                ->subject($subject);
-        });
+        try {
+            Mail::raw(implode("\n", $bodyLines), function ($message) use ($subject, $validated): void {
+                $message->to('sofalieti@gmail.com')
+                    ->replyTo($validated['email'], $validated['full_name'])
+                    ->subject($subject);
+            });
+        } catch (\Throwable $e) {
+            Log::warning('Lead notification email failed', [
+                'email' => $validated['email'],
+                'error' => $e->getMessage(),
+            ]);
+        }
 
         $bridgeUrls = (array) config('services.lead_bridge.urls', []);
         foreach ($bridgeUrls as $bridgeUrl) {
@@ -632,9 +672,21 @@ class ClassicSiteController extends Controller
                         'Subject' => $validated['city'],
                         'Message' => $validated['message'],
                         'URL' => $validated['page_url'],
+                        'landing_page' => $validated['landing_page'],
+                        'referrer' => $validated['referrer'],
+                        'ip_address' => $request->ip(),
+                        'geo_location' => $validated['geo_location'],
                         'utm_source' => $validated['utm_source'],
                         'utm_medium' => $validated['utm_medium'],
                         'utm_campaign' => $validated['utm_campaign'],
+                        'utm_content' => $validated['utm_content'],
+                        'utm_term' => $validated['utm_term'],
+                        'matchtype' => $validated['matchtype'],
+                        'device' => $validated['device'],
+                        'creative' => $validated['creative'],
+                        'gclid' => $validated['gclid'],
+                        'fbclid' => $validated['fbclid'],
+                        'msclkid' => $validated['msclkid'],
                     ]);
             } catch (\Throwable $e) {
                 Log::warning('Lead bridge request failed', [

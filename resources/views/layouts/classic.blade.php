@@ -10,6 +10,27 @@
 >
   <head>
     <meta charset="utf-8" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JHYBB0THJM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-JHYBB0THJM');
+      gtag('config', 'AW-1030787786');
+
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof url !== 'undefined') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion', {
+          'send_to': 'AW-1030787786/Hs9eCP7MwngQyqXC6wM',
+          'event_callback': callback
+        });
+        return false;
+      }
+    </script>
     <link href="https://cdn.prod.website-files.com" rel="preconnect" crossorigin="anonymous" />
     <title>@yield('title', 'Deluxe Windows | Window Replacement – San Francisco Bay Area')</title>
     <meta content="@yield('metaDescription')" name="description" />

