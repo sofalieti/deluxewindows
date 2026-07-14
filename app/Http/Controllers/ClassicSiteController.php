@@ -1603,7 +1603,7 @@ class ClassicSiteController extends Controller
         $metaTitle = $fieldData['meta-title'] ?? "{$countyName} Window Replacement | Deluxe Windows";
         $metaDescription = $fieldData['meta-description'] ?? '';
         $heroImage = $this->extractImageUrl($fieldData, ['hero-image']) ?? '';
-        $localCountyHeroPath = "webflow-assets/images/county-hero/{$slug}.png";
+        $localCountyHeroPath = "webflow-assets/images/county-hero/{$slug}.avif";
         $localCountyHeroAbsolute = public_path($localCountyHeroPath);
         if (file_exists($localCountyHeroAbsolute)) {
             $version = @filemtime($localCountyHeroAbsolute) ?: 1;
@@ -1636,7 +1636,7 @@ class ClassicSiteController extends Controller
         $metaTitle = $fieldData['meta-title'] ?? "{$cityName} Window Replacement | Deluxe Windows";
         $metaDescription = $fieldData['meta-description'] ?? '';
         $heroImage = $this->extractImageUrl($fieldData, ['hero-image', 'og-image']) ?? '';
-        $localServiceAreaHeroPath = "webflow-assets/images/service-area-hero/{$slug}.png";
+        $localServiceAreaHeroPath = "webflow-assets/images/service-area-hero/{$slug}.avif";
         $localServiceAreaHeroAbsolute = public_path($localServiceAreaHeroPath);
         if (file_exists($localServiceAreaHeroAbsolute)) {
             $version = @filemtime($localServiceAreaHeroAbsolute) ?: 1;
