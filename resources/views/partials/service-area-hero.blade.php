@@ -1,9 +1,12 @@
-      <div
+      <div class="div-block-59 service-area-hero">
         @if($heroImage)
-        style="background-image:url('{{ thumbnail_url($heroImage, 'hero_bg') }}')"
+        <img
+          src="{{ thumbnail_url($heroImage, 'hero_bg') }}"
+          alt=""
+          class="service-area-hero__image"
+          aria-hidden="true"
+        />
         @endif
-        class="div-block-59"
-      >
         <div class="div-block-61"></div>
         <div class="w-layout-blockcontainer container-default w-container">
           <div class="title-left---content-right paragraph-content alt hero-page">
