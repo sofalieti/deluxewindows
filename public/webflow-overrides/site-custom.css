@@ -756,7 +756,7 @@
   z-index: 1;
   height: auto !important;
   pointer-events: none;
-  background: linear-gradient(90deg, rgba(8, 40, 72, 0.76), rgba(8, 40, 72, 0.34)) !important;
+  background: linear-gradient(90deg, rgba(8, 40, 72, 0.64), rgba(8, 40, 72, 0.24)) !important;
 }
 
 .service-area-hero > .w-layout-blockcontainer.container-default {
