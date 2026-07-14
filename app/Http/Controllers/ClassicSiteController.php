@@ -1603,6 +1603,12 @@ class ClassicSiteController extends Controller
         $metaTitle = $fieldData['meta-title'] ?? "{$countyName} Window Replacement | Deluxe Windows";
         $metaDescription = $fieldData['meta-description'] ?? '';
         $heroImage = $this->extractImageUrl($fieldData, ['hero-image']) ?? '';
+        $localCountyHeroPath = "webflow-assets/images/county-hero/{$slug}.png";
+        $localCountyHeroAbsolute = public_path($localCountyHeroPath);
+        if (file_exists($localCountyHeroAbsolute)) {
+            $version = @filemtime($localCountyHeroAbsolute) ?: 1;
+            $heroImage = '/'.$localCountyHeroPath.'?v='.$version;
+        }
         $countyIntro = $fieldData['county-intro'] ?? '';
         $cities = $this->resolveCountyHubCities($fieldData);
 
