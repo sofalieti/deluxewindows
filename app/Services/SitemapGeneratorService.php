@@ -14,6 +14,7 @@ use App\Models\Webflow\WindowsWebflowItem;
 use App\Models\Webflow\WindowTypeWebflowItem;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\File;
 
 class SitemapGeneratorService
@@ -182,7 +183,19 @@ class SitemapGeneratorService
     private function add(string $path, ?Model $item = null): void
     {
         $normalizedPath = $path === '/' ? '/' : '/'.ltrim($path, '/');
+        $excludedPaths = (array) config('services.sitemap.excluded_paths', []);
+        if (in_array($normalizedPath, $excludedPaths, true)) {
+            return;
+        }
+
         $lastModified = $item?->getAttribute('webflow_updated_on');
+        if (is_string($lastModified) && $lastModified !== '') {
+            try {
+                $lastModified = Carbon::parse($lastModified);
+            } catch (\Throwable) {
+                $lastModified = null;
+            }
+        }
         if (! $lastModified instanceof \DateTimeInterface) {
             $lastModified = $item?->getAttribute('updated_at');
         }

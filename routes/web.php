@@ -6,6 +6,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [ClassicSiteController::class, 'home']);
 Route::get('/windows', [ClassicSiteController::class, 'windowsIndex']);
 Route::get('/doors', [ClassicSiteController::class, 'doorsIndex']);
+
+Route::permanentRedirect('/windows/martin-elevate', '/brand-collections/brand-marvin-elevate-collection');
+Route::permanentRedirect('/windows/martin-vivid', '/brand-collections/brand-marvin-vivid-collection');
+Route::permanentRedirect('/windows/marvin-essne', '/brand-collections/brand-marvin-essential-collection');
+Route::permanentRedirect('/windows/marvin-modern', '/brand-collections/brand-marvin-modern-collection');
+Route::permanentRedirect('/windows/marvin-ultimate', '/brand-collections/brand-marvin-ultimate-collection');
+Route::permanentRedirect('/windows/marvin-windows', '/brands/marvin');
+
 Route::get('/windows/{slug}', [ClassicSiteController::class, 'windowBySlug'])
     ->where('slug', '[A-Za-z0-9\-]+');
 
@@ -21,6 +29,9 @@ Route::get('/door-brands/{slug}', [ClassicSiteController::class, 'doorBrandBySlu
     ->where('slug', '[A-Za-z0-9\-]+');
 
 Route::get('/brand-collections/{slug}', [ClassicSiteController::class, 'brandCollectionBySlug'])
+    ->where('slug', '[A-Za-z0-9\-]+');
+
+Route::get('/collection/{slug}', [ClassicSiteController::class, 'legacyBrandCollectionRedirect'])
     ->where('slug', '[A-Za-z0-9\-]+');
 
 Route::get('/window-type/{slug}', [ClassicSiteController::class, 'windowTypeBySlug'])

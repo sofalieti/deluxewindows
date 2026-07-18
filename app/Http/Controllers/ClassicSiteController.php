@@ -1323,6 +1323,21 @@ class ClassicSiteController extends Controller
         ]);
     }
 
+    public function legacyBrandCollectionRedirect(string $slug)
+    {
+        $slug = strtolower(trim($slug));
+
+        $exists = BrandCollectionsWebflowItem::query()
+            ->where('is_archived', false)
+            ->where('is_draft', false)
+            ->where('field_data->slug', $slug)
+            ->exists();
+
+        abort_unless($exists, 404);
+
+        return redirect('/brand-collections/'.$slug, 301);
+    }
+
     public function brandCollectionBySlug(string $slug)
     {
         $slug = strtolower(trim($slug));

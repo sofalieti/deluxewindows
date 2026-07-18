@@ -56,6 +56,24 @@ return [
 
     'sitemap' => [
         'base_url' => env('SITEMAP_BASE_URL', 'https://www.deluxewindows.com'),
+        'excluded_paths' => [
+            '/checkout',
+            '/order-confirmation',
+            '/paypal-checkout',
+            '/search',
+            '/product/1-property-credit',
+            '/product/2-property-credit',
+            '/product/5-property-credit',
+            '/global-settings/default',
+            '/windows/martin-elevate',
+            '/windows/martin-vivid',
+            '/windows/marvin-essne',
+            '/windows/marvin-modern',
+            '/windows/marvin-ultimate',
+            '/windows/marvin-windows',
+            '/window-styles/brand-simonton-single-hung-style-xtuvg',
+            '/door-types/italwindows-steel-doors-j3z67',
+        ],
     ],
 
 ];
