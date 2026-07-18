@@ -81,7 +81,10 @@ test('faq markup and faq schema use the same file entries', function () {
 
     expect($metadata->faq)->not->toBeEmpty()
         ->and($faqSchema)->toBeArray()
-        ->and($faqSchema['mainEntity'])->toHaveCount(count($metadata->faq));
+        ->and($faqSchema['mainEntity'])->toHaveCount(count($metadata->faq))
+        ->and($markup)->toContain('faqs-grid-v3')
+        ->and($markup)->toContain('accordion-card v2')
+        ->and($markup)->toContain('accordion-item-wrapper v2');
 
     foreach ($metadata->faq as $item) {
         expect($markup)->toContain(e($item['question']))
