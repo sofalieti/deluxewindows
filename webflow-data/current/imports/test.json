@@ -1,9 +1,9 @@
 {
-  "table": "wf_test",
-  "collectionId": "6841ddf8ace3d9d9facb163f",
-  "collectionSlug": "test",
-  "flattenedFieldMap": {
-    "property-location---description": "wf_property_location_description"
-  },
-  "items": []
+    "table": "wf_test",
+    "collectionId": "6841ddf8ace3d9d9facb163f",
+    "collectionSlug": "test",
+    "items": [],
+    "flattenedFieldMap": {
+        "property-location---description": "wf_property_location_description"
+    }
 }

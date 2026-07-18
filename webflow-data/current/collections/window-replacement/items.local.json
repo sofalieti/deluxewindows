@@ -1,7 +1,4 @@
 {
-    "table": "wf_window_replacement",
-    "collectionId": "69ce7898d019bc268b4bb9ca",
-    "collectionSlug": "window-replacement",
     "items": [
         {
             "id": "69d1405c7a5c88d4f072f063",
@@ -13516,42 +13513,5 @@
                 "faq-5-answer-plain-text": null
             }
         }
-    ],
-    "flattenedFieldMap": {
-        "city-name": "wf_city_name",
-        "city-slug": "wf_city_slug",
-        "county": "wf_county",
-        "meta-title": "wf_meta_title",
-        "meta-description": "wf_meta_description",
-        "hero-image": "wf_hero_image",
-        "hero-subheadline": "wf_hero_subheadline",
-        "neighborhoods": "wf_neighborhoods",
-        "city-paragraph-1": "wf_city_paragraph_1",
-        "city-paragraph-2": "wf_city_paragraph_2",
-        "pricing-context": "wf_pricing_context",
-        "faq-1-question": "wf_faq_1_question",
-        "faq-1-answer": "wf_faq_1_answer",
-        "faq-2-question": "wf_faq_2_question",
-        "faq-2-answer": "wf_faq_2_answer",
-        "faq-3-question": "wf_faq_3_question",
-        "faq-3-answer": "wf_faq_3_answer",
-        "faq-4-question": "wf_faq_4_question",
-        "faq-4-answer": "wf_faq_4_answer",
-        "faq-5-question": "wf_faq_5_question",
-        "faq-5-answer": "wf_faq_5_answer",
-        "review-count": "wf_review_count",
-        "og-image": "wf_og_image",
-        "is-priority": "wf_is_priority",
-        "is-published": "wf_is_published",
-        "population": "wf_population",
-        "schema-json": "wf_schema_json",
-        "nearby-cities": "wf_nearby_cities",
-        "county-page": "wf_county_page",
-        "featured-brands": "wf_featured_brands",
-        "faq-1-answer-plain-text": "wf_faq_1_answer_plain_text",
-        "faq-2-answer-plain-text": "wf_faq_2_answer_plain_text",
-        "faq-3-answer-plain-text": "wf_faq_3_answer_plain_text",
-        "faq-4-answer-plain-text": "wf_faq_4_answer_plain_text",
-        "faq-5-answer-plain-text": "wf_faq_5_answer_plain_text"
-    }
+    ]
 }

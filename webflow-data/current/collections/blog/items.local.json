@@ -1,7 +1,4 @@
 {
-    "table": "wf_blog",
-    "collectionId": "687b79c5ee572b31129b17bf",
-    "collectionSlug": "blog",
     "items": [
         {
             "id": "6a1199d63a2d9d72aabe3a76",
@@ -435,22 +432,5 @@
                 "opengraph-description": "Windows typically last 15–30 years depending on material, climate, and maintenance. Learn when to replace your Bay Area windows and how to extend their lifespan."
             }
         }
-    ],
-    "flattenedFieldMap": {
-        "project-details": "wf_project_details",
-        "project-summary": "wf_project_summary",
-        "main-project-image": "wf_main_project_image",
-        "client": "wf_client",
-        "client-logo": "wf_client_logo",
-        "services-rendered": "wf_services_rendered",
-        "featured-project": "wf_featured_project",
-        "color": "wf_color",
-        "link": "wf_link",
-        "seo-title": "wf_seo_title",
-        "seo-description": "wf_seo_description",
-        "opengraph-title": "wf_opengraph_title",
-        "opengraph-description": "wf_opengraph_description",
-        "opengraph-image": "wf_opengraph_image",
-        "twitter-card": "wf_twitter_card"
-    }
+    ]
 }

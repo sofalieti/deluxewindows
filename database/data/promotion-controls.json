@@ -1,0 +1,94 @@
+[
+    {
+        "scope": "default",
+        "global_promotion_name": "Summer Sale",
+        "global_discount_percent": 40,
+        "global_end_date": "2026-08-30",
+        "phone_display": "(650) 461-4446",
+        "phone_tel": "+16504614446",
+        "window_type_prices": {
+            "687e2dcffd2a7768f1e926e1": {
+                "base": "982",
+                "final": "589"
+            },
+            "687e2df1becb2cac84f31e6c": {
+                "base": "915",
+                "final": "549"
+            },
+            "687e2e02aec6e5ed0f12e444": {
+                "base": "982",
+                "final": "589"
+            },
+            "687e2e4dca4f25a7f5db9fa8": {
+                "base": "915",
+                "final": "549"
+            },
+            "687e2e6794d6def819453d2c": {
+                "base": "915",
+                "final": "549"
+            },
+            "687e2e7430776dc4c9516a7d": {
+                "base": "832",
+                "final": "499"
+            },
+            "695d3f04cb2a2d98b5648361": {
+                "base": "915",
+                "final": "549"
+            }
+        },
+        "series_prices": {
+            "693ecf2170217d5958ca7ff1": {
+                "base": "",
+                "final": "1199"
+            },
+            "693ecf21867626a15bd95495": {
+                "base": "",
+                "final": "1099"
+            },
+            "693ecf21cacd62668cf07175": {
+                "base": "",
+                "final": "999"
+            },
+            "693ecf21cb5cd79fff4259fd": {
+                "base": "",
+                "final": "1599"
+            },
+            "693ecf23904413aab59d83a5": {
+                "base": "",
+                "final": "1050"
+            }
+        },
+        "brand_prices": {
+            "6841ddf8ace3d9d9facb16a0": {
+                "base": "",
+                "final": "999"
+            }
+        },
+        "door_prices": {
+            "687e38b0fda383513ed155b2": {
+                "base": "2165",
+                "final": "1299"
+            },
+            "687e38c0a76b8874be163cf5": {
+                "base": "2665",
+                "final": "1599"
+            },
+            "687e38d2166866b26d32c672": {
+                "base": "3333",
+                "final": "1999"
+            },
+            "687e38e2f2d030bccf80489a": {
+                "base": "2665",
+                "final": "1599"
+            },
+            "687e39117aff7b16078f9be0": {
+                "base": "2665",
+                "final": "1599"
+            },
+            "687e3925f1181a91058edb1d": {
+                "base": "2165",
+                "final": "1299"
+            }
+        }
+    }
+]

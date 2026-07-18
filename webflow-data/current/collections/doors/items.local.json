@@ -1,7 +1,4 @@
 {
-    "table": "wf_doors",
-    "collectionId": "6841ddf8ace3d9d9facb1588",
-    "collectionSlug": "doors",
     "items": [
         {
             "id": "687e3925f1181a91058edb1d",
@@ -517,28 +514,5 @@
                 }
             }
         }
-    ],
-    "flattenedFieldMap": {
-        "door-discount": "wf_door_discount",
-        "blog-post---featured-image": "wf_blog_post_featured_image",
-        "blog-post---thumbnail-image-v1": "wf_blog_post_thumbnail_image_v1",
-        "blog-post---thumbnail-image-v2": "wf_blog_post_thumbnail_image_v2",
-        "blog-post---thumbnail-image-v3": "wf_blog_post_thumbnail_image_v3",
-        "gallery": "wf_gallery",
-        "blog-post---rich-text": "wf_blog_post_rich_text",
-        "blog-post---summary": "wf_blog_post_summary",
-        "blog-post---excerpt": "wf_blog_post_excerpt",
-        "featured": "wf_featured",
-        "blog-post---category": "wf_blog_post_category",
-        "blog-post---author": "wf_blog_post_author",
-        "description": "wf_description",
-        "doors-brands": "wf_doors_brands",
-        "brands-title": "wf_brands_title",
-        "seo-title": "wf_seo_title",
-        "seo-description": "wf_seo_description",
-        "opengraph-title": "wf_opengraph_title",
-        "opengraph-description": "wf_opengraph_description",
-        "opengraph-image": "wf_opengraph_image",
-        "twitter-card": "wf_twitter_card"
-    }
+    ]
 }

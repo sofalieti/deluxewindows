@@ -1,7 +1,4 @@
 {
-    "table": "wf_product",
-    "collectionId": "6841ddf8ace3d9d9facb15d4",
-    "collectionSlug": "product",
     "items": [
         {
             "id": "6841ddf8ace3d9d9facb16b4",
@@ -87,22 +84,5 @@
                 "product---short-description-page-2": "Lorem ipsum dolor sit amet consectetur. Sit ut gravida aenean potenti. Metus in eu vel morbi dui nunc tellus. Non a massa maecenas massa."
             }
         }
-    ],
-    "flattenedFieldMap": {
-        "sku-properties": "wf_sku_properties",
-        "category": "wf_category",
-        "description": "wf_description",
-        "shippable": "wf_shippable",
-        "tax-category": "wf_tax_category",
-        "default-sku": "wf_default_sku",
-        "ec-product-type": "wf_ec_product_type",
-        "product---description": "wf_product_description",
-        "product---short-description-page-2": "wf_product_short_description_page_2",
-        "product---excerpt": "wf_product_excerpt",
-        "product---display-price": "wf_product_display_price",
-        "product---feature-1": "wf_product_feature_1",
-        "product---feature-2": "wf_product_feature_2",
-        "product---feature-3": "wf_product_feature_3",
-        "product---feature-4": "wf_product_feature_4"
-    }
+    ]
 }

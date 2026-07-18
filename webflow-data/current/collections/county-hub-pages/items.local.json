@@ -1,7 +1,4 @@
 {
-    "table": "wf_county_hub_pages",
-    "collectionId": "69ce789764cd8d5d1bcf1aa4",
-    "collectionSlug": "county-hub-pages",
     "items": [
         {
             "id": "69ce7b7007a3f40a2d9f1ea3",
@@ -326,14 +323,5 @@
                 "meta-description": "Expert window replacement across Alameda County. Energy-efficient installs, top brands, free quotes. Call Deluxe Windows for Bay Area homes."
             }
         }
-    ],
-    "flattenedFieldMap": {
-        "county-name": "wf_county_name",
-        "county-slug": "wf_county_slug",
-        "meta-title": "wf_meta_title",
-        "meta-description": "wf_meta_description",
-        "county-intro": "wf_county_intro",
-        "hero-image": "wf_hero_image",
-        "cities-in-county": "wf_cities_in_county"
-    }
+    ]
 }

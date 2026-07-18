@@ -1,7 +1,4 @@
 {
-    "table": "wf_global_settings",
-    "collectionId": "699eb44b527990aff5f23d1e",
-    "collectionSlug": "global-settings",
     "items": [
         {
             "id": "699eb4a5d58161192855e982",
@@ -19,10 +16,5 @@
                 "promotion-name": "Summer Sale"
             }
         }
-    ],
-    "flattenedFieldMap": {
-        "promotion-name": "wf_promotion_name",
-        "start-date": "wf_start_date",
-        "end-date": "wf_end_date"
-    }
+    ]
 }

@@ -1,7 +1,4 @@
 {
-    "table": "wf_gallery",
-    "collectionId": "688136f10bb2ccdbe12aa297",
-    "collectionSlug": "gallery",
     "items": [
         {
             "id": "68c89a3bcf3e65c360255fd1",
@@ -1750,9 +1747,5 @@
                 }
             }
         }
-    ],
-    "flattenedFieldMap": {
-        "gallery": "wf_gallery",
-        "featured-image": "wf_featured_image"
-    }
+    ]
 }

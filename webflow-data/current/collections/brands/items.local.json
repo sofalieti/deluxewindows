@@ -1,7 +1,4 @@
 {
-    "table": "wf_brands",
-    "collectionId": "6841ddf8ace3d9d9facb168a",
-    "collectionSlug": "brands",
     "items": [
         {
             "id": "687b77229d351e28dc2a5141",
@@ -865,47 +862,5 @@
                 "new-construction-replacement-categories": 0
             }
         }
-    ],
-    "flattenedFieldMap": {
-        "agent---avatar-photo": "wf_agent_avatar_photo",
-        "agent---about": "wf_agent_about",
-        "agent---experience": "wf_agent_experience",
-        "agent---excerpt": "wf_agent_excerpt",
-        "agent---job-title": "wf_agent_job_title",
-        "agent---username": "wf_agent_username",
-        "featured-image": "wf_featured_image",
-        "doors-type-marvin": "wf_doors_type_marvin",
-        "window-types": "wf_window_types",
-        "windows-titles": "wf_windows_titles",
-        "doors-title": "wf_doors_title",
-        "brand-logo": "wf_brand_logo",
-        "logo-svg": "wf_logo_svg",
-        "order": "wf_order",
-        "materials": "wf_materials",
-        "new-template": "wf_new_template",
-        "animation-off": "wf_animation_off",
-        "grid-styles": "wf_grid_styles",
-        "tinted-glass-off": "wf_tinted_glass_off",
-        "standard-glass-is-big": "wf_standard_glass_is_big",
-        "obscure-glass-if-off": "wf_obscure_glass_if_off",
-        "energy-glass-is-off": "wf_energy_glass_is_off",
-        "new-construction-replacement-categories": "wf_new_construction_replacement_categories",
-        "brand-feature-description-1": "wf_brand_feature_description_1",
-        "brand-feature-description-2": "wf_brand_feature_description_2",
-        "brand-feature-description-3": "wf_brand_feature_description_3",
-        "brand-feature-description-4": "wf_brand_feature_description_4",
-        "price-range": "wf_price_range",
-        "field": "wf_field",
-        "field-2": "wf_field_2",
-        "field-3": "wf_field_3",
-        "field-4": "wf_field_4",
-        "field-5": "wf_field_5",
-        "windowmaintype": "wf_windowmaintype",
-        "seo-title": "wf_seo_title",
-        "seo-description": "wf_seo_description",
-        "opengraph-title": "wf_opengraph_title",
-        "opengraph-description": "wf_opengraph_description",
-        "opengraph-image": "wf_opengraph_image",
-        "twitter-card": "wf_twitter_card"
-    }
+    ]
 }

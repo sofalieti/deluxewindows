@@ -1,7 +1,4 @@
 {
-    "table": "wf_brand_collections",
-    "collectionId": "69366118c296b5e2e8bdbfb2",
-    "collectionSlug": "brand-collections",
     "items": [
         {
             "id": "697f92911f942b01f19fed26",
@@ -9154,48 +9151,5 @@
                 "configuration-sizes-description": null
             }
         }
-    ],
-    "flattenedFieldMap": {
-        "mainmaterial": "wf_mainmaterial",
-        "materials": "wf_materials",
-        "material": "wf_material",
-        "property-type---icon": "wf_property_type_icon",
-        "property-type---description": "wf_property_type_description",
-        "featured-image": "wf_featured_image",
-        "description": "wf_description",
-        "price-category": "wf_price_category",
-        "video": "wf_video",
-        "explore-brand-style": "wf_explore_brand_style",
-        "brand---material---style": "wf_brand_material_style",
-        "parent-brand": "wf_parent_brand",
-        "about-tab": "wf_about_tab",
-        "collections-tabs-details": "wf_collections_tabs_details",
-        "inspiration-photos": "wf_inspiration_photos",
-        "other-collections": "wf_other_collections",
-        "long-description": "wf_long_description",
-        "about-collection-description": "wf_about_collection_description",
-        "advantage-title-1": "wf_advantage_title_1",
-        "advantage-description-1": "wf_advantage_description_1",
-        "advantage-title-2": "wf_advantage_title_2",
-        "advantage-description-2": "wf_advantage_description_2",
-        "advantage-title-3": "wf_advantage_title_3",
-        "advantage-description-3": "wf_advantage_description_3",
-        "advantage-title-4": "wf_advantage_title_4",
-        "advantage-description-4": "wf_advantage_description_4",
-        "brand-materials-2": "wf_brand_materials_2",
-        "animation-off": "wf_animation_off",
-        "installation-instruction": "wf_installation_instruction",
-        "specification": "wf_specification",
-        "testing": "wf_testing",
-        "configuration-sizes": "wf_configuration_sizes",
-        "configuration-sizes-description": "wf_configuration_sizes_description",
-        "performance": "wf_performance",
-        "performance-description": "wf_performance_description",
-        "seo-title": "wf_seo_title",
-        "seo-description": "wf_seo_description",
-        "opengraph-title": "wf_opengraph_title",
-        "opengraph-description": "wf_opengraph_description",
-        "opengraph-image": "wf_opengraph_image",
-        "twitter-card": "wf_twitter_card"
-    }
+    ]
 }

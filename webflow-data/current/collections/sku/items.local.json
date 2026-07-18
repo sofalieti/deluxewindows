@@ -1,7 +1,4 @@
 {
-    "table": "wf_sku",
-    "collectionId": "6841ddf8ace3d9d9facb15f3",
-    "collectionSlug": "sku",
     "items": [
         {
             "id": "6841ddf8ace3d9d9facb16b5",
@@ -105,21 +102,5 @@
                 "ec-sku-subscription-plan": null
             }
         }
-    ],
-    "flattenedFieldMap": {
-        "sku-values": "wf_sku_values",
-        "product": "wf_product",
-        "main-image": "wf_main_image",
-        "more-images": "wf_more_images",
-        "price": "wf_price",
-        "compare-at-price": "wf_compare_at_price",
-        "download-files": "wf_download_files",
-        "ec-sku-subscription-plan": "wf_ec_sku_subscription_plan",
-        "width": "wf_width",
-        "length": "wf_length",
-        "height": "wf_height",
-        "weight": "wf_weight",
-        "sku": "wf_sku",
-        "ec-sku-billing-method": "wf_ec_sku_billing_method"
-    }
+    ]
 }

@@ -1,0 +1,15 @@
+{
+    "format_version": 1,
+    "generated_at": "2026-07-18T08:36:41+00:00",
+    "webflow_collections": 20,
+    "webflow_records": 1948,
+    "door_brands": 11,
+    "promotion_controls": 1,
+    "page_metadata": 204,
+    "files": {
+        "webflow_root": "current",
+        "door_brands": "database/data/door-brands.json",
+        "promotion_controls": "database/data/promotion-controls.json",
+        "page_metadata_root": "database/data/page-metadata"
+    }
+}

@@ -1,7 +1,4 @@
 {
-    "table": "wf_coupons",
-    "collectionId": "6841ddf8ace3d9d9facb168b",
-    "collectionSlug": "coupons",
     "items": [
         {
             "id": "6882307f92c96aa6074023a4",
@@ -119,19 +116,5 @@
                 "blog-post-category---description": "Eligible parties include active duty members, reserves and veterans/retirees within 2 years of separation or retirement of the U.S. Air Force, Army, Navy, Marines, National Guard, Space Force or Coast Guard. Proof of eligibility required copy of Leave and Earnings Statement, Delayed Entry/Enlistment (DEP) form, or Veteran/Retiree (DD-214) form and copy of current driver's license. Certain restrictions may apply."
             }
         }
-    ],
-    "flattenedFieldMap": {
-        "blog-post-category---description": "wf_blog_post_category_description",
-        "blog-post-category---icon": "wf_blog_post_category_icon",
-        "offer-expires": "wf_offer_expires",
-        "featured-image": "wf_featured_image",
-        "button": "wf_button",
-        "offer-expires-text": "wf_offer_expires_text",
-        "seo-title": "wf_seo_title",
-        "seo-description": "wf_seo_description",
-        "opengraph-title": "wf_opengraph_title",
-        "opengraph-description": "wf_opengraph_description",
-        "opengraph-image": "wf_opengraph_image",
-        "twitter-card": "wf_twitter_card"
-    }
+    ]
 }

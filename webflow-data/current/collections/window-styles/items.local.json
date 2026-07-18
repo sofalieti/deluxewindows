@@ -1,7 +1,4 @@
 {
-    "table": "wf_window_styles",
-    "collectionId": "6841ddf8ace3d9d9facb1614",
-    "collectionSlug": "window-styles",
     "items": [
         {
             "id": "689cbd6e35892aef1939963f",
@@ -2540,18 +2537,5 @@
                 "explore-other-styles-text": "Explore Other Marvin Styles"
             }
         }
-    ],
-    "flattenedFieldMap": {
-        "property---description": "wf_property_description",
-        "featured-image": "wf_featured_image",
-        "main-information": "wf_main_information",
-        "explore-other-styles-text": "wf_explore_other_styles_text",
-        "other-styles": "wf_other_styles",
-        "seo-title": "wf_seo_title",
-        "seo-description": "wf_seo_description",
-        "opengraph-title": "wf_opengraph_title",
-        "opengraph-description": "wf_opengraph_description",
-        "opengraph-image": "wf_opengraph_image",
-        "twitter-card": "wf_twitter_card"
-    }
+    ]
 }

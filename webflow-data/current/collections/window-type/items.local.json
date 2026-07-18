@@ -1,7 +1,4 @@
 {
-    "table": "wf_window_type",
-    "collectionId": "688e50676f1dbd8cba0e08f2",
-    "collectionSlug": "window-type",
     "items": [
         {
             "id": "695d405d2c1f62bdda7b0535",
@@ -2021,39 +2018,5 @@
                 "property-listing---number-of-parking-spots": null
             }
         }
-    ],
-    "flattenedFieldMap": {
-        "windor-type-material": "wf_windor_type_material",
-        "property-listing---featured-image": "wf_property_listing_featured_image",
-        "property-listing---featured-images": "wf_property_listing_featured_images",
-        "property-listing---thumbnail-image-v1": "wf_property_listing_thumbnail_image_v1",
-        "property-listing---thumbnail-image-v2": "wf_property_listing_thumbnail_image_v2",
-        "property-listing---thumbnail-image-v3": "wf_property_listing_thumbnail_image_v3",
-        "property-listing---about": "wf_property_listing_about",
-        "property-listing---summary": "wf_property_listing_summary",
-        "property-listing---excerpt": "wf_property_listing_excerpt",
-        "property-listing---property-featured": "wf_property_listing_property_featured",
-        "property-listing---address": "wf_property_listing_address",
-        "property-listing---sqf": "wf_property_listing_sqf",
-        "property-listing---number-of-bathrooms": "wf_property_listing_number_of_bathrooms",
-        "property-listing---number-of-bedrooms": "wf_property_listing_number_of_bedrooms",
-        "property-listing---number-of-parking-spots": "wf_property_listing_number_of_parking_spots",
-        "property-listing---display-price": "wf_property_listing_display_price",
-        "property-listing---type": "wf_property_listing_type",
-        "property-listing---agent": "wf_property_listing_agent",
-        "brand-marvin-2": "wf_brand_marvin_2",
-        "window-type-collection": "wf_window_type_collection",
-        "title": "wf_title",
-        "collections-new-template": "wf_collections_new_template",
-        "materials": "wf_materials",
-        "new-template": "wf_new_template",
-        "animation-off": "wf_animation_off",
-        "inspiration-photos": "wf_inspiration_photos",
-        "seo-title": "wf_seo_title",
-        "seo-description": "wf_seo_description",
-        "opengraph-title": "wf_opengraph_title",
-        "opengraph-description": "wf_opengraph_description",
-        "opengraph-image": "wf_opengraph_image",
-        "twitter-card": "wf_twitter_card"
-    }
+    ]
 }

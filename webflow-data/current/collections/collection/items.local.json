@@ -1,7 +1,4 @@
 {
-    "table": "wf_collection",
-    "collectionId": "6841ddf8ace3d9d9facb165f",
-    "collectionSlug": "collection",
     "items": [
         {
             "id": "69146856ea65e099951c1d31",
@@ -3666,27 +3663,5 @@
                 "property-type---description": "A stylish urban living space."
             }
         }
-    ],
-    "flattenedFieldMap": {
-        "property-type---icon": "wf_property_type_icon",
-        "property-type---description": "wf_property_type_description",
-        "featured-image": "wf_featured_image",
-        "description": "wf_description",
-        "price-category": "wf_price_category",
-        "video": "wf_video",
-        "explore-brand-style": "wf_explore_brand_style",
-        "brand---material---style": "wf_brand_material_style",
-        "parent-brand": "wf_parent_brand",
-        "about-tab": "wf_about_tab",
-        "collections-tabs-details": "wf_collections_tabs_details",
-        "inspiration-photos": "wf_inspiration_photos",
-        "other-collections": "wf_other_collections",
-        "materials": "wf_materials",
-        "seo-title": "wf_seo_title",
-        "seo-description": "wf_seo_description",
-        "opengraph-title": "wf_opengraph_title",
-        "opengraph-description": "wf_opengraph_description",
-        "opengraph-image": "wf_opengraph_image",
-        "twitter-card": "wf_twitter_card"
-    }
+    ]
 }

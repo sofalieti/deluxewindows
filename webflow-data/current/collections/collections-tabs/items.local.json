@@ -1,7 +1,4 @@
 {
-    "table": "wf_collections_tabs",
-    "collectionId": "692d344de96107a11341bde7",
-    "collectionSlug": "collections-tabs",
     "items": [
         {
             "id": "697faf6589b2f932fbf8f88e",
@@ -48525,17 +48522,5 @@
                 ]
             }
         }
-    ],
-    "flattenedFieldMap": {
-        "description": "wf_description",
-        "picture": "wf_picture",
-        "category": "wf_category",
-        "subcategory": "wf_subcategory",
-        "parent-collection": "wf_parent_collection",
-        "parent-brand": "wf_parent_brand",
-        "parent-window-styles": "wf_parent_window_styles",
-        "color": "wf_color",
-        "materials": "wf_materials",
-        "collections-new-template": "wf_collections_new_template"
-    }
+    ]
 }

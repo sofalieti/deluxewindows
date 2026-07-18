@@ -1,7 +1,4 @@
 {
-    "table": "wf_door_types",
-    "collectionId": "688ef97f56238a41af6cffd2",
-    "collectionSlug": "door-types",
     "items": [
         {
             "id": "688f7a808386df55b72bc982",
@@ -1335,32 +1332,5 @@
                 "property-listing---number-of-parking-spots": null
             }
         }
-    ],
-    "flattenedFieldMap": {
-        "property-listing---featured-image": "wf_property_listing_featured_image",
-        "property-listing---featured-images": "wf_property_listing_featured_images",
-        "property-listing---thumbnail-image-v1": "wf_property_listing_thumbnail_image_v1",
-        "property-listing---thumbnail-image-v2": "wf_property_listing_thumbnail_image_v2",
-        "property-listing---thumbnail-image-v3": "wf_property_listing_thumbnail_image_v3",
-        "property-listing---about": "wf_property_listing_about",
-        "property-listing---summary": "wf_property_listing_summary",
-        "property-listing---excerpt": "wf_property_listing_excerpt",
-        "property-listing---property-featured": "wf_property_listing_property_featured",
-        "property-listing---address": "wf_property_listing_address",
-        "property-listing---sqf": "wf_property_listing_sqf",
-        "property-listing---number-of-bathrooms": "wf_property_listing_number_of_bathrooms",
-        "property-listing---number-of-bedrooms": "wf_property_listing_number_of_bedrooms",
-        "property-listing---number-of-parking-spots": "wf_property_listing_number_of_parking_spots",
-        "property-listing---display-price": "wf_property_listing_display_price",
-        "property-listing---type": "wf_property_listing_type",
-        "property-listing---agent": "wf_property_listing_agent",
-        "door-type-collections-2": "wf_door_type_collections_2",
-        "explore-collection-text": "wf_explore_collection_text",
-        "seo-title": "wf_seo_title",
-        "seo-description": "wf_seo_description",
-        "opengraph-title": "wf_opengraph_title",
-        "opengraph-description": "wf_opengraph_description",
-        "opengraph-image": "wf_opengraph_image",
-        "twitter-card": "wf_twitter_card"
-    }
+    ]
 }
