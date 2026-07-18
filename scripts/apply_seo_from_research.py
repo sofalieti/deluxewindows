@@ -219,8 +219,8 @@ PERMIT_CITIES = {
 }
 
 BAY_COST = (
-    "Bay Area homeowners typically see about $1,500-$3,000 per window installed for quality "
-    "vinyl, and more for fiberglass, clad-wood or architectural products"
+    "with the current promotion quality vinyl replacement starts at $549 per window installed "
+    "(regular $915), while fiberglass, clad-wood and architectural products price higher"
 )
 
 STATIC_SEO = {
@@ -467,6 +467,200 @@ class UniquePool:
         return self.values.get(norm(value))
 
 
+# ---------------------------------------------------------------------------
+# Hero pricing — mirrors PromotionControlService::lookupPricing and the private
+# resolvers in ClassicSiteController so FAQ answers quote the same dollar
+# amounts the hero sections display.
+# ---------------------------------------------------------------------------
+
+WEBFLOW_COLLECTIONS = ROOT / "webflow-data" / "current" / "collections"
+PROMO_CONTROLS_FILE = ROOT / "database" / "data" / "promotion-controls.json"
+
+# PromotionControlService::priceHtml('915', '$549') fallback used across heroes.
+DEFAULT_WINDOW_PROMO = {"base": "915", "final": "549", "unit": "window"}
+
+
+def _webflow_items(collection: str) -> list[dict]:
+    file = WEBFLOW_COLLECTIONS / collection / "items.json"
+    if not file.is_file():
+        return []
+    data = json.loads(file.read_text(encoding="utf-8"))
+    if isinstance(data, dict):
+        for value in data.values():
+            if isinstance(value, list):
+                return value
+        return []
+    return data if isinstance(data, list) else []
+
+
+def _lookup_price(price_map: dict, item_id: str | None, slug: str | None) -> dict | None:
+    """Replicates PromotionControlService::lookupPricing (id first, slug fallback)."""
+    for key in (item_id, slug):
+        entry = price_map.get(key or "")
+        if isinstance(entry, dict):
+            final = str(entry.get("final") or "").strip()
+            if final:
+                return {"base": str(entry.get("base") or "").strip() or None, "final": final}
+    return None
+
+
+def _parse_legacy_discount(html: str) -> dict | None:
+    """Replicates ClassicSiteController::legacyDiscountToPromoHtml parsing."""
+    html = (html or "").strip()
+    base = re.search(r"<s>\s*\$?\s*([0-9][0-9,]*(?:\.[0-9]{1,2})?)\s*</s>", html, re.I)
+    if not base:
+        return None
+    final = re.search(r"</s>\s*\$?\s*([0-9][0-9,]*(?:\.[0-9]{1,2})?)", html, re.I)
+    if not final:
+        return None
+    return {"base": base.group(1), "final": final.group(1)}
+
+
+def build_hero_pricing() -> dict[str, dict]:
+    """Resolve the hero price for every product page path, following the
+    controller inheritance rules (override -> parent material -> legacy
+    discount text -> default promo)."""
+    controls = json.loads(PROMO_CONTROLS_FILE.read_text(encoding="utf-8"))[0]
+    window_prices = controls.get("window_type_prices") or {}
+    series_prices = controls.get("series_prices") or {}
+    brand_prices = controls.get("brand_prices") or {}
+    door_prices = controls.get("door_prices") or {}
+
+    windows = _webflow_items("windows")
+    windows_by_id = {item["id"]: item for item in windows}
+    windows_by_name = {
+        str(item.get("fieldData", {}).get("name") or "").casefold(): item for item in windows
+    }
+    doors = _webflow_items("doors")
+
+    def window_material_price(item: dict | None) -> dict | None:
+        if not item:
+            return None
+        fd = item.get("fieldData", {})
+        found = _lookup_price(window_prices, item.get("id"), fd.get("slug"))
+        if found:
+            return found
+        return _parse_legacy_discount(str(fd.get("discounttext") or ""))
+
+    pricing: dict[str, dict] = {}
+
+    # /windows/{slug} — windowBySlug
+    for item in windows:
+        fd = item.get("fieldData", {})
+        slug = fd.get("slug")
+        if not slug:
+            continue
+        found = window_material_price(item) or dict(DEFAULT_WINDOW_PROMO)
+        pricing[f"/windows/{slug}"] = {**found, "unit": "window"}
+
+    # /doors/{slug} — doorBySlug
+    for item in doors:
+        fd = item.get("fieldData", {})
+        slug = fd.get("slug")
+        if not slug:
+            continue
+        found = (
+            _lookup_price(door_prices, item.get("id"), slug)
+            or _parse_legacy_discount(str(fd.get("door-discount") or ""))
+            or dict(DEFAULT_WINDOW_PROMO)
+        )
+        pricing[f"/doors/{slug}"] = {**found, "unit": "door"}
+
+    # /window-type/{slug} — resolveWindowTypeHeroPricing
+    for item in _webflow_items("window-type"):
+        fd = item.get("fieldData", {})
+        slug = fd.get("slug")
+        if not slug:
+            continue
+        found = _lookup_price(window_prices, item.get("id"), slug)
+        if not found:
+            material = windows_by_id.get(str(fd.get("windor-type-material") or ""))
+            found = _parse_legacy_discount(
+                str((material or {}).get("fieldData", {}).get("discounttext") or "")
+            )
+        if not found:
+            found = {"base": None, "final": "1199"}  # hero static fallback
+        pricing[f"/window-type/{slug}"] = {**found, "unit": "window"}
+
+    # /brands/{slug} and /door-brands/{slug}
+    for item in _webflow_items("brands"):
+        fd = item.get("fieldData", {})
+        slug = fd.get("slug")
+        if not slug:
+            continue
+
+        found = _lookup_price(brand_prices, item.get("id"), slug)
+        if not found:
+            refs = [str(fd.get("windowmaintype") or "")] + [
+                str(ref) for ref in (fd.get("materials") or []) if ref
+            ]
+            for ref in refs:
+                material = windows_by_id.get(ref)
+                if material:
+                    inherited = _lookup_price(
+                        window_prices, material["id"], material.get("fieldData", {}).get("slug")
+                    )
+                    if inherited:
+                        found = inherited
+                        break
+        pricing[f"/brands/{slug}"] = {
+            **(found or {"base": None, "final": "999"}),  # hero.blade static fallback
+            "unit": "window",
+        }
+
+        # door-brands: cheapest priced door linked to this brand.
+        cheapest = None
+        for door in doors:
+            dfd = door.get("fieldData", {})
+            if item["id"] not in (dfd.get("doors-brands") or []):
+                continue
+            price = _lookup_price(door_prices, door.get("id"), dfd.get("slug"))
+            if price is None:
+                continue
+            value = float(price["final"].replace(",", ""))
+            if cheapest is None or value < float(cheapest["final"].replace(",", "")):
+                cheapest = price
+        if cheapest:
+            pricing[f"/door-brands/{slug}"] = {**cheapest, "unit": "door"}
+
+    # /brand-collections/{slug} — resolveCollectionHeroPricing
+    for item in _webflow_items("brand-collections"):
+        fd = item.get("fieldData", {})
+        slug = fd.get("slug")
+        if not slug:
+            continue
+        found = _lookup_price(series_prices, item.get("id"), slug)
+        if not found:
+            found = window_material_price(windows_by_id.get(str(fd.get("mainmaterial") or "")))
+        if not found:
+            name = str(fd.get("material") or "").casefold()
+            found = window_material_price(windows_by_name.get(name)) if name else None
+        pricing[f"/brand-collections/{slug}"] = {
+            **(found or dict(DEFAULT_WINDOW_PROMO)),
+            "unit": "window",
+        }
+
+    return pricing
+
+
+HERO_PRICING = build_hero_pricing()
+
+
+def price_phrase(pricing: dict | None) -> str:
+    """Human sentence fragment matching the hero price tag of the page."""
+    if not pricing:
+        return "installed pricing is confirmed in a written estimate after measuring"
+    unit = pricing.get("unit", "window")
+    final = pricing["final"]
+    base = pricing.get("base")
+    if base:
+        return (
+            f"the current promotion prices installations from ${final} per {unit} installed "
+            f"(regular ${base})"
+        )
+    return f"installed pricing starts from ${final} per {unit} installed"
+
+
 class PageContext:
     def __init__(self, record: dict, dataset_page: dict) -> None:
         self.record = record
@@ -478,6 +672,13 @@ class PageContext:
         self.material: str | None = None
         self.city: str | None = None
         self.entity = self.resolve_entity()
+        # Hero price shown on this page (None when the hero hides pricing,
+        # e.g. door-brand pages whose linked doors have no promo price).
+        self.pricing: dict | None = HERO_PRICING.get(self.path)
+        if self.pricing is None and self.family in {
+            "window-replacement", "county-hub-pages", "static", "root",
+        }:
+            self.pricing = dict(DEFAULT_WINDOW_PROMO)
 
     def resolve_entity(self) -> str:
         slug = self.slug
@@ -892,15 +1093,31 @@ def answer_paa(question: str, ctx: PageContext) -> str:
                 f"material and access, so Deluxe Windows prices each {city} project after on-site measurements."
             )
         if is_door_page and not ctx.brand:
+            if ctx.pricing and ctx.pricing.get("unit") == "door":
+                return (
+                    f"For {entity.lower()} doors, {price_phrase(ctx.pricing)}. "
+                    f"Installed Bay Area totals also reflect the frame condition, hardware and finishing, which "
+                    f"Deluxe Windows confirms in a written estimate."
+                )
             return (
                 f"For {entity.lower()} doors, plan on {material.get('door_cost', material['cost'])}. "
                 f"Installed Bay Area totals also reflect the frame condition, hardware and finishing, which "
                 f"Deluxe Windows confirms in a written estimate."
             )
         if ctx.brand:
+            if ctx.pricing and (not is_door_page or ctx.pricing.get("unit") == "door"):
+                return (
+                    f"For {entity}, {price_phrase(ctx.pricing)}. Exact pricing depends on size, glass package and "
+                    f"installation conditions, so Deluxe Windows prepares an itemized quote after measuring the openings."
+                )
             return (
                 f"For {entity}, {brand['cost']}. Exact pricing depends on size, glass package and "
                 f"installation conditions, so Deluxe Windows prepares an itemized quote after measuring the openings."
+            )
+        if ctx.pricing and ctx.pricing.get("unit") == "window":
+            return (
+                f"For {entity.lower()} windows, {price_phrase(ctx.pricing)}. Installed Bay Area totals also "
+                f"reflect labor, permits and any opening repairs, which Deluxe Windows confirms in a written estimate."
             )
         return (
             f"For {entity.lower()} windows, typical pricing is {material['cost']}. Installed Bay Area totals also "
@@ -1042,7 +1259,11 @@ def generated_fill(ctx: PageContext) -> list[dict[str, str]]:
             },
             {
                 "question": f"How do I get installed pricing for {entity} {product}?",
-                "answer": f"Installed pricing for {entity} {product} is prepared after on-site measurements: {brand['cost']}. The written quote itemizes product, labor, permits and any opening repairs.",
+                "answer": (
+                    f"Installed pricing for {entity} {product} is prepared after on-site measurements: "
+                    f"{price_phrase(ctx.pricing) if ctx.pricing else brand['cost']}. "
+                    f"The written quote itemizes product, labor, permits and any opening repairs."
+                ),
             },
             {
                 "question": f"How long does {entity} {product.rstrip('s')} installation take?",
@@ -1063,7 +1284,10 @@ def generated_fill(ctx: PageContext) -> list[dict[str, str]]:
             },
             {
                 "question": f"How much do {entity.lower()} {product} cost installed in the Bay Area?",
-                "answer": f"Plan on {cost_fact} for {entity.lower()} {product}, plus installation that reflects access, removal and finishing. Deluxe Windows provides exact installed pricing after measuring.",
+                "answer": (
+                    f"For {entity.lower()} {product}, {price_phrase(ctx.pricing) if ctx.pricing else f'plan on {cost_fact}'}. "
+                    f"The final quote reflects access, removal and finishing, and Deluxe Windows confirms exact installed pricing after measuring."
+                ),
             },
             {
                 "question": f"How long do {entity.lower()} {product} last?",
@@ -1082,7 +1306,10 @@ def generated_fill(ctx: PageContext) -> list[dict[str, str]]:
             },
             {
                 "question": f"What do {entity} cost installed?",
-                "answer": f"For {entity}, {brand['cost']}; the material itself usually prices at {material['cost']}. Deluxe Windows quotes each opening after measuring.",
+                "answer": (
+                    f"For {entity}, {price_phrase(ctx.pricing) if ctx.pricing else brand['cost']}. "
+                    f"The exact number depends on sizes, glass package and installation conditions, so Deluxe Windows quotes each opening after measuring."
+                ),
             },
             {
                 "question": f"Which series are available for {entity}?",
@@ -1105,7 +1332,10 @@ def generated_fill(ctx: PageContext) -> list[dict[str, str]]:
             },
             {
                 "question": f"How is installed pricing for {entity} calculated?",
-                "answer": f"Installed pricing for {entity} reflects opening dimensions, configuration, glass, finish, quantity and access. As a reference, {brand['cost']}.",
+                "answer": (
+                    f"Installed pricing for {entity} reflects opening dimensions, configuration, glass, finish, quantity and access. "
+                    f"As a reference, {price_phrase(ctx.pricing) if ctx.pricing else brand['cost']}."
+                ),
             },
             {
                 "question": f"How does {entity} compare with other {ctx.brand or 'brand'} collections?",
@@ -1226,7 +1456,7 @@ STATIC_FILL = {
         },
         {
             "question": "How much does door replacement cost in the Bay Area?",
-            "answer": "Entry door replacement typically runs $500-$2,000 including the frame, while sliding patio doors range from about $800 to over $5,000 depending on size, panels and material.",
+            "answer": "With the current promotion, installed doors start at $1,299 per door for vinyl and steel (regular $2,165), $1,599 for fiberglass, wood-clad and aluminum, and $1,999 for solid wood models.",
         },
         {
             "question": "Sliding, hinged or folding — how do I choose a patio door?",
@@ -1268,7 +1498,7 @@ STATIC_FILL = {
 FAQ_HUB = [
     {
         "question": "How much does window replacement cost in the Bay Area?",
-        "answer": "Most Bay Area projects land around $1,500-$3,000 per window installed for quality vinyl, with fiberglass, clad-wood and architectural products higher. Window count, sizes, glass and access move the number, so quotes follow on-site measurements.",
+        "answer": "With the current promotion, quality vinyl replacement starts at $499-$549 per window installed (regular $832-$915), with fiberglass, clad-wood and architectural products higher. Window count, sizes, glass and access move the number, so quotes follow on-site measurements.",
     },
     {
         "question": "How much does it cost to replace all windows in a house?",

@@ -1,0 +1,5 @@
+# Webflow export assets are content-addressed (hashed filenames),
+# so they never change under the same URL — cache for a year.
+<IfModule mod_headers.c>
+    Header set Cache-Control "public, max-age=31536000, immutable"
+</IfModule>

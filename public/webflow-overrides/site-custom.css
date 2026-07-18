@@ -1,5 +1,16 @@
 /* Consolidated custom UI overrides (navbar/hero/trust/modal). */
 
+/* Footer phone link — inherit surrounding text color, no underline.
+   Rendered as inline so screen readers expose the number as the link text. */
+.footer-phone-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer-phone-link span {
+  display: inline;
+}
+
 /* Desktop header — no fixed min-height from Webflow */
 .header-container-2 {
   min-height: 0 !important;
