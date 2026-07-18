@@ -32,20 +32,7 @@
       }
     </script>
     <link href="https://cdn.prod.website-files.com" rel="preconnect" crossorigin="anonymous" />
-    <title>@yield('title', 'Deluxe Windows | Window Replacement – San Francisco Bay Area')</title>
-    <meta content="@yield('metaDescription')" name="description" />
-    <meta content="@hasSection('ogTitle')@yield('ogTitle')@else@yield('title')@endif" property="og:title" />
-    <meta content="@hasSection('ogDescription')@yield('ogDescription')@else@yield('metaDescription')@endif" property="og:description" />
-    @hasSection('ogImage')
-    <meta content="@yield('ogImage')" property="og:image" />
-    @endif
-    <meta content="@hasSection('ogTitle')@yield('ogTitle')@else@yield('title')@endif" name="twitter:title" />
-    <meta content="@hasSection('ogDescription')@yield('ogDescription')@else@yield('metaDescription')@endif" name="twitter:description" />
-    @hasSection('ogImage')
-    <meta content="@yield('ogImage')" name="twitter:image" />
-    @endif
-    <meta property="og:type" content="@yield('ogType', 'website')" />
-    <meta content="summary_large_image" name="twitter:card" />
+    @include('partials.seo-head')
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link href="/webflow-assets/css/webflow.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="/webflow-assets/css/fonts.css" media="all" />
@@ -77,10 +64,15 @@
 
       @yield('content')
 
+      @hasSection('metadataFaqRendered')
+      @else
+        @include('partials.page-metadata-faq')
+      @endif
+
       @include('partials.footer')
     </div>
 
-    <div id="menuDimmer" style="opacity: 0; pointer-events: none"></div>
+    <div id="menuDimmer"></div>
 
     @hasSection('bodyScripts')
       @yield('bodyScripts')

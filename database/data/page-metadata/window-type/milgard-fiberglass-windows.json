@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "window-type/milgard-fiberglass-windows",
+  "path": "/window-type/milgard-fiberglass-windows",
+  "seo": {
+    "title": "Milgard Fiberglass Windows | Deluxe Windows Berkeley",
+    "description": "Milgard C650 Ultra fiberglass windows are among the strongest and most durable for Bay Area homes. Installed by Deluxe Windows in San Francisco. Get a free quote.",
+    "canonical": "https://www.deluxewindows.com/window-type/milgard-fiberglass-windows",
+    "og": {
+      "title": "Milgard Fiberglass Windows | Deluxe Windows Berkeley",
+      "description": "Milgard C650 Ultra fiberglass windows are among the strongest and most durable for Bay Area homes. Installed by Deluxe Windows in San Francisco. Get a free quote.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f3125157b70cefca86cd3_Milgare-Fiberglass-C650-Ultra-Series-Windows-1024x576.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Milgard Fiberglass Windows"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

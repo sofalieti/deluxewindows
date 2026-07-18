@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "window-type/ply-gem-aluminum-windows",
+  "path": "/window-type/ply-gem-aluminum-windows",
+  "seo": {
+    "title": "Ply Gem Aluminum Windows | Deluxe Windows Walnut Creek",
+    "description": "Ply Gem aluminum windows deliver commercial-strength performance and slim profiles for Bay Area homes. Installed by Deluxe Windows in San Francisco. Request a free estimate.",
+    "canonical": "https://www.deluxewindows.com/window-type/ply-gem-aluminum-windows",
+    "og": {
+      "title": "Ply Gem Aluminum Windows | Deluxe Windows Walnut Creek",
+      "description": "Ply Gem aluminum windows deliver commercial-strength performance and slim profiles for Bay Area homes. Installed by Deluxe Windows in San Francisco. Request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f6b6ee7d12a8517346c3c_1500-VINYL-SH-CL-12X12-HORZ_XLG_1200px.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Ply Gem Aluminum Windows"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

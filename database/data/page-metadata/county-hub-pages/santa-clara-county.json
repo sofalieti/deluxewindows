@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "county-hub-pages/santa-clara-county",
+  "path": "/county-hub-pages/santa-clara-county",
+  "seo": {
+    "title": "Santa Clara County Window Replacement | Deluxe Windows",
+    "description": "Window replacement Santa Clara County: energy-efficient products, expert crews, top brands. Serving San Jose and the South Bay. Free quote from Deluxe Windows.",
+    "canonical": "https://www.deluxewindows.com/county-hub-pages/santa-clara-county",
+    "og": {
+      "title": "Santa Clara County Window Replacement | Deluxe Windows",
+      "description": "Window replacement Santa Clara County: energy-efficient products, expert crews, top brands. Serving San Jose and the South Bay. Free quote from Deluxe Windows.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/69fc954e7b9bf04407ae45bb_generated-2026-05-07t13-32-48-294z-ubgign.jpeg",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "Santa Clara County"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

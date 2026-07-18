@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-ply-gem-1100-series",
+  "path": "/brand-collections/brand-ply-gem-1100-series",
+  "seo": {
+    "title": "Ply Gem 1100 Series | Deluxe Windows Burlingame",
+    "description": "Ply Gem 1100 Series vinyl windows offer solid entry-level performance for Bay Area homes. Explore at Deluxe Windows in San Francisco. Request a free installation estimate.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-ply-gem-1100-series",
+    "og": {
+      "title": "Ply Gem 1100 Series | Deluxe Windows Burlingame",
+      "description": "Ply Gem 1100 Series vinyl windows offer solid entry-level performance for Bay Area homes. Explore at Deluxe Windows in San Francisco. Request a free installation estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695b81391382c75a489084c0_68924c7ca1d6c8ebc6df1471_1100-Series-Banner-1440x650-v2.jpeg",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "1100 Series"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

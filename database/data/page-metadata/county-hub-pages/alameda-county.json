@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "county-hub-pages/alameda-county",
+  "path": "/county-hub-pages/alameda-county",
+  "seo": {
+    "title": "Alameda County Window Replacement | Deluxe Windows",
+    "description": "Expert window replacement across Alameda County. Energy-efficient installs, top brands, free quotes. Call Deluxe Windows for Bay Area homes.",
+    "canonical": "https://www.deluxewindows.com/county-hub-pages/alameda-county",
+    "og": {
+      "title": "Alameda County Window Replacement | Deluxe Windows",
+      "description": "Expert window replacement across Alameda County. Energy-efficient installs, top brands, free quotes. Call Deluxe Windows for Bay Area homes.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/69fc954e7b9bf04407ae45cb_generated-2026-05-07t13-32-41-766z-mnytix.jpeg",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "Alameda County"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

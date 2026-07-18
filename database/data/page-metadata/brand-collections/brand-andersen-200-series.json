@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-andersen-200-series",
+  "path": "/brand-collections/brand-andersen-200-series",
+  "seo": {
+    "title": "Andersen 200 Series | Deluxe Windows Santa Clara",
+    "description": "The Andersen 200 Series blends real wood with durable composite for Bay Area homes. Explore styles and schedule installation with Deluxe Windows in San Francisco.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-andersen-200-series",
+    "og": {
+      "title": "Andersen 200 Series | Deluxe Windows Santa Clara",
+      "description": "The Andersen 200 Series blends real wood with durable composite for Bay Area homes. Explore styles and schedule installation with Deluxe Windows in San Francisco.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/69523e6113cfc9cc8ba9c516_200-series-new-hero-image-768x450.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "200 Series"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

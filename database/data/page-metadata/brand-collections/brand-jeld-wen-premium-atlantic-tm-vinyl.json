@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-jeld-wen-premium-atlantic-tm-vinyl",
+  "path": "/brand-collections/brand-jeld-wen-premium-atlantic-tm-vinyl",
+  "seo": {
+    "title": "Jeld-Wen Premium Atlantic Vinyl | Deluxe Windows Berkeley",
+    "description": "Jeld-Wen Premium Atlantic Vinyl windows deliver enhanced energy performance for Bay Area homes. Explore this series at Deluxe Windows in San Francisco. Free estimates.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-jeld-wen-premium-atlantic-tm-vinyl",
+    "og": {
+      "title": "Jeld-Wen Premium Atlantic Vinyl | Deluxe Windows Berkeley",
+      "description": "Jeld-Wen Premium Atlantic Vinyl windows deliver enhanced energy performance for Bay Area homes. Explore this series at Deluxe Windows in San Francisco. Free estimates.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6948e845e1ea720eb759b6dc_premium-atlantic-vinyl-windows.jpg",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "Premium Atlantic™ Vinyl"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

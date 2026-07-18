@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "window-type/jeld-wen-wood-windows",
+  "path": "/window-type/jeld-wen-wood-windows",
+  "seo": {
+    "title": "Jeld-Wen Wood Windows | Deluxe Windows Fremont",
+    "description": "Jeld-Wen wood windows deliver classic beauty and custom options for Bay Area homes. Expert installation by Deluxe Windows in San Francisco. Request a free estimate.",
+    "canonical": "https://www.deluxewindows.com/window-type/jeld-wen-wood-windows",
+    "og": {
+      "title": "Jeld-Wen Wood Windows | Deluxe Windows Fremont",
+      "description": "Jeld-Wen wood windows deliver classic beauty and custom options for Bay Area homes. Expert installation by Deluxe Windows in San Francisco. Request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f47b398296810eab76d4f_Screenshot%202025-08-03%20at%2014.27.41.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Jeld-Wen Wood Windows"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

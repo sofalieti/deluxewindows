@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-jeld-wen-epicvue-clad-wood",
+  "path": "/brand-collections/brand-jeld-wen-epicvue-clad-wood",
+  "seo": {
+    "title": "Jeld-Wen EpicVue Clad-Wood | Deluxe Windows Fremont",
+    "description": "Jeld-Wen EpicVue Clad-Wood windows feature premium wood interiors with weather-resistant cladding for Bay Area homes. Explore at Deluxe Windows in San Francisco. Free quotes.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-jeld-wen-epicvue-clad-wood",
+    "og": {
+      "title": "Jeld-Wen EpicVue Clad-Wood | Deluxe Windows Fremont",
+      "description": "Jeld-Wen EpicVue Clad-Wood windows feature premium wood interiors with weather-resistant cladding for Bay Area homes. Explore at Deluxe Windows in San Francisco. Free quotes.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6948e1b4057c1a91ae66b45e_epic.jpeg",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "EpicVue Clad-Wood"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

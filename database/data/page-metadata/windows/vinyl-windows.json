@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "windows/vinyl-windows",
+  "path": "/windows/vinyl-windows",
+  "seo": {
+    "title": "Vinyl Windows | Affordable Bay Area – Deluxe Windows Concord",
+    "description": "Vinyl windows are the most popular choice for Bay Area homeowners — low maintenance and energy-efficient. Deluxe Windows installs premium vinyl windows in San Francisco.",
+    "canonical": "https://www.deluxewindows.com/windows/vinyl-windows",
+    "og": {
+      "title": "Vinyl Windows | Affordable Bay Area – Deluxe Windows Concord",
+      "description": "Vinyl windows are the most popular choice for Bay Area homeowners — low maintenance and energy-efficient. Deluxe Windows installs premium vinyl windows in San Francisco.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d89095fe85b113c1b5224_Frame%208.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Vinyl Windows"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

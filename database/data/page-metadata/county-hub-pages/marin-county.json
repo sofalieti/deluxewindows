@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "county-hub-pages/marin-county",
+  "path": "/county-hub-pages/marin-county",
+  "seo": {
+    "title": "Marin County Window Replacement | Deluxe Windows",
+    "description": "Marin County homeowners: fog-free glass, quiet frames, efficient installs. Deluxe Windows delivers Bay-trusted window replacement—request a quote today.",
+    "canonical": "https://www.deluxewindows.com/county-hub-pages/marin-county",
+    "og": {
+      "title": "Marin County Window Replacement | Deluxe Windows",
+      "description": "Marin County homeowners: fog-free glass, quiet frames, efficient installs. Deluxe Windows delivers Bay-trusted window replacement—request a quote today.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/69fc954e7b9bf04407ae45d3_generated-2026-05-07t13-33-51-925z-zhxd10.jpeg",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "Marin County"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

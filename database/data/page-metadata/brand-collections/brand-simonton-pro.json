@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-simonton-pro",
+  "path": "/brand-collections/brand-simonton-pro",
+  "seo": {
+    "title": "Pro | Deluxe Windows",
+    "description": "With a classic design, Simonton Pro windows balance enduring style with energy efficiency, weather resistance and long-lasting durability. Exclusively Sold at The Home Depot®",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-simonton-pro",
+    "og": {
+      "title": "Pro | Deluxe Windows",
+      "description": "With a classic design, Simonton Pro windows balance enduring style with energy efficiency, weather resistance and long-lasting durability. Exclusively Sold at The Home Depot®",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/69675c1012e3664ed97b14ef_sim_interior_pro_dining_room_double_hung_window_5050_module_p11114.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "Pro"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

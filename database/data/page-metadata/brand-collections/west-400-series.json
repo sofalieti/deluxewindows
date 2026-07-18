@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/west-400-series",
+  "path": "/brand-collections/west-400-series",
+  "seo": {
+    "title": "West 400 Series Windows | Deluxe Windows Healdsburg",
+    "description": "West 400 Series windows offer reliable, modern performance for Bay Area homes. Explore this series at Deluxe Windows in San Francisco. Request a free installation estimate.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/west-400-series",
+    "og": {
+      "title": "West 400 Series Windows | Deluxe Windows Healdsburg",
+      "description": "West 400 Series windows offer reliable, modern performance for Bay Area homes. Explore this series at Deluxe Windows in San Francisco. Request a free installation estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695e1cf80aaf7e4f619049c1_pgw_400_west_hero_1-400x400-1.jpg",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "West 400 Series"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

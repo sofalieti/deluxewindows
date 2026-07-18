@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-milgard-v450-homemaker-series",
+  "path": "/brand-collections/brand-milgard-v450-homemaker-series",
+  "seo": {
+    "title": "Milgard V450 HomeMaker Windows | Deluxe Windows Redwood City",
+    "description": "Milgard V450 HomeMaker Series delivers everyday reliability for Bay Area homeowners. Explore this vinyl series at Deluxe Windows in San Francisco. Get a free estimate.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-milgard-v450-homemaker-series",
+    "og": {
+      "title": "Milgard V450 HomeMaker Windows | Deluxe Windows Redwood City",
+      "description": "Milgard V450 HomeMaker Series delivers everyday reliability for Bay Area homeowners. Explore this vinyl series at Deluxe Windows in San Francisco. Get a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/693661d79ea967ebbac686b9_6890942ea71d29dac0e0b487_A250-Thermally-Improved-Aluminum.jpeg",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "V450 HomeMaker Series"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

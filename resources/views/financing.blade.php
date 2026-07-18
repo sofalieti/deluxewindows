@@ -5,9 +5,6 @@
 
 @section('wfPage', '6841ddf8ace3d9d9facb1672')
 @section('pageWrapperClass', 'full-height-page')
-@section('title', $seoTitle)
-@section('metaDescription', $seoDescription)
-@section('ogImage', $ogImage)
 
 @section('content')
       <div>

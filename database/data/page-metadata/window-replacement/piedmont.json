@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "key": "window-replacement/piedmont",
+  "path": "/window-replacement/piedmont",
+  "seo": {
+    "title": "Piedmont Window Replacement | Deluxe Windows",
+    "description": "Window replacement in Piedmont, Alameda County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+    "canonical": "https://www.deluxewindows.com/window-replacement/piedmont",
+    "og": {
+      "title": "Piedmont Window Replacement | Deluxe Windows",
+      "description": "Window replacement in Piedmont, Alameda County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/69ce7b5a4b7a0c4005c10a68_688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "How much does window replacement cost in Piedmont?",
+      "answer": "Piedmont homeowners typically invest $15,000 to $40,000+ for window replacement projects. This exclusive enclave entirely surrounded by Oakland — one of the wealthiest small cities in California — features large Tudor Revival, Colonial, and Mediterranean estate homes. Projects covering 20–35+ windows with premium specifications are typical. Single window installation starts at approximately $800."
+    },
+    {
+      "question": "Do I need a permit for window replacement in Piedmont?",
+      "answer": "Yes. Piedmont requires a building permit for window replacements. The City of Piedmont's Planning and Building Department is thorough, and projects are reviewed for compliance with the city's design standards. Our team manages all permit applications and coordinates with city staff on your behalf."
+    },
+    {
+      "question": "Which window brands does Deluxe Windows install in Piedmont?",
+      "answer": "Piedmont's elite residential market demands exclusively premium products. We most frequently specify Marvin Ultimate wood-clad fiberglass for its architectural customization and premium finishes, Andersen A-Series for traditional estate homes, and Western Window Systems for contemporary additions or ADU projects."
+    },
+    {
+      "question": "Does Deluxe Windows serve all Piedmont neighborhoods?",
+      "answer": "Yes — we serve the entire City of Piedmont including Upper Piedmont, Piedmont Avenue area, and all residential streets throughout this small enclave community. Zip code: 94611."
+    }
+  ],
+  "schema": {
+    "primary_type": "Service",
+    "data": {
+      "name": "Window Replacement in Piedmont",
+      "area_served": "Piedmont"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

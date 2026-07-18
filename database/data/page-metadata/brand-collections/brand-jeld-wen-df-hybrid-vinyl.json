@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-jeld-wen-df-hybrid-vinyl",
+  "path": "/brand-collections/brand-jeld-wen-df-hybrid-vinyl",
+  "seo": {
+    "title": "Jeld-Wen DF Hybrid Vinyl | Deluxe Windows Hayward",
+    "description": "Jeld-Wen DF Hybrid Vinyl windows combine vinyl durability with a wood-look interior for Bay Area homes. Explore at Deluxe Windows in San Francisco. Free estimates.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-jeld-wen-df-hybrid-vinyl",
+    "og": {
+      "title": "Jeld-Wen DF Hybrid Vinyl | Deluxe Windows Hayward",
+      "description": "Jeld-Wen DF Hybrid Vinyl windows combine vinyl durability with a wood-look interior for Bay Area homes. Explore at Deluxe Windows in San Francisco. Free estimates.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6948e963ca50a7b3a76cf7cf_df-hybrid-windows.jpg",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "DF Hybrid Vinyl"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

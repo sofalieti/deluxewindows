@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "key": "door-brands/marvin",
+  "path": "/door-brands/marvin",
+  "seo": {
+    "title": "Marvin Doors | Deluxe Windows",
+    "description": "For over a century, Marvin has built doors that pair timeless craftsmanship with modern performance. Whether you want expansive sliding and folding systems that open your home to…",
+    "canonical": "https://www.deluxewindows.com/door-brands/marvin",
+    "og": {
+      "title": "Marvin Doors | Deluxe Windows",
+      "description": "For over a century, Marvin has built doors that pair timeless craftsmanship with modern performance. Whether you want expansive sliding and folding systems that open your home to…",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a75debadab986e83c4dc4_Marvin.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "Which Marvin door is best for my home?",
+      "answer": "It depends on your goals. Sliding and multi-slide doors are ideal for connecting indoor and outdoor living, hinged patio doors offer a classic look, and Marvin's entry doors make a strong first impression. During your free consultation we'll recommend the best line for your style, budget, and climate."
+    },
+    {
+      "question": "Are Marvin doors energy efficient?",
+      "answer": "Yes. Marvin doors use high-performance Low-E glass, warm-edge spacers, and weather-tight seals to help keep your home comfortable year-round and reduce energy bills. Many configurations meet or exceed ENERGY STAR requirements for our region."
+    },
+    {
+      "question": "Can Marvin doors be customized?",
+      "answer": "Absolutely. Marvin offers a wide range of sizes, materials, finishes, glass options, and hardware so your doors match your home's architecture. We'll help you configure every detail during the design stage."
+    },
+    {
+      "question": "Do you install Marvin doors in the Bay Area?",
+      "answer": "Yes. Deluxe Windows is an authorized installer serving the entire Bay Area. Our team handles precise measurement, professional installation, and a final inspection to make sure your new doors operate perfectly."
+    }
+  ],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Marvin Doors",
+      "brand": "Marvin"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

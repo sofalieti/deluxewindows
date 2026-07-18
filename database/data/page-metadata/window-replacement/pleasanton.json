@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "key": "window-replacement/pleasanton",
+  "path": "/window-replacement/pleasanton",
+  "seo": {
+    "title": "Pleasanton Window Replacement | Deluxe Windows",
+    "description": "Window replacement in Pleasanton, Alameda County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+    "canonical": "https://www.deluxewindows.com/window-replacement/pleasanton",
+    "og": {
+      "title": "Pleasanton Window Replacement | Deluxe Windows",
+      "description": "Window replacement in Pleasanton, Alameda County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "How much does window replacement cost in Pleasanton?",
+      "answer": "Pleasanton homeowners typically invest $7,000 to $17,000 for a full window replacement project. This upscale Tri-Valley community features premium single-family homes in neighborhoods like Vintage Hills, Ruby Hill, and Ironwood, where larger window counts and higher-spec glass packages are common. Projects covering 15–22 windows are typical in larger homes. Single window installation starts at approximately $620."
+    },
+    {
+      "question": "Do I need a permit for window replacement in Pleasanton?",
+      "answer": "Yes. Pleasanton requires a building permit for window replacements. HOA requirements may also apply in gated communities like Ruby Hill. Our team manages all permit applications and HOA submittals on your behalf."
+    },
+    {
+      "question": "Which window brands does Deluxe Windows install in Pleasanton?",
+      "answer": "Pleasanton's affluent Tri-Valley market drives demand for premium products. We most frequently install Andersen 400-Series wood-clad for the city's larger homes, Anlin Del Mar triple-pane for maximum heat rejection in summer, and Milgard Ultra fiberglass for high-performance energy efficiency throughout all neighborhoods."
+    },
+    {
+      "question": "Does Deluxe Windows serve all Pleasanton neighborhoods?",
+      "answer": "Yes — we serve all Pleasanton neighborhoods including Vintage Hills, Ruby Hill, Ironwood, Laguna Oaks, and Bernal. Zip codes: 94566, 94588."
+    }
+  ],
+  "schema": {
+    "primary_type": "Service",
+    "data": {
+      "name": "Window Replacement in Pleasanton",
+      "area_served": "Pleasanton"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

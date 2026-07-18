@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-milgard-v300-trinsic-series",
+  "path": "/brand-collections/brand-milgard-v300-trinsic-series",
+  "seo": {
+    "title": "Milgard V300 Trinsic Series | Deluxe Windows Oakley",
+    "description": "Milgard V300 Trinsic windows feature minimalist frames for Bay Area homeowners seeking expansive views. Explore at Deluxe Windows in San Francisco. Free estimates.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-milgard-v300-trinsic-series",
+    "og": {
+      "title": "Milgard V300 Trinsic Series | Deluxe Windows Oakley",
+      "description": "Milgard V300 Trinsic windows feature minimalist frames for Bay Area homeowners seeking expansive views. Explore at Deluxe Windows in San Francisco. Free estimates.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/693661d79ea967ebbac686b9_6890942ea71d29dac0e0b487_A250-Thermally-Improved-Aluminum.jpeg",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "V300 Trinsic™ Series"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

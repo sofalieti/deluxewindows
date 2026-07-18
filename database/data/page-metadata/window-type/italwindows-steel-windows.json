@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "window-type/italwindows-steel-windows",
+  "path": "/window-type/italwindows-steel-windows",
+  "seo": {
+    "title": "Italwindows Steel Windows | Deluxe Windows Saratoga",
+    "description": "Italwindows steel windows offer industrial aesthetics and ultra-slim sightlines for Bay Area homes. Installed by Deluxe Windows in San Francisco. Get a free quote today.",
+    "canonical": "https://www.deluxewindows.com/window-type/italwindows-steel-windows",
+    "og": {
+      "title": "Italwindows Steel Windows | Deluxe Windows Saratoga",
+      "description": "Italwindows steel windows offer industrial aesthetics and ultra-slim sightlines for Bay Area homes. Installed by Deluxe Windows in San Francisco. Get a free quote today.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f5dccd9472161d1f96514_hopes-01-credit-img_ink.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Italwindows Steel Windows"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

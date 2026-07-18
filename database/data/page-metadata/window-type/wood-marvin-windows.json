@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "window-type/wood-marvin-windows",
+  "path": "/window-type/wood-marvin-windows",
+  "seo": {
+    "title": "Marvin Wood Windows | Deluxe Windows Dublin",
+    "description": "Marvin wood windows are crafted for beauty and lasting performance in Bay Area homes. Ultimate and Elevate collections available — installed by Deluxe Windows in SF.",
+    "canonical": "https://www.deluxewindows.com/window-type/wood-marvin-windows",
+    "og": {
+      "title": "Marvin Wood Windows | Deluxe Windows Dublin",
+      "description": "Marvin wood windows are crafted for beauty and lasting performance in Bay Area homes. Ultimate and Elevate collections available — installed by Deluxe Windows in SF.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688e53d174f51bd2d0554cc6_Screenshot%202025-08-02%20at%2021.07.09.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Marvin Wood Windows"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

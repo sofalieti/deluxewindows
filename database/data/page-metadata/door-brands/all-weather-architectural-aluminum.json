@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "key": "door-brands/all-weather-architectural-aluminum",
+  "path": "/door-brands/all-weather-architectural-aluminum",
+  "seo": {
+    "title": "All Weather Architectural Aluminum Doors | Deluxe Windows",
+    "description": "All Weather Architectural Aluminum delivers strong, architectural-grade aluminum doors designed for durability and clean, modern lines. They're ideal for homeowners who want slim…",
+    "canonical": "https://www.deluxewindows.com/door-brands/all-weather-architectural-aluminum",
+    "og": {
+      "title": "All Weather Architectural Aluminum Doors | Deluxe Windows",
+      "description": "All Weather Architectural Aluminum delivers strong, architectural-grade aluminum doors designed for durability and clean, modern lines. They're ideal for homeowners who want slim…",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a744be121b29c4e32b2ec_all-weather-architectural-aluminum.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "What are All Weather aluminum doors best for?",
+      "answer": "They're ideal for a modern look with slim profiles and large glass areas, plus the strength and durability of architectural-grade aluminum."
+    },
+    {
+      "question": "Are aluminum doors energy efficient?",
+      "answer": "Yes, when specified with thermally broken frames and high-performance glass, aluminum doors can deliver strong efficiency alongside their durability and slim look."
+    },
+    {
+      "question": "Are these doors durable?",
+      "answer": "Very. Architectural-grade aluminum resists warping and corrosion and holds up well over time with minimal maintenance."
+    },
+    {
+      "question": "Do you install All Weather aluminum doors in the Bay Area?",
+      "answer": "Yes. Deluxe Windows provides professional measurement and installation of All Weather Architectural Aluminum doors throughout the Bay Area."
+    }
+  ],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "All Weather Architectural Aluminum Doors",
+      "brand": "All Weather Architectural Aluminum"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

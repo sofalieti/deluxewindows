@@ -4,11 +4,6 @@
 @section('wfCollection', '69ce789764cd8d5d1bcf1aa4')
 @section('wfItemSlug', $slug)
 @section('bodyClass', 'body-20')
-@section('title', $metaTitle)
-@section('metaDescription', $metaDescription)
-@if($heroImage)
-@section('ogImage', $heroImage)
-@endif
 
 @section('content')
     @include('partials.county-hub-hero', [

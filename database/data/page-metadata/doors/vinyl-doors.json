@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "doors/vinyl-doors",
+  "path": "/doors/vinyl-doors",
+  "seo": {
+    "title": "Vinyl Doors | Affordable Replacement – Deluxe Windows Berkeley",
+    "description": "Cost-effective vinyl doors with excellent energy performance for Bay Area homes. Deluxe Windows offers expert vinyl door installation in San Francisco and surrounding areas.",
+    "canonical": "https://www.deluxewindows.com/doors/vinyl-doors",
+    "og": {
+      "title": "Vinyl Doors | Affordable Replacement – Deluxe Windows Berkeley",
+      "description": "Cost-effective vinyl doors with excellent energy performance for Bay Area homes. Deluxe Windows offers expert vinyl door installation in San Francisco and surrounding areas.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6841ddf8ace3d9d9facb19a5_how-to-negotiate-a-house-price-effectively-thumbnail-v3-property-x-webflow-template.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Vinyl Doors"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

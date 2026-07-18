@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "county-hub-pages/solano-county",
+  "path": "/county-hub-pages/solano-county",
+  "seo": {
+    "title": "Solano County Window Replacement | Deluxe Windows",
+    "description": "Solano County window replacement: whole-home retrofits, single openings, and new construction coordination. Energy rebates guidance from Deluxe Windows.",
+    "canonical": "https://www.deluxewindows.com/county-hub-pages/solano-county",
+    "og": {
+      "title": "Solano County Window Replacement | Deluxe Windows",
+      "description": "Solano County window replacement: whole-home retrofits, single openings, and new construction coordination. Energy rebates guidance from Deluxe Windows.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/69fc954e7b9bf04407ae45b5_generated-2026-05-07t13-33-45-690z-ebgt9t.jpeg",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "Solano County"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

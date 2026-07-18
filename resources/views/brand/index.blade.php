@@ -2,16 +2,8 @@
 
 @section('wfPage', '6841ddf8ace3d9d9facb15ce')
 @section('pageWrapperClass', 'full-height-page')
-@section('title', $seoTitle)
-@section('metaDescription', $seoDescription)
-@section('ogImage', $ogImage)
 
 @section('head')
-    <style>
-      .brand_dropdown-list { display: none; }
-      .brand-filters_dropdown.is-open .brand_dropdown-list { display: block; }
-    </style>
-
     <script async type="module" src="https://cdn.jsdelivr.net/npm/@finsweet/attributes@2/attributes.js" fs-list></script>
 @endsection
 

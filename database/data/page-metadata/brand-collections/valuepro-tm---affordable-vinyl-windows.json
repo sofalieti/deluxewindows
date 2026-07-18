@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/valuepro-tm---affordable-vinyl-windows",
+  "path": "/brand-collections/valuepro-tm---affordable-vinyl-windows",
+  "seo": {
+    "title": "ValuePro™ – Affordable Vinyl Windows | Deluxe Windows",
+    "description": "Discover the perfect balance of timeless style, budget savvy, and modern innovation with ValuePro. Single-hung, fusion-welded widows provide a light, airy look to compliment…",
+    "canonical": "https://www.deluxewindows.com/brand-collections/valuepro-tm---affordable-vinyl-windows",
+    "og": {
+      "title": "ValuePro™ – Affordable Vinyl Windows | Deluxe Windows",
+      "description": "Discover the perfect balance of timeless style, budget savvy, and modern innovation with ValuePro. Single-hung, fusion-welded widows provide a light, airy look to compliment…",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/697355c9d21dc5191448ef6c_valuepro-cvr-image-730x380-2x.jpg",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "ValuePro™ – Affordable Vinyl Windows"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

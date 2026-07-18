@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "key": "blog/new-construction-windows-vs-replacement-windows",
+  "path": "/blog/new-construction-windows-vs-replacement-windows",
+  "seo": {
+    "title": "New Construction vs. Replacement Windows | Deluxe Windows",
+    "description": "New construction and replacement windows serve different purposes. Learn which type is right for your Bay Area home renovation or new build with guidance from Deluxe Windows.",
+    "canonical": "https://www.deluxewindows.com/blog/new-construction-windows-vs-replacement-windows",
+    "og": {
+      "title": "New Construction vs. Replacement Windows | Deluxe Windows",
+      "description": "New construction and replacement windows serve different purposes. Learn which type is right for your Bay Area home renovation or new build with guidance from Deluxe Windows.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6880f9d4a118459d7f9fe81a_getty-images-1GZaPSlcHlE-unsplash%201.jpg",
+      "type": "article"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "BlogPosting",
+    "data": {
+      "name": "Comparing New Construction and Replacement Windows",
+      "headline": "Comparing New Construction and Replacement Windows",
+      "date_published": "2026-03-24T05:43:04.253Z",
+      "date_modified": "2026-03-23T18:46:43.496Z"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

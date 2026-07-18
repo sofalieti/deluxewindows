@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-simonton-madeira",
+  "path": "/brand-collections/brand-simonton-madeira",
+  "seo": {
+    "title": "Madeira | Deluxe Windows",
+    "description": "With a wide frame design, Madeira windows offer the elegance and proportion of classic wood windows to complement classic architectural styles. Advanced glass options and design…",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-simonton-madeira",
+    "og": {
+      "title": "Madeira | Deluxe Windows",
+      "description": "With a wide frame design, Madeira windows offer the elegance and proportion of classic wood windows to complement classic architectural styles. Advanced glass options and design…",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/696759f0c1e78048dc591a1b_sim_interior_dining_room_madeira_casement_window_5050_module_p11116-1.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "Madeira"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

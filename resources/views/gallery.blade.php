@@ -2,8 +2,6 @@
 
 @section('wfPage', 'gallery')
 @section('bodyClass', 'body-18 height-auto gallery-page')
-@section('title', 'Photo Gallery | Deluxe Windows – Bay Area')
-@section('metaDescription', 'Browse our photo gallery of completed window and door replacement projects across the Bay Area by Deluxe Windows.')
 
 @section('head')
     @php

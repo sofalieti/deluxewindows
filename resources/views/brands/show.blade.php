@@ -3,13 +3,6 @@
 @section('wfPage', '6841ddf8ace3d9d9facb1583')
 @section('bodyClass', 'body-18 height-auto')
 @section('htmlClass', '')
-@section('title', $seoTitle . ' | Deluxe Windows')
-@section('metaDescription', $seoDescription)
-@section('ogTitle', $ogTitle)
-@section('ogDescription', $ogDescription)
-@if($ogImage)
-@section('ogImage', $ogImage)
-@endif
 
 @section('content')
       @include('partials.hero', [
@@ -200,8 +193,6 @@
           </div>
         </div>
       </section>
-
-      @include('partials.faq', ['sectionExtraClass' => 'section-bg-none'])
 
       <section id="contact" class="section hero-v4 section-bg-none">
         <div class="w-layout-blockcontainer container-default w-container">

@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-milgard-v400-tuscany-series",
+  "path": "/brand-collections/brand-milgard-v400-tuscany-series",
+  "seo": {
+    "title": "Milgard V400 Tuscany Series | Deluxe Windows San Mateo",
+    "description": "Milgard V400 Tuscany Series windows offer warm aesthetics and energy performance for Bay Area homes. Explore at Deluxe Windows in San Francisco. Request a free quote.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-milgard-v400-tuscany-series",
+    "og": {
+      "title": "Milgard V400 Tuscany Series | Deluxe Windows San Mateo",
+      "description": "Milgard V400 Tuscany Series windows offer warm aesthetics and energy performance for Bay Area homes. Explore at Deluxe Windows in San Francisco. Request a free quote.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/693661d78bf6a11d6c57ba45_6890979f43aa555bfd982425_tuscany-image-04.jpeg",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "V400 Tuscany® Series"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

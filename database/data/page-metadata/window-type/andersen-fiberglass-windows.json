@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "window-type/andersen-fiberglass-windows",
+  "path": "/window-type/andersen-fiberglass-windows",
+  "seo": {
+    "title": "Andersen Fiberglass Windows | Deluxe Windows Mountain View",
+    "description": "Andersen fiberglass windows offer exceptional strength and low maintenance for Bay Area homes. Explore Fibrex composite options at Deluxe Windows in San Francisco.",
+    "canonical": "https://www.deluxewindows.com/window-type/andersen-fiberglass-windows",
+    "og": {
+      "title": "Andersen Fiberglass Windows | Deluxe Windows Mountain View",
+      "description": "Andersen fiberglass windows offer exceptional strength and low maintenance for Bay Area homes. Explore Fibrex composite options at Deluxe Windows in San Francisco.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f662b796c112dbaa36c82_Andersen-Windows-Installation-1.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Andersen Fiberglass Windows"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

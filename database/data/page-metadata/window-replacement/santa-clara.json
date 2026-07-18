@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "key": "window-replacement/santa-clara",
+  "path": "/window-replacement/santa-clara",
+  "seo": {
+    "title": "Santa Clara Window Replacement | Deluxe Windows",
+    "description": "Window replacement in Santa Clara, Santa Clara County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+    "canonical": "https://www.deluxewindows.com/window-replacement/santa-clara",
+    "og": {
+      "title": "Santa Clara Window Replacement | Deluxe Windows",
+      "description": "Window replacement in Santa Clara, Santa Clara County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "How much does window replacement cost in Santa Clara?",
+      "answer": "Santa Clara homeowners typically invest $5,500 to $12,000 for a full window replacement project covering 10–16 windows. This Silicon Valley city near Levi's Stadium and Intel's campus features a mix of 1940s–1960s ranches near Mission Santa Clara and newer condo developments. Standard sizing makes replacement efficient. Single window installation starts at approximately $500."
+    },
+    {
+      "question": "Do I need a permit for window replacement in Santa Clara?",
+      "answer": "Yes. Santa Clara requires a building permit for window replacements. Our team handles all permit applications with the City of Santa Clara Community Development Department on your behalf."
+    },
+    {
+      "question": "Which window brands does Deluxe Windows install in Santa Clara?",
+      "answer": "For Santa Clara's South Bay market, we most frequently install Anlin Del Mar triple-pane for its superior heat rejection in the warm valley, Milgard Tuscany vinyl for cost-effective whole-home replacements, and Andersen 400-Series for older craftsman homes near Mission Santa Clara."
+    },
+    {
+      "question": "Does Deluxe Windows serve all Santa Clara neighborhoods?",
+      "answer": "Yes — we serve all Santa Clara neighborhoods including Central Santa Clara, Rivermark, Civic Center area, Stars & Stripes, and all zip codes: 95050, 95051, 95054."
+    }
+  ],
+  "schema": {
+    "primary_type": "Service",
+    "data": {
+      "name": "Window Replacement in Santa Clara",
+      "area_served": "Santa Clara"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

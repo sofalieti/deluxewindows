@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "doors/fiberglass-doors",
+  "path": "/doors/fiberglass-doors",
+  "seo": {
+    "title": "Fiberglass Doors | Energy-Efficient – Deluxe Windows Oakland",
+    "description": "Upgrade to fiberglass doors that resist dents, warping, and extreme weather. Deluxe Windows installs premium fiberglass doors across the San Francisco Bay Area.",
+    "canonical": "https://www.deluxewindows.com/doors/fiberglass-doors",
+    "og": {
+      "title": "Fiberglass Doors | Energy-Efficient – Deluxe Windows Oakland",
+      "description": "Upgrade to fiberglass doors that resist dents, warping, and extreme weather. Deluxe Windows installs premium fiberglass doors across the San Francisco Bay Area.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6841ddf8ace3d9d9facb1a87_home-buying-basics-thumbnail-v3-property-x-webflow-template.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Fiberglass Doors"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

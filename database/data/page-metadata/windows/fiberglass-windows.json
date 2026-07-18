@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "windows/fiberglass-windows",
+  "path": "/windows/fiberglass-windows",
+  "seo": {
+    "title": "Fiberglass Windows | Bay Area – Deluxe Windows Fremont",
+    "description": "Fiberglass windows resist warping and extreme temperatures — ideal for Bay Area climates. Premium brands and expert installation by Deluxe Windows in San Francisco.",
+    "canonical": "https://www.deluxewindows.com/windows/fiberglass-windows",
+    "og": {
+      "title": "Fiberglass Windows | Bay Area – Deluxe Windows Fremont",
+      "description": "Fiberglass windows resist warping and extreme temperatures — ideal for Bay Area climates. Premium brands and expert installation by Deluxe Windows in San Francisco.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d8fd91fff20336f9a857c_Frame%2029.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Fiberglass Windows"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

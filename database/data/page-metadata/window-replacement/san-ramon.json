@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "key": "window-replacement/san-ramon",
+  "path": "/window-replacement/san-ramon",
+  "seo": {
+    "title": "San Ramon Window Replacement | Deluxe Windows",
+    "description": "Window replacement in San Ramon, Contra Costa County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+    "canonical": "https://www.deluxewindows.com/window-replacement/san-ramon",
+    "og": {
+      "title": "San Ramon Window Replacement | Deluxe Windows",
+      "description": "Window replacement in San Ramon, Contra Costa County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "How much does window replacement cost in San Ramon?",
+      "answer": "San Ramon homeowners typically invest $6,500 to $14,000 for a full window replacement project covering 10–18 windows. This growing Tri-Valley community features newer 1990s–2010s homes in planned communities throughout Dougherty Valley and Bishop Ranch. Standard sizing in newer builds makes for efficient, cost-effective projects. Single window installation starts at approximately $560."
+    },
+    {
+      "question": "Do I need a permit for window replacement in San Ramon?",
+      "answer": "Yes. San Ramon requires a building permit for window replacements. HOA requirements may also apply in many of San Ramon's planned communities. Our team manages all permit applications and HOA submittals on your behalf."
+    },
+    {
+      "question": "Which window brands does Deluxe Windows install in San Ramon?",
+      "answer": "For San Ramon's Tri-Valley suburban market, we most frequently install Anlin Del Mar triple-pane for superior solar heat gain control in the hot valley summers, Milgard Tuscany vinyl for cost-effective whole-home replacements, and Andersen 400-Series for premium homes in higher-end planned communities."
+    },
+    {
+      "question": "Does Deluxe Windows serve all San Ramon neighborhoods?",
+      "answer": "Yes — we serve all San Ramon communities including Dougherty Valley, Crow Canyon, Bishop Ranch area, and West Side. Zip codes: 94582, 94583."
+    }
+  ],
+  "schema": {
+    "primary_type": "Service",
+    "data": {
+      "name": "Window Replacement in San Ramon",
+      "area_served": "San Ramon"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

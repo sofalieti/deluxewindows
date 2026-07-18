@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-jeld-wen-flat-casing-vinyl",
+  "path": "/brand-collections/brand-jeld-wen-flat-casing-vinyl",
+  "seo": {
+    "title": "Jeld-Wen Flat Casing Vinyl | Deluxe Windows San Leandro",
+    "description": "Jeld-Wen Flat Casing Vinyl windows offer a clean contemporary look for Bay Area homes. Explore this series at Deluxe Windows in San Francisco. Request a free estimate.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-jeld-wen-flat-casing-vinyl",
+    "og": {
+      "title": "Jeld-Wen Flat Casing Vinyl | Deluxe Windows San Leandro",
+      "description": "Jeld-Wen Flat Casing Vinyl windows offer a clean contemporary look for Bay Area homes. Explore this series at Deluxe Windows in San Francisco. Request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6948e690f8241eae772f4758_flat.webp",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "Flat Casing Vinyl"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

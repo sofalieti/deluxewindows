@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "key": "blog/the-ultimate-door-buyers-guide",
+  "path": "/blog/the-ultimate-door-buyers-guide",
+  "seo": {
+    "title": "The Ultimate Door Buyer's Guide | Deluxe Windows Blog",
+    "description": "Choosing a new entry door? This guide covers materials, energy efficiency, security features, and style options to help Bay Area homeowners make the right door decision.",
+    "canonical": "https://www.deluxewindows.com/blog/the-ultimate-door-buyers-guide",
+    "og": {
+      "title": "The Ultimate Door Buyer's Guide | Deluxe Windows Blog",
+      "description": "Choosing a new entry door? This guide covers materials, energy efficiency, security features, and style options to help Bay Area homeowners make the right door decision.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.jpg",
+      "type": "article"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "BlogPosting",
+    "data": {
+      "name": "The Ultimate Door Buyer’s Guide",
+      "headline": "The Ultimate Door Buyer’s Guide",
+      "date_published": "2026-03-24T05:43:04.253Z",
+      "date_modified": "2026-03-23T18:46:43.518Z"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

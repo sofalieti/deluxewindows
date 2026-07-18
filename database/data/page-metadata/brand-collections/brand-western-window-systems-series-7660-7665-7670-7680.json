@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-western-window-systems-series-7660-7665-7670-7680",
+  "path": "/brand-collections/brand-western-window-systems-series-7660-7665-7670-7680",
+  "seo": {
+    "title": "Series 7660/7665/7670/7680 | Deluxe Windows",
+    "description": "With large sizes, low U-values, and outstanding performance ratings, Western Window Systems’ Performance Windows provides capability and flexibility for even the most demanding of…",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-western-window-systems-series-7660-7665-7670-7680",
+    "og": {
+      "title": "Series 7660/7665/7670/7680 | Deluxe Windows",
+      "description": "With large sizes, low U-values, and outstanding performance ratings, Western Window Systems’ Performance Windows provides capability and flexibility for even the most demanding of…",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/697f8883950159fbac140305_689b1901b93855ededf390e6_WW-Awning_window_interior-exterior_views_Scene_02_1-FINAL-scaled.jpeg",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "Series 7660/7665/7670/7680"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

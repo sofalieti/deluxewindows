@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "key": "window-replacement/antioch",
+  "path": "/window-replacement/antioch",
+  "seo": {
+    "title": "Antioch Window Replacement | Deluxe Windows",
+    "description": "Window replacement in Antioch, Contra Costa County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+    "canonical": "https://www.deluxewindows.com/window-replacement/antioch",
+    "og": {
+      "title": "Antioch Window Replacement | Deluxe Windows",
+      "description": "Window replacement in Antioch, Contra Costa County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "How much does window replacement cost in Antioch?",
+      "answer": "Antioch homeowners typically invest $4,000 to $9,000 for a full window replacement project covering 10–16 windows. Tract homes with standard window sizes are among the most cost-efficient projects we handle. Single windows start at approximately $400–$500 installed."
+    },
+    {
+      "question": "Do I need a permit for window replacement in Antioch?",
+      "answer": "Yes. The City of Antioch requires building permits for window replacement. Our team manages all permitting on your behalf, including scheduling inspections. Most standard replacement permits are approved quickly through the City of Antioch Building Division."
+    },
+    {
+      "question": "Which window brands does Deluxe Windows install in Antioch?",
+      "answer": "Given Antioch's hot inland summers — regularly 95–100°F — we most frequently install Anlin Del Mar triple-pane windows for their exceptional solar heat gain control, Milgard Tuscany vinyl for cost-effective whole-home replacements, and Simonton for budget-friendly projects with strong energy performance."
+    },
+    {
+      "question": "Does Deluxe Windows serve all Antioch neighborhoods?",
+      "answer": "Yes — we serve all Antioch neighborhoods including Lone Tree, Deer Valley, Prewett Ranch, Mellowood, Sand Creek, Delta, and the historic downtown area. We cover zip codes 94509 and 94531."
+    }
+  ],
+  "schema": {
+    "primary_type": "Service",
+    "data": {
+      "name": "Window Replacement in Antioch",
+      "area_served": "Antioch"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

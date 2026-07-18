@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "doors/steel-doors",
+  "path": "/doors/steel-doors",
+  "seo": {
+    "title": "Steel Doors | Secure Entry Doors – Deluxe Windows Fremont",
+    "description": "Boost your home's security with insulated steel doors from Deluxe Windows. Expert installation of durable steel entry doors throughout San Francisco and the Bay Area.",
+    "canonical": "https://www.deluxewindows.com/doors/steel-doors",
+    "og": {
+      "title": "Steel Doors | Secure Entry Doors – Deluxe Windows Fremont",
+      "description": "Boost your home's security with insulated steel doors from Deluxe Windows. Expert installation of durable steel entry doors throughout San Francisco and the Bay Area.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6841ddf8ace3d9d9facb1a8b_heres-how-decorate-your-new-home-thumbnail-v3-property-x-webflow-template.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Steel Doors"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

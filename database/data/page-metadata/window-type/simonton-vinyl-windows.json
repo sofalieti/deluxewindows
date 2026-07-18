@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "window-type/simonton-vinyl-windows",
+  "path": "/window-type/simonton-vinyl-windows",
+  "seo": {
+    "title": "Simonton Vinyl Windows | Deluxe Windows Pleasanton",
+    "description": "Simonton vinyl windows lead in energy efficiency and durability for Bay Area homeowners. Multiple series available — installed by Deluxe Windows in San Francisco. Free quotes.",
+    "canonical": "https://www.deluxewindows.com/window-type/simonton-vinyl-windows",
+    "og": {
+      "title": "Simonton Vinyl Windows | Deluxe Windows Pleasanton",
+      "description": "Simonton vinyl windows lead in energy efficiency and durability for Bay Area homeowners. Multiple series available — installed by Deluxe Windows in San Francisco. Free quotes.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f7427c3a40ec8b91bd282_Simonton_WestRoxbury_03142022_EL_-134-scaled.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Simonton Vinyl Windows"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

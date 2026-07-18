@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "key": "blog/window-buyers-guide",
+  "path": "/blog/window-buyers-guide",
+  "seo": {
+    "title": "Window Buyer's Guide | Deluxe Windows Blog",
+    "description": "Overwhelmed by window choices? Deluxe Windows' buyer's guide covers materials, styles, energy ratings, and Bay Area-specific tips to help you choose with confidence.",
+    "canonical": "https://www.deluxewindows.com/blog/window-buyers-guide",
+    "og": {
+      "title": "Window Buyer's Guide | Deluxe Windows Blog",
+      "description": "Overwhelmed by window choices? Deluxe Windows' buyer's guide covers materials, styles, energy ratings, and Bay Area-specific tips to help you choose with confidence.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68810accd455556f0a737ecd_pexels-pixabay-358636.jpg",
+      "type": "article"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "BlogPosting",
+    "data": {
+      "name": "Window Buyer's Guide",
+      "headline": "Window Buyer's Guide",
+      "date_published": "2026-03-24T05:43:04.253Z",
+      "date_modified": "2026-03-23T18:46:43.465Z"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

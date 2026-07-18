@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "key": "window-replacement/milpitas",
+  "path": "/window-replacement/milpitas",
+  "seo": {
+    "title": "Milpitas Window Replacement | Deluxe Windows",
+    "description": "Window replacement in Milpitas, Santa Clara County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+    "canonical": "https://www.deluxewindows.com/window-replacement/milpitas",
+    "og": {
+      "title": "Milpitas Window Replacement | Deluxe Windows",
+      "description": "Window replacement in Milpitas, Santa Clara County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "How much does window replacement cost in Milpitas?",
+      "answer": "Milpitas homeowners typically invest $5,000 to $11,500 for a full window replacement project covering 10–16 windows. This Silicon Valley city offers a mix of 1960s–1980s ranches and newer planned communities. Standard sizing in both older and newer developments makes for efficient replacement projects. Single window installation starts at approximately $480."
+    },
+    {
+      "question": "Do I need a permit for window replacement in Milpitas?",
+      "answer": "Yes. Milpitas requires a building permit for window replacements. Our team handles all permit applications with the City of Milpitas Building & Safety Division on your behalf."
+    },
+    {
+      "question": "Which window brands does Deluxe Windows install in Milpitas?",
+      "answer": "For Milpitas's South Bay suburban market, we most frequently install Milgard Tuscany vinyl for cost-effective replacements, Anlin Del Mar for homeowners focused on energy savings in the warm valley climate, and Andersen 400-Series for premium neighborhoods near Calaveras Ridge."
+    },
+    {
+      "question": "Does Deluxe Windows serve all Milpitas neighborhoods?",
+      "answer": "Yes — we serve all Milpitas neighborhoods including Sunnyhills, Calaveras Ridge, Dixon Landing, Great Mall area, and the Alviso corridor. Zip code: 95035."
+    }
+  ],
+  "schema": {
+    "primary_type": "Service",
+    "data": {
+      "name": "Window Replacement in Milpitas",
+      "area_served": "Milpitas"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

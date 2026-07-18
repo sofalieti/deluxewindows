@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "key": "static/special-offers",
+  "path": "/special-offers",
+  "seo": {
+    "title": "Window Replacement Deals | Special Offers – Deluxe Windows",
+    "description": "Explore Deluxe Windows seasonal discounts, limited-time promotions, and financing offers.",
+    "canonical": "https://www.deluxewindows.com/special-offers",
+    "og": {
+      "title": "Window Replacement Deals | Special Offers – Deluxe Windows",
+      "description": "Explore Deluxe Windows seasonal discounts, limited-time promotions, and financing offers.",
+      "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta%20cover-2.jpg",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "WebPage",
+    "data": {},
+    "extra": [],
+    "replace": []
+  }
+}

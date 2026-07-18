@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "key": "blog/how-can-replacement-windows-keep-your-home-cool",
+  "path": "/blog/how-can-replacement-windows-keep-your-home-cool",
+  "seo": {
+    "title": "Energy-Efficient Windows to Keep Your Home Cool | Deluxe Windows",
+    "description": "Discover how energy-efficient replacement windows cut cooling costs in Bay Area homes. Learn which glass coatings and frame materials perform best in San Francisco climates.",
+    "canonical": "https://www.deluxewindows.com/blog/how-can-replacement-windows-keep-your-home-cool",
+    "og": {
+      "title": "Energy-Efficient Windows to Keep Your Home Cool | Deluxe Windows",
+      "description": "Discover how energy-efficient replacement windows cut cooling costs in Bay Area homes. Learn which glass coatings and frame materials perform best in San Francisco climates.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6880f67950af0af346a57c87_tim-arterbury-5Uh-wTSz-q0-unsplash.jpg",
+      "type": "article"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "BlogPosting",
+    "data": {
+      "name": "Energy Efficient Windows for Your Home Comfort",
+      "headline": "Energy Efficient Windows for Your Home Comfort",
+      "date_published": "2026-03-24T05:43:04.253Z",
+      "date_modified": "2026-03-23T18:46:43.500Z"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

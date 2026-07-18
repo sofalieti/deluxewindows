@@ -1,9 +1,6 @@
 @extends('layouts.classic')
 
 @section('wfPage', '6841ddf8ace3d9d9facb1579')
-@section('title', $seoTitle)
-@section('metaDescription', $seoDescription)
-@section('ogImage', $ogImage)
 
 @section('content')
       <section class="section-card-wrapper top page-intro-hero">

@@ -4,13 +4,6 @@
 @section('wfCollection', '687b79c5ee572b31129b17bf')
 @section('wfItemSlug', $slug)
 @section('bodyClass', 'body-18 height-auto')
-@section('title', $seoTitle . ' | Deluxe Windows Blog')
-@section('metaDescription', $seoDescription)
-@section('ogTitle', $ogTitle)
-@section('ogDescription', $ogDescription)
-@if($heroImage)
-@section('ogImage', $heroImage)
-@endif
 
 @section('content')
       <section class="section_breadcrumbs section-121">

@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/mezzo-r-energy-efficient-vinyl-windows-west-coast",
+  "path": "/brand-collections/mezzo-r-energy-efficient-vinyl-windows-west-coast",
+  "seo": {
+    "title": "Mezzo® Energy-Efficient Vinyl Windows (West Coast) | Deluxe Windows",
+    "description": "Mezzo® Windows from Alside feature a thermally optimized narrowline frame and sash with a dual-pane insulated glass solution designed to meet stringent ENERGY STAR® requirements.…",
+    "canonical": "https://www.deluxewindows.com/brand-collections/mezzo-r-energy-efficient-vinyl-windows-west-coast",
+    "og": {
+      "title": "Mezzo® Energy-Efficient Vinyl Windows (West Coast) | Deluxe Windows",
+      "description": "Mezzo® Windows from Alside feature a thermally optimized narrowline frame and sash with a dual-pane insulated glass solution designed to meet stringent ENERGY STAR® requirements.…",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/69735354ba16999dfc3f1216_Alside_Mezzo_DH_Beauty2-1-scaled.jpg",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "Mezzo® Energy-Efficient Vinyl Windows (West Coast)"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-ply-gem-1500-series",
+  "path": "/brand-collections/brand-ply-gem-1500-series",
+  "seo": {
+    "title": "Ply Gem 1500 Series | Deluxe Windows Millbrae",
+    "description": "Ply Gem 1500 Series vinyl windows provide improved energy ratings for Bay Area homeowners. Explore at Deluxe Windows in San Francisco. Request a free installation estimate.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-ply-gem-1500-series",
+    "og": {
+      "title": "Ply Gem 1500 Series | Deluxe Windows Millbrae",
+      "description": "Ply Gem 1500 Series vinyl windows provide improved energy ratings for Bay Area homeowners. Explore at Deluxe Windows in San Francisco. Request a free installation estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695b81398af41cce38649ad4_68924cf8d452b18789c925ac_PGW_Interior_LivingRoom_1500_SingleHungWindow_Clay_IdeasInspiration_Module_1_1243x610_p2.webp",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "1500 Series"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/sovereign-ultra-premium-vinyl-windows",
+  "path": "/brand-collections/sovereign-ultra-premium-vinyl-windows",
+  "seo": {
+    "title": "Sovereign Ultra-Premium Vinyl Windows | Deluxe Windows",
+    "description": "The right replacement windows say a lot about the pride you take in your home. They make a statement about your personal taste as well as your appreciation for quality…",
+    "canonical": "https://www.deluxewindows.com/brand-collections/sovereign-ultra-premium-vinyl-windows",
+    "og": {
+      "title": "Sovereign Ultra-Premium Vinyl Windows | Deluxe Windows",
+      "description": "The right replacement windows say a lot about the pride you take in your home. They make a statement about your personal taste as well as your appreciation for quality…",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/69735f059ed2727ea568bf1d_sovereign-cvr-image-1000x816-1-730x380.jpg",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "Sovereign Ultra-Premium Vinyl Windows"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/west-pro-series-700",
+  "path": "/brand-collections/west-pro-series-700",
+  "seo": {
+    "title": "West Pro Series 700 Windows | Deluxe Windows Sebastopol",
+    "description": "West Pro Series 700 windows offer advanced performance for Bay Area homes. Explore this premium series at Deluxe Windows in San Francisco. Request a free estimate today.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/west-pro-series-700",
+    "og": {
+      "title": "West Pro Series 700 Windows | Deluxe Windows Sebastopol",
+      "description": "West Pro Series 700 windows offer advanced performance for Bay Area homes. Explore this premium series at Deluxe Windows in San Francisco. Request a free estimate today.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695e066275588269f5beddb8_west700.jpg",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "West Pro Series 700"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-ply-gem-5000-series",
+  "path": "/brand-collections/brand-ply-gem-5000-series",
+  "seo": {
+    "title": "Ply Gem 5000 Series | Deluxe Windows Napa",
+    "description": "Ply Gem 5000 Series top-tier vinyl windows maximize energy savings for Bay Area homes. Explore at Deluxe Windows in San Francisco. Request a free installation estimate.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-ply-gem-5000-series",
+    "og": {
+      "title": "Ply Gem 5000 Series | Deluxe Windows Napa",
+      "description": "Ply Gem 5000 Series top-tier vinyl windows maximize energy savings for Bay Area homes. Explore at Deluxe Windows in San Francisco. Request a free installation estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695b81391a2c431424c0fe37_68924ecbaf739e1f3b88a1fd_1_PlyGem_Hero_1440x564.webp",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "5000 Series"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

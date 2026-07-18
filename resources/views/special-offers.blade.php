@@ -5,52 +5,6 @@
 @extends('layouts.classic')
 
 @section('wfPage', '687a4292617b9b4ed5cfe680')
-@section('title', 'Window Replacement Deals | Special Offers – Deluxe Windows')
-@section('metaDescription', 'Save on premium window replacement in San Francisco. Explore Deluxe Windows\' latest seasonal discounts, limited-time promotions, and special financing offers.')
-@section('ogImage', $cdn . '/684da952cef202b8dda5788c_Meta%20cover-2.jpg')
-
-@section('head')
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "HomeAndConstructionBusiness",
-      "name": "Deluxe Windows",
-      "url": "https://www.deluxewindows.com",
-      "telephone": "{{ site_phone_tel() }}",
-      "description": "Premium window and door replacement for San Francisco Bay Area homes. 30+ years, 100% employee owned.",
-      "priceRange": "$$",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "reviewCount": "231",
-        "bestRating": "5"
-      },
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-          "opens": "08:00",
-          "closes": "18:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Saturday",
-          "opens": "09:00",
-          "closes": "15:00"
-        }
-      ],
-      "areaServed": {
-        "@type": "GeoCircle",
-        "geoMidpoint": {
-          "@type": "GeoCoordinates",
-          "latitude": 37.5630,
-          "longitude": -122.0329
-        },
-        "geoRadius": "100000"
-      }
-    }
-    </script>
-@endsection
 
 @section('content')
       <section class="section_breadcrumbs section-121">

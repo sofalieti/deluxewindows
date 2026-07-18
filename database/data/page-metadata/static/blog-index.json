@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "key": "static/blog-index",
+  "path": "/blog",
+  "seo": {
+    "title": "Window Tips & Design Blog | Deluxe Windows – Bay Area",
+    "description": "Expert window tips, buying guides, and design inspiration for Bay Area homeowners from Deluxe Windows.",
+    "canonical": "https://www.deluxewindows.com/blog",
+    "og": {
+      "title": "Window Tips & Design Blog | Deluxe Windows – Bay Area",
+      "description": "Expert window tips, buying guides, and design inspiration for Bay Area homeowners from Deluxe Windows.",
+      "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta%20cover-2.jpg",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {},
+    "extra": [],
+    "replace": []
+  }
+}

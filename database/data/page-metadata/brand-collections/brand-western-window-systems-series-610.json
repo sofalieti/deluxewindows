@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-western-window-systems-series-610",
+  "path": "/brand-collections/brand-western-window-systems-series-610",
+  "seo": {
+    "title": "Series 610/620 | Deluxe Windows",
+    "description": "Featuring a fixed top sash and vertically sliding bottom sash for ventilation, Western Window Systems’ Series 610 Windows is easy to operate and ideal for any home style. It can be…",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-western-window-systems-series-610",
+    "og": {
+      "title": "Series 610/620 | Deluxe Windows",
+      "description": "Featuring a fixed top sash and vertically sliding bottom sash for ventilation, Western Window Systems’ Series 610 Windows is easy to operate and ideal for any home style. It can be…",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/697f888388b96bd79af04bda_689b183aeba4d55bf0c73214_03-Classic-Family-1024x682.jpeg",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "Series 610/620"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

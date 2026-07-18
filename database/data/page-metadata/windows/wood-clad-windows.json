@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "windows/wood-clad-windows",
+  "path": "/windows/wood-clad-windows",
+  "seo": {
+    "title": "Wood Clad Windows | Bay Area – Deluxe Windows Hayward",
+    "description": "Wood clad windows combine natural wood interiors with protective exterior cladding for Bay Area homes. Installed by Deluxe Windows in San Francisco. Get a free estimate.",
+    "canonical": "https://www.deluxewindows.com/windows/wood-clad-windows",
+    "og": {
+      "title": "Wood Clad Windows | Bay Area – Deluxe Windows Hayward",
+      "description": "Wood clad windows combine natural wood interiors with protective exterior cladding for Bay Area homes. Installed by Deluxe Windows in San Francisco. Get a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/687e2bbbcf84c63258838bc4_homeguide-marvin-signature-windows-and-doors.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Wood Clad Windows"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

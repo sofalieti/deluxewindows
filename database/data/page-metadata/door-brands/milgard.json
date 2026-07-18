@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "key": "door-brands/milgard",
+  "path": "/door-brands/milgard",
+  "seo": {
+    "title": "Milgard Doors | Deluxe Windows",
+    "description": "Milgard has spent decades building doors that combine dependable performance with clean, contemporary style. Their patio and entry doors are designed for smooth operation, strong…",
+    "canonical": "https://www.deluxewindows.com/door-brands/milgard",
+    "og": {
+      "title": "Milgard Doors | Deluxe Windows",
+      "description": "Milgard has spent decades building doors that combine dependable performance with clean, contemporary style. Their patio and entry doors are designed for smooth operation, strong…",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a760a252df50b4cbf9cd7_Milgard.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "Are Milgard doors a good value?",
+      "answer": "Yes. Milgard doors deliver dependable performance and solid energy efficiency at a budget-friendly price, which makes them one of the most popular choices for Bay Area homes."
+    },
+    {
+      "question": "Are Milgard doors energy efficient?",
+      "answer": "Milgard doors feature SunCoat Low-E glass and tight weather seals that help keep conditioned air inside and lower your energy costs throughout the year."
+    },
+    {
+      "question": "What warranty comes with Milgard doors?",
+      "answer": "Milgard is known for its strong, homeowner-friendly warranty coverage. We'll walk you through the exact terms for the door line you choose during your consultation."
+    },
+    {
+      "question": "Do you install Milgard doors in the Bay Area?",
+      "answer": "Yes. Deluxe Windows professionally measures and installs Milgard doors across the Bay Area, finishing every job with a detailed inspection."
+    }
+  ],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Milgard Doors",
+      "brand": "Milgard"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

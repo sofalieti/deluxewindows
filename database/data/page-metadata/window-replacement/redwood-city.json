@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "key": "window-replacement/redwood-city",
+  "path": "/window-replacement/redwood-city",
+  "seo": {
+    "title": "Redwood City Window Replacement | Deluxe Windows",
+    "description": "Window replacement in Redwood City, San Mateo County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+    "canonical": "https://www.deluxewindows.com/window-replacement/redwood-city",
+    "og": {
+      "title": "Redwood City Window Replacement | Deluxe Windows",
+      "description": "Window replacement in Redwood City, San Mateo County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "How much does window replacement cost in Redwood City?",
+      "answer": "Redwood City homeowners typically invest $6,500 to $15,000 for a full window replacement project covering 10–16 windows. This diverse Peninsula city offers a range of home types and price points, from older craftsman homes near Courthouse Square to larger two-stories in Emerald Hills. Single window installation starts at approximately $570."
+    },
+    {
+      "question": "Do I need a permit for window replacement in Redwood City?",
+      "answer": "Yes. Redwood City requires a building permit for window replacements. Our team handles all permit applications with the City of Redwood City's Building Division on your behalf."
+    },
+    {
+      "question": "Which window brands does Deluxe Windows install in Redwood City?",
+      "answer": "For Redwood City's diverse Peninsula market, we most frequently install Milgard Tuscany vinyl for cost-effective replacements throughout the city, Andersen 400-Series for craftsman and colonial homes near downtown, and Milgard Ultra fiberglass for hillside properties in Emerald Hills requiring premium performance."
+    },
+    {
+      "question": "Does Deluxe Windows serve all Redwood City neighborhoods?",
+      "answer": "Yes — we serve all Redwood City neighborhoods including Palm Park, Woodside Plaza, Emerald Hills, Farm Hill, and West Redwood City. Zip codes: 94061, 94062, 94063, 94065."
+    }
+  ],
+  "schema": {
+    "primary_type": "Service",
+    "data": {
+      "name": "Window Replacement in Redwood City",
+      "area_served": "Redwood City"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

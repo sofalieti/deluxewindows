@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "key": "window-replacement/san-mateo",
+  "path": "/window-replacement/san-mateo",
+  "seo": {
+    "title": "San Mateo Window Replacement | Deluxe Windows",
+    "description": "Window replacement in San Mateo, San Mateo County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+    "canonical": "https://www.deluxewindows.com/window-replacement/san-mateo",
+    "og": {
+      "title": "San Mateo Window Replacement | Deluxe Windows",
+      "description": "Window replacement in San Mateo, San Mateo County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "How much does window replacement cost in San Mateo?",
+      "answer": "San Mateo homeowners typically invest $7,000 to $16,000 for a full window replacement project. This large Peninsula city offers projects across all price points — from Bay Meadows condos to Hillsborough-adjacent Baywood estates. Baywood and Beresford Park homes with 15–20 windows typically run $12,000–$18,000. Single window installation starts at approximately $590."
+    },
+    {
+      "question": "Do I need a permit for window replacement in San Mateo?",
+      "answer": "Yes. San Mateo requires a building permit for window replacements. Our team handles all permit applications with the City of San Mateo Building Division on your behalf."
+    },
+    {
+      "question": "Which window brands does Deluxe Windows install in San Mateo?",
+      "answer": "For San Mateo's Peninsula market, we most frequently install Milgard Tuscany vinyl for standard replacement projects, Andersen 400-Series for Baywood and Beresford Park homes where wood interiors matter, and Milgard Ultra fiberglass for Bay-side properties near Foster City Boulevard."
+    },
+    {
+      "question": "Does Deluxe Windows serve all San Mateo neighborhoods?",
+      "answer": "Yes — we serve all San Mateo neighborhoods including Baywood, Beresford Park, Bay Meadows, Fiesta Gardens, and Shoreview. Zip codes: 94401, 94402, 94403, 94404."
+    }
+  ],
+  "schema": {
+    "primary_type": "Service",
+    "data": {
+      "name": "Window Replacement in San Mateo",
+      "area_served": "San Mateo"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

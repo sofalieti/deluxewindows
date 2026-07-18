@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "county-hub-pages/san-francisco-county",
+  "path": "/county-hub-pages/san-francisco-county",
+  "seo": {
+    "title": "San Francisco County Window Replacement | Deluxe Windows",
+    "description": "San Francisco window replacement: condos, Victorian facades, and custom sizes. Deluxe Windows navigates codes and HOAs—free consultation in the city.",
+    "canonical": "https://www.deluxewindows.com/county-hub-pages/san-francisco-county",
+    "og": {
+      "title": "San Francisco County Window Replacement | Deluxe Windows",
+      "description": "San Francisco window replacement: condos, Victorian facades, and custom sizes. Deluxe Windows navigates codes and HOAs—free consultation in the city.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/69fc954e7b9bf04407ae45c7_generated-2026-05-07t13-34-34-997z-6m6ghv.jpeg",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "San Francisco County"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

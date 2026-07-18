@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "key": "blog/what-kind-of-window-frame-is-right-for-you",
+  "path": "/blog/what-kind-of-window-frame-is-right-for-you",
+  "seo": {
+    "title": "Window Frame Materials: Which Is Right for You? | Deluxe Windows",
+    "description": "Vinyl, wood, aluminum, or fiberglass — which window frame material suits your Bay Area home best? Deluxe Windows breaks down the pros and cons of each option.",
+    "canonical": "https://www.deluxewindows.com/blog/what-kind-of-window-frame-is-right-for-you",
+    "og": {
+      "title": "Window Frame Materials: Which Is Right for You? | Deluxe Windows",
+      "description": "Vinyl, wood, aluminum, or fiberglass — which window frame material suits your Bay Area home best? Deluxe Windows breaks down the pros and cons of each option.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6881101abfc8bc29f285d397_types-of-windows.avif",
+      "type": "article"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "BlogPosting",
+    "data": {
+      "name": "What Kind of Window Frame is Right for You?",
+      "headline": "What Kind of Window Frame is Right for You?",
+      "date_published": "2026-03-24T05:43:04.253Z",
+      "date_modified": "2026-03-23T18:46:43.509Z"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

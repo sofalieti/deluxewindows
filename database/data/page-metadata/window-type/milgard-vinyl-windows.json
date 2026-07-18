@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "window-type/milgard-vinyl-windows",
+  "path": "/window-type/milgard-vinyl-windows",
+  "seo": {
+    "title": "Milgard Vinyl Windows | Deluxe Windows Richmond",
+    "description": "Milgard vinyl windows — Tuscany, Trinsic, Style Line and more — are engineered for Bay Area climates. Installed by Deluxe Windows in San Francisco. Free estimates.",
+    "canonical": "https://www.deluxewindows.com/window-type/milgard-vinyl-windows",
+    "og": {
+      "title": "Milgard Vinyl Windows | Deluxe Windows Richmond",
+      "description": "Milgard vinyl windows — Tuscany, Trinsic, Style Line and more — are engineered for Bay Area climates. Installed by Deluxe Windows in San Francisco. Free estimates.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f2b177b5142ce52781faa_Series_TIA2.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Milgard Vinyl Windows"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

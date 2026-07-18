@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/east-premium-series",
+  "path": "/brand-collections/east-premium-series",
+  "seo": {
+    "title": "East Premium Series Windows | Deluxe Windows Santa Rosa",
+    "description": "East Premium Series windows offer top-tier performance for Bay Area homeowners. Explore this series at Deluxe Windows in San Francisco. Request a free installation estimate.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/east-premium-series",
+    "og": {
+      "title": "East Premium Series Windows | Deluxe Windows Santa Rosa",
+      "description": "East Premium Series windows offer top-tier performance for Bay Area homeowners. Explore this series at Deluxe Windows in San Francisco. Request a free installation estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695e3fc14e9bef340209d996_pgw_premium_hero_1-400x400-1.webp",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "East Premium Series"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

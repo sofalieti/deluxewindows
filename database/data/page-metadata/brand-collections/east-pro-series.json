@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/east-pro-series",
+  "path": "/brand-collections/east-pro-series",
+  "seo": {
+    "title": "East Pro Series Windows | Deluxe Windows Rohnert Park",
+    "description": "East Pro Series windows deliver professional-grade performance for Bay Area projects. Explore at Deluxe Windows in San Francisco. Request a free installation estimate today.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/east-pro-series",
+    "og": {
+      "title": "East Pro Series Windows | Deluxe Windows Rohnert Park",
+      "description": "East Pro Series windows deliver professional-grade performance for Bay Area projects. Explore at Deluxe Windows in San Francisco. Request a free installation estimate today.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695e3a144f1d55f72650aaff_pgw_pro_hero_1-400x400-1.webp",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "East Pro Series"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

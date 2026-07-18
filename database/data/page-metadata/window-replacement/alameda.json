@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "key": "window-replacement/alameda",
+  "path": "/window-replacement/alameda",
+  "seo": {
+    "title": "Alameda Window Replacement | Deluxe Windows",
+    "description": "Window replacement in Alameda, Alameda County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+    "canonical": "https://www.deluxewindows.com/window-replacement/alameda",
+    "og": {
+      "title": "Alameda Window Replacement | Deluxe Windows",
+      "description": "Window replacement in Alameda, Alameda County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "How much does window replacement cost in Alameda?",
+      "answer": "Most Alameda homeowners replacing windows throughout their home invest between $7,000 and $16,000 depending on window count, frame material, and glass package. Victorian and Craftsman homes along Grand Street and the West End often require custom-sized frames to match original profiles, which adds to cost. Single windows start around $600 installed; full-home projects for historic homes can reach $20,000+."
+    },
+    {
+      "question": "Do I need a permit for window replacement in Alameda?",
+      "answer": "Yes. The City of Alameda requires a building permit for window replacement projects. Homes located within historic overlay districts — such as those near the Park Street or Webster Street corridors — may also require review by the Historical Advisory Board to ensure replacements are compatible with the property's historic character. Our team manages all permit applications on your behalf."
+    },
+    {
+      "question": "Which window brands does Deluxe Windows install in Alameda?",
+      "answer": "In Alameda we most frequently install Milgard Ultra fiberglass for its salt-air resistance and dimensional stability — critical for island homes exposed to Bay moisture. We also install Andersen 400-Series wood-clad for Victorian and Craftsman homes where interior wood aesthetics matter, and Anlin Del Mar for homeowners prioritizing maximum energy efficiency and UV protection."
+    },
+    {
+      "question": "Does Deluxe Windows serve all Alameda neighborhoods?",
+      "answer": "Yes — we serve all Alameda neighborhoods including the Gold Coast, West End, Bay Farm Island, Harbor Bay Isle, and the Fernside district. We cover all Alameda zip codes: 94501 and 94502."
+    }
+  ],
+  "schema": {
+    "primary_type": "Service",
+    "data": {
+      "name": "Window Replacement in Alameda",
+      "area_served": "Alameda"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "key": "window-replacement/mountain-view",
+  "path": "/window-replacement/mountain-view",
+  "seo": {
+    "title": "Mountain View Window Replacement | Deluxe Windows",
+    "description": "Window replacement in Mountain View, Santa Clara County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+    "canonical": "https://www.deluxewindows.com/window-replacement/mountain-view",
+    "og": {
+      "title": "Mountain View Window Replacement | Deluxe Windows",
+      "description": "Window replacement in Mountain View, Santa Clara County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "How much does window replacement cost in Mountain View?",
+      "answer": "Mountain View homeowners typically invest $7,000 to $16,000 for a full window replacement project covering 10–16 windows. This Silicon Valley tech hub — home to Google — features a range of mid-century ranch homes and contemporary residences where energy performance and modern aesthetics are priorities. Single window installation starts at approximately $600."
+    },
+    {
+      "question": "Do I need a permit for window replacement in Mountain View?",
+      "answer": "Yes. Mountain View requires a building permit for window replacements. Our team handles all permit applications with the City of Mountain View Community Development Department on your behalf."
+    },
+    {
+      "question": "Which window brands does Deluxe Windows install in Mountain View?",
+      "answer": "Mountain View's tech-forward Silicon Valley market drives demand for energy-efficient, high-performance products. We most frequently install Anlin Del Mar triple-pane for maximum solar heat gain control, Andersen 400-Series for mid-century and Eichler homes, and Milgard Tuscany vinyl for cost-effective whole-home replacements."
+    },
+    {
+      "question": "Does Deluxe Windows serve all Mountain View neighborhoods?",
+      "answer": "Yes — we serve all Mountain View neighborhoods including Cuernavaca, Monta Loma, Waverly Park, Stierlin Estates, and Old Mountain View. Zip codes: 94040, 94041, 94043."
+    }
+  ],
+  "schema": {
+    "primary_type": "Service",
+    "data": {
+      "name": "Window Replacement in Mountain View",
+      "area_served": "Mountain View"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

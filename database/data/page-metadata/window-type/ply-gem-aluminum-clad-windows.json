@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "window-type/ply-gem-aluminum-clad-windows",
+  "path": "/window-type/ply-gem-aluminum-clad-windows",
+  "seo": {
+    "title": "Ply Gem Aluminum Clad Windows | Deluxe Windows Concord",
+    "description": "Ply Gem aluminum clad windows combine beautiful wood interiors with low-maintenance exteriors for Bay Area homes. Installed by Deluxe Windows in San Francisco. Free quotes.",
+    "canonical": "https://www.deluxewindows.com/window-type/ply-gem-aluminum-clad-windows",
+    "og": {
+      "title": "Ply Gem Aluminum Clad Windows | Deluxe Windows Concord",
+      "description": "Ply Gem aluminum clad windows combine beautiful wood interiors with low-maintenance exteriors for Bay Area homes. Installed by Deluxe Windows in San Francisco. Free quotes.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695e00a375e654f6496bc79b_imgi_78_PGW_Interior_LivingRoom_MIRA_AwningWindow_Black_InspirationGallery_Module_6_1696x610_p32.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Ply Gem Aluminum Clad Windows"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

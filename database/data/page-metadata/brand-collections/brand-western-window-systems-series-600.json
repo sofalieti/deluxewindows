@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-western-window-systems-series-600",
+  "path": "/brand-collections/brand-western-window-systems-series-600",
+  "seo": {
+    "title": "Series 600 | Deluxe Windows",
+    "description": "Whether you want to create a single-panel opening, door-sized opening, or one that spans an entire wall, a Western Window Systems Series 600 Fixed Window or Window Wall allows you…",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-western-window-systems-series-600",
+    "og": {
+      "title": "Series 600 | Deluxe Windows",
+      "description": "Whether you want to create a single-panel opening, door-sized opening, or one that spans an entire wall, a Western Window Systems Series 600 Fixed Window or Window Wall allows you…",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/697f88836886bbc7633ffdcb_689b17702b5ef181b2ef0019_05-600FW-MI-Glen-Lake-Home.jpeg",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "Series 600"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

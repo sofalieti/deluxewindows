@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-simonton-harborlight",
+  "path": "/brand-collections/brand-simonton-harborlight",
+  "seo": {
+    "title": "HarborLight | Deluxe Windows",
+    "description": "Designed to last a lifetime, our HarborLight windows are extremely versatile and can complement nearly any home design.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-simonton-harborlight",
+    "og": {
+      "title": "HarborLight | Deluxe Windows",
+      "description": "Designed to last a lifetime, our HarborLight windows are extremely versatile and can complement nearly any home design.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6967615b135502feace780e9_sim_harborlight_collection_interior_white_casement_windows_5050_img.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "HarborLight"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

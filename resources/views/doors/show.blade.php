@@ -1,8 +1,3 @@
-@php
-  $pageTitle = str_contains($seoTitle, 'Deluxe Windows')
-    ? $seoTitle
-    : $seoTitle . ' | Deluxe Windows Concord';
-@endphp
 @extends('layouts.classic')
 
 @section('wfPage', '6841ddf8ace3d9d9facb156f')
@@ -10,32 +5,8 @@
 @section('wfItemSlug', $slug)
 @section('htmlClass', '')
 @section('bodyClass', 'body-18 height-auto door-detail-page')
-@section('title', $pageTitle)
-@section('metaDescription', $seoDescription)
-@section('ogTitle', $ogTitle)
-@section('ogDescription', $ogDescription)
-@if($ogImage)
-@section('ogImage', $ogImage)
-@endif
 
 @section('head')
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Product",
-      "name": {!! json_encode($title) !!},
-      "description": {!! json_encode($seoDescription) !!},
-      "url": "/doors/{!! $slug !!}",
-      "image": {!! json_encode($ogImage) !!},
-      "brand": { "@type": "Brand", "name": "Deluxe Windows" },
-      "offers": {
-        "@type": "AggregateOffer",
-        "priceCurrency": "USD",
-        "availability": "https://schema.org/InStock"
-      }
-    }
-    </script>
-
     @php
       $doorDetailCssPath = public_path('webflow-overrides/door-detail.css');
       $doorDetailCssVersion = file_exists($doorDetailCssPath)

@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/fusion-r-quality-vinyl-windows",
+  "path": "/brand-collections/fusion-r-quality-vinyl-windows",
+  "seo": {
+    "title": "Fusion® Quality Vinyl Windows | Deluxe Windows",
+    "description": "Fusion ® Windows are built for the way you live. Featuring fusion-welded sashes and mainframe, multi-chambered extrusions, composite-reinforced interlocking meeting rails and an…",
+    "canonical": "https://www.deluxewindows.com/brand-collections/fusion-r-quality-vinyl-windows",
+    "og": {
+      "title": "Fusion® Quality Vinyl Windows | Deluxe Windows",
+      "description": "Fusion ® Windows are built for the way you live. Featuring fusion-welded sashes and mainframe, multi-chambered extrusions, composite-reinforced interlocking meeting rails and an…",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/696dce53e96aa303dc195392_Alside_Fusion.jpeg",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "Fusion® Quality Vinyl Windows"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

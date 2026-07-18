@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "key": "window-replacement/walnut-creek",
+  "path": "/window-replacement/walnut-creek",
+  "seo": {
+    "title": "Walnut Creek Window Replacement | Deluxe Windows",
+    "description": "Window replacement in Walnut Creek, Contra Costa County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+    "canonical": "https://www.deluxewindows.com/window-replacement/walnut-creek",
+    "og": {
+      "title": "Walnut Creek Window Replacement | Deluxe Windows",
+      "description": "Window replacement in Walnut Creek, Contra Costa County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "How much does window replacement cost in Walnut Creek?",
+      "answer": "Walnut Creek homeowners typically invest $7,000 to $18,000 for a full window replacement project. This upscale Contra Costa city features premium homes in Northgate, Rossmoor (a large active adult community with unique replacement considerations), and the downtown Walnut Creek area. Projects covering 14–22 windows are typical in larger homes. Single window installation starts at approximately $620."
+    },
+    {
+      "question": "Do I need a permit for window replacement in Walnut Creek?",
+      "answer": "Yes. Walnut Creek requires a building permit for window replacements. Rossmoor residents should also confirm HOA requirements before beginning any project — the Golden Rain Foundation maintains specific guidelines. Our team manages all city permit applications and HOA coordination on your behalf."
+    },
+    {
+      "question": "Which window brands does Deluxe Windows install in Walnut Creek?",
+      "answer": "Walnut Creek's premium market calls for quality products. We most frequently install Andersen 400-Series for Northgate and downtown area homes requiring wood interiors, Milgard Ultra fiberglass for maximum performance in the Diablo Valley heat, and Milgard Tuscany vinyl for Rossmoor and other communities seeking value with strong warranty protection."
+    },
+    {
+      "question": "Does Deluxe Windows serve all Walnut Creek neighborhoods?",
+      "answer": "Yes — we serve all Walnut Creek neighborhoods including Northgate, Rossmoor, Rudgear, Saranap, and all zip codes: 94595, 94596, 94597, 94598."
+    }
+  ],
+  "schema": {
+    "primary_type": "Service",
+    "data": {
+      "name": "Window Replacement in Walnut Creek",
+      "area_served": "Walnut Creek"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

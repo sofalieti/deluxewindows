@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-jeld-wen-custom-wood",
+  "path": "/brand-collections/brand-jeld-wen-custom-wood",
+  "seo": {
+    "title": "Jeld-Wen Custom Wood Series | Deluxe Windows Oakland",
+    "description": "Jeld-Wen Custom Wood windows offer natural beauty and tailored sizing for Bay Area homes. Explore this series at Deluxe Windows in San Francisco. Request a free estimate.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-jeld-wen-custom-wood",
+    "og": {
+      "title": "Jeld-Wen Custom Wood Series | Deluxe Windows Oakland",
+      "description": "Jeld-Wen Custom Wood windows offer natural beauty and tailored sizing for Bay Area homes. Explore this series at Deluxe Windows in San Francisco. Request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6948de9b712ca619de77982c_Custom_Window_ProductLine_HeaderImage.jpg",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "Custom Wood"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

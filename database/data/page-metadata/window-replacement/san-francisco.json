@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "key": "window-replacement/san-francisco",
+  "path": "/window-replacement/san-francisco",
+  "seo": {
+    "title": "San Francisco Window Replacement | Deluxe Windows",
+    "description": "Window replacement in San Francisco, San Francisco County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+    "canonical": "https://www.deluxewindows.com/window-replacement/san-francisco",
+    "og": {
+      "title": "San Francisco Window Replacement | Deluxe Windows",
+      "description": "Window replacement in San Francisco, San Francisco County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "How much does window replacement cost in San Francisco?",
+      "answer": "San Francisco homeowners typically invest $9,000 to $25,000 for a full window replacement project. The city's large stock of Victorian, Edwardian, and Craftsman homes often requires custom-sized sash and specialty glazing to match original profiles. Neighborhoods like Pacific Heights and St. Francis Wood — where homes sell for $3–5+ million — regularly see projects in the $25,000–$50,000 range. Oceanside neighborhoods in the Outer Sunset and Outer Richmond demand marine-grade specifications. Single window installation starts at approximately $750–$900."
+    },
+    {
+      "question": "Do I need a permit for window replacement in San Francisco?",
+      "answer": "Yes. San Francisco requires a building permit for virtually all window replacements. Properties in historic districts — including Alamo Square, Mission Dolores, and Pacific Heights — may also need Planning Department approval to ensure compatibility with the character of the historic district. The SF permitting process is thorough; our team manages all applications, Planning Department submittals, and inspection scheduling on your behalf."
+    },
+    {
+      "question": "Which window brands does Deluxe Windows install in San Francisco?",
+      "answer": "San Francisco's architectural and environmental demands call for the best. We most frequently install Marvin Integrity fiberglass-clad for Victorian and Edwardian homes needing superior moisture resistance, Andersen 400-Series for period-appropriate wood interiors, and Western Window Systems for contemporary homes in the Mission, SoMa, and Mission Bay requiring large sliding glass systems."
+    },
+    {
+      "question": "Does Deluxe Windows serve all San Francisco neighborhoods?",
+      "answer": "Yes — we serve all San Francisco neighborhoods including the Outer Sunset, Richmond, Noe Valley, Bernal Heights, Pacific Heights, Mission, Castro, Inner Sunset, Cole Valley, and all 94xxx zip codes."
+    }
+  ],
+  "schema": {
+    "primary_type": "Service",
+    "data": {
+      "name": "Window Replacement in San Francisco",
+      "area_served": "San Francisco"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

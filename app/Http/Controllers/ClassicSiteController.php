@@ -137,11 +137,6 @@ class ClassicSiteController extends Controller
         // Learn More — referenced collections, fallback to Marvin lines on original template
         $learnMoreWindows = $this->resolveLearnMoreWindows($window);
 
-        $seoTitle       = $fieldData['seo-title'] ?? ($fieldData['name'] ?? 'Windows');
-        $seoDescription = $fieldData['seo-description'] ?? '';
-        $ogTitle        = $fieldData['opengraph-title'] ?? $seoTitle;
-        $ogDescription  = $fieldData['opengraph-description'] ?? $seoDescription;
-        $ogImage        = $fieldData['opengraph-image'] ?? $heroImage ?? '';
         $controls       = app(PromotionControlService::class);
         $windowPricing  = $controls->windowTypePricing(
             (string) ($window->webflow_item_id ?? ''),
@@ -155,11 +150,6 @@ class ClassicSiteController extends Controller
 
         return view('windows.show', [
             'windowFieldData'  => $fieldData,
-            'seoTitle'         => $seoTitle,
-            'seoDescription'   => $seoDescription,
-            'ogTitle'          => $ogTitle,
-            'ogDescription'    => $ogDescription,
-            'ogImage'          => $ogImage,
             'title'            => $fieldData['name'] ?? 'Window',
             'summary'          => $fieldData['property-listing---summary'] ?? '',
             'aboutHtml'        => $fieldData['property-listing---about'] ?? '',
@@ -219,15 +209,6 @@ class ClassicSiteController extends Controller
         $brandsTitle = $fieldData['brands-title'] ?? 'Top Door Brands';
         $learnMoreDoors = $this->resolveLearnMoreDoors($door);
 
-        $seoTitle       = $fieldData['seo-title'] ?? ($fieldData['name'] ?? 'Doors');
-        $seoDescription = $fieldData['seo-description'] ?? ($fieldData['description'] ?? '');
-        $ogTitle        = $fieldData['opengraph-title'] ?? $seoTitle;
-        $ogDescription  = $fieldData['opengraph-description'] ?? $seoDescription;
-        $ogImage        = $fieldData['opengraph-image']
-            ?? $this->extractImageUrl($fieldData, ['blog-post---thumbnail-image-v3', 'blog-post---featured-image'])
-            ?? $mainImage
-            ?? '';
-
         $controls    = app(PromotionControlService::class);
         $doorPricing = $controls->doorPricing(
             (string) ($door->webflow_item_id ?? ''),
@@ -244,11 +225,6 @@ class ClassicSiteController extends Controller
 
         return view('doors.show', [
             'doorFieldData'  => $fieldData,
-            'seoTitle'       => $seoTitle,
-            'seoDescription' => $seoDescription,
-            'ogTitle'        => $ogTitle,
-            'ogDescription'  => $ogDescription,
-            'ogImage'        => $ogImage,
             'title'          => $fieldData['name'] ?? 'Door',
             'slug'           => $fieldData['slug'] ?? $slug,
             'summary'        => $fieldData['description'] ?? '',
@@ -384,10 +360,6 @@ class ClassicSiteController extends Controller
 
     public function glossary()
     {
-        $seoTitle       = 'Window & Door Glossary | Deluxe Windows – Bay Area';
-        $seoDescription = 'Not sure what low-E glass or casement means? Explore our window and door glossary to understand key terms and make informed decisions for your Bay Area home.';
-        $ogImage        = 'https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/684da952cef202b8dda5788c_Meta%20cover-2.jpg';
-
         $navItems = [
             ['id' => 'styling', 'label' => 'Window Replacement'],
             ['id' => 'editing-pages', 'label' => 'Energy Efficient windows'],
@@ -433,97 +405,22 @@ class ClassicSiteController extends Controller
             ],
         ];
 
-        return view('glossary', compact('seoTitle', 'seoDescription', 'ogImage', 'navItems', 'sections'));
+        return view('glossary', compact('navItems', 'sections'));
     }
 
     public function faq()
     {
-        $seoTitle       = 'Window & Door FAQs | Deluxe Windows – Bay Area';
-        $seoDescription = 'Have questions about window or door replacement in San Francisco? Get expert answers from Deluxe Windows on installation timelines, permits, energy savings, and costs.';
-        $ogImage        = 'https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/684da952cef202b8dda5788c_Meta%20cover-2.jpg';
-
-        $navItems = [
-            ['id' => 'materials', 'label' => 'Which material is best for your windows?'],
-            ['id' => 'obtain', 'label' => 'Will I need to obtain a permit?'],
-            ['id' => 'new', 'label' => 'When do I need new windows?'],
-            ['id' => 'causes', 'label' => 'What causes condensation?'],
-            ['id' => 'retrofit', 'label' => 'Will I need retrofit or new construction installation?'],
-            ['id' => 'brands', 'label' => 'How to choose windows brands and styles?'],
-        ];
-
-        $sections = [
-            [
-                'id'    => 'materials',
-                'title' => 'Which material is best for your windows?',
-                'blocks' => [
-                    ['tag' => 'h4', 'class' => 'mg-bottom-extra-small', 'html' => 'Vinyl windows'],
-                    ['tag' => 'p', 'class' => 'mg-bottom-default', 'html' => 'Made from a plastic material, energy efficient and low maintenance. These windows work best in a stable climate without extreme weather conditions. Vinyl windows last a long time due to the durable and sturdy material from which they&#x27;re made.'],
-                    ['tag' => 'h4', 'class' => 'mg-bottom-extra-small', 'html' => 'Wood windows '],
-                    ['tag' => 'p', 'class' => 'mg-bottom-default', 'html' => 'Typically used to preserve the existing look of a home. More costly than other types of windows they require some maintenance and upkeep. These windows are beautiful hand-crafted pieces of furniture adding to the overall aesthetic nature of your home. Wood windows are a unique and elegant addition to your home that no other window can match.'],
-                    ['tag' => 'h4', 'class' => 'mg-bottom-extra-small', 'html' => 'Wood-Cladwindows'],
-                    ['tag' => 'p', 'class' => 'mg-bottom-default', 'html' => 'A combination material with a wood interior and either vinyl/aluminum/fiberglass exterior, provide the same look as fully wood windows without the required maintenance over time.'],
-                    ['tag' => 'h4', 'class' => 'mg-bottom-extra-small', 'html' => 'Aluminum windows'],
-                    ['tag' => 'p', 'class' => 'mg-bottom-default', 'html' => 'Strong, light, and require minimal maintenance. Aluminum is sensitive to temperature changes resulting in lower insulation levels and may be subject to condensation. Though these characteristics cause aluminum to be less energy efficient, it offers the thinnest frame, allowing for maximum daylight exposure throughout the day. To increase energy efficiency there are thermal broken aluminum windows. These windows have thermal breakers, also known as spacers, which are inserted in-between the aluminum frame, in order to reduce conductivity. This makes the window less conducive and more energy efficient.<br/>'],
-                    ['tag' => 'h4', 'class' => 'mg-bottom-extra-small', 'html' => 'Fiberglass windows'],
-                    ['tag' => 'p', 'class' => 'mg-bottom-default', 'html' => 'Have become a top of the line product because of the durable and long lasting window framing material. Fiberglass is about 3 times stronger than aluminum and 9 times stronger than vinyl, so these windows should last the longest. Fiberglass windows are durable and are practically maintenance free. Since full fiberglass windows are quite costly, there are fiberglass composite windows, which are not full fiberglass windows. Fibrex windows, a type of composite window, are made from few durable materials combined. The composite contains wood particles as well as fiberglass and therefore are considered very durable. These windows are supposed to last longer than vinyl windows with minimal maintenance.<br/>'],
-                ],
-            ],
-            [
-                'id'    => 'obtain',
-                'title' => 'Will I need to obtain a permit?',
-                'blocks' => [
-                    ['tag' => 'p', 'class' => 'mg-bottom-default', 'html' => 'Many cities, such as San Francisco, Oakland, Berkeley and many others, have area specific requirements to meet historic preservation and other city codes. It is best to contact your city Planning/Building department to help you determine whether a permit is required for your home.<br/><br/>If you reside in a home that is part of a Homeowner&#x27;s Association (H.O.A.), it is best to check their requirements first. The H.O.A. will typically have a certain style or brand that they require and will have to approve your project before a permit can be obtained.<br/><br/>If a permit is required, Deluxe Windows can walk you through the process, or take care of it for you. The permit process is typically long and tedious including forms, floor plan drawings, pictures and other items may be required by the city. That&#x27;s why choosing BAWP Inc. brings you extra benefits. After years of dealing with building departments our expertise on what is required expedites the process, getting your project approved and on the way faster and and more efficiently.'],
-                ],
-            ],
-            [
-                'id'    => 'new',
-                'title' => 'When do I need new windows?',
-                'blocks' => [
-                    ['tag' => 'p', 'class' => 'paragraph-45', 'html' => 'If you aren&#x27;t sure whether your windows need replacing, Deluxe Windos, Inc. can come to your home for a free consultation.<br/>‍<br/>Signs that it may be time to change your windows are:<br/>- High electric billsYour home is way too hot in summer, and way too cold in winter;<br/>- Consistent condensation on the panes of your windows; <br/>- Drafty or leaking windows;<br/>- Difficult to open or close.'],
-                ],
-            ],
-            [
-                'id'    => 'causes',
-                'title' => 'What causes condensation?',
-                'blocks' => [
-                    ['tag' => 'p', 'class' => 'paragraph-46', 'html' => 'Condensation occurs because of humidity that is naturally present in the air. When water vapor comes into contact with surfaces that are cooler than it is, the vapor forms into visible moisture, which gets trapped in between the glass. Old windows have a tendency to have this problem because insulation technology was not as advanced as it is today.'],
-                ],
-            ],
-            [
-                'id'    => 'retrofit',
-                'title' => 'Will I need retrofit or new construction installation?',
-                'blocks' => [
-                    ['tag' => 'p', 'class' => 'paragraph-47', 'html' => 'Most people will choose to get retrofit installation because it is an easier, shorter, and a cheaper process than new construction installation. A retrofit window is custom fit to the existing opening, and is installed without disturbing the exterior area around the window. Retrofit windows slightly decrease the existing daylight opening in order for the window to fit inside the existing opening. A new construction installation removes the entire window including the surrounding frame. The new window is installed in multiple steps, like waterproofing and flashing, before the new trim and caulking takes place. '],
-                ],
-            ],
-            [
-                'id'    => 'brands',
-                'title' => 'How to choose windows brands and styles?',
-                'blocks' => [
-                    ['tag' => 'p', 'class' => 'paragraph-48', 'html' => 'The answer to this question can only be answered once we come to your home for a free consultation. Every home is different, and when our professional window replacement specialist comes out to assess your house, we can factor in all the different aspects to suggest which product, style and price range will work best for you. Since Deluxe Windows, Inc. carries over 20 different brands we can offer you a wide range of choices to specifically fit your needs.<br/>'],
-                ],
-            ],
-        ];
-
-        return view('faq', compact('seoTitle', 'seoDescription', 'ogImage', 'navItems', 'sections'));
+        return view('faq');
     }
 
     public function testimonials()
     {
-        $seoTitle       = 'Customer Reviews | Deluxe Windows – Bay Area';
-        $seoDescription = 'See why Bay Area homeowners trust Deluxe Windows. Read verified customer reviews on window and door installations, service quality, and overall experience.';
-        $ogImage        = 'https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/684da952cef202b8dda5788c_Meta%20cover-2.jpg';
-
-        return view('testimonials', compact('seoTitle', 'seoDescription', 'ogImage'));
+        return view('testimonials');
     }
 
     public function financing()
     {
-        $seoTitle       = 'Window & Door Financing | Deluxe Windows – Bay Area';
-        $seoDescription = 'Make your window and door replacement affordable. Deluxe Windows offers flexible financing options in San Francisco so Bay Area homeowners can upgrade now and pay over time.';
-        $ogImage        = 'https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/684da952cef202b8dda5788c_Meta%20cover-2.jpg';
-
-        return view('financing', compact('seoTitle', 'seoDescription', 'ogImage'));
+        return view('financing');
     }
 
     public function about()
@@ -802,10 +699,6 @@ class ClassicSiteController extends Controller
 
     public function windowsIndex()
     {
-        $seoTitle       = 'Windows for Bay Area Homes | Deluxe Windows California';
-        $seoDescription = 'Discover high-performance windows for San Francisco homes. Deluxe Windows installs vinyl, wood, aluminum, and fiberglass windows with expert craftsmanship. Get a free quote.';
-        $ogImage        = 'https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/684da9f6a8d9aab7e88572b2_Meta%20cover-windows.jpg';
-
         $windows = WindowsWebflowItem::query()
             ->where('is_archived', false)
             ->where('is_draft', false)
@@ -829,15 +722,11 @@ class ClassicSiteController extends Controller
             ->filter(fn ($card) => ($card['slug'] ?? '') !== '')
             ->values();
 
-        return view('windows.index', compact('seoTitle', 'seoDescription', 'ogImage', 'windows'));
+        return view('windows.index', compact('windows'));
     }
 
     public function doorsIndex()
     {
-        $seoTitle       = 'Doors for Bay Area Homes | Deluxe Windows California';
-        $seoDescription = 'Discover high-performance doors for San Francisco homes. Deluxe Windows installs stylish, durable, and energy-efficient entry and patio doors. Get a free quote.';
-        $ogImage        = 'https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/684da9f6a8d9aab7e88572b2_Meta%20cover-windows.jpg';
-
         $doors = DoorsWebflowItem::query()
             ->where('is_archived', false)
             ->where('is_draft', false)
@@ -875,15 +764,11 @@ class ClassicSiteController extends Controller
             ->filter(fn ($card) => ($card['slug'] ?? '') !== '')
             ->values();
 
-        return view('doors.index', compact('seoTitle', 'seoDescription', 'ogImage', 'doors'));
+        return view('doors.index', compact('doors'));
     }
 
     public function brandIndex()
     {
-        $seoTitle       = 'Top Window & Door Brands | Deluxe Windows – Bay Area';
-        $seoDescription = 'Deluxe Windows partners with Andersen, Marvin, Milgard, Simonton & more. Explore premium window and door brands trusted by Bay Area homeowners. Request a free estimate.';
-        $ogImage        = 'https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd/684da9f6a8d9aab7e88572b2_Meta%20cover-windows.jpg';
-
         $brands = BrandsWebflowItem::query()
             ->where('is_archived', false)
             ->where('is_draft', false)
@@ -894,7 +779,7 @@ class ClassicSiteController extends Controller
             ->filter(fn ($card) => ($card['slug'] ?? '') !== '')
             ->values();
 
-        return view('brand.index', compact('seoTitle', 'seoDescription', 'ogImage', 'brands'));
+        return view('brand.index', compact('brands'));
     }
 
     public function brandBySlug(string $slug)
@@ -962,11 +847,6 @@ class ClassicSiteController extends Controller
             ->filter()
             ->values();
 
-        $seoTitle       = $fieldData['seo-title']              ?? $name;
-        $seoDescription = $fieldData['seo-description']        ?? '';
-        $ogTitle        = $fieldData['opengraph-title']        ?? $seoTitle;
-        $ogDescription  = $fieldData['opengraph-description']  ?? $seoDescription;
-        $ogImage        = $fieldData['opengraph-image']        ?? $logo ?? '';
         $windowsTitle   = $fieldData['windows-titles']         ?? "Explore {$name}'s Window Types";
         $doorsTitle     = $fieldData['doors-title']            ?? "Explore {$name}'s Door Types";
         $sidebarMaterialGroups = $this->buildBrandSidebarMaterialGroups($brand, $fieldData);
@@ -993,11 +873,6 @@ class ClassicSiteController extends Controller
             'sidebarMaterialGroups' => $sidebarMaterialGroups,
             'windowsTitle'    => $windowsTitle,
             'doorsTitle'      => $doorsTitle,
-            'seoTitle'        => $seoTitle,
-            'seoDescription'  => $seoDescription,
-            'ogTitle'         => $ogTitle,
-            'ogDescription'   => $ogDescription,
-            'ogImage'         => $ogImage,
             'brandHeroFormHtml' => $brandHeroFormHtml,
             'brandPromotionPricing' => $brandPricing,
         ]);
@@ -1074,16 +949,6 @@ class ClassicSiteController extends Controller
             ? $doorBrand->description
             : $this->defaultDoorBrandDescription($name);
 
-        $faqItems = $doorBrand ? $doorBrand->faqItems() : [];
-        if ($faqItems === []) {
-            $faqItems = $this->defaultDoorBrandFaq($name);
-        }
-
-        $seoTitle       = $name.' Doors | Deluxe Windows – Bay Area';
-        $seoDescription = 'Explore '.$name.' doors installed by Deluxe Windows. Premium patio, sliding, and entry doors with energy-efficient performance and professional Bay Area installation.';
-        $ogTitle        = $seoTitle;
-        $ogDescription  = $seoDescription;
-        $ogImage        = $fieldData['opengraph-image'] ?? $logo ?? '';
         $windowsTitle   = $fieldData['windows-titles']  ?? "Explore {$name}'s Window Types";
         $doorsTitle     = ($doorBrand && trim((string) $doorBrand->doors_title) !== '')
             ? $doorBrand->doors_title
@@ -1106,14 +971,8 @@ class ClassicSiteController extends Controller
             'description'     => $description,
             'windowTypes'     => $windowTypes,
             'doorTypes'       => $doorTypes,
-            'faqItems'        => $faqItems,
             'windowsTitle'    => $windowsTitle,
             'doorsTitle'      => $doorsTitle,
-            'seoTitle'        => $seoTitle,
-            'seoDescription'  => $seoDescription,
-            'ogTitle'         => $ogTitle,
-            'ogDescription'   => $ogDescription,
-            'ogImage'         => $ogImage,
             'brandHeroFormHtml' => $brandHeroFormHtml,
             'brandPromotionPricing' => $brandPricing,
         ]);
@@ -1197,31 +1056,6 @@ class ClassicSiteController extends Controller
             .'</ul>';
     }
 
-    /**
-     * @return list<array{question: string, answer: string}>
-     */
-    private function defaultDoorBrandFaq(string $name): array
-    {
-        return [
-            [
-                'question' => 'Which '.$name.' door is right for my home?',
-                'answer' => 'It depends on your goals — sliding and patio doors are great for connecting indoor and outdoor spaces, while entry doors focus on curb appeal and security. During your free consultation we\'ll recommend the best '.$name.' door line for your style, budget, and climate.',
-            ],
-            [
-                'question' => 'Are '.$name.' doors energy efficient?',
-                'answer' => $name.' doors use high-performance Low-E glass and weather-tight seals to keep your home comfortable year-round and help lower energy bills.',
-            ],
-            [
-                'question' => 'Can '.$name.' doors be customized?',
-                'answer' => 'Yes. You can choose from a range of sizes, materials, finishes, glass, and hardware so your doors match your home. We\'ll help you configure every detail during design.',
-            ],
-            [
-                'question' => 'Do you install '.$name.' doors in the Bay Area?',
-                'answer' => 'Yes. Deluxe Windows is a Bay Area installer that handles precise measurement, professional installation, and a final inspection to make sure your new doors work flawlessly.',
-            ],
-        ];
-    }
-
     public function windowTypeBySlug(string $slug)
     {
         $slug = strtolower(trim($slug));
@@ -1295,12 +1129,6 @@ class ClassicSiteController extends Controller
         $heroFormHtml     = $this->resolveWindowTypeHeroPricing($windowType, $fieldData);
         $pagePromotionAvailable = str_contains($heroFormHtml, 'promo-offer-card');
 
-        $seoTitle       = $fieldData['seo-title'] ?? $name;
-        $seoDescription = $fieldData['seo-description'] ?? '';
-        $ogTitle        = $fieldData['opengraph-title'] ?? $seoTitle;
-        $ogDescription  = $fieldData['opengraph-description'] ?? $seoDescription;
-        $ogImage        = $fieldData['opengraph-image'] ?? $featuredImage ?? $brandLogo ?? '';
-
         return view('window-types.show', [
             'name'                  => $name,
             'slug'                  => $fieldData['slug'] ?? $slug,
@@ -1315,11 +1143,6 @@ class ClassicSiteController extends Controller
             'collectionsTitle'      => $collectionsTitle,
             'heroFormHtml'          => $heroFormHtml,
             'pagePromotionAvailable' => $pagePromotionAvailable,
-            'seoTitle'              => $seoTitle,
-            'seoDescription'        => $seoDescription,
-            'ogTitle'               => $ogTitle,
-            'ogDescription'         => $ogDescription,
-            'ogImage'               => $ogImage,
         ]);
     }
 
@@ -1473,12 +1296,6 @@ class ClassicSiteController extends Controller
 
         $heroFormHtml = $this->resolveCollectionHeroPricing($collection, $fieldData);
 
-        $seoTitle       = $fieldData['seo-title']             ?? $name;
-        $seoDescription = $fieldData['seo-description']       ?? '';
-        $ogTitle        = $fieldData['opengraph-title']        ?? $seoTitle;
-        $ogDescription  = $fieldData['opengraph-description'] ?? $seoDescription;
-        $ogImage        = $fieldData['opengraph-image']        ?? $featuredImage ?? '';
-
         return view('brand-collections.show', [
             'fieldData'               => $fieldData,
             'name'                    => $name,
@@ -1516,11 +1333,6 @@ class ClassicSiteController extends Controller
             'aboutHtml'               => $aboutHtml,
             'heroFormHtml'            => $heroFormHtml,
             'webflowCollectionId'     => '69366118c296b5e2e8bdbfb2',
-            'seoTitle'                => $seoTitle,
-            'seoDescription'          => $seoDescription,
-            'ogTitle'                 => $ogTitle,
-            'ogDescription'           => $ogDescription,
-            'ogImage'                 => $ogImage,
         ]);
     }
 
@@ -1587,11 +1399,7 @@ class ClassicSiteController extends Controller
         abort_if(! is_array($fieldData), 404);
 
         $title = $fieldData['name'] ?? 'Blog';
-        $seoTitle = $fieldData['seo-title'] ?? $title;
-        $seoDescription = $fieldData['seo-description'] ?? ($fieldData['project-summary'] ?? '');
-        $ogTitle = $fieldData['opengraph-title'] ?? $seoTitle;
-        $ogDescription = $fieldData['opengraph-description'] ?? $seoDescription;
-        $heroImage = $this->extractImageUrl($fieldData, ['main-project-image', 'client-logo', 'opengraph-image']);
+        $heroImage = $this->extractImageUrl($fieldData, ['main-project-image', 'client-logo']);
         $bodyHtml = $fieldData['project-details'] ?? '';
 
         $relatedPosts = collect();
@@ -1649,10 +1457,6 @@ class ClassicSiteController extends Controller
         return view('blog.show', compact(
             'slug',
             'title',
-            'seoTitle',
-            'seoDescription',
-            'ogTitle',
-            'ogDescription',
             'heroImage',
             'bodyHtml',
             'relatedPosts',
@@ -1667,8 +1471,6 @@ class ClassicSiteController extends Controller
         abort_if(! is_array($fieldData), 404);
 
         $countyName = $fieldData['county-name'] ?? $fieldData['name'] ?? 'Bay Area';
-        $metaTitle = $fieldData['meta-title'] ?? "{$countyName} Window Replacement | Deluxe Windows";
-        $metaDescription = $fieldData['meta-description'] ?? '';
         $heroImage = $this->extractImageUrl($fieldData, ['hero-image']) ?? '';
         $localCountyHeroPath = "webflow-assets/images/county-hero/{$slug}.avif";
         $localCountyHeroAbsolute = public_path($localCountyHeroPath);
@@ -1683,8 +1485,6 @@ class ClassicSiteController extends Controller
         return view('county-hub-pages.show', compact(
             'slug',
             'countyName',
-            'metaTitle',
-            'metaDescription',
             'heroImage',
             'countyIntro',
             'cities',
@@ -1702,9 +1502,7 @@ class ClassicSiteController extends Controller
         $cityName = $fieldData['city-name'] ?? $fieldData['name'] ?? '';
         $cityLabel = $cityName !== '' ? "{$cityName}, CA" : 'Bay Area, CA';
         $countyName = $fieldData['county'] ?? '';
-        $metaTitle = $fieldData['meta-title'] ?? "{$cityName} Window Replacement | Deluxe Windows";
-        $metaDescription = $fieldData['meta-description'] ?? '';
-        $heroImage = $this->extractImageUrl($fieldData, ['hero-image', 'og-image']) ?? '';
+        $heroImage = $this->extractImageUrl($fieldData, ['hero-image']) ?? '';
         $localServiceAreaHeroPath = "webflow-assets/images/service-area-hero/{$slug}.avif";
         $localServiceAreaHeroAbsolute = public_path($localServiceAreaHeroPath);
         if (file_exists($localServiceAreaHeroAbsolute)) {
@@ -1713,27 +1511,21 @@ class ClassicSiteController extends Controller
         }
         $paragraph1 = $fieldData['city-paragraph-1'] ?? '';
         $paragraph2 = $fieldData['city-paragraph-2'] ?? '';
-        $faqs = $this->resolveServiceAreaFaqs($fieldData);
         $windowTypes = $this->loadServiceAreaWindowTypes();
         $featuredBrands = $this->resolveServiceAreaFeaturedBrands($fieldData);
         $countyHubSlug = $this->resolveCountyHubSlug($fieldData['county-page'] ?? null);
-        $schemaScripts = $this->buildServiceAreaSchemaScripts($fieldData, $cityName, $slug, $faqs, $metaDescription);
 
         return view('window-replacement.show', compact(
             'slug',
             'cityName',
             'cityLabel',
             'countyName',
-            'metaTitle',
-            'metaDescription',
             'heroImage',
             'paragraph1',
             'paragraph2',
-            'faqs',
             'windowTypes',
             'featuredBrands',
             'countyHubSlug',
-            'schemaScripts',
         ));
     }
 
@@ -1769,32 +1561,6 @@ class ClassicSiteController extends Controller
         }
 
         return null;
-    }
-
-    /**
-     * @return list<array{question: string, answer: string, answer_plain: string}>
-     */
-    private function resolveServiceAreaFaqs(array $fieldData): array
-    {
-        $faqs = [];
-
-        for ($i = 1; $i <= 5; $i++) {
-            $question = trim((string) ($fieldData["faq-{$i}-question"] ?? ''));
-            if ($question === '') {
-                continue;
-            }
-
-            $answerHtml = (string) ($fieldData["faq-{$i}-answer"] ?? '');
-            $answerPlain = trim((string) ($fieldData["faq-{$i}-answer-plain-text"] ?? ''));
-
-            $faqs[] = [
-                'question'     => $question,
-                'answer'       => $answerHtml !== '' ? $answerHtml : '<p>'.e($answerPlain).'</p>',
-                'answer_plain' => $answerPlain,
-            ];
-        }
-
-        return $faqs;
     }
 
     /**
@@ -1984,88 +1750,6 @@ class ClassicSiteController extends Controller
         }
 
         return null;
-    }
-
-    /**
-     * @param  list<array{question: string, answer: string, answer_plain: string}>  $faqs
-     * @return list<string>
-     */
-    private function buildServiceAreaSchemaScripts(
-        array $fieldData,
-        string $cityName,
-        string $slug,
-        array $faqs,
-        string $metaDescription,
-    ): array {
-        $custom = trim((string) ($fieldData['schema-json'] ?? ''));
-        if ($custom !== '') {
-            return [$custom];
-        }
-
-        $cityLabel = "{$cityName}, CA";
-        $scripts = [];
-
-        $scripts[] = json_encode([
-            '@context'    => 'https://schema.org',
-            '@type'       => 'Service',
-            'name'        => "Window Replacement in {$cityLabel}",
-            'provider'    => [
-                '@type'     => 'HomeAndConstructionBusiness',
-                'name'      => 'Deluxe Windows',
-                'telephone' => site_phone_tel(),
-                'url'       => 'https://www.deluxewindows.com',
-            ],
-            'areaServed'  => [
-                '@type'            => 'City',
-                'name'             => $cityName,
-                'containedInPlace' => [
-                    '@type' => 'State',
-                    'name'  => 'California',
-                ],
-            ],
-            'serviceType' => 'Window Replacement',
-            'description' => $metaDescription !== ''
-                ? $metaDescription
-                : "Professional window and door replacement in {$cityLabel}.",
-            'offers'      => [
-                '@type'         => 'Offer',
-                'name'          => 'Free Quote',
-                'price'         => '0',
-                'priceCurrency' => 'USD',
-            ],
-        ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-
-        if ($faqs !== []) {
-            $mainEntity = [];
-            foreach ($faqs as $faq) {
-                $answerText = $faq['answer_plain'] !== ''
-                    ? $faq['answer_plain']
-                    : trim(strip_tags($faq['answer']));
-
-                if ($answerText === '') {
-                    continue;
-                }
-
-                $mainEntity[] = [
-                    '@type'          => 'Question',
-                    'name'           => $faq['question'],
-                    'acceptedAnswer' => [
-                        '@type' => 'Answer',
-                        'text'  => $answerText,
-                    ],
-                ];
-            }
-
-            if ($mainEntity !== []) {
-                $scripts[] = json_encode([
-                    '@context'   => 'https://schema.org',
-                    '@type'      => 'FAQPage',
-                    'mainEntity' => $mainEntity,
-                ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-            }
-        }
-
-        return $scripts;
     }
 
     private function loadBrandsImportItems(): array

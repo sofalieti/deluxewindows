@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "key": "window-replacement/santa-rosa",
+  "path": "/window-replacement/santa-rosa",
+  "seo": {
+    "title": "Santa Rosa Window Replacement | Deluxe Windows",
+    "description": "Window replacement in Santa Rosa, Sonoma County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+    "canonical": "https://www.deluxewindows.com/window-replacement/santa-rosa",
+    "og": {
+      "title": "Santa Rosa Window Replacement | Deluxe Windows",
+      "description": "Window replacement in Santa Rosa, Sonoma County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "How much does window replacement cost in Santa Rosa?",
+      "answer": "Santa Rosa homeowners typically invest $5,500 to $13,000 for a full window replacement project. Sonoma County's largest city offers a wide range of housing types — from modest Coffey Park ranch homes rebuilt post-2017 fire ($6,000–$10,000) to McDonald Avenue Victorian estates ($15,000–$25,000+). Single window installation starts at approximately $490."
+    },
+    {
+      "question": "Do I need a permit for window replacement in Santa Rosa?",
+      "answer": "Yes. Santa Rosa requires a building permit for window replacements. Post-wildfire rebuild projects may have streamlined permitting under the city's expedited review programs. Our team handles all permit applications and coordinates with the City of Santa Rosa Building Division on your behalf."
+    },
+    {
+      "question": "Which window brands does Deluxe Windows install in Santa Rosa?",
+      "answer": "For Santa Rosa's diverse market, we tailor recommendations by neighborhood. In Coffey Park and Fountaingrove, Milgard Tuscany vinyl and Simonton are popular for efficient post-fire rebuilds. For McDonald Avenue and Junior College area Victorians, Andersen 400-Series is the preferred choice for authentic period aesthetics."
+    },
+    {
+      "question": "Does Deluxe Windows serve all Santa Rosa neighborhoods?",
+      "answer": "Yes — we serve all Santa Rosa neighborhoods including Coffey Park, Fountaingrove, McDonald Avenue, West End, Junior College, Bellevue Ranch, and all zip codes: 95401–95409."
+    }
+  ],
+  "schema": {
+    "primary_type": "Service",
+    "data": {
+      "name": "Window Replacement in Santa Rosa",
+      "area_served": "Santa Rosa"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

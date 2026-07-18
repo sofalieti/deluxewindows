@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "county-hub-pages/sonoma-county",
+  "path": "/county-hub-pages/sonoma-county",
+  "seo": {
+    "title": "Sonoma County Window Replacement | Deluxe Windows",
+    "description": "Sonoma County window replacement for wine country & coast-adjacent homes. Durable materials, careful install, Deluxe Windows Bay Area service.",
+    "canonical": "https://www.deluxewindows.com/county-hub-pages/sonoma-county",
+    "og": {
+      "title": "Sonoma County Window Replacement | Deluxe Windows",
+      "description": "Sonoma County window replacement for wine country & coast-adjacent homes. Durable materials, careful install, Deluxe Windows Bay Area service.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/69fc954e7b9bf04407ae45c4_generated-2026-05-07t13-34-39-783z-nhdblc.jpeg",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "Sonoma County"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

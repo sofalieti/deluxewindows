@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-simonton-daylightmax",
+  "path": "/brand-collections/brand-simonton-daylightmax",
+  "seo": {
+    "title": "DaylightMax | Deluxe Windows",
+    "description": "Unique slim frame window design offers ample natural light and breathtaking views while providing maximum energy efficiency.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-simonton-daylightmax",
+    "og": {
+      "title": "DaylightMax | Deluxe Windows",
+      "description": "Unique slim frame window design offers ample natural light and breathtaking views while providing maximum energy efficiency.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/69675b139b6ddcccbafadae3_sim_interior_living_room_daylightmax_sliding_window_5050_module_p11115.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "DaylightMax"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "doors/aluminum-doors",
+  "path": "/doors/aluminum-doors",
+  "seo": {
+    "title": "Aluminum Doors | Replacement Doors – Deluxe Windows San Jose",
+    "description": "Durable, low-maintenance aluminum doors for Bay Area homes. Deluxe Windows installs premium aluminum entry and exterior doors in San Francisco. Free quotes available.",
+    "canonical": "https://www.deluxewindows.com/doors/aluminum-doors",
+    "og": {
+      "title": "Aluminum Doors | Replacement Doors – Deluxe Windows San Jose",
+      "description": "Durable, low-maintenance aluminum doors for Bay Area homes. Deluxe Windows installs premium aluminum entry and exterior doors in San Francisco. Free quotes available.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6841ddf8ace3d9d9facb1a44_firs-time-homebuyers-guide-thumbnail-v3-property-x-webflow-template.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Aluminum Doors"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-jeld-wen-brickmould-vinyl",
+  "path": "/brand-collections/brand-jeld-wen-brickmould-vinyl",
+  "seo": {
+    "title": "Jeld-Wen Brickmould Vinyl | Deluxe Windows Saratoga",
+    "description": "Jeld-Wen Brickmould Vinyl windows feature classic exterior profiles for Bay Area homes. Explore this collection at Deluxe Windows in San Francisco. Request a free quote.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-jeld-wen-brickmould-vinyl",
+    "og": {
+      "title": "Jeld-Wen Brickmould Vinyl | Deluxe Windows Saratoga",
+      "description": "Jeld-Wen Brickmould Vinyl windows feature classic exterior profiles for Bay Area homes. Explore this collection at Deluxe Windows in San Francisco. Request a free quote.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6948e60f8fc622a99d36b81d_brickmould-vinyl-windows.jpg",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "Brickmould Vinyl"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

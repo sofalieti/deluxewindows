@@ -1,9 +1,6 @@
 @extends('layouts.classic')
 
 @section('wfPage', '687a8de5e8e76e587d2190ad')
-@section('title', $seoTitle)
-@section('metaDescription', $seoDescription)
-@section('ogImage', $ogImage)
 
 @section('head')
     <link href="https://static.elfsight.com/" rel="preconnect" crossorigin="anonymous" />

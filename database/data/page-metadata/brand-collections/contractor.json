@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/contractor",
+  "path": "/brand-collections/contractor",
+  "seo": {
+    "title": "Contractor | Deluxe Windows",
+    "description": "Simonton Contractor windows combine versatility and quality. Virtually unlimited window styles and combinations provide design flexibility.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/contractor",
+    "og": {
+      "title": "Contractor | Deluxe Windows",
+      "description": "Simonton Contractor windows combine versatility and quality. Virtually unlimited window styles and combinations provide design flexibility.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/696756abcc123051c4540b4b_sim_exterior_contractor_double_hung_window_5050_module_p116.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "Contractor"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

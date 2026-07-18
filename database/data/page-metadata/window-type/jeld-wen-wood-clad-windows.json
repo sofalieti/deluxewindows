@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "window-type/jeld-wen-wood-clad-windows",
+  "path": "/window-type/jeld-wen-wood-clad-windows",
+  "seo": {
+    "title": "Jeld-Wen Wood Clad Windows | Deluxe Windows Oakland",
+    "description": "Jeld-Wen wood clad windows feature natural interiors with durable exterior protection for Bay Area homes. Installed by Deluxe Windows in San Francisco. Free estimates.",
+    "canonical": "https://www.deluxewindows.com/window-type/jeld-wen-wood-clad-windows",
+    "og": {
+      "title": "Jeld-Wen Wood Clad Windows | Deluxe Windows Oakland",
+      "description": "Jeld-Wen wood clad windows feature natural interiors with durable exterior protection for Bay Area homes. Installed by Deluxe Windows in San Francisco. Free estimates.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f49530a5cc11c6412572d_Screenshot%202025-08-03%20at%2014.34.18%201.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Jeld-Wen Wood Clad Windows"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "key": "window-replacement/fremont",
+  "path": "/window-replacement/fremont",
+  "seo": {
+    "title": "Fremont Window Replacement | Deluxe Windows",
+    "description": "Window replacement in Fremont, Alameda County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+    "canonical": "https://www.deluxewindows.com/window-replacement/fremont",
+    "og": {
+      "title": "Fremont Window Replacement | Deluxe Windows",
+      "description": "Window replacement in Fremont, Alameda County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "How much does window replacement cost in Fremont?",
+      "answer": "Fremont homeowners typically invest $5,500 to $13,000 for a full window replacement project covering 10–16 windows. This large East Bay city offers a range of housing types, from 1960s ranches in Irvington to newer luxury developments in Mission San Jose and Niles. Single window installation starts at approximately $500."
+    },
+    {
+      "question": "Do I need a permit for window replacement in Fremont?",
+      "answer": "Yes. Fremont requires a building permit for window replacements. Our team handles all permit applications and inspections with Fremont's Building & Safety Division on your behalf."
+    },
+    {
+      "question": "Which window brands does Deluxe Windows install in Fremont?",
+      "answer": "For Fremont's diverse market, we most frequently install Milgard Tuscany vinyl for cost-effective replacements throughout the city, Andersen 400-Series for higher-end neighborhoods in Mission San Jose, and Anlin Del Mar triple-pane for homes in hotter inland areas seeking maximum energy efficiency."
+    },
+    {
+      "question": "Does Deluxe Windows serve all Fremont neighborhoods?",
+      "answer": "Yes — we serve all Fremont districts including Mission San Jose, Irvington, Centerville, Warm Springs, Niles, and Ardenwood. We cover all Fremont zip codes: 94536, 94538, 94539, 94555."
+    }
+  ],
+  "schema": {
+    "primary_type": "Service",
+    "data": {
+      "name": "Window Replacement in Fremont",
+      "area_served": "Fremont"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

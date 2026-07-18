@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "key": "door-brands/anlin",
+  "path": "/door-brands/anlin",
+  "seo": {
+    "title": "Anlin Doors | Deluxe Windows",
+    "description": "Designed and built in California, Anlin specializes in energy-efficient replacement doors made for our climate. Their patio doors combine smooth operation, excellent insulation…",
+    "canonical": "https://www.deluxewindows.com/door-brands/anlin",
+    "og": {
+      "title": "Anlin Doors | Deluxe Windows",
+      "description": "Designed and built in California, Anlin specializes in energy-efficient replacement doors made for our climate. Their patio doors combine smooth operation, excellent insulation…",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a76b7e94512a795b803e9_Anlin.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "Why choose Anlin doors?",
+      "answer": "Anlin doors are engineered in California for energy efficiency and comfort, and they're backed by an excellent lifetime warranty — a great choice for replacement projects in the Bay Area."
+    },
+    {
+      "question": "Are Anlin patio doors energy efficient?",
+      "answer": "Yes. Anlin uses high-performance glass and tight seals designed for the California climate to help keep your home comfortable and lower energy bills."
+    },
+    {
+      "question": "What warranty do Anlin doors come with?",
+      "answer": "Anlin is known for a strong lifetime warranty. We'll review the exact coverage for your chosen door during your free consultation."
+    },
+    {
+      "question": "Do you install Anlin doors in the Bay Area?",
+      "answer": "Yes. Deluxe Windows measures and installs Anlin doors across the Bay Area, finishing every project with a thorough inspection."
+    }
+  ],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Anlin Doors",
+      "brand": "Anlin"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

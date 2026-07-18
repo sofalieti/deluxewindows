@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "key": "window-replacement/sunnyvale",
+  "path": "/window-replacement/sunnyvale",
+  "seo": {
+    "title": "Sunnyvale Window Replacement | Deluxe Windows",
+    "description": "Window replacement in Sunnyvale, Santa Clara County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+    "canonical": "https://www.deluxewindows.com/window-replacement/sunnyvale",
+    "og": {
+      "title": "Sunnyvale Window Replacement | Deluxe Windows",
+      "description": "Window replacement in Sunnyvale, Santa Clara County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "How much does window replacement cost in Sunnyvale?",
+      "answer": "Sunnyvale homeowners typically invest $7,000 to $16,000 for a full window replacement project covering 10–16 windows. This Silicon Valley tech hub — home to major tech companies along North Mathilda Avenue — features Eichler mid-century moderns, 1960s–1980s ranches, and newer condo developments. Eichler floor-to-ceiling glass systems require specialized installation. Single window installation starts at approximately $590."
+    },
+    {
+      "question": "Do I need a permit for window replacement in Sunnyvale?",
+      "answer": "Yes. Sunnyvale requires a building permit for window replacements. Our team handles all permit applications with the City of Sunnyvale Building Division on your behalf."
+    },
+    {
+      "question": "Which window brands does Deluxe Windows install in Sunnyvale?",
+      "answer": "Sunnyvale's tech-oriented Silicon Valley market drives demand for energy-efficient, high-performance products. We most frequently install Anlin Del Mar triple-pane for maximum solar heat gain control in the valley's warm climate, Andersen 400-Series for Eichler and mid-century homes, and Milgard Tuscany vinyl for cost-effective whole-home replacements."
+    },
+    {
+      "question": "Does Deluxe Windows serve all Sunnyvale neighborhoods?",
+      "answer": "Yes — we serve all Sunnyvale neighborhoods including Lakewood Village, Murphy Avenue historic district, Birdland, Ticonderoga, and all zip codes: 94085, 94086, 94087, 94089."
+    }
+  ],
+  "schema": {
+    "primary_type": "Service",
+    "data": {
+      "name": "Window Replacement in Sunnyvale",
+      "area_served": "Sunnyvale"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

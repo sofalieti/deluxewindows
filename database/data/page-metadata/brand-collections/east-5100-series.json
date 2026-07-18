@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/east-5100-series",
+  "path": "/brand-collections/east-5100-series",
+  "seo": {
+    "title": "East 5100 Series Windows | Deluxe Windows Petaluma",
+    "description": "The East 5100 Series delivers enhanced window performance for Bay Area homes. Explore options at Deluxe Windows in San Francisco. Request a free installation estimate.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/east-5100-series",
+    "og": {
+      "title": "East 5100 Series Windows | Deluxe Windows Petaluma",
+      "description": "The East 5100 Series delivers enhanced window performance for Bay Area homes. Explore options at Deluxe Windows in San Francisco. Request a free installation estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695e2d8d424fa9beaeb493af_pgw_5100_hero_1-400x400-1.webp",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "East 5100 Series"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

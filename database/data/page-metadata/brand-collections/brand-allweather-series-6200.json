@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-allweather-series-6200",
+  "path": "/brand-collections/brand-allweather-series-6200",
+  "seo": {
+    "title": "Series 6200 | Deluxe Windows",
+    "description": "The All Weather Series 6200 Horizontal Sliding Window System is our latest energy efficient, aluminum extrusion window design that offers a contemporary aesthetic and utilizes All…",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-allweather-series-6200",
+    "og": {
+      "title": "Series 6200 | Deluxe Windows",
+      "description": "The All Weather Series 6200 Horizontal Sliding Window System is our latest energy efficient, aluminum extrusion window design that offers a contemporary aesthetic and utilizes All…",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6979ebfde1eb2add70873b6a_All-Weather_Series-6200-Hero-Web-Res_RGB-e1681844069471.webp",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "Series 6200"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

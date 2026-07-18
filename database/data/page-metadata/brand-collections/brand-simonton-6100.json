@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-simonton-6100",
+  "path": "/brand-collections/brand-simonton-6100",
+  "seo": {
+    "title": "6100 | Deluxe Windows",
+    "description": "Introduce natural light and increase viewing in any room with the narrow frame design of the 6100 Collection windows. Exclusively Sold at The Home Depot®",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-simonton-6100",
+    "og": {
+      "title": "6100 | Deluxe Windows",
+      "description": "Introduce natural light and increase viewing in any room with the narrow frame design of the 6100 Collection windows. Exclusively Sold at The Home Depot®",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6964b7b7642e2f07b0f5f88f_689afe7381875349ef792108_6100-Double-Hung-Living-Room-no-Grids.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "6100"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

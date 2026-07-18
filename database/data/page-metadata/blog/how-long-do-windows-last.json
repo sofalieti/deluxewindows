@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "key": "blog/how-long-do-windows-last",
+  "path": "/blog/how-long-do-windows-last",
+  "seo": {
+    "title": "How Long Do Windows Last? | Deluxe Windows Blog",
+    "description": "Windows typically last 15–30 years depending on material, climate, and maintenance. Learn when to replace your Bay Area windows and how to extend their lifespan.",
+    "canonical": "https://www.deluxewindows.com/blog/how-long-do-windows-last",
+    "og": {
+      "title": "How Long Do Windows Last? | Deluxe Windows Blog",
+      "description": "Windows typically last 15–30 years depending on material, climate, and maintenance. Learn when to replace your Bay Area windows and how to extend their lifespan.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6880fbfbc5faaa597dbffac8_cj-joW0X7sWNfA-unsplash%201.jpg",
+      "type": "article"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "BlogPosting",
+    "data": {
+      "name": "How Long Do Windows Last?",
+      "headline": "How Long Do Windows Last?",
+      "date_published": "2026-03-24T05:43:04.253Z",
+      "date_modified": "2026-03-23T18:46:43.513Z"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

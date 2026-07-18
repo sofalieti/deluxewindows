@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "key": "window-replacement/oakland",
+  "path": "/window-replacement/oakland",
+  "seo": {
+    "title": "Oakland Window Replacement | Deluxe Windows",
+    "description": "Window replacement in Oakland, Alameda County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+    "canonical": "https://www.deluxewindows.com/window-replacement/oakland",
+    "og": {
+      "title": "Oakland Window Replacement | Deluxe Windows",
+      "description": "Window replacement in Oakland, Alameda County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "How much does window replacement cost in Oakland?",
+      "answer": "Oakland homeowners typically invest $6,500 to $16,000 for a full window replacement project. This large and diverse city spans everything from the bungalows of Temescal and Rockridge — often requiring custom sizing — to mid-century ranches in Sequoyah Hills and newer homes in the Oakland Hills. Higher-end neighborhoods like Piedmont Avenue and Montclair typically see projects in the $10,000–$20,000 range. Single window installation starts at approximately $550."
+    },
+    {
+      "question": "Do I need a permit for window replacement in Oakland?",
+      "answer": "Yes. Oakland requires a building permit for window replacements. Properties designated as Oakland Heritage Properties or located in historic districts may require additional review. Our team manages all permit applications with the City of Oakland Building Services Division on your behalf."
+    },
+    {
+      "question": "Which window brands does Deluxe Windows install in Oakland?",
+      "answer": "Oakland's diverse market calls for a wide range of products. We most frequently install Milgard Tuscany vinyl for cost-effective replacements throughout the city, Andersen 400-Series for Craftsman and Victorian homes in Rockridge and Elmwood, and Milgard Ultra fiberglass for hillside homes in the Oakland Hills."
+    },
+    {
+      "question": "Does Deluxe Windows serve all Oakland neighborhoods?",
+      "answer": "Yes — we serve all Oakland neighborhoods including Rockridge, Temescal, Montclair, Fruitvale, Oakland Hills, Sequoyah, Glenview, Lakeshore, and Adams Point. We cover all zip codes: 94601–94621."
+    }
+  ],
+  "schema": {
+    "primary_type": "Service",
+    "data": {
+      "name": "Window Replacement in Oakland",
+      "area_served": "Oakland"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

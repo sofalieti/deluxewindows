@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/east-2000-series",
+  "path": "/brand-collections/east-2000-series",
+  "seo": {
+    "title": "East 2000 Series Windows | Deluxe Windows Vacaville",
+    "description": "Explore the East 2000 Series windows at Deluxe Windows. Reliable performance for Bay Area homeowners with expert installation in San Francisco. Request a free estimate.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/east-2000-series",
+    "og": {
+      "title": "East 2000 Series Windows | Deluxe Windows Vacaville",
+      "description": "Explore the East 2000 Series windows at Deluxe Windows. Reliable performance for Bay Area homeowners with expert installation in San Francisco. Request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695e3442aebc509b3b05a47b_ZD_uiqgm.webp",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "East 2000 Series"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

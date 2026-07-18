@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-andersen-a-series",
+  "path": "/brand-collections/brand-andersen-a-series",
+  "seo": {
+    "title": "Andersen A-Series | Deluxe Windows Mountain View",
+    "description": "The Andersen A-Series offers fully custom wood window solutions for Bay Area homes. Explore options with Deluxe Windows in San Francisco. Request a free estimate.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-andersen-a-series",
+    "og": {
+      "title": "Andersen A-Series | Deluxe Windows Mountain View",
+      "description": "The Andersen A-Series offers fully custom wood window solutions for Bay Area homes. Explore options with Deluxe Windows in San Francisco. Request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6952469c0a8bd2226ccd585a_a-series-new-hero-image-768x450.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "A-Series"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

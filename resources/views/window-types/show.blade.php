@@ -5,13 +5,6 @@
 @section('wfItemSlug', $slug)
 @section('htmlClass', '')
 @section('bodyClass', 'body-21')
-@section('title', $seoTitle . ' | Deluxe Windows')
-@section('metaDescription', $seoDescription)
-@section('ogTitle', $ogTitle)
-@section('ogDescription', $ogDescription)
-@if($ogImage)
-@section('ogImage', $ogImage)
-@endif
 
 @section('content')
     @include('partials.hero', [

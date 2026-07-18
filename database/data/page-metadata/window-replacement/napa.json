@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "key": "window-replacement/napa",
+  "path": "/window-replacement/napa",
+  "seo": {
+    "title": "Napa Window Replacement | Deluxe Windows",
+    "description": "Window replacement in Napa, Napa County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+    "canonical": "https://www.deluxewindows.com/window-replacement/napa",
+    "og": {
+      "title": "Napa Window Replacement | Deluxe Windows",
+      "description": "Window replacement in Napa, Napa County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "How much does window replacement cost in Napa?",
+      "answer": "Napa homeowners typically invest $5,500 to $14,000 for a full window replacement project covering 10–16 windows. Downtown Napa's historic Victorian and Craftsman homes may require custom sizing, while the First Street and Wine Country neighborhoods feature newer premium builds. Estate properties on Atlas Peak and Mount Veeder can see projects in the $20,000–$40,000 range."
+    },
+    {
+      "question": "Do I need a permit for window replacement in Napa?",
+      "answer": "Yes. Napa requires a building permit for window replacements. Properties in the Downtown Historic District may also need design review to ensure that replacements are compatible with the historic character of the building. Our team manages all permit and review applications on your behalf."
+    },
+    {
+      "question": "Which window brands does Deluxe Windows install in Napa?",
+      "answer": "For Napa's wine country market, we most frequently install Marvin Elevate for estate homes and premium wine country properties, Andersen 400-Series for historic downtown homes, and Milgard Tuscany vinyl for suburban neighborhoods throughout the city."
+    },
+    {
+      "question": "Does Deluxe Windows serve all Napa neighborhoods?",
+      "answer": "Yes — we serve all Napa neighborhoods including Downtown, Browns Valley, Silverado Trail estates, South Napa, and all zip codes: 94558, 94559."
+    }
+  ],
+  "schema": {
+    "primary_type": "Service",
+    "data": {
+      "name": "Window Replacement in Napa",
+      "area_served": "Napa"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

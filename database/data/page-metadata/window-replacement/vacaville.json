@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "key": "window-replacement/vacaville",
+  "path": "/window-replacement/vacaville",
+  "seo": {
+    "title": "Vacaville Window Replacement | Deluxe Windows",
+    "description": "Window replacement in Vacaville, Solano County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+    "canonical": "https://www.deluxewindows.com/window-replacement/vacaville",
+    "og": {
+      "title": "Vacaville Window Replacement | Deluxe Windows",
+      "description": "Window replacement in Vacaville, Solano County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "How much does window replacement cost in Vacaville?",
+      "answer": "Vacaville homeowners typically invest $4,500 to $10,500 for a full window replacement project covering 10–16 windows. This growing Solano County city features a range of 1970s ranch homes and master-planned newer communities. Standard sizing in newer subdivisions makes for efficient projects. Single window installation starts at approximately $440."
+    },
+    {
+      "question": "Do I need a permit for window replacement in Vacaville?",
+      "answer": "Yes. Vacaville requires a building permit for window replacements. Our team handles all permit applications with the City of Vacaville Building Division on your behalf."
+    },
+    {
+      "question": "Which window brands does Deluxe Windows install in Vacaville?",
+      "answer": "Given Vacaville's extreme summer heat — regularly 100°F+ — we most frequently install Anlin Del Mar triple-pane for superior solar heat gain control, Milgard Tuscany vinyl for cost-effective whole-home replacements, and Simonton for budget-conscious full-home projects."
+    },
+    {
+      "question": "Does Deluxe Windows serve all Vacaville neighborhoods?",
+      "answer": "Yes — we serve all Vacaville neighborhoods including Browns Valley, Leisure Town, Foxboro, and Vanden. Zip codes: 95687, 95688."
+    }
+  ],
+  "schema": {
+    "primary_type": "Service",
+    "data": {
+      "name": "Window Replacement in Vacaville",
+      "area_served": "Vacaville"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

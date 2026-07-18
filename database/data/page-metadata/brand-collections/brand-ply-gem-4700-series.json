@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-ply-gem-4700-series",
+  "path": "/brand-collections/brand-ply-gem-4700-series",
+  "seo": {
+    "title": "Ply Gem 4700 Series | Deluxe Windows Belmont",
+    "description": "Ply Gem 4700 Series vinyl windows offer premium performance for Bay Area homes. Explore at Deluxe Windows in San Francisco. Request a free installation estimate today.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-ply-gem-4700-series",
+    "og": {
+      "title": "Ply Gem 4700 Series | Deluxe Windows Belmont",
+      "description": "Ply Gem 4700 Series vinyl windows offer premium performance for Bay Area homes. Explore at Deluxe Windows in San Francisco. Request a free installation estimate today.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695b81391ea6ab8336fc96e0_68924d9acbde722a4adeea89_rjHKa7SO.jpeg",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "4700 Series"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

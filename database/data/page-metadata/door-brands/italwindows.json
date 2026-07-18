@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "key": "door-brands/italwindows",
+  "path": "/door-brands/italwindows",
+  "seo": {
+    "title": "Italwindows Doors | Deluxe Windows",
+    "description": "Italwindows brings contemporary European engineering to the Bay Area with sleek aluminum door systems. Their large sliding and folding doors create seamless indoor-outdoor…",
+    "canonical": "https://www.deluxewindows.com/door-brands/italwindows",
+    "og": {
+      "title": "Italwindows Doors | Deluxe Windows",
+      "description": "Italwindows brings contemporary European engineering to the Bay Area with sleek aluminum door systems. Their large sliding and folding doors create seamless indoor-outdoor…",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a7489b613e7a9f3424dcf_italwindows.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "What makes Italwindows doors unique?",
+      "answer": "Italwindows offers European-engineered aluminum door systems with slim sightlines and large glass areas — perfect for a modern look and seamless indoor-outdoor living."
+    },
+    {
+      "question": "Are Italwindows doors energy efficient?",
+      "answer": "Yes. Their systems use thermally broken aluminum and high-performance glass for strong thermal and acoustic performance."
+    },
+    {
+      "question": "Can Italwindows doors span large openings?",
+      "answer": "Absolutely — Italwindows specializes in large sliding and folding door systems that open up wide spaces while maintaining durability and smooth operation."
+    },
+    {
+      "question": "Do you install Italwindows doors in the Bay Area?",
+      "answer": "Yes. Deluxe Windows handles measurement and professional installation of Italwindows door systems throughout the Bay Area."
+    }
+  ],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Italwindows Doors",
+      "brand": "Italwindows"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

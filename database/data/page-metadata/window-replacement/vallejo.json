@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "key": "window-replacement/vallejo",
+  "path": "/window-replacement/vallejo",
+  "seo": {
+    "title": "Vallejo Window Replacement | Deluxe Windows",
+    "description": "Window replacement in Vallejo, Solano County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+    "canonical": "https://www.deluxewindows.com/window-replacement/vallejo",
+    "og": {
+      "title": "Vallejo Window Replacement | Deluxe Windows",
+      "description": "Window replacement in Vallejo, Solano County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "How much does window replacement cost in Vallejo?",
+      "answer": "Vallejo homeowners typically invest $4,000 to $9,500 for a full window replacement project covering 10–15 windows. This Solano County city features a diverse housing stock from Victorian-era homes in the historic Glen Cove and Tergeson neighborhoods to 1960s–1980s ranches throughout the city. Custom sizing for older Victorian homes adds modest cost. Single window installation starts at approximately $400."
+    },
+    {
+      "question": "Do I need a permit for window replacement in Vallejo?",
+      "answer": "Yes. Vallejo requires a building permit for window replacements. Our team handles all permit applications with the City of Vallejo Building Division on your behalf."
+    },
+    {
+      "question": "Which window brands does Deluxe Windows install in Vallejo?",
+      "answer": "For Vallejo's Bay-front exposure and wide market range, we most frequently install Milgard Ultra fiberglass for homes near the Bay and waterfront with salt-air exposure, Milgard Tuscany vinyl for cost-effective replacements throughout the city, and Simonton for budget-conscious full-home projects."
+    },
+    {
+      "question": "Does Deluxe Windows serve all Vallejo neighborhoods?",
+      "answer": "Yes — we serve all Vallejo neighborhoods including Glen Cove, Tergeson, Hiddenbrooke, South Vallejo, and the Mare Island corridor. Zip codes: 94590, 94591, 94592."
+    }
+  ],
+  "schema": {
+    "primary_type": "Service",
+    "data": {
+      "name": "Window Replacement in Vallejo",
+      "area_served": "Vallejo"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-marvin-elevate-collection",
+  "path": "/brand-collections/brand-marvin-elevate-collection",
+  "seo": {
+    "title": "Marvin Elevate Collection Series | Deluxe Windows Walnut Creek",
+    "description": "Marvin Elevate combines wood interiors with fiberglass exteriors for Bay Area homes. Explore the Elevate Collection at Deluxe Windows in San Francisco. Free estimates.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-marvin-elevate-collection",
+    "og": {
+      "title": "Marvin Elevate Collection Series | Deluxe Windows Walnut Creek",
+      "description": "Marvin Elevate combines wood interiors with fiberglass exteriors for Bay Area homes. Explore the Elevate Collection at Deluxe Windows in San Francisco. Free estimates.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688512e4c00d6d6ea0fc8212_PROD_Marvin_ElevateBi-FoldDoor.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "Elevate Collection"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-simonton-6500",
+  "path": "/brand-collections/brand-simonton-6500",
+  "seo": {
+    "title": "6500 | Deluxe Windows",
+    "description": "The ultimate in style and performance, the 6500 collection is Simonton’s premier window line. With many customization options available, create the perfect window for your home.…",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-simonton-6500",
+    "og": {
+      "title": "6500 | Deluxe Windows",
+      "description": "The ultimate in style and performance, the 6500 collection is Simonton’s premier window line. With many customization options available, create the perfect window for your home.…",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/69675de5eb5396dcba750b12_6500.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "6500"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

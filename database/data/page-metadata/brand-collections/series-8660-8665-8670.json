@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/series-8660-8665-8670",
+  "path": "/brand-collections/series-8660-8665-8670",
+  "seo": {
+    "title": "Series 8660/8665/8670 | Deluxe Windows",
+    "description": "With narrow sightlines, low U-factors, and outstanding performance ratings, Western Window Systems’ Vantage Line Windows provides form and functionality for even the most demanding…",
+    "canonical": "https://www.deluxewindows.com/brand-collections/series-8660-8665-8670",
+    "og": {
+      "title": "Series 8660/8665/8670 | Deluxe Windows",
+      "description": "With narrow sightlines, low U-factors, and outstanding performance ratings, Western Window Systems’ Vantage Line Windows provides form and functionality for even the most demanding…",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/697fc8c47a8c5617d90bf29b_WWS-Series-8660-Awning-Window-Edited%20(1).jpg",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "Series 8660/8665/8670"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

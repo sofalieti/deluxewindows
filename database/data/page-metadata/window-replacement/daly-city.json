@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "key": "window-replacement/daly-city",
+  "path": "/window-replacement/daly-city",
+  "seo": {
+    "title": "Daly City Window Replacement | Deluxe Windows",
+    "description": "Window replacement in Daly City, San Mateo County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+    "canonical": "https://www.deluxewindows.com/window-replacement/daly-city",
+    "og": {
+      "title": "Daly City Window Replacement | Deluxe Windows",
+      "description": "Window replacement in Daly City, San Mateo County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "How much does window replacement cost in Daly City?",
+      "answer": "Daly City homeowners typically invest $5,000 to $11,000 for a full window replacement project covering 10–14 windows. The city's dense rows of 1950s–1970s stucco homes — many still with original aluminum sliders — offer some of the most efficient replacement projects in San Mateo County. Single window installation starts at approximately $450."
+    },
+    {
+      "question": "Do I need a permit for window replacement in Daly City?",
+      "answer": "Yes. Daly City requires a building permit for window replacement. Our team handles all permit applications and coordinates with the City of Daly City Building Division on your behalf."
+    },
+    {
+      "question": "Which window brands does Deluxe Windows install in Daly City?",
+      "answer": "For Daly City's dense residential neighborhoods and foggy coastal climate, we most frequently install Milgard Tuscany vinyl for its durability and competitive pricing, Simonton for budget-conscious full-home replacements, and Anlin Del Mar for homeowners looking to upgrade to triple-pane performance and condensation resistance."
+    },
+    {
+      "question": "Does Deluxe Windows serve all Daly City neighborhoods?",
+      "answer": "Yes — we serve all Daly City neighborhoods including Westlake, Serramonte, Crocker, Bayshore, St. Francis Heights, and all of Daly City's zip codes: 94014, 94015, 94016."
+    }
+  ],
+  "schema": {
+    "primary_type": "Service",
+    "data": {
+      "name": "Window Replacement in Daly City",
+      "area_served": "Daly City"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

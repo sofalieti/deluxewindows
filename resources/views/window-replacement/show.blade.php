@@ -4,17 +4,6 @@
 @section('wfCollection', '69ce7898d019bc268b4bb9ca')
 @section('wfItemSlug', $slug)
 @section('bodyClass', 'body-19')
-@section('title', $metaTitle)
-@section('metaDescription', $metaDescription)
-@if($heroImage)
-@section('ogImage', $heroImage)
-@endif
-
-@section('head')
-    @foreach($schemaScripts as $schemaJson)
-    <script type="application/ld+json">{!! $schemaJson !!}</script>
-    @endforeach
-@endsection
 
 @section('content')
     @include('partials.service-area-hero', [
@@ -63,8 +52,6 @@
         </div>
       </div>
     </section>
-
-    @include('partials.service-area-faq', ['faqs' => $faqs])
 
     @include('partials.county-hub-bottom-cta', ['ctaLocationLabel' => $cityName])
 

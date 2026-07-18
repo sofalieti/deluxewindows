@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "key": "window-replacement/south-san-francisco",
+  "path": "/window-replacement/south-san-francisco",
+  "seo": {
+    "title": "South San Francisco Window Replacement | Deluxe Windows",
+    "description": "Window replacement in South San Francisco, San Mateo County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+    "canonical": "https://www.deluxewindows.com/window-replacement/south-san-francisco",
+    "og": {
+      "title": "South San Francisco Window Replacement | Deluxe Windows",
+      "description": "Window replacement in South San Francisco, San Mateo County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "How much does window replacement cost in South San Francisco?",
+      "answer": "South San Francisco homeowners typically invest $5,500 to $12,000 for a full window replacement project covering 10–15 windows. This Peninsula city's 1950s–1970s ranch homes and split-levels throughout Buri Buri and Westborough offer efficient standard-sized replacement projects. Single window installation starts at approximately $490."
+    },
+    {
+      "question": "Do I need a permit for window replacement in South San Francisco?",
+      "answer": "Yes. South San Francisco requires a building permit for window replacements. Our team manages all permit applications with the City of South San Francisco Building Division on your behalf."
+    },
+    {
+      "question": "Which window brands does Deluxe Windows install in South San Francisco?",
+      "answer": "For South San Francisco's coastal suburban market, we most frequently install Milgard Tuscany vinyl for cost-effective whole-home replacements, Simonton for budget-conscious full-home projects, and Anlin Del Mar for homeowners looking to maximize energy performance in the coastal climate."
+    },
+    {
+      "question": "Does Deluxe Windows serve all South San Francisco neighborhoods?",
+      "answer": "Yes — we serve all South San Francisco neighborhoods including Buri Buri, Westborough, Sign Hill, Paradise Valley, and all zip codes: 94080."
+    }
+  ],
+  "schema": {
+    "primary_type": "Service",
+    "data": {
+      "name": "Window Replacement in South San Francisco",
+      "area_served": "South San Francisco"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "key": "window-replacement/richmond",
+  "path": "/window-replacement/richmond",
+  "seo": {
+    "title": "Richmond Window Replacement | Deluxe Windows",
+    "description": "Window replacement in Richmond, Contra Costa County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+    "canonical": "https://www.deluxewindows.com/window-replacement/richmond",
+    "og": {
+      "title": "Richmond Window Replacement | Deluxe Windows",
+      "description": "Window replacement in Richmond, Contra Costa County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "How much does window replacement cost in Richmond?",
+      "answer": "Richmond homeowners typically invest $4,000 to $9,000 for a full window replacement project covering 10–15 windows. This East Bay city features a mix of Victorian-era homes in Point Richmond, post-war ranch homes throughout the flats, and newer developments. Point Richmond's historic properties may require custom sizing. Single window installation starts at approximately $400."
+    },
+    {
+      "question": "Do I need a permit for window replacement in Richmond?",
+      "answer": "Yes. Richmond requires a building permit for window replacements. Properties in the Point Richmond Historic District may require additional review. Our team handles all permit applications with the City of Richmond Building Services Division on your behalf."
+    },
+    {
+      "question": "Which window brands does Deluxe Windows install in Richmond?",
+      "answer": "For Richmond's diverse market and coastal exposure, we most frequently install Milgard Ultra fiberglass for salt-air resistance in coastal neighborhoods, Milgard Tuscany vinyl for cost-effective full-home replacements, and Simonton for budget-conscious projects throughout the city."
+    },
+    {
+      "question": "Does Deluxe Windows serve all Richmond neighborhoods?",
+      "answer": "Yes — we serve all Richmond neighborhoods including Point Richmond, Iron Triangle, Park Plaza, and Parchester Village. Zip codes: 94801, 94804, 94806."
+    }
+  ],
+  "schema": {
+    "primary_type": "Service",
+    "data": {
+      "name": "Window Replacement in Richmond",
+      "area_served": "Richmond"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

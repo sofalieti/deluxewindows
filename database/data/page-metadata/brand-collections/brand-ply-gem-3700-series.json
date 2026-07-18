@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-ply-gem-3700-series",
+  "path": "/brand-collections/brand-ply-gem-3700-series",
+  "seo": {
+    "title": "Ply Gem 3700 Series | Deluxe Windows Foster City",
+    "description": "Ply Gem 3700 Series vinyl windows offer enhanced construction for Bay Area replacement projects. Explore this series at Deluxe Windows in San Francisco. Free estimates.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-ply-gem-3700-series",
+    "og": {
+      "title": "Ply Gem 3700 Series | Deluxe Windows Foster City",
+      "description": "Ply Gem 3700 Series vinyl windows offer enhanced construction for Bay Area replacement projects. Explore this series at Deluxe Windows in San Francisco. Free estimates.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695b8139b48a893c5bc18e56_68924dea2062a164af05f992_cor25_home_builders_blitz_habitat-Photos_27_0525_v1.jpeg",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "3700 Series"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "doors/wood-doors",
+  "path": "/doors/wood-doors",
+  "seo": {
+    "title": "Wood Doors | Classic Entry Doors – Deluxe Windows Hayward",
+    "description": "Add timeless character to your home with custom wood doors from Deluxe Windows. Expert wood door installation for San Francisco and Bay Area properties. Free quotes.",
+    "canonical": "https://www.deluxewindows.com/doors/wood-doors",
+    "og": {
+      "title": "Wood Doors | Classic Entry Doors – Deluxe Windows Hayward",
+      "description": "Add timeless character to your home with custom wood doors from Deluxe Windows. Expert wood door installation for San Francisco and Bay Area properties. Free quotes.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6841ddf8ace3d9d9facb1a8b_heres-how-decorate-your-new-home-thumbnail-v3-property-x-webflow-template.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Wood Doors"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

@@ -3,9 +3,6 @@
 @section('wfPage', '6841df5688ca2f74fd53ec90')
 @section('htmlClass', 'wf-loading w-mod-js wf-exo-n1-loading wf-exo-i1-loading wf-exo-n2-loading wf-exo-i2-loading wf-exo-n3-loading wf-exo-i3-loading wf-exo-n4-loading wf-exo-i4-loading wf-exo-n5-loading wf-exo-i5-loading wf-exo-n6-loading wf-exo-i6-loading wf-exo-n7-loading wf-exo-i7-loading wf-exo-n8-loading wf-exo-i8-loading wf-exo-n9-loading wf-exo-i9-loading w-mod-ix')
 @section('bodyClass', 'body-18 height-auto')
-@section('title', 'Deluxe Windows | Window Replacement – San Francisco Bay Area')
-@section('metaDescription', 'Upgrade your Bay Area home with energy-efficient windows. Deluxe Windows offers 20+ years of expert installation of vinyl, aluminum, fiberglass &amp; wood. Free quotes.')
-@section('ogImage', '/webflow-assets/images/684da952cef202b8dda5788c_Meta%20cover-2.jpg')
 
 @section('head')
     <style rel="stylesheet" type="text/css">
@@ -1030,111 +1027,6 @@
       }
     </style>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "HomeAndConstructionBusiness",
-  "name": "Deluxe Windows",
-  "url": "https://www.deluxewindows.com",
-  "telephone": "{{ site_phone_tel() }}",
-  "description": "Premium window and door replacement for San Francisco Bay Area homes. 30+ years, 100% employee owned.",
-  "priceRange": "$$",
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "231",
-    "bestRating": "5"
-  },
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-            "opens": "08:00",
-            "closes": "18:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Saturday",
-            "opens": "09:00",
-            "closes": "15:00"
-    }
-  ],
-  "areaServed": {
-    "@type": "GeoCircle",
-    "geoMidpoint": {
-      "@type": "GeoCoordinates",
-            "latitude": 37.563,
-      "longitude": -122.0329
-    },
-    "geoRadius": "100000"
-  }
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "HomeAndConstructionBusiness",
-  "name": "Deluxe Windows",
-  "url": "https://www.deluxewindows.com",
-  "telephone": "{{ site_phone_tel() }}",
-  "description": "Premium window and door replacement for San Francisco Bay Area homes. 30+ years, 100% employee owned.",
-  "priceRange": "$$",
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "231",
-    "bestRating": "5"
-  },
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-            "opens": "08:00",
-            "closes": "18:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Saturday",
-            "opens": "09:00",
-            "closes": "15:00"
-    }
-  ],
-  "areaServed": {
-    "@type": "GeoCircle",
-    "geoMidpoint": {
-      "@type": "GeoCoordinates",
-            "latitude": 37.563,
-      "longitude": -122.0329
-    },
-    "geoRadius": "100000"
-  }
-}
-</script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "name": "Exterior & Entry Doors | Deluxe Windows – Bay Area",
-        "description": "Upgrade your home with secure, stylish exterior doors from Deluxe Windows. Expert door installation across San Francisco and the Bay Area. Request a free estimate today.",
-        "url": "https://www.deluxewindows.com/doors",
-        "image": "/webflow-assets/images/684da9f6a8d9aab7e88572b2_Meta%20cover-windows.jpg",
-        "publisher": { "@type": "Organization", "name": "Deluxe Windows", "url": "https://www.deluxewindows.com" },
-        "inLanguage": "en-US"
-      }
-</script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "name": "Deluxe Windows | Window Replacement – San Francisco Bay Area",
-        "description": "Upgrade your Bay Area home with energy-efficient windows. Deluxe Windows offers 20+ years of expert installation of vinyl, aluminum, fiberglass & wood. Free quotes.",
-        "url": "https://www.deluxewindows.com",
-        "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta%20cover-2.jpg",
-        "publisher": { "@type": "Organization", "name": "Deluxe Windows", "url": "https://www.deluxewindows.com" },
-        "inLanguage": "en-US"
-      }
-    </script>
     <script type="text/javascript">
       window.__WEBFLOW_CURRENCY_SETTINGS = {
         currencyCode: "USD",
@@ -1170,8 +1062,6 @@
     @include('partials.for-professionals')
 
     @include('partials.cta')
-
-    @include('partials.faq')
 
 @endsection
 

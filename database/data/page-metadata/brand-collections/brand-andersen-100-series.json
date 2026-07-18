@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-andersen-100-series",
+  "path": "/brand-collections/brand-andersen-100-series",
+  "seo": {
+    "title": "Andersen 100 Series | Deluxe Windows San Jose",
+    "description": "Explore the Andersen 100 Series at Deluxe Windows. Fibrex composite frames offer low-maintenance strength for Bay Area homes. Request a free installation estimate in SF.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-andersen-100-series",
+    "og": {
+      "title": "Andersen 100 Series | Deluxe Windows San Jose",
+      "description": "Explore the Andersen 100 Series at Deluxe Windows. Fibrex composite frames offer low-maintenance strength for Bay Area homes. Request a free installation estimate in SF.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/69523cb9cb53560bd37065bf_100-series-new-hero-image-768x450.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "100 Series"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

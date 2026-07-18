@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/fairfield-80-series-vinyl-windows",
+  "path": "/brand-collections/fairfield-80-series-vinyl-windows",
+  "seo": {
+    "title": "Fairfield 80 Series Vinyl Windows | Deluxe Windows",
+    "description": "When you choose Fairfield 80 Series Windows from Alside, you’ll enjoy beauty, performance and strength. Fairfield 80 Series Windows deliver energy-saving innovations while lending…",
+    "canonical": "https://www.deluxewindows.com/brand-collections/fairfield-80-series-vinyl-windows",
+    "og": {
+      "title": "Fairfield 80 Series Vinyl Windows | Deluxe Windows",
+      "description": "When you choose Fairfield 80 Series Windows from Alside, you’ll enjoy beauty, performance and strength. Fairfield 80 Series Windows deliver energy-saving innovations while lending…",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/696dce5298aa12e35e03cb31_Alside_Fairfield80_ExteriorBeauty-scaled.jpeg",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "Fairfield 80 Series Vinyl Windows"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

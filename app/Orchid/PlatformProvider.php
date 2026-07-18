@@ -118,6 +118,10 @@ class PlatformProvider extends OrchidServiceProvider
                 ->icon('bs.inbox')
                 ->route('platform.leads'),
 
+            Menu::make('Content datasets')
+                ->icon('bs.database')
+                ->route('platform.content-datasets'),
+
             Menu::make('Sitemap.xml')
                 ->icon('bs.file-earmark-code')
                 ->route('platform.sitemap'),

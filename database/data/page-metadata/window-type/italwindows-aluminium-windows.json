@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "window-type/italwindows-aluminium-windows",
+  "path": "/window-type/italwindows-aluminium-windows",
+  "seo": {
+    "title": "Italwindows Aluminum Windows | Deluxe Windows Los Gatos",
+    "description": "Italwindows aluminum windows bring European precision and modern design to Bay Area homes. Installed by Deluxe Windows in San Francisco. Request a free estimate today.",
+    "canonical": "https://www.deluxewindows.com/window-type/italwindows-aluminium-windows",
+    "og": {
+      "title": "Italwindows Aluminum Windows | Deluxe Windows Los Gatos",
+      "description": "Italwindows aluminum windows bring European precision and modern design to Bay Area homes. Installed by Deluxe Windows in San Francisco. Request a free estimate today.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f575c9dc2bb9ca5d4a3b0_unnamed.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Italwindows Aluminum Windows"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

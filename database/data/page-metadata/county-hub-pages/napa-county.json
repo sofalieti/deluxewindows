@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "county-hub-pages/napa-county",
+  "path": "/county-hub-pages/napa-county",
+  "seo": {
+    "title": "Napa County Window Replacement | Deluxe Windows",
+    "description": "Napa County replacement windows: heritage-friendly options, modern efficiency, pro installation. Deluxe Windows helps you plan phases and budgets—call now.",
+    "canonical": "https://www.deluxewindows.com/county-hub-pages/napa-county",
+    "og": {
+      "title": "Napa County Window Replacement | Deluxe Windows",
+      "description": "Napa County replacement windows: heritage-friendly options, modern efficiency, pro installation. Deluxe Windows helps you plan phases and budgets—call now.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/69fc954e7b9bf04407ae45c1_generated-2026-05-07t13-34-51-004z-ecgdpc.jpeg",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "Napa County"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

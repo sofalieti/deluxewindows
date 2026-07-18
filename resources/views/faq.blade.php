@@ -1,9 +1,7 @@
 @extends('layouts.classic')
 
 @section('wfPage', '684d99edd99a23e6749ec7b8')
-@section('title', $seoTitle)
-@section('metaDescription', $seoDescription)
-@section('ogImage', $ogImage)
+@section('metadataFaqRendered', '1')
 
 @section('content')
       <section class="section-card-wrapper top page-intro-hero">
@@ -29,28 +27,22 @@
           <div class="grid-2-columns template-page-sidebar">
             <div class="card template-pages---sticky-card">
               <ul role="list" class="template-pages---sidebar-navigation w-list-unstyled">
-                @foreach($navItems as $item)
+                @foreach($pageMetadata->faq as $index => $item)
                 <li class="template-pages---nav-item-wrapper">
-                  <a href="#{{ $item['id'] }}" class="template-pages---nav-item-link">{{ $item['label'] }}</a>
+                  <a href="#faq-{{ $index + 1 }}" class="template-pages---nav-item-link">{{ $item['question'] }}</a>
                 </li>
                 @endforeach
               </ul>
             </div>
 
             <div class="card template-pages---text-card">
-              @foreach($sections as $sectionIndex => $section)
+              @foreach($pageMetadata->faq as $sectionIndex => $item)
               @if($sectionIndex > 0)
               <div class="divider mg-large"></div>
               @endif
-              <div id="{{ $section['id'] }}">
-                <h2 class="mg-bottom-small">{{ $section['title'] }}</h2>
-                @foreach($section['blocks'] as $block)
-                @if($block['tag'] === 'h4')
-                <h4 class="{{ $block['class'] ?? '' }}">{!! $block['html'] !!}</h4>
-                @else
-                <{{ $block['tag'] }} class="{{ $block['class'] ?? '' }}">{!! $block['html'] !!}</{{ $block['tag'] }}>
-                @endif
-                @endforeach
+              <div id="faq-{{ $sectionIndex + 1 }}">
+                <h2 class="mg-bottom-small">{{ $item['question'] }}</h2>
+                <p class="mg-bottom-default">{{ $item['answer'] }}</p>
               </div>
               @endforeach
             </div>

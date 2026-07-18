@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "key": "window-replacement/san-rafael",
+  "path": "/window-replacement/san-rafael",
+  "seo": {
+    "title": "San Rafael Window Replacement | Deluxe Windows",
+    "description": "Window replacement in San Rafael, Marin County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+    "canonical": "https://www.deluxewindows.com/window-replacement/san-rafael",
+    "og": {
+      "title": "San Rafael Window Replacement | Deluxe Windows",
+      "description": "Window replacement in San Rafael, Marin County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "How much does window replacement cost in San Rafael?",
+      "answer": "San Rafael homeowners typically invest $6,000 to $15,000 for a full window replacement project. Marin County's largest city offers a wide range of housing types — from Canal District apartments to Terra Linda ranches to Dominican hillside estates. Dominican and Glenwood neighborhoods typically see projects in the $10,000–$18,000 range. Single window installation starts at approximately $550."
+    },
+    {
+      "question": "Do I need a permit for window replacement in San Rafael?",
+      "answer": "Yes. San Rafael requires a building permit for window replacements. Historic properties near the downtown corridor may require design review. Our team handles all permit applications with the City of San Rafael Building Division on your behalf."
+    },
+    {
+      "question": "Which window brands does Deluxe Windows install in San Rafael?",
+      "answer": "For San Rafael's diverse Marin County market, we most frequently install Milgard Ultra fiberglass for moisture resistance throughout the Bay-side climate, Andersen 400-Series for Dominican and hillside properties, and Milgard Tuscany vinyl for the Canal District and Terra Linda neighborhoods."
+    },
+    {
+      "question": "Does Deluxe Windows serve all San Rafael neighborhoods?",
+      "answer": "Yes — we serve all San Rafael neighborhoods including Dominican, Terra Linda, Glenwood, Canal District, and North San Rafael. Zip codes: 94901, 94903."
+    }
+  ],
+  "schema": {
+    "primary_type": "Service",
+    "data": {
+      "name": "Window Replacement in San Rafael",
+      "area_served": "San Rafael"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

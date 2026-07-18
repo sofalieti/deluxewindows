@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-andersen-e-series",
+  "path": "/brand-collections/brand-andersen-e-series",
+  "seo": {
+    "title": "Andersen E-Series | Deluxe Windows Palo Alto",
+    "description": "Andersen E-Series windows offer unlimited custom clad-wood configurations for Bay Area homes. Explore all options with Deluxe Windows in San Francisco. Free estimates.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-andersen-e-series",
+    "og": {
+      "title": "Andersen E-Series | Deluxe Windows Palo Alto",
+      "description": "Andersen E-Series windows offer unlimited custom clad-wood configurations for Bay Area homes. Explore all options with Deluxe Windows in San Francisco. Free estimates.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695242d98255eb35a0f940ea_e-series-new-hero-image-768x450.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "E-Series"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

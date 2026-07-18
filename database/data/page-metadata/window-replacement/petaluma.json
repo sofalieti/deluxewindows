@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "key": "window-replacement/petaluma",
+  "path": "/window-replacement/petaluma",
+  "seo": {
+    "title": "Petaluma Window Replacement | Deluxe Windows",
+    "description": "Window replacement in Petaluma, Sonoma County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+    "canonical": "https://www.deluxewindows.com/window-replacement/petaluma",
+    "og": {
+      "title": "Petaluma Window Replacement | Deluxe Windows",
+      "description": "Window replacement in Petaluma, Sonoma County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "How much does window replacement cost in Petaluma?",
+      "answer": "Petaluma homeowners typically invest $5,000 to $12,000 for a full window replacement project covering 10–16 windows. This growing Sonoma County community features a blend of historic Victorian homes in the East Side district, older ranch homes, and newer planned communities. Custom sizing for Victorian homes adds to cost. Single window installation starts at approximately $480."
+    },
+    {
+      "question": "Do I need a permit for window replacement in Petaluma?",
+      "answer": "Yes. Petaluma requires a building permit for window replacements. Properties in the East Washington Street Historic District or near the downtown core may require design review. Our team handles all permit applications on your behalf."
+    },
+    {
+      "question": "Which window brands does Deluxe Windows install in Petaluma?",
+      "answer": "For Petaluma's mixed-market Sonoma County profile, we most frequently install Milgard Tuscany vinyl for cost-effective replacements, Andersen 400-Series for Victorian-era homes in the historic district, and Simonton for budget-conscious full-home projects."
+    },
+    {
+      "question": "Does Deluxe Windows serve all Petaluma neighborhoods?",
+      "answer": "Yes — we serve all Petaluma neighborhoods including the East Side Historic District, Deer Creek Village, South Petaluma, and Westridge. Zip codes: 94952, 94954."
+    }
+  ],
+  "schema": {
+    "primary_type": "Service",
+    "data": {
+      "name": "Window Replacement in Petaluma",
+      "area_served": "Petaluma"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

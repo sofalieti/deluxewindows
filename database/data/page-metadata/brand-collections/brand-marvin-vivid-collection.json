@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-marvin-vivid-collection",
+  "path": "/brand-collections/brand-marvin-vivid-collection",
+  "seo": {
+    "title": "Marvin Vivid Collection Series | Deluxe Windows Dublin",
+    "description": "Marvin Vivid Collection is designed for transitional to contemporary Bay Area architecture. Bold profiles — explore at Deluxe Windows in San Francisco. Free estimates.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-marvin-vivid-collection",
+    "og": {
+      "title": "Marvin Vivid Collection Series | Deluxe Windows Dublin",
+      "description": "Marvin Vivid Collection is designed for transitional to contemporary Bay Area architecture. Bold profiles — explore at Deluxe Windows in San Francisco. Free estimates.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/693ecf23904413aab59d839a_69146a875befaae2c0971daf_filtersquality100filltransparent.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "Vivid Collection"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

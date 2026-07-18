@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/vero-tm-vinyl-windows---true-quality-true-value",
+  "path": "/brand-collections/vero-tm-vinyl-windows---true-quality-true-value",
+  "seo": {
+    "title": "Vero™ Vinyl Windows – True Quality • True Value | Deluxe Windows",
+    "description": "Bring enduring quality and everyday convenience together with Vero. Designed for long-lasting performance, these double-hung windows combine energy efficiency, low maintenance, and…",
+    "canonical": "https://www.deluxewindows.com/brand-collections/vero-tm-vinyl-windows---true-quality-true-value",
+    "og": {
+      "title": "Vero™ Vinyl Windows – True Quality • True Value | Deluxe Windows",
+      "description": "Bring enduring quality and everyday convenience together with Vero. Designed for long-lasting performance, these double-hung windows combine energy efficiency, low maintenance, and…",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/69735d8727785267d310c940_vero-cvr-image-730x380-2x-1024x533.jpg",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "Vero™ Vinyl Windows – True Quality • True Value"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

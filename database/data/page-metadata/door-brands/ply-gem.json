@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "key": "door-brands/ply-gem",
+  "path": "/door-brands/ply-gem",
+  "seo": {
+    "title": "Ply Gem Doors | Deluxe Windows",
+    "description": "Ply Gem is a trusted name in value-focused doors, offering durable vinyl patio doors that deliver dependable insulation and easy operation. They're a smart choice for homeowners…",
+    "canonical": "https://www.deluxewindows.com/door-brands/ply-gem",
+    "og": {
+      "title": "Ply Gem Doors | Deluxe Windows",
+      "description": "Ply Gem is a trusted name in value-focused doors, offering durable vinyl patio doors that deliver dependable insulation and easy operation. They're a smart choice for homeowners…",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a756ee649c541284c8b78_Plygem.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "Are Ply Gem doors a good value?",
+      "answer": "Yes. Ply Gem focuses on dependable performance and energy efficiency at an affordable price, making it a popular choice for budget-conscious replacement projects."
+    },
+    {
+      "question": "Are Ply Gem patio doors energy efficient?",
+      "answer": "Ply Gem doors use insulated Low-E glass and durable vinyl frames that help reduce energy loss and keep your home comfortable."
+    },
+    {
+      "question": "Are Ply Gem doors low maintenance?",
+      "answer": "Yes. Their vinyl frames never need painting and are easy to clean, so they stay looking good with minimal upkeep."
+    },
+    {
+      "question": "Do you install Ply Gem doors in the Bay Area?",
+      "answer": "Yes. Deluxe Windows professionally measures and installs Ply Gem doors throughout the Bay Area."
+    }
+  ],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Ply Gem Doors",
+      "brand": "Ply Gem"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "window-type/all-weather-architectural-aluminum-windows",
+  "path": "/window-type/all-weather-architectural-aluminum-windows",
+  "seo": {
+    "title": "All Weather Aluminum Windows | Deluxe Windows San Jose",
+    "description": "All Weather Architectural Aluminum windows offer commercial-grade strength for Bay Area homes and businesses. Installed by Deluxe Windows in San Francisco. Free estimates.",
+    "canonical": "https://www.deluxewindows.com/window-type/all-weather-architectural-aluminum-windows",
+    "og": {
+      "title": "All Weather Aluminum Windows | Deluxe Windows San Jose",
+      "description": "All Weather Architectural Aluminum windows offer commercial-grade strength for Bay Area homes and businesses. Installed by Deluxe Windows in San Francisco. Free estimates.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f7a439c92801291cc058e_all-weather-windows2x-1024x658.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "All Weather Architectural Aluminum Windows"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

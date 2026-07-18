@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-ply-gem-mira-series",
+  "path": "/brand-collections/brand-ply-gem-mira-series",
+  "seo": {
+    "title": "Ply Gem MIRA Series | Deluxe Windows Vallejo",
+    "description": "Ply Gem MIRA Series features narrow frames and expansive glass for modern Bay Area homes. Explore at Deluxe Windows in San Francisco. Request a free installation estimate.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-ply-gem-mira-series",
+    "og": {
+      "title": "Ply Gem MIRA Series | Deluxe Windows Vallejo",
+      "description": "Ply Gem MIRA Series features narrow frames and expansive glass for modern Bay Area homes. Explore at Deluxe Windows in San Francisco. Request a free installation estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695e00a375e654f6496bc79b_imgi_78_PGW_Interior_LivingRoom_MIRA_AwningWindow_Black_InspirationGallery_Module_6_1696x610_p32.jpg",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "MIRA Series"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

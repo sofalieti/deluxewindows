@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-simonton-comfortsmart",
+  "path": "/brand-collections/brand-simonton-comfortsmart",
+  "seo": {
+    "title": "ComfortSmart | Deluxe Windows",
+    "description": "Narrow frame windows that provide expansive views with a wide selection of styles, designer colors and advanced energy-efficient options.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-simonton-comfortsmart",
+    "og": {
+      "title": "ComfortSmart | Deluxe Windows",
+      "description": "Narrow frame windows that provide expansive views with a wide selection of styles, designer colors and advanced energy-efficient options.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6964b7b65d639efc196732f7_689afacdca933e2895385616_sim_comfortsmart_collection_interior_white_3_lite_sliding_window-5050-Img.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "ComfortSmart"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

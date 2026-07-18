@@ -3,32 +3,8 @@
 @section('wfPage', '')
 @section('htmlClass', '')
 @section('bodyClass', 'body-18 height-auto window-detail-page')
-@section('title', $seoTitle . ' | Deluxe Windows Concord')
-@section('metaDescription', $seoDescription)
-@section('ogTitle', $ogTitle)
-@section('ogDescription', $ogDescription)
-@if($ogImage)
-@section('ogImage', $ogImage)
-@endif
 
 @section('head')
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Product",
-      "name": {!! json_encode($title) !!},
-      "description": {!! json_encode($seoDescription) !!},
-      "url": "/windows/{!! $windowFieldData['slug'] ?? '' !!}",
-      "image": {!! json_encode($ogImage) !!},
-      "brand": { "@type": "Brand", "name": "Deluxe Windows" },
-      "offers": {
-        "@type": "AggregateOffer",
-        "priceCurrency": "USD",
-        "availability": "https://schema.org/InStock"
-      }
-    }
-    </script>
-
     @php
       $windowDetailCssPath = public_path('webflow-overrides/window-detail.css');
       $windowDetailCssVersion = file_exists($windowDetailCssPath)

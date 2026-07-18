@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "key": "window-replacement/hayward",
+  "path": "/window-replacement/hayward",
+  "seo": {
+    "title": "Hayward Window Replacement | Deluxe Windows",
+    "description": "Window replacement in Hayward, Alameda County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+    "canonical": "https://www.deluxewindows.com/window-replacement/hayward",
+    "og": {
+      "title": "Hayward Window Replacement | Deluxe Windows",
+      "description": "Window replacement in Hayward, Alameda County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "How much does window replacement cost in Hayward?",
+      "answer": "Hayward homeowners typically invest $4,500 to $10,500 for a full window replacement project covering 10–16 windows. This large East Bay city offers a range of housing types from older hillside craftsmans to 1960s–1980s tract homes in the flats. Standard replacement projects are among the most cost-efficient in the East Bay. Single window installation starts at approximately $440."
+    },
+    {
+      "question": "Do I need a permit for window replacement in Hayward?",
+      "answer": "Yes. Hayward requires a building permit for window replacements. Our team manages all permit applications and inspections with the City of Hayward's Development Services Division on your behalf."
+    },
+    {
+      "question": "Which window brands does Deluxe Windows install in Hayward?",
+      "answer": "For Hayward's diverse residential market, we most frequently install Milgard Tuscany vinyl for cost-effective whole-home replacements, Simonton for budget-conscious projects, and Anlin Del Mar for homeowners in hotter hillside neighborhoods looking to maximize energy savings."
+    },
+    {
+      "question": "Does Deluxe Windows serve all Hayward neighborhoods?",
+      "answer": "Yes — we serve all Hayward neighborhoods including Mission Hills, South Hayward, Fairway Park, Russell City, Jackson Triangle, and Downtown Hayward. Zip codes: 94541, 94542, 94544, 94545."
+    }
+  ],
+  "schema": {
+    "primary_type": "Service",
+    "data": {
+      "name": "Window Replacement in Hayward",
+      "area_served": "Hayward"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

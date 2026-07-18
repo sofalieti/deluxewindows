@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-jeld-wen-w-5500-clad-wood",
+  "path": "/brand-collections/brand-jeld-wen-w-5500-clad-wood",
+  "seo": {
+    "title": "Jeld-Wen W-5500 Clad-Wood | Deluxe Windows Concord",
+    "description": "Jeld-Wen W-5500 Clad-Wood windows offer premium craftsmanship for Bay Area homes. Explore this collection at Deluxe Windows in San Francisco. Get a free estimate.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-jeld-wen-w-5500-clad-wood",
+    "og": {
+      "title": "Jeld-Wen W-5500 Clad-Wood | Deluxe Windows Concord",
+      "description": "Jeld-Wen W-5500 Clad-Wood windows offer premium craftsmanship for Bay Area homes. Explore this collection at Deluxe Windows in San Francisco. Get a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6948eb2c3c57125b13d3979a_w-5500-clad-wood-windows.jpeg",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "W-5500 Clad-Wood"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

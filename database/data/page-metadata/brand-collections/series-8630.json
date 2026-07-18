@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/series-8630",
+  "path": "/brand-collections/series-8630",
+  "seo": {
+    "title": "Series 8630 | Deluxe Windows",
+    "description": "Whether you want to create a single-panel opening, door-sized opening, or one that spans an entire wall, a Western Window Systems Series 8630 Fixed Window/Window Wall allows you to…",
+    "canonical": "https://www.deluxewindows.com/brand-collections/series-8630",
+    "og": {
+      "title": "Series 8630 | Deluxe Windows",
+      "description": "Whether you want to create a single-panel opening, door-sized opening, or one that spans an entire wall, a Western Window Systems Series 8630 Fixed Window/Window Wall allows you to…",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/697fc300654618009513b7f1_WWS-Series-8000-exterior-final-1536x857.jpg",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "Series 8630"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

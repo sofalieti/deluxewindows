@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "doors/wood-clad-doors",
+  "path": "/doors/wood-clad-doors",
+  "seo": {
+    "title": "Wood Clad Doors | Natural + Durable – Deluxe Windows Concord",
+    "description": "Combine the warmth of wood interiors with durable exterior cladding. Deluxe Windows installs premium wood clad doors for Bay Area homeowners. Get a free estimate.",
+    "canonical": "https://www.deluxewindows.com/doors/wood-clad-doors",
+    "og": {
+      "title": "Wood Clad Doors | Natural + Durable – Deluxe Windows Concord",
+      "description": "Combine the warmth of wood interiors with durable exterior cladding. Deluxe Windows installs premium wood clad doors for Bay Area homeowners. Get a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6841ddf8ace3d9d9facb1a8b_heres-how-decorate-your-new-home-thumbnail-v3-property-x-webflow-template.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Wood Clad Doors"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

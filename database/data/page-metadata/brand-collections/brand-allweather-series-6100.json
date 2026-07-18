@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-allweather-series-6100",
+  "path": "/brand-collections/brand-allweather-series-6100",
+  "seo": {
+    "title": "Series 6100 | Deluxe Windows",
+    "description": "The All Weather Series 6100 Window System is our most optimized, energy efficient window design. For Ultimate Performance, the Series 6100 is All Weather’s first window system…",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-allweather-series-6100",
+    "og": {
+      "title": "Series 6100 | Deluxe Windows",
+      "description": "The All Weather Series 6100 Window System is our most optimized, energy efficient window design. For Ultimate Performance, the Series 6100 is All Weather’s first window system…",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6979eb85c4880bcd11df2937_Series6100-Sell-Sheet.webp",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "Series 6100"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

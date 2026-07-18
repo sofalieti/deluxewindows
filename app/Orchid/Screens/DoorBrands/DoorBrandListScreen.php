@@ -6,13 +6,9 @@ namespace App\Orchid\Screens\DoorBrands;
 
 use App\Models\DoorBrand;
 use App\Models\Webflow\BrandsWebflowItem;
-use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Str;
-use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Screen;
 use Orchid\Screen\TD;
 use Orchid\Support\Facades\Layout;
-use Orchid\Support\Facades\Toast;
 
 class DoorBrandListScreen extends Screen
 {
@@ -34,13 +30,11 @@ class DoorBrandListScreen extends Screen
 
                 /** @var DoorBrand|null $doorBrand */
                 $doorBrand = $content->get($slug);
-                $faq = $doorBrand ? $doorBrand->faqItems() : [];
 
                 return [
                     'slug' => $slug,
                     'name' => $name,
                     'has_content' => $doorBrand && trim((string) $doorBrand->description) !== '',
-                    'faq_count' => count($faq),
                     'updated_at' => $doorBrand?->updated_at,
                 ];
             })
@@ -60,22 +54,7 @@ class DoorBrandListScreen extends Screen
 
     public function description(): ?string
     {
-        return 'Door-specific description and FAQ for each brand. Shown on /door-brands/{slug}.';
-    }
-
-    public function commandBar(): iterable
-    {
-        return [
-            Button::make('Sync from file')
-                ->icon('bs.arrow-repeat')
-                ->method('syncFromFile')
-                ->confirm('Import content from database/data/door-brands.json into the database? Existing rows with matching slugs will be overwritten.'),
-
-            Button::make('Export to file')
-                ->icon('bs.download')
-                ->method('exportToFile')
-                ->confirm('Export the current door-brand content from the database into database/data/door-brands.json?'),
-        ];
+        return 'Door-specific descriptions for /door-brands/{slug}. SEO and FAQs are managed in page metadata files.';
     }
 
     public function layout(): iterable
@@ -89,9 +68,6 @@ class DoorBrandListScreen extends Screen
                     ->render(fn (array $row) => $row['has_content']
                         ? '<span class="text-success">Custom</span>'
                         : '<span class="text-muted">Auto (default)</span>'),
-
-                TD::make('faq_count', 'FAQ items')
-                    ->render(fn (array $row) => (string) $row['faq_count']),
 
                 TD::make('updated_at', 'Updated')
                     ->render(fn (array $row) => $row['updated_at']
@@ -109,21 +85,5 @@ class DoorBrandListScreen extends Screen
                     }),
             ]),
         ];
-    }
-
-    public function syncFromFile()
-    {
-        Artisan::call('door-brands:sync');
-        Toast::info('Door brands synced from file: '.Str::of(Artisan::output())->trim());
-
-        return redirect()->route('platform.door-brands');
-    }
-
-    public function exportToFile()
-    {
-        Artisan::call('door-brands:export');
-        Toast::info('Door brands exported to file: '.Str::of(Artisan::output())->trim());
-
-        return redirect()->route('platform.door-brands');
     }
 }

@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "windows/steel-windows",
+  "path": "/windows/steel-windows",
+  "seo": {
+    "title": "Steel Windows | Industrial & Modern – Deluxe Windows Berkeley",
+    "description": "Steel windows add a bold architectural statement to Bay Area homes. Slim sightlines and superior strength — installed by Deluxe Windows in San Francisco. Free quotes.",
+    "canonical": "https://www.deluxewindows.com/windows/steel-windows",
+    "og": {
+      "title": "Steel Windows | Industrial & Modern – Deluxe Windows Berkeley",
+      "description": "Steel windows add a bold architectural statement to Bay Area homes. Slim sightlines and superior strength — installed by Deluxe Windows in San Francisco. Free quotes.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68755fbd78e6bf0cc4107a42_1.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Steel Windows"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/west-pro-series-200",
+  "path": "/brand-collections/west-pro-series-200",
+  "seo": {
+    "title": "West Pro Series 200 Windows | Deluxe Windows Windsor",
+    "description": "West Pro Series 200 windows deliver professional-grade quality for Bay Area homeowners. Explore at Deluxe Windows in San Francisco. Request a free installation estimate.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/west-pro-series-200",
+    "og": {
+      "title": "West Pro Series 200 Windows | Deluxe Windows Windsor",
+      "description": "West Pro Series 200 windows deliver professional-grade quality for Bay Area homeowners. Explore at Deluxe Windows in San Francisco. Request a free installation estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695e211a025ddbcac740698c_pgw23-west-black-interior-windows-rm-studios-master-bedroom-w720-400x400-1.webp",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "West Pro Series 200"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

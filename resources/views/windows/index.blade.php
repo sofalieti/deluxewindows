@@ -2,9 +2,6 @@
 
 @section('wfPage', '6841ddf8ace3d9d9facb15cd')
 @section('bodyClass', 'body-18 height-auto')
-@section('title', $seoTitle)
-@section('metaDescription', $seoDescription)
-@section('ogImage', $ogImage)
 
 @section('content')
       <section class="section_breadcrumbs section-121">

@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "key": "static/doors-index",
+  "path": "/doors",
+  "seo": {
+    "title": "Doors for Bay Area Homes | Deluxe Windows California",
+    "description": "Discover stylish, durable, and energy-efficient entry and patio doors installed by Deluxe Windows across the Bay Area.",
+    "canonical": "https://www.deluxewindows.com/doors",
+    "og": {
+      "title": "Doors for Bay Area Homes | Deluxe Windows California",
+      "description": "Discover stylish, durable, and energy-efficient entry and patio doors installed by Deluxe Windows across the Bay Area.",
+      "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta%20cover-2.jpg",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {},
+    "extra": [],
+    "replace": []
+  }
+}

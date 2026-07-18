@@ -66,9 +66,13 @@ class WebflowCollectionEditScreen extends Screen
 
         return [
             'collection' => $meta,
-            'entity' => $entity->toArray(),
-            'fieldData' => $fieldData,
-            'fieldDataJson' => json_encode($fieldData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) ?: '{}',
+            'entity' => [
+                'id' => $entity->getKey(),
+                'webflow_item_id' => $entity->webflow_item_id,
+                'webflow_cms_locale_id' => $entity->webflow_cms_locale_id,
+                'is_archived' => (bool) $entity->is_archived,
+                'is_draft' => (bool) $entity->is_draft,
+            ],
             'referencePreview' => $this->referencePreview,
         ];
     }
@@ -159,15 +163,6 @@ class WebflowCollectionEditScreen extends Screen
                     $this->buildReferenceInputEditors(),
                     $this->buildReferencePreviewEditors()
                 )),
-                'SEO' => Layout::rows($this->buildFieldDataEditorsByCategory('seo')),
-                'Schemas' => Layout::rows($this->buildFieldDataEditorsByCategory('schemas')),
-                'OpenGraph' => Layout::rows($this->buildFieldDataEditorsByCategory('opengraph')),
-                'JSON' => Layout::rows([
-                    TextArea::make('fieldDataJson')
-                        ->title('Field Data JSON (advanced)')
-                        ->rows(16)
-                        ->help('Optional: paste full JSON to override field values above.'),
-                ]),
             ]);
 
         return $layouts;
@@ -184,34 +179,20 @@ class WebflowCollectionEditScreen extends Screen
         $model = $meta['model'];
         $entity = $model::query()->findOrFail($item);
 
-        $originalFieldData = is_array($entity->field_data) ? $entity->field_data : [];
-        $fieldData = $originalFieldData;
+        $fieldData = is_array($entity->field_data) ? $entity->field_data : [];
 
         // Always apply individual field edits from the form tabs first.
         $submittedFields = $request->input('fieldData', []);
         if (is_array($submittedFields)) {
             foreach ($submittedFields as $key => $value) {
+                if ($this->isMetadataField((string) $key)) {
+                    continue;
+                }
                 $existing = $fieldData[$key] ?? null;
                 $fieldData[$key] = $this->hydrateFieldValue($value, $existing);
             }
         }
         $fieldData = $this->applyRelationInputs($request, $fieldData, $meta['model']);
-
-        // JSON textarea override: only when the user actually changed the JSON content.
-        // Compare decoded arrays (not raw strings) to avoid false positives from whitespace/encoding differences.
-        $rawJsonInput = $request->input('fieldDataJson', '');
-        $rawJson = is_string($rawJsonInput) ? trim($rawJsonInput) : '';
-        if ($rawJson !== '') {
-            $decoded = json_decode($rawJson, true);
-            if (! is_array($decoded)) {
-                Toast::error('Field Data JSON is invalid. Changes from individual fields were saved instead.');
-            } elseif ($decoded !== $originalFieldData) {
-                // JSON was intentionally changed by the user — let it take full precedence.
-                $fieldData = $decoded;
-            }
-            // If $decoded === $originalFieldData the JSON textarea was not touched;
-            // individual field edits already applied above remain in effect.
-        }
 
         $entity->webflow_cms_locale_id = $request->input('entity.webflow_cms_locale_id');
         $entity->is_archived = (bool) $request->boolean('entity.is_archived');
@@ -299,6 +280,10 @@ class WebflowCollectionEditScreen extends Screen
         $fields = [];
         foreach ($fieldDataEntries as $key => $value) {
             if (array_key_exists((string) $key, $this->referenceFields)) {
+                continue;
+            }
+
+            if ($this->isMetadataField((string) $key)) {
                 continue;
             }
 
@@ -723,13 +708,19 @@ class WebflowCollectionEditScreen extends Screen
         if (
             str_contains($slug, 'schema')
             || str_contains($slug, 'json-ld')
+            || str_contains($slug, 'jsonld')
             || str_contains($slug, 'structured-data')
+            || str_contains($slug, 'structured_data')
             || str_contains($slug, 'ld-json')
         ) {
             return 'schemas';
         }
 
-        if (str_starts_with($slug, 'opengraph-') || str_starts_with($slug, 'og-')) {
+        if (
+            str_starts_with($slug, 'opengraph-')
+            || str_starts_with($slug, 'open-graph-')
+            || str_starts_with($slug, 'og-')
+        ) {
             return 'opengraph';
         }
 
@@ -743,6 +734,15 @@ class WebflowCollectionEditScreen extends Screen
         }
 
         return 'main';
+    }
+
+    private function isMetadataField(string $fieldSlug): bool
+    {
+        $slug = Str::lower($fieldSlug);
+
+        return $this->fieldDataCategory($slug) !== 'main'
+            || str_contains($slug, 'faq')
+            || str_contains($slug, 'frequently-asked');
     }
 }
 

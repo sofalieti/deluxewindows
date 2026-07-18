@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-andersen-400-series",
+  "path": "/brand-collections/brand-andersen-400-series",
+  "seo": {
+    "title": "Andersen 400 Series | Deluxe Windows Sunnyvale",
+    "description": "America's best-selling wood window — the Andersen 400 Series — is available at Deluxe Windows. Expert installation for Bay Area homes in San Francisco. Free estimates.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-andersen-400-series",
+    "og": {
+      "title": "Andersen 400 Series | Deluxe Windows Sunnyvale",
+      "description": "America's best-selling wood window — the Andersen 400 Series — is available at Deluxe Windows. Expert installation for Bay Area homes in San Francisco. Free estimates.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695240e5ddffbfd5ce6aefdf_hero-image-768x450.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "400 Series"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

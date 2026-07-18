@@ -1,11 +1,3 @@
-      @once
-        @php
-          $siteCustomCssPath = public_path('webflow-overrides/site-custom.css');
-          $siteCustomCssVersion = file_exists($siteCustomCssPath) ? (string) filemtime($siteCustomCssPath) : '1';
-        @endphp
-        <link href="/webflow-overrides/site-custom.css?v={{ $siteCustomCssVersion }}" rel="stylesheet" type="text/css" />
-      @endonce
-
       <div class="header-container-2">
         <div
           data-animation="default"

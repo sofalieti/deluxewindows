@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-allweather-series-6000",
+  "path": "/brand-collections/brand-allweather-series-6000",
+  "seo": {
+    "title": "Series 6000 | Deluxe Windows",
+    "description": "The Series 6000 window system is one of All Weather’s most energy-efficient and highest rated window designs and the ideal exterior glazed solution for residential applications…",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-allweather-series-6000",
+    "og": {
+      "title": "Series 6000 | Deluxe Windows",
+      "description": "The Series 6000 window system is one of All Weather’s most energy-efficient and highest rated window designs and the ideal exterior glazed solution for residential applications…",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6979ee0933c0f3a7be33022d_Series-6000-01.webp",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "Series 6000"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

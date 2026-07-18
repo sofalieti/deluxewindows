@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "key": "door-brands/simonton",
+  "path": "/door-brands/simonton",
+  "seo": {
+    "title": "Simonton Doors | Deluxe Windows",
+    "description": "Simonton builds energy-efficient vinyl patio doors known for quality, comfort, and value. Made in the USA, their doors offer smooth operation, strong insulation, and clean styling…",
+    "canonical": "https://www.deluxewindows.com/door-brands/simonton",
+    "og": {
+      "title": "Simonton Doors | Deluxe Windows",
+      "description": "Simonton builds energy-efficient vinyl patio doors known for quality, comfort, and value. Made in the USA, their doors offer smooth operation, strong insulation, and clean styling…",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a74bb9c532933d19231ea_Simonton.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "What are Simonton doors known for?",
+      "answer": "Simonton is known for American-made, energy-efficient vinyl doors that balance quality, comfort, and value — a dependable choice for replacement projects."
+    },
+    {
+      "question": "Are Simonton patio doors energy efficient?",
+      "answer": "Yes. Simonton offers insulated Low-E glass packages and tight seals that help reduce energy loss and improve year-round comfort."
+    },
+    {
+      "question": "What warranty comes with Simonton doors?",
+      "answer": "Simonton backs its doors with a strong warranty. We'll go over the specific coverage for your chosen product during your consultation."
+    },
+    {
+      "question": "Do you install Simonton doors in the Bay Area?",
+      "answer": "Yes. Deluxe Windows provides professional measurement and installation of Simonton doors throughout the Bay Area."
+    }
+  ],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Simonton Doors",
+      "brand": "Simonton"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

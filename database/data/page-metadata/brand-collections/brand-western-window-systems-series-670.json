@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-western-window-systems-series-670",
+  "path": "/brand-collections/brand-western-window-systems-series-670",
+  "seo": {
+    "title": "Series 670 | Deluxe Windows",
+    "description": "The Series 670 Hinged Window from Western Window Systems combines clean design and optimal performance with the same superior craftsmanship found in our sliding and folding doors.…",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-western-window-systems-series-670",
+    "og": {
+      "title": "Series 670 | Deluxe Windows",
+      "description": "The Series 670 Hinged Window from Western Window Systems combines clean design and optimal performance with the same superior craftsmanship found in our sliding and folding doors.…",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/697f88839e70d793c0d4d4ec_689b17eebeffb3415863389b_08-670-CA-Dwell-House.jpeg",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "Series 670"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

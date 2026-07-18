@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-milgard-v250-style-line-series",
+  "path": "/brand-collections/brand-milgard-v250-style-line-series",
+  "seo": {
+    "title": "Milgard V250 Style Line | Deluxe Windows Pittsburg",
+    "description": "Milgard V250 Style Line vinyl windows offer clean, contemporary design for Bay Area homes. Explore at Deluxe Windows in San Francisco. Request a free installation estimate.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-milgard-v250-style-line-series",
+    "og": {
+      "title": "Milgard V250 Style Line | Deluxe Windows Pittsburg",
+      "description": "Milgard V250 Style Line vinyl windows offer clean, contemporary design for Bay Area homes. Explore at Deluxe Windows in San Francisco. Request a free installation estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/693661d8882df952b82168c6_68909992eea248d6110a3672_65628044.webp",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "V250 Style Line Series"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

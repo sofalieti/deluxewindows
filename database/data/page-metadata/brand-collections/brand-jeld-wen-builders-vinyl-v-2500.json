@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-jeld-wen-builders-vinyl-v-2500",
+  "path": "/brand-collections/brand-jeld-wen-builders-vinyl-v-2500",
+  "seo": {
+    "title": "Jeld-Wen V-2500 Builders Vinyl | Deluxe Windows Morgan Hill",
+    "description": "Jeld-Wen V-2500 Builders Vinyl windows are reliable, budget-friendly options for Bay Area projects. Explore at Deluxe Windows in San Francisco. Get a free estimate.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-jeld-wen-builders-vinyl-v-2500",
+    "og": {
+      "title": "Jeld-Wen V-2500 Builders Vinyl | Deluxe Windows Morgan Hill",
+      "description": "Jeld-Wen V-2500 Builders Vinyl windows are reliable, budget-friendly options for Bay Area projects. Explore at Deluxe Windows in San Francisco. Get a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6948e329de2a6de57ba7839b_BV_Window_ProductLine_HeaderImg.jpg",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "Builders Vinyl (V-2500)"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

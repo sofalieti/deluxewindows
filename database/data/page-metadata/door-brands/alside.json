@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "key": "door-brands/alside",
+  "path": "/door-brands/alside",
+  "seo": {
+    "title": "Alside Doors | Deluxe Windows",
+    "description": "Alside offers affordable, energy-efficient vinyl patio doors built for everyday comfort and easy maintenance. With clean styling and dependable performance, they're a practical…",
+    "canonical": "https://www.deluxewindows.com/door-brands/alside",
+    "og": {
+      "title": "Alside Doors | Deluxe Windows",
+      "description": "Alside offers affordable, energy-efficient vinyl patio doors built for everyday comfort and easy maintenance. With clean styling and dependable performance, they're a practical…",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a76851f0f6088a0c53667_Alside.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "Are Alside doors a good value?",
+      "answer": "Yes. Alside focuses on affordable, energy-efficient vinyl doors that deliver reliable comfort and low maintenance, making them a smart budget choice."
+    },
+    {
+      "question": "Are Alside patio doors energy efficient?",
+      "answer": "Alside doors use insulated Low-E glass and durable vinyl frames to help reduce energy loss and keep your home comfortable."
+    },
+    {
+      "question": "Are Alside doors easy to maintain?",
+      "answer": "Yes. Their vinyl frames never need painting and are simple to clean, so they stay looking good with minimal effort."
+    },
+    {
+      "question": "Do you install Alside doors in the Bay Area?",
+      "answer": "Yes. Deluxe Windows professionally measures and installs Alside doors across the Bay Area."
+    }
+  ],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Alside Doors",
+      "brand": "Alside"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "key": "window-replacement/fairfield",
+  "path": "/window-replacement/fairfield",
+  "seo": {
+    "title": "Fairfield Window Replacement | Deluxe Windows",
+    "description": "Window replacement in Fairfield, Solano County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+    "canonical": "https://www.deluxewindows.com/window-replacement/fairfield",
+    "og": {
+      "title": "Fairfield Window Replacement | Deluxe Windows",
+      "description": "Window replacement in Fairfield, Solano County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "How much does window replacement cost in Fairfield?",
+      "answer": "Fairfield homeowners typically invest $4,500 to $10,500 for a full window replacement project covering 10–16 windows. This mid-size Solano County city has a diverse housing stock ranging from older ranches near downtown to newer developments in Cordelia and Green Valley. Single window installation starts at approximately $430."
+    },
+    {
+      "question": "Do I need a permit for window replacement in Fairfield?",
+      "answer": "Yes. Fairfield requires a building permit for window replacements. Our team handles all permit applications with the City of Fairfield Building Division on your behalf."
+    },
+    {
+      "question": "Which window brands does Deluxe Windows install in Fairfield?",
+      "answer": "For Fairfield's inland climate, we most frequently install Milgard Tuscany vinyl for cost-effective full-home replacements, Anlin Del Mar for homes in hotter areas like Cordelia and Green Valley, and Simonton for budget-conscious projects with solid energy performance."
+    },
+    {
+      "question": "Does Deluxe Windows serve all Fairfield neighborhoods?",
+      "answer": "Yes — we serve all Fairfield neighborhoods including Cordelia, Green Valley, Texas Street corridor, and Air Base Parkway area. We cover all zip codes: 94533, 94534."
+    }
+  ],
+  "schema": {
+    "primary_type": "Service",
+    "data": {
+      "name": "Window Replacement in Fairfield",
+      "area_served": "Fairfield"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

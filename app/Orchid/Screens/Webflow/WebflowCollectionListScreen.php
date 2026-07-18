@@ -98,10 +98,6 @@ class WebflowCollectionListScreen extends Screen
                 ->icon('bs.x-circle')
                 ->route('platform.webflow.collection', ['collection' => $this->collectionSlug])
                 ->canSee(request()->filled('search')),
-
-            Link::make('Export JSON')
-                ->icon('bs.download')
-                ->route('platform.webflow.export', ['collection' => $this->collectionSlug]),
         ];
 
         return $actions;

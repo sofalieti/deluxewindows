@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-allweather-series-5000",
+  "path": "/brand-collections/brand-allweather-series-5000",
+  "seo": {
+    "title": "Series 5000 | Deluxe Windows",
+    "description": "The Series 5000 Window System is our most popular and cost-effective thermally enhanced window design. Utilizing a pour & debridge thermal break. The Series 5000 offers energy…",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-allweather-series-5000",
+    "og": {
+      "title": "Series 5000 | Deluxe Windows",
+      "description": "The Series 5000 Window System is our most popular and cost-effective thermally enhanced window design. Utilizing a pour & debridge thermal break. The Series 5000 offers energy…",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6979edd39d3ca18a58d95d6c_Los-Altos-Windows-scaled.webp",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "Series 5000"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

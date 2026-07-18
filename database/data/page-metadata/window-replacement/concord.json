@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "key": "window-replacement/concord",
+  "path": "/window-replacement/concord",
+  "seo": {
+    "title": "Concord Window Replacement | Deluxe Windows",
+    "description": "Window replacement in Concord, Contra Costa County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+    "canonical": "https://www.deluxewindows.com/window-replacement/concord",
+    "og": {
+      "title": "Concord Window Replacement | Deluxe Windows",
+      "description": "Window replacement in Concord, Contra Costa County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "How much does window replacement cost in Concord?",
+      "answer": "Concord homeowners typically invest $4,500 to $11,000 for a full window replacement project covering 10–16 windows. The city's extensive 1960s–1980s housing stock features standard sizing that makes replacement projects efficient and cost-effective. Single window installation starts at approximately $450."
+    },
+    {
+      "question": "Do I need a permit for window replacement in Concord?",
+      "answer": "Yes. Concord requires a building permit for window replacements. Our team handles all permit applications and inspection coordination with the City of Concord Building Division on your behalf."
+    },
+    {
+      "question": "Which window brands does Deluxe Windows install in Concord?",
+      "answer": "For Concord's warm inland climate, we most frequently install Milgard Tuscany vinyl for its excellent value and energy performance, Anlin Del Mar for homeowners wanting maximum heat rejection during hot summers, and Andersen 400-Series for upgraded homes in higher-value neighborhoods like Dana Estates."
+    },
+    {
+      "question": "Does Deluxe Windows serve all Concord neighborhoods?",
+      "answer": "Yes — we serve all Concord neighborhoods including Dana Estates, Holbrook Heights, Crown Point, Todos Santos, Monument Corridor, El Monte, and Ygnacio Valley. We cover all zip codes: 94518, 94519, 94520, 94521."
+    }
+  ],
+  "schema": {
+    "primary_type": "Service",
+    "data": {
+      "name": "Window Replacement in Concord",
+      "area_served": "Concord"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

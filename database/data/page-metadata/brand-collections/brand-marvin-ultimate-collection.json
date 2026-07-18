@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-marvin-ultimate-collection",
+  "path": "/brand-collections/brand-marvin-ultimate-collection",
+  "seo": {
+    "title": "Marvin Ultimate Collection | Deluxe Windows Livermore",
+    "description": "Marvin Ultimate is the pinnacle of custom wood window design for Bay Area homes. Unlimited options — explore the Ultimate Collection at Deluxe Windows in San Francisco.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-marvin-ultimate-collection",
+    "og": {
+      "title": "Marvin Ultimate Collection | Deluxe Windows Livermore",
+      "description": "Marvin Ultimate is the pinnacle of custom wood window design for Bay Area homes. Unlimited options — explore the Ultimate Collection at Deluxe Windows in San Francisco.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6884fb1f11f8986a34d16476_marvin-ultimate-exterior.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "Ultimate Collection"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

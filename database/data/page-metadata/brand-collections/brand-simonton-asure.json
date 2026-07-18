@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-simonton-asure",
+  "path": "/brand-collections/brand-simonton-asure",
+  "seo": {
+    "title": "Asure | Deluxe Windows",
+    "description": "Narrow frame design adds a modern touch while bringing abundant daylight into a room without sacrificing energy efficiency and comfort.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-simonton-asure",
+    "og": {
+      "title": "Asure | Deluxe Windows",
+      "description": "Narrow frame design adds a modern touch while bringing abundant daylight into a room without sacrificing energy efficiency and comfort.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6964b7b5dfa44f1ebf10cb88_689afc797bce555ea0d7030a_sim_interior_living_room_asure_3_lite_sliding_window_5050_module_p114.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "Asure"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

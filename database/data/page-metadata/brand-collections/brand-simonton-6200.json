@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-simonton-6200",
+  "path": "/brand-collections/brand-simonton-6200",
+  "seo": {
+    "title": "6200 | Deluxe Windows",
+    "description": "Designed to let light into your home and increase views to the outside, the 6200 Collection has a wide selection of customizations allowing you to create the ideal window for your…",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-simonton-6200",
+    "og": {
+      "title": "6200 | Deluxe Windows",
+      "description": "Designed to let light into your home and increase views to the outside, the 6200 Collection has a wide selection of customizations allowing you to create the ideal window for your…",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/696758eb30843c03d3cbfb6f_sim_interior_6200_double_hung_window_5050_module_p11118_v2.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "6200"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

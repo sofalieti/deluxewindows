@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-simonton-stormbreaker-plus",
+  "path": "/brand-collections/brand-simonton-stormbreaker-plus",
+  "seo": {
+    "title": "StormBreaker Plus | Deluxe Windows",
+    "description": "StormBreaker Plus windows and doors are designed, tested and certified to meet the AAMA standards for Missile D specifications for the Florida Building Commission and the Texas…",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-simonton-stormbreaker-plus",
+    "og": {
+      "title": "StormBreaker Plus | Deluxe Windows",
+      "description": "StormBreaker Plus windows and doors are designed, tested and certified to meet the AAMA standards for Missile D specifications for the Florida Building Commission and the Texas…",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/696763ecf4ca6c33fed7bc59_sim_exterior_stormbreaker_plus_double_hung_window_5050_module_p113.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "StormBreaker Plus"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

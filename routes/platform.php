@@ -12,6 +12,7 @@ use App\Orchid\Screens\Examples\ExampleLayoutsScreen;
 use App\Orchid\Screens\Examples\ExampleScreen;
 use App\Orchid\Screens\Examples\ExampleTextEditorsScreen;
 use App\Orchid\Screens\Leads\LeadListScreen;
+use App\Orchid\Screens\Marketing\ContentDatasetsScreen;
 use App\Orchid\Screens\PlatformScreen;
 use App\Orchid\Screens\Seo\SitemapScreen;
 use App\Orchid\Screens\Role\RoleEditScreen;
@@ -22,7 +23,6 @@ use App\Orchid\Screens\User\UserProfileScreen;
 use App\Orchid\Screens\Promotions\PromotionsScreen;
 use App\Orchid\Screens\DoorBrands\DoorBrandListScreen;
 use App\Orchid\Screens\DoorBrands\DoorBrandEditScreen;
-use App\Http\Controllers\Admin\WebflowExportController;
 use App\Http\Controllers\Admin\WebflowImageUploadController;
 use App\Orchid\Screens\Webflow\WebflowCollectionEditScreen;
 use App\Orchid\Screens\Webflow\WebflowCollectionListScreen;
@@ -49,6 +49,9 @@ Route::screen('promotions', PromotionsScreen::class)
 
 Route::screen('leads', LeadListScreen::class)
     ->name('platform.leads');
+
+Route::screen('content-datasets', ContentDatasetsScreen::class)
+    ->name('platform.content-datasets');
 
 Route::screen('sitemap', SitemapScreen::class)
     ->name('platform.sitemap');
@@ -135,6 +138,3 @@ Route::screen('webflow/{collection}/{item}/edit', WebflowCollectionEditScreen::c
 
 Route::post('webflow/upload-image', [WebflowImageUploadController::class, 'upload'])
     ->name('platform.webflow.upload-image');
-
-Route::get('webflow/{collection}/export', [WebflowExportController::class, 'export'])
-    ->name('platform.webflow.export');

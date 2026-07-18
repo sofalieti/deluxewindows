@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "windows/wood-windows",
+  "path": "/windows/wood-windows",
+  "seo": {
+    "title": "Wood Windows | Natural Beauty – Deluxe Windows San Mateo",
+    "description": "Classic wood windows bring warmth and character to Bay Area homes. Multiple wood species available — expertly installed by Deluxe Windows in San Francisco. Free quotes.",
+    "canonical": "https://www.deluxewindows.com/windows/wood-windows",
+    "og": {
+      "title": "Wood Windows | Natural Beauty – Deluxe Windows San Mateo",
+      "description": "Classic wood windows bring warmth and character to Bay Area homes. Multiple wood species available — expertly installed by Deluxe Windows in San Francisco. Free quotes.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d9286149b8ff5cccdddbc_Frame%2039.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Wood Windows"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-simonton-5500",
+  "path": "/brand-collections/brand-simonton-5500",
+  "seo": {
+    "title": "5500 | Deluxe Windows",
+    "description": "Traditional window design defined by superior strength, a wide selection of styles, advanced energy efficiency, and exclusive features.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-simonton-5500",
+    "og": {
+      "title": "5500 | Deluxe Windows",
+      "description": "Traditional window design defined by superior strength, a wide selection of styles, advanced energy efficiency, and exclusive features.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6964b7b638210e099afff5e6_689457ac0f07ec4fa0ec60cc_sim_interior_5500_dining_room_double_hung_window_5050_module_p111.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "5500"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

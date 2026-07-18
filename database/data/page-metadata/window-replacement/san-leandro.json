@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "key": "window-replacement/san-leandro",
+  "path": "/window-replacement/san-leandro",
+  "seo": {
+    "title": "San Leandro Window Replacement | Deluxe Windows",
+    "description": "Window replacement in San Leandro, Alameda County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+    "canonical": "https://www.deluxewindows.com/window-replacement/san-leandro",
+    "og": {
+      "title": "San Leandro Window Replacement | Deluxe Windows",
+      "description": "Window replacement in San Leandro, Alameda County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "How much does window replacement cost in San Leandro?",
+      "answer": "San Leandro homeowners typically invest $5,000 to $11,000 for a full window replacement project covering 10–15 windows. This East Bay city's 1940s–1960s housing stock offers efficient standard-size replacement projects that deliver clear comfort and energy savings from day one. Single window installation starts at approximately $460."
+    },
+    {
+      "question": "Do I need a permit for window replacement in San Leandro?",
+      "answer": "Yes. San Leandro requires a building permit for window replacements. Our team handles all permit applications with the City of San Leandro Building & Safety Division on your behalf."
+    },
+    {
+      "question": "Which window brands does Deluxe Windows install in San Leandro?",
+      "answer": "For San Leandro's established East Bay market, we most frequently install Milgard Tuscany vinyl for its competitive pricing and strong warranty, Simonton for budget-conscious projects, and Milgard Ultra fiberglass for homes near the Bay Marina requiring superior moisture resistance."
+    },
+    {
+      "question": "Does Deluxe Windows serve all San Leandro neighborhoods?",
+      "answer": "Yes — we serve all San Leandro neighborhoods including Estudillo Estates, Washington Manor, Bay O'Vista, and Broadmoor. Zip codes: 94577, 94578, 94579."
+    }
+  ],
+  "schema": {
+    "primary_type": "Service",
+    "data": {
+      "name": "Window Replacement in San Leandro",
+      "area_served": "San Leandro"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

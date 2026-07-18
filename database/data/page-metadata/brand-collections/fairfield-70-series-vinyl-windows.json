@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/fairfield-70-series-vinyl-windows",
+  "path": "/brand-collections/fairfield-70-series-vinyl-windows",
+  "seo": {
+    "title": "Fairfield 70 Series Vinyl Windows | Deluxe Windows",
+    "description": "Fairfield 70 Series performance-engineered windows protect from intense heat, frigid cold and a wide range of challenging weather elements, yet allow you to enjoy the warmth and…",
+    "canonical": "https://www.deluxewindows.com/brand-collections/fairfield-70-series-vinyl-windows",
+    "og": {
+      "title": "Fairfield 70 Series Vinyl Windows | Deluxe Windows",
+      "description": "Fairfield 70 Series performance-engineered windows protect from intense heat, frigid cold and a wide range of challenging weather elements, yet allow you to enjoy the warmth and…",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/696dce522744704a3935f60f_Fairfield70-scaled.jpeg",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "Fairfield 70 Series Vinyl Windows"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-marvin-modern-collection",
+  "path": "/brand-collections/brand-marvin-modern-collection",
+  "seo": {
+    "title": "Marvin Modern Collection Series | Deluxe Windows Pleasanton",
+    "description": "Marvin Modern Collection features expansive glass and minimal profiles for contemporary Bay Area homes. Explore at Deluxe Windows in San Francisco. Request a free quote.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-marvin-modern-collection",
+    "og": {
+      "title": "Marvin Modern Collection Series | Deluxe Windows Pleasanton",
+      "description": "Marvin Modern Collection features expansive glass and minimal profiles for contemporary Bay Area homes. Explore at Deluxe Windows in San Francisco. Request a free quote.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/693efc2d10b5cad620641bd7_modern8.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "Modern Collection"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

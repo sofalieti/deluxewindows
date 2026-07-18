@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-milgard-c650-ultra-series",
+  "path": "/brand-collections/brand-milgard-c650-ultra-series",
+  "seo": {
+    "title": "Milgard C650 Ultra Fiberglass | Deluxe Windows Brentwood",
+    "description": "Milgard C650 Ultra fiberglass windows are strong, durable, and low-maintenance for Bay Area homes. Explore at Deluxe Windows in San Francisco. Get a free estimate today.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-milgard-c650-ultra-series",
+    "og": {
+      "title": "Milgard C650 Ultra Fiberglass | Deluxe Windows Brentwood",
+      "description": "Milgard C650 Ultra fiberglass windows are strong, durable, and low-maintenance for Bay Area homes. Explore at Deluxe Windows in San Francisco. Get a free estimate today.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/693661d71cd7ca00407b6a86_68909a78b955b6d5316124c7_Series_Ultra4-e1718889968154.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "C650 Ultra™ Series"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

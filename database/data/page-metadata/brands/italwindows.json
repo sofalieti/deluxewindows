@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "key": "brands/italwindows",
+  "path": "/brands/italwindows",
+  "seo": {
+    "title": "Italwindows | European Design – Deluxe Windows Palo Alto",
+    "description": "Italwindows brings European craftsmanship to Bay Area homes — aluminum, steel, and wood frames with exceptional precision. Installed by Deluxe Windows in San Francisco.",
+    "canonical": "https://www.deluxewindows.com/brands/italwindows",
+    "og": {
+      "title": "Italwindows | European Design – Deluxe Windows Palo Alto",
+      "description": "Italwindows brings European craftsmanship to Bay Area homes — aluminum, steel, and wood frames with exceptional precision. Installed by Deluxe Windows in San Francisco.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a7489b613e7a9f3424dcf_italwindows.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "Which material is best for your windows?",
+      "answer": "The best material depends on your home's style, climate, efficiency goals, and budget. Deluxe Windows offers vinyl, wood, aluminum, and fiberglass options and can recommend the right fit during a consultation."
+    },
+    {
+      "question": "Is the consultation free?",
+      "answer": "Yes. Submit the contact form or call Deluxe Windows to schedule a free in-home consultation."
+    },
+    {
+      "question": "When do I need new windows?",
+      "answer": "Common signs include drafts, leaks, condensation, high energy bills, uncomfortable rooms, and windows that are difficult to open or close."
+    },
+    {
+      "question": "How do I choose window brands and styles?",
+      "answer": "The best brand and style depend on the home, opening, performance goals, and budget. A replacement specialist can assess the project and recommend suitable choices."
+    }
+  ],
+  "schema": {
+    "primary_type": "WebPage",
+    "data": {
+      "name": "Italwindows"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

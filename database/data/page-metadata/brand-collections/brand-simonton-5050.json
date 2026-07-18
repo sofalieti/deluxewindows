@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-simonton-5050",
+  "path": "/brand-collections/brand-simonton-5050",
+  "seo": {
+    "title": "5050 | Deluxe Windows",
+    "description": "The traditional design and classic styling of Simonton 5050 windows complement any home style along with energy efficiency and long lasting durability.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-simonton-5050",
+    "og": {
+      "title": "5050 | Deluxe Windows",
+      "description": "The traditional design and classic styling of Simonton 5050 windows complement any home style along with energy efficiency and long lasting durability.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6967624a4baa4d887654b23e_sim_interior_5050_dining_room_3_lite_sliding_window_5050_module_p112.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "5050"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/classic-series",
+  "path": "/brand-collections/classic-series",
+  "seo": {
+    "title": "Ply Gem Classic Series | Deluxe Windows Fairfield",
+    "description": "Ply Gem Classic Series windows combine traditional styling with reliable vinyl performance for Bay Area homes. Explore at Deluxe Windows in San Francisco. Free estimates.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/classic-series",
+    "og": {
+      "title": "Ply Gem Classic Series | Deluxe Windows Fairfield",
+      "description": "Ply Gem Classic Series windows combine traditional styling with reliable vinyl performance for Bay Area homes. Explore at Deluxe Windows in San Francisco. Free estimates.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695e42520b6d1e9d6b34df3a_pgw_classic_hero_1-400x400-1.webp",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "Classic Series"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

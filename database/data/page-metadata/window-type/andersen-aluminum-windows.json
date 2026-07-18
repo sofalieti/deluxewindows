@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "window-type/andersen-aluminum-windows",
+  "path": "/window-type/andersen-aluminum-windows",
+  "seo": {
+    "title": "Andersen Aluminum Windows | Deluxe Windows Sunnyvale",
+    "description": "Andersen aluminum windows deliver sleek, modern frames with lasting strength for Bay Area homes. Installed by Deluxe Windows in San Francisco. Request a free estimate.",
+    "canonical": "https://www.deluxewindows.com/window-type/andersen-aluminum-windows",
+    "og": {
+      "title": "Andersen Aluminum Windows | Deluxe Windows Sunnyvale",
+      "description": "Andersen aluminum windows deliver sleek, modern frames with lasting strength for Bay Area homes. Installed by Deluxe Windows in San Francisco. Request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f65a0d965015d4e6589b9_homeguide-dining-room-with-Andersen-windows.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Andersen Aluminum Windows"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

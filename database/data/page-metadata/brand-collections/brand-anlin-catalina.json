@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brand-anlin-catalina",
+  "path": "/brand-collections/brand-anlin-catalina",
+  "seo": {
+    "title": "Anlin Catalina Series | Deluxe Windows Cupertino",
+    "description": "The Anlin Catalina is a premium California-made vinyl window series for Bay Area homeowners. Explore styles and request installation with Deluxe Windows in San Francisco.",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brand-anlin-catalina",
+    "og": {
+      "title": "Anlin Catalina Series | Deluxe Windows Cupertino",
+      "description": "The Anlin Catalina is a premium California-made vinyl window series for Bay Area homeowners. Explore styles and request installation with Deluxe Windows in San Francisco.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/694cdd79368e49c005c324ca_694cd62f6fa1a60e42e440ae_6891be431a3a0f5a1bab1e6b_Cor-2-copy.webp",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "Catalina"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

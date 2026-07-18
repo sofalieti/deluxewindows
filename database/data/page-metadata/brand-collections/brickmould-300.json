@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brickmould-300",
+  "path": "/brand-collections/brickmould-300",
+  "seo": {
+    "title": "Brickmould 300 | Deluxe Windows",
+    "description": "Easy to install and constructed of durable vinyl, Brickmould 300 windows feature the elegant appeal of a multi-tiered frame design that offers a wood window appearance that will…",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brickmould-300",
+    "og": {
+      "title": "Brickmould 300 | Deluxe Windows",
+      "description": "Easy to install and constructed of durable vinyl, Brickmould 300 windows feature the elegant appeal of a multi-tiered frame design that offers a wood window appearance that will…",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6967539fcd00847902cc8b23_sim_exterior_brickmould_300_single_hung_window_general_p119.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "Brickmould 300"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

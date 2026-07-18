@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "key": "window-replacement/livermore",
+  "path": "/window-replacement/livermore",
+  "seo": {
+    "title": "Livermore Window Replacement | Deluxe Windows",
+    "description": "Window replacement in Livermore, Alameda County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+    "canonical": "https://www.deluxewindows.com/window-replacement/livermore",
+    "og": {
+      "title": "Livermore Window Replacement | Deluxe Windows",
+      "description": "Window replacement in Livermore, Alameda County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "How much does window replacement cost in Livermore?",
+      "answer": "Livermore homeowners typically invest $5,000 to $12,000 for a full window replacement project covering 10–16 windows. This growing Tri-Valley wine country community offers a mix of older ranch homes near the historic downtown and larger newer developments in the South Livermore Valley. Single window installation starts at approximately $470."
+    },
+    {
+      "question": "Do I need a permit for window replacement in Livermore?",
+      "answer": "Yes. Livermore requires a building permit for window replacements. Our team handles all permit applications and inspections with the City of Livermore Development Services Department on your behalf."
+    },
+    {
+      "question": "Which window brands does Deluxe Windows install in Livermore?",
+      "answer": "For Livermore's hot Tri-Valley climate, we most frequently install Anlin Del Mar triple-pane for its superior solar heat gain control, Milgard Tuscany vinyl for cost-effective whole-home replacements, and Andersen 400-Series for premium wine country homes in the South Livermore Valley."
+    },
+    {
+      "question": "Does Deluxe Windows serve all Livermore neighborhoods?",
+      "answer": "Yes — we serve all Livermore areas including Springtown, Sunset West, South Livermore Valley, Vineyard, Portola, and all zip codes: 94550, 94551."
+    }
+  ],
+  "schema": {
+    "primary_type": "Service",
+    "data": {
+      "name": "Window Replacement in Livermore",
+      "area_served": "Livermore"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

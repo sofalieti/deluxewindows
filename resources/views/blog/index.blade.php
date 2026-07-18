@@ -2,8 +2,6 @@
 
 @section('wfPage', '688097fa174129b5ec241dd4')
 @section('bodyClass', 'body-18 height-auto blog-page')
-@section('title', 'Window Tips & Design Blog | Deluxe Windows – Bay Area')
-@section('metaDescription', 'Expert window tips, buying guides, and design inspiration for Bay Area homeowners from Deluxe Windows.')
 
 @section('content')
       <section class="section_breadcrumbs section-121">

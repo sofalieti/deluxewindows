@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "key": "static/faq",
+  "path": "/faq",
+  "seo": {
+    "title": "Window & Door FAQs | Deluxe Windows – Bay Area",
+    "description": "Get expert answers about window and door replacement, installation, permits, energy savings, and costs.",
+    "canonical": "https://www.deluxewindows.com/faq",
+    "og": {
+      "title": "Window & Door FAQs | Deluxe Windows – Bay Area",
+      "description": "Get expert answers about window and door replacement, installation, permits, energy savings, and costs.",
+      "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta%20cover-2.jpg",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "Which material is best for your windows?",
+      "answer": "Vinyl is efficient and low maintenance, wood preserves a traditional appearance, wood-clad combines a wood interior with a durable exterior, aluminum provides slim strong frames, and fiberglass offers exceptional strength and durability. The best choice depends on the home, climate, and budget."
+    },
+    {
+      "question": "Will I need to obtain a permit?",
+      "answer": "Permit requirements vary by city and property. Historic districts and homeowner associations may have additional rules. Deluxe Windows can help determine requirements and assist with the permit process."
+    },
+    {
+      "question": "When do I need new windows?",
+      "answer": "Signs include high energy bills, rooms that are too hot or cold, recurring condensation, drafts or leaks, and windows that are difficult to operate."
+    },
+    {
+      "question": "What causes condensation?",
+      "answer": "Condensation forms when humid air meets a cooler surface. Aging windows and weak insulation can allow moisture to collect on or between panes."
+    },
+    {
+      "question": "Will I need retrofit or new construction installation?",
+      "answer": "Retrofit installation fits a custom window into the existing opening and is usually faster. New construction installation removes the surrounding frame and is appropriate when the opening or waterproofing also needs replacement."
+    },
+    {
+      "question": "How do I choose window brands and styles?",
+      "answer": "A specialist should assess the home's architecture, openings, efficiency goals, and budget before recommending a product, style, and price range."
+    }
+  ],
+  "schema": {
+    "primary_type": "WebPage",
+    "data": {},
+    "extra": [],
+    "replace": []
+  }
+}

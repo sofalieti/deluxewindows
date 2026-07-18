@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "key": "door-brands/andersen",
+  "path": "/door-brands/andersen",
+  "seo": {
+    "title": "Andersen Doors | Deluxe Windows",
+    "description": "Andersen is one of the most trusted names in doors and windows, with more than 100 years of engineering behind every product. From elegant hinged and gliding patio doors to bold…",
+    "canonical": "https://www.deluxewindows.com/door-brands/andersen",
+    "og": {
+      "title": "Andersen Doors | Deluxe Windows",
+      "description": "Andersen is one of the most trusted names in doors and windows, with more than 100 years of engineering behind every product. From elegant hinged and gliding patio doors to bold…",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a75a9f58dabd4b2642bc5_Andersen.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "What makes Andersen doors stand out?",
+      "answer": "Andersen combines over a century of craftsmanship with innovative materials like Fibrex, plus High-Performance Low-E4 glass, for doors that look great and perform for decades."
+    },
+    {
+      "question": "Are Andersen patio doors energy efficient?",
+      "answer": "Yes. Andersen doors use High-Performance Low-E4 glass and tight weatherstripping to reduce heat transfer and help keep your home comfortable and efficient year-round."
+    },
+    {
+      "question": "Can I customize the look of my Andersen door?",
+      "answer": "Definitely. Andersen offers a wide range of colors, finishes, glass options, grilles, and hardware so your doors complement your home's style. We'll help you configure the details."
+    },
+    {
+      "question": "Do you install Andersen doors in the Bay Area?",
+      "answer": "Yes. Deluxe Windows measures and professionally installs Andersen doors across the Bay Area, with a final inspection to ensure flawless operation."
+    }
+  ],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Andersen Doors",
+      "brand": "Andersen"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

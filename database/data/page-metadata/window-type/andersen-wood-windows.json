@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "window-type/andersen-wood-windows",
+  "path": "/window-type/andersen-wood-windows",
+  "seo": {
+    "title": "Andersen Wood Windows | Deluxe Windows Milpitas",
+    "description": "Andersen wood windows bring natural warmth and custom finishes to Bay Area homes. Expert wood window installation by Deluxe Windows in San Francisco. Free estimates.",
+    "canonical": "https://www.deluxewindows.com/window-type/andersen-wood-windows",
+    "og": {
+      "title": "Andersen Wood Windows | Deluxe Windows Milpitas",
+      "description": "Andersen wood windows bring natural warmth and custom finishes to Bay Area homes. Expert wood window installation by Deluxe Windows in San Francisco. Free estimates.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f64e63cdbaadbf331bc9f_andersen-e-series-windows-woodstain-bedroom-interior-1.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Andersen Wood Windows"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

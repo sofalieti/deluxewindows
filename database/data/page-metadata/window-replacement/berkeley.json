@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "key": "window-replacement/berkeley",
+  "path": "/window-replacement/berkeley",
+  "seo": {
+    "title": "Berkeley Window Replacement | Deluxe Windows",
+    "description": "Window replacement in Berkeley, Alameda County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+    "canonical": "https://www.deluxewindows.com/window-replacement/berkeley",
+    "og": {
+      "title": "Berkeley Window Replacement | Deluxe Windows",
+      "description": "Window replacement in Berkeley, Alameda County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "How much does window replacement cost in Berkeley?",
+      "answer": "Berkeley homeowners typically invest $7,500 to $17,000 for a full window replacement project. The city's large stock of Craftsman bungalows, Victorians, and Brown Shingle homes often require custom-sized frames, which adds to cost. Hillside homes with larger specialty windows can see projects in the $20,000–$30,000 range. Single window replacement starts at approximately $600–$750."
+    },
+    {
+      "question": "Do I need a permit for window replacement in Berkeley?",
+      "answer": "Yes — Berkeley requires a building permit for virtually all window replacement projects, including like-for-like replacements. Properties designated as landmarks or located in historic districts may require additional review by the Landmarks Preservation Commission. Berkeley's permitting process is thorough; our team manages all applications, submittals, and inspection scheduling on your behalf."
+    },
+    {
+      "question": "Which window brands does Deluxe Windows install in Berkeley?",
+      "answer": "Berkeley's architectural diversity calls for a range of premium products. We most frequently install Milgard Ultra fiberglass for its dimensional stability and moisture resistance throughout the hills, Andersen 400-Series wood-clad for Craftsmans and Victorians where wood interiors matter, and Marvin Elevate for higher-end hillside homes requiring custom sizing."
+    },
+    {
+      "question": "Does Deluxe Windows serve all Berkeley neighborhoods?",
+      "answer": "Yes — we serve all Berkeley neighborhoods including Elmwood, Claremont, Rockridge, Northside, South Berkeley, West Berkeley, Thousand Oaks, Panoramic Hill, and the Berkeley Hills. We cover all Berkeley zip codes: 94702, 94703, 94704, 94705, 94707, 94708, 94709, and 94710."
+    }
+  ],
+  "schema": {
+    "primary_type": "Service",
+    "data": {
+      "name": "Window Replacement in Berkeley",
+      "area_served": "Berkeley"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

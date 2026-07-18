@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "key": "brand-collections/brickmould-600",
+  "path": "/brand-collections/brickmould-600",
+  "seo": {
+    "title": "Brickmould 600 | Deluxe Windows",
+    "description": "Brickmould 600 windows combine the classic proportions of wood windows with the durability and thermal efficiency of vinyl. They’re designed to be easy to install and deliver…",
+    "canonical": "https://www.deluxewindows.com/brand-collections/brickmould-600",
+    "og": {
+      "title": "Brickmould 600 | Deluxe Windows",
+      "description": "Brickmould 600 windows combine the classic proportions of wood windows with the durability and thermal efficiency of vinyl. They’re designed to be easy to install and deliver…",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/696754d29f0f0cf59f3557bf_sim_interior_brickmould_600_kitchen_casement_window_5050_module_p118.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "CollectionPage",
+    "data": {
+      "name": "Brickmould 600"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

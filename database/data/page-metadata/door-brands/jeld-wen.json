@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "key": "door-brands/jeld-wen",
+  "path": "/door-brands/jeld-wen",
+  "seo": {
+    "title": "Jeld-Wen Doors | Deluxe Windows",
+    "description": "Jeld-Wen is a global manufacturer offering one of the broadest door selections available — including wood, fiberglass, and steel entry doors plus sliding and hinged patio doors.…",
+    "canonical": "https://www.deluxewindows.com/door-brands/jeld-wen",
+    "og": {
+      "title": "Jeld-Wen Doors | Deluxe Windows",
+      "description": "Jeld-Wen is a global manufacturer offering one of the broadest door selections available — including wood, fiberglass, and steel entry doors plus sliding and hinged patio doors.…",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a751848f910d5ccb0bd34_Jeld%20Wen.avif",
+      "type": "website"
+    },
+    "twitter_card": "summary_large_image"
+  },
+  "faq": [
+    {
+      "question": "What door materials does Jeld-Wen offer?",
+      "answer": "Jeld-Wen offers wood, fiberglass, and steel entry doors along with sliding and hinged patio doors, so you can balance appearance, durability, and budget."
+    },
+    {
+      "question": "Are Jeld-Wen doors energy efficient?",
+      "answer": "Yes. Many Jeld-Wen doors include energy-efficient glass and insulated cores that help keep your home comfortable and reduce energy costs."
+    },
+    {
+      "question": "Which Jeld-Wen door is right for me?",
+      "answer": "It depends on your priorities — fiberglass and steel are great for low maintenance and security, while wood offers classic warmth. We'll recommend the best fit during your consultation."
+    },
+    {
+      "question": "Do you install Jeld-Wen doors in the Bay Area?",
+      "answer": "Yes. Deluxe Windows provides professional measurement and installation of Jeld-Wen doors throughout the Bay Area."
+    }
+  ],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Jeld-Wen Doors",
+      "brand": "Jeld-Wen"
+    },
+    "extra": [],
+    "replace": []
+  }
+}
