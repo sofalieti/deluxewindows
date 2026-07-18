@@ -37,25 +37,6 @@
             </div>
           </div>
           @endif
-
-          @if($group['insertWindowTypesAfter'] && $windowTypes->count() > 0)
-          <div class="sidebar-material-group">
-            <div class="w-dyn-list">
-              <div role="list" class="dropdown-list-2 no-padding d-sidebar w-dyn-items">
-                @foreach($windowTypes as $wt)
-                <div role="listitem" class="w-dyn-item">
-                  <a href="/window-type/{{ $wt['slug'] }}" class="sidebar-item-2 w-inline-block">
-                    @if($wt['image'])
-                    <img loading="lazy" src="{{ $wt['image'] }}" alt="{{ $wt['name'] }}" class="sidebar-img" />
-                    @endif
-                    <div class="sidebar-txt text-size-16">{{ $wt['name'] }}</div>
-                  </a>
-                </div>
-                @endforeach
-              </div>
-            </div>
-          </div>
-          @endif
         @endforeach
       </div>
     </div>

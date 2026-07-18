@@ -2159,15 +2159,14 @@ class ClassicSiteController extends Controller
     }
 
     /**
-     * Sidebar material groups for brand pages (matches deluxewindows.com/brands/* layout).
-     *
-     * @return \Illuminate\Support\Collection<int, array{name: string, sublabel: ?string, collections: \Illuminate\Support\Collection, visible: bool, insertWindowTypesAfter: bool}>
-     */
-    /**
      * Sidebar groups for brand / brand-collection / window-type / door-type pages:
      * 1) materials linked to the brand (Webflow order)
      * 2) brand-collections linked via parent-brand
-     * 3) for each material: heading + collections that use that material
+     * 3) for each material: heading + brand-collections that use that material
+     *
+     * Only brand-collections are listed — never window-types.
+     *
+     * @return \Illuminate\Support\Collection<int, array{name: string, sublabel: ?string, collections: \Illuminate\Support\Collection, visible: bool}>
      */
     private function buildBrandSidebarMaterialGroups(BrandsWebflowItem $brand, array $fieldData): \Illuminate\Support\Collection
     {
@@ -2229,7 +2228,6 @@ class ClassicSiteController extends Controller
 
         $showVinylSubcategories = (bool) ($fieldData['new-construction-replacement-categories'] ?? false);
         $groups = collect();
-        $insertWindowTypesAfterFirst = true;
         $assignedSlugs = [];
 
         foreach ($brandMaterials as $material) {
@@ -2258,26 +2256,22 @@ class ClassicSiteController extends Controller
                     }
 
                     $groups->push([
-                        'name'                   => $materialName,
-                        'sublabel'               => $sublabel,
-                        'collections'            => $subMatched,
-                        'visible'                => true,
-                        'insertWindowTypesAfter' => $insertWindowTypesAfterFirst,
+                        'name'        => $materialName,
+                        'sublabel'    => $sublabel,
+                        'collections' => $subMatched,
+                        'visible'     => true,
                     ]);
-                    $insertWindowTypesAfterFirst = false;
                 }
 
                 continue;
             }
 
             $groups->push([
-                'name'                   => $materialName,
-                'sublabel'               => null,
-                'collections'            => $matched,
-                'visible'                => true,
-                'insertWindowTypesAfter' => $insertWindowTypesAfterFirst,
+                'name'        => $materialName,
+                'sublabel'    => null,
+                'collections' => $matched,
+                'visible'     => true,
             ]);
-            $insertWindowTypesAfterFirst = false;
         }
 
         // Collections tied to the brand but not matched to any brand material.
@@ -2287,11 +2281,10 @@ class ClassicSiteController extends Controller
 
         if ($leftover->isNotEmpty()) {
             $groups->push([
-                'name'                   => 'Other collections',
-                'sublabel'               => null,
-                'collections'            => $leftover,
-                'visible'                => true,
-                'insertWindowTypesAfter' => $insertWindowTypesAfterFirst,
+                'name'        => 'Other collections',
+                'sublabel'    => null,
+                'collections' => $leftover,
+                'visible'     => true,
             ]);
         }
 
