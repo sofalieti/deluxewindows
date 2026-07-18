@@ -165,34 +165,36 @@
           {{-- Fallback for hero-based templates without image: solid blue background only --}}
           <div class="div-block-61"></div>
         @else
-          {{-- Homepage: video background --}}
+          {{-- Homepage: static image first (LCP), the 25 MB video is appended
+               on desktop only and covers the image once it starts playing. --}}
         <div class="code-embed-5 w-embed w-script">
           <div id="hero-bg-wrapper" class="video-bg-container">
-            <video autoplay="" loop="" muted="" playsinline="">
-              <source
-                  src="/webflow-assets/videos/687ca10e41cc245f5cdacfd5_0719_2-copy.mp4"
-                type="video/mp4"
-              />
-            </video>
+            <img
+              src="{{ thumbnail_url('/webflow-assets/images/69ce36fd76a6aaff9c68df7e_01.webp', 'hero_mobile') }}"
+              srcset="{{ thumbnail_url('/webflow-assets/images/69ce36fd76a6aaff9c68df7e_01.webp', 'hero_mobile') }} 768w, {{ thumbnail_url('/webflow-assets/images/69ce36fd76a6aaff9c68df7e_01.webp', 'hero_bg') }} 1920w"
+              sizes="100vw"
+              alt=""
+              fetchpriority="high"
+              decoding="async"
+              class="hero-bg-image"
+            />
           </div>
 
           <script>
-            const bgWrapper = document.getElementById("hero-bg-wrapper");
-              // Local asset paths:
-              const videoUrl = "/webflow-assets/videos/687ca10e41cc245f5cdacfd5_0719_2-copy.mp4";
-              const imageUrl = @json(thumbnail_url('/webflow-assets/images/69ce36fd76a6aaff9c68df7e_01.webp', 'hero_mobile'));
-
-            if (window.innerWidth > 767) {
-                // Desktop: show video
-              bgWrapper.innerHTML = `
-      <video autoplay loop muted playsinline>
-        <source src="${videoUrl}" type="video/mp4">
-      </video>
-    `;
-            } else {
-                // Mobile: show static image
-              bgWrapper.style.backgroundImage = `url('${imageUrl}')`;
-            }
+            (function () {
+              if (window.innerWidth <= 767) return;
+              var wrapper = document.getElementById("hero-bg-wrapper");
+              var video = document.createElement("video");
+              video.autoplay = true;
+              video.loop = true;
+              video.muted = true;
+              video.setAttribute("playsinline", "");
+              var source = document.createElement("source");
+              source.src = "/webflow-assets/videos/687ca10e41cc245f5cdacfd5_0719_2-copy.mp4";
+              source.type = "video/mp4";
+              video.appendChild(source);
+              wrapper.appendChild(video);
+            })();
           </script>
         </div>
         @endif

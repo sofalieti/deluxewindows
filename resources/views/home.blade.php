@@ -5,6 +5,14 @@
 @section('bodyClass', 'body-18 height-auto')
 
 @section('head')
+    <link
+      rel="preload"
+      as="image"
+      href="{{ thumbnail_url('/webflow-assets/images/69ce36fd76a6aaff9c68df7e_01.webp', 'hero_mobile') }}"
+      imagesrcset="{{ thumbnail_url('/webflow-assets/images/69ce36fd76a6aaff9c68df7e_01.webp', 'hero_mobile') }} 768w, {{ thumbnail_url('/webflow-assets/images/69ce36fd76a6aaff9c68df7e_01.webp', 'hero_bg') }} 1920w"
+      imagesizes="100vw"
+      fetchpriority="high"
+    />
     <style rel="stylesheet" type="text/css">
       @charset "utf-8";
 
@@ -1070,6 +1078,6 @@
 @endsection
 
 @section('bodyScripts')
-  <script src="/webflow-assets/js/jquery-3.5.1.min.js" type="text/javascript"></script>
-  <script src="/webflow-assets/js/webflow.js" type="text/javascript"></script>
+  <script src="/webflow-assets/js/jquery-3.5.1.min.js" type="text/javascript" defer></script>
+  <script src="/webflow-assets/js/webflow.js" type="text/javascript" defer></script>
 @endsection

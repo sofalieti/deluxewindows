@@ -129,6 +129,18 @@
 .scroll-block::-webkit-scrollbar { width: 6px; }
 .scroll-block::-webkit-scrollbar-thumb { background: #E79800; border-radius: 999px; }
 
+/* Homepage hero: static image behind the desktop background video */
+.video-bg-container .hero-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.video-bg-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 /* Current item in the brand sidebar (window-type / door-type pages) */
 .sidebar-item-2.w--current {
   color: #1b73bb;
