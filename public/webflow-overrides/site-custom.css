@@ -1686,13 +1686,10 @@
 }
 
 /*
- * Brand / window-type / door-type sidebar.
- * Webflow hides .w-dropdown-list until .w--open is set by IX JS. If that JS
- * fails (or never opens nested material groups), "All brands" stays visible
- * while collection links disappear. Keep both levels always open in CSS.
+ * Brand / window-type / door-type sidebar — always-visible collection lists
+ * (no Webflow w-dropdown hide/show).
  */
-.section_sidebar .dropdown-list-4.sidebar-list,
-.section_sidebar .dropdown-list-2.dd-sidebar.w-dropdown-list {
+.section_sidebar .dropdown-list-4.sidebar-list {
   display: block !important;
   position: static !important;
   inset: auto !important;
@@ -1707,6 +1704,18 @@
   background: transparent !important;
   box-shadow: none !important;
   overflow: visible !important;
+}
+
+.section_sidebar .toggle-tab.sidebar.is-first {
+  display: none;
+}
+
+.section_sidebar .sidebar-material-group {
+  margin-top: 12px;
+}
+
+.section_sidebar .sidebar-material-heading {
+  margin-bottom: 6px;
 }
 
 .section_sidebar .scroll-block {
