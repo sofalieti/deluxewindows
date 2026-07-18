@@ -3,16 +3,32 @@
   "key": "brands/andersen",
   "path": "/brands/andersen",
   "seo": {
-    "title": "Andersen Windows & Doors | Deluxe Windows Sunnyvale",
-    "description": "Andersen — America's most trusted window brand. Explore the full Andersen lineup at Deluxe Windows in San Francisco. Bay Area installation experts. Free estimates.",
+    "title": "Andersen Windows Bay Area | Deluxe Windows",
+    "description": "Compare Andersen window collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate.",
     "canonical": "https://www.deluxewindows.com/brands/andersen",
     "og": {
-      "title": "Andersen Windows & Doors | Deluxe Windows Sunnyvale",
-      "description": "Andersen — America's most trusted window brand. Explore the full Andersen lineup at Deluxe Windows in San Francisco. Bay Area installation experts. Free estimates.",
+      "title": "Andersen Windows Bay Area | Deluxe Windows",
+      "description": "Compare Andersen window collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a75a9f58dabd4b2642bc5_Andersen.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Andersen Windows — Bay Area Authorized Dealer & Installer",
+    "primary_keyword": "andersen windows",
+    "target_keywords": [
+      "andersen windows",
+      "andersen windows near me",
+      "andersen dealer",
+      "andersen warranty"
+    ],
+    "search_intent": "brand",
+    "priority": "P0",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Andersen Windows Bay Area | Deluxe Windows",
+      "description": "Compare Andersen window collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a75a9f58dabd4b2642bc5_Andersen.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [
     {

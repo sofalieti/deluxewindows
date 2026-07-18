@@ -3,16 +3,29 @@
   "key": "blog/do-energy-efficient-windows-and-doors-make-a-difference-for-bay-area-homeowners",
   "path": "/blog/do-energy-efficient-windows-and-doors-make-a-difference-for-bay-area-homeowners",
   "seo": {
-    "title": "Do Energy-Efficient Windows and Doors Make a Difference for Bay Area Homeowners? | Deluxe Windows",
-    "description": "Explore Do Energy-Efficient Windows and Doors Make a Difference for Bay Area Homeowners? from Deluxe Windows for Bay Area homes.",
+    "title": "Do Energy-Efficient Windows Work? [2026] | Deluxe",
+    "description": "Energy-efficient windows and doors can improve comfort and reduce heat transfer. Learn which features matter most for Bay Area homes and utility costs.",
     "canonical": "https://www.deluxewindows.com/blog/do-energy-efficient-windows-and-doors-make-a-difference-for-bay-area-homeowners",
     "og": {
-      "title": "Do Energy-Efficient Windows and Doors Make a Difference for Bay Area Homeowners? | Deluxe Windows",
-      "description": "Explore Do Energy-Efficient Windows and Doors Make a Difference for Bay Area Homeowners? from Deluxe Windows for Bay Area homes.",
+      "title": "Do Energy-Efficient Windows Work? [2026] | Deluxe",
+      "description": "Energy-efficient windows and doors can improve comfort and reduce heat transfer. Learn which features matter most for Bay Area homes and utility costs.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6a1198a6ed206a190cd9ce26_692b7073-5aa8-4458-8c11-0784911b9e09.png",
       "type": "article"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Do Energy-Efficient Windows and Doors Make a Difference?",
+    "primary_keyword": "do energy efficient windows and doors make a difference for bay area homeowners",
+    "target_keywords": [
+      "do energy efficient windows and doors make a difference for bay area homeowners"
+    ],
+    "search_intent": "informational",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Do Energy-Efficient Windows Work? [2026] | Deluxe",
+      "description": "Energy-efficient windows and doors can improve comfort and reduce heat transfer. Learn which features matter most for Bay Area homes and utility costs.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6a1198a6ed206a190cd9ce26_692b7073-5aa8-4458-8c11-0784911b9e09.png",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

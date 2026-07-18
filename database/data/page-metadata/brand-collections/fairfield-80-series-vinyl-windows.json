@@ -3,16 +3,30 @@
   "key": "brand-collections/fairfield-80-series-vinyl-windows",
   "path": "/brand-collections/fairfield-80-series-vinyl-windows",
   "seo": {
-    "title": "Fairfield 80 Series Vinyl Windows | Deluxe Windows",
-    "description": "When you choose Fairfield 80 Series Windows from Alside, you’ll enjoy beauty, performance and strength. Fairfield 80 Series Windows deliver energy-saving innovations while lending…",
+    "title": "Alside Fairfield 80 Series Vinyl Windows | Deluxe Windows",
+    "description": "Explore Alside Fairfield 80 Series Vinyl Windows specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate.",
     "canonical": "https://www.deluxewindows.com/brand-collections/fairfield-80-series-vinyl-windows",
     "og": {
-      "title": "Fairfield 80 Series Vinyl Windows | Deluxe Windows",
-      "description": "When you choose Fairfield 80 Series Windows from Alside, you’ll enjoy beauty, performance and strength. Fairfield 80 Series Windows deliver energy-saving innovations while lending…",
+      "title": "Alside Fairfield 80 Series Vinyl Windows | Deluxe Windows",
+      "description": "Explore Alside Fairfield 80 Series Vinyl Windows specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/696dce5298aa12e35e03cb31_Alside_Fairfield80_ExteriorBeauty-scaled.jpeg",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Fairfield 80 Series Vinyl Windows",
+    "primary_keyword": "fairfield 80 series vinyl windows",
+    "target_keywords": [
+      "fairfield 80 series vinyl windows",
+      "fairfield 80 series vinyl windows prices"
+    ],
+    "search_intent": "product-series",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Alside Fairfield 80 Series Vinyl Windows | Deluxe Windows",
+      "description": "Explore Alside Fairfield 80 Series Vinyl Windows specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/696dce5298aa12e35e03cb31_Alside_Fairfield80_ExteriorBeauty-scaled.jpeg",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

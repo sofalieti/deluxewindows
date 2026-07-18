@@ -69,6 +69,9 @@ class PageMetadataRepository
         $invalid = [];
         $keys = [];
         $paths = [];
+        $titles = [];
+        $descriptions = [];
+        $primaryKeywords = [];
 
         if (! File::isDirectory($root)) {
             return ['valid' => 0, 'invalid' => ["Page metadata directory is missing: {$root}"]];
@@ -97,6 +100,18 @@ class PageMetadataRepository
                 if (isset($paths[$metadata->path])) {
                     throw new InvalidArgumentException("Duplicate public path: {$metadata->path}");
                 }
+                $seo = $decoded['seo'];
+                $this->assertUniqueSeoValue($titles, 'title', (string) $seo['title']);
+                $this->assertUniqueSeoValue(
+                    $descriptions,
+                    'description',
+                    (string) $seo['description']
+                );
+                $this->assertUniqueSeoValue(
+                    $primaryKeywords,
+                    'primary_keyword',
+                    (string) $seo['primary_keyword']
+                );
                 $keys[$metadata->key] = true;
                 $paths[$metadata->path] = true;
                 $valid++;
@@ -165,6 +180,27 @@ class PageMetadataRepository
         if ($title === '' || $description === '') {
             throw new InvalidArgumentException('SEO title and description are required.');
         }
+        if (mb_strlen($title) > 60) {
+            throw new InvalidArgumentException('SEO title must not exceed 60 characters.');
+        }
+        if (mb_strlen($description) < 140 || mb_strlen($description) > 160) {
+            throw new InvalidArgumentException(
+                'SEO description must contain between 140 and 160 characters.'
+            );
+        }
+
+        $h1 = trim((string) ($seo['h1'] ?? ''));
+        $primaryKeyword = trim((string) ($seo['primary_keyword'] ?? ''));
+        $targetKeywords = $seo['target_keywords'] ?? null;
+        if ($h1 === '' || $primaryKeyword === '' || ! is_array($targetKeywords) || $targetKeywords === []) {
+            throw new InvalidArgumentException(
+                'SEO h1, primary_keyword and target_keywords are required.'
+            );
+        }
+        $seoJson = json_encode($seo, JSON_UNESCAPED_UNICODE);
+        if (is_string($seoJson) && preg_match('/[А-Яа-яЁё]/u', $seoJson)) {
+            throw new InvalidArgumentException('SEO fields must contain English text only.');
+        }
 
         $canonical = trim((string) ($seo['canonical'] ?? ''));
         $canonical = $canonical !== ''
@@ -222,6 +258,12 @@ class PageMetadataRepository
 
         $og = is_array($seo['og'] ?? null) ? $seo['og'] : [];
         $ogImage = trim((string) ($og['image'] ?? ''));
+        $twitter = is_array($seo['twitter'] ?? null) ? $seo['twitter'] : [];
+        $twitterImage = trim((string) ($twitter['image'] ?? ''));
+        $robots = trim((string) ($seo['robots'] ?? 'index,follow'));
+        if (! preg_match('/^[a-z0-9,:-]+$/i', $robots)) {
+            throw new InvalidArgumentException('Robots directives contain invalid characters.');
+        }
 
         return new PageMetadata(
             key: $key,
@@ -233,7 +275,18 @@ class PageMetadataRepository
             ogDescription: trim((string) ($og['description'] ?? '')) ?: $description,
             ogImage: $ogImage !== '' ? $this->absoluteUrl($ogImage, $baseUrl) : null,
             ogType: trim((string) ($og['type'] ?? '')) ?: 'website',
-            twitterCard: trim((string) ($seo['twitter_card'] ?? '')) ?: 'summary_large_image',
+            robots: $robots,
+            twitterTitle: trim((string) ($twitter['title'] ?? ''))
+                ?: trim((string) ($og['title'] ?? ''))
+                ?: $title,
+            twitterDescription: trim((string) ($twitter['description'] ?? ''))
+                ?: trim((string) ($og['description'] ?? ''))
+                ?: $description,
+            twitterImage: $twitterImage !== ''
+                ? $this->absoluteUrl($twitterImage, $baseUrl)
+                : ($ogImage !== '' ? $this->absoluteUrl($ogImage, $baseUrl) : null),
+            twitterCard: trim((string) ($twitter['card'] ?? $seo['twitter_card'] ?? ''))
+                ?: 'summary_large_image',
             faq: $faq,
             schema: $schema,
         );
@@ -286,6 +339,18 @@ class PageMetadataRepository
                 }
             }
         }
+    }
+
+    /**
+     * @param array<string, true> $seen
+     */
+    private function assertUniqueSeoValue(array &$seen, string $field, string $value): void
+    {
+        $normalized = mb_strtolower(trim($value));
+        if (isset($seen[$normalized])) {
+            throw new InvalidArgumentException("Duplicate SEO {$field}: {$value}");
+        }
+        $seen[$normalized] = true;
     }
 
     private function baseUrl(): string

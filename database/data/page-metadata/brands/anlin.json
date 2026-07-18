@@ -3,16 +3,32 @@
   "key": "brands/anlin",
   "path": "/brands/anlin",
   "seo": {
-    "title": "Anlin Windows | Deluxe Windows Mountain View",
-    "description": "Anlin windows are California-made for Bay Area climates. Exceptional energy performance and craftsmanship — explore all Anlin series at Deluxe Windows in San Francisco.",
+    "title": "Anlin Windows Bay Area | Deluxe Windows",
+    "description": "Compare Anlin window collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate. Learn more today.",
     "canonical": "https://www.deluxewindows.com/brands/anlin",
     "og": {
-      "title": "Anlin Windows | Deluxe Windows Mountain View",
-      "description": "Anlin windows are California-made for Bay Area climates. Exceptional energy performance and craftsmanship — explore all Anlin series at Deluxe Windows in San Francisco.",
+      "title": "Anlin Windows Bay Area | Deluxe Windows",
+      "description": "Compare Anlin window collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate. Learn more today.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a76b7e94512a795b803e9_Anlin.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Anlin Windows — Bay Area Authorized Dealer & Installer",
+    "primary_keyword": "anlin windows",
+    "target_keywords": [
+      "anlin windows",
+      "anlin windows near me",
+      "anlin dealer",
+      "anlin warranty"
+    ],
+    "search_intent": "brand",
+    "priority": "P1",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Anlin Windows Bay Area | Deluxe Windows",
+      "description": "Compare Anlin window collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate. Learn more today.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a76b7e94512a795b803e9_Anlin.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [
     {

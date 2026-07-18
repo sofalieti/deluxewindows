@@ -3,16 +3,30 @@
   "key": "window-type/ply-gem-aluminum-clad-windows",
   "path": "/window-type/ply-gem-aluminum-clad-windows",
   "seo": {
-    "title": "Ply Gem Aluminum Clad Windows | Deluxe Windows Concord",
-    "description": "Ply Gem aluminum clad windows combine beautiful wood interiors with low-maintenance exteriors for Bay Area homes. Installed by Deluxe Windows in San Francisco. Free quotes.",
+    "title": "Ply Gem Aluminum Clad Windows | Deluxe Windows",
+    "description": "Compare Ply Gem aluminum clad windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Learn more today.",
     "canonical": "https://www.deluxewindows.com/window-type/ply-gem-aluminum-clad-windows",
     "og": {
-      "title": "Ply Gem Aluminum Clad Windows | Deluxe Windows Concord",
-      "description": "Ply Gem aluminum clad windows combine beautiful wood interiors with low-maintenance exteriors for Bay Area homes. Installed by Deluxe Windows in San Francisco. Free quotes.",
+      "title": "Ply Gem Aluminum Clad Windows | Deluxe Windows",
+      "description": "Compare Ply Gem aluminum clad windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Learn more today.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695e00a375e654f6496bc79b_imgi_78_PGW_Interior_LivingRoom_MIRA_AwningWindow_Black_InspirationGallery_Module_6_1696x610_p32.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Ply Gem Aluminum Clad Windows",
+    "primary_keyword": "ply gem aluminum clad windows",
+    "target_keywords": [
+      "ply gem aluminum clad windows",
+      "ply gem aluminum clad windows prices"
+    ],
+    "search_intent": "brand-material",
+    "priority": "P1",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Ply Gem Aluminum Clad Windows | Deluxe Windows",
+      "description": "Compare Ply Gem aluminum clad windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Learn more today.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695e00a375e654f6496bc79b_imgi_78_PGW_Interior_LivingRoom_MIRA_AwningWindow_Black_InspirationGallery_Module_6_1696x610_p32.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

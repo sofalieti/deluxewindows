@@ -3,16 +3,30 @@
   "key": "brand-collections/fusion-r-quality-vinyl-windows",
   "path": "/brand-collections/fusion-r-quality-vinyl-windows",
   "seo": {
-    "title": "Fusion® Quality Vinyl Windows | Deluxe Windows",
-    "description": "Fusion ® Windows are built for the way you live. Featuring fusion-welded sashes and mainframe, multi-chambered extrusions, composite-reinforced interlocking meeting rails and an…",
+    "title": "Alside Fusion Quality Vinyl Windows | Deluxe Windows",
+    "description": "Explore Alside Fusion Quality Vinyl Windows specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate.",
     "canonical": "https://www.deluxewindows.com/brand-collections/fusion-r-quality-vinyl-windows",
     "og": {
-      "title": "Fusion® Quality Vinyl Windows | Deluxe Windows",
-      "description": "Fusion ® Windows are built for the way you live. Featuring fusion-welded sashes and mainframe, multi-chambered extrusions, composite-reinforced interlocking meeting rails and an…",
+      "title": "Alside Fusion Quality Vinyl Windows | Deluxe Windows",
+      "description": "Explore Alside Fusion Quality Vinyl Windows specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/696dce53e96aa303dc195392_Alside_Fusion.jpeg",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Fusion Quality Vinyl Windows",
+    "primary_keyword": "fusion quality vinyl windows",
+    "target_keywords": [
+      "fusion quality vinyl windows",
+      "fusion quality vinyl windows prices"
+    ],
+    "search_intent": "product-series",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Alside Fusion Quality Vinyl Windows | Deluxe Windows",
+      "description": "Explore Alside Fusion Quality Vinyl Windows specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/696dce53e96aa303dc195392_Alside_Fusion.jpeg",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

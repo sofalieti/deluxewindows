@@ -3,16 +3,29 @@
   "key": "static/testimonials",
   "path": "/testimonials",
   "seo": {
-    "title": "Customer Reviews | Deluxe Windows – Bay Area",
-    "description": "Read customer reviews about Deluxe Windows installation, service quality, and experience.",
+    "title": "Deluxe Windows Reviews | Bay Area Customers",
+    "description": "Read reviews from Bay Area homeowners who chose Deluxe Windows for window and door replacement, product guidance and professional installation. Get expert help.",
     "canonical": "https://www.deluxewindows.com/testimonials",
     "og": {
-      "title": "Customer Reviews | Deluxe Windows – Bay Area",
-      "description": "Read customer reviews about Deluxe Windows installation, service quality, and experience.",
+      "title": "Deluxe Windows Reviews | Bay Area Customers",
+      "description": "Read reviews from Bay Area homeowners who chose Deluxe Windows for window and door replacement, product guidance and professional installation. Get expert help.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta%20cover-2.jpg",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "What Our Customers Say",
+    "primary_keyword": "deluxe windows reviews",
+    "target_keywords": [
+      "deluxe windows reviews"
+    ],
+    "search_intent": "hub",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Deluxe Windows Reviews | Bay Area Customers",
+      "description": "Read reviews from Bay Area homeowners who chose Deluxe Windows for window and door replacement, product guidance and professional installation. Get expert help.",
+      "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta%20cover-2.jpg",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

@@ -10,6 +10,36 @@ test('all committed page metadata files are valid and uniquely mapped', function
         ->and($result['valid'])->toBeGreaterThan(150);
 });
 
+test('all SEO assignments are unique concise and English only', function () {
+    $records = collect(\Illuminate\Support\Facades\File::allFiles(
+        database_path('data/page-metadata')
+    ))->filter(fn ($file) => $file->getExtension() === 'json')
+        ->map(fn ($file) => json_decode(
+            (string) file_get_contents($file->getPathname()),
+            true,
+            512,
+            JSON_THROW_ON_ERROR
+        ));
+
+    expect($records)->toHaveCount(204);
+
+    foreach (['title', 'description', 'h1', 'primary_keyword'] as $field) {
+        $values = $records->pluck("seo.{$field}");
+        expect($values->filter())->toHaveCount(204)
+            ->and($values->unique())->toHaveCount(204);
+    }
+
+    foreach ($records as $record) {
+        $seo = $record['seo'];
+        expect(mb_strlen($seo['title']))->toBeLessThanOrEqual(60)
+            ->and(mb_strlen($seo['description']))->toBeGreaterThanOrEqual(140)
+            ->and(mb_strlen($seo['description']))->toBeLessThanOrEqual(160)
+            ->and(preg_match('/[А-Яа-яЁё]/u', json_encode($seo)))->toBe(0)
+            ->and($seo['robots'])->toContain('index,follow')
+            ->and($seo['target_keywords'])->not->toBeEmpty();
+    }
+});
+
 test('representative public page families resolve metadata and schema from files', function (
     string $path,
     string $expectedType
@@ -59,7 +89,9 @@ test('shared head renders canonical metadata and valid json ld', function () {
 
     expect($head)
         ->toContain('<title>'.e($metadata->title).'</title>')
+        ->toContain('<meta name="robots" content="'.$metadata->robots.'"')
         ->toContain('rel="canonical" href="'.$metadata->canonical.'"')
+        ->toContain('name="twitter:title" content="'.e($metadata->twitterTitle).'"')
         ->toContain('"@type":"BlogPosting"');
 
     preg_match_all(

@@ -3,16 +3,30 @@
   "key": "window-type/western-window-systems-aluminum-windows",
   "path": "/window-type/western-window-systems-aluminum-windows",
   "seo": {
-    "title": "Western Window Systems Aluminum Windows | Deluxe Windows Livermore",
-    "description": "Western Window Systems aluminum windows bring modern, high-performance design to Bay Area homes. Installed by Deluxe Windows in San Francisco. Request a free estimate.",
+    "title": "Western Window Systems Aluminum Windows | Deluxe Windows",
+    "description": "Compare Western Window Systems aluminum windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate.",
     "canonical": "https://www.deluxewindows.com/window-type/western-window-systems-aluminum-windows",
     "og": {
-      "title": "Western Window Systems Aluminum Windows | Deluxe Windows Livermore",
-      "description": "Western Window Systems aluminum windows bring modern, high-performance design to Bay Area homes. Installed by Deluxe Windows in San Francisco. Request a free estimate.",
+      "title": "Western Window Systems Aluminum Windows | Deluxe Windows",
+      "description": "Compare Western Window Systems aluminum windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f77a2d051bc5b614fd2cc_1-Gallery-Nv-Vegas-Modern-600-Atrium-03-Closed-Web.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Western Window Systems Aluminum Windows",
+    "primary_keyword": "western window systems aluminum windows",
+    "target_keywords": [
+      "western window systems aluminum windows",
+      "western window systems aluminum windows prices"
+    ],
+    "search_intent": "brand-material",
+    "priority": "P1",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Western Window Systems Aluminum Windows | Deluxe Windows",
+      "description": "Compare Western Window Systems aluminum windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f77a2d051bc5b614fd2cc_1-Gallery-Nv-Vegas-Modern-600-Atrium-03-Closed-Web.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

@@ -3,16 +3,29 @@
   "key": "brand-collections/brand-simonton-premium",
   "path": "/brand-collections/brand-simonton-premium",
   "seo": {
-    "title": "Premium | Deluxe Windows",
-    "description": "Traditional beauty with the durability of vinyl, these classic wood-look frame windows deliver high performance and superior energy efficiency with a wide selection of…",
+    "title": "Simonton Premium | Deluxe Windows",
+    "description": "Explore Simonton Premium specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
     "canonical": "https://www.deluxewindows.com/brand-collections/brand-simonton-premium",
     "og": {
-      "title": "Premium | Deluxe Windows",
-      "description": "Traditional beauty with the durability of vinyl, these classic wood-look frame windows deliver high performance and superior energy efficiency with a wide selection of…",
+      "title": "Simonton Premium | Deluxe Windows",
+      "description": "Explore Simonton Premium specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6964b7b7f3facc40f0705a99_689aff12399887cfa6c1caa7_sim_exterior_premium_double_hung_window_5050_module_p11113.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Simonton Premium",
+    "primary_keyword": "simonton premium",
+    "target_keywords": [
+      "simonton premium"
+    ],
+    "search_intent": "product-series",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Simonton Premium | Deluxe Windows",
+      "description": "Explore Simonton Premium specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6964b7b7f3facc40f0705a99_689aff12399887cfa6c1caa7_sim_exterior_premium_double_hung_window_5050_module_p11113.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

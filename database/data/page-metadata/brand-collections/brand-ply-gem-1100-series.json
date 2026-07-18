@@ -3,16 +3,29 @@
   "key": "brand-collections/brand-ply-gem-1100-series",
   "path": "/brand-collections/brand-ply-gem-1100-series",
   "seo": {
-    "title": "Ply Gem 1100 Series | Deluxe Windows Burlingame",
-    "description": "Ply Gem 1100 Series vinyl windows offer solid entry-level performance for Bay Area homes. Explore at Deluxe Windows in San Francisco. Request a free installation estimate.",
+    "title": "Ply Gem 1100 Series | Deluxe Windows",
+    "description": "Explore Ply Gem 1100 Series specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
     "canonical": "https://www.deluxewindows.com/brand-collections/brand-ply-gem-1100-series",
     "og": {
-      "title": "Ply Gem 1100 Series | Deluxe Windows Burlingame",
-      "description": "Ply Gem 1100 Series vinyl windows offer solid entry-level performance for Bay Area homes. Explore at Deluxe Windows in San Francisco. Request a free installation estimate.",
+      "title": "Ply Gem 1100 Series | Deluxe Windows",
+      "description": "Explore Ply Gem 1100 Series specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695b81391382c75a489084c0_68924c7ca1d6c8ebc6df1471_1100-Series-Banner-1440x650-v2.jpeg",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Ply Gem 1100 Series",
+    "primary_keyword": "ply gem 1100 series",
+    "target_keywords": [
+      "ply gem 1100 series"
+    ],
+    "search_intent": "product-series",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Ply Gem 1100 Series | Deluxe Windows",
+      "description": "Explore Ply Gem 1100 Series specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695b81391382c75a489084c0_68924c7ca1d6c8ebc6df1471_1100-Series-Banner-1440x650-v2.jpeg",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

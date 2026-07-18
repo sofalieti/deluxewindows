@@ -3,16 +3,30 @@
   "key": "brand-collections/classic-series",
   "path": "/brand-collections/classic-series",
   "seo": {
-    "title": "Ply Gem Classic Series | Deluxe Windows Fairfield",
-    "description": "Ply Gem Classic Series windows combine traditional styling with reliable vinyl performance for Bay Area homes. Explore at Deluxe Windows in San Francisco. Free estimates.",
+    "title": "Ply Gem Classic Series | Deluxe Windows",
+    "description": "Explore Ply Gem Classic Series specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
     "canonical": "https://www.deluxewindows.com/brand-collections/classic-series",
     "og": {
-      "title": "Ply Gem Classic Series | Deluxe Windows Fairfield",
-      "description": "Ply Gem Classic Series windows combine traditional styling with reliable vinyl performance for Bay Area homes. Explore at Deluxe Windows in San Francisco. Free estimates.",
+      "title": "Ply Gem Classic Series | Deluxe Windows",
+      "description": "Explore Ply Gem Classic Series specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695e42520b6d1e9d6b34df3a_pgw_classic_hero_1-400x400-1.webp",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Classic Series",
+    "primary_keyword": "classic series",
+    "target_keywords": [
+      "classic series",
+      "classic series prices"
+    ],
+    "search_intent": "product-series",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Ply Gem Classic Series | Deluxe Windows",
+      "description": "Explore Ply Gem Classic Series specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695e42520b6d1e9d6b34df3a_pgw_classic_hero_1-400x400-1.webp",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

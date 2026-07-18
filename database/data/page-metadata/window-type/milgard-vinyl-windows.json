@@ -3,16 +3,30 @@
   "key": "window-type/milgard-vinyl-windows",
   "path": "/window-type/milgard-vinyl-windows",
   "seo": {
-    "title": "Milgard Vinyl Windows | Deluxe Windows Richmond",
-    "description": "Milgard vinyl windows — Tuscany, Trinsic, Style Line and more — are engineered for Bay Area climates. Installed by Deluxe Windows in San Francisco. Free estimates.",
+    "title": "Milgard Vinyl Windows | Deluxe Windows",
+    "description": "Compare Milgard vinyl windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Learn more today.",
     "canonical": "https://www.deluxewindows.com/window-type/milgard-vinyl-windows",
     "og": {
-      "title": "Milgard Vinyl Windows | Deluxe Windows Richmond",
-      "description": "Milgard vinyl windows — Tuscany, Trinsic, Style Line and more — are engineered for Bay Area climates. Installed by Deluxe Windows in San Francisco. Free estimates.",
+      "title": "Milgard Vinyl Windows | Deluxe Windows",
+      "description": "Compare Milgard vinyl windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Learn more today.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f2b177b5142ce52781faa_Series_TIA2.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Milgard Vinyl Windows",
+    "primary_keyword": "milgard vinyl windows",
+    "target_keywords": [
+      "milgard vinyl windows",
+      "milgard vinyl windows prices"
+    ],
+    "search_intent": "brand-material",
+    "priority": "P1",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Milgard Vinyl Windows | Deluxe Windows",
+      "description": "Compare Milgard vinyl windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Learn more today.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f2b177b5142ce52781faa_Series_TIA2.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

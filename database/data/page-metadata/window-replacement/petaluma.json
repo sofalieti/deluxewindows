@@ -3,16 +3,31 @@
   "key": "window-replacement/petaluma",
   "path": "/window-replacement/petaluma",
   "seo": {
-    "title": "Petaluma Window Replacement | Deluxe Windows",
-    "description": "Window replacement in Petaluma, Sonoma County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+    "title": "Window Replacement Petaluma, CA | Deluxe Windows",
+    "description": "Get expert window replacement in Petaluma, CA with leading brands, professional installation and solutions for local homes. Request a free estimate.",
     "canonical": "https://www.deluxewindows.com/window-replacement/petaluma",
     "og": {
-      "title": "Petaluma Window Replacement | Deluxe Windows",
-      "description": "Window replacement in Petaluma, Sonoma County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+      "title": "Window Replacement Petaluma, CA | Deluxe Windows",
+      "description": "Get expert window replacement in Petaluma, CA with leading brands, professional installation and solutions for local homes. Request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Window Replacement in Petaluma, California",
+    "primary_keyword": "window replacement petaluma",
+    "target_keywords": [
+      "window replacement petaluma",
+      "windows petaluma",
+      "window installation petaluma ca"
+    ],
+    "search_intent": "local-city",
+    "priority": "P2",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Window Replacement Petaluma, CA | Deluxe Windows",
+      "description": "Get expert window replacement in Petaluma, CA with leading brands, professional installation and solutions for local homes. Request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [
     {

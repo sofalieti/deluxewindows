@@ -3,16 +3,32 @@
   "key": "door-brands/milgard",
   "path": "/door-brands/milgard",
   "seo": {
-    "title": "Milgard Doors | Deluxe Windows",
-    "description": "Milgard has spent decades building doors that combine dependable performance with clean, contemporary style. Their patio and entry doors are designed for smooth operation, strong…",
+    "title": "Milgard Doors Bay Area | Deluxe Windows",
+    "description": "Compare Milgard door collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate. Learn more today.",
     "canonical": "https://www.deluxewindows.com/door-brands/milgard",
     "og": {
-      "title": "Milgard Doors | Deluxe Windows",
-      "description": "Milgard has spent decades building doors that combine dependable performance with clean, contemporary style. Their patio and entry doors are designed for smooth operation, strong…",
+      "title": "Milgard Doors Bay Area | Deluxe Windows",
+      "description": "Compare Milgard door collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate. Learn more today.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a760a252df50b4cbf9cd7_Milgard.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Milgard Doors — Bay Area Authorized Dealer & Installer",
+    "primary_keyword": "milgard doors",
+    "target_keywords": [
+      "milgard doors",
+      "milgard patio doors",
+      "milgard sliding doors",
+      "milgard entry doors"
+    ],
+    "search_intent": "brand",
+    "priority": "P1",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Milgard Doors Bay Area | Deluxe Windows",
+      "description": "Compare Milgard door collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate. Learn more today.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a760a252df50b4cbf9cd7_Milgard.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [
     {

@@ -3,16 +3,32 @@
   "key": "brands/western-window-systems",
   "path": "/brands/western-window-systems",
   "seo": {
-    "title": "Western Window Systems | Deluxe Windows Redwood City",
-    "description": "Western Window Systems specializes in modern aluminum windows for Bay Area homes. Explore multi-slide and panoramic options at Deluxe Windows in San Francisco. Free estimates.",
+    "title": "Western Window Systems Windows Bay Area | Deluxe Windows",
+    "description": "Compare Western Window Systems window collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate.",
     "canonical": "https://www.deluxewindows.com/brands/western-window-systems",
     "og": {
-      "title": "Western Window Systems | Deluxe Windows Redwood City",
-      "description": "Western Window Systems specializes in modern aluminum windows for Bay Area homes. Explore multi-slide and panoramic options at Deluxe Windows in San Francisco. Free estimates.",
+      "title": "Western Window Systems Windows Bay Area | Deluxe Windows",
+      "description": "Compare Western Window Systems window collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a763de94512a795b7d492_Western%20Window%20Systems.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Western Window Systems Windows — Bay Area Authorized Dealer & Installer",
+    "primary_keyword": "western window systems windows",
+    "target_keywords": [
+      "western window systems windows",
+      "western window systems windows near me",
+      "western window systems dealer",
+      "western window systems warranty"
+    ],
+    "search_intent": "brand",
+    "priority": "P1",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Western Window Systems Windows Bay Area | Deluxe Windows",
+      "description": "Compare Western Window Systems window collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a763de94512a795b7d492_Western%20Window%20Systems.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [
     {

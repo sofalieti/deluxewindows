@@ -3,16 +3,32 @@
   "key": "door-brands/western-window-systems",
   "path": "/door-brands/western-window-systems",
   "seo": {
-    "title": "Western Window Systems Doors | Deluxe Windows",
-    "description": "Western Window Systems specializes in large moving glass walls, multi-slide, and folding door systems that dissolve the boundary between indoors and out. With slim aluminum frames…",
+    "title": "Western Window Systems Doors Bay Area | Deluxe Windows",
+    "description": "Compare Western Window Systems door collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate.",
     "canonical": "https://www.deluxewindows.com/door-brands/western-window-systems",
     "og": {
-      "title": "Western Window Systems Doors | Deluxe Windows",
-      "description": "Western Window Systems specializes in large moving glass walls, multi-slide, and folding door systems that dissolve the boundary between indoors and out. With slim aluminum frames…",
+      "title": "Western Window Systems Doors Bay Area | Deluxe Windows",
+      "description": "Compare Western Window Systems door collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a763de94512a795b7d492_Western%20Window%20Systems.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Western Window Systems Doors — Bay Area Authorized Dealer & Installer",
+    "primary_keyword": "western window systems doors",
+    "target_keywords": [
+      "western window systems doors",
+      "western window systems patio doors",
+      "western window systems sliding doors",
+      "western window systems entry doors"
+    ],
+    "search_intent": "brand",
+    "priority": "P1",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Western Window Systems Doors Bay Area | Deluxe Windows",
+      "description": "Compare Western Window Systems door collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a763de94512a795b7d492_Western%20Window%20Systems.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [
     {

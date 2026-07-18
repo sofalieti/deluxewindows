@@ -3,16 +3,32 @@
   "key": "door-brands/anlin",
   "path": "/door-brands/anlin",
   "seo": {
-    "title": "Anlin Doors | Deluxe Windows",
-    "description": "Designed and built in California, Anlin specializes in energy-efficient replacement doors made for our climate. Their patio doors combine smooth operation, excellent insulation…",
+    "title": "Anlin Doors Bay Area | Deluxe Windows",
+    "description": "Compare Anlin door collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate. Learn more today.",
     "canonical": "https://www.deluxewindows.com/door-brands/anlin",
     "og": {
-      "title": "Anlin Doors | Deluxe Windows",
-      "description": "Designed and built in California, Anlin specializes in energy-efficient replacement doors made for our climate. Their patio doors combine smooth operation, excellent insulation…",
+      "title": "Anlin Doors Bay Area | Deluxe Windows",
+      "description": "Compare Anlin door collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate. Learn more today.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a76b7e94512a795b803e9_Anlin.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Anlin Doors — Bay Area Authorized Dealer & Installer",
+    "primary_keyword": "anlin doors",
+    "target_keywords": [
+      "anlin doors",
+      "anlin patio doors",
+      "anlin sliding doors",
+      "anlin entry doors"
+    ],
+    "search_intent": "brand",
+    "priority": "P1",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Anlin Doors Bay Area | Deluxe Windows",
+      "description": "Compare Anlin door collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate. Learn more today.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a76b7e94512a795b803e9_Anlin.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [
     {

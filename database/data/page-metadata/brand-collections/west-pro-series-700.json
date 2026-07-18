@@ -3,16 +3,30 @@
   "key": "brand-collections/west-pro-series-700",
   "path": "/brand-collections/west-pro-series-700",
   "seo": {
-    "title": "West Pro Series 700 Windows | Deluxe Windows Sebastopol",
-    "description": "West Pro Series 700 windows offer advanced performance for Bay Area homes. Explore this premium series at Deluxe Windows in San Francisco. Request a free estimate today.",
+    "title": "Ply Gem West Pro Series 700 | Deluxe Windows",
+    "description": "Explore Ply Gem West Pro Series 700 specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate. Learn more today.",
     "canonical": "https://www.deluxewindows.com/brand-collections/west-pro-series-700",
     "og": {
-      "title": "West Pro Series 700 Windows | Deluxe Windows Sebastopol",
-      "description": "West Pro Series 700 windows offer advanced performance for Bay Area homes. Explore this premium series at Deluxe Windows in San Francisco. Request a free estimate today.",
+      "title": "Ply Gem West Pro Series 700 | Deluxe Windows",
+      "description": "Explore Ply Gem West Pro Series 700 specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate. Learn more today.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695e066275588269f5beddb8_west700.jpg",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "West Pro Series 700",
+    "primary_keyword": "west pro series 700",
+    "target_keywords": [
+      "west pro series 700",
+      "west pro series 700 prices"
+    ],
+    "search_intent": "product-series",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Ply Gem West Pro Series 700 | Deluxe Windows",
+      "description": "Explore Ply Gem West Pro Series 700 specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate. Learn more today.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695e066275588269f5beddb8_west700.jpg",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

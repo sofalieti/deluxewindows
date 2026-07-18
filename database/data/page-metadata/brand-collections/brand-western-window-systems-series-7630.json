@@ -3,16 +3,29 @@
   "key": "brand-collections/brand-western-window-systems-series-7630",
   "path": "/brand-collections/brand-western-window-systems-series-7630",
   "seo": {
-    "title": "Series 7630/7675 | Deluxe Windows",
-    "description": "With a .29 U-value for standard low-E, argon-filled dual-pane glass, a performance grade of CW-PG100 at sizes up to 60″ x 120″, and a mulling process that keeps sightlines narrow…",
+    "title": "Western Window Systems Series 7630 | Deluxe Windows",
+    "description": "Explore Western Window Systems Series 7630 specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate.",
     "canonical": "https://www.deluxewindows.com/brand-collections/brand-western-window-systems-series-7630",
     "og": {
-      "title": "Series 7630/7675 | Deluxe Windows",
-      "description": "With a .29 U-value for standard low-E, argon-filled dual-pane glass, a performance grade of CW-PG100 at sizes up to 60″ x 120″, and a mulling process that keeps sightlines narrow…",
+      "title": "Western Window Systems Series 7630 | Deluxe Windows",
+      "description": "Explore Western Window Systems Series 7630 specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/697f8883667a50a281d1556d_689b189e5a1d3775deb44f59_04-7630.jpeg",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Western Window Systems Series 7630",
+    "primary_keyword": "western window systems series 7630",
+    "target_keywords": [
+      "western window systems series 7630"
+    ],
+    "search_intent": "product-series",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Western Window Systems Series 7630 | Deluxe Windows",
+      "description": "Explore Western Window Systems Series 7630 specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/697f8883667a50a281d1556d_689b189e5a1d3775deb44f59_04-7630.jpeg",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

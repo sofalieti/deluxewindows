@@ -3,16 +3,29 @@
   "key": "brand-collections/brand-western-window-systems-series-7610",
   "path": "/brand-collections/brand-western-window-systems-series-7610",
   "seo": {
-    "title": "Series 7610/7620 | Deluxe Windows",
-    "description": "Western Window Systems’ Series 7610 Single-Hung Window features a fixed top sash and vertically sliding bottom sash for ventilation. It can be mulled with Western Window Systems’…",
+    "title": "Western Window Systems Series 7610 | Deluxe Windows",
+    "description": "Explore Western Window Systems Series 7610 specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate.",
     "canonical": "https://www.deluxewindows.com/brand-collections/brand-western-window-systems-series-7610",
     "og": {
-      "title": "Series 7610/7620 | Deluxe Windows",
-      "description": "Western Window Systems’ Series 7610 Single-Hung Window features a fixed top sash and vertically sliding bottom sash for ventilation. It can be mulled with Western Window Systems’…",
+      "title": "Western Window Systems Series 7610 | Deluxe Windows",
+      "description": "Explore Western Window Systems Series 7610 specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/697f8883d0d133ec13202235_689b1976b391444ed2affe35_10-Performance-Family-7900.jpeg",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Western Window Systems Series 7610",
+    "primary_keyword": "western window systems series 7610",
+    "target_keywords": [
+      "western window systems series 7610"
+    ],
+    "search_intent": "product-series",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Western Window Systems Series 7610 | Deluxe Windows",
+      "description": "Explore Western Window Systems Series 7610 specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/697f8883d0d133ec13202235_689b1976b391444ed2affe35_10-Performance-Family-7900.jpeg",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

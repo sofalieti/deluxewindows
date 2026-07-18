@@ -3,16 +3,31 @@
   "key": "window-replacement/vallejo",
   "path": "/window-replacement/vallejo",
   "seo": {
-    "title": "Vallejo Window Replacement | Deluxe Windows",
-    "description": "Window replacement in Vallejo, Solano County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+    "title": "Window Replacement Vallejo, CA | Deluxe Windows",
+    "description": "Get expert window replacement in Vallejo, CA with leading brands, professional installation and solutions for local homes. Request a free estimate.",
     "canonical": "https://www.deluxewindows.com/window-replacement/vallejo",
     "og": {
-      "title": "Vallejo Window Replacement | Deluxe Windows",
-      "description": "Window replacement in Vallejo, Solano County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+      "title": "Window Replacement Vallejo, CA | Deluxe Windows",
+      "description": "Get expert window replacement in Vallejo, CA with leading brands, professional installation and solutions for local homes. Request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Window Replacement in Vallejo, California",
+    "primary_keyword": "window replacement vallejo",
+    "target_keywords": [
+      "window replacement vallejo",
+      "windows vallejo",
+      "window installation vallejo ca"
+    ],
+    "search_intent": "local-city",
+    "priority": "P2",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Window Replacement Vallejo, CA | Deluxe Windows",
+      "description": "Get expert window replacement in Vallejo, CA with leading brands, professional installation and solutions for local homes. Request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [
     {

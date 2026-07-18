@@ -3,16 +3,29 @@
   "key": "brand-collections/brand-simonton-6100",
   "path": "/brand-collections/brand-simonton-6100",
   "seo": {
-    "title": "6100 | Deluxe Windows",
-    "description": "Introduce natural light and increase viewing in any room with the narrow frame design of the 6100 Collection windows. Exclusively Sold at The Home Depot®",
+    "title": "Simonton 6100 | Deluxe Windows",
+    "description": "Explore Simonton 6100 specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
     "canonical": "https://www.deluxewindows.com/brand-collections/brand-simonton-6100",
     "og": {
-      "title": "6100 | Deluxe Windows",
-      "description": "Introduce natural light and increase viewing in any room with the narrow frame design of the 6100 Collection windows. Exclusively Sold at The Home Depot®",
+      "title": "Simonton 6100 | Deluxe Windows",
+      "description": "Explore Simonton 6100 specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6964b7b7642e2f07b0f5f88f_689afe7381875349ef792108_6100-Double-Hung-Living-Room-no-Grids.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Simonton 6100",
+    "primary_keyword": "simonton 6100",
+    "target_keywords": [
+      "simonton 6100"
+    ],
+    "search_intent": "product-series",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Simonton 6100 | Deluxe Windows",
+      "description": "Explore Simonton 6100 specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6964b7b7642e2f07b0f5f88f_689afe7381875349ef792108_6100-Double-Hung-Living-Room-no-Grids.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

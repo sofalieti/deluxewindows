@@ -3,16 +3,29 @@
   "key": "brand-collections/brand-allweather-series-5000",
   "path": "/brand-collections/brand-allweather-series-5000",
   "seo": {
-    "title": "Series 5000 | Deluxe Windows",
-    "description": "The Series 5000 Window System is our most popular and cost-effective thermally enhanced window design. Utilizing a pour & debridge thermal break. The Series 5000 offers energy…",
+    "title": "All Weather Series 5000 | Deluxe Windows",
+    "description": "Explore All Weather Series 5000 specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
     "canonical": "https://www.deluxewindows.com/brand-collections/brand-allweather-series-5000",
     "og": {
-      "title": "Series 5000 | Deluxe Windows",
-      "description": "The Series 5000 Window System is our most popular and cost-effective thermally enhanced window design. Utilizing a pour & debridge thermal break. The Series 5000 offers energy…",
+      "title": "All Weather Series 5000 | Deluxe Windows",
+      "description": "Explore All Weather Series 5000 specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6979edd39d3ca18a58d95d6c_Los-Altos-Windows-scaled.webp",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "All Weather Series 5000",
+    "primary_keyword": "allweather series 5000",
+    "target_keywords": [
+      "allweather series 5000"
+    ],
+    "search_intent": "product-series",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "All Weather Series 5000 | Deluxe Windows",
+      "description": "Explore All Weather Series 5000 specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6979edd39d3ca18a58d95d6c_Los-Altos-Windows-scaled.webp",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

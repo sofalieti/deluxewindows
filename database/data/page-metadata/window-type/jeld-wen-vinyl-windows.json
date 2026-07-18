@@ -3,16 +3,30 @@
   "key": "window-type/jeld-wen-vinyl-windows",
   "path": "/window-type/jeld-wen-vinyl-windows",
   "seo": {
-    "title": "Jeld-Wen Vinyl Windows | Deluxe Windows Gilroy",
-    "description": "Jeld-Wen vinyl windows offer wide style choices and reliable energy efficiency for Bay Area homes. Installed by Deluxe Windows in San Francisco. Request a free quote.",
+    "title": "JELD-WEN Vinyl Windows | Deluxe Windows",
+    "description": "Compare JELD-WEN vinyl windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Learn more today.",
     "canonical": "https://www.deluxewindows.com/window-type/jeld-wen-vinyl-windows",
     "og": {
-      "title": "Jeld-Wen Vinyl Windows | Deluxe Windows Gilroy",
-      "description": "Jeld-Wen vinyl windows offer wide style choices and reliable energy efficiency for Bay Area homes. Installed by Deluxe Windows in San Francisco. Request a free quote.",
+      "title": "JELD-WEN Vinyl Windows | Deluxe Windows",
+      "description": "Compare JELD-WEN vinyl windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Learn more today.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f45e8f7efb2b3de9b3ca5_Screenshot%202025-08-03%20at%2014.20.00.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "JELD-WEN Vinyl Windows",
+    "primary_keyword": "jeld-wen vinyl windows",
+    "target_keywords": [
+      "jeld-wen vinyl windows",
+      "jeld-wen vinyl windows prices"
+    ],
+    "search_intent": "brand-material",
+    "priority": "P1",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "JELD-WEN Vinyl Windows | Deluxe Windows",
+      "description": "Compare JELD-WEN vinyl windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Learn more today.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f45e8f7efb2b3de9b3ca5_Screenshot%202025-08-03%20at%2014.20.00.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

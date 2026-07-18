@@ -3,16 +3,29 @@
   "key": "brand-collections/brand-marvin-ultimate-collection",
   "path": "/brand-collections/brand-marvin-ultimate-collection",
   "seo": {
-    "title": "Marvin Ultimate Collection | Deluxe Windows Livermore",
-    "description": "Marvin Ultimate is the pinnacle of custom wood window design for Bay Area homes. Unlimited options — explore the Ultimate Collection at Deluxe Windows in San Francisco.",
+    "title": "Marvin Ultimate Collection | Deluxe Windows",
+    "description": "Explore Marvin Ultimate Collection specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate. Learn more today.",
     "canonical": "https://www.deluxewindows.com/brand-collections/brand-marvin-ultimate-collection",
     "og": {
-      "title": "Marvin Ultimate Collection | Deluxe Windows Livermore",
-      "description": "Marvin Ultimate is the pinnacle of custom wood window design for Bay Area homes. Unlimited options — explore the Ultimate Collection at Deluxe Windows in San Francisco.",
+      "title": "Marvin Ultimate Collection | Deluxe Windows",
+      "description": "Explore Marvin Ultimate Collection specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate. Learn more today.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6884fb1f11f8986a34d16476_marvin-ultimate-exterior.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Marvin Ultimate Collection",
+    "primary_keyword": "marvin ultimate collection",
+    "target_keywords": [
+      "marvin ultimate collection"
+    ],
+    "search_intent": "product-series",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Marvin Ultimate Collection | Deluxe Windows",
+      "description": "Explore Marvin Ultimate Collection specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate. Learn more today.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6884fb1f11f8986a34d16476_marvin-ultimate-exterior.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

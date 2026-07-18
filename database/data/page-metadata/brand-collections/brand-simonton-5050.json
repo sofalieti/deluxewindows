@@ -3,16 +3,29 @@
   "key": "brand-collections/brand-simonton-5050",
   "path": "/brand-collections/brand-simonton-5050",
   "seo": {
-    "title": "5050 | Deluxe Windows",
-    "description": "The traditional design and classic styling of Simonton 5050 windows complement any home style along with energy efficiency and long lasting durability.",
+    "title": "Simonton 5050 | Deluxe Windows",
+    "description": "Explore Simonton 5050 specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
     "canonical": "https://www.deluxewindows.com/brand-collections/brand-simonton-5050",
     "og": {
-      "title": "5050 | Deluxe Windows",
-      "description": "The traditional design and classic styling of Simonton 5050 windows complement any home style along with energy efficiency and long lasting durability.",
+      "title": "Simonton 5050 | Deluxe Windows",
+      "description": "Explore Simonton 5050 specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6967624a4baa4d887654b23e_sim_interior_5050_dining_room_3_lite_sliding_window_5050_module_p112.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Simonton 5050",
+    "primary_keyword": "simonton 5050",
+    "target_keywords": [
+      "simonton 5050"
+    ],
+    "search_intent": "product-series",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Simonton 5050 | Deluxe Windows",
+      "description": "Explore Simonton 5050 specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6967624a4baa4d887654b23e_sim_interior_5050_dining_room_3_lite_sliding_window_5050_module_p112.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

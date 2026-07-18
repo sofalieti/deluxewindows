@@ -3,16 +3,31 @@
   "key": "window-replacement/vacaville",
   "path": "/window-replacement/vacaville",
   "seo": {
-    "title": "Vacaville Window Replacement | Deluxe Windows",
-    "description": "Window replacement in Vacaville, Solano County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+    "title": "Window Replacement Vacaville, CA | Deluxe Windows",
+    "description": "Get expert window replacement in Vacaville, CA with leading brands, professional installation and solutions for local homes. Request a free estimate.",
     "canonical": "https://www.deluxewindows.com/window-replacement/vacaville",
     "og": {
-      "title": "Vacaville Window Replacement | Deluxe Windows",
-      "description": "Window replacement in Vacaville, Solano County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+      "title": "Window Replacement Vacaville, CA | Deluxe Windows",
+      "description": "Get expert window replacement in Vacaville, CA with leading brands, professional installation and solutions for local homes. Request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Window Replacement in Vacaville, California",
+    "primary_keyword": "window replacement vacaville",
+    "target_keywords": [
+      "window replacement vacaville",
+      "windows vacaville",
+      "window installation vacaville ca"
+    ],
+    "search_intent": "local-city",
+    "priority": "P2",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Window Replacement Vacaville, CA | Deluxe Windows",
+      "description": "Get expert window replacement in Vacaville, CA with leading brands, professional installation and solutions for local homes. Request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [
     {

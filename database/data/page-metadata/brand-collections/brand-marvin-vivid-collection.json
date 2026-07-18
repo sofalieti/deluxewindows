@@ -3,16 +3,29 @@
   "key": "brand-collections/brand-marvin-vivid-collection",
   "path": "/brand-collections/brand-marvin-vivid-collection",
   "seo": {
-    "title": "Marvin Vivid Collection Series | Deluxe Windows Dublin",
-    "description": "Marvin Vivid Collection is designed for transitional to contemporary Bay Area architecture. Bold profiles — explore at Deluxe Windows in San Francisco. Free estimates.",
+    "title": "Marvin Vivid Collection | Deluxe Windows",
+    "description": "Explore Marvin Vivid Collection specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
     "canonical": "https://www.deluxewindows.com/brand-collections/brand-marvin-vivid-collection",
     "og": {
-      "title": "Marvin Vivid Collection Series | Deluxe Windows Dublin",
-      "description": "Marvin Vivid Collection is designed for transitional to contemporary Bay Area architecture. Bold profiles — explore at Deluxe Windows in San Francisco. Free estimates.",
+      "title": "Marvin Vivid Collection | Deluxe Windows",
+      "description": "Explore Marvin Vivid Collection specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/693ecf23904413aab59d839a_69146a875befaae2c0971daf_filtersquality100filltransparent.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Marvin Vivid Collection",
+    "primary_keyword": "marvin vivid collection",
+    "target_keywords": [
+      "marvin vivid collection"
+    ],
+    "search_intent": "product-series",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Marvin Vivid Collection | Deluxe Windows",
+      "description": "Explore Marvin Vivid Collection specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/693ecf23904413aab59d839a_69146a875befaae2c0971daf_filtersquality100filltransparent.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

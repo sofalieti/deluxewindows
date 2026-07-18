@@ -3,16 +3,31 @@
   "key": "doors/wood-clad-doors",
   "path": "/doors/wood-clad-doors",
   "seo": {
-    "title": "Wood Clad Doors | Natural + Durable – Deluxe Windows Concord",
-    "description": "Combine the warmth of wood interiors with durable exterior cladding. Deluxe Windows installs premium wood clad doors for Bay Area homeowners. Get a free estimate.",
+    "title": "Wood-Clad Doors Bay Area | Deluxe Windows",
+    "description": "Compare wood-clad entry and patio doors for Bay Area homes. Explore leading brands, custom sizes and professional installation. Get a free estimate.",
     "canonical": "https://www.deluxewindows.com/doors/wood-clad-doors",
     "og": {
-      "title": "Wood Clad Doors | Natural + Durable – Deluxe Windows Concord",
-      "description": "Combine the warmth of wood interiors with durable exterior cladding. Deluxe Windows installs premium wood clad doors for Bay Area homeowners. Get a free estimate.",
+      "title": "Wood-Clad Doors Bay Area | Deluxe Windows",
+      "description": "Compare wood-clad entry and patio doors for Bay Area homes. Explore leading brands, custom sizes and professional installation. Get a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6841ddf8ace3d9d9facb1a8b_heres-how-decorate-your-new-home-thumbnail-v3-property-x-webflow-template.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Wood-Clad Exterior Doors in the Bay Area",
+    "primary_keyword": "wood-clad doors",
+    "target_keywords": [
+      "wood-clad doors",
+      "wood-clad exterior doors",
+      "wood-clad entry door"
+    ],
+    "search_intent": "door-material",
+    "priority": "P2",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Wood-Clad Doors Bay Area | Deluxe Windows",
+      "description": "Compare wood-clad entry and patio doors for Bay Area homes. Explore leading brands, custom sizes and professional installation. Get a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6841ddf8ace3d9d9facb1a8b_heres-how-decorate-your-new-home-thumbnail-v3-property-x-webflow-template.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

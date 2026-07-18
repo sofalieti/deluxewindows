@@ -3,16 +3,30 @@
   "key": "window-type/wood-marvin-windows",
   "path": "/window-type/wood-marvin-windows",
   "seo": {
-    "title": "Marvin Wood Windows | Deluxe Windows Dublin",
-    "description": "Marvin wood windows are crafted for beauty and lasting performance in Bay Area homes. Ultimate and Elevate collections available — installed by Deluxe Windows in SF.",
+    "title": "Marvin Wood Windows | Deluxe Windows",
+    "description": "Compare Marvin wood windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Explore your options today.",
     "canonical": "https://www.deluxewindows.com/window-type/wood-marvin-windows",
     "og": {
-      "title": "Marvin Wood Windows | Deluxe Windows Dublin",
-      "description": "Marvin wood windows are crafted for beauty and lasting performance in Bay Area homes. Ultimate and Elevate collections available — installed by Deluxe Windows in SF.",
+      "title": "Marvin Wood Windows | Deluxe Windows",
+      "description": "Compare Marvin wood windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Explore your options today.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688e53d174f51bd2d0554cc6_Screenshot%202025-08-02%20at%2021.07.09.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Marvin Wood Windows",
+    "primary_keyword": "marvin wood windows",
+    "target_keywords": [
+      "marvin wood windows",
+      "marvin wood windows prices"
+    ],
+    "search_intent": "brand-material",
+    "priority": "P1",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Marvin Wood Windows | Deluxe Windows",
+      "description": "Compare Marvin wood windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Explore your options today.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688e53d174f51bd2d0554cc6_Screenshot%202025-08-02%20at%2021.07.09.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

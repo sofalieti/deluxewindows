@@ -4,15 +4,29 @@
   "path": "/county-hub-pages/marin-county",
   "seo": {
     "title": "Marin County Window Replacement | Deluxe Windows",
-    "description": "Marin County homeowners: fog-free glass, quiet frames, efficient installs. Deluxe Windows delivers Bay-trusted window replacement—request a quote today.",
+    "description": "Explore window and door replacement across Marin County. Compare leading brands, energy-efficient products and professional installation. Get a free estimate.",
     "canonical": "https://www.deluxewindows.com/county-hub-pages/marin-county",
     "og": {
       "title": "Marin County Window Replacement | Deluxe Windows",
-      "description": "Marin County homeowners: fog-free glass, quiet frames, efficient installs. Deluxe Windows delivers Bay-trusted window replacement—request a quote today.",
+      "description": "Explore window and door replacement across Marin County. Compare leading brands, energy-efficient products and professional installation. Get a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/69fc954e7b9bf04407ae45d3_generated-2026-05-07t13-33-51-925z-zhxd10.jpeg",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Window & Door Replacement in Marin County",
+    "primary_keyword": "window replacement marin county",
+    "target_keywords": [
+      "window replacement marin county",
+      "windows marin county"
+    ],
+    "search_intent": "local-county",
+    "priority": "P2",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Marin County Window Replacement | Deluxe Windows",
+      "description": "Explore window and door replacement across Marin County. Compare leading brands, energy-efficient products and professional installation. Get a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/69fc954e7b9bf04407ae45d3_generated-2026-05-07t13-33-51-925z-zhxd10.jpeg",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

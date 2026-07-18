@@ -3,16 +3,31 @@
   "key": "window-replacement/san-jose",
   "path": "/window-replacement/san-jose",
   "seo": {
-    "title": "San Jose Window Replacement | Deluxe Windows",
-    "description": "Window replacement in San Jose, Santa Clara County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+    "title": "Window Replacement San Jose, CA | Deluxe Windows",
+    "description": "Get expert window replacement in San Jose, CA with leading brands, professional installation and solutions for local homes. Request a free estimate.",
     "canonical": "https://www.deluxewindows.com/window-replacement/san-jose",
     "og": {
-      "title": "San Jose Window Replacement | Deluxe Windows",
-      "description": "Window replacement in San Jose, Santa Clara County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+      "title": "Window Replacement San Jose, CA | Deluxe Windows",
+      "description": "Get expert window replacement in San Jose, CA with leading brands, professional installation and solutions for local homes. Request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/69ce7b5a4b7a0c4005c10a68_688129a7fdac73f612686f21_pexels-linkedin-1251842.jpeg",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Window Replacement in San Jose, California",
+    "primary_keyword": "window replacement san jose",
+    "target_keywords": [
+      "window replacement san jose",
+      "windows san jose",
+      "window installation san jose ca"
+    ],
+    "search_intent": "local-city",
+    "priority": "P1",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Window Replacement San Jose, CA | Deluxe Windows",
+      "description": "Get expert window replacement in San Jose, CA with leading brands, professional installation and solutions for local homes. Request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/69ce7b5a4b7a0c4005c10a68_688129a7fdac73f612686f21_pexels-linkedin-1251842.jpeg",
+      "card": "summary_large_image"
+    }
   },
   "faq": [
     {

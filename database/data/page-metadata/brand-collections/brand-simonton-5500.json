@@ -3,16 +3,29 @@
   "key": "brand-collections/brand-simonton-5500",
   "path": "/brand-collections/brand-simonton-5500",
   "seo": {
-    "title": "5500 | Deluxe Windows",
-    "description": "Traditional window design defined by superior strength, a wide selection of styles, advanced energy efficiency, and exclusive features.",
+    "title": "Simonton 5500 | Deluxe Windows",
+    "description": "Explore Simonton 5500 specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
     "canonical": "https://www.deluxewindows.com/brand-collections/brand-simonton-5500",
     "og": {
-      "title": "5500 | Deluxe Windows",
-      "description": "Traditional window design defined by superior strength, a wide selection of styles, advanced energy efficiency, and exclusive features.",
+      "title": "Simonton 5500 | Deluxe Windows",
+      "description": "Explore Simonton 5500 specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6964b7b638210e099afff5e6_689457ac0f07ec4fa0ec60cc_sim_interior_5500_dining_room_double_hung_window_5050_module_p111.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Simonton 5500",
+    "primary_keyword": "simonton 5500",
+    "target_keywords": [
+      "simonton 5500"
+    ],
+    "search_intent": "product-series",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Simonton 5500 | Deluxe Windows",
+      "description": "Explore Simonton 5500 specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6964b7b638210e099afff5e6_689457ac0f07ec4fa0ec60cc_sim_interior_5500_dining_room_double_hung_window_5050_module_p111.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

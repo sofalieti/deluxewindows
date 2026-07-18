@@ -3,16 +3,31 @@
   "key": "window-replacement/sunnyvale",
   "path": "/window-replacement/sunnyvale",
   "seo": {
-    "title": "Sunnyvale Window Replacement | Deluxe Windows",
-    "description": "Window replacement in Sunnyvale, Santa Clara County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+    "title": "Window Replacement Sunnyvale, CA | Deluxe Windows",
+    "description": "Get expert window replacement in Sunnyvale, CA with leading brands, professional installation and solutions for local homes. Request a free estimate.",
     "canonical": "https://www.deluxewindows.com/window-replacement/sunnyvale",
     "og": {
-      "title": "Sunnyvale Window Replacement | Deluxe Windows",
-      "description": "Window replacement in Sunnyvale, Santa Clara County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+      "title": "Window Replacement Sunnyvale, CA | Deluxe Windows",
+      "description": "Get expert window replacement in Sunnyvale, CA with leading brands, professional installation and solutions for local homes. Request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Window Replacement in Sunnyvale, California",
+    "primary_keyword": "window replacement sunnyvale",
+    "target_keywords": [
+      "window replacement sunnyvale",
+      "windows sunnyvale",
+      "window installation sunnyvale ca"
+    ],
+    "search_intent": "local-city",
+    "priority": "P2",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Window Replacement Sunnyvale, CA | Deluxe Windows",
+      "description": "Get expert window replacement in Sunnyvale, CA with leading brands, professional installation and solutions for local homes. Request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [
     {

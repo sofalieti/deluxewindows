@@ -3,16 +3,30 @@
   "key": "brand-collections/east-5100-series",
   "path": "/brand-collections/east-5100-series",
   "seo": {
-    "title": "East 5100 Series Windows | Deluxe Windows Petaluma",
-    "description": "The East 5100 Series delivers enhanced window performance for Bay Area homes. Explore options at Deluxe Windows in San Francisco. Request a free installation estimate.",
+    "title": "Ply Gem East 5100 Series | Deluxe Windows",
+    "description": "Explore Ply Gem East 5100 Series specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
     "canonical": "https://www.deluxewindows.com/brand-collections/east-5100-series",
     "og": {
-      "title": "East 5100 Series Windows | Deluxe Windows Petaluma",
-      "description": "The East 5100 Series delivers enhanced window performance for Bay Area homes. Explore options at Deluxe Windows in San Francisco. Request a free installation estimate.",
+      "title": "Ply Gem East 5100 Series | Deluxe Windows",
+      "description": "Explore Ply Gem East 5100 Series specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695e2d8d424fa9beaeb493af_pgw_5100_hero_1-400x400-1.webp",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "East 5100 Series",
+    "primary_keyword": "east 5100 series",
+    "target_keywords": [
+      "east 5100 series",
+      "east 5100 series prices"
+    ],
+    "search_intent": "product-series",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Ply Gem East 5100 Series | Deluxe Windows",
+      "description": "Explore Ply Gem East 5100 Series specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695e2d8d424fa9beaeb493af_pgw_5100_hero_1-400x400-1.webp",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

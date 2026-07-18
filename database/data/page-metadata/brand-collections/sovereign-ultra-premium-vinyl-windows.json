@@ -3,16 +3,30 @@
   "key": "brand-collections/sovereign-ultra-premium-vinyl-windows",
   "path": "/brand-collections/sovereign-ultra-premium-vinyl-windows",
   "seo": {
-    "title": "Sovereign Ultra-Premium Vinyl Windows | Deluxe Windows",
-    "description": "The right replacement windows say a lot about the pride you take in your home. They make a statement about your personal taste as well as your appreciation for quality…",
+    "title": "Alside Sovereign Ultra Premium Vinyl Windows | Deluxe",
+    "description": "Explore Alside Sovereign Ultra Premium Vinyl Windows specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate.",
     "canonical": "https://www.deluxewindows.com/brand-collections/sovereign-ultra-premium-vinyl-windows",
     "og": {
-      "title": "Sovereign Ultra-Premium Vinyl Windows | Deluxe Windows",
-      "description": "The right replacement windows say a lot about the pride you take in your home. They make a statement about your personal taste as well as your appreciation for quality…",
+      "title": "Alside Sovereign Ultra Premium Vinyl Windows | Deluxe",
+      "description": "Explore Alside Sovereign Ultra Premium Vinyl Windows specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/69735f059ed2727ea568bf1d_sovereign-cvr-image-1000x816-1-730x380.jpg",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Sovereign Ultra Premium Vinyl Windows",
+    "primary_keyword": "sovereign ultra premium vinyl windows",
+    "target_keywords": [
+      "sovereign ultra premium vinyl windows",
+      "sovereign ultra premium vinyl windows prices"
+    ],
+    "search_intent": "product-series",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Alside Sovereign Ultra Premium Vinyl Windows | Deluxe",
+      "description": "Explore Alside Sovereign Ultra Premium Vinyl Windows specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/69735f059ed2727ea568bf1d_sovereign-cvr-image-1000x816-1-730x380.jpg",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

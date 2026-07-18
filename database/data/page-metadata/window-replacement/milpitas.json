@@ -3,16 +3,31 @@
   "key": "window-replacement/milpitas",
   "path": "/window-replacement/milpitas",
   "seo": {
-    "title": "Milpitas Window Replacement | Deluxe Windows",
-    "description": "Window replacement in Milpitas, Santa Clara County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+    "title": "Window Replacement Milpitas, CA | Deluxe Windows",
+    "description": "Get expert window replacement in Milpitas, CA with leading brands, professional installation and solutions for local homes. Request a free estimate.",
     "canonical": "https://www.deluxewindows.com/window-replacement/milpitas",
     "og": {
-      "title": "Milpitas Window Replacement | Deluxe Windows",
-      "description": "Window replacement in Milpitas, Santa Clara County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+      "title": "Window Replacement Milpitas, CA | Deluxe Windows",
+      "description": "Get expert window replacement in Milpitas, CA with leading brands, professional installation and solutions for local homes. Request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Window Replacement in Milpitas, California",
+    "primary_keyword": "window replacement milpitas",
+    "target_keywords": [
+      "window replacement milpitas",
+      "windows milpitas",
+      "window installation milpitas ca"
+    ],
+    "search_intent": "local-city",
+    "priority": "P2",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Window Replacement Milpitas, CA | Deluxe Windows",
+      "description": "Get expert window replacement in Milpitas, CA with leading brands, professional installation and solutions for local homes. Request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [
     {

@@ -3,16 +3,32 @@
   "key": "door-brands/italwindows",
   "path": "/door-brands/italwindows",
   "seo": {
-    "title": "Italwindows Doors | Deluxe Windows",
-    "description": "Italwindows brings contemporary European engineering to the Bay Area with sleek aluminum door systems. Their large sliding and folding doors create seamless indoor-outdoor…",
+    "title": "Italwindows Doors Bay Area | Deluxe Windows",
+    "description": "Compare Italwindows door collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate.",
     "canonical": "https://www.deluxewindows.com/door-brands/italwindows",
     "og": {
-      "title": "Italwindows Doors | Deluxe Windows",
-      "description": "Italwindows brings contemporary European engineering to the Bay Area with sleek aluminum door systems. Their large sliding and folding doors create seamless indoor-outdoor…",
+      "title": "Italwindows Doors Bay Area | Deluxe Windows",
+      "description": "Compare Italwindows door collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a7489b613e7a9f3424dcf_italwindows.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Italwindows Doors — Bay Area Authorized Dealer & Installer",
+    "primary_keyword": "italwindows doors",
+    "target_keywords": [
+      "italwindows doors",
+      "italwindows patio doors",
+      "italwindows sliding doors",
+      "italwindows entry doors"
+    ],
+    "search_intent": "brand",
+    "priority": "P1",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Italwindows Doors Bay Area | Deluxe Windows",
+      "description": "Compare Italwindows door collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a7489b613e7a9f3424dcf_italwindows.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [
     {

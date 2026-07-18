@@ -3,16 +3,29 @@
   "key": "brand-collections/brand-simonton-harborlight",
   "path": "/brand-collections/brand-simonton-harborlight",
   "seo": {
-    "title": "HarborLight | Deluxe Windows",
-    "description": "Designed to last a lifetime, our HarborLight windows are extremely versatile and can complement nearly any home design.",
+    "title": "Simonton Harborlight | Deluxe Windows",
+    "description": "Explore Simonton Harborlight specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
     "canonical": "https://www.deluxewindows.com/brand-collections/brand-simonton-harborlight",
     "og": {
-      "title": "HarborLight | Deluxe Windows",
-      "description": "Designed to last a lifetime, our HarborLight windows are extremely versatile and can complement nearly any home design.",
+      "title": "Simonton Harborlight | Deluxe Windows",
+      "description": "Explore Simonton Harborlight specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6967615b135502feace780e9_sim_harborlight_collection_interior_white_casement_windows_5050_img.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Simonton Harborlight",
+    "primary_keyword": "simonton harborlight",
+    "target_keywords": [
+      "simonton harborlight"
+    ],
+    "search_intent": "product-series",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Simonton Harborlight | Deluxe Windows",
+      "description": "Explore Simonton Harborlight specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6967615b135502feace780e9_sim_harborlight_collection_interior_white_casement_windows_5050_img.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

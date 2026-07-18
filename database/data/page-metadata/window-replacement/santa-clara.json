@@ -3,16 +3,31 @@
   "key": "window-replacement/santa-clara",
   "path": "/window-replacement/santa-clara",
   "seo": {
-    "title": "Santa Clara Window Replacement | Deluxe Windows",
-    "description": "Window replacement in Santa Clara, Santa Clara County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+    "title": "Window Replacement Santa Clara, CA | Deluxe Windows",
+    "description": "Get expert window replacement in Santa Clara, CA with leading brands, professional installation and solutions for local homes. Request a free estimate.",
     "canonical": "https://www.deluxewindows.com/window-replacement/santa-clara",
     "og": {
-      "title": "Santa Clara Window Replacement | Deluxe Windows",
-      "description": "Window replacement in Santa Clara, Santa Clara County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.",
+      "title": "Window Replacement Santa Clara, CA | Deluxe Windows",
+      "description": "Get expert window replacement in Santa Clara, CA with leading brands, professional installation and solutions for local homes. Request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Window Replacement in Santa Clara, California",
+    "primary_keyword": "window replacement santa clara",
+    "target_keywords": [
+      "window replacement santa clara",
+      "windows santa clara",
+      "window installation santa clara ca"
+    ],
+    "search_intent": "local-city",
+    "priority": "P1",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Window Replacement Santa Clara, CA | Deluxe Windows",
+      "description": "Get expert window replacement in Santa Clara, CA with leading brands, professional installation and solutions for local homes. Request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [
     {

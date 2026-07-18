@@ -3,16 +3,32 @@
   "key": "door-brands/andersen",
   "path": "/door-brands/andersen",
   "seo": {
-    "title": "Andersen Doors | Deluxe Windows",
-    "description": "Andersen is one of the most trusted names in doors and windows, with more than 100 years of engineering behind every product. From elegant hinged and gliding patio doors to bold…",
+    "title": "Andersen Doors Bay Area | Deluxe Windows",
+    "description": "Compare Andersen door collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate. Learn more today.",
     "canonical": "https://www.deluxewindows.com/door-brands/andersen",
     "og": {
-      "title": "Andersen Doors | Deluxe Windows",
-      "description": "Andersen is one of the most trusted names in doors and windows, with more than 100 years of engineering behind every product. From elegant hinged and gliding patio doors to bold…",
+      "title": "Andersen Doors Bay Area | Deluxe Windows",
+      "description": "Compare Andersen door collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate. Learn more today.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a75a9f58dabd4b2642bc5_Andersen.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Andersen Doors — Bay Area Authorized Dealer & Installer",
+    "primary_keyword": "andersen doors",
+    "target_keywords": [
+      "andersen doors",
+      "andersen patio doors",
+      "andersen sliding doors",
+      "andersen entry doors"
+    ],
+    "search_intent": "brand",
+    "priority": "P1",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Andersen Doors Bay Area | Deluxe Windows",
+      "description": "Compare Andersen door collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate. Learn more today.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a75a9f58dabd4b2642bc5_Andersen.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [
     {

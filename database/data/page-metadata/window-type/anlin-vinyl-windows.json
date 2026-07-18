@@ -3,16 +3,30 @@
   "key": "window-type/anlin-vinyl-windows",
   "path": "/window-type/anlin-vinyl-windows",
   "seo": {
-    "title": "Anlin Vinyl Windows | Deluxe Windows Campbell",
-    "description": "Anlin vinyl windows are crafted in California for Bay Area climates. Energy Star rated and built to last — installed by Deluxe Windows in San Francisco. Free quotes.",
+    "title": "Anlin Vinyl Windows | Deluxe Windows",
+    "description": "Compare Anlin vinyl windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Explore your options today.",
     "canonical": "https://www.deluxewindows.com/window-type/anlin-vinyl-windows",
     "og": {
-      "title": "Anlin Vinyl Windows | Deluxe Windows Campbell",
-      "description": "Anlin vinyl windows are crafted in California for Bay Area climates. Energy Star rated and built to last — installed by Deluxe Windows in San Francisco. Free quotes.",
+      "title": "Anlin Vinyl Windows | Deluxe Windows",
+      "description": "Compare Anlin vinyl windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Explore your options today.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f4f8ac3a40ec8b9165e94_Pan-5-scaled-e1713469115198.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Anlin Vinyl Windows",
+    "primary_keyword": "anlin vinyl windows",
+    "target_keywords": [
+      "anlin vinyl windows",
+      "anlin vinyl windows prices"
+    ],
+    "search_intent": "brand-material",
+    "priority": "P1",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Anlin Vinyl Windows | Deluxe Windows",
+      "description": "Compare Anlin vinyl windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Explore your options today.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f4f8ac3a40ec8b9165e94_Pan-5-scaled-e1713469115198.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

@@ -1,7 +1,6 @@
 import html
 import json
 import re
-import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -10,7 +9,6 @@ IMPORTS = ROOT / "webflow-data" / "current" / "imports"
 BASE = "https://www.deluxewindows.com"
 STATIC_OG_IMAGE = "/webflow-assets/images/684da952cef202b8dda5788c_Meta%20cover-2.jpg"
 EXPECTED = set()
-FORCE = "--force" in sys.argv
 
 
 def clean(value):
@@ -65,7 +63,7 @@ def write(key, path, title, description, primary_type="WebPage", image="", faq=N
     }
     target = OUT / f"{key}.json"
     target.parent.mkdir(parents=True, exist_ok=True)
-    if target.exists() and not FORCE:
+    if target.exists():
         return
     target.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 

@@ -3,16 +3,30 @@
   "key": "brand-collections/valuepro-tm---affordable-vinyl-windows",
   "path": "/brand-collections/valuepro-tm---affordable-vinyl-windows",
   "seo": {
-    "title": "ValuePro™ – Affordable Vinyl Windows | Deluxe Windows",
-    "description": "Discover the perfect balance of timeless style, budget savvy, and modern innovation with ValuePro. Single-hung, fusion-welded widows provide a light, airy look to compliment…",
+    "title": "Alside Valuepro Affordable Vinyl Windows | Deluxe Windows",
+    "description": "Explore Alside Valuepro Affordable Vinyl Windows specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate.",
     "canonical": "https://www.deluxewindows.com/brand-collections/valuepro-tm---affordable-vinyl-windows",
     "og": {
-      "title": "ValuePro™ – Affordable Vinyl Windows | Deluxe Windows",
-      "description": "Discover the perfect balance of timeless style, budget savvy, and modern innovation with ValuePro. Single-hung, fusion-welded widows provide a light, airy look to compliment…",
+      "title": "Alside Valuepro Affordable Vinyl Windows | Deluxe Windows",
+      "description": "Explore Alside Valuepro Affordable Vinyl Windows specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/697355c9d21dc5191448ef6c_valuepro-cvr-image-730x380-2x.jpg",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Valuepro Affordable Vinyl Windows",
+    "primary_keyword": "valuepro affordable vinyl windows",
+    "target_keywords": [
+      "valuepro affordable vinyl windows",
+      "valuepro affordable vinyl windows prices"
+    ],
+    "search_intent": "product-series",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Alside Valuepro Affordable Vinyl Windows | Deluxe Windows",
+      "description": "Explore Alside Valuepro Affordable Vinyl Windows specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/697355c9d21dc5191448ef6c_valuepro-cvr-image-730x380-2x.jpg",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

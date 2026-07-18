@@ -3,16 +3,32 @@
   "key": "door-brands/simonton",
   "path": "/door-brands/simonton",
   "seo": {
-    "title": "Simonton Doors | Deluxe Windows",
-    "description": "Simonton builds energy-efficient vinyl patio doors known for quality, comfort, and value. Made in the USA, their doors offer smooth operation, strong insulation, and clean styling…",
+    "title": "Simonton Doors Bay Area | Deluxe Windows",
+    "description": "Compare Simonton door collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate. Learn more today.",
     "canonical": "https://www.deluxewindows.com/door-brands/simonton",
     "og": {
-      "title": "Simonton Doors | Deluxe Windows",
-      "description": "Simonton builds energy-efficient vinyl patio doors known for quality, comfort, and value. Made in the USA, their doors offer smooth operation, strong insulation, and clean styling…",
+      "title": "Simonton Doors Bay Area | Deluxe Windows",
+      "description": "Compare Simonton door collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate. Learn more today.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a74bb9c532933d19231ea_Simonton.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Simonton Doors — Bay Area Authorized Dealer & Installer",
+    "primary_keyword": "simonton doors",
+    "target_keywords": [
+      "simonton doors",
+      "simonton patio doors",
+      "simonton sliding doors",
+      "simonton entry doors"
+    ],
+    "search_intent": "brand",
+    "priority": "P1",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Simonton Doors Bay Area | Deluxe Windows",
+      "description": "Compare Simonton door collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate. Learn more today.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a74bb9c532933d19231ea_Simonton.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [
     {

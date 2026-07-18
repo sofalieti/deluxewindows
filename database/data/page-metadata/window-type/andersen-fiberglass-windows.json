@@ -3,16 +3,30 @@
   "key": "window-type/andersen-fiberglass-windows",
   "path": "/window-type/andersen-fiberglass-windows",
   "seo": {
-    "title": "Andersen Fiberglass Windows | Deluxe Windows Mountain View",
-    "description": "Andersen fiberglass windows offer exceptional strength and low maintenance for Bay Area homes. Explore Fibrex composite options at Deluxe Windows in San Francisco.",
+    "title": "Andersen Fiberglass Windows | Deluxe Windows",
+    "description": "Compare Andersen fiberglass windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Learn more today.",
     "canonical": "https://www.deluxewindows.com/window-type/andersen-fiberglass-windows",
     "og": {
-      "title": "Andersen Fiberglass Windows | Deluxe Windows Mountain View",
-      "description": "Andersen fiberglass windows offer exceptional strength and low maintenance for Bay Area homes. Explore Fibrex composite options at Deluxe Windows in San Francisco.",
+      "title": "Andersen Fiberglass Windows | Deluxe Windows",
+      "description": "Compare Andersen fiberglass windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Learn more today.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f662b796c112dbaa36c82_Andersen-Windows-Installation-1.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Andersen Fiberglass Windows",
+    "primary_keyword": "andersen fiberglass windows",
+    "target_keywords": [
+      "andersen fiberglass windows",
+      "andersen fiberglass windows prices"
+    ],
+    "search_intent": "brand-material",
+    "priority": "P1",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Andersen Fiberglass Windows | Deluxe Windows",
+      "description": "Compare Andersen fiberglass windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Learn more today.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f662b796c112dbaa36c82_Andersen-Windows-Installation-1.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

@@ -3,16 +3,30 @@
   "key": "brand-collections/east-pro-series",
   "path": "/brand-collections/east-pro-series",
   "seo": {
-    "title": "East Pro Series Windows | Deluxe Windows Rohnert Park",
-    "description": "East Pro Series windows deliver professional-grade performance for Bay Area projects. Explore at Deluxe Windows in San Francisco. Request a free installation estimate today.",
+    "title": "Ply Gem East Pro Series | Deluxe Windows",
+    "description": "Explore Ply Gem East Pro Series specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
     "canonical": "https://www.deluxewindows.com/brand-collections/east-pro-series",
     "og": {
-      "title": "East Pro Series Windows | Deluxe Windows Rohnert Park",
-      "description": "East Pro Series windows deliver professional-grade performance for Bay Area projects. Explore at Deluxe Windows in San Francisco. Request a free installation estimate today.",
+      "title": "Ply Gem East Pro Series | Deluxe Windows",
+      "description": "Explore Ply Gem East Pro Series specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695e3a144f1d55f72650aaff_pgw_pro_hero_1-400x400-1.webp",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "East Pro Series",
+    "primary_keyword": "east pro series",
+    "target_keywords": [
+      "east pro series",
+      "east pro series prices"
+    ],
+    "search_intent": "product-series",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Ply Gem East Pro Series | Deluxe Windows",
+      "description": "Explore Ply Gem East Pro Series specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695e3a144f1d55f72650aaff_pgw_pro_hero_1-400x400-1.webp",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

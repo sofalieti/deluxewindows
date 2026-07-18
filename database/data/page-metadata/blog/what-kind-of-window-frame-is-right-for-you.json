@@ -3,16 +3,29 @@
   "key": "blog/what-kind-of-window-frame-is-right-for-you",
   "path": "/blog/what-kind-of-window-frame-is-right-for-you",
   "seo": {
-    "title": "Window Frame Materials: Which Is Right for You? | Deluxe Windows",
-    "description": "Vinyl, wood, aluminum, or fiberglass — which window frame material suits your Bay Area home best? Deluxe Windows breaks down the pros and cons of each option.",
+    "title": "Best Window Frame Materials [2026] | Deluxe Windows",
+    "description": "Compare vinyl, wood, aluminum and fiberglass window frames by cost, maintenance, durability and efficiency to find the best fit for your Bay Area home.",
     "canonical": "https://www.deluxewindows.com/blog/what-kind-of-window-frame-is-right-for-you",
     "og": {
-      "title": "Window Frame Materials: Which Is Right for You? | Deluxe Windows",
-      "description": "Vinyl, wood, aluminum, or fiberglass — which window frame material suits your Bay Area home best? Deluxe Windows breaks down the pros and cons of each option.",
+      "title": "Best Window Frame Materials [2026] | Deluxe Windows",
+      "description": "Compare vinyl, wood, aluminum and fiberglass window frames by cost, maintenance, durability and efficiency to find the best fit for your Bay Area home.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6881101abfc8bc29f285d397_types-of-windows.avif",
       "type": "article"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Which Window Frame Material Is Right for You?",
+    "primary_keyword": "what kind of window frame is right for you",
+    "target_keywords": [
+      "what kind of window frame is right for you"
+    ],
+    "search_intent": "informational",
+    "priority": "P2",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Best Window Frame Materials [2026] | Deluxe Windows",
+      "description": "Compare vinyl, wood, aluminum and fiberglass window frames by cost, maintenance, durability and efficiency to find the best fit for your Bay Area home.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6881101abfc8bc29f285d397_types-of-windows.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

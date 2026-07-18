@@ -3,16 +3,30 @@
   "key": "window-type/ply-gem-vinyl-windows",
   "path": "/window-type/ply-gem-vinyl-windows",
   "seo": {
-    "title": "Ply Gem Vinyl Windows | Deluxe Windows San Ramon",
-    "description": "Ply Gem vinyl windows offer a wide series range for every Bay Area budget and style. Installed by Deluxe Windows in San Francisco and surrounding areas. Free estimates.",
+    "title": "Ply Gem Vinyl Windows | Deluxe Windows",
+    "description": "Compare Ply Gem vinyl windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Learn more today.",
     "canonical": "https://www.deluxewindows.com/window-type/ply-gem-vinyl-windows",
     "og": {
-      "title": "Ply Gem Vinyl Windows | Deluxe Windows San Ramon",
-      "description": "Ply Gem vinyl windows offer a wide series range for every Bay Area budget and style. Installed by Deluxe Windows in San Francisco and surrounding areas. Free estimates.",
+      "title": "Ply Gem Vinyl Windows | Deluxe Windows",
+      "description": "Compare Ply Gem vinyl windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Learn more today.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f6aa959637860b9e34fa6_NEWS_170209960_AR_-1_FZCJADDUZJUI.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Ply Gem Vinyl Windows",
+    "primary_keyword": "ply gem vinyl windows",
+    "target_keywords": [
+      "ply gem vinyl windows",
+      "ply gem vinyl windows prices"
+    ],
+    "search_intent": "brand-material",
+    "priority": "P1",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Ply Gem Vinyl Windows | Deluxe Windows",
+      "description": "Compare Ply Gem vinyl windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Learn more today.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f6aa959637860b9e34fa6_NEWS_170209960_AR_-1_FZCJADDUZJUI.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

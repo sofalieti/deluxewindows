@@ -3,16 +3,30 @@
   "key": "window-type/milgard-aluminum-windows",
   "path": "/window-type/milgard-aluminum-windows",
   "seo": {
-    "title": "Milgard Aluminum Windows | Deluxe Windows Alameda",
-    "description": "Milgard aluminum windows are built for coastal Bay Area performance and slim modern profiles. Installed by Deluxe Windows in San Francisco. Request a free estimate.",
+    "title": "Milgard Aluminum Windows | Deluxe Windows",
+    "description": "Compare Milgard aluminum windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Learn more today.",
     "canonical": "https://www.deluxewindows.com/window-type/milgard-aluminum-windows",
     "og": {
-      "title": "Milgard Aluminum Windows | Deluxe Windows Alameda",
-      "description": "Milgard aluminum windows are built for coastal Bay Area performance and slim modern profiles. Installed by Deluxe Windows in San Francisco. Request a free estimate.",
+      "title": "Milgard Aluminum Windows | Deluxe Windows",
+      "description": "Compare Milgard aluminum windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Learn more today.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f31a1a98c3b9e335234e4_aluminum-v3.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Milgard Aluminum Windows",
+    "primary_keyword": "milgard aluminum windows",
+    "target_keywords": [
+      "milgard aluminum windows",
+      "milgard aluminum windows prices"
+    ],
+    "search_intent": "brand-material",
+    "priority": "P1",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Milgard Aluminum Windows | Deluxe Windows",
+      "description": "Compare Milgard aluminum windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Learn more today.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f31a1a98c3b9e335234e4_aluminum-v3.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

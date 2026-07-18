@@ -3,16 +3,30 @@
   "key": "static/blog-index",
   "path": "/blog",
   "seo": {
-    "title": "Window Tips & Design Blog | Deluxe Windows – Bay Area",
-    "description": "Expert window tips, buying guides, and design inspiration for Bay Area homeowners from Deluxe Windows.",
+    "title": "Window & Door Advice Blog | Deluxe Windows",
+    "description": "Read practical window and door guides for Bay Area homeowners, including buying advice, energy tips, materials and replacement planning. Learn more today.",
     "canonical": "https://www.deluxewindows.com/blog",
     "og": {
-      "title": "Window Tips & Design Blog | Deluxe Windows – Bay Area",
-      "description": "Expert window tips, buying guides, and design inspiration for Bay Area homeowners from Deluxe Windows.",
+      "title": "Window & Door Advice Blog | Deluxe Windows",
+      "description": "Read practical window and door guides for Bay Area homeowners, including buying advice, energy tips, materials and replacement planning. Learn more today.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta%20cover-2.jpg",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Advice & Guides",
+    "primary_keyword": "advice & guides",
+    "target_keywords": [
+      "advice & guides",
+      "blog"
+    ],
+    "search_intent": "hub",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Window & Door Advice Blog | Deluxe Windows",
+      "description": "Read practical window and door guides for Bay Area homeowners, including buying advice, energy tips, materials and replacement planning. Learn more today.",
+      "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta%20cover-2.jpg",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

@@ -3,16 +3,29 @@
   "key": "brand-collections/brand-anlin-del-mar",
   "path": "/brand-collections/brand-anlin-del-mar",
   "seo": {
-    "title": "Anlin Del Mar Series | Deluxe Windows Campbell",
-    "description": "Anlin Del Mar offers outstanding energy efficiency for Bay Area homeowners. Triple-pane options available — explore the Del Mar series at Deluxe Windows in San Francisco.",
+    "title": "Anlin Del Mar | Deluxe Windows",
+    "description": "Explore Anlin Del Mar specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
     "canonical": "https://www.deluxewindows.com/brand-collections/brand-anlin-del-mar",
     "og": {
-      "title": "Anlin Del Mar Series | Deluxe Windows Campbell",
-      "description": "Anlin Del Mar offers outstanding energy efficiency for Bay Area homeowners. Triple-pane options available — explore the Del Mar series at Deluxe Windows in San Francisco.",
+      "title": "Anlin Del Mar | Deluxe Windows",
+      "description": "Explore Anlin Del Mar specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/694cdc23cb6d6ed1597050dd_replacement-windows-hero53.jpg",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Anlin Del Mar",
+    "primary_keyword": "anlin del mar",
+    "target_keywords": [
+      "anlin del mar"
+    ],
+    "search_intent": "product-series",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Anlin Del Mar | Deluxe Windows",
+      "description": "Explore Anlin Del Mar specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/694cdc23cb6d6ed1597050dd_replacement-windows-hero53.jpg",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

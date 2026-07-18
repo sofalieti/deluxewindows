@@ -3,16 +3,30 @@
   "key": "static/special-offers",
   "path": "/special-offers",
   "seo": {
-    "title": "Window Replacement Deals | Special Offers – Deluxe Windows",
-    "description": "Explore Deluxe Windows seasonal discounts, limited-time promotions, and financing offers.",
+    "title": "Window Replacement Offers | Deluxe Windows",
+    "description": "View current window and door replacement offers from Deluxe Windows. Save on select Bay Area projects and request a free in-home estimate today.",
     "canonical": "https://www.deluxewindows.com/special-offers",
     "og": {
-      "title": "Window Replacement Deals | Special Offers – Deluxe Windows",
-      "description": "Explore Deluxe Windows seasonal discounts, limited-time promotions, and financing offers.",
+      "title": "Window Replacement Offers | Deluxe Windows",
+      "description": "View current window and door replacement offers from Deluxe Windows. Save on select Bay Area projects and request a free in-home estimate today.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta%20cover-2.jpg",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Current Special Offers",
+    "primary_keyword": "window replacement deals",
+    "target_keywords": [
+      "window replacement deals",
+      "window discounts"
+    ],
+    "search_intent": "hub",
+    "priority": "P2",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Window Replacement Offers | Deluxe Windows",
+      "description": "View current window and door replacement offers from Deluxe Windows. Save on select Bay Area projects and request a free in-home estimate today.",
+      "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta%20cover-2.jpg",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

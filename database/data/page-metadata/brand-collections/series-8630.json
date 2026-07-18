@@ -3,16 +3,30 @@
   "key": "brand-collections/series-8630",
   "path": "/brand-collections/series-8630",
   "seo": {
-    "title": "Series 8630 | Deluxe Windows",
-    "description": "Whether you want to create a single-panel opening, door-sized opening, or one that spans an entire wall, a Western Window Systems Series 8630 Fixed Window/Window Wall allows you to…",
+    "title": "Western Window Systems Series 8630 | Deluxe Windows",
+    "description": "Explore Western Window Systems Series 8630 specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate.",
     "canonical": "https://www.deluxewindows.com/brand-collections/series-8630",
     "og": {
-      "title": "Series 8630 | Deluxe Windows",
-      "description": "Whether you want to create a single-panel opening, door-sized opening, or one that spans an entire wall, a Western Window Systems Series 8630 Fixed Window/Window Wall allows you to…",
+      "title": "Western Window Systems Series 8630 | Deluxe Windows",
+      "description": "Explore Western Window Systems Series 8630 specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/697fc300654618009513b7f1_WWS-Series-8000-exterior-final-1536x857.jpg",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Series 8630",
+    "primary_keyword": "series 8630",
+    "target_keywords": [
+      "series 8630",
+      "series 8630 prices"
+    ],
+    "search_intent": "product-series",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Western Window Systems Series 8630 | Deluxe Windows",
+      "description": "Explore Western Window Systems Series 8630 specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/697fc300654618009513b7f1_WWS-Series-8000-exterior-final-1536x857.jpg",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

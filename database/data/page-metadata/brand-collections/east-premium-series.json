@@ -3,16 +3,30 @@
   "key": "brand-collections/east-premium-series",
   "path": "/brand-collections/east-premium-series",
   "seo": {
-    "title": "East Premium Series Windows | Deluxe Windows Santa Rosa",
-    "description": "East Premium Series windows offer top-tier performance for Bay Area homeowners. Explore this series at Deluxe Windows in San Francisco. Request a free installation estimate.",
+    "title": "Ply Gem East Premium Series | Deluxe Windows",
+    "description": "Explore Ply Gem East Premium Series specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate. Learn more today.",
     "canonical": "https://www.deluxewindows.com/brand-collections/east-premium-series",
     "og": {
-      "title": "East Premium Series Windows | Deluxe Windows Santa Rosa",
-      "description": "East Premium Series windows offer top-tier performance for Bay Area homeowners. Explore this series at Deluxe Windows in San Francisco. Request a free installation estimate.",
+      "title": "Ply Gem East Premium Series | Deluxe Windows",
+      "description": "Explore Ply Gem East Premium Series specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate. Learn more today.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695e3fc14e9bef340209d996_pgw_premium_hero_1-400x400-1.webp",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "East Premium Series",
+    "primary_keyword": "east premium series",
+    "target_keywords": [
+      "east premium series",
+      "east premium series prices"
+    ],
+    "search_intent": "product-series",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Ply Gem East Premium Series | Deluxe Windows",
+      "description": "Explore Ply Gem East Premium Series specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate. Learn more today.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695e3fc14e9bef340209d996_pgw_premium_hero_1-400x400-1.webp",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

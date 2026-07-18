@@ -3,16 +3,29 @@
   "key": "blog/the-ultimate-door-buyers-guide",
   "path": "/blog/the-ultimate-door-buyers-guide",
   "seo": {
-    "title": "The Ultimate Door Buyer's Guide | Deluxe Windows Blog",
-    "description": "Choosing a new entry door? This guide covers materials, energy efficiency, security features, and style options to help Bay Area homeowners make the right door decision.",
+    "title": "Door Buyer's Guide [2026] | Deluxe Windows",
+    "description": "Choose the right entry or patio door by comparing materials, security, glass, energy performance and styles in this practical Bay Area buyer's guide.",
     "canonical": "https://www.deluxewindows.com/blog/the-ultimate-door-buyers-guide",
     "og": {
-      "title": "The Ultimate Door Buyer's Guide | Deluxe Windows Blog",
-      "description": "Choosing a new entry door? This guide covers materials, energy efficiency, security features, and style options to help Bay Area homeowners make the right door decision.",
+      "title": "Door Buyer's Guide [2026] | Deluxe Windows",
+      "description": "Choose the right entry or patio door by comparing materials, security, glass, energy performance and styles in this practical Bay Area buyer's guide.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.jpg",
       "type": "article"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "The Complete Door Buyer's Guide",
+    "primary_keyword": "the ultimate door buyers guide",
+    "target_keywords": [
+      "the ultimate door buyers guide"
+    ],
+    "search_intent": "informational",
+    "priority": "P2",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Door Buyer's Guide [2026] | Deluxe Windows",
+      "description": "Choose the right entry or patio door by comparing materials, security, glass, energy performance and styles in this practical Bay Area buyer's guide.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.jpg",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

@@ -3,16 +3,29 @@
   "key": "blog/new-construction-windows-vs-replacement-windows",
   "path": "/blog/new-construction-windows-vs-replacement-windows",
   "seo": {
-    "title": "New Construction vs. Replacement Windows | Deluxe Windows",
-    "description": "New construction and replacement windows serve different purposes. Learn which type is right for your Bay Area home renovation or new build with guidance from Deluxe Windows.",
+    "title": "New Construction vs Replacement Windows [2026] | Deluxe",
+    "description": "New construction windows replace the full framed opening, while replacement windows fit an existing opening. Compare costs, scope and the best use cases.",
     "canonical": "https://www.deluxewindows.com/blog/new-construction-windows-vs-replacement-windows",
     "og": {
-      "title": "New Construction vs. Replacement Windows | Deluxe Windows",
-      "description": "New construction and replacement windows serve different purposes. Learn which type is right for your Bay Area home renovation or new build with guidance from Deluxe Windows.",
+      "title": "New Construction vs Replacement Windows [2026] | Deluxe",
+      "description": "New construction windows replace the full framed opening, while replacement windows fit an existing opening. Compare costs, scope and the best use cases.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6880f9d4a118459d7f9fe81a_getty-images-1GZaPSlcHlE-unsplash%201.jpg",
       "type": "article"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "New Construction Windows vs. Replacement Windows",
+    "primary_keyword": "new construction windows vs replacement windows",
+    "target_keywords": [
+      "new construction windows vs replacement windows"
+    ],
+    "search_intent": "informational",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "New Construction vs Replacement Windows [2026] | Deluxe",
+      "description": "New construction windows replace the full framed opening, while replacement windows fit an existing opening. Compare costs, scope and the best use cases.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6880f9d4a118459d7f9fe81a_getty-images-1GZaPSlcHlE-unsplash%201.jpg",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

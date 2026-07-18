@@ -3,16 +3,30 @@
   "key": "brand-collections/contractor",
   "path": "/brand-collections/contractor",
   "seo": {
-    "title": "Contractor | Deluxe Windows",
-    "description": "Simonton Contractor windows combine versatility and quality. Virtually unlimited window styles and combinations provide design flexibility.",
+    "title": "Simonton Contractor | Deluxe Windows",
+    "description": "Explore Simonton Contractor specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
     "canonical": "https://www.deluxewindows.com/brand-collections/contractor",
     "og": {
-      "title": "Contractor | Deluxe Windows",
-      "description": "Simonton Contractor windows combine versatility and quality. Virtually unlimited window styles and combinations provide design flexibility.",
+      "title": "Simonton Contractor | Deluxe Windows",
+      "description": "Explore Simonton Contractor specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/696756abcc123051c4540b4b_sim_exterior_contractor_double_hung_window_5050_module_p116.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Contractor",
+    "primary_keyword": "contractor",
+    "target_keywords": [
+      "contractor",
+      "contractor prices"
+    ],
+    "search_intent": "product-series",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Simonton Contractor | Deluxe Windows",
+      "description": "Explore Simonton Contractor specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/696756abcc123051c4540b4b_sim_exterior_contractor_double_hung_window_5050_module_p116.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

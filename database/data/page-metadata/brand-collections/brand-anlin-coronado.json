@@ -3,16 +3,29 @@
   "key": "brand-collections/brand-anlin-coronado",
   "path": "/brand-collections/brand-anlin-coronado",
   "seo": {
-    "title": "Anlin Coronado Series | Deluxe Windows Milpitas",
-    "description": "Anlin Coronado windows deliver high-performance vinyl with optional triple pane for Bay Area homes. Explore the Coronado series at Deluxe Windows in San Francisco.",
+    "title": "Anlin Coronado | Deluxe Windows",
+    "description": "Explore Anlin Coronado specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
     "canonical": "https://www.deluxewindows.com/brand-collections/brand-anlin-coronado",
     "og": {
-      "title": "Anlin Coronado Series | Deluxe Windows Milpitas",
-      "description": "Anlin Coronado windows deliver high-performance vinyl with optional triple pane for Bay Area homes. Explore the Coronado series at Deluxe Windows in San Francisco.",
+      "title": "Anlin Coronado | Deluxe Windows",
+      "description": "Explore Anlin Coronado specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/694cd65a9f9b4eaf1158a775_694cd62fadf4460085a3e2a9_6891c01287823a871a9ec7ad_Anlin-Coronado-Windows.webp",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Anlin Coronado",
+    "primary_keyword": "anlin coronado",
+    "target_keywords": [
+      "anlin coronado"
+    ],
+    "search_intent": "product-series",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Anlin Coronado | Deluxe Windows",
+      "description": "Explore Anlin Coronado specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/694cd65a9f9b4eaf1158a775_694cd62fadf4460085a3e2a9_6891c01287823a871a9ec7ad_Anlin-Coronado-Windows.webp",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

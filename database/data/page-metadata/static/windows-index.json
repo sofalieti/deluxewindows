@@ -3,16 +3,30 @@
   "key": "static/windows-index",
   "path": "/windows",
   "seo": {
-    "title": "Windows for Bay Area Homes | Deluxe Windows California",
-    "description": "Discover high-performance vinyl, wood, aluminum, and fiberglass windows installed by Deluxe Windows across the Bay Area.",
+    "title": "Replacement Windows Bay Area | Deluxe Windows",
+    "description": "Explore replacement windows for Bay Area homes by material, style and brand. Compare energy-efficient options and request a free in-home estimate.",
     "canonical": "https://www.deluxewindows.com/windows",
     "og": {
-      "title": "Windows for Bay Area Homes | Deluxe Windows California",
-      "description": "Discover high-performance vinyl, wood, aluminum, and fiberglass windows installed by Deluxe Windows across the Bay Area.",
+      "title": "Replacement Windows Bay Area | Deluxe Windows",
+      "description": "Explore replacement windows for Bay Area homes by material, style and brand. Compare energy-efficient options and request a free in-home estimate.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta%20cover-2.jpg",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Replacement Windows for Bay Area Homes",
+    "primary_keyword": "replacement windows bay area",
+    "target_keywords": [
+      "replacement windows bay area",
+      "new windows"
+    ],
+    "search_intent": "hub",
+    "priority": "P0",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Replacement Windows Bay Area | Deluxe Windows",
+      "description": "Explore replacement windows for Bay Area homes by material, style and brand. Compare energy-efficient options and request a free in-home estimate.",
+      "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta%20cover-2.jpg",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

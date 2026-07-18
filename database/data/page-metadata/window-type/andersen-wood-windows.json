@@ -3,16 +3,30 @@
   "key": "window-type/andersen-wood-windows",
   "path": "/window-type/andersen-wood-windows",
   "seo": {
-    "title": "Andersen Wood Windows | Deluxe Windows Milpitas",
-    "description": "Andersen wood windows bring natural warmth and custom finishes to Bay Area homes. Expert wood window installation by Deluxe Windows in San Francisco. Free estimates.",
+    "title": "Andersen Wood Windows | Deluxe Windows",
+    "description": "Compare Andersen wood windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Learn more today.",
     "canonical": "https://www.deluxewindows.com/window-type/andersen-wood-windows",
     "og": {
-      "title": "Andersen Wood Windows | Deluxe Windows Milpitas",
-      "description": "Andersen wood windows bring natural warmth and custom finishes to Bay Area homes. Expert wood window installation by Deluxe Windows in San Francisco. Free estimates.",
+      "title": "Andersen Wood Windows | Deluxe Windows",
+      "description": "Compare Andersen wood windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Learn more today.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f64e63cdbaadbf331bc9f_andersen-e-series-windows-woodstain-bedroom-interior-1.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Andersen Wood Windows",
+    "primary_keyword": "andersen wood windows",
+    "target_keywords": [
+      "andersen wood windows",
+      "andersen wood windows prices"
+    ],
+    "search_intent": "brand-material",
+    "priority": "P1",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Andersen Wood Windows | Deluxe Windows",
+      "description": "Compare Andersen wood windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Learn more today.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f64e63cdbaadbf331bc9f_andersen-e-series-windows-woodstain-bedroom-interior-1.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

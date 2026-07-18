@@ -3,16 +3,32 @@
   "key": "door-brands/ply-gem",
   "path": "/door-brands/ply-gem",
   "seo": {
-    "title": "Ply Gem Doors | Deluxe Windows",
-    "description": "Ply Gem is a trusted name in value-focused doors, offering durable vinyl patio doors that deliver dependable insulation and easy operation. They're a smart choice for homeowners…",
+    "title": "Ply Gem Doors Bay Area | Deluxe Windows",
+    "description": "Compare Ply Gem door collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate. Learn more today.",
     "canonical": "https://www.deluxewindows.com/door-brands/ply-gem",
     "og": {
-      "title": "Ply Gem Doors | Deluxe Windows",
-      "description": "Ply Gem is a trusted name in value-focused doors, offering durable vinyl patio doors that deliver dependable insulation and easy operation. They're a smart choice for homeowners…",
+      "title": "Ply Gem Doors Bay Area | Deluxe Windows",
+      "description": "Compare Ply Gem door collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate. Learn more today.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a756ee649c541284c8b78_Plygem.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Ply Gem Doors — Bay Area Authorized Dealer & Installer",
+    "primary_keyword": "ply gem doors",
+    "target_keywords": [
+      "ply gem doors",
+      "ply gem patio doors",
+      "ply gem sliding doors",
+      "ply gem entry doors"
+    ],
+    "search_intent": "brand",
+    "priority": "P1",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Ply Gem Doors Bay Area | Deluxe Windows",
+      "description": "Compare Ply Gem door collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate. Learn more today.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a756ee649c541284c8b78_Plygem.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [
     {

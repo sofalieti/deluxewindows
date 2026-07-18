@@ -3,16 +3,29 @@
   "key": "blog/window-buyers-guide",
   "path": "/blog/window-buyers-guide",
   "seo": {
-    "title": "Window Buyer's Guide | Deluxe Windows Blog",
-    "description": "Overwhelmed by window choices? Deluxe Windows' buyer's guide covers materials, styles, energy ratings, and Bay Area-specific tips to help you choose with confidence.",
+    "title": "Window Buyer's Guide [2026] | Deluxe Windows",
+    "description": "Choose replacement windows with confidence. Compare frame materials, styles, glass, energy ratings and installation options for Bay Area homes. Get expert help.",
     "canonical": "https://www.deluxewindows.com/blog/window-buyers-guide",
     "og": {
-      "title": "Window Buyer's Guide | Deluxe Windows Blog",
-      "description": "Overwhelmed by window choices? Deluxe Windows' buyer's guide covers materials, styles, energy ratings, and Bay Area-specific tips to help you choose with confidence.",
+      "title": "Window Buyer's Guide [2026] | Deluxe Windows",
+      "description": "Choose replacement windows with confidence. Compare frame materials, styles, glass, energy ratings and installation options for Bay Area homes. Get expert help.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68810accd455556f0a737ecd_pexels-pixabay-358636.jpg",
       "type": "article"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Complete Window Buyer's Guide",
+    "primary_keyword": "window buyers guide",
+    "target_keywords": [
+      "window buyers guide"
+    ],
+    "search_intent": "informational",
+    "priority": "P2",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Window Buyer's Guide [2026] | Deluxe Windows",
+      "description": "Choose replacement windows with confidence. Compare frame materials, styles, glass, energy ratings and installation options for Bay Area homes. Get expert help.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68810accd455556f0a737ecd_pexels-pixabay-358636.jpg",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

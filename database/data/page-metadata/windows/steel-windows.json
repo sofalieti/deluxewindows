@@ -3,16 +3,32 @@
   "key": "windows/steel-windows",
   "path": "/windows/steel-windows",
   "seo": {
-    "title": "Steel Windows | Industrial & Modern – Deluxe Windows Berkeley",
-    "description": "Steel windows add a bold architectural statement to Bay Area homes. Slim sightlines and superior strength — installed by Deluxe Windows in San Francisco. Free quotes.",
+    "title": "Steel Windows Bay Area | Deluxe Windows",
+    "description": "Compare steel windows for Bay Area homes, including leading brands, energy ratings and installed pricing. Request a free in-home estimate. Learn more today.",
     "canonical": "https://www.deluxewindows.com/windows/steel-windows",
     "og": {
-      "title": "Steel Windows | Industrial & Modern – Deluxe Windows Berkeley",
-      "description": "Steel windows add a bold architectural statement to Bay Area homes. Slim sightlines and superior strength — installed by Deluxe Windows in San Francisco. Free quotes.",
+      "title": "Steel Windows Bay Area | Deluxe Windows",
+      "description": "Compare steel windows for Bay Area homes, including leading brands, energy ratings and installed pricing. Request a free in-home estimate. Learn more today.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68755fbd78e6bf0cc4107a42_1.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Steel Replacement Windows in the Bay Area",
+    "primary_keyword": "steel windows",
+    "target_keywords": [
+      "steel windows",
+      "steel window replacement",
+      "steel windows near me",
+      "best steel windows"
+    ],
+    "search_intent": "window-material",
+    "priority": "P1",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Steel Windows Bay Area | Deluxe Windows",
+      "description": "Compare steel windows for Bay Area homes, including leading brands, energy ratings and installed pricing. Request a free in-home estimate. Learn more today.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68755fbd78e6bf0cc4107a42_1.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

@@ -3,16 +3,29 @@
   "key": "brand-collections/brand-ply-gem-4700-series",
   "path": "/brand-collections/brand-ply-gem-4700-series",
   "seo": {
-    "title": "Ply Gem 4700 Series | Deluxe Windows Belmont",
-    "description": "Ply Gem 4700 Series vinyl windows offer premium performance for Bay Area homes. Explore at Deluxe Windows in San Francisco. Request a free installation estimate today.",
+    "title": "Ply Gem 4700 Series | Deluxe Windows",
+    "description": "Explore Ply Gem 4700 Series specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
     "canonical": "https://www.deluxewindows.com/brand-collections/brand-ply-gem-4700-series",
     "og": {
-      "title": "Ply Gem 4700 Series | Deluxe Windows Belmont",
-      "description": "Ply Gem 4700 Series vinyl windows offer premium performance for Bay Area homes. Explore at Deluxe Windows in San Francisco. Request a free installation estimate today.",
+      "title": "Ply Gem 4700 Series | Deluxe Windows",
+      "description": "Explore Ply Gem 4700 Series specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695b81391ea6ab8336fc96e0_68924d9acbde722a4adeea89_rjHKa7SO.jpeg",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Ply Gem 4700 Series",
+    "primary_keyword": "ply gem 4700 series",
+    "target_keywords": [
+      "ply gem 4700 series"
+    ],
+    "search_intent": "product-series",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Ply Gem 4700 Series | Deluxe Windows",
+      "description": "Explore Ply Gem 4700 Series specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695b81391ea6ab8336fc96e0_68924d9acbde722a4adeea89_rjHKa7SO.jpeg",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

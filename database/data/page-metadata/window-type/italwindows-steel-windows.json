@@ -3,16 +3,30 @@
   "key": "window-type/italwindows-steel-windows",
   "path": "/window-type/italwindows-steel-windows",
   "seo": {
-    "title": "Italwindows Steel Windows | Deluxe Windows Saratoga",
-    "description": "Italwindows steel windows offer industrial aesthetics and ultra-slim sightlines for Bay Area homes. Installed by Deluxe Windows in San Francisco. Get a free quote today.",
+    "title": "Italwindows Steel Windows | Deluxe Windows",
+    "description": "Compare Italwindows steel windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Learn more today.",
     "canonical": "https://www.deluxewindows.com/window-type/italwindows-steel-windows",
     "og": {
-      "title": "Italwindows Steel Windows | Deluxe Windows Saratoga",
-      "description": "Italwindows steel windows offer industrial aesthetics and ultra-slim sightlines for Bay Area homes. Installed by Deluxe Windows in San Francisco. Get a free quote today.",
+      "title": "Italwindows Steel Windows | Deluxe Windows",
+      "description": "Compare Italwindows steel windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Learn more today.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f5dccd9472161d1f96514_hopes-01-credit-img_ink.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Italwindows Steel Windows",
+    "primary_keyword": "italwindows steel windows",
+    "target_keywords": [
+      "italwindows steel windows",
+      "italwindows steel windows prices"
+    ],
+    "search_intent": "brand-material",
+    "priority": "P1",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Italwindows Steel Windows | Deluxe Windows",
+      "description": "Compare Italwindows steel windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Learn more today.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f5dccd9472161d1f96514_hopes-01-credit-img_ink.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

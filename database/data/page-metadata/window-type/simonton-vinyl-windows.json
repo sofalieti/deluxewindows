@@ -3,16 +3,30 @@
   "key": "window-type/simonton-vinyl-windows",
   "path": "/window-type/simonton-vinyl-windows",
   "seo": {
-    "title": "Simonton Vinyl Windows | Deluxe Windows Pleasanton",
-    "description": "Simonton vinyl windows lead in energy efficiency and durability for Bay Area homeowners. Multiple series available — installed by Deluxe Windows in San Francisco. Free quotes.",
+    "title": "Simonton Vinyl Windows | Deluxe Windows",
+    "description": "Compare Simonton vinyl windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Learn more today.",
     "canonical": "https://www.deluxewindows.com/window-type/simonton-vinyl-windows",
     "og": {
-      "title": "Simonton Vinyl Windows | Deluxe Windows Pleasanton",
-      "description": "Simonton vinyl windows lead in energy efficiency and durability for Bay Area homeowners. Multiple series available — installed by Deluxe Windows in San Francisco. Free quotes.",
+      "title": "Simonton Vinyl Windows | Deluxe Windows",
+      "description": "Compare Simonton vinyl windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Learn more today.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f7427c3a40ec8b91bd282_Simonton_WestRoxbury_03142022_EL_-134-scaled.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Simonton Vinyl Windows",
+    "primary_keyword": "simonton vinyl windows",
+    "target_keywords": [
+      "simonton vinyl windows",
+      "simonton vinyl windows prices"
+    ],
+    "search_intent": "brand-material",
+    "priority": "P1",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Simonton Vinyl Windows | Deluxe Windows",
+      "description": "Compare Simonton vinyl windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Learn more today.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f7427c3a40ec8b91bd282_Simonton_WestRoxbury_03142022_EL_-134-scaled.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

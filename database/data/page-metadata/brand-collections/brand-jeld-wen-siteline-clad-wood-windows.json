@@ -3,16 +3,29 @@
   "key": "brand-collections/brand-jeld-wen-siteline-clad-wood-windows",
   "path": "/brand-collections/brand-jeld-wen-siteline-clad-wood-windows",
   "seo": {
-    "title": "Jeld-Wen Siteline Clad-Wood | Deluxe Windows Richmond",
-    "description": "Jeld-Wen Siteline Clad-Wood windows combine handcrafted wood and durable cladding for Bay Area homes. Explore at Deluxe Windows in San Francisco. Request a free estimate.",
+    "title": "Jeld Wen Siteline Clad Wood Windows | Deluxe Windows",
+    "description": "Explore Jeld Wen Siteline Clad Wood Windows specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate.",
     "canonical": "https://www.deluxewindows.com/brand-collections/brand-jeld-wen-siteline-clad-wood-windows",
     "og": {
-      "title": "Jeld-Wen Siteline Clad-Wood | Deluxe Windows Richmond",
-      "description": "Jeld-Wen Siteline Clad-Wood windows combine handcrafted wood and durable cladding for Bay Area homes. Explore at Deluxe Windows in San Francisco. Request a free estimate.",
+      "title": "Jeld Wen Siteline Clad Wood Windows | Deluxe Windows",
+      "description": "Explore Jeld Wen Siteline Clad Wood Windows specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6948da1d92e77a58551f8be6_6948d7a29357f7da70473e5d_6890a398e12d08777a42b08d_jeld-wen-siteline-1.webp",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Jeld Wen Siteline Clad Wood Windows",
+    "primary_keyword": "jeld wen siteline clad wood windows",
+    "target_keywords": [
+      "jeld wen siteline clad wood windows"
+    ],
+    "search_intent": "product-series",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Jeld Wen Siteline Clad Wood Windows | Deluxe Windows",
+      "description": "Explore Jeld Wen Siteline Clad Wood Windows specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6948da1d92e77a58551f8be6_6948d7a29357f7da70473e5d_6890a398e12d08777a42b08d_jeld-wen-siteline-1.webp",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

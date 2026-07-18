@@ -3,16 +3,29 @@
   "key": "brand-collections/brand-simonton-stormbreaker-plus",
   "path": "/brand-collections/brand-simonton-stormbreaker-plus",
   "seo": {
-    "title": "StormBreaker Plus | Deluxe Windows",
-    "description": "StormBreaker Plus windows and doors are designed, tested and certified to meet the AAMA standards for Missile D specifications for the Florida Building Commission and the Texas…",
+    "title": "Simonton Stormbreaker Plus | Deluxe Windows",
+    "description": "Explore Simonton Stormbreaker Plus specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate. Learn more today.",
     "canonical": "https://www.deluxewindows.com/brand-collections/brand-simonton-stormbreaker-plus",
     "og": {
-      "title": "StormBreaker Plus | Deluxe Windows",
-      "description": "StormBreaker Plus windows and doors are designed, tested and certified to meet the AAMA standards for Missile D specifications for the Florida Building Commission and the Texas…",
+      "title": "Simonton Stormbreaker Plus | Deluxe Windows",
+      "description": "Explore Simonton Stormbreaker Plus specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate. Learn more today.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/696763ecf4ca6c33fed7bc59_sim_exterior_stormbreaker_plus_double_hung_window_5050_module_p113.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Simonton Stormbreaker Plus",
+    "primary_keyword": "simonton stormbreaker plus",
+    "target_keywords": [
+      "simonton stormbreaker plus"
+    ],
+    "search_intent": "product-series",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Simonton Stormbreaker Plus | Deluxe Windows",
+      "description": "Explore Simonton Stormbreaker Plus specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate. Learn more today.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/696763ecf4ca6c33fed7bc59_sim_exterior_stormbreaker_plus_double_hung_window_5050_module_p113.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

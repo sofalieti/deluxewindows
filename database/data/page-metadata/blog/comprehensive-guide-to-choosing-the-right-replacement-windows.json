@@ -3,16 +3,29 @@
   "key": "blog/comprehensive-guide-to-choosing-the-right-replacement-windows",
   "path": "/blog/comprehensive-guide-to-choosing-the-right-replacement-windows",
   "seo": {
-    "title": "Guide to Choosing Replacement Windows | Deluxe Windows Blog",
-    "description": "Choosing replacement windows affects your home's comfort and value. This comprehensive guide covers materials, styles, energy ratings, and Bay Area installation tips.",
+    "title": "How to Choose Replacement Windows [2026] | Deluxe",
+    "description": "Compare replacement window materials, styles, glass and energy ratings before you buy. Use this guide to plan the right upgrade for your Bay Area home.",
     "canonical": "https://www.deluxewindows.com/blog/comprehensive-guide-to-choosing-the-right-replacement-windows",
     "og": {
-      "title": "Guide to Choosing Replacement Windows | Deluxe Windows Blog",
-      "description": "Choosing replacement windows affects your home's comfort and value. This comprehensive guide covers materials, styles, energy ratings, and Bay Area installation tips.",
+      "title": "How to Choose Replacement Windows [2026] | Deluxe",
+      "description": "Compare replacement window materials, styles, glass and energy ratings before you buy. Use this guide to plan the right upgrade for your Bay Area home.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6880f28e343f5455ac6a2d73_getty-images-njvV_1n7P_w-unsplash.jpg",
       "type": "article"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "How to Choose the Right Replacement Windows",
+    "primary_keyword": "comprehensive guide to choosing the right replacement windows",
+    "target_keywords": [
+      "comprehensive guide to choosing the right replacement windows"
+    ],
+    "search_intent": "informational",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "How to Choose Replacement Windows [2026] | Deluxe",
+      "description": "Compare replacement window materials, styles, glass and energy ratings before you buy. Use this guide to plan the right upgrade for your Bay Area home.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6880f28e343f5455ac6a2d73_getty-images-njvV_1n7P_w-unsplash.jpg",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

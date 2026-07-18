@@ -3,16 +3,29 @@
   "key": "brand-collections/brand-simonton-6500",
   "path": "/brand-collections/brand-simonton-6500",
   "seo": {
-    "title": "6500 | Deluxe Windows",
-    "description": "The ultimate in style and performance, the 6500 collection is Simonton’s premier window line. With many customization options available, create the perfect window for your home.…",
+    "title": "Simonton 6500 | Deluxe Windows",
+    "description": "Explore Simonton 6500 specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
     "canonical": "https://www.deluxewindows.com/brand-collections/brand-simonton-6500",
     "og": {
-      "title": "6500 | Deluxe Windows",
-      "description": "The ultimate in style and performance, the 6500 collection is Simonton’s premier window line. With many customization options available, create the perfect window for your home.…",
+      "title": "Simonton 6500 | Deluxe Windows",
+      "description": "Explore Simonton 6500 specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/69675de5eb5396dcba750b12_6500.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Simonton 6500",
+    "primary_keyword": "simonton 6500",
+    "target_keywords": [
+      "simonton 6500"
+    ],
+    "search_intent": "product-series",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Simonton 6500 | Deluxe Windows",
+      "description": "Explore Simonton 6500 specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/69675de5eb5396dcba750b12_6500.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

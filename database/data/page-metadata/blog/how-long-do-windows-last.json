@@ -3,16 +3,29 @@
   "key": "blog/how-long-do-windows-last",
   "path": "/blog/how-long-do-windows-last",
   "seo": {
-    "title": "How Long Do Windows Last? | Deluxe Windows Blog",
-    "description": "Windows typically last 15–30 years depending on material, climate, and maintenance. Learn when to replace your Bay Area windows and how to extend their lifespan.",
+    "title": "How Long Do Windows Last? Lifespan Guide [2026] | Deluxe",
+    "description": "Most windows last 15 to 30 years, depending on material, climate and maintenance. Learn the warning signs that your Bay Area windows need replacement.",
     "canonical": "https://www.deluxewindows.com/blog/how-long-do-windows-last",
     "og": {
-      "title": "How Long Do Windows Last? | Deluxe Windows Blog",
-      "description": "Windows typically last 15–30 years depending on material, climate, and maintenance. Learn when to replace your Bay Area windows and how to extend their lifespan.",
+      "title": "How Long Do Windows Last? Lifespan Guide [2026] | Deluxe",
+      "description": "Most windows last 15 to 30 years, depending on material, climate and maintenance. Learn the warning signs that your Bay Area windows need replacement.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6880fbfbc5faaa597dbffac8_cj-joW0X7sWNfA-unsplash%201.jpg",
       "type": "article"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "How Long Do Windows Last?",
+    "primary_keyword": "how long do windows last",
+    "target_keywords": [
+      "how long do windows last"
+    ],
+    "search_intent": "informational",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "How Long Do Windows Last? Lifespan Guide [2026] | Deluxe",
+      "description": "Most windows last 15 to 30 years, depending on material, climate and maintenance. Learn the warning signs that your Bay Area windows need replacement.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6880fbfbc5faaa597dbffac8_cj-joW0X7sWNfA-unsplash%201.jpg",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

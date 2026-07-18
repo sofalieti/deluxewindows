@@ -3,16 +3,31 @@
   "key": "doors/fiberglass-doors",
   "path": "/doors/fiberglass-doors",
   "seo": {
-    "title": "Fiberglass Doors | Energy-Efficient – Deluxe Windows Oakland",
-    "description": "Upgrade to fiberglass doors that resist dents, warping, and extreme weather. Deluxe Windows installs premium fiberglass doors across the San Francisco Bay Area.",
+    "title": "Fiberglass Doors Bay Area | Deluxe Windows",
+    "description": "Compare fiberglass entry and patio doors for Bay Area homes. Explore leading brands, custom sizes and professional installation. Get a free estimate.",
     "canonical": "https://www.deluxewindows.com/doors/fiberglass-doors",
     "og": {
-      "title": "Fiberglass Doors | Energy-Efficient – Deluxe Windows Oakland",
-      "description": "Upgrade to fiberglass doors that resist dents, warping, and extreme weather. Deluxe Windows installs premium fiberglass doors across the San Francisco Bay Area.",
+      "title": "Fiberglass Doors Bay Area | Deluxe Windows",
+      "description": "Compare fiberglass entry and patio doors for Bay Area homes. Explore leading brands, custom sizes and professional installation. Get a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6841ddf8ace3d9d9facb1a87_home-buying-basics-thumbnail-v3-property-x-webflow-template.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Fiberglass Exterior Doors in the Bay Area",
+    "primary_keyword": "fiberglass doors",
+    "target_keywords": [
+      "fiberglass doors",
+      "fiberglass exterior doors",
+      "fiberglass entry door"
+    ],
+    "search_intent": "door-material",
+    "priority": "P2",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Fiberglass Doors Bay Area | Deluxe Windows",
+      "description": "Compare fiberglass entry and patio doors for Bay Area homes. Explore leading brands, custom sizes and professional installation. Get a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6841ddf8ace3d9d9facb1a87_home-buying-basics-thumbnail-v3-property-x-webflow-template.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

@@ -3,16 +3,30 @@
   "key": "window-type/andersen-vinyl-windows",
   "path": "/window-type/andersen-vinyl-windows",
   "seo": {
-    "title": "Andersen Vinyl Windows | Deluxe Windows Cupertino",
-    "description": "Andersen vinyl windows deliver trusted performance and energy efficiency for Bay Area homeowners. Installed by Deluxe Windows in San Francisco. Request a free quote.",
+    "title": "Andersen Vinyl Windows | Deluxe Windows",
+    "description": "Compare Andersen vinyl windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Learn more today.",
     "canonical": "https://www.deluxewindows.com/window-type/andersen-vinyl-windows",
     "og": {
-      "title": "Andersen Vinyl Windows | Deluxe Windows Cupertino",
-      "description": "Andersen vinyl windows deliver trusted performance and energy efficiency for Bay Area homeowners. Installed by Deluxe Windows in San Francisco. Request a free quote.",
+      "title": "Andersen Vinyl Windows | Deluxe Windows",
+      "description": "Compare Andersen vinyl windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Learn more today.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f654f5cc7344238ef3199_100-series-hero-new.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Andersen Vinyl Windows",
+    "primary_keyword": "andersen vinyl windows",
+    "target_keywords": [
+      "andersen vinyl windows",
+      "andersen vinyl windows prices"
+    ],
+    "search_intent": "brand-material",
+    "priority": "P1",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Andersen Vinyl Windows | Deluxe Windows",
+      "description": "Compare Andersen vinyl windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Learn more today.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f654f5cc7344238ef3199_100-series-hero-new.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

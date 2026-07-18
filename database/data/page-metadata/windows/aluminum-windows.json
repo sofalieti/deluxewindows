@@ -3,16 +3,32 @@
   "key": "windows/aluminum-windows",
   "path": "/windows/aluminum-windows",
   "seo": {
-    "title": "Aluminum Windows | Energy-Efficient – Deluxe Windows Oakland",
-    "description": "Lightweight, strong aluminum windows for Bay Area homes. Slim frames, wide views, and corrosion resistance — installed by Deluxe Windows in San Francisco. Free estimates.",
+    "title": "Aluminum Windows Bay Area | Deluxe Windows",
+    "description": "Compare aluminum windows for Bay Area homes, including leading brands, energy ratings and installed pricing. Request a free in-home estimate. Learn more today.",
     "canonical": "https://www.deluxewindows.com/windows/aluminum-windows",
     "og": {
-      "title": "Aluminum Windows | Energy-Efficient – Deluxe Windows Oakland",
-      "description": "Lightweight, strong aluminum windows for Bay Area homes. Slim frames, wide views, and corrosion resistance — installed by Deluxe Windows in San Francisco. Free estimates.",
+      "title": "Aluminum Windows Bay Area | Deluxe Windows",
+      "description": "Compare aluminum windows for Bay Area homes, including leading brands, energy ratings and installed pricing. Request a free in-home estimate. Learn more today.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d8c0f6326c95b90a2816b_Frame%2019.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Aluminum Replacement Windows in the Bay Area",
+    "primary_keyword": "aluminum windows",
+    "target_keywords": [
+      "aluminum windows",
+      "aluminum window replacement",
+      "aluminum windows near me",
+      "best aluminum windows"
+    ],
+    "search_intent": "window-material",
+    "priority": "P1",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Aluminum Windows Bay Area | Deluxe Windows",
+      "description": "Compare aluminum windows for Bay Area homes, including leading brands, energy ratings and installed pricing. Request a free in-home estimate. Learn more today.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d8c0f6326c95b90a2816b_Frame%2019.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

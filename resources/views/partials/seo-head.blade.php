@@ -1,5 +1,6 @@
 <title>{{ $pageMetadata->title }}</title>
 <meta name="description" content="{{ $pageMetadata->description }}" />
+<meta name="robots" content="{{ $pageMetadata->robots }}" />
 <link rel="canonical" href="{{ $pageMetadata->canonical }}" />
 
 <meta property="og:title" content="{{ $pageMetadata->ogTitle }}" />
@@ -11,11 +12,11 @@
 <meta property="og:image" content="{{ $pageMetadata->ogImage }}" />
 @endif
 
-<meta name="twitter:title" content="{{ $pageMetadata->ogTitle }}" />
-<meta name="twitter:description" content="{{ $pageMetadata->ogDescription }}" />
+<meta name="twitter:title" content="{{ $pageMetadata->twitterTitle }}" />
+<meta name="twitter:description" content="{{ $pageMetadata->twitterDescription }}" />
 <meta name="twitter:card" content="{{ $pageMetadata->twitterCard }}" />
-@if($pageMetadata->ogImage)
-<meta name="twitter:image" content="{{ $pageMetadata->ogImage }}" />
+@if($pageMetadata->twitterImage)
+<meta name="twitter:image" content="{{ $pageMetadata->twitterImage }}" />
 @endif
 
 @foreach($pageSchemas as $schema)

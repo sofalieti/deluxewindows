@@ -3,16 +3,29 @@
   "key": "brand-collections/brand-andersen-100-series",
   "path": "/brand-collections/brand-andersen-100-series",
   "seo": {
-    "title": "Andersen 100 Series | Deluxe Windows San Jose",
-    "description": "Explore the Andersen 100 Series at Deluxe Windows. Fibrex composite frames offer low-maintenance strength for Bay Area homes. Request a free installation estimate in SF.",
+    "title": "Andersen 100 Series | Deluxe Windows",
+    "description": "Explore Andersen 100 Series specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
     "canonical": "https://www.deluxewindows.com/brand-collections/brand-andersen-100-series",
     "og": {
-      "title": "Andersen 100 Series | Deluxe Windows San Jose",
-      "description": "Explore the Andersen 100 Series at Deluxe Windows. Fibrex composite frames offer low-maintenance strength for Bay Area homes. Request a free installation estimate in SF.",
+      "title": "Andersen 100 Series | Deluxe Windows",
+      "description": "Explore Andersen 100 Series specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/69523cb9cb53560bd37065bf_100-series-new-hero-image-768x450.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Andersen 100 Series",
+    "primary_keyword": "andersen 100 series",
+    "target_keywords": [
+      "andersen 100 series"
+    ],
+    "search_intent": "product-series",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Andersen 100 Series | Deluxe Windows",
+      "description": "Explore Andersen 100 Series specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/69523cb9cb53560bd37065bf_100-series-new-hero-image-768x450.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

@@ -3,16 +3,29 @@
   "key": "brand-collections/brand-milgard-v300-trinsic-series",
   "path": "/brand-collections/brand-milgard-v300-trinsic-series",
   "seo": {
-    "title": "Milgard V300 Trinsic Series | Deluxe Windows Oakley",
-    "description": "Milgard V300 Trinsic windows feature minimalist frames for Bay Area homeowners seeking expansive views. Explore at Deluxe Windows in San Francisco. Free estimates.",
+    "title": "Milgard V300 Trinsic Series | Deluxe Windows",
+    "description": "Explore Milgard V300 Trinsic Series specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate. Learn more today.",
     "canonical": "https://www.deluxewindows.com/brand-collections/brand-milgard-v300-trinsic-series",
     "og": {
-      "title": "Milgard V300 Trinsic Series | Deluxe Windows Oakley",
-      "description": "Milgard V300 Trinsic windows feature minimalist frames for Bay Area homeowners seeking expansive views. Explore at Deluxe Windows in San Francisco. Free estimates.",
+      "title": "Milgard V300 Trinsic Series | Deluxe Windows",
+      "description": "Explore Milgard V300 Trinsic Series specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate. Learn more today.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/693661d79ea967ebbac686b9_6890942ea71d29dac0e0b487_A250-Thermally-Improved-Aluminum.jpeg",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Milgard V300 Trinsic Series",
+    "primary_keyword": "milgard v300 trinsic series",
+    "target_keywords": [
+      "milgard v300 trinsic series"
+    ],
+    "search_intent": "product-series",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Milgard V300 Trinsic Series | Deluxe Windows",
+      "description": "Explore Milgard V300 Trinsic Series specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate. Learn more today.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/693661d79ea967ebbac686b9_6890942ea71d29dac0e0b487_A250-Thermally-Improved-Aluminum.jpeg",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

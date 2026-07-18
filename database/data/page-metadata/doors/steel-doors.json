@@ -3,16 +3,31 @@
   "key": "doors/steel-doors",
   "path": "/doors/steel-doors",
   "seo": {
-    "title": "Steel Doors | Secure Entry Doors – Deluxe Windows Fremont",
-    "description": "Boost your home's security with insulated steel doors from Deluxe Windows. Expert installation of durable steel entry doors throughout San Francisco and the Bay Area.",
+    "title": "Steel Doors Bay Area | Deluxe Windows",
+    "description": "Compare steel entry and patio doors for Bay Area homes. Explore leading brands, custom sizes and professional installation. Get a free estimate.",
     "canonical": "https://www.deluxewindows.com/doors/steel-doors",
     "og": {
-      "title": "Steel Doors | Secure Entry Doors – Deluxe Windows Fremont",
-      "description": "Boost your home's security with insulated steel doors from Deluxe Windows. Expert installation of durable steel entry doors throughout San Francisco and the Bay Area.",
+      "title": "Steel Doors Bay Area | Deluxe Windows",
+      "description": "Compare steel entry and patio doors for Bay Area homes. Explore leading brands, custom sizes and professional installation. Get a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6841ddf8ace3d9d9facb1a8b_heres-how-decorate-your-new-home-thumbnail-v3-property-x-webflow-template.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Steel Exterior Doors in the Bay Area",
+    "primary_keyword": "steel doors",
+    "target_keywords": [
+      "steel doors",
+      "steel exterior doors",
+      "steel entry door"
+    ],
+    "search_intent": "door-material",
+    "priority": "P2",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Steel Doors Bay Area | Deluxe Windows",
+      "description": "Compare steel entry and patio doors for Bay Area homes. Explore leading brands, custom sizes and professional installation. Get a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6841ddf8ace3d9d9facb1a8b_heres-how-decorate-your-new-home-thumbnail-v3-property-x-webflow-template.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

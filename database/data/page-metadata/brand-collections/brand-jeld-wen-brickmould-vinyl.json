@@ -3,16 +3,29 @@
   "key": "brand-collections/brand-jeld-wen-brickmould-vinyl",
   "path": "/brand-collections/brand-jeld-wen-brickmould-vinyl",
   "seo": {
-    "title": "Jeld-Wen Brickmould Vinyl | Deluxe Windows Saratoga",
-    "description": "Jeld-Wen Brickmould Vinyl windows feature classic exterior profiles for Bay Area homes. Explore this collection at Deluxe Windows in San Francisco. Request a free quote.",
+    "title": "Jeld Wen Brickmould Vinyl | Deluxe Windows",
+    "description": "Explore Jeld Wen Brickmould Vinyl specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
     "canonical": "https://www.deluxewindows.com/brand-collections/brand-jeld-wen-brickmould-vinyl",
     "og": {
-      "title": "Jeld-Wen Brickmould Vinyl | Deluxe Windows Saratoga",
-      "description": "Jeld-Wen Brickmould Vinyl windows feature classic exterior profiles for Bay Area homes. Explore this collection at Deluxe Windows in San Francisco. Request a free quote.",
+      "title": "Jeld Wen Brickmould Vinyl | Deluxe Windows",
+      "description": "Explore Jeld Wen Brickmould Vinyl specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6948e60f8fc622a99d36b81d_brickmould-vinyl-windows.jpg",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Jeld Wen Brickmould Vinyl",
+    "primary_keyword": "jeld wen brickmould vinyl",
+    "target_keywords": [
+      "jeld wen brickmould vinyl"
+    ],
+    "search_intent": "product-series",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Jeld Wen Brickmould Vinyl | Deluxe Windows",
+      "description": "Explore Jeld Wen Brickmould Vinyl specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6948e60f8fc622a99d36b81d_brickmould-vinyl-windows.jpg",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

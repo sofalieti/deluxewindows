@@ -4,15 +4,29 @@
   "path": "/county-hub-pages/santa-clara-county",
   "seo": {
     "title": "Santa Clara County Window Replacement | Deluxe Windows",
-    "description": "Window replacement Santa Clara County: energy-efficient products, expert crews, top brands. Serving San Jose and the South Bay. Free quote from Deluxe Windows.",
+    "description": "Explore window and door replacement across Santa Clara County. Compare leading brands, energy-efficient products and expert installation. Get a free estimate.",
     "canonical": "https://www.deluxewindows.com/county-hub-pages/santa-clara-county",
     "og": {
       "title": "Santa Clara County Window Replacement | Deluxe Windows",
-      "description": "Window replacement Santa Clara County: energy-efficient products, expert crews, top brands. Serving San Jose and the South Bay. Free quote from Deluxe Windows.",
+      "description": "Explore window and door replacement across Santa Clara County. Compare leading brands, energy-efficient products and expert installation. Get a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/69fc954e7b9bf04407ae45bb_generated-2026-05-07t13-32-48-294z-ubgign.jpeg",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Window & Door Replacement in Santa Clara County",
+    "primary_keyword": "window replacement santa clara county",
+    "target_keywords": [
+      "window replacement santa clara county",
+      "windows santa clara county"
+    ],
+    "search_intent": "local-county",
+    "priority": "P2",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Santa Clara County Window Replacement | Deluxe Windows",
+      "description": "Explore window and door replacement across Santa Clara County. Compare leading brands, energy-efficient products and expert installation. Get a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/69fc954e7b9bf04407ae45bb_generated-2026-05-07t13-32-48-294z-ubgign.jpeg",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

@@ -3,16 +3,30 @@
   "key": "brand-collections/west-400-series",
   "path": "/brand-collections/west-400-series",
   "seo": {
-    "title": "West 400 Series Windows | Deluxe Windows Healdsburg",
-    "description": "West 400 Series windows offer reliable, modern performance for Bay Area homes. Explore this series at Deluxe Windows in San Francisco. Request a free installation estimate.",
+    "title": "Ply Gem West 400 Series | Deluxe Windows",
+    "description": "Explore Ply Gem West 400 Series specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
     "canonical": "https://www.deluxewindows.com/brand-collections/west-400-series",
     "og": {
-      "title": "West 400 Series Windows | Deluxe Windows Healdsburg",
-      "description": "West 400 Series windows offer reliable, modern performance for Bay Area homes. Explore this series at Deluxe Windows in San Francisco. Request a free installation estimate.",
+      "title": "Ply Gem West 400 Series | Deluxe Windows",
+      "description": "Explore Ply Gem West 400 Series specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695e1cf80aaf7e4f619049c1_pgw_400_west_hero_1-400x400-1.jpg",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "West 400 Series",
+    "primary_keyword": "west 400 series",
+    "target_keywords": [
+      "west 400 series",
+      "west 400 series prices"
+    ],
+    "search_intent": "product-series",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Ply Gem West 400 Series | Deluxe Windows",
+      "description": "Explore Ply Gem West 400 Series specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695e1cf80aaf7e4f619049c1_pgw_400_west_hero_1-400x400-1.jpg",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

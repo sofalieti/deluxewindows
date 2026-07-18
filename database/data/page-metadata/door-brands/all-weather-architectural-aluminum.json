@@ -3,16 +3,32 @@
   "key": "door-brands/all-weather-architectural-aluminum",
   "path": "/door-brands/all-weather-architectural-aluminum",
   "seo": {
-    "title": "All Weather Architectural Aluminum Doors | Deluxe Windows",
-    "description": "All Weather Architectural Aluminum delivers strong, architectural-grade aluminum doors designed for durability and clean, modern lines. They're ideal for homeowners who want slim…",
+    "title": "All Weather Aluminum Doors Bay Area | Deluxe Windows",
+    "description": "Compare All Weather Architectural Aluminum door collections for Bay Area homes, including popular styles, energy options and warranty. Request a free estimate.",
     "canonical": "https://www.deluxewindows.com/door-brands/all-weather-architectural-aluminum",
     "og": {
-      "title": "All Weather Architectural Aluminum Doors | Deluxe Windows",
-      "description": "All Weather Architectural Aluminum delivers strong, architectural-grade aluminum doors designed for durability and clean, modern lines. They're ideal for homeowners who want slim…",
+      "title": "All Weather Aluminum Doors Bay Area | Deluxe Windows",
+      "description": "Compare All Weather Architectural Aluminum door collections for Bay Area homes, including popular styles, energy options and warranty. Request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a744be121b29c4e32b2ec_all-weather-architectural-aluminum.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "All Weather Architectural Aluminum Doors — Bay Area Authorized Dealer & Installer",
+    "primary_keyword": "all weather architectural aluminum doors",
+    "target_keywords": [
+      "all weather architectural aluminum doors",
+      "all weather architectural aluminum patio doors",
+      "all weather architectural aluminum sliding doors",
+      "all weather architectural aluminum entry doors"
+    ],
+    "search_intent": "brand",
+    "priority": "P1",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "All Weather Aluminum Doors Bay Area | Deluxe Windows",
+      "description": "Compare All Weather Architectural Aluminum door collections for Bay Area homes, including popular styles, energy options and warranty. Request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a744be121b29c4e32b2ec_all-weather-architectural-aluminum.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [
     {

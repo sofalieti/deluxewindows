@@ -3,16 +3,31 @@
   "key": "static/doors-index",
   "path": "/doors",
   "seo": {
-    "title": "Doors for Bay Area Homes | Deluxe Windows California",
-    "description": "Discover stylish, durable, and energy-efficient entry and patio doors installed by Deluxe Windows across the Bay Area.",
+    "title": "Entry & Patio Doors Bay Area | Deluxe Windows",
+    "description": "Explore entry, patio and exterior doors for Bay Area homes. Compare materials, styles and leading brands, then request a free in-home estimate. Get expert help.",
     "canonical": "https://www.deluxewindows.com/doors",
     "og": {
-      "title": "Doors for Bay Area Homes | Deluxe Windows California",
-      "description": "Discover stylish, durable, and energy-efficient entry and patio doors installed by Deluxe Windows across the Bay Area.",
+      "title": "Entry & Patio Doors Bay Area | Deluxe Windows",
+      "description": "Explore entry, patio and exterior doors for Bay Area homes. Compare materials, styles and leading brands, then request a free in-home estimate. Get expert help.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta%20cover-2.jpg",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Exterior, Entry & Patio Doors",
+    "primary_keyword": "entry doors",
+    "target_keywords": [
+      "entry doors",
+      "patio doors",
+      "sliding doors"
+    ],
+    "search_intent": "hub",
+    "priority": "P1",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Entry & Patio Doors Bay Area | Deluxe Windows",
+      "description": "Explore entry, patio and exterior doors for Bay Area homes. Compare materials, styles and leading brands, then request a free in-home estimate. Get expert help.",
+      "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta%20cover-2.jpg",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

@@ -3,16 +3,29 @@
   "key": "brand-collections/brand-simonton-comfortsmart",
   "path": "/brand-collections/brand-simonton-comfortsmart",
   "seo": {
-    "title": "ComfortSmart | Deluxe Windows",
-    "description": "Narrow frame windows that provide expansive views with a wide selection of styles, designer colors and advanced energy-efficient options.",
+    "title": "Simonton Comfortsmart | Deluxe Windows",
+    "description": "Explore Simonton Comfortsmart specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
     "canonical": "https://www.deluxewindows.com/brand-collections/brand-simonton-comfortsmart",
     "og": {
-      "title": "ComfortSmart | Deluxe Windows",
-      "description": "Narrow frame windows that provide expansive views with a wide selection of styles, designer colors and advanced energy-efficient options.",
+      "title": "Simonton Comfortsmart | Deluxe Windows",
+      "description": "Explore Simonton Comfortsmart specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6964b7b65d639efc196732f7_689afacdca933e2895385616_sim_comfortsmart_collection_interior_white_3_lite_sliding_window-5050-Img.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Simonton Comfortsmart",
+    "primary_keyword": "simonton comfortsmart",
+    "target_keywords": [
+      "simonton comfortsmart"
+    ],
+    "search_intent": "product-series",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Simonton Comfortsmart | Deluxe Windows",
+      "description": "Explore Simonton Comfortsmart specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6964b7b65d639efc196732f7_689afacdca933e2895385616_sim_comfortsmart_collection_interior_white_3_lite_sliding_window-5050-Img.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

@@ -3,16 +3,29 @@
   "key": "brand-collections/brand-milgard-v450-homemaker-series",
   "path": "/brand-collections/brand-milgard-v450-homemaker-series",
   "seo": {
-    "title": "Milgard V450 HomeMaker Windows | Deluxe Windows Redwood City",
-    "description": "Milgard V450 HomeMaker Series delivers everyday reliability for Bay Area homeowners. Explore this vinyl series at Deluxe Windows in San Francisco. Get a free estimate.",
+    "title": "Milgard V450 Homemaker Series | Deluxe Windows",
+    "description": "Explore Milgard V450 Homemaker Series specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate.",
     "canonical": "https://www.deluxewindows.com/brand-collections/brand-milgard-v450-homemaker-series",
     "og": {
-      "title": "Milgard V450 HomeMaker Windows | Deluxe Windows Redwood City",
-      "description": "Milgard V450 HomeMaker Series delivers everyday reliability for Bay Area homeowners. Explore this vinyl series at Deluxe Windows in San Francisco. Get a free estimate.",
+      "title": "Milgard V450 Homemaker Series | Deluxe Windows",
+      "description": "Explore Milgard V450 Homemaker Series specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/693661d79ea967ebbac686b9_6890942ea71d29dac0e0b487_A250-Thermally-Improved-Aluminum.jpeg",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Milgard V450 Homemaker Series",
+    "primary_keyword": "milgard v450 homemaker series",
+    "target_keywords": [
+      "milgard v450 homemaker series"
+    ],
+    "search_intent": "product-series",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Milgard V450 Homemaker Series | Deluxe Windows",
+      "description": "Explore Milgard V450 Homemaker Series specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/693661d79ea967ebbac686b9_6890942ea71d29dac0e0b487_A250-Thermally-Improved-Aluminum.jpeg",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

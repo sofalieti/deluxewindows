@@ -4,15 +4,29 @@
   "path": "/county-hub-pages/alameda-county",
   "seo": {
     "title": "Alameda County Window Replacement | Deluxe Windows",
-    "description": "Expert window replacement across Alameda County. Energy-efficient installs, top brands, free quotes. Call Deluxe Windows for Bay Area homes.",
+    "description": "Explore window and door replacement across Alameda County. Compare leading brands, energy-efficient products and professional installation. Get a free estimate.",
     "canonical": "https://www.deluxewindows.com/county-hub-pages/alameda-county",
     "og": {
       "title": "Alameda County Window Replacement | Deluxe Windows",
-      "description": "Expert window replacement across Alameda County. Energy-efficient installs, top brands, free quotes. Call Deluxe Windows for Bay Area homes.",
+      "description": "Explore window and door replacement across Alameda County. Compare leading brands, energy-efficient products and professional installation. Get a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/69fc954e7b9bf04407ae45cb_generated-2026-05-07t13-32-41-766z-mnytix.jpeg",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Window & Door Replacement in Alameda County",
+    "primary_keyword": "window replacement alameda county",
+    "target_keywords": [
+      "window replacement alameda county",
+      "windows alameda county"
+    ],
+    "search_intent": "local-county",
+    "priority": "P2",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Alameda County Window Replacement | Deluxe Windows",
+      "description": "Explore window and door replacement across Alameda County. Compare leading brands, energy-efficient products and professional installation. Get a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/69fc954e7b9bf04407ae45cb_generated-2026-05-07t13-32-41-766z-mnytix.jpeg",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {

@@ -3,16 +3,31 @@
   "key": "doors/vinyl-doors",
   "path": "/doors/vinyl-doors",
   "seo": {
-    "title": "Vinyl Doors | Affordable Replacement – Deluxe Windows Berkeley",
-    "description": "Cost-effective vinyl doors with excellent energy performance for Bay Area homes. Deluxe Windows offers expert vinyl door installation in San Francisco and surrounding areas.",
+    "title": "Vinyl Doors Bay Area | Deluxe Windows",
+    "description": "Compare vinyl entry and patio doors for Bay Area homes. Explore leading brands, custom sizes and professional installation. Get a free estimate.",
     "canonical": "https://www.deluxewindows.com/doors/vinyl-doors",
     "og": {
-      "title": "Vinyl Doors | Affordable Replacement – Deluxe Windows Berkeley",
-      "description": "Cost-effective vinyl doors with excellent energy performance for Bay Area homes. Deluxe Windows offers expert vinyl door installation in San Francisco and surrounding areas.",
+      "title": "Vinyl Doors Bay Area | Deluxe Windows",
+      "description": "Compare vinyl entry and patio doors for Bay Area homes. Explore leading brands, custom sizes and professional installation. Get a free estimate.",
       "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6841ddf8ace3d9d9facb19a5_how-to-negotiate-a-house-price-effectively-thumbnail-v3-property-x-webflow-template.avif",
       "type": "website"
     },
-    "twitter_card": "summary_large_image"
+    "h1": "Vinyl Exterior Doors in the Bay Area",
+    "primary_keyword": "vinyl doors",
+    "target_keywords": [
+      "vinyl doors",
+      "vinyl exterior doors",
+      "vinyl entry door"
+    ],
+    "search_intent": "door-material",
+    "priority": "P2",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Vinyl Doors Bay Area | Deluxe Windows",
+      "description": "Compare vinyl entry and patio doors for Bay Area homes. Explore leading brands, custom sizes and professional installation. Get a free estimate.",
+      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6841ddf8ace3d9d9facb19a5_how-to-negotiate-a-house-price-effectively-thumbnail-v3-property-x-webflow-template.avif",
+      "card": "summary_large_image"
+    }
   },
   "faq": [],
   "schema": {
