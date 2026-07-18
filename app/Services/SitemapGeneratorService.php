@@ -108,9 +108,7 @@ class SitemapGeneratorService
     private function addWindowTypes(): void
     {
         foreach ($this->published(WindowTypeWebflowItem::class) as $item) {
-            $fieldData = $this->fieldData($item);
-            $agentId = $fieldData['property-listing---agent'] ?? null;
-            if (! is_string($agentId) || $agentId === '') {
+            if ($item->webflowReference('property-listing---agent') === null) {
                 continue;
             }
 
@@ -121,9 +119,7 @@ class SitemapGeneratorService
     private function addDoorTypes(): void
     {
         foreach ($this->published(DoorTypesWebflowItem::class) as $item) {
-            $fieldData = $this->fieldData($item);
-            $agentId = $fieldData['property-listing---agent'] ?? null;
-            if (! is_string($agentId) || $agentId === '') {
+            if ($item->webflowReference('property-listing---agent') === null) {
                 continue;
             }
 

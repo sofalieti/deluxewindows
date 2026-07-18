@@ -1,4 +1,4 @@
-﻿@extends('layouts.classic')
+@extends('layouts.classic')
 
 @section('wfPage', '6841df5688ca2f74fd53ec90')
 @section('htmlClass', 'wf-loading w-mod-js wf-exo-n1-loading wf-exo-i1-loading wf-exo-n2-loading wf-exo-i2-loading wf-exo-n3-loading wf-exo-i3-loading wf-exo-n4-loading wf-exo-i4-loading wf-exo-n5-loading wf-exo-i5-loading wf-exo-n6-loading wf-exo-i6-loading wf-exo-n7-loading wf-exo-i7-loading wf-exo-n8-loading wf-exo-i8-loading wf-exo-n9-loading wf-exo-i9-loading w-mod-ix')

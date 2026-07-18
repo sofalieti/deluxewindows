@@ -4,15 +4,25 @@
 @section('wfCollection', '688ef97f56238a41af6cffd2')
 @section('wfItemSlug', $slug)
 @section('htmlClass', '')
-@section('bodyClass', 'body-18 height-auto')
+@section('bodyClass', 'body-21')
 
 @section('content')
+    @include('partials.hero', [
+      'windowTypeHero' => true,
+      'brandLogo' => $logo,
+      'heroBackgroundImage' => $featuredImage,
+      'heroFormHtml' => $heroFormHtml,
+      'windowHeroImage' => null,
+    ])
+
+    @include('partials.trust-badges')
+
     <section class="section_breadcrumbs section-121">
       <div class="w-layout-blockcontainer container-default breadcrumbs-container w-container">
         <div class="breadcrumbs-wrapper">
           <a href="/" class="breadcrumb-link">Home</a>
           <div class="breadcrumb-div">/</div>
-          <a href="/doors" class="breadcrumb-link hidden-link">Doors</a>
+          <a href="/doors" class="breadcrumb-link hidden-link">DOORS</a>
           <div class="breadcrumb-div hidden-txt">/</div>
           @if($brandSlug)
           <a href="/door-brands/{{ $brandSlug }}" class="breadcrumb-link hidden-link">{{ $brandName }}</a>
@@ -23,45 +33,45 @@
       </div>
     </section>
 
-    <div class="w-layout-blockcontainer container-default w-container">
-      <div class="mg-top-extra-large brands">
-        <div class="w-layout-grid grid-2-columns listing-grid sidebar-left">
-          <div id="w-node-_6804bfc1-2fcb-3b18-3dd1-06afc16ea028-ba0e091a" class="inner-container _408px _100-mbl">
-            <div class="sticky-top brands">
-              <section class="section_sidebar brands">
-                @include('partials.brands-sidebar', [
-                  'name' => $brandName ?: $name,
-                  'logo' => $logo,
-                  'wfPageId' => '688e50676f1dbd8cba0e091a',
-                  'hideSidebarInlineForm' => true,
-                  'allBrandsHref' => '/doors',
-                  'sidebarMaterialGroups' => $sidebarMaterialGroups,
-                  'windowTypes' => $windowTypes,
-                ])
-              </section>
+    <section class="section hero-v4 padding0types wtypespadding">
+      <div class="w-layout-blockcontainer container-default w-container">
+        <div class="mg-top-extra-large brands">
+          <div class="w-layout-grid grid-2-columns listing-grid sidebar-left">
+            <div id="w-node-_6804bfc1-2fcb-3b18-3dd1-06afc16ea028-ba0e091a" class="inner-container _408px _100-mbl">
+              <div class="sticky-top types">
+                <section class="section_sidebar brands types">
+                  @include('partials.brands-sidebar', [
+                    'name' => $brandName,
+                    'logo' => $logo,
+                    'wfPageId' => '688e50676f1dbd8cba0e091a',
+                    'hideSidebarInlineForm' => true,
+                  ])
+                </section>
+              </div>
             </div>
-          </div>
 
-          <div id="w-node-_6804bfc1-2fcb-3b18-3dd1-06afc16e9fed-ba0e091a" class="inner-container _690px _100-tablet">
-            <div class="div-block-52 brandmob">
-              @if($logo)
-              <div class="logo-wrap padding0 type-page-logo">
-                <img src="{{ $logo }}" loading="lazy" alt="{{ $brandName }}" class="image-27 brand-mob" />
+            <div id="w-node-_6804bfc1-2fcb-3b18-3dd1-06afc16e9fed-ba0e091a" class="inner-container _690px _100-tablet left-sidebar">
+              <div class="windows-types-header">
+                <div class="logo-wrap padding0">
+                  @if($logo)
+                  <img src="{{ $logo }}" loading="lazy" alt="{{ $brandName }}" class="image-27 brand-mob" />
+                  @endif
+                </div>
+                <h1 class="display-8 mid types">{{ $name }}</h1>
+                <div class="mg-top-default"><div class="property-details"></div></div>
+                <div class="mg-top-default"><div class="property-details"></div></div>
+              </div>
+              @if($aboutHtml)
+              <div class="rich-text-v2 mg-bottom--16px mg-top-small-2 w-richtext">
+                {!! $aboutHtml !!}
               </div>
               @endif
-              <h1 class="display-8 mid types">{{ $name }}</h1>
-              <div class="mg-top-default"><div class="property-details"></div></div>
             </div>
-            @if($aboutHtml)
-            <div class="rich-text-v2 mg-bottom--16px w-richtext">
-              {!! $aboutHtml !!}
-            </div>
-            @endif
           </div>
         </div>
+        <div class="image-wrapper border-radius-image-default"></div>
       </div>
-      <div class="image-wrapper border-radius-image-default"></div>
-    </div>
+    </section>
 
     @if($collections->count() > 0)
     <div class="w-layout-blockcontainer container-default w-container">
@@ -70,7 +80,7 @@
       </div>
       <div class="mg-top-large">
         <div class="w-dyn-list">
-          <div role="list" class="grid-2-columns properties-grid---v1 collection-list w-dyn-items">
+          <div role="list" class="grid-2-columns properties-grid---v1 w-dyn-items">
             @foreach($collections as $collection)
             <div role="listitem" class="w-dyn-item">
               <a href="/brand-collections/{{ $collection['slug'] }}" class="property-wrapper-v1 w-inline-block">
@@ -131,32 +141,33 @@
           <div class="sticky-top static---tablet">
             <div class="inner-container _500px _100-tablet">
               <div class="inner-container _600px---tablet">
-                <div class="mg-top-default"><h2 class="heading-10">4 Easy Steps</h2></div>
+                <div class="mg-top-default"><h2 class="heading-8">4 Easy Steps</h2></div>
                 <div class="mg-top-small">
                   <p>Our step-by-step process is designed to make replacing your windows and doors easy, stress-free, and fully tailored to your needs — from the first estimate to the final inspection.</p>
                 </div>
+                <div class="mg-top-default"><div class="buttons-row left"></div></div>
               </div>
             </div>
           </div>
-          <div class="inner-container _592px _100-tablet">
+          <div id="w-node-_40f02674-d345-7fd3-fc7e-23c4d6d6b412-ba0e091a" class="inner-container _592px _100-tablet">
             <div class="w-layout-grid grid-2-columns values-grid">
               <div class="value-wrapper">
-                <div class="image-wrapper"><img src="/webflow-assets/images/684d86f32d344f16ce6ec364_flag_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" loading="eager" alt="Start" class="image" /></div>
+                <div class="image-wrapper"><img src="/webflow-assets/images/684d86f32d344f16ce6ec364_flag_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" loading="eager" alt="For-architects-deluxe-windows" class="image" /></div>
                 <div class="mg-top-small"><h3 class="display-5 mid">Start</h3></div>
                 <div class="mg-top-extra-small"><p class="paragraph-5">Looking to replace your windows and doors? Reach out to Deluxe Windows for a complimentary estimate.</p></div>
               </div>
               <div class="value-wrapper">
-                <div class="image-wrapper"><img src="/webflow-assets/images/684d86ff1fff20336f975d74_shopping_bag_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" loading="eager" alt="Manufacture" class="image" /></div>
+                <div class="image-wrapper"><img src="/webflow-assets/images/684d86ff1fff20336f975d74_shopping_bag_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" loading="eager" alt="For-contractors-deluxe-windows" class="image" /></div>
                 <div class="mg-top-small"><h3 class="display-5 mid">Manufacture</h3></div>
                 <div class="mg-top-extra-small"><p class="paragraph-6">If you are satisfied with the provided estimate and approve it, we will order windows and doors according to your specifications and needs.</p></div>
               </div>
               <div class="value-wrapper">
-                <div class="image-wrapper"><img src="/webflow-assets/images/684d870c533c4f729eb8094c_settings_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" loading="eager" alt="Remove and install" class="image" /></div>
+                <div class="image-wrapper"><img src="/webflow-assets/images/684d870c533c4f729eb8094c_settings_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" loading="eager" alt="For-property-managers-owners-deluxe-windows" class="image" /></div>
                 <div class="mg-top-small"><h3 class="display-5 mid">Remove and install</h3></div>
                 <div class="mg-top-extra-small"><p class="paragraph-7">Once the products are ready, we will arrange a convenient time for installation and ensure your new windows and doors are expertly fitted.</p></div>
               </div>
               <div class="value-wrapper">
-                <div class="image-wrapper"><img src="/webflow-assets/images/684d8718e99d2a34dfef7e4d_home_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" loading="eager" alt="Final product" class="image" /></div>
+                <div class="image-wrapper"><img src="/webflow-assets/images/684d8718e99d2a34dfef7e4d_home_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" loading="eager" alt="For-property-managers-owners-deluxe-windows" class="image" /></div>
                 <div class="mg-top-small"><h3 class="display-5 mid">Final product</h3></div>
                 <div class="mg-top-extra-small"><p class="paragraph-7">Upon completion, each window and door will be thoroughly inspected to ensure they operate correctly and meet the highest standards of fit and finish.</p></div>
               </div>
@@ -167,18 +178,16 @@
       </div>
     </section>
 
-    @include('partials.guarantee')
-
-    <section class="section-card-wrapper">
+    <div>
       <div class="section-card cta-v3">
         <div class="w-layout-blockcontainer container-default w-container">
           <div class="w-layout-grid grid-2-columns cta-v3-grid">
-            <div class="z-index-1">
+            <div id="w-node-_497ed413-5854-1a24-5fcb-aba838af4a8e-ba0e091a" class="z-index-1">
               <div class="inner-container _500px---mbl">
                 <div class="inner-container _480px">
                   <div class="inner-container _450px">
                     <div class="inner-container _300px---mbp">
-                      <div class="mg-top-small"><h2 class="heading-38">Your Dream Home Starts Here.</h2></div>
+                      <div class="mg-top-small"><h2 class="heading-41">Your dream home starts here.</h2></div>
                     </div>
                   </div>
                   <div class="mg-top-small">
@@ -198,20 +207,20 @@
           </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <section id="contact" class="section hero-v4 section-bg-none">
+    <section id="contact" class="section hero-v4">
       <div class="w-layout-blockcontainer container-default w-container">
         <div class="w-layout-grid grid-2-columns contact-grid-v2">
-          <div class="inner-container _440px _100-tablet">
+          <div id="w-node-_324983b2-578c-4b96-a818-252e8c7a83d6-ba0e091a" class="inner-container _440px _100-tablet">
             <div class="inner-container _550px---tablet">
-              <h2 class="type-contact-heading">Contact Us</h2>
+              <h1>Contact us</h1>
               <div class="mg-top-small"><p class="paragraph-8">We’re here to help with all your door and window needs.</p></div>
             </div>
             <div class="mg-top-default">
               <div class="w-layout-grid grid-2-columns contact-links-grid-v1">
                 <div class="contact-link---icon-left">
-                  @include('partials.contact-phone-icon')
+                  <img src="/webflow-assets/images/6841ddf8ace3d9d9facb1950_phone-icon-property-x-webflow-template.svg" loading="eager" alt="Phone Icon - Property X Webflow Template" class="contact-icon" />
                   <div>
                     <div class="div-block"><div class="text-block-3">Phone number</div></div>
                     <div class="mg-top-tiny">
@@ -222,7 +231,7 @@
               </div>
             </div>
           </div>
-          <div class="inner-container _659px width-100 _100-tablet">
+          <div id="w-node-_324983b2-578c-4b96-a818-252e8c7a83e9-ba0e091a" class="inner-container _659px width-100 _100-tablet">
             <div class="form-block-2 w-form">
               <form id="email-form-2" name="email-form-2" data-name="Email Form 2" method="get" class="form-3" data-wf-page-id="688e50676f1dbd8cba0e091a" aria-label="Email Form 2">
                 <div class="div-block-22">
@@ -235,24 +244,24 @@
                     <label for="Name-2">Full name*</label>
                     <div class="input-wrapper">
                       <input class="input icon-left w-input" maxlength="256" name="Name" data-name="Name" placeholder="Full name" type="text" id="name" required="" />
-                      <div class="input-line-icon-wrapper"><div class="filled-icons-font"></div></div>
+                      <div class="input-line-icon-wrapper"><div class="filled-icons-font"></div></div>
                     </div>
                   </div>
-                  <div class="div-block-30">
+                  <div id="w-node-_324983b2-578c-4b96-a818-252e8c7a83fd-ba0e091a" class="div-block-46">
                     <label for="Email-2">Email address*</label>
                     <div class="input-wrapper">
                       <input class="input icon-left w-input" maxlength="256" name="Email" data-name="Email" placeholder="example@email.com" type="email" id="email" required="" />
-                      <div class="input-line-icon-wrapper"><div class="filled-icons-font"></div></div>
+                      <div class="input-line-icon-wrapper"><div class="filled-icons-font"></div></div>
                     </div>
                   </div>
-                  <div>
+                  <div id="w-node-_324983b2-578c-4b96-a818-252e8c7a8405-ba0e091a">
                     <label for="Phone-2">Phone number*</label>
                     <div class="input-wrapper">
                       <input class="input icon-left w-input" maxlength="256" name="Phone" data-name="Phone" placeholder="{{ site_phone_display() }}" type="tel" id="phone" required="" />
-                      <div class="input-line-icon-wrapper"><div class="filled-icons-font"></div></div>
+                      <div class="input-line-icon-wrapper"><div class="filled-icons-font"></div></div>
                     </div>
                   </div>
-                  <div>
+                  <div id="w-node-_324983b2-578c-4b96-a818-252e8c7a840d-ba0e091a">
                     <label for="Company">City</label>
                     <div class="input-wrapper">
                       <input class="input icon-left w-input" maxlength="256" name="Subject" data-name="Subject" placeholder="San Francisco" type="text" id="subject" required="" />
@@ -261,7 +270,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="text-area-wrapper">
+                  <div id="w-node-_324983b2-578c-4b96-a818-252e8c7a8414-ba0e091a" class="text-area-wrapper">
                     <label for="Message-2">Listing short description</label>
                     <div class="input-wrapper">
                       <textarea id="message" name="Message" maxlength="5000" data-name="Message" placeholder="Write your message here..." required="" class="text-area icon-left w-input"></textarea>
@@ -286,9 +295,80 @@
         </div>
       </div>
     </section>
+
 @endsection
 
 @section('bodyScripts')
     <script src="/webflow-assets/js/jquery-3.5.1.min.js" type="text/javascript" defer></script>
     <script src="/webflow-assets/js/webflow-brands.js" type="text/javascript" defer></script>
+
+    <script>
+      (function () {
+        const TRACK_PARAMS = [
+          "utm_source", "utm_medium", "utm_campaign",
+          "utm_term", "utm_content", "matchtype",
+          "device", "creative", "gclid"
+        ];
+        const params = new URLSearchParams(window.location.search);
+        const hasUtm = TRACK_PARAMS.some(p => params.get(p));
+        if (hasUtm) {
+          TRACK_PARAMS.forEach(param => {
+            const value = params.get(param);
+            if (value) localStorage.setItem("lead_param_" + param, value);
+            else localStorage.removeItem("lead_param_" + param);
+          });
+        } else {
+          const hasSavedUtm = TRACK_PARAMS.some(p => localStorage.getItem("lead_param_" + p));
+          if (!hasSavedUtm) {
+            const ref = document.referrer || "";
+            let searchEngine = "", organicKeyword = "", refDomain = "";
+            try {
+              if (ref) {
+                const refUrl = new URL(ref);
+                refDomain = refUrl.hostname.replace(/^www\./, "");
+                const SEO_ENGINES = {
+                  "google.com": "google", "bing.com": "bing", "yahoo.com": "yahoo",
+                  "duckduckgo.com": "duckduckgo", "yandex.ru": "yandex", "yandex.com": "yandex", "baidu.com": "baidu"
+                };
+                for (const [domain, name] of Object.entries(SEO_ENGINES)) {
+                  if (refDomain.includes(domain)) {
+                    searchEngine = name;
+                    organicKeyword = refUrl.searchParams.get("q") || refUrl.searchParams.get("p") || refUrl.searchParams.get("query") || "(not provided)";
+                    break;
+                  }
+                }
+              }
+            } catch (e) {}
+            if (searchEngine) {
+              localStorage.setItem("lead_param_utm_source", searchEngine);
+              localStorage.setItem("lead_param_utm_medium", "organic");
+              if (organicKeyword) localStorage.setItem("lead_param_utm_term", organicKeyword);
+            } else if (refDomain && !refDomain.includes(window.location.hostname)) {
+              localStorage.setItem("lead_param_utm_source", refDomain);
+              localStorage.setItem("lead_param_utm_medium", "referral");
+            } else {
+              localStorage.setItem("lead_param_utm_source", "(direct)");
+              localStorage.setItem("lead_param_utm_medium", "(none)");
+            }
+          }
+        }
+        if (!localStorage.getItem("lead_param_landing_page")) {
+          localStorage.setItem("lead_param_landing_page", window.location.pathname);
+        }
+        function injectHiddenFields(form) {
+          [...TRACK_PARAMS, "landing_page"].forEach(param => {
+            if (!form.querySelector('input[name="' + param + '"]')) {
+              const input = document.createElement("input");
+              input.type = "hidden";
+              input.name = param;
+              input.value = localStorage.getItem("lead_param_" + param) || "";
+              form.appendChild(input);
+            }
+          });
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+          document.querySelectorAll("form").forEach(injectHiddenFields);
+        });
+      })();
+    </script>
 @endsection

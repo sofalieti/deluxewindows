@@ -8,7 +8,6 @@ use App\Models\Webflow\BlogWebflowItem;
 use App\Models\Webflow\BrandCollectionsWebflowItem;
 use App\Models\Webflow\BrandsWebflowItem;
 use App\Models\Webflow\CollectionsTabsWebflowItem;
-use App\Models\Webflow\CollectionWebflowItem;
 use App\Models\Webflow\CountyHubPagesWebflowItem;
 use App\Models\Webflow\DoorsWebflowItem;
 use App\Models\Webflow\DoorTypesWebflowItem;
@@ -1063,7 +1062,12 @@ class ClassicSiteController extends Controller
     {
         $slug = strtolower(trim($slug));
 
-        $windowType = $this->findWebflowItemBySlug(WindowTypeWebflowItem::class, $slug);
+        $windowType = WindowTypeWebflowItem::query()
+            ->where('field_data->slug', $slug)
+            ->orWhere('webflow_item_id', $slug)
+            ->orderByDesc('id')
+            ->first();
+
         abort_if(! $windowType, 404);
 
         $fieldData = is_array($windowType->field_data ?? null) ? $windowType->field_data : [];
@@ -1075,267 +1079,38 @@ class ClassicSiteController extends Controller
             'property-listing---thumbnail-image-v1',
         ]);
 
-        $parentBrand = $this->resolveParentBrand($windowType, $fieldData);
-        $brandFd = is_array($parentBrand?->field_data) ? $parentBrand->field_data : [];
+        $parentBrand = $windowType->webflowReference('property-listing---agent');
+        abort_if(! $parentBrand, 404);
+
+        $brandFd = is_array($parentBrand->field_data) ? $parentBrand->field_data : [];
         $brandName = $brandFd['name'] ?? '';
         $brandSlug = $brandFd['slug'] ?? '';
         $brandLogo = $this->extractImageUrl($brandFd, ['logo-svg', 'brand-logo', 'agent---avatar-photo', 'agent-avatar-photo']);
 
-        $windowTypes = collect();
-        $sidebarMaterialGroups = collect();
-        if ($parentBrand instanceof BrandsWebflowItem) {
-            $windowTypes = $parentBrand->webflowReferences('window-types')
-                ->map(function ($wt) {
-                    $fd = is_array($wt->field_data) ? $wt->field_data : [];
-                    $wtSlug = $fd['slug'] ?? '';
+        $windowTypes = $parentBrand->webflowReferences('window-types')
+            ->map(function ($wt) {
+                $fd = is_array($wt->field_data) ? $wt->field_data : [];
+                $wtSlug = $fd['slug'] ?? '';
+                $wtName = $fd['name'] ?? '';
+                $wtImage = $this->extractImageUrl($fd, [
+                    'property-listing---thumbnail-image-v1',
+                    'property-listing---featured-image',
+                ]);
 
-                    return $wtSlug !== ''
-                        ? [
-                            'name' => $fd['name'] ?? '',
-                            'slug' => $wtSlug,
-                            'image' => $this->extractImageUrl($fd, [
-                                'property-listing---thumbnail-image-v1',
-                                'property-listing---featured-image',
-                            ]) ?? '',
-                        ]
-                        : null;
-                })
-                ->filter()
-                ->values();
-
-            $sidebarMaterialGroups = $this->buildBrandSidebarMaterialGroups($parentBrand, $brandFd);
-        }
-
-        $useNewTemplate = (bool) ($fieldData['new-template'] ?? false);
-        $collectionsField = $useNewTemplate ? 'collections-new-template' : 'window-type-collection';
-        $collections = $this->mapReferencedCollections(
-            $windowType,
-            $fieldData,
-            $collectionsField,
-            $useNewTemplate ? BrandCollectionsWebflowItem::class : CollectionWebflowItem::class,
-        );
-
-        $collectionsTitle = $fieldData['title']
-            ?? $fieldData['explore-collection-text']
-            ?? ($brandName !== '' ? "Explore {$brandName} Collections" : 'Explore Collections');
-
-        return view('window-types.show', [
-            'name'                  => $name,
-            'slug'                  => $fieldData['slug'] ?? $slug,
-            'aboutHtml'             => $about,
-            'featuredImage'         => $featuredImage,
-            'brandName'             => $brandName,
-            'brandSlug'             => $brandSlug,
-            'logo'                  => $brandLogo,
-            'windowTypes'           => $windowTypes,
-            'sidebarMaterialGroups' => $sidebarMaterialGroups,
-            'collections'           => $collections,
-            'collectionsTitle'      => $collectionsTitle,
-        ]);
-    }
-
-    public function doorTypeBySlug(string $slug)
-    {
-        $slug = strtolower(trim($slug));
-
-        $doorType = $this->findWebflowItemBySlug(DoorTypesWebflowItem::class, $slug);
-        abort_if(! $doorType, 404);
-
-        $fieldData = is_array($doorType->field_data ?? null) ? $doorType->field_data : [];
-
-        $name  = $fieldData['name'] ?? 'Door Type';
-        $about = $fieldData['property-listing---about'] ?? '';
-        $featuredImage = $this->extractImageUrl($fieldData, [
-            'property-listing---featured-image',
-            'property-listing---thumbnail-image-v1',
-        ]);
-
-        $parentBrand = $this->resolveParentBrand($doorType, $fieldData);
-        $brandFd = is_array($parentBrand?->field_data) ? $parentBrand->field_data : [];
-        $brandName = $brandFd['name'] ?? '';
-        $brandSlug = $brandFd['slug'] ?? '';
-        $brandLogo = $this->extractImageUrl($brandFd, ['logo-svg', 'brand-logo', 'agent---avatar-photo', 'agent-avatar-photo']);
-
-        $windowTypes = collect();
-        $doorTypes = collect();
-        $sidebarMaterialGroups = collect();
-        if ($parentBrand instanceof BrandsWebflowItem) {
-            $windowTypes = $parentBrand->webflowReferences('window-types')
-                ->map(function ($wt) {
-                    $fd = is_array($wt->field_data) ? $wt->field_data : [];
-                    $wtSlug = $fd['slug'] ?? '';
-
-                    return $wtSlug !== ''
-                        ? [
-                            'name' => $fd['name'] ?? '',
-                            'slug' => $wtSlug,
-                            'image' => $this->extractImageUrl($fd, [
-                                'property-listing---thumbnail-image-v1',
-                                'property-listing---featured-image',
-                            ]) ?? '',
-                        ]
-                        : null;
-                })
-                ->filter()
-                ->values();
-
-            $sidebarMaterialGroups = $this->buildBrandSidebarMaterialGroups($parentBrand, $brandFd);
-
-            $doorTypes = $parentBrand->webflowReferences('doors-type-marvin')
-                ->map(function ($dt) use ($slug) {
-                    $fd = is_array($dt->field_data) ? $dt->field_data : [];
-                    $dtSlug = $fd['slug'] ?? '';
-
-                    return $dtSlug !== '' && $dtSlug !== $slug
-                        ? [
-                            'name' => $fd['name'] ?? '',
-                            'slug' => $dtSlug,
-                            'image' => $this->extractImageUrl($fd, [
-                                'property-listing---thumbnail-image-v1',
-                                'property-listing---featured-image',
-                            ]) ?? '',
-                        ]
-                        : null;
-                })
-                ->filter()
-                ->values();
-        }
-
-        $collections = $this->mapReferencedCollections(
-            $doorType,
-            $fieldData,
-            'door-type-collections-2',
-            CollectionWebflowItem::class,
-        )->filter(function (array $collection) {
-            return BrandCollectionsWebflowItem::query()
-                ->where('is_archived', false)
-                ->where('is_draft', false)
-                ->where('field_data->slug', $collection['slug'])
-                ->exists();
-        })->values();
-
-        $collectionsTitle = $fieldData['explore-collection-text']
-            ?? ($brandName !== '' ? "Explore {$brandName} Collections" : 'Explore Collections');
-
-        return view('door-types.show', [
-            'name'                  => $name,
-            'slug'                  => $fieldData['slug'] ?? $slug,
-            'aboutHtml'             => $about,
-            'featuredImage'         => $featuredImage,
-            'brandName'             => $brandName,
-            'brandSlug'             => $brandSlug,
-            'logo'                  => $brandLogo,
-            'windowTypes'           => $windowTypes,
-            'doorTypes'             => $doorTypes,
-            'sidebarMaterialGroups' => $sidebarMaterialGroups,
-            'collections'           => $collections,
-            'collectionsTitle'      => $collectionsTitle,
-        ]);
-    }
-
-    /**
-     * @param  class-string<\Illuminate\Database\Eloquent\Model>  $modelClass
-     */
-    private function findWebflowItemBySlug(string $modelClass, string $slug): ?\Illuminate\Database\Eloquent\Model
-    {
-        $slug = strtolower(trim($slug));
-
-        $item = $modelClass::query()
-            ->where(function ($query) use ($slug) {
-                $query->where('field_data->slug', $slug)
-                    ->orWhere('webflow_item_id', $slug);
+                return $wtSlug !== ''
+                    ? ['name' => $wtName, 'slug' => $wtSlug, 'image' => $wtImage ?? '']
+                    : null;
             })
-            ->orderByDesc('id')
-            ->first();
+            ->filter()
+            ->values();
 
-        if ($item !== null) {
-            return $item;
-        }
+        $sidebarMaterialGroups = $this->buildBrandSidebarMaterialGroups($parentBrand, $brandFd);
 
-        // Fallback when JSON path queries miss a valid field_data payload.
-        return $modelClass::query()
-            ->orderByDesc('id')
-            ->get()
-            ->first(function ($candidate) use ($slug) {
-                $fieldData = is_array($candidate->field_data ?? null) ? $candidate->field_data : [];
+        $collectionsField = ($fieldData['new-template'] ?? false)
+            ? 'collections-new-template'
+            : 'window-type-collection';
 
-                return strtolower(trim((string) ($fieldData['slug'] ?? ''))) === $slug;
-            });
-    }
-
-    /**
-     * Resolve the parent brand even when WebflowReferenceRegistry cannot map the field.
-     */
-    private function resolveParentBrand(\Illuminate\Database\Eloquent\Model $item, array $fieldData): ?BrandsWebflowItem
-    {
-        $brand = null;
-        if (method_exists($item, 'webflowReference')) {
-            $brand = $item->webflowReference('property-listing---agent');
-        }
-        if ($brand instanceof BrandsWebflowItem) {
-            return $brand;
-        }
-
-        $agentId = $fieldData['property-listing---agent'] ?? null;
-        if (! is_string($agentId) || $agentId === '') {
-            return null;
-        }
-
-        return BrandsWebflowItem::query()
-            ->where('webflow_item_id', $agentId)
-            ->orderByDesc('id')
-            ->first();
-    }
-
-    /**
-     * Map multi-reference collection cards; falls back to direct ID lookup when the
-     * reference registry cannot resolve the field (same root cause as missing brand).
-     *
-     * @param  class-string<\Illuminate\Database\Eloquent\Model>|null  $fallbackModel
-     * @return \Illuminate\Support\Collection<int, array{name: string, slug: string, image: string}>
-     */
-    private function mapReferencedCollections(
-        \Illuminate\Database\Eloquent\Model $item,
-        array $fieldData,
-        string $fieldSlug,
-        ?string $fallbackModel = null,
-    ): \Illuminate\Support\Collection {
-        $referenced = method_exists($item, 'webflowReferences')
-            ? $item->webflowReferences($fieldSlug)
-            : collect();
-
-        if ($referenced->isEmpty()) {
-            $ids = $fieldData[$fieldSlug] ?? [];
-            if (! is_array($ids) || $ids === []) {
-                return collect();
-            }
-
-            $modelClass = $fallbackModel;
-            if ($modelClass === null && method_exists($item, 'webflowReferenceFields')) {
-                $meta = $item->webflowReferenceFields()[$fieldSlug] ?? null;
-                $modelClass = is_array($meta) ? ($meta['target_model'] ?? null) : null;
-            }
-            if (! is_string($modelClass) || ! class_exists($modelClass)) {
-                $modelClass = BrandCollectionsWebflowItem::class;
-            }
-
-            $stringIds = array_values(array_filter($ids, fn ($id) => is_string($id) && $id !== ''));
-            $items = $modelClass::query()
-                ->whereIn('webflow_item_id', $stringIds)
-                ->get()
-                ->keyBy('webflow_item_id');
-
-            $ordered = [];
-            foreach ($stringIds as $id) {
-                $model = $items->get($id);
-                if ($model !== null) {
-                    $ordered[] = $model;
-                }
-            }
-            $referenced = collect($ordered);
-        }
-
-        return $referenced
+        $collections = $windowType->webflowReferences($collectionsField)
             ->map(function ($collection) {
                 $fd = is_array($collection->field_data) ? $collection->field_data : [];
                 $image = $this->extractImageUrl($fd, ['featured-image', 'property-type---icon']);
@@ -1351,11 +1126,156 @@ class ClassicSiteController extends Controller
             })
             ->filter(fn ($c) => $c['name'] !== '' && $c['slug'] !== '')
             ->values();
+
+        $collectionsTitle = $fieldData['title'] ?? "Explore {$brandName} Collections";
+        $heroFormHtml     = $this->resolveWindowTypeHeroPricing($windowType, $fieldData);
+        $pagePromotionAvailable = str_contains($heroFormHtml, 'promo-offer-card');
+
+        return view('window-types.show', [
+            'name'                  => $name,
+            'slug'                  => $fieldData['slug'] ?? $slug,
+            'aboutHtml'             => $about,
+            'featuredImage'         => $featuredImage,
+            'brandName'             => $brandName,
+            'brandSlug'             => $brandSlug,
+            'logo'                  => $brandLogo,
+            'windowTypes'           => $windowTypes,
+            'sidebarMaterialGroups' => $sidebarMaterialGroups,
+            'collections'           => $collections,
+            'collectionsTitle'      => $collectionsTitle,
+            'heroFormHtml'          => $heroFormHtml,
+            'pagePromotionAvailable' => $pagePromotionAvailable,
+        ]);
+    }
+
+    public function doorTypeBySlug(string $slug)
+    {
+        $slug = strtolower(trim($slug));
+
+        $doorType = DoorTypesWebflowItem::query()
+            ->where('field_data->slug', $slug)
+            ->orWhere('webflow_item_id', $slug)
+            ->orderByDesc('id')
+            ->first();
+
+        abort_if(! $doorType, 404);
+
+        $fieldData = is_array($doorType->field_data ?? null) ? $doorType->field_data : [];
+
+        $name  = $fieldData['name'] ?? 'Door Type';
+        $about = $fieldData['property-listing---about'] ?? '';
+        $featuredImage = $this->extractImageUrl($fieldData, [
+            'property-listing---featured-image',
+            'property-listing---thumbnail-image-v1',
+        ]);
+
+        $parentBrand = $doorType->webflowReference('property-listing---agent');
+        abort_if(! $parentBrand, 404);
+
+        $brandFd = is_array($parentBrand->field_data) ? $parentBrand->field_data : [];
+        $brandName = $brandFd['name'] ?? '';
+        $brandSlug = $brandFd['slug'] ?? '';
+        $brandLogo = $this->extractImageUrl($brandFd, ['logo-svg', 'brand-logo', 'agent---avatar-photo', 'agent-avatar-photo']);
+
+        // Sidebar reuses the brand collections layout, same as window-type pages.
+        $windowTypes = $parentBrand->webflowReferences('window-types')
+            ->map(function ($wt) {
+                $fd = is_array($wt->field_data) ? $wt->field_data : [];
+                $wtSlug = $fd['slug'] ?? '';
+
+                return $wtSlug !== ''
+                    ? [
+                        'name' => $fd['name'] ?? '',
+                        'slug' => $wtSlug,
+                        'image' => $this->extractImageUrl($fd, [
+                            'property-listing---thumbnail-image-v1',
+                            'property-listing---featured-image',
+                        ]) ?? '',
+                    ]
+                    : null;
+            })
+            ->filter()
+            ->values();
+
+        $sidebarMaterialGroups = $this->buildBrandSidebarMaterialGroups($parentBrand, $brandFd);
+
+        // Sibling door types of the same brand (for the "explore" grid).
+        $doorTypes = $parentBrand->webflowReferences('doors-type-marvin')
+            ->map(function ($dt) use ($slug) {
+                $fd = is_array($dt->field_data) ? $dt->field_data : [];
+                $dtSlug = $fd['slug'] ?? '';
+
+                return $dtSlug !== '' && $dtSlug !== $slug
+                    ? [
+                        'name' => $fd['name'] ?? '',
+                        'slug' => $dtSlug,
+                        'image' => $this->extractImageUrl($fd, [
+                            'property-listing---thumbnail-image-v1',
+                            'property-listing---featured-image',
+                        ]) ?? '',
+                    ]
+                    : null;
+            })
+            ->filter()
+            ->values();
+
+        // Referenced series link to /brand-collections/{slug}; skip refs whose
+        // slug has no published brand-collections page.
+        $publishedCollectionSlugs = BrandCollectionsWebflowItem::query()
+            ->where('is_archived', false)
+            ->where('is_draft', false)
+            ->pluck('field_data->slug')
+            ->filter()
+            ->flip();
+
+        $collections = $doorType->webflowReferences('door-type-collections-2')
+            ->map(function ($collection) {
+                $fd = is_array($collection->field_data) ? $collection->field_data : [];
+                $image = $this->extractImageUrl($fd, ['featured-image', 'property-type---icon']);
+                if ($image === null && is_array($collection->wf_featured_image ?? null)) {
+                    $image = $collection->wf_featured_image['url'] ?? null;
+                }
+
+                return [
+                    'name'  => $fd['name'] ?? '',
+                    'slug'  => $fd['slug'] ?? '',
+                    'image' => $image ?? '',
+                ];
+            })
+            ->filter(fn ($c) => $c['name'] !== '' && $c['slug'] !== '' && isset($publishedCollectionSlugs[$c['slug']]))
+            ->values();
+
+        $collectionsTitle = $fieldData['explore-collection-text'] ?? "Explore {$brandName} Collections";
+
+        $controls = app(PromotionControlService::class);
+        $doorTypePricing = $this->resolveDoorTypePricing($slug, $parentBrand, $controls);
+        $heroFormHtml = $doorTypePricing
+            ? $controls->pricingHtmlFromMap($doorTypePricing, 'per door installed')
+            : $controls->priceHtml('2165', '$1299', 'per door installed');
+        $pagePromotionAvailable = str_contains($heroFormHtml, 'promo-offer-card');
+
+        return view('door-types.show', [
+            'name'                  => $name,
+            'slug'                  => $fieldData['slug'] ?? $slug,
+            'aboutHtml'             => $about,
+            'featuredImage'         => $featuredImage,
+            'brandName'             => $brandName,
+            'brandSlug'             => $brandSlug,
+            'logo'                  => $brandLogo,
+            'windowTypes'           => $windowTypes,
+            'doorTypes'             => $doorTypes,
+            'sidebarMaterialGroups' => $sidebarMaterialGroups,
+            'collections'           => $collections,
+            'collectionsTitle'      => $collectionsTitle,
+            'heroFormHtml'          => $heroFormHtml,
+            'pagePromotionAvailable' => $pagePromotionAvailable,
+        ]);
     }
 
     /**
-     * Door-type pricing helper kept for FAQ/SEO tooling; public door-type pages
-     * no longer render a hero price block.
+     * Door-type hero price priority:
+     * 1) Promotions price of the matching door material (slug contains the material)
+     * 2) cheapest priced door linked to the parent brand
      *
      * @return array{base: string, final: string}|null
      */

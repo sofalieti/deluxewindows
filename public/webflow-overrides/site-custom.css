@@ -141,17 +141,6 @@
   left: 0;
 }
 
-/* Window-type / door-type pages (brand layout without hero) */
-.type-page-logo {
-  margin-bottom: 12px;
-}
-.type-contact-heading {
-  margin: 0;
-  font-size: inherit;
-  font-weight: inherit;
-  line-height: inherit;
-}
-
 /* Current item in the brand sidebar (window-type / door-type pages) */
 .sidebar-item-2.w--current {
   color: #1b73bb;
