@@ -10,7 +10,6 @@
 >
   <head>
     <meta charset="utf-8" />
-    <link href="https://cdn.prod.website-files.com" rel="preconnect" crossorigin="anonymous" />
     <title>Vinyl Windows | Affordable Bay Area – Deluxe Windows Concord</title>
     <meta
       content="Vinyl windows are the most popular choice for Bay Area homeowners — low maintenance and energy-efficient. Deluxe Windows installs premium vinyl windows in San Francisco."
@@ -1654,7 +1653,7 @@
                     <a href="#" class="_w-h-100 w-inline-block w-dyn-bind-empty w-lightbox"
                       ><div data-w-id="e4b146c4-78d2-56ac-daa8-7c86e981ed4d" class="image-wrapper _w-h-100">
                         <img
-                          src="https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg"
+                          src="/webflow-assets/images/placeholder.60f9b1840c.svg"
                           loading="eager"
                           alt=""
                           class="image cover-image _120px---mbp w-dyn-bind-empty"
@@ -1676,7 +1675,7 @@
                     <a href="#" class="_w-h-100 w-inline-block w-dyn-bind-empty w-lightbox"
                       ><div data-w-id="e4b146c4-78d2-56ac-daa8-7c86e981ed4d" class="image-wrapper _w-h-100">
                         <img
-                          src="https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg"
+                          src="/webflow-assets/images/placeholder.60f9b1840c.svg"
                           loading="eager"
                           alt=""
                           class="image cover-image _120px---mbp w-dyn-bind-empty"
@@ -1698,7 +1697,7 @@
                     <a href="#" class="_w-h-100 w-inline-block w-dyn-bind-empty w-lightbox"
                       ><div data-w-id="e4b146c4-78d2-56ac-daa8-7c86e981ed4d" class="image-wrapper _w-h-100">
                         <img
-                          src="https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg"
+                          src="/webflow-assets/images/placeholder.60f9b1840c.svg"
                           loading="eager"
                           alt=""
                           class="image cover-image _120px---mbp w-dyn-bind-empty"
@@ -1720,7 +1719,7 @@
                     <a href="#" class="_w-h-100 w-inline-block w-dyn-bind-empty w-lightbox"
                       ><div data-w-id="e4b146c4-78d2-56ac-daa8-7c86e981ed4d" class="image-wrapper _w-h-100">
                         <img
-                          src="https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg"
+                          src="/webflow-assets/images/placeholder.60f9b1840c.svg"
                           loading="eager"
                           alt=""
                           class="image cover-image _120px---mbp w-dyn-bind-empty"
@@ -1742,7 +1741,7 @@
                     <a href="#" class="_w-h-100 w-inline-block w-dyn-bind-empty w-lightbox"
                       ><div data-w-id="e4b146c4-78d2-56ac-daa8-7c86e981ed4d" class="image-wrapper _w-h-100">
                         <img
-                          src="https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg"
+                          src="/webflow-assets/images/placeholder.60f9b1840c.svg"
                           loading="eager"
                           alt=""
                           class="image cover-image _120px---mbp w-dyn-bind-empty"
@@ -1764,7 +1763,7 @@
                     <a href="#" class="_w-h-100 w-inline-block w-dyn-bind-empty w-lightbox"
                       ><div data-w-id="e4b146c4-78d2-56ac-daa8-7c86e981ed4d" class="image-wrapper _w-h-100">
                         <img
-                          src="https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg"
+                          src="/webflow-assets/images/placeholder.60f9b1840c.svg"
                           loading="eager"
                           alt=""
                           class="image cover-image _120px---mbp w-dyn-bind-empty"
@@ -2272,7 +2271,7 @@
                     ><div class="property-card-top-content-v1">
                       <div class="image-wrapper border-radius-image-default property-card-top-content-v1---image">
                         <img
-                          src="https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg"
+                          src="/webflow-assets/images/placeholder.60f9b1840c.svg"
                           loading="eager"
                           alt=""
                           class="image cover-image w-dyn-bind-empty"
@@ -2292,7 +2291,7 @@
                     ><div class="property-card-top-content-v1">
                       <div class="image-wrapper border-radius-image-default property-card-top-content-v1---image">
                         <img
-                          src="https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg"
+                          src="/webflow-assets/images/placeholder.60f9b1840c.svg"
                           loading="eager"
                           alt=""
                           class="image cover-image w-dyn-bind-empty"
@@ -2312,7 +2311,7 @@
                     ><div class="property-card-top-content-v1">
                       <div class="image-wrapper border-radius-image-default property-card-top-content-v1---image">
                         <img
-                          src="https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg"
+                          src="/webflow-assets/images/placeholder.60f9b1840c.svg"
                           loading="eager"
                           alt=""
                           class="image cover-image w-dyn-bind-empty"

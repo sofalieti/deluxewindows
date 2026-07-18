@@ -9,7 +9,7 @@
     "og": {
       "title": "Andersen Vinyl Windows | Deluxe Windows",
       "description": "Compare Andersen vinyl windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Learn more today.",
-      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f654f5cc7344238ef3199_100-series-hero-new.avif",
+      "image": "/webflow-assets/images/688f654f5cc7344238ef3199_100-series-hero-new.avif",
       "type": "website"
     },
     "h1": "Andersen Vinyl Windows",
@@ -24,7 +24,7 @@
     "twitter": {
       "title": "Andersen Vinyl Windows | Deluxe Windows",
       "description": "Compare Andersen vinyl windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Learn more today.",
-      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f654f5cc7344238ef3199_100-series-hero-new.avif",
+      "image": "/webflow-assets/images/688f654f5cc7344238ef3199_100-series-hero-new.avif",
       "card": "summary_large_image"
     }
   },

@@ -1,5 +1,4 @@
 @php
-  $cdn = 'https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd';
   $calendarIcon = '/webflow-assets/images/6841ddf8ace3d9d9facb1894_calendar-icon-property-x-webflow-template.svg';
 @endphp
 @extends('layouts.classic')

@@ -1,6 +1,3 @@
-@php
-  $cdn = 'https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd';
-@endphp
 @extends('layouts.classic')
 
 @section('wfPage', '6841ddf8ace3d9d9facb15cc')
@@ -10,7 +7,7 @@
         <div class="div-block-4">
           <div class="section-card hero-card---v3">
             <div class="image-wrapper hero-image---v3">
-              <img src="{{ $cdn }}/684596fa8657fd035b9c4e62_Mask%20group9.avif" loading="eager" alt="" class="image hero-icon-image---v3" />
+              <img src="/webflow-assets/images/684596fa8657fd035b9c4e62_Mask-group9.avif" loading="eager" alt="" class="image hero-icon-image---v3" />
             </div>
             <div class="hero-content-wrapper---v3 page-intro-hero">
               <div class="inner-container _620px center">
@@ -39,7 +36,7 @@
           <div class="w-layout-grid grid-2-columns image-left-grid-v1">
             <div class="inner-container _613px _100-mbl">
               <div class="image-wrapper border-radius-image-default">
-                <img src="{{ $cdn }}/68459655fb9f90434a93ada6_Mask%20group5.avif" loading="eager" alt="" class="image cover-image grid-image-left" />
+                <img src="/webflow-assets/images/68459655fb9f90434a93ada6_Mask-group5.avif" loading="eager" alt="" class="image cover-image grid-image-left" />
               </div>
             </div>
             <div class="mission-grid---right-content-wrapper">
@@ -47,7 +44,7 @@
                 <div class="badge-wrapper">
                   <div class="badge secondary mid">
                     <div class="badge-icon-left secondary">
-                      <img src="{{ $cdn }}/6841ddf8ace3d9d9facb184f_user-icon-property-x-webflow-template.svg" loading="eager" alt="User Icon - Property X Webflow Template" />
+                      <img src="/webflow-assets/images/6841ddf8ace3d9d9facb184f_user-icon-property-x-webflow-template.svg" loading="eager" alt="User Icon - Property X Webflow Template" />
                     </div>
                     <div class="display-1">Our difference<br /></div>
                   </div>
@@ -73,7 +70,7 @@
                   <div class="badge-wrapper">
                     <div class="badge secondary mid">
                       <div class="badge-icon-left secondary">
-                        <img src="{{ $cdn }}/6841ddf8ace3d9d9facb1850_star-icon-property-x-webflow-template.svg" loading="eager" alt="Star Icon - Property X Webflow Template" />
+                        <img src="/webflow-assets/images/6841ddf8ace3d9d9facb1850_star-icon-property-x-webflow-template.svg" loading="eager" alt="Star Icon - Property X Webflow Template" />
                       </div>
                       <div class="display-1">Our values</div>
                     </div>
@@ -88,7 +85,7 @@
               <div class="w-layout-grid grid-2-columns values-grid">
                 <div class="value-wrapper">
                   <div class="image-wrapper">
-                    <img src="{{ $cdn }}/684599f68a93f372dc973884_error_24dp_E3E3E3_FILL1_wght400_GRAD0_opsz24.svg" loading="eager" alt="" class="image" />
+                    <img src="/webflow-assets/images/684599f68a93f372dc973884_error_24dp_E3E3E3_FILL1_wght400_GRAD0_opsz24.svg" loading="eager" alt="" class="image" />
                   </div>
                   <div class="mg-top-small"><h3 class="display-5 mid">Solving Your Problems</h3></div>
                   <div class="mg-top-extra-small">
@@ -97,7 +94,7 @@
                 </div>
                 <div class="value-wrapper">
                   <div class="image-wrapper">
-                    <img src="{{ $cdn }}/684599ea5173b0a642ba7d5c_edit_24dp_E3E3E3_FILL1_wght400_GRAD0_opsz24.svg" loading="eager" alt="" class="image" />
+                    <img src="/webflow-assets/images/684599ea5173b0a642ba7d5c_edit_24dp_E3E3E3_FILL1_wght400_GRAD0_opsz24.svg" loading="eager" alt="" class="image" />
                   </div>
                   <div class="mg-top-small"><h3 class="display-5 mid">Custom Design</h3></div>
                   <div class="mg-top-extra-small">
@@ -106,7 +103,7 @@
                 </div>
                 <div class="value-wrapper">
                   <div class="image-wrapper">
-                    <img src="{{ $cdn }}/68459a010e7615a176bd6db7_location_city_24dp_E3E3E3_FILL1_wght400_GRAD0_opsz24.svg" loading="eager" alt="" class="image" />
+                    <img src="/webflow-assets/images/68459a010e7615a176bd6db7_location_city_24dp_E3E3E3_FILL1_wght400_GRAD0_opsz24.svg" loading="eager" alt="" class="image" />
                   </div>
                   <div class="mg-top-small"><h3 class="display-5 mid">City and HOA Approved</h3></div>
                   <div class="mg-top-extra-small">
@@ -167,7 +164,7 @@
                 </div>
               </div>
               <div class="image-wrapper cta-v3-image">
-                <img src="{{ $cdn }}/687ca4b70b8583ef4890bad4_iPad.avif" loading="eager" alt="Deluxe-windows" class="image" />
+                <img src="/webflow-assets/images/687ca4b70b8583ef4890bad4_iPad.avif" loading="eager" alt="Deluxe-windows" class="image" />
               </div>
             </div>
           </div>

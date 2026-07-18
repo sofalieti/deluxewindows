@@ -260,6 +260,8 @@ class PageMetadataRepository
         $ogImage = trim((string) ($og['image'] ?? ''));
         $twitter = is_array($seo['twitter'] ?? null) ? $seo['twitter'] : [];
         $twitterImage = trim((string) ($twitter['image'] ?? ''));
+        $this->validateLocalImageReference($ogImage, 'OpenGraph image', $baseUrl);
+        $this->validateLocalImageReference($twitterImage, 'Twitter image', $baseUrl);
         $robots = trim((string) ($seo['robots'] ?? 'index,follow'));
         if (! preg_match('/^[a-z0-9,:-]+$/i', $robots)) {
             throw new InvalidArgumentException('Robots directives contain invalid characters.');
@@ -306,6 +308,33 @@ class PageMetadataRepository
         }
 
         return rtrim($baseUrl, '/').'/'.ltrim($value, '/');
+    }
+
+    private function validateLocalImageReference(
+        string $value,
+        string $field,
+        string $baseUrl
+    ): void {
+        if ($value === '') {
+            return;
+        }
+
+        $host = parse_url($value, PHP_URL_HOST);
+        $baseHost = parse_url($baseUrl, PHP_URL_HOST);
+        if (is_string($host) && $host !== '' && $host !== $baseHost) {
+            throw new InvalidArgumentException("{$field} must use the site domain.");
+        }
+
+        $path = parse_url($value, PHP_URL_PATH);
+        if (! is_string($path) || ! str_starts_with($path, '/webflow-assets/images/')) {
+            throw new InvalidArgumentException(
+                "{$field} must reference /webflow-assets/images/."
+            );
+        }
+
+        if (! File::exists(public_path(ltrim($path, '/')))) {
+            throw new InvalidArgumentException("{$field} file does not exist: {$path}");
+        }
     }
 
     /**

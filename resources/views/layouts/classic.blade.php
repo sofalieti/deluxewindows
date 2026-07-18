@@ -31,7 +31,6 @@
         return false;
       }
     </script>
-    <link href="https://cdn.prod.website-files.com" rel="preconnect" crossorigin="anonymous" />
     @include('partials.seo-head')
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link href="/webflow-assets/css/webflow.min.css" rel="stylesheet" type="text/css" />

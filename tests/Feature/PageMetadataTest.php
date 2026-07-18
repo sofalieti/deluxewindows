@@ -37,6 +37,16 @@ test('all SEO assignments are unique concise and English only', function () {
             ->and(preg_match('/[А-Яа-яЁё]/u', json_encode($seo)))->toBe(0)
             ->and($seo['robots'])->toContain('index,follow')
             ->and($seo['target_keywords'])->not->toBeEmpty();
+
+        foreach (['og', 'twitter'] as $group) {
+            $image = $seo[$group]['image'] ?? null;
+            if (! is_string($image) || $image === '') {
+                continue;
+            }
+
+            expect($image)->toStartWith('/webflow-assets/images/')
+                ->and(public_path(ltrim($image, '/')))->toBeFile();
+        }
     }
 });
 

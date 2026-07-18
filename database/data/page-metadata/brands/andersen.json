@@ -9,7 +9,7 @@
     "og": {
       "title": "Andersen Windows Bay Area | Deluxe Windows",
       "description": "Compare Andersen window collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate.",
-      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a75a9f58dabd4b2642bc5_Andersen.avif",
+      "image": "/webflow-assets/images/688a75a9f58dabd4b2642bc5_Andersen.avif",
       "type": "website"
     },
     "h1": "Andersen Windows — Bay Area Authorized Dealer & Installer",
@@ -26,7 +26,7 @@
     "twitter": {
       "title": "Andersen Windows Bay Area | Deluxe Windows",
       "description": "Compare Andersen window collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate.",
-      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a75a9f58dabd4b2642bc5_Andersen.avif",
+      "image": "/webflow-assets/images/688a75a9f58dabd4b2642bc5_Andersen.avif",
       "card": "summary_large_image"
     }
   },

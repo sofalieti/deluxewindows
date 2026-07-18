@@ -9,7 +9,7 @@
     "og": {
       "title": "Vinyl Windows Bay Area | Deluxe Windows",
       "description": "Compare vinyl windows for Bay Area homes, including leading brands, energy ratings and installed pricing. Request a free in-home estimate. Learn more today.",
-      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d89095fe85b113c1b5224_Frame%208.avif",
+      "image": "/webflow-assets/images/window-type-hero/vinyl-windows-hero-bg-v1.avif",
       "type": "website"
     },
     "h1": "Vinyl Replacement Windows in the Bay Area",
@@ -26,7 +26,7 @@
     "twitter": {
       "title": "Vinyl Windows Bay Area | Deluxe Windows",
       "description": "Compare vinyl windows for Bay Area homes, including leading brands, energy ratings and installed pricing. Request a free in-home estimate. Learn more today.",
-      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d89095fe85b113c1b5224_Frame%208.avif",
+      "image": "/webflow-assets/images/window-type-hero/vinyl-windows-hero-bg-v1.avif",
       "card": "summary_large_image"
     }
   },

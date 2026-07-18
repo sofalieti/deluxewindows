@@ -5,7 +5,7 @@
 @section('ogType', 'article')
 @section('title', 'How to Measure Windows for Replacement | Deluxe Windows Blog')
 @section('metaDescription', 'Learn how to measure windows for replacement with this comprehensive guide covering standard measurements, special windows, and ordering tips.')
-@section('ogImage', 'https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688101a136422bbc5a379a18_Measuring-Windows-AdobeStock_896821-scaled.avif')
+@section('ogImage', '/webflow-assets/images/688101a136422bbc5a379a18_Measuring-Windows-AdobeStock_896821-scaled.jpeg')
 
 @section('head')
     <style>
@@ -181,7 +181,7 @@
 
         <img
           class="blog-hero-image"
-          src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688101a136422bbc5a379a18_Measuring-Windows-AdobeStock_896821-scaled.avif"
+          src="/webflow-assets/images/688101a136422bbc5a379a18_Measuring-Windows-AdobeStock_896821-scaled.jpeg"
           alt="Measuring windows for replacement"
           loading="eager"
         />
@@ -224,7 +224,7 @@
 
           <img
             class="blog-inline-image"
-            src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688101d94a1b7da7f6d8d29e_how-to-measure-for-replacement-windows-AdobeStock_280295402-scaled.avif"
+            src="/webflow-assets/images/688101d94a1b7da7f6d8d29e_how-to-measure-for-replacement-windows-AdobeStock_280295402-scaled.jpeg"
             alt="Measuring replacement windows"
             loading="lazy"
           />
@@ -291,7 +291,7 @@
 
           <a href="/blog/why-vinyl-windows-are-the-smart-choice-for-bay-area-homeowners" class="blog-related-card">
             <img
-              src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6a1199cfeb37217428d5c09c_3de94598-6d4b-4f27-89ce-477a45d7653e.png"
+              src="/webflow-assets/images/6a1199cfeb37217428d5c09c_3de94598-6d4b-4f27-89ce-477a45d7653e.png"
               alt="Vinyl windows"
               loading="lazy"
             />
@@ -303,7 +303,7 @@
 
           <a href="/blog/do-energy-efficient-windows-and-doors-make-a-difference-for-bay-area-homeowners" class="blog-related-card">
             <img
-              src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6a1198a6ed206a190cd9ce26_692b7073-5aa8-4458-8c11-0784911b9e09.png"
+              src="/webflow-assets/images/6a1198a6ed206a190cd9ce26_692b7073-5aa8-4458-8c11-0784911b9e09.png"
               alt="Energy-efficient windows"
               loading="lazy"
             />
@@ -315,7 +315,7 @@
 
           <a href="/blog/do-new-windows-increase-home-value-for-bay-area-homeowners" class="blog-related-card">
             <img
-              src="https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6a1197c9c652b2bcd5838cea_cb424730-79ac-4ce6-bb8f-ef8fdfa226f9.png"
+              src="/webflow-assets/images/6a1197c9c652b2bcd5838cea_cb424730-79ac-4ce6-bb8f-ef8fdfa226f9.png"
               alt="New windows increase home value"
               loading="lazy"
             />

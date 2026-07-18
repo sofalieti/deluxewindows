@@ -9,7 +9,7 @@
     "og": {
       "title": "Marvin Modern Collection | Deluxe Windows",
       "description": "Explore Marvin Modern Collection specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
-      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/693efc2d10b5cad620641bd7_modern8.avif",
+      "image": "/webflow-assets/images/693efc2d10b5cad620641bd7_modern8.avif",
       "type": "website"
     },
     "h1": "Marvin Modern Collection",
@@ -23,7 +23,7 @@
     "twitter": {
       "title": "Marvin Modern Collection | Deluxe Windows",
       "description": "Explore Marvin Modern Collection specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
-      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/693efc2d10b5cad620641bd7_modern8.avif",
+      "image": "/webflow-assets/images/693efc2d10b5cad620641bd7_modern8.avif",
       "card": "summary_large_image"
     }
   },

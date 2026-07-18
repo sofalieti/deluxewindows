@@ -9,7 +9,7 @@
     "og": {
       "title": "Anlin Del Mar | Deluxe Windows",
       "description": "Explore Anlin Del Mar specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
-      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/694cdc23cb6d6ed1597050dd_replacement-windows-hero53.jpg",
+      "image": "/webflow-assets/images/694cdc23cb6d6ed1597050dd_replacement-windows-hero53.jpg",
       "type": "website"
     },
     "h1": "Anlin Del Mar",
@@ -23,7 +23,7 @@
     "twitter": {
       "title": "Anlin Del Mar | Deluxe Windows",
       "description": "Explore Anlin Del Mar specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
-      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/694cdc23cb6d6ed1597050dd_replacement-windows-hero53.jpg",
+      "image": "/webflow-assets/images/694cdc23cb6d6ed1597050dd_replacement-windows-hero53.jpg",
       "card": "summary_large_image"
     }
   },

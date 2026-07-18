@@ -1,6 +1,3 @@
-@php
-  $cdn = 'https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb14fd';
-@endphp
 @extends('layouts.classic')
 
 @section('wfPage', '6841ddf8ace3d9d9facb1672')
@@ -160,17 +157,17 @@
                   <div class="w-tab-content">
                     <div data-w-tab="Tab 1" class="w-tab-pane w--tab-active">
                       <div>
-                        <img loading="eager" src="{{ $cdn }}/684d61fbe99d2a34dfe1cec8_3.avif" alt="Deluxe-Windows" class="image border-radius-image-default" />
+                        <img loading="eager" src="/webflow-assets/images/684d61fbe99d2a34dfe1cec8_3.avif" alt="Deluxe-Windows" class="image border-radius-image-default" />
                       </div>
                     </div>
                     <div data-w-tab="Tab 2" class="w-tab-pane">
                       <div class="image-wrapper process-image-02---v3">
-                        <img loading="eager" src="{{ $cdn }}/684d61af09ea06494d87b10a_1.avif" alt="Deluxe-Windows" class="image border-radius-image-default" />
+                        <img loading="eager" src="/webflow-assets/images/684d61af09ea06494d87b10a_1.avif" alt="Deluxe-Windows" class="image border-radius-image-default" />
                       </div>
                     </div>
                     <div data-w-tab="Tab 3" class="w-tab-pane">
                       <div>
-                        <img loading="eager" src="{{ $cdn }}/684d60095fe85b113c0c60b2_2.avif" alt="Deluxe-windows-contarct" class="border-radius-image-default" />
+                        <img loading="eager" src="/webflow-assets/images/684d60095fe85b113c0c60b2_2.avif" alt="Deluxe-windows-contarct" class="border-radius-image-default" />
                         <div class="card-float process-card-03---v3"></div>
                       </div>
                     </div>
@@ -231,7 +228,7 @@
                 <div class="mg-top-default">
                   <div class="w-layout-grid grid-2-columns contact-links-grid-v1">
                     <div class="contact-link---icon-left">
-                      <img src="{{ $cdn }}/6841ddf8ace3d9d9facb1950_phone-icon-property-x-webflow-template.svg" loading="eager" alt="Phone Icon - Property X Webflow Template" class="contact-icon" />
+                      <img src="/webflow-assets/images/6841ddf8ace3d9d9facb1950_phone-icon-property-x-webflow-template.svg" loading="eager" alt="Phone Icon - Property X Webflow Template" class="contact-icon" />
                       <div>
                         <div class="div-block"><div class="text-block-3">Phone number</div></div>
                         <div class="mg-top-tiny">
@@ -273,7 +270,7 @@
                           <div class="input-wrapper">
                             <input class="input icon-left w-input" maxlength="256" name="Subject" data-name="Subject" placeholder="San Francisco" type="text" id="subject" required="" />
                             <div class="input-line-icon-wrapper">
-                              <img loading="eager" src="{{ $cdn }}/6841ddf8ace3d9d9facb194d_star-icon-property-x-webflow-template.svg" alt="Star Icon - Property X Webflow Template" />
+                              <img loading="eager" src="/webflow-assets/images/6841ddf8ace3d9d9facb194d_star-icon-property-x-webflow-template.svg" alt="Star Icon - Property X Webflow Template" />
                             </div>
                           </div>
                         </div>
@@ -282,7 +279,7 @@
                           <div class="input-wrapper">
                             <textarea id="message" name="Message" maxlength="5000" data-name="Message" placeholder="Write your message here..." required="" class="text-area icon-left w-input"></textarea>
                             <div class="text-area-icon-wrapper">
-                              <img loading="eager" src="{{ $cdn }}/6841ddf8ace3d9d9facb192f_lisiting-icon-property-x-webflow-template.svg" alt="Listing Icon - Property X Webflow Template" />
+                              <img loading="eager" src="/webflow-assets/images/6841ddf8ace3d9d9facb192f_lisiting-icon-property-x-webflow-template.svg" alt="Listing Icon - Property X Webflow Template" />
                             </div>
                           </div>
                         </div>

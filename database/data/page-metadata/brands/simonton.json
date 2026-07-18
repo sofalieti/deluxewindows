@@ -9,7 +9,7 @@
     "og": {
       "title": "Simonton Windows Bay Area | Deluxe Windows",
       "description": "Compare Simonton window collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate.",
-      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a74bb9c532933d19231ea_Simonton.avif",
+      "image": "/webflow-assets/images/688a74bb9c532933d19231ea_Simonton.avif",
       "type": "website"
     },
     "h1": "Simonton Windows — Bay Area Authorized Dealer & Installer",
@@ -26,7 +26,7 @@
     "twitter": {
       "title": "Simonton Windows Bay Area | Deluxe Windows",
       "description": "Compare Simonton window collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate.",
-      "image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a74bb9c532933d19231ea_Simonton.avif",
+      "image": "/webflow-assets/images/688a74bb9c532933d19231ea_Simonton.avif",
       "card": "summary_large_image"
     }
   },
