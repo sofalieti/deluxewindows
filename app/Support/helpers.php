@@ -147,6 +147,62 @@ if (! function_exists('promotion_category')) {
     }
 }
 
+if (! function_exists('site_css_bundle_url')) {
+    /**
+     * Concatenate several public CSS files into a single hash-named bundle
+     * so the page loads one stylesheet instead of many render-blocking ones.
+     * The bundle is rebuilt automatically whenever a source file changes.
+     *
+     * @param  list<string>  $publicPaths  Paths relative to public/ (all url() refs must be absolute)
+     */
+    function site_css_bundle_url(array $publicPaths, string $name = 'site'): string
+    {
+        $sources = [];
+        $latest = 0;
+
+        foreach ($publicPaths as $relative) {
+            $file = public_path($relative);
+            if (is_file($file)) {
+                $sources[] = $file;
+                $latest = max($latest, (int) filemtime($file));
+            }
+        }
+
+        if ($sources === []) {
+            return '';
+        }
+
+        $version = substr(md5(implode('|', $publicPaths).'|'.$latest), 0, 12);
+        $bundleDir = public_path('build/css');
+        $bundleFile = $bundleDir.'/'.$name.'-'.$version.'.css';
+
+        if (! is_file($bundleFile)) {
+            if (! is_dir($bundleDir)) {
+                @mkdir($bundleDir, 0755, true);
+            }
+
+            $css = '';
+            foreach ($sources as $file) {
+                $css .= '/* '.basename($file)." */\n".file_get_contents($file)."\n";
+            }
+
+            $tmp = $bundleFile.'.'.getmypid().'.tmp';
+            file_put_contents($tmp, $css);
+            if (! @rename($tmp, $bundleFile)) {
+                @unlink($tmp);
+            }
+
+            foreach (glob($bundleDir.'/'.$name.'-*.css') ?: [] as $old) {
+                if ($old !== $bundleFile) {
+                    @unlink($old);
+                }
+            }
+        }
+
+        return '/build/css/'.$name.'-'.$version.'.css';
+    }
+}
+
 if (! function_exists('promotion_home_html')) {
     function promotion_home_html(?string $category = null): string
     {

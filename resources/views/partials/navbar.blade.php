@@ -1376,5 +1376,5 @@
             $siteCustomJsPath = public_path('webflow-overrides/site-custom.js');
             $siteCustomJsVersion = file_exists($siteCustomJsPath) ? (string) filemtime($siteCustomJsPath) : '1';
           @endphp
-          <script src="/webflow-overrides/site-custom.js?v={{ $siteCustomJsVersion }}"></script>
+          <script src="/webflow-overrides/site-custom.js?v={{ $siteCustomJsVersion }}" defer></script>>
         @endonce

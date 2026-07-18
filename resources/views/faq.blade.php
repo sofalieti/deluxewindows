@@ -50,6 +50,12 @@
         </div>
       </section>
 
+      <section class="new-section">
+        <div class="w-layout-blockcontainer container-default w-container">
+          <div class="text-block-44">* Price applies to minimum window installation size of 24&quot;x24&quot;.</div>
+        </div>
+      </section>
+
       <div class="divider mg-large"></div>
 @endsection
 

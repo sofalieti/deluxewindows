@@ -33,8 +33,12 @@
     </script>
     @include('partials.seo-head')
     <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <link href="/webflow-assets/css/webflow.min.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="/webflow-assets/css/fonts.css" media="all" />
+    <link href="{{ site_css_bundle_url([
+      'webflow-assets/css/webflow.min.css',
+      'webflow-assets/css/fonts.css',
+      'webflow-assets/css/promo-offer.css',
+      'webflow-overrides/site-custom.css',
+    ]) }}" rel="stylesheet" type="text/css" />
     <script type="text/javascript">
       document.documentElement.className = document.documentElement.className
         .replace(/\bwf-loading\b/g, 'wf-active')

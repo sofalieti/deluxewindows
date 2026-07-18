@@ -1039,7 +1039,11 @@
         hideDecimalForWholeNumbers: false,
       };
     </script>
-    <link rel="stylesheet" href="/webflow-overrides/mobile-home.css" />
+    {{-- Inlined to avoid an extra render-blocking request; source lives in public/webflow-overrides/mobile-home.css --}}
+    @php $mobileHomeCssPath = public_path('webflow-overrides/mobile-home.css'); @endphp
+    @if (is_file($mobileHomeCssPath))
+      <style>{!! file_get_contents($mobileHomeCssPath) !!}</style>
+    @endif
 @endsection
 
 @section('content')

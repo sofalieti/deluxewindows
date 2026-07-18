@@ -808,7 +808,7 @@ def classify_intent(question: str) -> str:
         return "comparison"
     if any(t in lowered for t in ("disadvantage", "downside", "cons of", "problems with", "common problems")):
         return "tradeoff"
-    if any(t in lowered for t in ("how much", "cost", "price", "expensive", "average cost")):
+    if "how much" in lowered or re.search(r"\b(costs?|price[sd]?|pricing|expensive)\b", lowered):
         return "cost"
     if any(t in lowered for t in ("how long", "lifespan", "last?", "how often")):
         return "lifespan"
@@ -912,8 +912,9 @@ def answer_paa(question: str, ctx: PageContext) -> str:
                 f"No brand is perfect: with {entity}, review series-level differences in pricing, lead times and "
                 f"hardware. {brand['note']}. Deluxe Windows flags the honest trade-offs of each series before ordering."
             )
+        product = "doors" if is_door_page else "windows"
         return (
-            f"The main trade-offs of {entity.lower()} products: {material['tradeoff']}. "
+            f"The main trade-offs of {entity.lower()} {product}: {material['tradeoff']}. "
             f"Whether that matters depends on the home's exposure and budget, which Deluxe Windows reviews openly."
         )
     if intent == "lifespan":
@@ -958,6 +959,12 @@ def answer_paa(question: str, ctx: PageContext) -> str:
             f"entire Bay Area. Homeowners can compare samples in person and book a free in-home estimate."
         )
     if intent == "maintenance":
+        if re.search(r"\brepair", question.casefold()):
+            return (
+                f"Minor {entity.lower()} issues — hardware, weatherstripping, screens or a fogged glass unit — can often "
+                f"be repaired. Cracked or warped frames and repeated seal failures usually make replacement the more "
+                f"economical fix, which Deluxe Windows assesses honestly on site."
+            )
         return (
             f"For {entity.lower()} products, {material['care']}. Following the manufacturer's care schedule also "
             f"keeps the warranty valid, and Deluxe Windows explains the routine at handover."
@@ -988,6 +995,20 @@ def answer_paa(question: str, ctx: PageContext) -> str:
                 f"{rival_facts['blurb']}. Neither wins outright: {brand.get('cost', material['cost'])}, so the better "
                 f"pick depends on budget, style and warranty priorities. Deluxe Windows carries both and shows them side by side."
             )
+        if not ctx.brand:
+            own_key = material["label"]
+            rival_material = None
+            lowered = question.casefold().replace("aluminium", "aluminum")
+            for key in ("aluminum-clad", "wood-clad", "fiberglass", "aluminum", "steel", "vinyl", "wood"):
+                if key != own_key and (key in lowered or key.replace("-", " ") in lowered):
+                    rival_material = MATERIAL_FACTS[key]
+                    break
+            if rival_material:
+                return (
+                    f"{material['label'].capitalize()} offers {material['benefit']} at {material['cost']}, while "
+                    f"{rival_material['label']} brings {rival_material['benefit']} and typically lasts {rival_material['lifespan']}. "
+                    f"The better fit depends on budget, architecture and how long you plan to keep the home."
+                )
         return (
             f"The honest comparison depends on priorities: {entity} stands out for {brand.get('blurb', material['benefit'])}, "
             f"while competitors trade differently on price, warranty and looks. {brand.get('cost', material['cost']).capitalize()}. "
@@ -1034,6 +1055,7 @@ def generated_fill(ctx: PageContext) -> list[dict[str, str]]:
         ]
     if ctx.family in {"windows", "doors"}:
         product = "doors" if ctx.family == "doors" else "windows"
+        cost_fact = material.get("door_cost", material["cost"]) if product == "doors" else material["cost"]
         return [
             {
                 "question": f"What are the main benefits of {entity.lower()} {product}?",
@@ -1041,7 +1063,7 @@ def generated_fill(ctx: PageContext) -> list[dict[str, str]]:
             },
             {
                 "question": f"How much do {entity.lower()} {product} cost installed in the Bay Area?",
-                "answer": f"Plan on {material['cost']} for {entity.lower()} {product}, plus installation that reflects access, removal and finishing. Deluxe Windows provides exact installed pricing after measuring.",
+                "answer": f"Plan on {cost_fact} for {entity.lower()} {product}, plus installation that reflects access, removal and finishing. Deluxe Windows provides exact installed pricing after measuring.",
             },
             {
                 "question": f"How long do {entity.lower()} {product} last?",
@@ -1295,6 +1317,7 @@ def build_faq(ctx: PageContext, questions_pool: UniquePool, answers_pool: Unique
 
     # 1. Real PAA questions routed to this page (max 4, no near-duplicates).
     signatures: set[str] = set()
+    used_intents: set[str] = set()
     for raw in ctx.data.get("paa", []):
         if len(items) >= 4:
             break
@@ -1313,13 +1336,26 @@ def build_faq(ctx: PageContext, questions_pool: UniquePool, answers_pool: Unique
             if not answers_pool.claim(answer, ctx.path):
                 continue
         items.append({"question": question, "answer": answer})
+        used_intents.add(classify_intent(question))
         stats["paa"] += 1
 
-    # 2. Family fill to reach at least 4 questions.
+    # 2. Family fill to reach at least 4 questions (skip near-duplicates of PAA).
     for item in generated_fill(ctx):
         if len(items) >= 4 and len(items) >= 3:
             break
         question = clean_question(item["question"])
+        signature = question_signature(question)
+        if signature in signatures:
+            continue
+        intent = classify_intent(question)
+        if (
+            ctx.family != "blog"
+            and intent in used_intents
+            and intent in {"cost", "lifespan", "warranty", "maintenance"}
+        ):
+            continue
+        signatures.add(signature)
+        used_intents.add(intent)
         answer = item["answer"].strip()
         if len(answer) < 80:
             answer += " Deluxe Windows confirms the specifics for each Bay Area project in writing."

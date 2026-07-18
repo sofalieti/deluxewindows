@@ -11,14 +11,7 @@
   $percent = $percent ?? app(\App\Services\PromotionControlService::class)->globalDiscountPercent() . '%';
 @endphp
 
-@once
-  @php
-    $promoOfferCssPath = public_path('webflow-assets/css/promo-offer.css');
-    $promoOfferCssVersion = file_exists($promoOfferCssPath) ? (string) filemtime($promoOfferCssPath) : '1';
-  @endphp
-  <link href="/webflow-assets/css/promo-offer.css?v={{ $promoOfferCssVersion }}" rel="stylesheet" type="text/css" />
-@endonce
-
+{{-- promo-offer.css is served inside the layout CSS bundle (see layouts/classic.blade.php) --}}
 <div class="hero-mobile-promo">
   @if($variant === 'price' && $badgeHtml)
     <div class="hero-mobile-promo__badge">
