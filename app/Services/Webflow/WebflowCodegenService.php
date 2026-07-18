@@ -102,6 +102,7 @@ class WebflowCodegenService
 
             $rows = [];
             foreach (($payload['items'] ?? []) as $item) {
+                $fieldData = $this->sanitizeFieldDataValues($item['fieldData'] ?? []);
                 $row = [
                     'webflow_item_id' => (string) ($item['id'] ?? ''),
                     'webflow_cms_locale_id' => $item['cmsLocaleId'] ?? null,
@@ -110,13 +111,13 @@ class WebflowCodegenService
                     'webflow_published_on' => $this->toDatabaseDateTime($item['lastPublished'] ?? null),
                     'is_archived' => (bool) ($item['isArchived'] ?? false),
                     'is_draft' => (bool) ($item['isDraft'] ?? false),
-                    'field_data' => json_encode($item['fieldData'] ?? [], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE),
+                    'field_data' => json_encode($fieldData, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE),
                     'created_at' => now(),
                     'updated_at' => now(),
                 ];
 
                 foreach (($payload['flattenedFieldMap'] ?? []) as $wfField => $columnName) {
-                    $value = $item['fieldData'][$wfField] ?? null;
+                    $value = $fieldData[$wfField] ?? null;
                     $row[$columnName] = $this->normalizeFieldValue(
                         $value,
                         in_array($columnName, $jsonColumns, true),
@@ -527,6 +528,40 @@ BLADE;
         ];
     }
 
+    /**
+     * Unwrap accidentally double-encoded JSON scalars in fieldData
+     * (e.g. parent-brand = "\"6841...\"" → "6841...").
+     *
+     * @param  mixed  $fieldData
+     * @return array<string, mixed>
+     */
+    private function sanitizeFieldDataValues(mixed $fieldData): array
+    {
+        if (! is_array($fieldData)) {
+            return [];
+        }
+
+        $clean = [];
+        foreach ($fieldData as $key => $value) {
+            if (is_string($value)) {
+                $clean[$key] = $this->decodeStoredValue($value);
+                continue;
+            }
+
+            if (is_array($value)) {
+                $clean[$key] = array_map(
+                    fn ($item) => is_string($item) ? $this->decodeStoredValue($item) : $item,
+                    $value
+                );
+                continue;
+            }
+
+            $clean[$key] = $value;
+        }
+
+        return $clean;
+    }
+
     private function decodeStoredValue(mixed $value): mixed
     {
         if (! is_string($value)) {
@@ -538,7 +573,13 @@ BLADE;
             return $value;
         }
 
-        if (($trimmed[0] === '{' && str_ends_with($trimmed, '}')) || ($trimmed[0] === '[' && str_ends_with($trimmed, ']'))) {
+        $first = $trimmed[0];
+        $isJsonContainer = ($first === '{' && str_ends_with($trimmed, '}'))
+            || ($first === '[' && str_ends_with($trimmed, ']'))
+            // MySQL JSON scalar strings come back as "\"6841...\"" — unwrap them.
+            || ($first === '"' && str_ends_with($trimmed, '"'));
+
+        if ($isJsonContainer) {
             $decoded = json_decode($trimmed, true);
             if (json_last_error() === JSON_ERROR_NONE) {
                 return $decoded;

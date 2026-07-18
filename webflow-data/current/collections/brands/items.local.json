@@ -1,866 +1,866 @@
 {
-    "items": [
-        {
-            "id": "687b77229d351e28dc2a5141",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-07-19T10:44:50+00:00",
-            "lastUpdated": "2026-03-23T18:47:26+00:00",
-            "lastPublished": "2026-03-24T05:43:04+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "All Weather Architectural Aluminum",
-                "slug": "all-weather-architectural-aluminum",
-                "field": 0,
-                "order": "6.0000",
-                "field-2": 0,
-                "field-3": 1,
-                "field-4": 1,
-                "field-5": 0,
-                "logo-svg": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/6915bedcc5e0152198130ace_footer-logo__1__2-removebg-preview.avif",
-                    "fileId": "6915bedcc5e0152198130ace"
-                },
-                "materials": [
-                    "687e2df1becb2cac84f31e6c"
-                ],
-                "seo-title": "All Weather Architectural Aluminum | Deluxe Windows San Jose",
-                "brand-logo": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/688fa8152ce52119116d379f_logo-2.avif",
-                    "fileId": "688fa8152ce52119116d379f"
-                },
-                "doors-title": "Explore All Weather Architectural Aluminum's Door Types",
-                "grid-styles": 0,
-                "price-range": "$$$–$$$$",
-                "new-template": 1,
-                "twitter-card": "summary_large_image",
-                "window-types": [
-                    "688f7a083cdbaadbf3351375"
-                ],
-                "agent---about": "<p id=\"\">All Weather Architectural Aluminum has been a trusted name in custom aluminum window and door systems since 1969. Based in California, the brand is known for combining precision engineering with architectural-grade materials—delivering highly customizable solutions for residential, commercial, and high-performance modern spaces.</p><p id=\"\">From energy-efficient glass walls to bold pivot entry doors, All Weather products are built to meet the creative vision of architects and the performance expectations of builders and homeowners alike.</p><p id=\"\">Every All Weather product is made to order. From size and shape to finish and function, the flexibility allows you to realize your exact architectural intent without compromise.</p><p id=\"\">All Weather specializes in thermally broken and non-thermally broken aluminum frames, delivering structural integrity, sleek sightlines, and long-term resistance to corrosion, warping, and wear.</p><p id=\"\">Engineered for expansive glass and ultra-narrow profiles, All Weather’s windows and doors bring in more light, more view, and a refined modern aesthetic—perfect for high-end custom homes.</p><p id=\"\">Advanced thermal break technology, high-performance glazing, and tight seals help improve energy efficiency—critical for meeting California Title 24 and beyond.</p><p id=\"\">Manufactured in Vacaville, CA, All Weather products are designed and built to withstand the demands of varied climates, including coastal, desert, and mountain environments.</p>",
-                "animation-off": 0,
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/688f79cb579ab2c38f4dcc96_All-Weather-Hero-Interiror.avif",
-                    "fileId": "688f79cb579ab2c38f4dcc96"
-                },
-                "windowmaintype": "\"687e2df1becb2cac84f31e6c\"",
-                "windows-titles": "Explore All Weather Architectural Aluminum's Window Types",
-                "agent---excerpt": "Lorem ipsum dolor sit amet consectetur fermentum eget fringilla egestas lorem.",
-                "opengraph-image": "/webflow-assets/images/688a744be121b29c4e32b2ec_all-weather-architectural-aluminum.avif",
-                "opengraph-title": "All Weather Architectural Aluminum | Deluxe Windows San Jose",
-                "seo-description": "Explore All Weather Architectural Aluminum windows and doors at Deluxe Windows. Commercial-grade aluminum performance for Bay Area homes in San Francisco. Free estimates.",
-                "agent---username": "@willygreen",
-                "tinted-glass-off": 0,
-                "agent---job-title": "Inmobiliary Agent",
-                "doors-type-marvin": [
-                    "688f7a808386df55b72bc982"
-                ],
-                "agent---experience": null,
-                "energy-glass-is-off": 0,
-                "agent---avatar-photo": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/688a744be121b29c4e32b2ec_all-weather-architectural-aluminum.avif",
-                    "fileId": "688a744be121b29c4e32b2ec"
-                },
-                "obscure-glass-if-off": 0,
-                "opengraph-description": "Explore All Weather Architectural Aluminum windows and doors at Deluxe Windows. Commercial-grade aluminum performance for Bay Area homes in San Francisco. Free estimates.",
-                "standard-glass-is-big": 0,
-                "brand-feature-description-1": "Custom aluminum systems, strong for modern projects and large openings (West Coast presence)",
-                "brand-feature-description-2": "Thermally-broken aluminum options for better performance",
-                "brand-feature-description-3": "Medium (glass upgrades matter most)",
-                "brand-feature-description-4": "Residential 10-year limited warranty (per their residential warranty doc)",
-                "new-construction-replacement-categories": 0
-            }
+  "items": [
+    {
+      "id": "687b77229d351e28dc2a5141",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-07-19T10:44:50.119Z",
+      "lastUpdated": "2026-03-23T18:47:26.066Z",
+      "lastPublished": "2026-03-24T05:43:04.253Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "agent---avatar-photo": {
+          "fileId": "688a744be121b29c4e32b2ec",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a744be121b29c4e32b2ec_all-weather-architectural-aluminum.avif",
+          "alt": null
         },
-        {
-            "id": "687b75dd3a0830c27e29d5fa",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-07-19T10:39:25+00:00",
-            "lastUpdated": "2026-03-23T18:47:26+00:00",
-            "lastPublished": "2026-03-24T05:43:04+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Italwindows",
-                "slug": "italwindows",
-                "field": 1,
-                "order": "10.0000",
-                "field-2": 0,
-                "field-3": 1,
-                "field-4": 1,
-                "field-5": 0,
-                "logo-svg": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/6915bd3fcaf3c1f1ff04d9dd_italwindows.svg",
-                    "fileId": "6915bd3fcaf3c1f1ff04d9dd"
-                },
-                "materials": [
-                    "687e2df1becb2cac84f31e6c",
-                    "687e2dcffd2a7768f1e926e1",
-                    "687e2e02aec6e5ed0f12e444"
-                ],
-                "seo-title": "Italwindows | European Design – Deluxe Windows Palo Alto",
-                "brand-logo": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/688fa90bce2bf42469f48ded_unnamed-1.avif",
-                    "fileId": "688fa90bce2bf42469f48ded"
-                },
-                "doors-title": "Explore Italwindow's Door Types",
-                "grid-styles": 0,
-                "price-range": "$$$–$$$$$",
-                "new-template": 1,
-                "twitter-card": "summary_large_image",
-                "window-types": [
-                    "688f55d9ca0a2c012d972ce5",
-                    "688f5d3977516719c3c6dc22",
-                    "688f5e2330da98598b5006df"
-                ],
-                "agent---about": "<p id=\"\">Italwindows is a premium window and door manufacturer known for blending Italian craftsmanship with cutting-edge European engineering. With a deep focus on aesthetics, durability, and energy performance, Italwindows brings refined architectural solutions to residential and commercial spaces around the world.</p><p id=\"\">‍<br>Manufactured with precision and top-tier materials, Italwindows products meet the highest international standards for thermal insulation, acoustics, and structural integrity.</p><p id=\"\">‍<br>Italwindows specializes in slim-profile frames, large glass surfaces, and seamless transitions—ideal for contemporary architecture and clean interior design.</p><p id=\"\">‍<br>Available in aluminum, wood, and wood-clad systems, Italwindows products combine form and function, offering timeless finishes and long-lasting performance.</p><p id=\"\"><br>With triple-glazed options, thermal breaks, and low-emissivity coatings, Italwindows supports energy savings and green building goals.</p><p id=\"\"><br>Every window and door is custom-fabricated to fit your space, style, and performance needs—whether for new construction or high-end renovation.</p>",
-                "animation-off": 0,
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/688f559e85d6c240c6168339_italian-windows-corten-steel-frame-museo-bailo-esperiri-milano.avif",
-                    "fileId": "688f559e85d6c240c6168339"
-                },
-                "windowmaintype": "\"687e2df1becb2cac84f31e6c\"",
-                "windows-titles": "Explore Italwindows's Window Types",
-                "agent---excerpt": "Lorem ipsum dolor sit amet consectetur fermentum eget fringilla egestas lorem.",
-                "opengraph-image": "/webflow-assets/images/688a7489b613e7a9f3424dcf_italwindows.avif",
-                "opengraph-title": "Italwindows | European Design – Deluxe Windows Palo Alto",
-                "seo-description": "Italwindows brings European craftsmanship to Bay Area homes — aluminum, steel, and wood frames with exceptional precision. Installed by Deluxe Windows in San Francisco.",
-                "agent---username": "@willygreen",
-                "tinted-glass-off": 0,
-                "agent---job-title": "Inmobiliary Agent",
-                "doors-type-marvin": [
-                    "688f5f0e1802e9cd2412ab2d",
-                    "688f6230012cc181527b8e99",
-                    "688f6283183ff7b96a9fd3bb"
-                ],
-                "agent---experience": null,
-                "energy-glass-is-off": 0,
-                "agent---avatar-photo": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/688a7489b613e7a9f3424dcf_italwindows.avif",
-                    "fileId": "688a7489b613e7a9f3424dcf"
-                },
-                "obscure-glass-if-off": 0,
-                "opengraph-description": "Italwindows brings European craftsmanship to Bay Area homes — aluminum, steel, and wood frames with exceptional precision. Installed by Deluxe Windows in San Francisco.",
-                "standard-glass-is-big": 0,
-                "brand-feature-description-1": "Broad “European windows” offering (tilt-turn, sliding, window wall, etc.); competitive pricing",
-                "brand-feature-description-2": "Positions as European-style “high performance/luxury” systems (specs depend on build)",
-                "brand-feature-description-3": "Medium–High (typically strong in Euro systems when configured for acoustics)",
-                "brand-feature-description-4": "Not clearly standardized on the public pages I found (usually provided in quote/contract)",
-                "new-construction-replacement-categories": 0
-            }
+        "agent---about": "<p id=\"\">All Weather Architectural Aluminum has been a trusted name in custom aluminum window and door systems since 1969. Based in California, the brand is known for combining precision engineering with architectural-grade materials—delivering highly customizable solutions for residential, commercial, and high-performance modern spaces.</p><p id=\"\">From energy-efficient glass walls to bold pivot entry doors, All Weather products are built to meet the creative vision of architects and the performance expectations of builders and homeowners alike.</p><p id=\"\">Every All Weather product is made to order. From size and shape to finish and function, the flexibility allows you to realize your exact architectural intent without compromise.</p><p id=\"\">All Weather specializes in thermally broken and non-thermally broken aluminum frames, delivering structural integrity, sleek sightlines, and long-term resistance to corrosion, warping, and wear.</p><p id=\"\">Engineered for expansive glass and ultra-narrow profiles, All Weather’s windows and doors bring in more light, more view, and a refined modern aesthetic—perfect for high-end custom homes.</p><p id=\"\">Advanced thermal break technology, high-performance glazing, and tight seals help improve energy efficiency—critical for meeting California Title 24 and beyond.</p><p id=\"\">Manufactured in Vacaville, CA, All Weather products are designed and built to withstand the demands of varied climates, including coastal, desert, and mountain environments.</p>",
+        "agent---experience": null,
+        "agent---excerpt": "Lorem ipsum dolor sit amet consectetur fermentum eget fringilla egestas lorem.",
+        "agent---job-title": "Inmobiliary Agent",
+        "agent---username": "@willygreen",
+        "featured-image": {
+          "fileId": "688f79cb579ab2c38f4dcc96",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f79cb579ab2c38f4dcc96_All%2BWeather%2BHero%2BInteriror.avif",
+          "alt": null
         },
-        {
-            "id": "685114794ffee91485b78137",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-06-17T07:08:41+00:00",
-            "lastUpdated": "2026-03-23T18:47:26+00:00",
-            "lastPublished": "2026-03-24T05:43:04+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Simonton",
-                "slug": "simonton",
-                "field": 0,
-                "order": "9.0000",
-                "field-2": 1,
-                "field-3": 0,
-                "field-4": 0,
-                "field-5": 0,
-                "logo-svg": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/6915aa3a24afaaa0a93dd455_Simonton_PrimaryLogo_Inline_RGB_Gradient_0822-1-2048x427.avif",
-                    "fileId": "6915aa3a24afaaa0a93dd455"
-                },
-                "materials": [
-                    "687e2e7430776dc4c9516a7d"
-                ],
-                "seo-title": "Simonton Windows | Deluxe Windows San Mateo",
-                "brand-logo": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/688fa9b2abcb5db8c534bc8a_Simonton_PrimaryLogo_Inline_RGB_Gradient_0822-1.avif",
-                    "fileId": "688fa9b2abcb5db8c534bc8a"
-                },
-                "doors-title": "Explore Simonton's Door Types",
-                "grid-styles": 1,
-                "price-range": "$$",
-                "new-template": 1,
-                "twitter-card": "summary_large_image",
-                "window-types": [
-                    "688f73cc7ee8cd948782bc6b"
-                ],
-                "agent---about": "<p id=\"\">Simonton is one of America’s most trusted names in vinyl windows and doors, offering high-quality, energy-efficient products backed by decades of expertise. Founded in 1946, Simonton has built a strong reputation for combining durability, customization, and long-term value—all at an approachable price point.</p><p id=\"\">Whether you're building new or upgrading your home, Simonton products deliver the reliability and performance you expect—with design flexibility that fits your style.</p><p id=\"\"><br>Simonton focuses exclusively on vinyl, allowing them to perfect the material for strength, thermal performance, and low-maintenance durability—ideal for today’s homeowners.</p><p id=\"\">‍<br>From the premium Reflections® Series to the energy-smart DaylightMax™ and builder-friendly VantagePointe®, Simonton offers product lines for every budget, style, and region.</p><p id=\"\"><br>Many Simonton products are ENERGY STAR® certified and feature advanced Low-E glass, Argon gas fills, and multi-chambered frames to help reduce energy costs and improve home comfort.</p><p id=\"\"><br>With smooth operation, secure locking systems, and customizable options—from interior/exterior colors to hardware and grid styles—Simonton products are made to suit real homes and real needs.</p><p id=\"\"><br>Simonton stands behind its products with industry-leading limited lifetime warranties, giving you peace of mind and lasting confidence in your investment.</p>",
-                "animation-off": 0,
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/688f9a58f78e47897841966a_sim_5500_interior_living_room_casement_awning_windows_maple_woodgrain_color_5050_module_p0.avif",
-                    "fileId": "688f9a58f78e47897841966a"
-                },
-                "windowmaintype": "\"687e2e7430776dc4c9516a7d\"",
-                "windows-titles": "Explore Simonton's Window Types",
-                "agent---excerpt": "Lorem ipsum dolor sit amet consectetur fermentum eget fringilla egestas lorem.",
-                "opengraph-image": "/webflow-assets/images/688a74bb9c532933d19231ea_Simonton.avif",
-                "opengraph-title": "Simonton Windows | Deluxe Windows San Mateo",
-                "seo-description": "Simonton windows are designed for performance and affordability for Bay Area homes. Explore all Simonton series at Deluxe Windows in San Francisco. Request a free quote.",
-                "agent---username": "@willygreen",
-                "tinted-glass-off": 1,
-                "agent---job-title": "Inmobiliary Agent",
-                "doors-type-marvin": [
-                    "688f747b77aae2a0fdee2b43"
-                ],
-                "agent---experience": null,
-                "energy-glass-is-off": 0,
-                "agent---avatar-photo": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/688a74bb9c532933d19231ea_Simonton.avif",
-                    "fileId": "688a74bb9c532933d19231ea"
-                },
-                "obscure-glass-if-off": 1,
-                "opengraph-description": "Simonton windows are designed for performance and affordability for Bay Area homes. Explore all Simonton series at Deluxe Windows in San Francisco. Request a free quote.",
-                "standard-glass-is-big": 0,
-                "brand-feature-description-1": "Strong value in vinyl replacement/new construction, broad dealer network",
-                "brand-feature-description-2": "ENERGY STAR vinyl lines (series-dependent)",
-                "brand-feature-description-3": "Medium (acoustic upgrades available)",
-                "brand-feature-description-4": "Limited Lifetime Warranty (current warranty set is series/date dependent)",
-                "new-construction-replacement-categories": 1
-            }
+        "doors-type-marvin": [
+          "688f7a808386df55b72bc982"
+        ],
+        "window-types": [
+          "688f7a083cdbaadbf3351375"
+        ],
+        "windows-titles": "Explore All Weather Architectural Aluminum's Window Types",
+        "doors-title": "Explore All Weather Architectural Aluminum's Door Types",
+        "brand-logo": {
+          "fileId": "688fa8152ce52119116d379f",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688fa8152ce52119116d379f_logo%202.avif",
+          "alt": null
         },
-        {
-            "id": "6851144119c25a3a1af52024",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-06-17T07:07:45+00:00",
-            "lastUpdated": "2026-03-23T18:47:26+00:00",
-            "lastPublished": "2026-03-24T05:43:04+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Jeld-Wen",
-                "slug": "jeld-wen",
-                "field": 0,
-                "order": "4.0000",
-                "field-2": 1,
-                "field-3": 1,
-                "field-4": 0,
-                "field-5": 1,
-                "logo-svg": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/6915aa60264a3c99f69524c6_jv.svg",
-                    "fileId": "6915aa60264a3c99f69524c6"
-                },
-                "materials": [
-                    "687e2e7430776dc4c9516a7d",
-                    "687e2e6794d6def819453d2c",
-                    "687e2e02aec6e5ed0f12e444"
-                ],
-                "seo-title": "Jeld-Wen Windows & Doors | Deluxe Windows Oakland",
-                "brand-logo": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/688fa92fd641b90f258ee3ff_JELD_BIG-7d4f41f9.avif",
-                    "fileId": "688fa92fd641b90f258ee3ff"
-                },
-                "doors-title": "Explore Jeld-Wen Door Types",
-                "grid-styles": 0,
-                "price-range": "$–$$$",
-                "new-template": 1,
-                "twitter-card": "summary_large_image",
-                "window-types": [
-                    "688f4528093a5e635afef8f1",
-                    "688f47735b754890a2c02110",
-                    "688f48f88c03f7dbc7af37cd"
-                ],
-                "agent---about": "<p id=\"\">JELD-WEN is a global leader in reliable, beautifully crafted windows and doors. With a legacy dating back to 1960, JELD-WEN combines timeless design with cutting-edge technology to create products that elevate both form and function in every home.</p><p id=\"\">From new construction to renovations and replacements, JELD-WEN offers versatile solutions that meet high standards for style, performance, and energy efficiency.</p><h3 id=\"\">Why Choose Jeld-Wen?</h3><p id=\"\">ELD-WEN is known for pushing boundaries in design and material innovation. Their products are engineered for durability, energy savings, and everyday use, offering homeowners peace of mind for years to come.</p><p id=\"\">‍<br>Whether you’re looking for wood, vinyl, aluminum, or composite, JELD-WEN delivers a wide array of window and door options to match any architectural style—from traditional to modern.</p><p id=\"\">‍<br>Equipped with advanced glass options and smart insulation, JELD-WEN windows and doors help reduce energy costs and improve interior comfort in any climate.</p><p id=\"\">‍<br>Contractors, builders, and architects trust JELD-WEN for consistent quality, design flexibility, and reliable performance on every project.</p><p id=\"\">‍<br>JELD-WEN maintains manufacturing locations across North America to ensure quality control and responsive service while supporting local communities.</p>",
-                "animation-off": 1,
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/688f3b9ab4f740bb5a7e117f_jeld_wen_interior_hero_shot.avif",
-                    "fileId": "688f3b9ab4f740bb5a7e117f"
-                },
-                "windowmaintype": "\"687e2e7430776dc4c9516a7d\"",
-                "windows-titles": "Explore Jeld-Wen Window Types",
-                "agent---excerpt": "Lorem ipsum dolor sit amet consectetur fermentum eget fringilla egestas lorem.",
-                "opengraph-image": "/webflow-assets/images/688a751848f910d5ccb0bd34_Jeld-Wen.avif",
-                "opengraph-title": "Jeld-Wen Windows & Doors | Deluxe Windows Oakland",
-                "seo-description": "Jeld-Wen offers one of the widest window and door selections for Bay Area homeowners. Explore all Jeld-Wen styles at Deluxe Windows in San Francisco. Free estimates.",
-                "agent---username": "@willygreen",
-                "tinted-glass-off": 0,
-                "agent---job-title": "Inmobiliary Agent",
-                "doors-type-marvin": [
-                    "688f49addb6ff6c6f37a9070",
-                    "688f4b897b8a5a98daca335d",
-                    "688f4c6e1a0ed5d49e12a143"
-                ],
-                "agent---experience": null,
-                "energy-glass-is-off": 0,
-                "agent---avatar-photo": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/688a751848f910d5ccb0bd34_Jeld-Wen.avif",
-                    "fileId": "688a751848f910d5ccb0bd34"
-                },
-                "obscure-glass-if-off": 0,
-                "opengraph-description": "Jeld-Wen offers one of the widest window and door selections for Bay Area homeowners. Explore all Jeld-Wen styles at Deluxe Windows in San Francisco. Free estimates.",
-                "standard-glass-is-big": 0,
-                "brand-feature-description-1": "Huge assortment, widely available, builder + retail channels",
-                "brand-feature-description-2": "Broad ENERGY STAR offerings (varies by region/series)",
-                "brand-feature-description-3": "Medium (upgrades available)",
-                "brand-feature-description-4": "Vinyl windows commonly come with a Limited Lifetime Warranty (by product line)",
-                "new-construction-replacement-categories": 0
-            }
+        "logo-svg": {
+          "fileId": "6915bedcc5e0152198130ace",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6915bedcc5e0152198130ace_footer-logo__1__2-removebg-preview.avif",
+          "alt": null
         },
-        {
-            "id": "685114315a60cc8b388e5af2",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-06-17T07:07:29+00:00",
-            "lastUpdated": "2026-03-23T18:47:26+00:00",
-            "lastPublished": "2026-03-24T05:43:04+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Ply Gem",
-                "slug": "ply-gem",
-                "field": 0,
-                "order": "11.0000",
-                "field-2": 1,
-                "field-3": 0,
-                "field-4": 0,
-                "field-5": 1,
-                "logo-svg": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/6915aa80238022f9197f6973_pl.svg",
-                    "fileId": "6915aa80238022f9197f6973"
-                },
-                "materials": [
-                    "687e2df1becb2cac84f31e6c",
-                    "687e2e7430776dc4c9516a7d",
-                    "695d3f04cb2a2d98b5648361"
-                ],
-                "seo-title": "Ply Gem Windows & Doors | Deluxe Windows Hayward",
-                "brand-logo": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/688fa998437cf47518899298_plygem_brands_and_solutions_logo.avif",
-                    "fileId": "688fa998437cf47518899298"
-                },
-                "doors-title": "Explore Ply Gem's Door Types",
-                "grid-styles": 1,
-                "price-range": "$–$$",
-                "new-template": 1,
-                "twitter-card": "summary_large_image",
-                "window-types": [
-                    "688f6a37a2c26923a1f7044d",
-                    "688f6b001b753e55d69f8c62",
-                    "695d405d2c1f62bdda7b0535"
-                ],
-                "agent---about": "<p id=\"\">Ply Gem is one of North America's leading manufacturers of exterior building products, known for delivering high-quality, energy-efficient windows and doors designed for real homes and real lifestyles. With decades of industry experience, Ply Gem combines innovation, durability, and affordability—offering solutions that work for every budget and architectural style.</p><p id=\"\">From new construction to replacement projects, Ply Gem delivers the performance homeowners expect and the design flexibility builders need.</p><p>‍<br>Ply Gem offers a broad range of windows and doors in multiple materials—including vinyl, aluminum-clad wood, aluminum, and composite—giving you flexible options for every home style and price point.</p><p id=\"\"><br>Whether you’re in a harsh winter climate or a sun-soaked region, Ply Gem windows and doors are engineered for durability, thermal efficiency, and long-term reliability.</p><p id=\"\"><br>Many Ply Gem products are ENERGY STAR® certified and include advanced features like Low-E glass, Argon gas fills, and multi-chambered frames to improve insulation and lower energy costs.</p><p id=\"\"><br>Choose from a wide variety of frame colors, grille patterns, hardware styles, and glass options to customize your windows and doors to suit your home’s architecture.</p><p id=\"\"><br>With a strong presence in residential markets across the U.S. and Canada, Ply Gem is a trusted brand for homeowners, builders, remodelers, and architects alike.</p>",
-                "animation-off": 0,
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/688f6a02840b32b12d62a06f_NEWS_190295264_AR_0_ADPQPGJUZVQR.avif",
-                    "fileId": "688f6a02840b32b12d62a06f"
-                },
-                "windowmaintype": "\"687e2e7430776dc4c9516a7d\"",
-                "windows-titles": "Explore Ply Gem's Window Types",
-                "agent---excerpt": "Lorem ipsum dolor sit amet consectetur fermentum eget fringilla egestas lorem.",
-                "opengraph-image": "/webflow-assets/images/688a756ee649c541284c8b78_Plygem.avif",
-                "opengraph-title": "Ply Gem Windows & Doors | Deluxe Windows Hayward",
-                "seo-description": "Ply Gem windows deliver value and variety for Bay Area homeowners. Explore vinyl, aluminum, and specialty styles at Deluxe Windows in San Francisco. Free estimates.",
-                "agent---username": "@willygreen",
-                "tinted-glass-off": 1,
-                "agent---job-title": "Inmobiliary Agent",
-                "doors-type-marvin": [
-                    "688f6baa95c8dca30a915e1e",
-                    "688f6bf4095ccc71f010754a"
-                ],
-                "agent---experience": null,
-                "energy-glass-is-off": 1,
-                "agent---avatar-photo": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/688a756ee649c541284c8b78_Plygem.avif",
-                    "fileId": "688a756ee649c541284c8b78"
-                },
-                "obscure-glass-if-off": 1,
-                "opengraph-description": "Ply Gem windows deliver value and variety for Bay Area homeowners. Explore vinyl, aluminum, and specialty styles at Deluxe Windows in San Francisco. Free estimates.",
-                "standard-glass-is-big": 1,
-                "brand-feature-description-1": "Mass-market availability, lots of standard vinyl options, builder-friendly",
-                "brand-feature-description-2": "Vinyl windows with ENERGY STAR configurations (by series/region)",
-                "brand-feature-description-3": "Medium",
-                "brand-feature-description-4": "Warranty program varies by product line; warranty hub + documents provided",
-                "new-construction-replacement-categories": 0
-            }
+        "order": 6,
+        "materials": [
+          "687e2df1becb2cac84f31e6c"
+        ],
+        "new-template": true,
+        "animation-off": false,
+        "grid-styles": false,
+        "tinted-glass-off": false,
+        "standard-glass-is-big": false,
+        "obscure-glass-if-off": false,
+        "energy-glass-is-off": false,
+        "new-construction-replacement-categories": false,
+        "brand-feature-description-1": "Custom aluminum systems, strong for modern projects and large openings (West Coast presence)",
+        "brand-feature-description-2": "Thermally-broken aluminum options for better performance",
+        "brand-feature-description-3": "Medium (glass upgrades matter most)",
+        "brand-feature-description-4": "Residential 10-year limited warranty (per their residential warranty doc)",
+        "price-range": "$$$–$$$$",
+        "field": false,
+        "field-2": false,
+        "field-3": true,
+        "field-4": true,
+        "field-5": false,
+        "windowmaintype": "687e2df1becb2cac84f31e6c",
+        "seo-title": "All Weather Architectural Aluminum | Deluxe Windows San Jose",
+        "seo-description": "Explore All Weather Architectural Aluminum windows and doors at Deluxe Windows. Commercial-grade aluminum performance for Bay Area homes in San Francisco. Free estimates.",
+        "opengraph-title": "All Weather Architectural Aluminum | Deluxe Windows San Jose",
+        "opengraph-description": "Explore All Weather Architectural Aluminum windows and doors at Deluxe Windows. Commercial-grade aluminum performance for Bay Area homes in San Francisco. Free estimates.",
+        "opengraph-image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a744be121b29c4e32b2ec_all-weather-architectural-aluminum.avif",
+        "twitter-card": "summary_large_image",
+        "name": "All Weather Architectural Aluminum",
+        "slug": "all-weather-architectural-aluminum"
+      }
+    },
+    {
+      "id": "687b75dd3a0830c27e29d5fa",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-07-19T10:39:25.778Z",
+      "lastUpdated": "2026-03-23T18:47:26.253Z",
+      "lastPublished": "2026-03-24T05:43:04.253Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "agent---avatar-photo": {
+          "fileId": "688a7489b613e7a9f3424dcf",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a7489b613e7a9f3424dcf_italwindows.avif",
+          "alt": null
         },
-        {
-            "id": "685113b74203b28e29c1e7fb",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-06-17T07:05:27+00:00",
-            "lastUpdated": "2026-03-23T18:47:26+00:00",
-            "lastPublished": "2026-03-24T05:43:04+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Andersen",
-                "slug": "andersen",
-                "field": 1,
-                "order": "5.0000",
-                "field-2": 0,
-                "field-3": 1,
-                "field-4": 1,
-                "field-5": 0,
-                "logo-svg": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/6915aaaa3027924fb18fb47c_andersen_logo_tm_rectangle_rgb.svg",
-                    "fileId": "6915aaaa3027924fb18fb47c"
-                },
-                "materials": [
-                    "687e2df1becb2cac84f31e6c",
-                    "687e2e4dca4f25a7f5db9fa8",
-                    "687e2e7430776dc4c9516a7d",
-                    "687e2e02aec6e5ed0f12e444"
-                ],
-                "seo-title": "Andersen Windows & Doors | Deluxe Windows Sunnyvale",
-                "brand-logo": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/688fa874a82abb168b2d1124_Andersen_Corporation_logo.svg",
-                    "fileId": "688fa874a82abb168b2d1124"
-                },
-                "doors-title": "Explore Andersen's Door Types",
-                "grid-styles": 1,
-                "price-range": "$$$–$$$$$",
-                "new-template": 1,
-                "twitter-card": "summary_large_image",
-                "window-types": [
-                    "688f63aaf86eae615646c1d8",
-                    "688f65197b5142ce52811ce2",
-                    "688f657a5e769be614ba0e05",
-                    "688f65eb4367c4fcf97310bc"
-                ],
-                "agent---about": "<p id=\"\">For over 120 years, Andersen has been a leading name in windows and doors—synonymous with innovation, craftsmanship, and long-term value. With a strong focus on performance, sustainability, and design versatility, Andersen offers solutions for every style of home, from classic to contemporary.</p><p id=\"\">Andersen is one of the most recommended and recognized brands in the industry, trusted by architects, builders, and homeowners across North America.</p><p id=\"\">Since 1903, Andersen has built a reputation for durable, high-performing products backed by rigorous testing and a commitment to continual innovation.</p><p id=\"\">‍<br>Andersen offers a range of product series—including 100, 200, 400, A-Series, and E-Series—each with its own blend of materials, customization options, and performance features to match any project or budget.</p><p id=\"\">‍<br>From Fibrex® composite to natural wood, aluminum-clad exteriors, and vinyl options, Andersen provides advanced materials engineered for beauty, strength, and sustainability.</p><p id=\"\">‍<br>Andersen windows and doors meet or exceed ENERGY STAR® standards. The company is a leader in sustainable manufacturing and uses recycled content in many of its products.</p><p id=\"\"><br>Choose from a wide variety of styles, finishes, grille patterns, hardware, and glass options to create windows and doors that reflect your home's unique character.</p><p id=\"\"><br>Backed by robust warranties and supported by an extensive network of certified dealers and service providers, Andersen offers reliability you can count on for decades.</p>",
-                "animation-off": 0,
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/688f63745c42389784f01a8d_hero-home-scaled.avif",
-                    "fileId": "688f63745c42389784f01a8d"
-                },
-                "windowmaintype": "\"687e2e7430776dc4c9516a7d\"",
-                "windows-titles": "Explore Andersen's Window Types",
-                "agent---excerpt": "Lorem ipsum dolor sit amet consectetur fermentum eget fringilla egestas lorem.",
-                "opengraph-image": "/webflow-assets/images/688a75a9f58dabd4b2642bc5_Andersen.avif",
-                "opengraph-title": "Andersen Windows & Doors | Deluxe Windows Sunnyvale",
-                "seo-description": "Andersen — America's most trusted window brand. Explore the full Andersen lineup at Deluxe Windows in San Francisco. Bay Area installation experts. Free estimates.",
-                "agent---username": "@willygreen",
-                "tinted-glass-off": 1,
-                "agent---job-title": "Inmobiliary Agent",
-                "doors-type-marvin": [
-                    "688f66d3f24d1d187562ec0b",
-                    "688f6742bd0ae55140eaa0dc",
-                    "688f67a4cc4164bdc33ec99d"
-                ],
-                "agent---experience": null,
-                "energy-glass-is-off": 0,
-                "agent---avatar-photo": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/688a75a9f58dabd4b2642bc5_Andersen.avif",
-                    "fileId": "688a75a9f58dabd4b2642bc5"
-                },
-                "obscure-glass-if-off": 0,
-                "opengraph-description": "Andersen — America's most trusted window brand. Explore the full Andersen lineup at Deluxe Windows in San Francisco. Bay Area installation experts. Free estimates.",
-                "standard-glass-is-big": 1,
-                "brand-feature-description-1": "Strong brand, broad lineup, composite options (Fibrex in 100 Series), premium finish quality",
-                "brand-feature-description-2": "ENERGY STAR options; triple-pane available in select lines",
-                "brand-feature-description-3": "High (with upgraded IGUs + tight weatherstripping)",
-                "brand-feature-description-4": "Transferable limited warranties (Owner-to-Owner)",
-                "new-construction-replacement-categories": 0
-            }
+        "agent---about": "<p id=\"\">Italwindows is a premium window and door manufacturer known for blending Italian craftsmanship with cutting-edge European engineering. With a deep focus on aesthetics, durability, and energy performance, Italwindows brings refined architectural solutions to residential and commercial spaces around the world.</p><p id=\"\">‍<br>Manufactured with precision and top-tier materials, Italwindows products meet the highest international standards for thermal insulation, acoustics, and structural integrity.</p><p id=\"\">‍<br>Italwindows specializes in slim-profile frames, large glass surfaces, and seamless transitions—ideal for contemporary architecture and clean interior design.</p><p id=\"\">‍<br>Available in aluminum, wood, and wood-clad systems, Italwindows products combine form and function, offering timeless finishes and long-lasting performance.</p><p id=\"\"><br>With triple-glazed options, thermal breaks, and low-emissivity coatings, Italwindows supports energy savings and green building goals.</p><p id=\"\"><br>Every window and door is custom-fabricated to fit your space, style, and performance needs—whether for new construction or high-end renovation.</p>",
+        "agent---experience": null,
+        "agent---excerpt": "Lorem ipsum dolor sit amet consectetur fermentum eget fringilla egestas lorem.",
+        "agent---job-title": "Inmobiliary Agent",
+        "agent---username": "@willygreen",
+        "featured-image": {
+          "fileId": "688f559e85d6c240c6168339",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f559e85d6c240c6168339_italian-windows-corten-steel-frame-museo-bailo-esperiri-milano.avif",
+          "alt": null
         },
-        {
-            "id": "6841ddf8ace3d9d9facb16a0",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2024-03-06T18:27:51+00:00",
-            "lastUpdated": "2026-05-18T17:22:10+00:00",
-            "lastPublished": "2026-05-18T17:22:22+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Marvin",
-                "slug": "marvin",
-                "field": 1,
-                "order": "1.0000",
-                "field-2": 0,
-                "field-3": 0,
-                "field-4": 1,
-                "field-5": 0,
-                "logo-svg": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/6915aaca08003de3e1e57018_marvin-logo-black.svg",
-                    "fileId": "6915aaca08003de3e1e57018"
-                },
-                "materials": [
-                    "687e2df1becb2cac84f31e6c",
-                    "687e2e4dca4f25a7f5db9fa8",
-                    "687e2e02aec6e5ed0f12e444"
-                ],
-                "seo-title": "Marvin Windows & Doors | Deluxe Windows Berkeley",
-                "brand-logo": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/688fa94f9dc2bb9ca5e23cb8_logo-SignatureSeriesByMarvin.avif",
-                    "fileId": "688fa94f9dc2bb9ca5e23cb8"
-                },
-                "doors-title": "Explore Marvin’s Door Types",
-                "grid-styles": 0,
-                "price-range": "$$$$–$$$$$",
-                "new-template": 1,
-                "twitter-card": "summary_large_image",
-                "window-types": [
-                    "688e543574f51bd2d0555713",
-                    "688e507f216ead3a8b3d05fa",
-                    "688e535ccafb9a935e538050"
-                ],
-                "agent---about": "<p id=\"\">Marvin is a leading manufacturer of premium windows and doors, renowned for its commitment to craftsmanship, innovation, and design. With over a century of experience, Marvin blends time-tested techniques with cutting-edge technology to create products that not only perform beautifully but also elevate the spaces they’re in.</p><p id=\"\">Each Marvin window is designed with precision, offering unmatched quality, energy efficiency, and architectural appeal. Whether you're building a new home, remodeling, or restoring a historic property, Marvin provides a wide range of styles, materials, and customization options to suit any vision.</p><p id=\"\">Driven by a deep belief in the power of design to transform how people live and interact with their environments, Marvin continues to set the standard for durability, beauty, and performance.</p>",
-                "animation-off": 0,
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/6884f731d80ad45f0e5ba3a5_types_of_windows_marvin_canada.avif",
-                    "fileId": "6884f731d80ad45f0e5ba3a5"
-                },
-                "windowmaintype": "\"6a0b48ebc4591403cdd004db\"",
-                "windows-titles": "Explore Marvin’s Window Types",
-                "agent---excerpt": "Marvin",
-                "opengraph-image": "/webflow-assets/images/688a75debadab986e83c4dc4_Marvin.avif",
-                "opengraph-title": "Marvin Windows & Doors | Deluxe Windows Berkeley",
-                "seo-description": "Marvin's handcrafted windows and doors are designed to inspire Bay Area homeowners. Explore all Marvin collections at Deluxe Windows in San Francisco. Free estimates.",
-                "agent---username": null,
-                "tinted-glass-off": 0,
-                "agent---job-title": "marvin",
-                "doors-type-marvin": [
-                    "688efa4b6351ef2cf4a1ebb6",
-                    "688efd40508cf8d87a1fd1a5",
-                    "688efca068bfe5b6f25c45fa"
-                ],
-                "agent---experience": "<ul id=\"\"><li id=\"\">Design Flexibility – A wide range of styles, materials, and custom options for any project.</li><li id=\"\">Energy Efficiency – Excellent insulation and weather resistance for year-round comfort and savings. </li><li id=\"\">Craftsmanship – Precision-built for durability, beauty, and long-term performance.</li><li id=\"\">Sustainable Materials – From wood to fiberglass, made with the environment in mind.</li><li id=\"\">Innovation – Smart features and expansive designs that push home design forward.</li></ul><figure id=\"\" class=\"w-richtext-figure-type-image w-richtext-align-fullwidth\" style=\"max-width:1920px\" data-rt-type=\"image\" data-rt-align=\"fullwidth\" data-rt-max-width=\"1920px\"><div id=\"\"><img id=\"\" alt=\"__wf_reserved_inherit\" src=\"https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684dc922ef6aa7e85c4b4b0f_filters_quality(100)_fill(transparent)%20(8).avif\" width=\"auto\" height=\"auto\" loading=\"lazy\"></div></figure>",
-                "energy-glass-is-off": 0,
-                "agent---avatar-photo": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/688a75debadab986e83c4dc4_Marvin.avif",
-                    "fileId": "688a75debadab986e83c4dc4"
-                },
-                "obscure-glass-if-off": 0,
-                "opengraph-description": "Marvin's handcrafted windows and doors are designed to inspire Bay Area homeowners. Explore all Marvin collections at Deluxe Windows in San Francisco. Free estimates.",
-                "standard-glass-is-big": 0,
-                "brand-feature-description-1": "Premium architectural product lines, design flexibility",
-                "brand-feature-description-2": "High-performance glass options; triple-pane available in some collections",
-                "brand-feature-description-3": "High (especially with upgraded glass packages)",
-                "brand-feature-description-4": "Limited warranty that is fully transferable",
-                "new-construction-replacement-categories": 0
-            }
+        "doors-type-marvin": [
+          "688f5f0e1802e9cd2412ab2d",
+          "688f6230012cc181527b8e99",
+          "688f6283183ff7b96a9fd3bb"
+        ],
+        "window-types": [
+          "688f55d9ca0a2c012d972ce5",
+          "688f5d3977516719c3c6dc22",
+          "688f5e2330da98598b5006df"
+        ],
+        "windows-titles": "Explore Italwindows's Window Types",
+        "doors-title": "Explore Italwindow's Door Types",
+        "brand-logo": {
+          "fileId": "688fa90bce2bf42469f48ded",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688fa90bce2bf42469f48ded_unnamed%201.avif",
+          "alt": null
         },
-        {
-            "id": "6841ddf8ace3d9d9facb169f",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2024-03-06T18:27:17+00:00",
-            "lastUpdated": "2026-03-23T18:47:26+00:00",
-            "lastPublished": "2026-03-24T05:43:04+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Milgard",
-                "slug": "milgard",
-                "field": 0,
-                "order": "2.0000",
-                "field-2": 1,
-                "field-3": 1,
-                "field-4": 0,
-                "field-5": 0,
-                "logo-svg": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/6915aaea85f921adbca8a4e7_milgard.svg",
-                    "fileId": "6915aaea85f921adbca8a4e7"
-                },
-                "materials": [
-                    "687e2df1becb2cac84f31e6c",
-                    "687e2e4dca4f25a7f5db9fa8",
-                    "687e2e7430776dc4c9516a7d"
-                ],
-                "seo-title": "Milgard Windows & Doors | Deluxe Windows Fremont",
-                "brand-logo": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/688fa979f24d1d18756e27f6_Milgard_WD_Logo_full-color-for-white-background-ads-low-res-file-2048x535.avif",
-                    "fileId": "688fa979f24d1d18756e27f6"
-                },
-                "doors-title": "Explore Milgard's Door Types",
-                "grid-styles": 1,
-                "price-range": "$$–$$$",
-                "new-template": 1,
-                "twitter-card": "summary_large_image",
-                "window-types": [
-                    "688f2ecbd67e1da9f77cde4f",
-                    "688f30c0157b70cefca86383",
-                    "688f3164095ccc71f0076129"
-                ],
-                "agent---about": "<p id=\"\">For over 60 years, Milgard has been one of the most recognized and trusted names in the window and door industry. Built on a commitment to quality, performance, and timeless design, Milgard offers a full range of windows and patio doors that meet the needs of homeowners, builders, and architects alike.</p><p id=\"\">Whether you're building new, remodeling, or replacing, Milgard products are designed to enhance your home’s comfort, energy efficiency, and curb appeal.</p><p>‍</p><h3 id=\"\">Why Choose Milgard?</h3><p id=\"\"><br>Milgard windows and doors are crafted with precision and tested to meet rigorous standards. From scorching summers to freezing winters, Milgard products are made to handle your climate with ease.</p><p id=\"\"><br>Milgard has earned numerous accolades for its innovative designs, customer satisfaction, and high-performance materials. Each product is backed by industry-leading warranties for added peace of mind.</p><p id=\"\"><br>With manufacturing facilities across the western United States, Milgard ensures consistent quality and shorter lead times. Every window and door is custom-made to order.</p><p id=\"\"><br>From classic wood interiors to low-maintenance vinyl, energy-efficient fiberglass, and durable aluminum frames—Milgard offers a style and material to match every home and budget.</p><p id=\"\"><br>Milgard integrates advanced technologies like SunCoat® Low-E glass and SmartTouch® locks to deliver comfort, security, and savings on energy bills.</p>",
-                "animation-off": 0,
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/688f2b177b5142ce52781faa_Series_TIA2.avif",
-                    "fileId": "688f2b177b5142ce52781faa"
-                },
-                "windowmaintype": "\"687e2e7430776dc4c9516a7d\"",
-                "windows-titles": "Explore Milgard's Window Types",
-                "agent---excerpt": "Lorem ipsum dolor sit amet consectetur fermentum eget fringilla egestas lorem.",
-                "opengraph-image": "/webflow-assets/images/688a760a252df50b4cbf9cd7_Milgard.avif",
-                "opengraph-title": "Milgard Windows & Doors | Deluxe Windows Fremont",
-                "seo-description": "Milgard is a Pacific Coast favorite — built for Bay Area climates with lifetime warranties. Explore the full Milgard lineup at Deluxe Windows in San Francisco. Free quotes.",
-                "agent---username": "@sophiemoore",
-                "tinted-glass-off": 0,
-                "agent---job-title": "Inmobiliary Agent",
-                "doors-type-marvin": [
-                    "688f320cf077e8f6387edf9d",
-                    "688f32d43dce1d45ad637326",
-                    "688f338b14a2a015105ce709"
-                ],
-                "agent---experience": null,
-                "energy-glass-is-off": 0,
-                "agent---avatar-photo": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/688a760a252df50b4cbf9cd7_Milgard.avif",
-                    "fileId": "688a760a252df50b4cbf9cd7"
-                },
-                "obscure-glass-if-off": 0,
-                "opengraph-description": "Milgard is a Pacific Coast favorite — built for Bay Area climates with lifetime warranties. Explore the full Milgard lineup at Deluxe Windows in San Francisco. Free quotes.",
-                "standard-glass-is-big": 0,
-                "brand-feature-description-1": "Solid value for the quality tier, strong service footprint in many regions",
-                "brand-feature-description-2": "ENERGY STAR options across lines; Low-E + gas fills common",
-                "brand-feature-description-3": "Medium–High (depends heavily on glass package)",
-                "brand-feature-description-4": "Lifetime Limited Warranty for original owner (owner-occupied)",
-                "new-construction-replacement-categories": 0
-            }
+        "logo-svg": {
+          "fileId": "6915bd3fcaf3c1f1ff04d9dd",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6915bd3fcaf3c1f1ff04d9dd_italwindows.svg",
+          "alt": null
         },
-        {
-            "id": "6841ddf8ace3d9d9facb169d",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2024-03-06T18:26:08+00:00",
-            "lastUpdated": "2026-03-23T18:47:26+00:00",
-            "lastPublished": "2026-03-24T05:43:04+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Western Window Systems",
-                "slug": "western-window-systems",
-                "field": 1,
-                "order": "7.0000",
-                "field-2": 0,
-                "field-3": 0,
-                "field-4": 1,
-                "field-5": 0,
-                "logo-svg": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/6915b390bad100b6e6176ea7_westerngroup.svg",
-                    "fileId": "6915b390bad100b6e6176ea7"
-                },
-                "materials": [
-                    "687e2df1becb2cac84f31e6c"
-                ],
-                "seo-title": "Western Window Systems | Deluxe Windows Redwood City",
-                "brand-logo": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/688fa9c9c13418f046dd2f63_MITER-WWS-R-Horizontal-4C.webp",
-                    "fileId": "688fa9c9c13418f046dd2f63"
-                },
-                "doors-title": "Explore Western Window Systems’s Door Types",
-                "grid-styles": 0,
-                "price-range": "$$$$–$$$$$",
-                "new-template": 1,
-                "twitter-card": "summary_large_image",
-                "window-types": [
-                    "688f7766e5f7ea510616eddd"
-                ],
-                "agent---about": "<p id=\"\">Western Window Systems is a leader in high-performance, architecturally inspired windows and doors—designed to blur the line between indoor and outdoor living. Founded in Phoenix, Arizona, and built for modern lifestyles, Western Window Systems combines clean aesthetics, structural innovation, and expansive glass to transform residential and commercial spaces.</p><p id=\"\">With a focus on customization, energy efficiency, and large-scale openings, Western Window Systems products are trusted by architects, builders, and homeowners across North America.<br>‍<br>Western Window Systems specializes in oversized windows and doors that maximize natural light, views, and spatial flow—perfect for modern, open-concept architecture.<br>‍<br>Designed in the desert and tested in extreme conditions, their products deliver year-round performance with thermally broken aluminum, energy-efficient glass, and durable finishes.<br>‍<br>Narrow sightlines, flush tracks, and clean profiles make Western Window Systems ideal for contemporary designs where simplicity and transparency matter.<br>‍<br>Choose from a wide variety of sizes, finishes, hardware, glass types, and configurations—sliding, bi-folding, stacking, pivot, and more—to tailor the perfect solution for your space.<br>‍<br>With robust materials and precision manufacturing, these systems are built to meet both residential and commercial performance requirements—backed by excellent warranty coverage and service.</p>",
-                "animation-off": 0,
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/688f76ed0d7d3716ecfeef81_Window-1024x683-1.avif",
-                    "fileId": "688f76ed0d7d3716ecfeef81"
-                },
-                "windowmaintype": "\"687e2df1becb2cac84f31e6c\"",
-                "windows-titles": "Explore Western Window Systems’s Window Types",
-                "agent---excerpt": "Lorem ipsum dolor sit amet consectetur fermentum eget fringilla egestas lorem.",
-                "opengraph-image": "/webflow-assets/images/688a763de94512a795b7d492_Western-Window-Systems.avif",
-                "opengraph-title": "Western Window Systems | Deluxe Windows Redwood City",
-                "seo-description": "Western Window Systems specializes in modern aluminum windows for Bay Area homes. Explore multi-slide and panoramic options at Deluxe Windows in San Francisco. Free estimates.",
-                "agent---username": "@dylansmith",
-                "tinted-glass-off": 0,
-                "agent---job-title": "Inmobiliary Agent",
-                "doors-type-marvin": [
-                    "688f77cdda098b599dffca19"
-                ],
-                "agent---experience": null,
-                "energy-glass-is-off": 0,
-                "agent---avatar-photo": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/688a763de94512a795b7d492_Western-Window-Systems.avif",
-                    "fileId": "688a763de94512a795b7d492"
-                },
-                "obscure-glass-if-off": 0,
-                "opengraph-description": "Western Window Systems specializes in modern aluminum windows for Bay Area homes. Explore multi-slide and panoramic options at Deluxe Windows in San Francisco. Free estimates.",
-                "standard-glass-is-big": 0,
-                "brand-feature-description-1": "Luxury modern architecture, huge openings (multi-slide, window walls), minimal sightlines",
-                "brand-feature-description-2": "Thermally-broken aluminum options aimed at improving energy performance",
-                "brand-feature-description-3": "Medium (can be high with acoustic glass builds)",
-                "brand-feature-description-4": "Limited lifetime transferable warranty",
-                "new-construction-replacement-categories": 0
-            }
+        "order": 10,
+        "materials": [
+          "687e2df1becb2cac84f31e6c",
+          "687e2dcffd2a7768f1e926e1",
+          "687e2e02aec6e5ed0f12e444"
+        ],
+        "new-template": true,
+        "animation-off": false,
+        "grid-styles": false,
+        "tinted-glass-off": false,
+        "standard-glass-is-big": false,
+        "obscure-glass-if-off": false,
+        "energy-glass-is-off": false,
+        "new-construction-replacement-categories": false,
+        "brand-feature-description-1": "Broad “European windows” offering (tilt-turn, sliding, window wall, etc.); competitive pricing",
+        "brand-feature-description-2": "Positions as European-style “high performance/luxury” systems (specs depend on build)",
+        "brand-feature-description-3": "Medium–High (typically strong in Euro systems when configured for acoustics)",
+        "brand-feature-description-4": "Not clearly standardized on the public pages I found (usually provided in quote/contract)",
+        "price-range": "$$$–$$$$$",
+        "field": true,
+        "field-2": false,
+        "field-3": true,
+        "field-4": true,
+        "field-5": false,
+        "windowmaintype": "687e2df1becb2cac84f31e6c",
+        "seo-title": "Italwindows | European Design – Deluxe Windows Palo Alto",
+        "seo-description": "Italwindows brings European craftsmanship to Bay Area homes — aluminum, steel, and wood frames with exceptional precision. Installed by Deluxe Windows in San Francisco.",
+        "opengraph-title": "Italwindows | European Design – Deluxe Windows Palo Alto",
+        "opengraph-description": "Italwindows brings European craftsmanship to Bay Area homes — aluminum, steel, and wood frames with exceptional precision. Installed by Deluxe Windows in San Francisco.",
+        "opengraph-image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a7489b613e7a9f3424dcf_italwindows.avif",
+        "twitter-card": "summary_large_image",
+        "name": "Italwindows",
+        "slug": "italwindows"
+      }
+    },
+    {
+      "id": "685114794ffee91485b78137",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-06-17T07:08:41.059Z",
+      "lastUpdated": "2026-03-23T18:47:26.272Z",
+      "lastPublished": "2026-03-24T05:43:04.253Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "agent---avatar-photo": {
+          "fileId": "688a74bb9c532933d19231ea",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a74bb9c532933d19231ea_Simonton.avif",
+          "alt": null
         },
-        {
-            "id": "6841ddf8ace3d9d9facb1690",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2024-03-06T18:25:08+00:00",
-            "lastUpdated": "2026-03-23T18:47:26+00:00",
-            "lastPublished": "2026-03-24T05:43:04+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Alside",
-                "slug": "alside",
-                "field": 0,
-                "order": "8.0000",
-                "field-2": 1,
-                "field-3": 1,
-                "field-4": 0,
-                "field-5": 0,
-                "logo-svg": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/6915b29da8bcdcb16ec593b6_Frame-2.svg",
-                    "fileId": "6915b29da8bcdcb16ec593b6"
-                },
-                "materials": [
-                    "687e2e7430776dc4c9516a7d"
-                ],
-                "seo-title": "Alside Windows & Doors | Deluxe Windows Santa Clara",
-                "brand-logo": {
-                    "alt": null,
-                    "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688fa83a840b32b12d6c7014_alsidereflex_(002).avif",
-                    "fileId": "688fa83a840b32b12d6c7014"
-                },
-                "doors-title": "Explore Alside's Door Types",
-                "grid-styles": 1,
-                "price-range": "$$–$$$",
-                "new-template": 1,
-                "twitter-card": "summary_large_image",
-                "window-types": [
-                    "688f75a456238a41af7d6895"
-                ],
-                "agent---about": "<p id=\"\">Alside has been a trusted name in exterior building products for over 75 years, delivering high-quality, energy-efficient windows and doors designed for real homes and real lifestyles. With a strong focus on vinyl innovation, Alside combines performance, durability, and aesthetic flexibility—offering solutions that meet the needs of homeowners, builders, and remodelers nationwide.</p><p id=\"\">Whether you're replacing aging windows or planning a new build, Alside products deliver lasting value with a wide range of styles to match your home's architecture and budget.</p><p id=\"\">Alside specializes in high-performance vinyl windows and doors, engineered to resist warping, cracking, and fading while providing excellent thermal insulation and long-term durability.</p><p id=\"\"><br>From the elegant Mezzo® Series to the cost-effective Fusion® and the performance-focused Sheffield® line, Alside offers window and door systems for every style, region, and budget.</p><p id=\"\">‍<br>Alside products feature advanced Low-E glass, multi-pane insulation, and precision-engineered frames to help reduce energy costs and keep indoor spaces comfortable year-round. Many models meet or exceed ENERGY STAR® standards.</p><p id=\"\">‍<br>Choose from a variety of frame colors, hardware finishes, grille patterns, and glass options to create a custom look that complements your home’s architecture.</p><p id=\"\">‍<br>Backed by limited lifetime warranties and manufactured in the U.S., Alside products are supported by a long-standing reputation for service, reliability, and customer satisfaction.</p>",
-                "animation-off": 0,
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/688373bdcc1ea7a05fb0f8c8_alside-mezzo-vinyl-replacement-window.avif",
-                    "fileId": "688373bdcc1ea7a05fb0f8c8"
-                },
-                "windowmaintype": "\"687e2e7430776dc4c9516a7d\"",
-                "windows-titles": "Explore Alside's Window Types",
-                "agent---excerpt": null,
-                "opengraph-image": "/webflow-assets/images/688a76851f0f6088a0c53667_Alside.avif",
-                "opengraph-title": "Alside Windows & Doors | Deluxe Windows Santa Clara",
-                "seo-description": "Alside windows and doors combine energy efficiency and durability for Bay Area homes. Explore Alside collections at Deluxe Windows in San Francisco. Free quotes available.",
-                "agent---username": null,
-                "tinted-glass-off": 1,
-                "agent---job-title": "a",
-                "doors-type-marvin": [
-                    "688f7631db6ff6c6f381b788"
-                ],
-                "agent---experience": null,
-                "energy-glass-is-off": 0,
-                "agent---avatar-photo": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/688a76851f0f6088a0c53667_Alside.avif",
-                    "fileId": "688a76851f0f6088a0c53667"
-                },
-                "obscure-glass-if-off": 0,
-                "opengraph-description": "Alside windows and doors combine energy efficiency and durability for Bay Area homes. Explore Alside collections at Deluxe Windows in San Francisco. Free quotes available.",
-                "standard-glass-is-big": 0,
-                "brand-feature-description-1": "Strong mainstream vinyl choice, wide availability, good price/performance",
-                "brand-feature-description-2": "ENERGY STAR options across vinyl lines (by series/region)",
-                "brand-feature-description-3": "Medium",
-                "brand-feature-description-4": "Publishes “Lifetime Limited Warranty” docs via warranty center",
-                "new-construction-replacement-categories": 1
-            }
+        "agent---about": "<p id=\"\">Simonton is one of America’s most trusted names in vinyl windows and doors, offering high-quality, energy-efficient products backed by decades of expertise. Founded in 1946, Simonton has built a strong reputation for combining durability, customization, and long-term value—all at an approachable price point.</p><p id=\"\">Whether you're building new or upgrading your home, Simonton products deliver the reliability and performance you expect—with design flexibility that fits your style.</p><p id=\"\"><br>Simonton focuses exclusively on vinyl, allowing them to perfect the material for strength, thermal performance, and low-maintenance durability—ideal for today’s homeowners.</p><p id=\"\">‍<br>From the premium Reflections® Series to the energy-smart DaylightMax™ and builder-friendly VantagePointe®, Simonton offers product lines for every budget, style, and region.</p><p id=\"\"><br>Many Simonton products are ENERGY STAR® certified and feature advanced Low-E glass, Argon gas fills, and multi-chambered frames to help reduce energy costs and improve home comfort.</p><p id=\"\"><br>With smooth operation, secure locking systems, and customizable options—from interior/exterior colors to hardware and grid styles—Simonton products are made to suit real homes and real needs.</p><p id=\"\"><br>Simonton stands behind its products with industry-leading limited lifetime warranties, giving you peace of mind and lasting confidence in your investment.</p>",
+        "agent---experience": null,
+        "agent---excerpt": "Lorem ipsum dolor sit amet consectetur fermentum eget fringilla egestas lorem.",
+        "agent---job-title": "Inmobiliary Agent",
+        "agent---username": "@willygreen",
+        "featured-image": {
+          "fileId": "688f9a58f78e47897841966a",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f9a58f78e47897841966a_sim_5500_interior_living_room_casement_awning_windows_maple_woodgrain_color_5050_module_p0.avif",
+          "alt": null
         },
-        {
-            "id": "6841ddf8ace3d9d9facb168f",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2024-03-06T18:23:41+00:00",
-            "lastUpdated": "2026-03-23T18:47:26+00:00",
-            "lastPublished": "2026-03-24T05:43:04+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Anlin",
-                "slug": "anlin",
-                "field": 1,
-                "order": "3.0000",
-                "field-2": 0,
-                "field-3": 1,
-                "field-4": 1,
-                "field-5": 0,
-                "logo-svg": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/6915c80af96503367881f15f_anlin2.svg",
-                    "fileId": "6915c80af96503367881f15f"
-                },
-                "materials": [
-                    "687e2e7430776dc4c9516a7d"
-                ],
-                "seo-title": "Anlin Windows | Deluxe Windows Mountain View",
-                "brand-logo": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/688fa893cfa0300d0c11d294_Anlin_logo.avif",
-                    "fileId": "688fa893cfa0300d0c11d294"
-                },
-                "doors-title": "Explore Anlin's Door Types",
-                "grid-styles": 1,
-                "price-range": "$$$–$$$$$",
-                "new-template": 1,
-                "twitter-card": "summary_large_image",
-                "window-types": [
-                    "688f4e5fb4f740bb5a80cfdf"
-                ],
-                "agent---about": "<p id=\"\">Anlin Windows &amp; Doors is a leading manufacturer of premium vinyl windows and doors, trusted by homeowners across the western United States. For over 30 years, Anlin has specialized in energy-efficient, durable, and beautifully designed products made specifically for climates in the West.</p><p id=\"\">With a focus on innovation, sustainability, and customer satisfaction, Anlin delivers performance you can feel—and quality you can trust.</p><p id=\"\">‍<br>Anlin windows and patio doors are engineered specifically for hot, sunny summers and coastal conditions. From triple-guard weather stripping to high-performance glass, every detail is built for your region.</p><p id=\"\"><br>With advanced features like Infinit-e® and QuadraTherm® insulated glass systems, Anlin products help reduce energy use, maintain indoor comfort, and lower utility bills—all year long.</p><p id=\"\"><br>Each Anlin product is manufactured in California with strict quality control and attention to detail. The brand is known for its reliability, fast lead times, and award-winning service.</p><p id=\"\"><br>Anlin offers one of the most comprehensive warranties in the industry—including parts, labor, and even accidental glass breakage—for total peace of mind.</p><p id=\"\"><br>Choose from a wide selection of frame colors, grid patterns, decorative glass, and hardware to match your home’s aesthetic. Anlin windows and doors are made to order—just for you.</p><p>From quiet-close sliding doors to energy-smart windows that block heat and UV rays, Anlin products are built for lasting beauty, comfort, and performance. Whether you’re upgrading for efficiency, style, or resale value, Anlin is a smart investment in your home’s future.</p>",
-                "animation-off": 0,
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/688f4e2574f51bd2d071b9d3_Anlin-Designer-Black-Living-Room.avif",
-                    "fileId": "688f4e2574f51bd2d071b9d3"
-                },
-                "windowmaintype": "\"687e2e7430776dc4c9516a7d\"",
-                "windows-titles": "Explore Anlin's Window Types",
-                "agent---excerpt": "Lorem ipsum dolor sit amet consectetur fermentum eget fringilla egestas lorem.",
-                "opengraph-image": "/webflow-assets/images/688a76b7e94512a795b803e9_Anlin.avif",
-                "opengraph-title": "Anlin Windows | Deluxe Windows Mountain View",
-                "seo-description": "Anlin windows are California-made for Bay Area climates. Exceptional energy performance and craftsmanship — explore all Anlin series at Deluxe Windows in San Francisco.",
-                "agent---username": "@willygreen",
-                "tinted-glass-off": 1,
-                "agent---job-title": "Inmobiliary Agent",
-                "doors-type-marvin": [
-                    "688f4fcb2dc3f0cdb3083c62"
-                ],
-                "agent---experience": null,
-                "energy-glass-is-off": 0,
-                "agent---avatar-photo": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/688a76b7e94512a795b803e9_Anlin.avif",
-                    "fileId": "688a76b7e94512a795b803e9"
-                },
-                "obscure-glass-if-off": 0,
-                "opengraph-description": "Anlin windows are California-made for Bay Area climates. Exceptional energy performance and craftsmanship — explore all Anlin series at Deluxe Windows in San Francisco.",
-                "standard-glass-is-big": 1,
-                "brand-feature-description-1": "Very strong warranty + comfort performance; popular in replacement market",
-                "brand-feature-description-2": "ENERGY STAR-focused replacement windows; Low-E packages",
-                "brand-feature-description-3": "High (with upgraded IGUs + tight weatherstripping)",
-                "brand-feature-description-4": "Transferable limited warranties (Owner-to-Owner)",
-                "new-construction-replacement-categories": 0
-            }
-        }
-    ]
+        "doors-type-marvin": [
+          "688f747b77aae2a0fdee2b43"
+        ],
+        "window-types": [
+          "688f73cc7ee8cd948782bc6b"
+        ],
+        "windows-titles": "Explore Simonton's Window Types",
+        "doors-title": "Explore Simonton's Door Types",
+        "brand-logo": {
+          "fileId": "688fa9b2abcb5db8c534bc8a",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688fa9b2abcb5db8c534bc8a_Simonton_PrimaryLogo_Inline_RGB_Gradient_0822-1.avif",
+          "alt": null
+        },
+        "logo-svg": {
+          "fileId": "6915aa3a24afaaa0a93dd455",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6915aa3a24afaaa0a93dd455_Simonton_PrimaryLogo_Inline_RGB_Gradient_0822-1-2048x427.avif",
+          "alt": null
+        },
+        "order": 9,
+        "materials": [
+          "687e2e7430776dc4c9516a7d"
+        ],
+        "new-template": true,
+        "animation-off": false,
+        "grid-styles": true,
+        "tinted-glass-off": true,
+        "standard-glass-is-big": false,
+        "obscure-glass-if-off": true,
+        "energy-glass-is-off": false,
+        "new-construction-replacement-categories": true,
+        "brand-feature-description-1": "Strong value in vinyl replacement/new construction, broad dealer network",
+        "brand-feature-description-2": "ENERGY STAR vinyl lines (series-dependent)",
+        "brand-feature-description-3": "Medium (acoustic upgrades available)",
+        "brand-feature-description-4": "Limited Lifetime Warranty (current warranty set is series/date dependent)",
+        "price-range": "$$",
+        "field": false,
+        "field-2": true,
+        "field-3": false,
+        "field-4": false,
+        "field-5": false,
+        "windowmaintype": "687e2e7430776dc4c9516a7d",
+        "seo-title": "Simonton Windows | Deluxe Windows San Mateo",
+        "seo-description": "Simonton windows are designed for performance and affordability for Bay Area homes. Explore all Simonton series at Deluxe Windows in San Francisco. Request a free quote.",
+        "opengraph-title": "Simonton Windows | Deluxe Windows San Mateo",
+        "opengraph-description": "Simonton windows are designed for performance and affordability for Bay Area homes. Explore all Simonton series at Deluxe Windows in San Francisco. Request a free quote.",
+        "opengraph-image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a74bb9c532933d19231ea_Simonton.avif",
+        "twitter-card": "summary_large_image",
+        "name": "Simonton",
+        "slug": "simonton"
+      }
+    },
+    {
+      "id": "6851144119c25a3a1af52024",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-06-17T07:07:45.003Z",
+      "lastUpdated": "2026-03-23T18:47:26.182Z",
+      "lastPublished": "2026-03-24T05:43:04.253Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "agent---avatar-photo": {
+          "fileId": "688a751848f910d5ccb0bd34",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a751848f910d5ccb0bd34_Jeld%20Wen.avif",
+          "alt": null
+        },
+        "agent---about": "<p id=\"\">JELD-WEN is a global leader in reliable, beautifully crafted windows and doors. With a legacy dating back to 1960, JELD-WEN combines timeless design with cutting-edge technology to create products that elevate both form and function in every home.</p><p id=\"\">From new construction to renovations and replacements, JELD-WEN offers versatile solutions that meet high standards for style, performance, and energy efficiency.</p><h3 id=\"\">Why Choose Jeld-Wen?</h3><p id=\"\">ELD-WEN is known for pushing boundaries in design and material innovation. Their products are engineered for durability, energy savings, and everyday use, offering homeowners peace of mind for years to come.</p><p id=\"\">‍<br>Whether you’re looking for wood, vinyl, aluminum, or composite, JELD-WEN delivers a wide array of window and door options to match any architectural style—from traditional to modern.</p><p id=\"\">‍<br>Equipped with advanced glass options and smart insulation, JELD-WEN windows and doors help reduce energy costs and improve interior comfort in any climate.</p><p id=\"\">‍<br>Contractors, builders, and architects trust JELD-WEN for consistent quality, design flexibility, and reliable performance on every project.</p><p id=\"\">‍<br>JELD-WEN maintains manufacturing locations across North America to ensure quality control and responsive service while supporting local communities.</p>",
+        "agent---experience": null,
+        "agent---excerpt": "Lorem ipsum dolor sit amet consectetur fermentum eget fringilla egestas lorem.",
+        "agent---job-title": "Inmobiliary Agent",
+        "agent---username": "@willygreen",
+        "featured-image": {
+          "fileId": "688f3b9ab4f740bb5a7e117f",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f3b9ab4f740bb5a7e117f_jeld_wen_interior_hero_shot.avif",
+          "alt": null
+        },
+        "doors-type-marvin": [
+          "688f49addb6ff6c6f37a9070",
+          "688f4b897b8a5a98daca335d",
+          "688f4c6e1a0ed5d49e12a143"
+        ],
+        "window-types": [
+          "688f4528093a5e635afef8f1",
+          "688f47735b754890a2c02110",
+          "688f48f88c03f7dbc7af37cd"
+        ],
+        "windows-titles": "Explore Jeld-Wen Window Types",
+        "doors-title": "Explore Jeld-Wen Door Types",
+        "brand-logo": {
+          "fileId": "688fa92fd641b90f258ee3ff",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688fa92fd641b90f258ee3ff_JELD_BIG-7d4f41f9.avif",
+          "alt": null
+        },
+        "logo-svg": {
+          "fileId": "6915aa60264a3c99f69524c6",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6915aa60264a3c99f69524c6_jv.svg",
+          "alt": null
+        },
+        "order": 4,
+        "materials": [
+          "687e2e7430776dc4c9516a7d",
+          "687e2e6794d6def819453d2c",
+          "687e2e02aec6e5ed0f12e444"
+        ],
+        "new-template": true,
+        "animation-off": true,
+        "grid-styles": false,
+        "tinted-glass-off": false,
+        "standard-glass-is-big": false,
+        "obscure-glass-if-off": false,
+        "energy-glass-is-off": false,
+        "new-construction-replacement-categories": false,
+        "brand-feature-description-1": "Huge assortment, widely available, builder + retail channels",
+        "brand-feature-description-2": "Broad ENERGY STAR offerings (varies by region/series)",
+        "brand-feature-description-3": "Medium (upgrades available)",
+        "brand-feature-description-4": "Vinyl windows commonly come with a Limited Lifetime Warranty (by product line)",
+        "price-range": "$–$$$",
+        "field": false,
+        "field-2": true,
+        "field-3": true,
+        "field-4": false,
+        "field-5": true,
+        "windowmaintype": "687e2e7430776dc4c9516a7d",
+        "seo-title": "Jeld-Wen Windows & Doors | Deluxe Windows Oakland",
+        "seo-description": "Jeld-Wen offers one of the widest window and door selections for Bay Area homeowners. Explore all Jeld-Wen styles at Deluxe Windows in San Francisco. Free estimates.",
+        "opengraph-title": "Jeld-Wen Windows & Doors | Deluxe Windows Oakland",
+        "opengraph-description": "Jeld-Wen offers one of the widest window and door selections for Bay Area homeowners. Explore all Jeld-Wen styles at Deluxe Windows in San Francisco. Free estimates.",
+        "opengraph-image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a751848f910d5ccb0bd34_Jeld%20Wen.avif",
+        "twitter-card": "summary_large_image",
+        "name": "Jeld-Wen",
+        "slug": "jeld-wen"
+      }
+    },
+    {
+      "id": "685114315a60cc8b388e5af2",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-06-17T07:07:29.942Z",
+      "lastUpdated": "2026-03-23T18:47:26.157Z",
+      "lastPublished": "2026-03-24T05:43:04.253Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "agent---avatar-photo": {
+          "fileId": "688a756ee649c541284c8b78",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a756ee649c541284c8b78_Plygem.avif",
+          "alt": null
+        },
+        "agent---about": "<p id=\"\">Ply Gem is one of North America's leading manufacturers of exterior building products, known for delivering high-quality, energy-efficient windows and doors designed for real homes and real lifestyles. With decades of industry experience, Ply Gem combines innovation, durability, and affordability—offering solutions that work for every budget and architectural style.</p><p id=\"\">From new construction to replacement projects, Ply Gem delivers the performance homeowners expect and the design flexibility builders need.</p><p>‍<br>Ply Gem offers a broad range of windows and doors in multiple materials—including vinyl, aluminum-clad wood, aluminum, and composite—giving you flexible options for every home style and price point.</p><p id=\"\"><br>Whether you’re in a harsh winter climate or a sun-soaked region, Ply Gem windows and doors are engineered for durability, thermal efficiency, and long-term reliability.</p><p id=\"\"><br>Many Ply Gem products are ENERGY STAR® certified and include advanced features like Low-E glass, Argon gas fills, and multi-chambered frames to improve insulation and lower energy costs.</p><p id=\"\"><br>Choose from a wide variety of frame colors, grille patterns, hardware styles, and glass options to customize your windows and doors to suit your home’s architecture.</p><p id=\"\"><br>With a strong presence in residential markets across the U.S. and Canada, Ply Gem is a trusted brand for homeowners, builders, remodelers, and architects alike.</p>",
+        "agent---experience": null,
+        "agent---excerpt": "Lorem ipsum dolor sit amet consectetur fermentum eget fringilla egestas lorem.",
+        "agent---job-title": "Inmobiliary Agent",
+        "agent---username": "@willygreen",
+        "featured-image": {
+          "fileId": "688f6a02840b32b12d62a06f",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f6a02840b32b12d62a06f_NEWS_190295264_AR_0_ADPQPGJUZVQR.avif",
+          "alt": null
+        },
+        "doors-type-marvin": [
+          "688f6baa95c8dca30a915e1e",
+          "688f6bf4095ccc71f010754a"
+        ],
+        "window-types": [
+          "688f6a37a2c26923a1f7044d",
+          "688f6b001b753e55d69f8c62",
+          "695d405d2c1f62bdda7b0535"
+        ],
+        "windows-titles": "Explore Ply Gem's Window Types",
+        "doors-title": "Explore Ply Gem's Door Types",
+        "brand-logo": {
+          "fileId": "688fa998437cf47518899298",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688fa998437cf47518899298_plygem_brands_and_solutions_logo.avif",
+          "alt": null
+        },
+        "logo-svg": {
+          "fileId": "6915aa80238022f9197f6973",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6915aa80238022f9197f6973_pl.svg",
+          "alt": null
+        },
+        "order": 11,
+        "materials": [
+          "687e2df1becb2cac84f31e6c",
+          "687e2e7430776dc4c9516a7d",
+          "695d3f04cb2a2d98b5648361"
+        ],
+        "new-template": true,
+        "animation-off": false,
+        "grid-styles": true,
+        "tinted-glass-off": true,
+        "standard-glass-is-big": true,
+        "obscure-glass-if-off": true,
+        "energy-glass-is-off": true,
+        "new-construction-replacement-categories": false,
+        "brand-feature-description-1": "Mass-market availability, lots of standard vinyl options, builder-friendly",
+        "brand-feature-description-2": "Vinyl windows with ENERGY STAR configurations (by series/region)",
+        "brand-feature-description-3": "Medium",
+        "brand-feature-description-4": "Warranty program varies by product line; warranty hub + documents provided",
+        "price-range": "$–$$",
+        "field": false,
+        "field-2": true,
+        "field-3": false,
+        "field-4": false,
+        "field-5": true,
+        "windowmaintype": "687e2e7430776dc4c9516a7d",
+        "seo-title": "Ply Gem Windows & Doors | Deluxe Windows Hayward",
+        "seo-description": "Ply Gem windows deliver value and variety for Bay Area homeowners. Explore vinyl, aluminum, and specialty styles at Deluxe Windows in San Francisco. Free estimates.",
+        "opengraph-title": "Ply Gem Windows & Doors | Deluxe Windows Hayward",
+        "opengraph-description": "Ply Gem windows deliver value and variety for Bay Area homeowners. Explore vinyl, aluminum, and specialty styles at Deluxe Windows in San Francisco. Free estimates.",
+        "opengraph-image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a756ee649c541284c8b78_Plygem.avif",
+        "twitter-card": "summary_large_image",
+        "name": "Ply Gem",
+        "slug": "ply-gem"
+      }
+    },
+    {
+      "id": "685113b74203b28e29c1e7fb",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-06-17T07:05:27.160Z",
+      "lastUpdated": "2026-03-23T18:47:26.125Z",
+      "lastPublished": "2026-03-24T05:43:04.253Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "agent---avatar-photo": {
+          "fileId": "688a75a9f58dabd4b2642bc5",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a75a9f58dabd4b2642bc5_Andersen.avif",
+          "alt": null
+        },
+        "agent---about": "<p id=\"\">For over 120 years, Andersen has been a leading name in windows and doors—synonymous with innovation, craftsmanship, and long-term value. With a strong focus on performance, sustainability, and design versatility, Andersen offers solutions for every style of home, from classic to contemporary.</p><p id=\"\">Andersen is one of the most recommended and recognized brands in the industry, trusted by architects, builders, and homeowners across North America.</p><p id=\"\">Since 1903, Andersen has built a reputation for durable, high-performing products backed by rigorous testing and a commitment to continual innovation.</p><p id=\"\">‍<br>Andersen offers a range of product series—including 100, 200, 400, A-Series, and E-Series—each with its own blend of materials, customization options, and performance features to match any project or budget.</p><p id=\"\">‍<br>From Fibrex® composite to natural wood, aluminum-clad exteriors, and vinyl options, Andersen provides advanced materials engineered for beauty, strength, and sustainability.</p><p id=\"\">‍<br>Andersen windows and doors meet or exceed ENERGY STAR® standards. The company is a leader in sustainable manufacturing and uses recycled content in many of its products.</p><p id=\"\"><br>Choose from a wide variety of styles, finishes, grille patterns, hardware, and glass options to create windows and doors that reflect your home's unique character.</p><p id=\"\"><br>Backed by robust warranties and supported by an extensive network of certified dealers and service providers, Andersen offers reliability you can count on for decades.</p>",
+        "agent---experience": null,
+        "agent---excerpt": "Lorem ipsum dolor sit amet consectetur fermentum eget fringilla egestas lorem.",
+        "agent---job-title": "Inmobiliary Agent",
+        "agent---username": "@willygreen",
+        "featured-image": {
+          "fileId": "688f63745c42389784f01a8d",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f63745c42389784f01a8d_hero-home-scaled.avif",
+          "alt": null
+        },
+        "doors-type-marvin": [
+          "688f66d3f24d1d187562ec0b",
+          "688f6742bd0ae55140eaa0dc",
+          "688f67a4cc4164bdc33ec99d"
+        ],
+        "window-types": [
+          "688f63aaf86eae615646c1d8",
+          "688f65197b5142ce52811ce2",
+          "688f657a5e769be614ba0e05",
+          "688f65eb4367c4fcf97310bc"
+        ],
+        "windows-titles": "Explore Andersen's Window Types",
+        "doors-title": "Explore Andersen's Door Types",
+        "brand-logo": {
+          "fileId": "688fa874a82abb168b2d1124",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688fa874a82abb168b2d1124_Andersen_Corporation_logo.svg",
+          "alt": null
+        },
+        "logo-svg": {
+          "fileId": "6915aaaa3027924fb18fb47c",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6915aaaa3027924fb18fb47c_andersen_logo_tm_rectangle_rgb.svg",
+          "alt": null
+        },
+        "order": 5,
+        "materials": [
+          "687e2df1becb2cac84f31e6c",
+          "687e2e4dca4f25a7f5db9fa8",
+          "687e2e7430776dc4c9516a7d",
+          "687e2e02aec6e5ed0f12e444"
+        ],
+        "new-template": true,
+        "animation-off": false,
+        "grid-styles": true,
+        "tinted-glass-off": true,
+        "standard-glass-is-big": true,
+        "obscure-glass-if-off": false,
+        "energy-glass-is-off": false,
+        "new-construction-replacement-categories": false,
+        "brand-feature-description-1": "Strong brand, broad lineup, composite options (Fibrex in 100 Series), premium finish quality",
+        "brand-feature-description-2": "ENERGY STAR options; triple-pane available in select lines",
+        "brand-feature-description-3": "High (with upgraded IGUs + tight weatherstripping)",
+        "brand-feature-description-4": "Transferable limited warranties (Owner-to-Owner)",
+        "price-range": "$$$–$$$$$",
+        "field": true,
+        "field-2": false,
+        "field-3": true,
+        "field-4": true,
+        "field-5": false,
+        "windowmaintype": "687e2e7430776dc4c9516a7d",
+        "seo-title": "Andersen Windows & Doors | Deluxe Windows Sunnyvale",
+        "seo-description": "Andersen — America's most trusted window brand. Explore the full Andersen lineup at Deluxe Windows in San Francisco. Bay Area installation experts. Free estimates.",
+        "opengraph-title": "Andersen Windows & Doors | Deluxe Windows Sunnyvale",
+        "opengraph-description": "Andersen — America's most trusted window brand. Explore the full Andersen lineup at Deluxe Windows in San Francisco. Bay Area installation experts. Free estimates.",
+        "opengraph-image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a75a9f58dabd4b2642bc5_Andersen.avif",
+        "twitter-card": "summary_large_image",
+        "name": "Andersen",
+        "slug": "andersen"
+      }
+    },
+    {
+      "id": "6841ddf8ace3d9d9facb16a0",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2024-03-06T18:27:51.505Z",
+      "lastUpdated": "2026-05-18T17:22:10.261Z",
+      "lastPublished": "2026-05-18T17:22:22.476Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "agent---avatar-photo": {
+          "fileId": "688a75debadab986e83c4dc4",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a75debadab986e83c4dc4_Marvin.avif",
+          "alt": null
+        },
+        "agent---about": "<p id=\"\">Marvin is a leading manufacturer of premium windows and doors, renowned for its commitment to craftsmanship, innovation, and design. With over a century of experience, Marvin blends time-tested techniques with cutting-edge technology to create products that not only perform beautifully but also elevate the spaces they’re in.</p><p id=\"\">Each Marvin window is designed with precision, offering unmatched quality, energy efficiency, and architectural appeal. Whether you're building a new home, remodeling, or restoring a historic property, Marvin provides a wide range of styles, materials, and customization options to suit any vision.</p><p id=\"\">Driven by a deep belief in the power of design to transform how people live and interact with their environments, Marvin continues to set the standard for durability, beauty, and performance.</p>",
+        "agent---experience": "<ul id=\"\"><li id=\"\">Design Flexibility – A wide range of styles, materials, and custom options for any project.</li><li id=\"\">Energy Efficiency – Excellent insulation and weather resistance for year-round comfort and savings. </li><li id=\"\">Craftsmanship – Precision-built for durability, beauty, and long-term performance.</li><li id=\"\">Sustainable Materials – From wood to fiberglass, made with the environment in mind.</li><li id=\"\">Innovation – Smart features and expansive designs that push home design forward.</li></ul><figure id=\"\" class=\"w-richtext-figure-type-image w-richtext-align-fullwidth\" style=\"max-width:1920px\" data-rt-type=\"image\" data-rt-align=\"fullwidth\" data-rt-max-width=\"1920px\"><div id=\"\"><img id=\"\" alt=\"__wf_reserved_inherit\" src=\"https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684dc922ef6aa7e85c4b4b0f_filters_quality(100)_fill(transparent)%20(8).avif\" width=\"auto\" height=\"auto\" loading=\"lazy\"></div></figure>",
+        "agent---excerpt": "Marvin",
+        "agent---job-title": "marvin",
+        "agent---username": null,
+        "featured-image": {
+          "fileId": "6884f731d80ad45f0e5ba3a5",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6884f731d80ad45f0e5ba3a5_types_of_windows_marvin_canada.avif",
+          "alt": null
+        },
+        "doors-type-marvin": [
+          "688efa4b6351ef2cf4a1ebb6",
+          "688efd40508cf8d87a1fd1a5",
+          "688efca068bfe5b6f25c45fa"
+        ],
+        "window-types": [
+          "688e543574f51bd2d0555713",
+          "688e507f216ead3a8b3d05fa",
+          "688e535ccafb9a935e538050"
+        ],
+        "windows-titles": "Explore Marvin’s Window Types",
+        "doors-title": "Explore Marvin’s Door Types",
+        "brand-logo": {
+          "fileId": "688fa94f9dc2bb9ca5e23cb8",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688fa94f9dc2bb9ca5e23cb8_logo-SignatureSeriesByMarvin.avif",
+          "alt": null
+        },
+        "logo-svg": {
+          "fileId": "6915aaca08003de3e1e57018",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6915aaca08003de3e1e57018_marvin-logo-black.svg",
+          "alt": null
+        },
+        "order": 1,
+        "materials": [
+          "687e2df1becb2cac84f31e6c",
+          "687e2e4dca4f25a7f5db9fa8",
+          "687e2e02aec6e5ed0f12e444"
+        ],
+        "new-template": true,
+        "animation-off": false,
+        "grid-styles": false,
+        "tinted-glass-off": false,
+        "standard-glass-is-big": false,
+        "obscure-glass-if-off": false,
+        "energy-glass-is-off": false,
+        "new-construction-replacement-categories": false,
+        "brand-feature-description-1": "Premium architectural product lines, design flexibility",
+        "brand-feature-description-2": "High-performance glass options; triple-pane available in some collections",
+        "brand-feature-description-3": "High (especially with upgraded glass packages)",
+        "brand-feature-description-4": "Limited warranty that is fully transferable",
+        "price-range": "$$$$–$$$$$",
+        "field": true,
+        "field-2": false,
+        "field-3": false,
+        "field-4": true,
+        "field-5": false,
+        "windowmaintype": "6a0b48ebc4591403cdd004db",
+        "seo-title": "Marvin Windows & Doors | Deluxe Windows Berkeley",
+        "seo-description": "Marvin's handcrafted windows and doors are designed to inspire Bay Area homeowners. Explore all Marvin collections at Deluxe Windows in San Francisco. Free estimates.",
+        "opengraph-title": "Marvin Windows & Doors | Deluxe Windows Berkeley",
+        "opengraph-description": "Marvin's handcrafted windows and doors are designed to inspire Bay Area homeowners. Explore all Marvin collections at Deluxe Windows in San Francisco. Free estimates.",
+        "opengraph-image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a75debadab986e83c4dc4_Marvin.avif",
+        "twitter-card": "summary_large_image",
+        "name": "Marvin",
+        "slug": "marvin"
+      }
+    },
+    {
+      "id": "6841ddf8ace3d9d9facb169f",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2024-03-06T18:27:17.396Z",
+      "lastUpdated": "2026-03-23T18:47:26.116Z",
+      "lastPublished": "2026-03-24T05:43:04.253Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "agent---avatar-photo": {
+          "fileId": "688a760a252df50b4cbf9cd7",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a760a252df50b4cbf9cd7_Milgard.avif",
+          "alt": null
+        },
+        "agent---about": "<p id=\"\">For over 60 years, Milgard has been one of the most recognized and trusted names in the window and door industry. Built on a commitment to quality, performance, and timeless design, Milgard offers a full range of windows and patio doors that meet the needs of homeowners, builders, and architects alike.</p><p id=\"\">Whether you're building new, remodeling, or replacing, Milgard products are designed to enhance your home’s comfort, energy efficiency, and curb appeal.</p><p>‍</p><h3 id=\"\">Why Choose Milgard?</h3><p id=\"\"><br>Milgard windows and doors are crafted with precision and tested to meet rigorous standards. From scorching summers to freezing winters, Milgard products are made to handle your climate with ease.</p><p id=\"\"><br>Milgard has earned numerous accolades for its innovative designs, customer satisfaction, and high-performance materials. Each product is backed by industry-leading warranties for added peace of mind.</p><p id=\"\"><br>With manufacturing facilities across the western United States, Milgard ensures consistent quality and shorter lead times. Every window and door is custom-made to order.</p><p id=\"\"><br>From classic wood interiors to low-maintenance vinyl, energy-efficient fiberglass, and durable aluminum frames—Milgard offers a style and material to match every home and budget.</p><p id=\"\"><br>Milgard integrates advanced technologies like SunCoat® Low-E glass and SmartTouch® locks to deliver comfort, security, and savings on energy bills.</p>",
+        "agent---experience": null,
+        "agent---excerpt": "Lorem ipsum dolor sit amet consectetur fermentum eget fringilla egestas lorem.",
+        "agent---job-title": "Inmobiliary Agent",
+        "agent---username": "@sophiemoore",
+        "featured-image": {
+          "fileId": "688f2b177b5142ce52781faa",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f2b177b5142ce52781faa_Series_TIA2.avif",
+          "alt": null
+        },
+        "doors-type-marvin": [
+          "688f320cf077e8f6387edf9d",
+          "688f32d43dce1d45ad637326",
+          "688f338b14a2a015105ce709"
+        ],
+        "window-types": [
+          "688f2ecbd67e1da9f77cde4f",
+          "688f30c0157b70cefca86383",
+          "688f3164095ccc71f0076129"
+        ],
+        "windows-titles": "Explore Milgard's Window Types",
+        "doors-title": "Explore Milgard's Door Types",
+        "brand-logo": {
+          "fileId": "688fa979f24d1d18756e27f6",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688fa979f24d1d18756e27f6_Milgard_WD_Logo_full-color-for-white-background-ads-low-res-file-2048x535.avif",
+          "alt": null
+        },
+        "logo-svg": {
+          "fileId": "6915aaea85f921adbca8a4e7",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6915aaea85f921adbca8a4e7_milgard.svg",
+          "alt": null
+        },
+        "order": 2,
+        "materials": [
+          "687e2df1becb2cac84f31e6c",
+          "687e2e4dca4f25a7f5db9fa8",
+          "687e2e7430776dc4c9516a7d"
+        ],
+        "new-template": true,
+        "animation-off": false,
+        "grid-styles": true,
+        "tinted-glass-off": false,
+        "standard-glass-is-big": false,
+        "obscure-glass-if-off": false,
+        "energy-glass-is-off": false,
+        "new-construction-replacement-categories": false,
+        "brand-feature-description-1": "Solid value for the quality tier, strong service footprint in many regions",
+        "brand-feature-description-2": "ENERGY STAR options across lines; Low-E + gas fills common",
+        "brand-feature-description-3": "Medium–High (depends heavily on glass package)",
+        "brand-feature-description-4": "Lifetime Limited Warranty for original owner (owner-occupied)",
+        "price-range": "$$–$$$",
+        "field": false,
+        "field-2": true,
+        "field-3": true,
+        "field-4": false,
+        "field-5": false,
+        "windowmaintype": "687e2e7430776dc4c9516a7d",
+        "seo-title": "Milgard Windows & Doors | Deluxe Windows Fremont",
+        "seo-description": "Milgard is a Pacific Coast favorite — built for Bay Area climates with lifetime warranties. Explore the full Milgard lineup at Deluxe Windows in San Francisco. Free quotes.",
+        "opengraph-title": "Milgard Windows & Doors | Deluxe Windows Fremont",
+        "opengraph-description": "Milgard is a Pacific Coast favorite — built for Bay Area climates with lifetime warranties. Explore the full Milgard lineup at Deluxe Windows in San Francisco. Free quotes.",
+        "opengraph-image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a760a252df50b4cbf9cd7_Milgard.avif",
+        "twitter-card": "summary_large_image",
+        "name": "Milgard",
+        "slug": "milgard"
+      }
+    },
+    {
+      "id": "6841ddf8ace3d9d9facb169d",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2024-03-06T18:26:08.140Z",
+      "lastUpdated": "2026-03-23T18:47:26.030Z",
+      "lastPublished": "2026-03-24T05:43:04.253Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "agent---avatar-photo": {
+          "fileId": "688a763de94512a795b7d492",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a763de94512a795b7d492_Western%20Window%20Systems.avif",
+          "alt": null
+        },
+        "agent---about": "<p id=\"\">Western Window Systems is a leader in high-performance, architecturally inspired windows and doors—designed to blur the line between indoor and outdoor living. Founded in Phoenix, Arizona, and built for modern lifestyles, Western Window Systems combines clean aesthetics, structural innovation, and expansive glass to transform residential and commercial spaces.</p><p id=\"\">With a focus on customization, energy efficiency, and large-scale openings, Western Window Systems products are trusted by architects, builders, and homeowners across North America.<br>‍<br>Western Window Systems specializes in oversized windows and doors that maximize natural light, views, and spatial flow—perfect for modern, open-concept architecture.<br>‍<br>Designed in the desert and tested in extreme conditions, their products deliver year-round performance with thermally broken aluminum, energy-efficient glass, and durable finishes.<br>‍<br>Narrow sightlines, flush tracks, and clean profiles make Western Window Systems ideal for contemporary designs where simplicity and transparency matter.<br>‍<br>Choose from a wide variety of sizes, finishes, hardware, glass types, and configurations—sliding, bi-folding, stacking, pivot, and more—to tailor the perfect solution for your space.<br>‍<br>With robust materials and precision manufacturing, these systems are built to meet both residential and commercial performance requirements—backed by excellent warranty coverage and service.</p>",
+        "agent---experience": null,
+        "agent---excerpt": "Lorem ipsum dolor sit amet consectetur fermentum eget fringilla egestas lorem.",
+        "agent---job-title": "Inmobiliary Agent",
+        "agent---username": "@dylansmith",
+        "featured-image": {
+          "fileId": "688f76ed0d7d3716ecfeef81",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f76ed0d7d3716ecfeef81_Window-1024x683-1.avif",
+          "alt": null
+        },
+        "doors-type-marvin": [
+          "688f77cdda098b599dffca19"
+        ],
+        "window-types": [
+          "688f7766e5f7ea510616eddd"
+        ],
+        "windows-titles": "Explore Western Window Systems’s Window Types",
+        "doors-title": "Explore Western Window Systems’s Door Types",
+        "brand-logo": {
+          "fileId": "688fa9c9c13418f046dd2f63",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688fa9c9c13418f046dd2f63_MITER-WWS-R-Horizontal-4C.webp",
+          "alt": null
+        },
+        "logo-svg": {
+          "fileId": "6915b390bad100b6e6176ea7",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6915b390bad100b6e6176ea7_westerngroup.svg",
+          "alt": null
+        },
+        "order": 7,
+        "materials": [
+          "687e2df1becb2cac84f31e6c"
+        ],
+        "new-template": true,
+        "animation-off": false,
+        "grid-styles": false,
+        "tinted-glass-off": false,
+        "standard-glass-is-big": false,
+        "obscure-glass-if-off": false,
+        "energy-glass-is-off": false,
+        "new-construction-replacement-categories": false,
+        "brand-feature-description-1": "Luxury modern architecture, huge openings (multi-slide, window walls), minimal sightlines",
+        "brand-feature-description-2": "Thermally-broken aluminum options aimed at improving energy performance",
+        "brand-feature-description-3": "Medium (can be high with acoustic glass builds)",
+        "brand-feature-description-4": "Limited lifetime transferable warranty",
+        "price-range": "$$$$–$$$$$",
+        "field": true,
+        "field-2": false,
+        "field-3": false,
+        "field-4": true,
+        "field-5": false,
+        "windowmaintype": "687e2df1becb2cac84f31e6c",
+        "seo-title": "Western Window Systems | Deluxe Windows Redwood City",
+        "seo-description": "Western Window Systems specializes in modern aluminum windows for Bay Area homes. Explore multi-slide and panoramic options at Deluxe Windows in San Francisco. Free estimates.",
+        "opengraph-title": "Western Window Systems | Deluxe Windows Redwood City",
+        "opengraph-description": "Western Window Systems specializes in modern aluminum windows for Bay Area homes. Explore multi-slide and panoramic options at Deluxe Windows in San Francisco. Free estimates.",
+        "opengraph-image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a763de94512a795b7d492_Western%20Window%20Systems.avif",
+        "twitter-card": "summary_large_image",
+        "name": "Western Window Systems",
+        "slug": "western-window-systems"
+      }
+    },
+    {
+      "id": "6841ddf8ace3d9d9facb1690",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2024-03-06T18:25:08.403Z",
+      "lastUpdated": "2026-03-23T18:47:26.228Z",
+      "lastPublished": "2026-03-24T05:43:04.253Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "agent---avatar-photo": {
+          "fileId": "688a76851f0f6088a0c53667",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a76851f0f6088a0c53667_Alside.avif",
+          "alt": null
+        },
+        "agent---about": "<p id=\"\">Alside has been a trusted name in exterior building products for over 75 years, delivering high-quality, energy-efficient windows and doors designed for real homes and real lifestyles. With a strong focus on vinyl innovation, Alside combines performance, durability, and aesthetic flexibility—offering solutions that meet the needs of homeowners, builders, and remodelers nationwide.</p><p id=\"\">Whether you're replacing aging windows or planning a new build, Alside products deliver lasting value with a wide range of styles to match your home's architecture and budget.</p><p id=\"\">Alside specializes in high-performance vinyl windows and doors, engineered to resist warping, cracking, and fading while providing excellent thermal insulation and long-term durability.</p><p id=\"\"><br>From the elegant Mezzo® Series to the cost-effective Fusion® and the performance-focused Sheffield® line, Alside offers window and door systems for every style, region, and budget.</p><p id=\"\">‍<br>Alside products feature advanced Low-E glass, multi-pane insulation, and precision-engineered frames to help reduce energy costs and keep indoor spaces comfortable year-round. Many models meet or exceed ENERGY STAR® standards.</p><p id=\"\">‍<br>Choose from a variety of frame colors, hardware finishes, grille patterns, and glass options to create a custom look that complements your home’s architecture.</p><p id=\"\">‍<br>Backed by limited lifetime warranties and manufactured in the U.S., Alside products are supported by a long-standing reputation for service, reliability, and customer satisfaction.</p>",
+        "agent---experience": null,
+        "agent---excerpt": null,
+        "agent---job-title": "a",
+        "agent---username": null,
+        "featured-image": {
+          "fileId": "688373bdcc1ea7a05fb0f8c8",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688373bdcc1ea7a05fb0f8c8_alside-mezzo-vinyl-replacement-window.avif",
+          "alt": null
+        },
+        "doors-type-marvin": [
+          "688f7631db6ff6c6f381b788"
+        ],
+        "window-types": [
+          "688f75a456238a41af7d6895"
+        ],
+        "windows-titles": "Explore Alside's Window Types",
+        "doors-title": "Explore Alside's Door Types",
+        "brand-logo": {
+          "fileId": "688fa83a840b32b12d6c7014",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688fa83a840b32b12d6c7014_alsidereflex_(002).avif",
+          "alt": null
+        },
+        "logo-svg": {
+          "fileId": "6915b29da8bcdcb16ec593b6",
+          "url": "/webflow-assets/images/6915b29da8bcdcb16ec593b6_alside-logo.svg",
+          "alt": null
+        },
+        "order": 8,
+        "materials": [
+          "687e2e7430776dc4c9516a7d"
+        ],
+        "new-template": true,
+        "animation-off": false,
+        "grid-styles": true,
+        "tinted-glass-off": true,
+        "standard-glass-is-big": false,
+        "obscure-glass-if-off": false,
+        "energy-glass-is-off": false,
+        "new-construction-replacement-categories": true,
+        "brand-feature-description-1": "Strong mainstream vinyl choice, wide availability, good price/performance",
+        "brand-feature-description-2": "ENERGY STAR options across vinyl lines (by series/region)",
+        "brand-feature-description-3": "Medium",
+        "brand-feature-description-4": "Publishes “Lifetime Limited Warranty” docs via warranty center",
+        "price-range": "$$–$$$",
+        "field": false,
+        "field-2": true,
+        "field-3": true,
+        "field-4": false,
+        "field-5": false,
+        "windowmaintype": "687e2e7430776dc4c9516a7d",
+        "seo-title": "Alside Windows & Doors | Deluxe Windows Santa Clara",
+        "seo-description": "Alside windows and doors combine energy efficiency and durability for Bay Area homes. Explore Alside collections at Deluxe Windows in San Francisco. Free quotes available.",
+        "opengraph-title": "Alside Windows & Doors | Deluxe Windows Santa Clara",
+        "opengraph-description": "Alside windows and doors combine energy efficiency and durability for Bay Area homes. Explore Alside collections at Deluxe Windows in San Francisco. Free quotes available.",
+        "opengraph-image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a76851f0f6088a0c53667_Alside.avif",
+        "twitter-card": "summary_large_image",
+        "name": "Alside",
+        "slug": "alside"
+      }
+    },
+    {
+      "id": "6841ddf8ace3d9d9facb168f",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2024-03-06T18:23:41.032Z",
+      "lastUpdated": "2026-03-23T18:47:26.085Z",
+      "lastPublished": "2026-03-24T05:43:04.253Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "agent---avatar-photo": {
+          "fileId": "688a76b7e94512a795b803e9",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a76b7e94512a795b803e9_Anlin.avif",
+          "alt": null
+        },
+        "agent---about": "<p id=\"\">Anlin Windows &amp; Doors is a leading manufacturer of premium vinyl windows and doors, trusted by homeowners across the western United States. For over 30 years, Anlin has specialized in energy-efficient, durable, and beautifully designed products made specifically for climates in the West.</p><p id=\"\">With a focus on innovation, sustainability, and customer satisfaction, Anlin delivers performance you can feel—and quality you can trust.</p><p id=\"\">‍<br>Anlin windows and patio doors are engineered specifically for hot, sunny summers and coastal conditions. From triple-guard weather stripping to high-performance glass, every detail is built for your region.</p><p id=\"\"><br>With advanced features like Infinit-e® and QuadraTherm® insulated glass systems, Anlin products help reduce energy use, maintain indoor comfort, and lower utility bills—all year long.</p><p id=\"\"><br>Each Anlin product is manufactured in California with strict quality control and attention to detail. The brand is known for its reliability, fast lead times, and award-winning service.</p><p id=\"\"><br>Anlin offers one of the most comprehensive warranties in the industry—including parts, labor, and even accidental glass breakage—for total peace of mind.</p><p id=\"\"><br>Choose from a wide selection of frame colors, grid patterns, decorative glass, and hardware to match your home’s aesthetic. Anlin windows and doors are made to order—just for you.</p><p>From quiet-close sliding doors to energy-smart windows that block heat and UV rays, Anlin products are built for lasting beauty, comfort, and performance. Whether you’re upgrading for efficiency, style, or resale value, Anlin is a smart investment in your home’s future.</p>",
+        "agent---experience": null,
+        "agent---excerpt": "Lorem ipsum dolor sit amet consectetur fermentum eget fringilla egestas lorem.",
+        "agent---job-title": "Inmobiliary Agent",
+        "agent---username": "@willygreen",
+        "featured-image": {
+          "fileId": "688f4e2574f51bd2d071b9d3",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f4e2574f51bd2d071b9d3_Anlin-Designer-Black-Living-Room.avif",
+          "alt": null
+        },
+        "doors-type-marvin": [
+          "688f4fcb2dc3f0cdb3083c62"
+        ],
+        "window-types": [
+          "688f4e5fb4f740bb5a80cfdf"
+        ],
+        "windows-titles": "Explore Anlin's Window Types",
+        "doors-title": "Explore Anlin's Door Types",
+        "brand-logo": {
+          "fileId": "688fa893cfa0300d0c11d294",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688fa893cfa0300d0c11d294_Anlin_logo.avif",
+          "alt": null
+        },
+        "logo-svg": {
+          "fileId": "6915c80af96503367881f15f",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6915c80af96503367881f15f_anlin2.svg",
+          "alt": null
+        },
+        "order": 3,
+        "materials": [
+          "687e2e7430776dc4c9516a7d"
+        ],
+        "new-template": true,
+        "animation-off": false,
+        "grid-styles": true,
+        "tinted-glass-off": true,
+        "standard-glass-is-big": true,
+        "obscure-glass-if-off": false,
+        "energy-glass-is-off": false,
+        "new-construction-replacement-categories": false,
+        "brand-feature-description-1": "Very strong warranty + comfort performance; popular in replacement market",
+        "brand-feature-description-2": "ENERGY STAR-focused replacement windows; Low-E packages",
+        "brand-feature-description-3": "High (with upgraded IGUs + tight weatherstripping)",
+        "brand-feature-description-4": "Transferable limited warranties (Owner-to-Owner)",
+        "price-range": "$$$–$$$$$",
+        "field": true,
+        "field-2": false,
+        "field-3": true,
+        "field-4": true,
+        "field-5": false,
+        "windowmaintype": "687e2e7430776dc4c9516a7d",
+        "seo-title": "Anlin Windows | Deluxe Windows Mountain View",
+        "seo-description": "Anlin windows are California-made for Bay Area climates. Exceptional energy performance and craftsmanship — explore all Anlin series at Deluxe Windows in San Francisco.",
+        "opengraph-title": "Anlin Windows | Deluxe Windows Mountain View",
+        "opengraph-description": "Anlin windows are California-made for Bay Area climates. Exceptional energy performance and craftsmanship — explore all Anlin series at Deluxe Windows in San Francisco.",
+        "opengraph-image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688a76b7e94512a795b803e9_Anlin.avif",
+        "twitter-card": "summary_large_image",
+        "name": "Anlin",
+        "slug": "anlin"
+      }
+    }
+  ]
 }

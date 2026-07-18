@@ -1,7 +1,7 @@
 {
-    "table": "wf_category",
-    "collectionId": "6841ddf8ace3d9d9facb15a7",
-    "collectionSlug": "category",
-    "items": [],
-    "flattenedFieldMap": []
+  "table": "wf_category",
+  "collectionId": "6841ddf8ace3d9d9facb15a7",
+  "collectionSlug": "category",
+  "items": [],
+  "flattenedFieldMap": {}
 }

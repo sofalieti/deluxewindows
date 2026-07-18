@@ -1,28 +1,28 @@
 {
-    "table": "wf_global_settings",
-    "collectionId": "699eb44b527990aff5f23d1e",
-    "collectionSlug": "global-settings",
-    "items": [
-        {
-            "id": "699eb4a5d58161192855e982",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2026-02-25T08:36:53+00:00",
-            "lastUpdated": "2026-03-04T09:42:03+00:00",
-            "lastPublished": "2026-03-11T05:42:14+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Default",
-                "slug": "default",
-                "end-date": "8/30/26",
-                "start-date": "02/25/2026",
-                "promotion-name": "Summer Sale"
-            }
-        }
-    ],
-    "flattenedFieldMap": {
-        "promotion-name": "wf_promotion_name",
-        "start-date": "wf_start_date",
-        "end-date": "wf_end_date"
+  "table": "wf_global_settings",
+  "collectionId": "699eb44b527990aff5f23d1e",
+  "collectionSlug": "global-settings",
+  "items": [
+    {
+      "id": "699eb4a5d58161192855e982",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2026-02-25T08:36:53.330Z",
+      "lastUpdated": "2026-03-04T09:42:03.891Z",
+      "lastPublished": "2026-03-11T05:42:14.695Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "promotion-name": "Upgrade to Energy Efficient Windows and Doors for Less",
+        "start-date": "02/25/2026",
+        "end-date": "Offer Expires 03/31/26",
+        "name": "Default",
+        "slug": "default"
+      }
     }
+  ],
+  "flattenedFieldMap": {
+    "promotion-name": "wf_promotion_name",
+    "start-date": "wf_start_date",
+    "end-date": "wf_end_date"
+  }
 }

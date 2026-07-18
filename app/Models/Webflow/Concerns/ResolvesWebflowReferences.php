@@ -85,7 +85,7 @@ trait ResolvesWebflowReferences
         $value = $this->fieldDataValue($fieldSlug);
 
         if (is_string($value) && $value !== '') {
-            return $value;
+            return $this->normalizeWebflowId($value);
         }
 
         return null;
@@ -101,11 +101,32 @@ trait ResolvesWebflowReferences
         $ids = [];
         foreach ($value as $candidate) {
             if (is_string($candidate) && $candidate !== '') {
-                $ids[] = $candidate;
+                $id = $this->normalizeWebflowId($candidate);
+                if ($id !== null) {
+                    $ids[] = $id;
+                }
             }
         }
 
         return array_values(array_unique($ids));
+    }
+
+    private function normalizeWebflowId(string $value): ?string
+    {
+        $trimmed = trim($value);
+        if ($trimmed === '') {
+            return null;
+        }
+
+        // Tolerate double-encoded JSON scalars from export/import round-trips.
+        if ($trimmed[0] === '"' && str_ends_with($trimmed, '"')) {
+            $decoded = json_decode($trimmed, true);
+            if (is_string($decoded) && $decoded !== '') {
+                return $decoded;
+            }
+        }
+
+        return $trimmed;
     }
 
     private function fieldDataValue(string $fieldSlug): mixed

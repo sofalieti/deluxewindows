@@ -1,339 +1,339 @@
 {
-    "table": "wf_county_hub_pages",
-    "collectionId": "69ce789764cd8d5d1bcf1aa4",
-    "collectionSlug": "county-hub-pages",
-    "items": [
-        {
-            "id": "69ce7b7007a3f40a2d9f1ea3",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2026-04-02T14:21:36+00:00",
-            "lastUpdated": "2026-05-07T13:39:13+00:00",
-            "lastPublished": "2026-05-07T13:39:33+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "San Francisco County",
-                "slug": "san-francisco-county",
-                "hero-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/69fc954e7b9bf04407ae45c7_generated-2026-05-07t13-34-34-997z-6m6ghv.jpeg",
-                    "fileId": "69fc954e7b9bf04407ae45c7"
-                },
-                "meta-title": "San Francisco County Window Replacement | Deluxe Windows",
-                "county-name": "San Francisco County",
-                "county-slug": "san-francisco-county",
-                "county-intro": "<p><strong>San Francisco County</strong> often means tight logistics and unique fenestration. This hub centers on <strong>1 primary city</strong> market—pair it with your SF Service Area template.</p>",
-                "cities-in-county": [
-                    "69ce7ed25facaca52cb0c45e"
-                ],
-                "meta-description": "San Francisco window replacement: condos, Victorian facades, and custom sizes. Deluxe Windows navigates codes and HOAs—free consultation in the city."
-            }
+  "table": "wf_county_hub_pages",
+  "collectionId": "69ce789764cd8d5d1bcf1aa4",
+  "collectionSlug": "county-hub-pages",
+  "items": [
+    {
+      "id": "69ce7b7007a3f40a2d9f1ea3",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2026-04-02T14:21:36.499Z",
+      "lastUpdated": "2026-05-07T13:39:13.918Z",
+      "lastPublished": "2026-05-07T13:39:33.520Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "county-name": "San Francisco County",
+        "county-slug": "san-francisco-county",
+        "meta-title": "San Francisco County Window Replacement | Deluxe Windows",
+        "meta-description": "San Francisco window replacement: condos, Victorian facades, and custom sizes. Deluxe Windows navigates codes and HOAs—free consultation in the city.",
+        "county-intro": "<p><strong>San Francisco County</strong> often means tight logistics and unique fenestration. This hub centers on <strong>1 primary city</strong> market—pair it with your SF Service Area template.</p>",
+        "hero-image": {
+          "fileId": "69fc954e7b9bf04407ae45c7",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/69fc954e7b9bf04407ae45c7_generated-2026-05-07t13-34-34-997z-6m6ghv.jpeg",
+          "alt": null
         },
-        {
-            "id": "69ce7b7007a3f40a2d9f1ea0",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2026-04-02T14:21:36+00:00",
-            "lastUpdated": "2026-05-07T13:39:14+00:00",
-            "lastPublished": "2026-05-07T13:39:33+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Napa County",
-                "slug": "napa-county",
-                "hero-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/69fc954e7b9bf04407ae45c1_generated-2026-05-07t13-34-51-004z-ecgdpc.jpeg",
-                    "fileId": "69fc954e7b9bf04407ae45c1"
-                },
-                "meta-title": "Napa County Window Replacement | Deluxe Windows",
-                "county-name": "Napa County",
-                "county-slug": "napa-county",
-                "county-intro": "<p>Historic farmhouses and newer builds across <strong>Napa County</strong> both need windows that perform. This hub covers <strong>5 cities</strong>—map your Service Area items for local SEO.</p>",
-                "cities-in-county": [
-                    "69ce8102d9670745a65290ac",
-                    "69ce81b5e66850693c755a05",
-                    "69ce81e6d9670745a653412c",
-                    "69ce81e6d9670745a6534134",
-                    "69ce81e6d9670745a653413c"
-                ],
-                "meta-description": "Napa County replacement windows: heritage-friendly options, modern efficiency, pro installation. Deluxe Windows helps you plan phases and budgets—call now."
-            }
+        "cities-in-county": [
+          "69ce7ed25facaca52cb0c45e"
+        ],
+        "name": "San Francisco County",
+        "slug": "san-francisco-county"
+      }
+    },
+    {
+      "id": "69ce7b7007a3f40a2d9f1ea0",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2026-04-02T14:21:36.499Z",
+      "lastUpdated": "2026-05-07T13:39:14.042Z",
+      "lastPublished": "2026-05-07T13:39:33.520Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "county-name": "Napa County",
+        "county-slug": "napa-county",
+        "meta-title": "Napa County Window Replacement | Deluxe Windows",
+        "meta-description": "Napa County replacement windows: heritage-friendly options, modern efficiency, pro installation. Deluxe Windows helps you plan phases and budgets—call now.",
+        "county-intro": "<p>Historic farmhouses and newer builds across <strong>Napa County</strong> both need windows that perform. This hub covers <strong>5 cities</strong>—map your Service Area items for local SEO.</p>",
+        "hero-image": {
+          "fileId": "69fc954e7b9bf04407ae45c1",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/69fc954e7b9bf04407ae45c1_generated-2026-05-07t13-34-51-004z-ecgdpc.jpeg",
+          "alt": null
         },
-        {
-            "id": "69ce7b7007a3f40a2d9f1e9d",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2026-04-02T14:21:36+00:00",
-            "lastUpdated": "2026-05-07T13:39:13+00:00",
-            "lastPublished": "2026-05-07T13:39:33+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Sonoma County",
-                "slug": "sonoma-county",
-                "hero-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/69fc954e7b9bf04407ae45c4_generated-2026-05-07t13-34-39-783z-nhdblc.jpeg",
-                    "fileId": "69fc954e7b9bf04407ae45c4"
-                },
-                "meta-title": "Sonoma County Window Replacement | Deluxe Windows",
-                "county-name": "Sonoma County",
-                "county-slug": "sonoma-county",
-                "county-intro": "<p><strong>Sonoma County</strong> spans varied microclimates; window specs should match exposure and style. Organize <strong>9 cities</strong> under this hub and cross-link to Service Area detail pages.</p>",
-                "cities-in-county": [
-                    "69ce7ffc251a60318fbeaa8c",
-                    "69ce811d0ff216a9defa921a",
-                    "69ce8141121045efc47bdb85",
-                    "69ce816cb37ad2aca0065555",
-                    "69ce8182e5dc51c9eebc96af",
-                    "69ce8182e5dc51c9eebc96b7",
-                    "69ce81b5e66850693c755a15",
-                    "69ce81e6d9670745a6534144",
-                    "69d1405c7a5c88d4f072f00b"
-                ],
-                "meta-description": "Sonoma County window replacement for wine country & coast-adjacent homes. Durable materials, careful install, Deluxe Windows Bay Area service."
-            }
+        "cities-in-county": [
+          "69ce8102d9670745a65290ac",
+          "69ce81b5e66850693c755a05",
+          "69ce81e6d9670745a653412c",
+          "69ce81e6d9670745a6534134",
+          "69ce81e6d9670745a653413c"
+        ],
+        "name": "Napa County",
+        "slug": "napa-county"
+      }
+    },
+    {
+      "id": "69ce7b7007a3f40a2d9f1e9d",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2026-04-02T14:21:36.499Z",
+      "lastUpdated": "2026-05-07T13:39:13.932Z",
+      "lastPublished": "2026-05-07T13:39:33.520Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "county-name": "Sonoma County",
+        "county-slug": "sonoma-county",
+        "meta-title": "Sonoma County Window Replacement | Deluxe Windows",
+        "meta-description": "Sonoma County window replacement for wine country & coast-adjacent homes. Durable materials, careful install, Deluxe Windows Bay Area service.",
+        "county-intro": "<p><strong>Sonoma County</strong> spans varied microclimates; window specs should match exposure and style. Organize <strong>9 cities</strong> under this hub and cross-link to Service Area detail pages.</p>",
+        "hero-image": {
+          "fileId": "69fc954e7b9bf04407ae45c4",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/69fc954e7b9bf04407ae45c4_generated-2026-05-07t13-34-39-783z-nhdblc.jpeg",
+          "alt": null
         },
-        {
-            "id": "69ce7b7007a3f40a2d9f1e9a",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2026-04-02T14:21:36+00:00",
-            "lastUpdated": "2026-05-07T13:39:14+00:00",
-            "lastPublished": "2026-05-07T13:39:33+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Solano County",
-                "slug": "solano-county",
-                "hero-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/69fc954e7b9bf04407ae45b5_generated-2026-05-07t13-33-45-690z-ebgt9t.jpeg",
-                    "fileId": "69fc954e7b9bf04407ae45b5"
-                },
-                "meta-title": "Solano County Window Replacement | Deluxe Windows",
-                "county-name": "Solano County",
-                "county-slug": "solano-county",
-                "county-intro": "<p>We support <strong>Solano County</strong> residents with dependable window replacement and clear timelines. This hub is structured for <strong>7 cities</strong>—attach each city record when live.</p>",
-                "cities-in-county": [
-                    "69ce7ffc251a60318fbeaa94",
-                    "69ce7ffc251a60318fbeaa9c",
-                    "69ce811d0ff216a9defa9232",
-                    "69ce8146c3c72a524c7a4442",
-                    "69ce814bd9670745a652cece",
-                    "69ce8182e5dc51c9eebc96bf",
-                    "69ce81b5e66850693c755a1d"
-                ],
-                "meta-description": "Solano County window replacement: whole-home retrofits, single openings, and new construction coordination. Energy rebates guidance from Deluxe Windows."
-            }
+        "cities-in-county": [
+          "69ce7ffc251a60318fbeaa8c",
+          "69ce811d0ff216a9defa921a",
+          "69ce8141121045efc47bdb85",
+          "69ce816cb37ad2aca0065555",
+          "69ce8182e5dc51c9eebc96af",
+          "69ce8182e5dc51c9eebc96b7",
+          "69ce81b5e66850693c755a15",
+          "69ce81e6d9670745a6534144",
+          "69d1405c7a5c88d4f072f00b"
+        ],
+        "name": "Sonoma County",
+        "slug": "sonoma-county"
+      }
+    },
+    {
+      "id": "69ce7b7007a3f40a2d9f1e9a",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2026-04-02T14:21:36.499Z",
+      "lastUpdated": "2026-05-07T13:39:14.038Z",
+      "lastPublished": "2026-05-07T13:39:33.520Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "county-name": "Solano County",
+        "county-slug": "solano-county",
+        "meta-title": "Solano County Window Replacement | Deluxe Windows",
+        "meta-description": "Solano County window replacement: whole-home retrofits, single openings, and new construction coordination. Energy rebates guidance from Deluxe Windows.",
+        "county-intro": "<p>We support <strong>Solano County</strong> residents with dependable window replacement and clear timelines. This hub is structured for <strong>7 cities</strong>—attach each city record when live.</p>",
+        "hero-image": {
+          "fileId": "69fc954e7b9bf04407ae45b5",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/69fc954e7b9bf04407ae45b5_generated-2026-05-07t13-33-45-690z-ebgt9t.jpeg",
+          "alt": null
         },
-        {
-            "id": "69ce7b7007a3f40a2d9f1e97",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2026-04-02T14:21:36+00:00",
-            "lastUpdated": "2026-05-07T13:39:14+00:00",
-            "lastPublished": "2026-05-07T13:39:33+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Marin County",
-                "slug": "marin-county",
-                "hero-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/69fc954e7b9bf04407ae45d3_generated-2026-05-07t13-33-51-925z-zhxd10.jpeg",
-                    "fileId": "69fc954e7b9bf04407ae45d3"
-                },
-                "meta-title": "Marin County Window Replacement | Deluxe Windows",
-                "county-name": "Marin County",
-                "county-slug": "marin-county",
-                "county-intro": "<p><strong>Marin County</strong> projects often emphasize noise, moisture, and views. Deluxe Windows aligns products to local architecture across <strong>10 cities</strong>; link Service Areas here for full coverage.</p>",
-                "cities-in-county": [
-                    "69ce812394e2df3fa5984fa9",
-                    "69ce812394e2df3fa5984fb9",
-                    "69ce8182e5dc51c9eebc96c7",
-                    "69ce8187c3c72a524c7a5c70",
-                    "69ce8187c3c72a524c7a5c78",
-                    "69ce8187c3c72a524c7a5c80",
-                    "69ce8187c3c72a524c7a5c88",
-                    "69ce818ce66850693c754013",
-                    "69d1405c7a5c88d4f072f043",
-                    "69d1405c7a5c88d4f072f04b",
-                    "69d1405c7a5c88d4f072f053"
-                ],
-                "meta-description": "Marin County homeowners: fog-free glass, quiet frames, efficient installs. Deluxe Windows delivers Bay-trusted window replacement—request a quote today."
-            }
+        "cities-in-county": [
+          "69ce7ffc251a60318fbeaa94",
+          "69ce7ffc251a60318fbeaa9c",
+          "69ce811d0ff216a9defa9232",
+          "69ce8146c3c72a524c7a4442",
+          "69ce814bd9670745a652cece",
+          "69ce8182e5dc51c9eebc96bf",
+          "69ce81b5e66850693c755a1d"
+        ],
+        "name": "Solano County",
+        "slug": "solano-county"
+      }
+    },
+    {
+      "id": "69ce7b7007a3f40a2d9f1e97",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2026-04-02T14:21:36.499Z",
+      "lastUpdated": "2026-05-07T13:39:14.029Z",
+      "lastPublished": "2026-05-07T13:39:33.520Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "county-name": "Marin County",
+        "county-slug": "marin-county",
+        "meta-title": "Marin County Window Replacement | Deluxe Windows",
+        "meta-description": "Marin County homeowners: fog-free glass, quiet frames, efficient installs. Deluxe Windows delivers Bay-trusted window replacement—request a quote today.",
+        "county-intro": "<p><strong>Marin County</strong> projects often emphasize noise, moisture, and views. Deluxe Windows aligns products to local architecture across <strong>10 cities</strong>; link Service Areas here for full coverage.</p>",
+        "hero-image": {
+          "fileId": "69fc954e7b9bf04407ae45d3",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/69fc954e7b9bf04407ae45d3_generated-2026-05-07t13-33-51-925z-zhxd10.jpeg",
+          "alt": null
         },
-        {
-            "id": "69ce7b7007a3f40a2d9f1e94",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2026-04-02T14:21:36+00:00",
-            "lastUpdated": "2026-05-07T13:39:14+00:00",
-            "lastPublished": "2026-05-07T13:39:33+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "San Mateo County",
-                "slug": "san-mateo-county",
-                "hero-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/69fc954e7b9bf04407ae45b8_generated-2026-05-07t13-33-40-522z-mtceq0.jpeg",
-                    "fileId": "69fc954e7b9bf04407ae45b8"
-                },
-                "meta-title": "San Mateo County Window Replacement | Deluxe Windows",
-                "county-name": "San Mateo County",
-                "county-slug": "san-mateo-county",
-                "county-intro": "<p>From the Peninsula to the coast, <strong>San Mateo County</strong> homes benefit from high-performance windows. This hub supports <strong>16 city</strong> Service Area pages—populate <em>Cities in County</em> as you publish.</p>",
-                "cities-in-county": [
-                    "69ce808d4e982f232cdb7464",
-                    "69ce808d4e982f232cdb746c",
-                    "69ce808d4e982f232cdb7474",
-                    "69ce810821de1dc3c397d5fc",
-                    "69ce8146c3c72a524c7a443a",
-                    "69ce814bd9670745a652cede",
-                    "69ce814bd9670745a652cee6",
-                    "69ce81619726e1e79ddbadc3",
-                    "69ce8167121045efc47bf7f9",
-                    "69ce816cb37ad2aca006553d",
-                    "69ce81b08b2d1dc4a4aa5a36",
-                    "69ce81b08b2d1dc4a4aa5a3e",
-                    "69ce81b08b2d1dc4a4aa5a46",
-                    "69ce81b08b2d1dc4a4aa5a4e",
-                    "69d1405c7a5c88d4f072f013",
-                    "69d1405c7a5c88d4f072f01b",
-                    "69d1405c7a5c88d4f072f023",
-                    "69d1405c7a5c88d4f072f02b"
-                ],
-                "meta-description": "San Mateo County window replacement by Deluxe Windows. Coastal climate-ready installs, premium glass options, transparent pricing. Schedule your free estimate."
-            }
+        "cities-in-county": [
+          "69ce812394e2df3fa5984fa9",
+          "69ce812394e2df3fa5984fb9",
+          "69ce8182e5dc51c9eebc96c7",
+          "69ce8187c3c72a524c7a5c70",
+          "69ce8187c3c72a524c7a5c78",
+          "69ce8187c3c72a524c7a5c80",
+          "69ce8187c3c72a524c7a5c88",
+          "69ce818ce66850693c754013",
+          "69d1405c7a5c88d4f072f043",
+          "69d1405c7a5c88d4f072f04b",
+          "69d1405c7a5c88d4f072f053"
+        ],
+        "name": "Marin County",
+        "slug": "marin-county"
+      }
+    },
+    {
+      "id": "69ce7b7007a3f40a2d9f1e94",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2026-04-02T14:21:36.499Z",
+      "lastUpdated": "2026-05-07T13:39:14.045Z",
+      "lastPublished": "2026-05-07T13:39:33.520Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "county-name": "San Mateo County",
+        "county-slug": "san-mateo-county",
+        "meta-title": "San Mateo County Window Replacement | Deluxe Windows",
+        "meta-description": "San Mateo County window replacement by Deluxe Windows. Coastal climate-ready installs, premium glass options, transparent pricing. Schedule your free estimate.",
+        "county-intro": "<p>From the Peninsula to the coast, <strong>San Mateo County</strong> homes benefit from high-performance windows. This hub supports <strong>16 city</strong> Service Area pages—populate <em>Cities in County</em> as you publish.</p>",
+        "hero-image": {
+          "fileId": "69fc954e7b9bf04407ae45b8",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/69fc954e7b9bf04407ae45b8_generated-2026-05-07t13-33-40-522z-mtceq0.jpeg",
+          "alt": null
         },
-        {
-            "id": "69ce7b7007a3f40a2d9f1e91",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2026-04-02T14:21:36+00:00",
-            "lastUpdated": "2026-05-07T13:39:14+00:00",
-            "lastPublished": "2026-05-07T13:39:33+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Santa Clara County",
-                "slug": "santa-clara-county",
-                "hero-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/69fc954e7b9bf04407ae45bb_generated-2026-05-07t13-32-48-294z-ubgign.jpeg",
-                    "fileId": "69fc954e7b9bf04407ae45bb"
-                },
-                "meta-title": "Santa Clara County Window Replacement | Deluxe Windows",
-                "county-name": "Santa Clara County",
-                "county-slug": "santa-clara-county",
-                "county-intro": "<p><strong>Santa Clara County</strong> is a core market for Deluxe Windows. Use this hub to organize <strong>15 city</strong> landing pages and route visitors to neighborhood-level Service Area content.</p>",
-                "cities-in-county": [
-                    "69ce7bfbd35bec5182f536a3",
-                    "69ce7ed25facaca52cb0c46e",
-                    "69ce7fdd0b84811bafc8bee4",
-                    "69ce8102d9670745a652909c",
-                    "69ce810821de1dc3c397d5f4",
-                    "69ce811d0ff216a9defa9222",
-                    "69ce811d0ff216a9defa922a",
-                    "69ce812394e2df3fa5984fb1",
-                    "69ce8141121045efc47bdb8d",
-                    "69ce8146c3c72a524c7a4432",
-                    "69ce81619726e1e79ddbadcb",
-                    "69ce81619726e1e79ddbadd3",
-                    "69ce81619726e1e79ddbaddb",
-                    "69d1405c7a5c88d4f072f033",
-                    "69d1405c7a5c88d4f072f03b"
-                ],
-                "meta-description": "Window replacement Santa Clara County: energy-efficient products, expert crews, top brands. Serving San Jose and the South Bay. Free quote from Deluxe Windows."
-            }
+        "cities-in-county": [
+          "69ce808d4e982f232cdb7464",
+          "69ce808d4e982f232cdb746c",
+          "69ce808d4e982f232cdb7474",
+          "69ce810821de1dc3c397d5fc",
+          "69ce8146c3c72a524c7a443a",
+          "69ce814bd9670745a652cede",
+          "69ce814bd9670745a652cee6",
+          "69ce81619726e1e79ddbadc3",
+          "69ce8167121045efc47bf7f9",
+          "69ce816cb37ad2aca006553d",
+          "69ce81b08b2d1dc4a4aa5a36",
+          "69ce81b08b2d1dc4a4aa5a3e",
+          "69ce81b08b2d1dc4a4aa5a46",
+          "69ce81b08b2d1dc4a4aa5a4e",
+          "69d1405c7a5c88d4f072f013",
+          "69d1405c7a5c88d4f072f01b",
+          "69d1405c7a5c88d4f072f023",
+          "69d1405c7a5c88d4f072f02b"
+        ],
+        "name": "San Mateo County",
+        "slug": "san-mateo-county"
+      }
+    },
+    {
+      "id": "69ce7b7007a3f40a2d9f1e91",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2026-04-02T14:21:36.499Z",
+      "lastUpdated": "2026-05-07T13:39:14.032Z",
+      "lastPublished": "2026-05-07T13:39:33.520Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "county-name": "Santa Clara County",
+        "county-slug": "santa-clara-county",
+        "meta-title": "Santa Clara County Window Replacement | Deluxe Windows",
+        "meta-description": "Window replacement Santa Clara County: energy-efficient products, expert crews, top brands. Serving San Jose and the South Bay. Free quote from Deluxe Windows.",
+        "county-intro": "<p><strong>Santa Clara County</strong> is a core market for Deluxe Windows. Use this hub to organize <strong>15 city</strong> landing pages and route visitors to neighborhood-level Service Area content.</p>",
+        "hero-image": {
+          "fileId": "69fc954e7b9bf04407ae45bb",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/69fc954e7b9bf04407ae45bb_generated-2026-05-07t13-32-48-294z-ubgign.jpeg",
+          "alt": null
         },
-        {
-            "id": "69ce7b7007a3f40a2d9f1e8e",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2026-04-02T14:21:36+00:00",
-            "lastUpdated": "2026-05-07T13:39:14+00:00",
-            "lastPublished": "2026-05-07T13:39:33+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Contra Costa County",
-                "slug": "contra-costa-county",
-                "hero-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/69fc954e7b9bf04407ae45cf_generated-2026-05-07t13-32-48-881z-s3gv8b.jpeg",
-                    "fileId": "69fc954e7b9bf04407ae45cf"
-                },
-                "meta-title": "Contra Costa County Window Replacement | Deluxe Windows",
-                "county-name": "Contra Costa County",
-                "county-slug": "contra-costa-county",
-                "county-intro": "<p>Homeowners in <strong>Contra Costa County</strong> trust Deluxe Windows for full-service window replacement—from measurement to installation. This county hub lists <strong>16 cities</strong>; connect each Service Area item when your content is ready.</p>",
-                "cities-in-county": [
-                    "69ce7fdd0b84811bafc8bef4",
-                    "69ce7ffc251a60318fbeaaa4",
-                    "69ce808d4e982f232cdb745c",
-                    "69ce8102d9670745a65290b4",
-                    "69ce810821de1dc3c397d5ec",
-                    "69ce812bb2ed3e0b7ce32414",
-                    "69ce812bb2ed3e0b7ce32424",
-                    "69ce8141121045efc47bdb75",
-                    "69ce8146c3c72a524c7a442a",
-                    "69ce8167121045efc47bf801",
-                    "69ce8167121045efc47bf809",
-                    "69ce8167121045efc47bf811",
-                    "69ce816cb37ad2aca0065545",
-                    "69ce816cb37ad2aca006554d",
-                    "69ce818ce66850693c75401b",
-                    "69ce818ce66850693c754023",
-                    "69ce818ce66850693c75402b",
-                    "69ce81b5e66850693c755a0d"
-                ],
-                "meta-description": "Replacement windows in Contra Costa County: vinyl, wood, fiberglass & more. Pro install, strong warranties, free estimates. Deluxe Windows Bay Area."
-            }
+        "cities-in-county": [
+          "69ce7bfbd35bec5182f536a3",
+          "69ce7ed25facaca52cb0c46e",
+          "69ce7fdd0b84811bafc8bee4",
+          "69ce8102d9670745a652909c",
+          "69ce810821de1dc3c397d5f4",
+          "69ce811d0ff216a9defa9222",
+          "69ce811d0ff216a9defa922a",
+          "69ce812394e2df3fa5984fb1",
+          "69ce8141121045efc47bdb8d",
+          "69ce8146c3c72a524c7a4432",
+          "69ce81619726e1e79ddbadcb",
+          "69ce81619726e1e79ddbadd3",
+          "69ce81619726e1e79ddbaddb",
+          "69d1405c7a5c88d4f072f033",
+          "69d1405c7a5c88d4f072f03b"
+        ],
+        "name": "Santa Clara County",
+        "slug": "santa-clara-county"
+      }
+    },
+    {
+      "id": "69ce7b7007a3f40a2d9f1e8e",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2026-04-02T14:21:36.498Z",
+      "lastUpdated": "2026-05-07T13:39:14.025Z",
+      "lastPublished": "2026-05-07T13:39:33.520Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "county-name": "Contra Costa County",
+        "county-slug": "contra-costa-county",
+        "meta-title": "Contra Costa County Window Replacement | Deluxe Windows",
+        "meta-description": "Replacement windows in Contra Costa County: vinyl, wood, fiberglass & more. Pro install, strong warranties, free estimates. Deluxe Windows Bay Area.",
+        "county-intro": "<p>Homeowners in <strong>Contra Costa County</strong> trust Deluxe Windows for full-service window replacement—from measurement to installation. This county hub lists <strong>16 cities</strong>; connect each Service Area item when your content is ready.</p>",
+        "hero-image": {
+          "fileId": "69fc954e7b9bf04407ae45cf",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/69fc954e7b9bf04407ae45cf_generated-2026-05-07t13-32-48-881z-s3gv8b.jpeg",
+          "alt": null
         },
-        {
-            "id": "69ce7b5a4b7a0c4005c10a71",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2026-04-02T14:21:14+00:00",
-            "lastUpdated": "2026-05-07T13:39:14+00:00",
-            "lastPublished": "2026-05-07T13:39:33+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Alameda County",
-                "slug": "alameda-county",
-                "hero-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/69fc954e7b9bf04407ae45cb_generated-2026-05-07t13-32-41-766z-mnytix.jpeg",
-                    "fileId": "69fc954e7b9bf04407ae45cb"
-                },
-                "meta-title": "Alameda County Window Replacement | Deluxe Windows",
-                "county-name": "Alameda County",
-                "county-slug": "alameda-county",
-                "county-intro": "<p>Deluxe Windows serves homeowners throughout <strong>Alameda County</strong> with professional window replacement, energy-efficient products, and expert installation. This hub covers <strong>14 cities</strong>—link each Service Area city below when ready.</p>",
-                "cities-in-county": [
-                    "69ce7e60ea242e08692e9617",
-                    "69ce7ed25facaca52cb0c456",
-                    "69ce7ed25facaca52cb0c466",
-                    "69ce7fdd0b84811bafc8beec",
-                    "69ce7fdd0b84811bafc8befc",
-                    "69ce8102d9670745a65290a4",
-                    "69ce810821de1dc3c397d5e4",
-                    "69ce812394e2df3fa5984fa1",
-                    "69ce812bb2ed3e0b7ce3240c",
-                    "69ce812bb2ed3e0b7ce3241c",
-                    "69ce8141121045efc47bdb7d",
-                    "69ce814bd9670745a652ced6",
-                    "69d1405c7a5c88d4f072f05b",
-                    "69d1405c7a5c88d4f072f063"
-                ],
-                "meta-description": "Expert window replacement across Alameda County. Energy-efficient installs, top brands, free quotes. Call Deluxe Windows for Bay Area homes."
-            }
-        }
-    ],
-    "flattenedFieldMap": {
-        "county-name": "wf_county_name",
-        "county-slug": "wf_county_slug",
-        "meta-title": "wf_meta_title",
-        "meta-description": "wf_meta_description",
-        "county-intro": "wf_county_intro",
-        "hero-image": "wf_hero_image",
-        "cities-in-county": "wf_cities_in_county"
+        "cities-in-county": [
+          "69ce7fdd0b84811bafc8bef4",
+          "69ce7ffc251a60318fbeaaa4",
+          "69ce808d4e982f232cdb745c",
+          "69ce8102d9670745a65290b4",
+          "69ce810821de1dc3c397d5ec",
+          "69ce812bb2ed3e0b7ce32414",
+          "69ce812bb2ed3e0b7ce32424",
+          "69ce8141121045efc47bdb75",
+          "69ce8146c3c72a524c7a442a",
+          "69ce8167121045efc47bf801",
+          "69ce8167121045efc47bf809",
+          "69ce8167121045efc47bf811",
+          "69ce816cb37ad2aca0065545",
+          "69ce816cb37ad2aca006554d",
+          "69ce818ce66850693c75401b",
+          "69ce818ce66850693c754023",
+          "69ce818ce66850693c75402b",
+          "69ce81b5e66850693c755a0d"
+        ],
+        "name": "Contra Costa County",
+        "slug": "contra-costa-county"
+      }
+    },
+    {
+      "id": "69ce7b5a4b7a0c4005c10a71",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2026-04-02T14:21:14.600Z",
+      "lastUpdated": "2026-05-07T13:39:14.035Z",
+      "lastPublished": "2026-05-07T13:39:33.520Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "county-name": "Alameda County",
+        "county-slug": "alameda-county",
+        "meta-title": "Alameda County Window Replacement | Deluxe Windows",
+        "meta-description": "Expert window replacement across Alameda County. Energy-efficient installs, top brands, free quotes. Call Deluxe Windows for Bay Area homes.",
+        "county-intro": "<p>Deluxe Windows serves homeowners throughout <strong>Alameda County</strong> with professional window replacement, energy-efficient products, and expert installation. This hub covers <strong>14 cities</strong>—link each Service Area city below when ready.</p>",
+        "hero-image": {
+          "fileId": "69fc954e7b9bf04407ae45cb",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/69fc954e7b9bf04407ae45cb_generated-2026-05-07t13-32-41-766z-mnytix.jpeg",
+          "alt": null
+        },
+        "cities-in-county": [
+          "69ce7e60ea242e08692e9617",
+          "69ce7ed25facaca52cb0c456",
+          "69ce7ed25facaca52cb0c466",
+          "69ce7fdd0b84811bafc8beec",
+          "69ce7fdd0b84811bafc8befc",
+          "69ce8102d9670745a65290a4",
+          "69ce810821de1dc3c397d5e4",
+          "69ce812394e2df3fa5984fa1",
+          "69ce812bb2ed3e0b7ce3240c",
+          "69ce812bb2ed3e0b7ce3241c",
+          "69ce8141121045efc47bdb7d",
+          "69ce814bd9670745a652ced6",
+          "69d1405c7a5c88d4f072f05b",
+          "69d1405c7a5c88d4f072f063"
+        ],
+        "name": "Alameda County",
+        "slug": "alameda-county"
+      }
     }
+  ],
+  "flattenedFieldMap": {
+    "county-name": "wf_county_name",
+    "county-slug": "wf_county_slug",
+    "meta-title": "wf_meta_title",
+    "meta-description": "wf_meta_description",
+    "county-intro": "wf_county_intro",
+    "hero-image": "wf_hero_image",
+    "cities-in-county": "wf_cities_in_county"
+  }
 }

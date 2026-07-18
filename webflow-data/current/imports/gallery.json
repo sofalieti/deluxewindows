@@ -1,1758 +1,1758 @@
 {
-    "table": "wf_gallery",
-    "collectionId": "688136f10bb2ccdbe12aa297",
-    "collectionSlug": "gallery",
-    "items": [
-        {
-            "id": "68c89a3bcf3e65c360255fd1",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T22:59:07+00:00",
-            "lastUpdated": "2025-09-15T22:59:33+00:00",
-            "lastPublished": "2025-09-16T17:28:01+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "marvin aluminum clad new 19",
-                "slug": "marvin-aluminum-clad-new-19",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c89a4ddd537cbd43140679_IMG_8948-copy.jpg",
-                    "fileId": "68c89a4ddd537cbd43140679"
-                }
-            }
-        },
-        {
-            "id": "68c89a10c7e78105e5aefe4c",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T22:58:24+00:00",
-            "lastUpdated": "2025-09-15T22:58:24+00:00",
-            "lastPublished": "2025-09-15T22:58:24+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "marvin aluminum clad new 18",
-                "slug": "marvin-aluminum-clad-new-18",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c89a099acdcf47011a2c81_IMG_9092-copy.jpg",
-                    "fileId": "68c89a099acdcf47011a2c81"
-                }
-            }
-        },
-        {
-            "id": "68c899eb8555477e7a4743df",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T22:57:47+00:00",
-            "lastUpdated": "2025-09-15T22:57:47+00:00",
-            "lastPublished": "2025-09-15T22:57:47+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "marvin aluminum clad new 17",
-                "slug": "marvin-aluminum-clad-new-17",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c899e85dd261dc57e23f89_IMG_8912-copy.jpg",
-                    "fileId": "68c899e85dd261dc57e23f89"
-                }
-            }
-        },
-        {
-            "id": "68c899bc22deb7712cbe653d",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T22:57:00+00:00",
-            "lastUpdated": "2025-09-15T22:57:00+00:00",
-            "lastPublished": "2025-09-15T22:57:00+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "marvin aluminum clad new 16",
-                "slug": "marvin-aluminum-clad-new-16",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c899b77158e4af305d0b2f_IMG_0875-copy.jpg",
-                    "fileId": "68c899b77158e4af305d0b2f"
-                }
-            }
-        },
-        {
-            "id": "68c8998a51743ff7b1450bb6",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T22:56:10+00:00",
-            "lastUpdated": "2025-09-15T22:56:10+00:00",
-            "lastPublished": "2025-09-15T22:56:10+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "marvin aluminum clad new 15",
-                "slug": "marvin-aluminum-clad-new-15",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c89985de144a394c6a6916_IMG_0881-copy.jpg",
-                    "fileId": "68c89985de144a394c6a6916"
-                }
-            }
-        },
-        {
-            "id": "68c8996634fdbcbdf10f0829",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T22:55:34+00:00",
-            "lastUpdated": "2025-09-15T22:55:34+00:00",
-            "lastPublished": "2025-09-15T22:55:34+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "marvin aluminum clad new 14",
-                "slug": "marvin-aluminum-clad-new-14",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c89963ee9a56539d6de1d5_IMG_0864-copy.jpg",
-                    "fileId": "68c89963ee9a56539d6de1d5"
-                }
-            }
-        },
-        {
-            "id": "68c8994855f62655acd6525d",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T22:55:04+00:00",
-            "lastUpdated": "2025-09-15T22:55:04+00:00",
-            "lastPublished": "2025-09-15T22:55:04+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "marvin aluminum clad new 13",
-                "slug": "marvin-aluminum-clad-new-13",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c89943bd238c5a7b66bf4a_IMG_0867-copy.jpg",
-                    "fileId": "68c89943bd238c5a7b66bf4a"
-                }
-            }
-        },
-        {
-            "id": "68c89933a4b5417495cef80b",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T22:54:43+00:00",
-            "lastUpdated": "2025-09-15T22:54:43+00:00",
-            "lastPublished": "2025-09-15T22:54:43+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "marvin aluminum clad new 12",
-                "slug": "marvin-aluminum-clad-new-12",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c8992fc7e78105e5aed93a_IMG_0227-copy.jpg",
-                    "fileId": "68c8992fc7e78105e5aed93a"
-                }
-            }
-        },
-        {
-            "id": "68c8991280253efe73d8cb8a",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T22:54:10+00:00",
-            "lastUpdated": "2026-02-06T22:47:24+00:00",
-            "lastPublished": "2026-02-12T07:54:22+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "marvin aluminum clad new 11",
-                "slug": "marvin-aluminum-clad-new-11",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c8990ca76a3466d850947a_IMG_4081-copy.jpg",
-                    "fileId": "68c8990ca76a3466d850947a"
-                }
-            }
-        },
-        {
-            "id": "68c898e6c143c131d2123826",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T22:53:26+00:00",
-            "lastUpdated": "2025-09-15T22:53:43+00:00",
-            "lastPublished": "2025-09-15T22:53:43+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "marvin aluminum clad new 10",
-                "slug": "marvin-aluminum-clad-new-10",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c898e282004723ddf0b3fc_IMG_0466-copy.jpg",
-                    "fileId": "68c898e282004723ddf0b3fc"
-                }
-            }
-        },
-        {
-            "id": "68c89889497f18f55071e53b",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T22:51:53+00:00",
-            "lastUpdated": "2025-09-15T22:51:53+00:00",
-            "lastPublished": "2025-09-15T22:51:53+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "marvin aluminum clad new 9",
-                "slug": "marvin-aluminum-clad-new-9",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c898855be0d592d5a173dd_IMG_0202-copy.jpg",
-                    "fileId": "68c898855be0d592d5a173dd"
-                }
-            }
-        },
-        {
-            "id": "68c8981722deb7712cbe21ca",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T22:49:59+00:00",
-            "lastUpdated": "2025-09-15T22:49:59+00:00",
-            "lastPublished": "2025-09-15T22:49:59+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "marvin aluminum clad new 8",
-                "slug": "marvin-aluminum-clad-new-8",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c898137597540c9cac63f5_IMG_0195-copy.jpg",
-                    "fileId": "68c898137597540c9cac63f5"
-                }
-            }
-        },
-        {
-            "id": "68c897ff6751b028cd3579f1",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T22:49:35+00:00",
-            "lastUpdated": "2025-09-15T22:49:35+00:00",
-            "lastPublished": "2025-09-15T22:49:35+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "marvin aluminum clad new 7",
-                "slug": "marvin-aluminum-clad-new-7",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c897fc1177ae25483e8e48_IMG_0112-copy.jpg",
-                    "fileId": "68c897fc1177ae25483e8e48"
-                }
-            }
-        },
-        {
-            "id": "68c897d734fdbcbdf10eb840",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T22:48:55+00:00",
-            "lastUpdated": "2025-09-15T22:48:55+00:00",
-            "lastPublished": "2025-09-15T22:48:55+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "marvin aluminum clad new 6",
-                "slug": "marvin-aluminum-clad-new-6",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c897d4b7a2ebaf99e490f4_IMG_0069-copy.jpg",
-                    "fileId": "68c897d4b7a2ebaf99e490f4"
-                }
-            }
-        },
-        {
-            "id": "68c897b5914aa574591d5ec9",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T22:48:21+00:00",
-            "lastUpdated": "2025-09-15T22:48:21+00:00",
-            "lastPublished": "2025-09-15T22:48:21+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "marvin aluminum clad new 5",
-                "slug": "marvin-aluminum-clad-new-5",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c897af834d882b753a94f9_IMG_0059-copy.jpg",
-                    "fileId": "68c897af834d882b753a94f9"
-                }
-            }
-        },
-        {
-            "id": "68c89754dd537cbd43137d47",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T22:46:44+00:00",
-            "lastUpdated": "2025-09-15T22:47:30+00:00",
-            "lastPublished": "2025-09-16T17:28:01+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "marvin aluminum clad new 4",
-                "slug": "marvin-aluminum-clad-new-3-copy",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c8977c397242cfdcdaeb50_IMG_0057-copy.jpg",
-                    "fileId": "68c8977c397242cfdcdaeb50"
-                }
-            }
-        },
-        {
-            "id": "68c8974437da7f363e854b1c",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T22:46:28+00:00",
-            "lastUpdated": "2025-09-15T22:46:28+00:00",
-            "lastPublished": "2025-09-15T22:46:28+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "marvin aluminum clad new 3",
-                "slug": "marvin-aluminum-clad-new-3",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c89741737d1ddcf559e0fb_IMG_0053-copy.jpg",
-                    "fileId": "68c89741737d1ddcf559e0fb"
-                }
-            }
-        },
-        {
-            "id": "68c8973147d708de399792ab",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T22:46:09+00:00",
-            "lastUpdated": "2025-09-15T22:46:09+00:00",
-            "lastPublished": "2025-09-15T22:46:09+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "marvin aluminum clad new 2",
-                "slug": "marvin-aluminum-clad-new-2",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c8972e6843f4d623e8f462_IMG_0049-copy.jpg",
-                    "fileId": "68c8972e6843f4d623e8f462"
-                }
-            }
-        },
-        {
-            "id": "68c8971f4ec60e3db44db3e0",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T22:45:51+00:00",
-            "lastUpdated": "2025-09-15T22:45:51+00:00",
-            "lastPublished": "2025-09-15T22:45:51+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "marvin aluminum clad new",
-                "slug": "marvin-aluminum-clad-new",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c8971b3c012bcb583f91fe_IMG_0041-copy.jpg",
-                    "fileId": "68c8971b3c012bcb583f91fe"
-                }
-            }
-        },
-        {
-            "id": "68c89339dc5c95ff7bbcb6f2",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T22:29:13+00:00",
-            "lastUpdated": "2025-09-15T22:29:13+00:00",
-            "lastPublished": "2025-09-15T22:29:13+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Marvin Aluminum clad french",
-                "slug": "marvin-aluminum-clad-french",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c8933647d708de3996bae0_IMG_0432-copy.jpg",
-                    "fileId": "68c8933647d708de3996bae0"
-                }
-            }
-        },
-        {
-            "id": "68c892fc6e0f4c3aeca9d885",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T22:28:12+00:00",
-            "lastUpdated": "2025-09-15T22:28:12+00:00",
-            "lastPublished": "2025-09-15T22:28:12+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Marvin aluminum clad block 7",
-                "slug": "marvin-aluminum-clad-block-7",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c892f96843f4d623e81a2e_IMG_0011-copy.jpg",
-                    "fileId": "68c892f96843f4d623e81a2e"
-                }
-            }
-        },
-        {
-            "id": "68c892b0f164c74394dea79e",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T22:26:56+00:00",
-            "lastUpdated": "2025-09-15T22:26:56+00:00",
-            "lastPublished": "2025-09-15T22:26:56+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Marvin aluminum clad block 6",
-                "slug": "marvin-aluminum-clad-block-6",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c892acb4d1c57c203a9a9b_IMG_0548-copy.jpg",
-                    "fileId": "68c892acb4d1c57c203a9a9b"
-                }
-            }
-        },
-        {
-            "id": "68c89274e69ba234db7c7465",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T22:25:56+00:00",
-            "lastUpdated": "2025-09-15T22:25:56+00:00",
-            "lastPublished": "2025-09-15T22:25:56+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Marvin aluminum clad block 5",
-                "slug": "marvin-aluminum-clad-block-5",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c8927034755704ad6441a7_IMG_0603-copy.jpg",
-                    "fileId": "68c8927034755704ad6441a7"
-                }
-            }
-        },
-        {
-            "id": "68c89259e0835062c591e1fa",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T22:25:29+00:00",
-            "lastUpdated": "2025-09-15T22:25:29+00:00",
-            "lastPublished": "2025-09-15T22:25:29+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Marvin aluminum clad block 4",
-                "slug": "marvin-aluminum-clad-block-4",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c892543e72481766a5c610_IMG_1249-copy.jpg",
-                    "fileId": "68c892543e72481766a5c610"
-                }
-            }
-        },
-        {
-            "id": "68c8920c445f1e7ec491a873",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T22:24:12+00:00",
-            "lastUpdated": "2025-09-15T22:24:12+00:00",
-            "lastPublished": "2025-09-15T22:24:12+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Marvin aluminum clad block 3",
-                "slug": "marvin-aluminum-clad-block-3",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c89209b083bfab499d45c0_IMG_1257-copy.jpg",
-                    "fileId": "68c89209b083bfab499d45c0"
-                }
-            }
-        },
-        {
-            "id": "68c891fa98b1bfb397393652",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T22:23:54+00:00",
-            "lastUpdated": "2025-09-15T22:23:54+00:00",
-            "lastPublished": "2025-09-15T22:23:54+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Marvin aluminum clad block 1",
-                "slug": "marvin-aluminum-clad-block-1",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c891f682004723ddef6569_IMG_1260-copy.jpg",
-                    "fileId": "68c891f682004723ddef6569"
-                }
-            }
-        },
-        {
-            "id": "68c891e64024a0af69a218a5",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T22:23:34+00:00",
-            "lastUpdated": "2025-09-15T22:23:34+00:00",
-            "lastPublished": "2025-09-15T22:23:34+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Marvin aluminum clad block",
-                "slug": "marvin-aluminum-clad-block",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c891e34c1a8f473324b118_IMG_2224-copy.jpg",
-                    "fileId": "68c891e34c1a8f473324b118"
-                }
-            }
-        },
-        {
-            "id": "68c8905c1dea2371369422ef",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T22:17:00+00:00",
-            "lastUpdated": "2025-09-15T22:17:00+00:00",
-            "lastPublished": "2025-09-15T22:17:00+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Marks Castle Alamo",
-                "slug": "marks-castle-alamo",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c890599c7bd341f08e4a3e_IMG_0678-copy.jpg",
-                    "fileId": "68c890599c7bd341f08e4a3e"
-                }
-            }
-        },
-        {
-            "id": "68c88f845f13d74eb37ee648",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T22:13:24+00:00",
-            "lastUpdated": "2025-09-15T22:16:40+00:00",
-            "lastPublished": "2025-09-16T17:28:01+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Los altos Marvin ultimate 1",
-                "slug": "los-altos-marvin-ultimate-copy",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c88f7d8fd58d9f978a8f92_IMG_1346-copy.jpg",
-                    "fileId": "68c88f7d8fd58d9f978a8f92"
-                }
-            }
-        },
-        {
-            "id": "68c88f72918d0a71b876929c",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T22:13:06+00:00",
-            "lastUpdated": "2025-09-15T22:13:06+00:00",
-            "lastPublished": "2025-09-15T22:13:06+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Los altos Marvin ultimate",
-                "slug": "los-altos-marvin-ultimate",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c88f6d51743ff7b142dce7_IMG_1322-copy.jpg",
-                    "fileId": "68c88f6d51743ff7b142dce7"
-                }
-            }
-        },
-        {
-            "id": "68c88df1627d5f6be4dcb5a8",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T22:06:41+00:00",
-            "lastUpdated": "2025-09-15T22:11:08+00:00",
-            "lastPublished": "2025-09-16T17:28:01+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Jeldween ",
-                "slug": "jeldween-wood-block-frame",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c88eecc7e78105e5aca538_IMG_1496-copy.jpg",
-                    "fileId": "68c88eecc7e78105e5aca538"
-                }
-            }
-        },
-        {
-            "id": "68c88cbc4cf63c9754ad784c",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T22:01:32+00:00",
-            "lastUpdated": "2025-09-15T22:05:36+00:00",
-            "lastPublished": "2025-09-16T17:28:01+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Jeldween masonic st  2",
-                "slug": "jeldween-masonic-st-1",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c88cb9172c5f771dd0b902_IMG_0619-copy.jpg",
-                    "fileId": "68c88cb9172c5f771dd0b902"
-                }
-            }
-        },
-        {
-            "id": "68c88cb1a7608208d5ea2f27",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T22:01:21+00:00",
-            "lastUpdated": "2025-09-15T22:01:21+00:00",
-            "lastPublished": "2025-09-15T22:01:21+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Jeldween masonic st ",
-                "slug": "jeldween-masonic-st",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c88cac917e7e752c2ffb0f_IMG_3939-copy.jpg",
-                    "fileId": "68c88cac917e7e752c2ffb0f"
-                }
-            }
-        },
-        {
-            "id": "68c88bf6e69ba234db7ad74e",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T21:58:14+00:00",
-            "lastUpdated": "2025-09-15T21:58:34+00:00",
-            "lastPublished": "2025-09-16T17:28:01+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Cherno milgard Aluminum Orinda 4",
-                "slug": "cherno-milgard-aluminum-orinda-3-2",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c88c075e6614fb046428bc_IMG_0909-copy.jpg",
-                    "fileId": "68c88c075e6614fb046428bc"
-                }
-            }
-        },
-        {
-            "id": "68c88bca22dbe2273e2290d2",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T21:57:30+00:00",
-            "lastUpdated": "2025-09-15T21:57:30+00:00",
-            "lastPublished": "2025-09-15T21:57:30+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Cherno milgard Aluminum Orinda  3",
-                "slug": "cherno-milgard-aluminum-orinda-3",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c88bc34026fdb7f2598697_IMG_0908-copy.jpg",
-                    "fileId": "68c88bc34026fdb7f2598697"
-                }
-            }
-        },
-        {
-            "id": "68c88b8d1177ae25483c0637",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T21:56:29+00:00",
-            "lastUpdated": "2025-09-15T21:56:29+00:00",
-            "lastPublished": "2025-09-15T21:56:29+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Cherno milgard Aluminum Orinda  2",
-                "slug": "cherno-milgard-aluminum-orinda-2",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c88b898cf0554bdb23ec35_IMG_0900-copy.jpg",
-                    "fileId": "68c88b898cf0554bdb23ec35"
-                }
-            }
-        },
-        {
-            "id": "68c88b65490a4994db1d7312",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T21:55:49+00:00",
-            "lastUpdated": "2025-09-15T21:55:49+00:00",
-            "lastPublished": "2025-09-15T21:55:49+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Cherno milgard Aluminum Orinda  ",
-                "slug": "cherno-milgard-aluminum-orinda",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c88b62d0fc7ffcd1764a97_IMG_0896-copy.jpg",
-                    "fileId": "68c88b62d0fc7ffcd1764a97"
-                }
-            }
-        },
-        {
-            "id": "68c88a51a6cef1d800364690",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T21:51:13+00:00",
-            "lastUpdated": "2025-09-15T21:51:13+00:00",
-            "lastPublished": "2025-09-15T21:51:13+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Cherno Milgard Aluminum Lafaette 4",
-                "slug": "cherno-milgard-aluminum-lafaette-4",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c88a4c7ee80cba98b9796b_IMG_2506-copy.jpg",
-                    "fileId": "68c88a4c7ee80cba98b9796b"
-                }
-            }
-        },
-        {
-            "id": "68c88a3da6cef1d8003642d9",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T21:50:53+00:00",
-            "lastUpdated": "2025-09-15T21:50:53+00:00",
-            "lastPublished": "2025-09-15T21:50:53+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Cherno Milgard Aluminum Lafaette 3",
-                "slug": "cherno-milgard-aluminum-lafaette-3",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c88a36a9eb08d6b08c5162_IMG_2529-copy.jpg",
-                    "fileId": "68c88a36a9eb08d6b08c5162"
-                }
-            }
-        },
-        {
-            "id": "68c88a286751b028cd326a6a",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T21:50:32+00:00",
-            "lastUpdated": "2025-09-15T21:50:32+00:00",
-            "lastPublished": "2025-09-15T21:50:32+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Cherno Milgard Aluminum Lafaette 2",
-                "slug": "cherno-milgard-aluminum-lafaette-2",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c88a22635ff53382a342f7_IMG_2533-copy.jpg",
-                    "fileId": "68c88a22635ff53382a342f7"
-                }
-            }
-        },
-        {
-            "id": "68c889ea125fbb5d62944b4e",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T21:49:30+00:00",
-            "lastUpdated": "2025-09-15T21:49:30+00:00",
-            "lastPublished": "2025-09-15T21:49:30+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Cherno Milgard Aluminum Lafaette1",
-                "slug": "cherno-milgard-aluminum-lafaette1",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c889e63e44d8a594d7ee1a_IMG_0261-copy-2.jpg",
-                    "fileId": "68c889e63e44d8a594d7ee1a"
-                }
-            }
-        },
-        {
-            "id": "68c889aa8fd58d9f9788e905",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T21:48:26+00:00",
-            "lastUpdated": "2025-09-15T21:48:26+00:00",
-            "lastPublished": "2025-09-15T21:48:26+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Cherno Milgard Aluminum Lafaette",
-                "slug": "cherno-milgard-aluminum-lafaette",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c889a76859f9f8e2febe65_IMG_2491-copy.jpg",
-                    "fileId": "68c889a76859f9f8e2febe65"
-                }
-            }
-        },
-        {
-            "id": "68c888ab7597540c9ca99140",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T21:44:11+00:00",
-            "lastUpdated": "2025-09-15T21:44:11+00:00",
-            "lastPublished": "2025-09-15T21:44:11+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Cherno atherton",
-                "slug": "cherno-atherton",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c888a737c1e1c51e1346dc_IMG_3001-copy.jpg",
-                    "fileId": "68c888a737c1e1c51e1346dc"
-                }
-            }
-        },
-        {
-            "id": "68c888082f12b3278597d3ce",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T21:41:28+00:00",
-            "lastUpdated": "2025-09-15T21:42:34+00:00",
-            "lastPublished": "2025-09-15T21:42:34+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Cherno Anderson 400 series 6",
-                "slug": "cherno-anderson-400-series-6",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c88805a09627aa7a309b99_IMG_0862-copy.jpg",
-                    "fileId": "68c88805a09627aa7a309b99"
-                }
-            }
-        },
-        {
-            "id": "68c887f43432c6dd41360e0f",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T21:41:08+00:00",
-            "lastUpdated": "2025-09-15T21:42:38+00:00",
-            "lastPublished": "2025-09-15T21:42:38+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Cherno Anderson 400 series 5",
-                "slug": "cherno-anderson-400-series-5",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c887f10ee1341634cfefea_IMG_0857-copy.jpg",
-                    "fileId": "68c887f10ee1341634cfefea"
-                }
-            }
-        },
-        {
-            "id": "68c887dbc24b2c7988af1b34",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T21:40:43+00:00",
-            "lastUpdated": "2025-09-15T21:42:48+00:00",
-            "lastPublished": "2025-09-15T21:42:48+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Cherno Anderson 400 series 4",
-                "slug": "cherno-anderson-400-series-4",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c887ac610f2fa8b924f4a5_IMG_0855-copy.jpg",
-                    "fileId": "68c887ac610f2fa8b924f4a5"
-                }
-            }
-        },
-        {
-            "id": "68c887af3e6e43cb7cc84ce0",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T21:39:59+00:00",
-            "lastUpdated": "2025-09-15T21:39:59+00:00",
-            "lastPublished": "2025-09-15T21:39:59+00:00",
-            "isArchived": false,
-            "isDraft": true,
-            "fieldData": {
-                "name": "Cherno Anderson 400 series 3",
-                "slug": "cherno-anderson-400-series-3",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c887ac610f2fa8b924f4a5_IMG_0855-copy.jpg",
-                    "fileId": "68c887ac610f2fa8b924f4a5"
-                }
-            }
-        },
-        {
-            "id": "68c88795b3bfa0054f852e9e",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T21:39:33+00:00",
-            "lastUpdated": "2025-09-15T21:42:51+00:00",
-            "lastPublished": "2025-09-15T21:42:51+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Cherno Anderson 400 series 2",
-                "slug": "cherno-anderson-400-series-2",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c887905c2c53050ea7dfb5_IMG_0842-copy.jpg",
-                    "fileId": "68c887905c2c53050ea7dfb5"
-                }
-            }
-        },
-        {
-            "id": "68c887808caa3cb4ebb4d2de",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T21:39:12+00:00",
-            "lastUpdated": "2025-09-15T21:39:37+00:00",
-            "lastPublished": "2025-09-16T17:28:01+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Cherno Anderson 400 series ",
-                "slug": "cherno-anderson-400-series",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c8877bfa1bc257940e66a1_IMG_0840-copy.jpg",
-                    "fileId": "68c8877bfa1bc257940e66a1"
-                }
-            }
-        },
-        {
-            "id": "68c8866a2a7f789cd7935333",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T21:34:34+00:00",
-            "lastUpdated": "2025-09-15T21:34:34+00:00",
-            "lastPublished": "2025-09-15T21:34:34+00:00",
-            "isArchived": false,
-            "isDraft": true,
-            "fieldData": {
-                "name": "Apartment buildingd",
-                "slug": "apartment-buildingd",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c88666ad68004ea9e57bb8_IMG_0603-copy.jpg",
-                    "fileId": "68c88666ad68004ea9e57bb8"
-                }
-            }
-        },
-        {
-            "id": "68c88475505740d15214868f",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T21:26:13+00:00",
-            "lastUpdated": "2025-09-15T21:26:13+00:00",
-            "lastPublished": "2025-09-15T21:26:13+00:00",
-            "isArchived": false,
-            "isDraft": true,
-            "fieldData": {
-                "name": "Anlin vinyl new construction",
-                "slug": "anlin-vinyl-new-construction",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c884705e1246a3b9bb514c_IMG_2103-copy.jpg",
-                    "fileId": "68c884705e1246a3b9bb514c"
-                }
-            }
-        },
-        {
-            "id": "68c882cbf5f00da14137644b",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T21:19:07+00:00",
-            "lastUpdated": "2025-09-15T21:19:07+00:00",
-            "lastPublished": null,
-            "isArchived": false,
-            "isDraft": true,
-            "fieldData": {
-                "name": "Aluminum Random",
-                "slug": "aluminum-random",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c882c8a9eb08d6b08a7abd_IMG_0817-copy.jpg",
-                    "fileId": "68c882c8a9eb08d6b08a7abd"
-                }
-            }
-        },
-        {
-            "id": "68c8826603f555204c2e4b9b",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T21:17:26+00:00",
-            "lastUpdated": "2025-09-15T21:20:48+00:00",
-            "lastPublished": "2025-09-16T17:28:01+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "alside vinyl ",
-                "slug": "alside-vinyl",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c8832d032f5f6e5efd62be_IMG_1956-copy1.jpg",
-                    "fileId": "68c8832d032f5f6e5efd62be"
-                }
-            }
-        },
-        {
-            "id": "68c8820c36004d060b244036",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T21:15:56+00:00",
-            "lastUpdated": "2025-09-15T21:15:56+00:00",
-            "lastPublished": "2025-09-15T21:15:56+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "All weather sharks house  5",
-                "slug": "all-weather-sharks-house-5",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c88208966e1d20865bb516_824-Huntley-Dr---virtuallyherestudios.com-93-copy.jpg",
-                    "fileId": "68c88208966e1d20865bb516"
-                }
-            }
-        },
-        {
-            "id": "68c881c378b319a3d4e3495d",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T21:14:43+00:00",
-            "lastUpdated": "2025-09-15T21:14:43+00:00",
-            "lastPublished": "2025-09-15T21:14:43+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "All weather sharks house  4",
-                "slug": "all-weather-sharks-house-4",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c881be6a76eafd63b8b0fa_824-Huntley-Dr---virtuallyherestudios.com-56-copy.jpg",
-                    "fileId": "68c881be6a76eafd63b8b0fa"
-                }
-            }
-        },
-        {
-            "id": "68c880bd51743ff7b13f2075",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T21:10:21+00:00",
-            "lastUpdated": "2025-09-15T21:10:21+00:00",
-            "lastPublished": "2025-09-15T21:10:21+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "All weather sharks house  3",
-                "slug": "all-weather-sharks-house-3",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c880b868caf48c1916127f_824-Huntley-Dr---virtuallyherestudios.com-46-copy.jpg",
-                    "fileId": "68c880b868caf48c1916127f"
-                }
-            }
-        },
-        {
-            "id": "68c88067eaa6621e205a93eb",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T21:08:55+00:00",
-            "lastUpdated": "2025-09-15T21:09:11+00:00",
-            "lastPublished": "2025-09-16T17:28:01+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "All weather sharks house  2",
-                "slug": "all-weather-sharks-house-before-and-after-2",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c880613977a2ff65c0f598_824-Huntley-Dr---virtuallyherestudios.com-14-copy.jpg",
-                    "fileId": "68c880613977a2ff65c0f598"
-                }
-            }
-        },
-        {
-            "id": "68c88025cc114176425a7e0b",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T21:07:49+00:00",
-            "lastUpdated": "2025-09-15T21:09:05+00:00",
-            "lastPublished": "2025-09-16T17:28:01+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "All weather sharks house",
-                "slug": "all-weather-sharks-house-before-and-after",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c8801eb7a2ebaf99deca5c_824-Huntley-Dr---virtuallyherestudios.com-4-copy.jpg",
-                    "fileId": "68c8801eb7a2ebaf99deca5c"
-                }
-            }
-        },
-        {
-            "id": "68c87f7b1ec5219e065446e2",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T21:04:59+00:00",
-            "lastUpdated": "2025-09-15T21:13:31+00:00",
-            "lastPublished": "2025-09-16T17:28:01+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "All weather Hillsborogh Pine ct 2",
-                "slug": "all-weather-hillsborogh-pine-ct-copy-2",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c87f7765e49fa4f848897c_IMG_2604-copy.jpg",
-                    "fileId": "68c87f7765e49fa4f848897c"
-                }
-            }
-        },
-        {
-            "id": "68c87f203197efab88171ba6",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T21:03:28+00:00",
-            "lastUpdated": "2025-09-15T21:13:35+00:00",
-            "lastPublished": "2025-09-16T17:28:01+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "All weather Hillsborogh Pine ct 3",
-                "slug": "all-weather-hillsborogh-pine-ct-copy",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c87f1bdcf34a64421d75fe_3-copy.jpg",
-                    "fileId": "68c87f1bdcf34a64421d75fe"
-                }
-            }
-        },
-        {
-            "id": "68c87e47490a4994db19a524",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-15T20:59:51+00:00",
-            "lastUpdated": "2025-09-15T20:59:51+00:00",
-            "lastPublished": "2025-09-15T20:59:51+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "All weather Hillsborogh Pine ct",
-                "slug": "all-weather-hillsborogh-pine-ct",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c87e439a25e87eb449765a_2-copy.jpg",
-                    "fileId": "68c87e439a25e87eb449765a"
-                }
-            }
-        },
-        {
-            "id": "68c1e4e14e095331cab8f55d",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-10T20:51:45+00:00",
-            "lastUpdated": "2025-09-10T21:25:45+00:00",
-            "lastPublished": "2025-09-11T06:06:39+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Villa Hillsborough 4",
-                "slug": "villa-hillsborough-3-copy",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c1e4da87641ae1b6c8388f_ML82019061_2_0.jpg",
-                    "fileId": "68c1e4da87641ae1b6c8388f"
-                }
-            }
-        },
-        {
-            "id": "68c1e3b696265200f30954a9",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-10T20:46:46+00:00",
-            "lastUpdated": "2025-09-10T20:48:47+00:00",
-            "lastPublished": "2025-09-11T06:06:39+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Villa Hillsborough 3",
-                "slug": "villa-hillsborough-3",
-                "gallery": [
-                    {
-                        "alt": null,
-                        "url": "/webflow-assets/images/68c1e3aec656444714174803_ML82019061_6_0-copy.jpg",
-                        "fileId": "68c1e3aec656444714174803"
-                    }
-                ],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c1e3aec656444714174803_ML82019061_6_0-copy.jpg",
-                    "fileId": "68c1e3aec656444714174803"
-                }
-            }
-        },
-        {
-            "id": "68c1e3053ac70422faa14e91",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-10T20:43:49+00:00",
-            "lastUpdated": "2025-09-10T20:43:49+00:00",
-            "lastPublished": "2025-09-10T20:43:49+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Villa Hillsborough 2",
-                "slug": "villa-hillsborough-2",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c1e3014c208aa0190f3a32_ML82019061_14_0.jpg",
-                    "fileId": "68c1e3014c208aa0190f3a32"
-                }
-            }
-        },
-        {
-            "id": "68c1e2c86b85eae1f624da61",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-10T20:42:48+00:00",
-            "lastUpdated": "2025-09-10T20:42:57+00:00",
-            "lastPublished": "2025-09-10T20:42:57+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Villa Hillsborough",
-                "slug": "villa-hillsborough",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c1e2c239323cddc951b404_ML82019061_5_0.jpg",
-                    "fileId": "68c1e2c239323cddc951b404"
-                }
-            }
-        },
-        {
-            "id": "68c1e279b73a21e6d9a6a6ac",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-10T20:41:29+00:00",
-            "lastUpdated": "2025-09-10T20:41:29+00:00",
-            "lastPublished": "2025-09-10T20:41:29+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Cascade Vinyl 2",
-                "slug": "cascade-vinyl-2",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c1e26dd8be9f9d0a5a66e5_IMG_0048-copy.jpg",
-                    "fileId": "68c1e26dd8be9f9d0a5a66e5"
-                }
-            }
-        },
-        {
-            "id": "68c1e19706561e1f8d7bf1e8",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-10T20:37:43+00:00",
-            "lastUpdated": "2025-09-10T20:37:43+00:00",
-            "lastPublished": "2025-09-10T20:37:43+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Cascade Vinyl",
-                "slug": "cascade-vinyl",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c1e18e291dd5544d66a4db_IMG_0045-copy.jpg",
-                    "fileId": "68c1e18e291dd5544d66a4db"
-                }
-            }
-        },
-        {
-            "id": "68c1e121da7b7a622ead316a",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-10T20:35:45+00:00",
-            "lastUpdated": "2025-09-10T20:35:45+00:00",
-            "lastPublished": "2025-09-10T20:35:45+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Jeldween new consrtuction aluminum clad 3",
-                "slug": "jeldween-new-consrtuction-aluminum-clad-3",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c1e11d5175ebd3c6935a09_IMG_2921-copy1.jpg",
-                    "fileId": "68c1e11d5175ebd3c6935a09"
-                }
-            }
-        },
-        {
-            "id": "68c1e05aad371b91b46c35ca",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-10T20:32:26+00:00",
-            "lastUpdated": "2025-09-10T20:32:26+00:00",
-            "lastPublished": "2025-09-10T20:32:26+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Jeldween new consrtuction aluminum clad 2",
-                "slug": "jeldween-new-consrtuction-aluminum-clad-2",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c1e003616a2d64c36f65fa_IMG_4488-copy.jpg",
-                    "fileId": "68c1e003616a2d64c36f65fa"
-                }
-            }
-        },
-        {
-            "id": "68c1e01b917e8f7a9061cfcf",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-09-10T20:31:23+00:00",
-            "lastUpdated": "2025-09-10T20:31:23+00:00",
-            "lastPublished": "2025-09-10T20:31:23+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Jeldween new consrtuction aluminum clad",
-                "slug": "jeldween-new-consrtuction-aluminum-clad",
-                "gallery": [
-                    {
-                        "alt": null,
-                        "url": "/webflow-assets/images/68c1e003616a2d64c36f65fa_IMG_4488-copy.jpg",
-                        "fileId": "68c1e003616a2d64c36f65fa"
-                    }
-                ],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c1dffa190335c0d8ed49a7_IMG_2925-copy.jpg",
-                    "fileId": "68c1dffa190335c0d8ed49a7"
-                }
-            }
-        },
-        {
-            "id": "688381a8210e196455210805",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-07-25T13:07:52+00:00",
-            "lastUpdated": "2025-07-25T13:08:00+00:00",
-            "lastPublished": "2025-07-25T13:08:31+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Gallery Image 21",
-                "slug": "gallery-image-21",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/688381ac192ac8f1f8a72d92_7.jpg",
-                    "fileId": "688381ac192ac8f1f8a72d92"
-                }
-            }
-        },
-        {
-            "id": "6883819444452103cb76de93",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-07-25T13:07:32+00:00",
-            "lastUpdated": "2025-07-25T13:07:46+00:00",
-            "lastPublished": "2025-07-25T13:08:31+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Gallery Image 20",
-                "slug": "gallery-image-20",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/6883819d9411c98ed1087590_1.jpg",
-                    "fileId": "6883819d9411c98ed1087590"
-                }
-            }
-        },
-        {
-            "id": "6883818451ac98fec156f30b",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-07-25T13:07:16+00:00",
-            "lastUpdated": "2025-07-25T13:07:25+00:00",
-            "lastPublished": "2025-07-25T13:08:31+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Gallery Image 19",
-                "slug": "gallery-image-19",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/6883818a51ac98fec156f4f1_3.jpg",
-                    "fileId": "6883818a51ac98fec156f4f1"
-                }
-            }
-        },
-        {
-            "id": "68838163a822ee4802fb9d7a",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-07-25T13:06:43+00:00",
-            "lastUpdated": "2025-07-25T13:07:09+00:00",
-            "lastPublished": "2025-07-25T13:08:31+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Gallery Image 18",
-                "slug": "gallery-image-18",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/688381764d4b4f0b1c7987e0_6.jpg",
-                    "fileId": "688381764d4b4f0b1c7987e0"
-                }
-            }
-        },
-        {
-            "id": "688380ad472b7f5b8e79dbdb",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-07-25T13:03:41+00:00",
-            "lastUpdated": "2025-07-25T13:03:53+00:00",
-            "lastPublished": "2025-07-25T13:08:31+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Gallery Image 17",
-                "slug": "gallery-image-17",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/688380b679056a0be53f6d41_Frame-26.jpg",
-                    "fileId": "688380b679056a0be53f6d41"
-                }
-            }
-        },
-        {
-            "id": "68838088f60c27508da8eea9",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-07-25T13:03:04+00:00",
-            "lastUpdated": "2025-09-15T21:24:17+00:00",
-            "lastPublished": "2025-09-16T17:28:01+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Gallery Image 16",
-                "slug": "gallery-image-16",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c883fec4b4d3727926bd2c_DSC_0300-copy.jpg",
-                    "fileId": "68c883fec4b4d3727926bd2c"
-                }
-            }
-        },
-        {
-            "id": "68838055338925504970f8f6",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-07-25T13:02:13+00:00",
-            "lastUpdated": "2025-07-25T13:02:23+00:00",
-            "lastPublished": "2025-07-25T13:08:31+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Gallery Image 15",
-                "slug": "gallery-image-15",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/6883805ca03ba6c0a0ba7581_Frame-27.jpg",
-                    "fileId": "6883805ca03ba6c0a0ba7581"
-                }
-            }
-        },
-        {
-            "id": "68837fc8e4844513679186be",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-07-25T12:59:52+00:00",
-            "lastUpdated": "2025-07-25T13:01:51+00:00",
-            "lastPublished": "2025-07-25T13:08:31+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Gallery Image 14",
-                "slug": "gallery-image-14",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/6883803cfdf2b295d6678634_Frame-24.jpg",
-                    "fileId": "6883803cfdf2b295d6678634"
-                }
-            }
-        },
-        {
-            "id": "68837f18210e1964551fc7f4",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-07-25T12:56:56+00:00",
-            "lastUpdated": "2025-07-25T12:57:19+00:00",
-            "lastPublished": "2025-07-25T13:08:31+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Gallery Image 13",
-                "slug": "gallery-image-13",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68837d89eba765eb136ab983_Frame-39.jpg",
-                    "fileId": "68837d89eba765eb136ab983"
-                }
-            }
-        },
-        {
-            "id": "68837da9a0cc040c4ed2ad43",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-07-25T12:50:49+00:00",
-            "lastUpdated": "2025-07-25T12:51:03+00:00",
-            "lastPublished": "2025-07-25T12:53:14+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Gallery Image 12",
-                "slug": "gallery-image-12",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68837db4472b7f5b8e77e05a_Frame-31.jpg",
-                    "fileId": "68837db4472b7f5b8e77e05a"
-                }
-            }
-        },
-        {
-            "id": "68837d931895b95774db97ae",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-07-25T12:50:27+00:00",
-            "lastUpdated": "2025-09-15T21:28:51+00:00",
-            "lastPublished": "2025-09-16T17:28:01+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Gallery Image 11",
-                "slug": "gallery-image-11",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68c8850d03f555204c2ee456_IMG_3697-copy.jpg",
-                    "fileId": "68c8850d03f555204c2ee456"
-                }
-            }
-        },
-        {
-            "id": "68837d7657b94be5c612601a",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-07-25T12:49:58+00:00",
-            "lastUpdated": "2025-07-25T12:58:06+00:00",
-            "lastPublished": "2025-07-25T13:08:31+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Gallery Image 10",
-                "slug": "gallery-image-10",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68837d6bc361aa0ba1045eac_Frame-29.jpg",
-                    "fileId": "68837d6bc361aa0ba1045eac"
-                }
-            }
-        },
-        {
-            "id": "68837d61ec918fbd4a1165bf",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-07-25T12:49:37+00:00",
-            "lastUpdated": "2025-07-25T12:58:55+00:00",
-            "lastPublished": "2025-07-25T13:08:31+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Gallery Image 9",
-                "slug": "gallery-image-9",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68837f8b87816ec2e8483c95_Frame-34.jpg",
-                    "fileId": "68837f8b87816ec2e8483c95"
-                }
-            }
-        },
-        {
-            "id": "68837d4e68d52017147bf2b7",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-07-25T12:49:18+00:00",
-            "lastUpdated": "2025-07-25T12:49:30+00:00",
-            "lastPublished": "2025-07-25T12:53:14+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Gallery Image 8",
-                "slug": "gallery-image-8",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68837d5617f63550b5539b02_Frame-17.jpg",
-                    "fileId": "68837d5617f63550b5539b02"
-                }
-            }
-        },
-        {
-            "id": "68837d3b659c1cf80ea8b75b",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-07-25T12:48:59+00:00",
-            "lastUpdated": "2025-07-25T12:49:10+00:00",
-            "lastPublished": "2025-07-25T12:53:14+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Gallery Image 7",
-                "slug": "gallery-image-7",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68837d44674b0564cb25ee4c_Frame-16.jpg",
-                    "fileId": "68837d44674b0564cb25ee4c"
-                }
-            }
-        },
-        {
-            "id": "68837d253286544058c69e49",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-07-25T12:48:37+00:00",
-            "lastUpdated": "2025-07-25T12:48:48+00:00",
-            "lastPublished": "2025-07-25T12:53:14+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Gallery Image 6",
-                "slug": "gallery-image-6",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68837d2c60170917e2be19d0_Frame-15.jpg",
-                    "fileId": "68837d2c60170917e2be19d0"
-                }
-            }
-        },
-        {
-            "id": "68837d0e62f73bedea6f6904",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-07-25T12:48:14+00:00",
-            "lastUpdated": "2025-07-25T12:48:25+00:00",
-            "lastPublished": "2025-07-25T12:53:14+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Gallery Image 5",
-                "slug": "gallery-image-5",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68837d17539b7261a6d30b69_Frame-14.jpg",
-                    "fileId": "68837d17539b7261a6d30b69"
-                }
-            }
-        },
-        {
-            "id": "68837cfcfed183135f469670",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-07-25T12:47:56+00:00",
-            "lastUpdated": "2025-07-25T12:48:05+00:00",
-            "lastPublished": "2025-07-25T12:53:14+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Gallery Image 4",
-                "slug": "gallery-image-4",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68837d02448fcace0169fb09_Frame-12.jpg",
-                    "fileId": "68837d02448fcace0169fb09"
-                }
-            }
-        },
-        {
-            "id": "68837cdfec918fbd4a1111d2",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-07-25T12:47:27+00:00",
-            "lastUpdated": "2025-07-25T12:47:49+00:00",
-            "lastPublished": "2025-07-25T12:53:14+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Gallery Image 3",
-                "slug": "gallery-image-1",
-                "gallery": [
-                    {
-                        "alt": null,
-                        "url": "/webflow-assets/images/68837cedbacf503578cc291a_Frame-11.jpg",
-                        "fileId": "68837cedbacf503578cc291a"
-                    }
-                ],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68837cedbacf503578cc291a_Frame-11.jpg",
-                    "fileId": "68837cedbacf503578cc291a"
-                }
-            }
-        },
-        {
-            "id": "68825b383507e62881ee8ff7",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-07-24T16:11:36+00:00",
-            "lastUpdated": "2025-07-25T12:47:19+00:00",
-            "lastPublished": "2025-07-25T12:53:14+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Gallery Image 2",
-                "slug": "galllery-2",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/68825b61f81ce44f12673973_Screenshot-2025-07-24-at-19.12.13.png",
-                    "fileId": "68825b61f81ce44f12673973"
-                }
-            }
-        },
-        {
-            "id": "688136fe04e75068bf503efb",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2025-07-23T19:24:45+00:00",
-            "lastUpdated": "2025-07-25T12:47:12+00:00",
-            "lastPublished": "2025-07-25T12:53:14+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "name": "Gallery Image 1",
-                "slug": "gallery",
-                "gallery": [],
-                "featured-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/688236fed9cc28b78fb10d04_IMG_2963-1.jpg",
-                    "fileId": "688236fed9cc28b78fb10d04"
-                }
-            }
-        }
-    ],
-    "flattenedFieldMap": {
-        "gallery": "wf_gallery",
-        "featured-image": "wf_featured_image"
+  "table": "wf_gallery",
+  "collectionId": "688136f10bb2ccdbe12aa297",
+  "collectionSlug": "gallery",
+  "items": [
+    {
+      "id": "68c89a3bcf3e65c360255fd1",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T22:59:07.891Z",
+      "lastUpdated": "2025-09-15T22:59:33.136Z",
+      "lastPublished": "2025-09-16T17:28:01.608Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c89a4ddd537cbd43140679",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c89a4ddd537cbd43140679_IMG_8948%20copy.jpg",
+          "alt": null
+        },
+        "name": "marvin aluminum clad new 19",
+        "slug": "marvin-aluminum-clad-new-19"
+      }
+    },
+    {
+      "id": "68c89a10c7e78105e5aefe4c",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T22:58:24.046Z",
+      "lastUpdated": "2025-09-15T22:58:24.046Z",
+      "lastPublished": "2025-09-15T22:58:24.046Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c89a099acdcf47011a2c81",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c89a099acdcf47011a2c81_IMG_9092%20copy.jpg",
+          "alt": null
+        },
+        "name": "marvin aluminum clad new 18",
+        "slug": "marvin-aluminum-clad-new-18"
+      }
+    },
+    {
+      "id": "68c899eb8555477e7a4743df",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T22:57:47.850Z",
+      "lastUpdated": "2025-09-15T22:57:47.850Z",
+      "lastPublished": "2025-09-15T22:57:47.850Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c899e85dd261dc57e23f89",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c899e85dd261dc57e23f89_IMG_8912%20copy.jpg",
+          "alt": null
+        },
+        "name": "marvin aluminum clad new 17",
+        "slug": "marvin-aluminum-clad-new-17"
+      }
+    },
+    {
+      "id": "68c899bc22deb7712cbe653d",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T22:57:00.175Z",
+      "lastUpdated": "2025-09-15T22:57:00.175Z",
+      "lastPublished": "2025-09-15T22:57:00.175Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c899b77158e4af305d0b2f",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c899b77158e4af305d0b2f_IMG_0875%20copy.jpg",
+          "alt": null
+        },
+        "name": "marvin aluminum clad new 16",
+        "slug": "marvin-aluminum-clad-new-16"
+      }
+    },
+    {
+      "id": "68c8998a51743ff7b1450bb6",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T22:56:10.903Z",
+      "lastUpdated": "2025-09-15T22:56:10.903Z",
+      "lastPublished": "2025-09-15T22:56:10.903Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c89985de144a394c6a6916",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c89985de144a394c6a6916_IMG_0881%20copy.jpg",
+          "alt": null
+        },
+        "name": "marvin aluminum clad new 15",
+        "slug": "marvin-aluminum-clad-new-15"
+      }
+    },
+    {
+      "id": "68c8996634fdbcbdf10f0829",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T22:55:34.710Z",
+      "lastUpdated": "2025-09-15T22:55:34.710Z",
+      "lastPublished": "2025-09-15T22:55:34.710Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c89963ee9a56539d6de1d5",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c89963ee9a56539d6de1d5_IMG_0864%20copy.jpg",
+          "alt": null
+        },
+        "name": "marvin aluminum clad new 14",
+        "slug": "marvin-aluminum-clad-new-14"
+      }
+    },
+    {
+      "id": "68c8994855f62655acd6525d",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T22:55:04.287Z",
+      "lastUpdated": "2025-09-15T22:55:04.287Z",
+      "lastPublished": "2025-09-15T22:55:04.287Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c89943bd238c5a7b66bf4a",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c89943bd238c5a7b66bf4a_IMG_0867%20copy.jpg",
+          "alt": null
+        },
+        "name": "marvin aluminum clad new 13",
+        "slug": "marvin-aluminum-clad-new-13"
+      }
+    },
+    {
+      "id": "68c89933a4b5417495cef80b",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T22:54:43.451Z",
+      "lastUpdated": "2025-09-15T22:54:43.451Z",
+      "lastPublished": "2025-09-15T22:54:43.451Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c8992fc7e78105e5aed93a",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c8992fc7e78105e5aed93a_IMG_0227%20copy.jpg",
+          "alt": null
+        },
+        "name": "marvin aluminum clad new 12",
+        "slug": "marvin-aluminum-clad-new-12"
+      }
+    },
+    {
+      "id": "68c8991280253efe73d8cb8a",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T22:54:10.133Z",
+      "lastUpdated": "2026-02-06T22:47:24.773Z",
+      "lastPublished": "2026-02-12T07:54:22.821Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c8990ca76a3466d850947a",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c8990ca76a3466d850947a_IMG_4081%20copy.jpg",
+          "alt": null
+        },
+        "name": "marvin aluminum clad new 11",
+        "slug": "marvin-aluminum-clad-new-11"
+      }
+    },
+    {
+      "id": "68c898e6c143c131d2123826",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T22:53:26.933Z",
+      "lastUpdated": "2025-09-15T22:53:43.021Z",
+      "lastPublished": "2025-09-15T22:53:43.021Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c898e282004723ddf0b3fc",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c898e282004723ddf0b3fc_IMG_0466%20copy.jpg",
+          "alt": null
+        },
+        "name": "marvin aluminum clad new 10",
+        "slug": "marvin-aluminum-clad-new-10"
+      }
+    },
+    {
+      "id": "68c89889497f18f55071e53b",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T22:51:53.048Z",
+      "lastUpdated": "2025-09-15T22:51:53.048Z",
+      "lastPublished": "2025-09-15T22:51:53.048Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c898855be0d592d5a173dd",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c898855be0d592d5a173dd_IMG_0202%20copy.jpg",
+          "alt": null
+        },
+        "name": "marvin aluminum clad new 9",
+        "slug": "marvin-aluminum-clad-new-9"
+      }
+    },
+    {
+      "id": "68c8981722deb7712cbe21ca",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T22:49:59.192Z",
+      "lastUpdated": "2025-09-15T22:49:59.192Z",
+      "lastPublished": "2025-09-15T22:49:59.192Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c898137597540c9cac63f5",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c898137597540c9cac63f5_IMG_0195%20copy.jpg",
+          "alt": null
+        },
+        "name": "marvin aluminum clad new 8",
+        "slug": "marvin-aluminum-clad-new-8"
+      }
+    },
+    {
+      "id": "68c897ff6751b028cd3579f1",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T22:49:35.955Z",
+      "lastUpdated": "2025-09-15T22:49:35.955Z",
+      "lastPublished": "2025-09-15T22:49:35.955Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c897fc1177ae25483e8e48",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c897fc1177ae25483e8e48_IMG_0112%20copy.jpg",
+          "alt": null
+        },
+        "name": "marvin aluminum clad new 7",
+        "slug": "marvin-aluminum-clad-new-7"
+      }
+    },
+    {
+      "id": "68c897d734fdbcbdf10eb840",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T22:48:55.920Z",
+      "lastUpdated": "2025-09-15T22:48:55.920Z",
+      "lastPublished": "2025-09-15T22:48:55.920Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c897d4b7a2ebaf99e490f4",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c897d4b7a2ebaf99e490f4_IMG_0069%20copy.jpg",
+          "alt": null
+        },
+        "name": "marvin aluminum clad new 6",
+        "slug": "marvin-aluminum-clad-new-6"
+      }
+    },
+    {
+      "id": "68c897b5914aa574591d5ec9",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T22:48:21.547Z",
+      "lastUpdated": "2025-09-15T22:48:21.547Z",
+      "lastPublished": "2025-09-15T22:48:21.547Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c897af834d882b753a94f9",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c897af834d882b753a94f9_IMG_0059%20copy.jpg",
+          "alt": null
+        },
+        "name": "marvin aluminum clad new 5",
+        "slug": "marvin-aluminum-clad-new-5"
+      }
+    },
+    {
+      "id": "68c89754dd537cbd43137d47",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T22:46:44.439Z",
+      "lastUpdated": "2025-09-15T22:47:30.301Z",
+      "lastPublished": "2025-09-16T17:28:01.608Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c8977c397242cfdcdaeb50",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c8977c397242cfdcdaeb50_IMG_0057%20copy.jpg",
+          "alt": null
+        },
+        "name": "marvin aluminum clad new 4",
+        "slug": "marvin-aluminum-clad-new-3-copy"
+      }
+    },
+    {
+      "id": "68c8974437da7f363e854b1c",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T22:46:28.226Z",
+      "lastUpdated": "2025-09-15T22:46:28.226Z",
+      "lastPublished": "2025-09-15T22:46:28.226Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c89741737d1ddcf559e0fb",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c89741737d1ddcf559e0fb_IMG_0053%20copy.jpg",
+          "alt": null
+        },
+        "name": "marvin aluminum clad new 3",
+        "slug": "marvin-aluminum-clad-new-3"
+      }
+    },
+    {
+      "id": "68c8973147d708de399792ab",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T22:46:09.108Z",
+      "lastUpdated": "2025-09-15T22:46:09.108Z",
+      "lastPublished": "2025-09-15T22:46:09.108Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c8972e6843f4d623e8f462",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c8972e6843f4d623e8f462_IMG_0049%20copy.jpg",
+          "alt": null
+        },
+        "name": "marvin aluminum clad new 2",
+        "slug": "marvin-aluminum-clad-new-2"
+      }
+    },
+    {
+      "id": "68c8971f4ec60e3db44db3e0",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T22:45:51.952Z",
+      "lastUpdated": "2025-09-15T22:45:51.952Z",
+      "lastPublished": "2025-09-15T22:45:51.952Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c8971b3c012bcb583f91fe",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c8971b3c012bcb583f91fe_IMG_0041%20copy.jpg",
+          "alt": null
+        },
+        "name": "marvin aluminum clad new",
+        "slug": "marvin-aluminum-clad-new"
+      }
+    },
+    {
+      "id": "68c89339dc5c95ff7bbcb6f2",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T22:29:13.766Z",
+      "lastUpdated": "2025-09-15T22:29:13.766Z",
+      "lastPublished": "2025-09-15T22:29:13.766Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c8933647d708de3996bae0",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c8933647d708de3996bae0_IMG_0432%20copy.jpg",
+          "alt": null
+        },
+        "name": "Marvin Aluminum clad french",
+        "slug": "marvin-aluminum-clad-french"
+      }
+    },
+    {
+      "id": "68c892fc6e0f4c3aeca9d885",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T22:28:12.430Z",
+      "lastUpdated": "2025-09-15T22:28:12.430Z",
+      "lastPublished": "2025-09-15T22:28:12.430Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c892f96843f4d623e81a2e",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c892f96843f4d623e81a2e_IMG_0011%20copy.jpg",
+          "alt": null
+        },
+        "name": "Marvin aluminum clad block 7",
+        "slug": "marvin-aluminum-clad-block-7"
+      }
+    },
+    {
+      "id": "68c892b0f164c74394dea79e",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T22:26:56.050Z",
+      "lastUpdated": "2025-09-15T22:26:56.050Z",
+      "lastPublished": "2025-09-15T22:26:56.050Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c892acb4d1c57c203a9a9b",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c892acb4d1c57c203a9a9b_IMG_0548%20copy.jpg",
+          "alt": null
+        },
+        "name": "Marvin aluminum clad block 6",
+        "slug": "marvin-aluminum-clad-block-6"
+      }
+    },
+    {
+      "id": "68c89274e69ba234db7c7465",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T22:25:56.509Z",
+      "lastUpdated": "2025-09-15T22:25:56.509Z",
+      "lastPublished": "2025-09-15T22:25:56.509Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c8927034755704ad6441a7",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c8927034755704ad6441a7_IMG_0603%20copy.jpg",
+          "alt": null
+        },
+        "name": "Marvin aluminum clad block 5",
+        "slug": "marvin-aluminum-clad-block-5"
+      }
+    },
+    {
+      "id": "68c89259e0835062c591e1fa",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T22:25:29.319Z",
+      "lastUpdated": "2025-09-15T22:25:29.319Z",
+      "lastPublished": "2025-09-15T22:25:29.319Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c892543e72481766a5c610",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c892543e72481766a5c610_IMG_1249%20copy.jpg",
+          "alt": null
+        },
+        "name": "Marvin aluminum clad block 4",
+        "slug": "marvin-aluminum-clad-block-4"
+      }
+    },
+    {
+      "id": "68c8920c445f1e7ec491a873",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T22:24:12.176Z",
+      "lastUpdated": "2025-09-15T22:24:12.176Z",
+      "lastPublished": "2025-09-15T22:24:12.176Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c89209b083bfab499d45c0",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c89209b083bfab499d45c0_IMG_1257%20copy.jpg",
+          "alt": null
+        },
+        "name": "Marvin aluminum clad block 3",
+        "slug": "marvin-aluminum-clad-block-3"
+      }
+    },
+    {
+      "id": "68c891fa98b1bfb397393652",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T22:23:54.183Z",
+      "lastUpdated": "2025-09-15T22:23:54.183Z",
+      "lastPublished": "2025-09-15T22:23:54.183Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c891f682004723ddef6569",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c891f682004723ddef6569_IMG_1260%20copy.jpg",
+          "alt": null
+        },
+        "name": "Marvin aluminum clad block 1",
+        "slug": "marvin-aluminum-clad-block-1"
+      }
+    },
+    {
+      "id": "68c891e64024a0af69a218a5",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T22:23:34.272Z",
+      "lastUpdated": "2025-09-15T22:23:34.272Z",
+      "lastPublished": "2025-09-15T22:23:34.272Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c891e34c1a8f473324b118",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c891e34c1a8f473324b118_IMG_2224%20copy.jpg",
+          "alt": null
+        },
+        "name": "Marvin aluminum clad block",
+        "slug": "marvin-aluminum-clad-block"
+      }
+    },
+    {
+      "id": "68c8905c1dea2371369422ef",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T22:17:00.461Z",
+      "lastUpdated": "2025-09-15T22:17:00.461Z",
+      "lastPublished": "2025-09-15T22:17:00.461Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c890599c7bd341f08e4a3e",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c890599c7bd341f08e4a3e_IMG_0678%20copy.jpg",
+          "alt": null
+        },
+        "name": "Marks Castle Alamo",
+        "slug": "marks-castle-alamo"
+      }
+    },
+    {
+      "id": "68c88f845f13d74eb37ee648",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T22:13:24.851Z",
+      "lastUpdated": "2025-09-15T22:16:40.281Z",
+      "lastPublished": "2025-09-16T17:28:01.608Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c88f7d8fd58d9f978a8f92",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c88f7d8fd58d9f978a8f92_IMG_1346%20copy.jpg",
+          "alt": null
+        },
+        "name": "Los altos Marvin ultimate 1",
+        "slug": "los-altos-marvin-ultimate-copy"
+      }
+    },
+    {
+      "id": "68c88f72918d0a71b876929c",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T22:13:06.959Z",
+      "lastUpdated": "2025-09-15T22:13:06.959Z",
+      "lastPublished": "2025-09-15T22:13:06.959Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c88f6d51743ff7b142dce7",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c88f6d51743ff7b142dce7_IMG_1322%20copy.jpg",
+          "alt": null
+        },
+        "name": "Los altos Marvin ultimate",
+        "slug": "los-altos-marvin-ultimate"
+      }
+    },
+    {
+      "id": "68c88df1627d5f6be4dcb5a8",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T22:06:41.806Z",
+      "lastUpdated": "2025-09-15T22:11:08.172Z",
+      "lastPublished": "2025-09-16T17:28:01.608Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c88eecc7e78105e5aca538",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c88eecc7e78105e5aca538_IMG_1496%20copy.jpg",
+          "alt": null
+        },
+        "name": "Jeldween ",
+        "slug": "jeldween-wood-block-frame"
+      }
+    },
+    {
+      "id": "68c88cbc4cf63c9754ad784c",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T22:01:32.042Z",
+      "lastUpdated": "2025-09-15T22:05:36.976Z",
+      "lastPublished": "2025-09-16T17:28:01.608Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c88cb9172c5f771dd0b902",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c88cb9172c5f771dd0b902_IMG_0619%20copy.jpg",
+          "alt": null
+        },
+        "name": "Jeldween masonic st  2",
+        "slug": "jeldween-masonic-st-1"
+      }
+    },
+    {
+      "id": "68c88cb1a7608208d5ea2f27",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T22:01:21.038Z",
+      "lastUpdated": "2025-09-15T22:01:21.038Z",
+      "lastPublished": "2025-09-15T22:01:21.038Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c88cac917e7e752c2ffb0f",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c88cac917e7e752c2ffb0f_IMG_3939%20copy.jpg",
+          "alt": null
+        },
+        "name": "Jeldween masonic st ",
+        "slug": "jeldween-masonic-st"
+      }
+    },
+    {
+      "id": "68c88bf6e69ba234db7ad74e",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T21:58:14.191Z",
+      "lastUpdated": "2025-09-15T21:58:34.046Z",
+      "lastPublished": "2025-09-16T17:28:01.608Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c88c075e6614fb046428bc",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c88c075e6614fb046428bc_IMG_0909%20copy.jpg",
+          "alt": null
+        },
+        "name": "Cherno milgard Aluminum Orinda 4",
+        "slug": "cherno-milgard-aluminum-orinda-3-2"
+      }
+    },
+    {
+      "id": "68c88bca22dbe2273e2290d2",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T21:57:30.287Z",
+      "lastUpdated": "2025-09-15T21:57:30.287Z",
+      "lastPublished": "2025-09-15T21:57:30.287Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c88bc34026fdb7f2598697",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c88bc34026fdb7f2598697_IMG_0908%20copy.jpg",
+          "alt": null
+        },
+        "name": "Cherno milgard Aluminum Orinda  3",
+        "slug": "cherno-milgard-aluminum-orinda-3"
+      }
+    },
+    {
+      "id": "68c88b8d1177ae25483c0637",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T21:56:29.122Z",
+      "lastUpdated": "2025-09-15T21:56:29.122Z",
+      "lastPublished": "2025-09-15T21:56:29.122Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c88b898cf0554bdb23ec35",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c88b898cf0554bdb23ec35_IMG_0900%20copy.jpg",
+          "alt": null
+        },
+        "name": "Cherno milgard Aluminum Orinda  2",
+        "slug": "cherno-milgard-aluminum-orinda-2"
+      }
+    },
+    {
+      "id": "68c88b65490a4994db1d7312",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T21:55:49.294Z",
+      "lastUpdated": "2025-09-15T21:55:49.294Z",
+      "lastPublished": "2025-09-15T21:55:49.294Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c88b62d0fc7ffcd1764a97",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c88b62d0fc7ffcd1764a97_IMG_0896%20copy.jpg",
+          "alt": null
+        },
+        "name": "Cherno milgard Aluminum Orinda  ",
+        "slug": "cherno-milgard-aluminum-orinda"
+      }
+    },
+    {
+      "id": "68c88a51a6cef1d800364690",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T21:51:13.507Z",
+      "lastUpdated": "2025-09-15T21:51:13.507Z",
+      "lastPublished": "2025-09-15T21:51:13.507Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c88a4c7ee80cba98b9796b",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c88a4c7ee80cba98b9796b_IMG_2506%20copy.jpg",
+          "alt": null
+        },
+        "name": "Cherno Milgard Aluminum Lafaette 4",
+        "slug": "cherno-milgard-aluminum-lafaette-4"
+      }
+    },
+    {
+      "id": "68c88a3da6cef1d8003642d9",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T21:50:53.020Z",
+      "lastUpdated": "2025-09-15T21:50:53.020Z",
+      "lastPublished": "2025-09-15T21:50:53.020Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c88a36a9eb08d6b08c5162",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c88a36a9eb08d6b08c5162_IMG_2529%20copy.jpg",
+          "alt": null
+        },
+        "name": "Cherno Milgard Aluminum Lafaette 3",
+        "slug": "cherno-milgard-aluminum-lafaette-3"
+      }
+    },
+    {
+      "id": "68c88a286751b028cd326a6a",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T21:50:32.016Z",
+      "lastUpdated": "2025-09-15T21:50:32.016Z",
+      "lastPublished": "2025-09-15T21:50:32.016Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c88a22635ff53382a342f7",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c88a22635ff53382a342f7_IMG_2533%20copy.jpg",
+          "alt": null
+        },
+        "name": "Cherno Milgard Aluminum Lafaette 2",
+        "slug": "cherno-milgard-aluminum-lafaette-2"
+      }
+    },
+    {
+      "id": "68c889ea125fbb5d62944b4e",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T21:49:30.471Z",
+      "lastUpdated": "2025-09-15T21:49:30.471Z",
+      "lastPublished": "2025-09-15T21:49:30.471Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c889e63e44d8a594d7ee1a",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c889e63e44d8a594d7ee1a_IMG_0261%20copy%202.jpg",
+          "alt": null
+        },
+        "name": "Cherno Milgard Aluminum Lafaette1",
+        "slug": "cherno-milgard-aluminum-lafaette1"
+      }
+    },
+    {
+      "id": "68c889aa8fd58d9f9788e905",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T21:48:26.984Z",
+      "lastUpdated": "2025-09-15T21:48:26.984Z",
+      "lastPublished": "2025-09-15T21:48:26.984Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c889a76859f9f8e2febe65",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c889a76859f9f8e2febe65_IMG_2491%20copy.jpg",
+          "alt": null
+        },
+        "name": "Cherno Milgard Aluminum Lafaette",
+        "slug": "cherno-milgard-aluminum-lafaette"
+      }
+    },
+    {
+      "id": "68c888ab7597540c9ca99140",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T21:44:11.282Z",
+      "lastUpdated": "2025-09-15T21:44:11.282Z",
+      "lastPublished": "2025-09-15T21:44:11.282Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c888a737c1e1c51e1346dc",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c888a737c1e1c51e1346dc_IMG_3001%20copy.jpg",
+          "alt": null
+        },
+        "name": "Cherno atherton",
+        "slug": "cherno-atherton"
+      }
+    },
+    {
+      "id": "68c888082f12b3278597d3ce",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T21:41:28.910Z",
+      "lastUpdated": "2025-09-15T21:42:34.682Z",
+      "lastPublished": "2025-09-15T21:42:34.682Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c88805a09627aa7a309b99",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c88805a09627aa7a309b99_IMG_0862%20copy.jpg",
+          "alt": null
+        },
+        "name": "Cherno Anderson 400 series 6",
+        "slug": "cherno-anderson-400-series-6"
+      }
+    },
+    {
+      "id": "68c887f43432c6dd41360e0f",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T21:41:08.438Z",
+      "lastUpdated": "2025-09-15T21:42:38.131Z",
+      "lastPublished": "2025-09-15T21:42:38.131Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c887f10ee1341634cfefea",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c887f10ee1341634cfefea_IMG_0857%20copy.jpg",
+          "alt": null
+        },
+        "name": "Cherno Anderson 400 series 5",
+        "slug": "cherno-anderson-400-series-5"
+      }
+    },
+    {
+      "id": "68c887dbc24b2c7988af1b34",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T21:40:43.184Z",
+      "lastUpdated": "2025-09-15T21:42:48.121Z",
+      "lastPublished": "2025-09-15T21:42:48.121Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c887ac610f2fa8b924f4a5",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c887ac610f2fa8b924f4a5_IMG_0855%20copy.jpg",
+          "alt": null
+        },
+        "name": "Cherno Anderson 400 series 4",
+        "slug": "cherno-anderson-400-series-4"
+      }
+    },
+    {
+      "id": "68c887af3e6e43cb7cc84ce0",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T21:39:59.464Z",
+      "lastUpdated": "2025-09-15T21:39:59.464Z",
+      "lastPublished": "2025-09-15T21:39:59.464Z",
+      "isArchived": false,
+      "isDraft": true,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c887ac610f2fa8b924f4a5",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c887ac610f2fa8b924f4a5_IMG_0855%20copy.jpg",
+          "alt": null
+        },
+        "name": "Cherno Anderson 400 series 3",
+        "slug": "cherno-anderson-400-series-3"
+      }
+    },
+    {
+      "id": "68c88795b3bfa0054f852e9e",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T21:39:33.017Z",
+      "lastUpdated": "2025-09-15T21:42:51.776Z",
+      "lastPublished": "2025-09-15T21:42:51.776Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c887905c2c53050ea7dfb5",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c887905c2c53050ea7dfb5_IMG_0842%20copy.jpg",
+          "alt": null
+        },
+        "name": "Cherno Anderson 400 series 2",
+        "slug": "cherno-anderson-400-series-2"
+      }
+    },
+    {
+      "id": "68c887808caa3cb4ebb4d2de",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T21:39:12.090Z",
+      "lastUpdated": "2025-09-15T21:39:37.592Z",
+      "lastPublished": "2025-09-16T17:28:01.608Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c8877bfa1bc257940e66a1",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c8877bfa1bc257940e66a1_IMG_0840%20copy.jpg",
+          "alt": null
+        },
+        "name": "Cherno Anderson 400 series ",
+        "slug": "cherno-anderson-400-series"
+      }
+    },
+    {
+      "id": "68c8866a2a7f789cd7935333",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T21:34:34.469Z",
+      "lastUpdated": "2025-09-15T21:34:34.469Z",
+      "lastPublished": "2025-09-15T21:34:34.469Z",
+      "isArchived": false,
+      "isDraft": true,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c88666ad68004ea9e57bb8",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c88666ad68004ea9e57bb8_IMG_0603%20copy.jpg",
+          "alt": null
+        },
+        "name": "Apartment buildingd",
+        "slug": "apartment-buildingd"
+      }
+    },
+    {
+      "id": "68c88475505740d15214868f",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T21:26:13.550Z",
+      "lastUpdated": "2025-09-15T21:26:13.550Z",
+      "lastPublished": "2025-09-15T21:26:13.550Z",
+      "isArchived": false,
+      "isDraft": true,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c884705e1246a3b9bb514c",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c884705e1246a3b9bb514c_IMG_2103%20copy.jpg",
+          "alt": null
+        },
+        "name": "Anlin vinyl new construction",
+        "slug": "anlin-vinyl-new-construction"
+      }
+    },
+    {
+      "id": "68c882cbf5f00da14137644b",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T21:19:07.775Z",
+      "lastUpdated": "2025-09-15T21:19:07.775Z",
+      "lastPublished": null,
+      "isArchived": false,
+      "isDraft": true,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c882c8a9eb08d6b08a7abd",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c882c8a9eb08d6b08a7abd_IMG_0817%20copy.jpg",
+          "alt": null
+        },
+        "name": "Aluminum Random",
+        "slug": "aluminum-random"
+      }
+    },
+    {
+      "id": "68c8826603f555204c2e4b9b",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T21:17:26.629Z",
+      "lastUpdated": "2025-09-15T21:20:48.837Z",
+      "lastPublished": "2025-09-16T17:28:01.608Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c8832d032f5f6e5efd62be",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c8832d032f5f6e5efd62be_IMG_1956%20copy1.jpg",
+          "alt": null
+        },
+        "name": "alside vinyl ",
+        "slug": "alside-vinyl"
+      }
+    },
+    {
+      "id": "68c8820c36004d060b244036",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T21:15:56.435Z",
+      "lastUpdated": "2025-09-15T21:15:56.435Z",
+      "lastPublished": "2025-09-15T21:15:56.435Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c88208966e1d20865bb516",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c88208966e1d20865bb516_824%20Huntley%20Dr%20-%20virtuallyherestudios.com-93%20copy.jpg",
+          "alt": null
+        },
+        "name": "All weather sharks house  5",
+        "slug": "all-weather-sharks-house-5"
+      }
+    },
+    {
+      "id": "68c881c378b319a3d4e3495d",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T21:14:43.205Z",
+      "lastUpdated": "2025-09-15T21:14:43.205Z",
+      "lastPublished": "2025-09-15T21:14:43.205Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c881be6a76eafd63b8b0fa",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c881be6a76eafd63b8b0fa_824%20Huntley%20Dr%20-%20virtuallyherestudios.com-56%20copy.jpg",
+          "alt": null
+        },
+        "name": "All weather sharks house  4",
+        "slug": "all-weather-sharks-house-4"
+      }
+    },
+    {
+      "id": "68c880bd51743ff7b13f2075",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T21:10:21.157Z",
+      "lastUpdated": "2025-09-15T21:10:21.157Z",
+      "lastPublished": "2025-09-15T21:10:21.157Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c880b868caf48c1916127f",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c880b868caf48c1916127f_824%20Huntley%20Dr%20-%20virtuallyherestudios.com-46%20copy.jpg",
+          "alt": null
+        },
+        "name": "All weather sharks house  3",
+        "slug": "all-weather-sharks-house-3"
+      }
+    },
+    {
+      "id": "68c88067eaa6621e205a93eb",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T21:08:55.904Z",
+      "lastUpdated": "2025-09-15T21:09:11.221Z",
+      "lastPublished": "2025-09-16T17:28:01.608Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c880613977a2ff65c0f598",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c880613977a2ff65c0f598_824%20Huntley%20Dr%20-%20virtuallyherestudios.com-14%20copy.jpg",
+          "alt": null
+        },
+        "name": "All weather sharks house  2",
+        "slug": "all-weather-sharks-house-before-and-after-2"
+      }
+    },
+    {
+      "id": "68c88025cc114176425a7e0b",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T21:07:49.334Z",
+      "lastUpdated": "2025-09-15T21:09:05.713Z",
+      "lastPublished": "2025-09-16T17:28:01.608Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c8801eb7a2ebaf99deca5c",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c8801eb7a2ebaf99deca5c_824%20Huntley%20Dr%20-%20virtuallyherestudios.com-4%20copy.jpg",
+          "alt": null
+        },
+        "name": "All weather sharks house",
+        "slug": "all-weather-sharks-house-before-and-after"
+      }
+    },
+    {
+      "id": "68c87f7b1ec5219e065446e2",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T21:04:59.207Z",
+      "lastUpdated": "2025-09-15T21:13:31.474Z",
+      "lastPublished": "2025-09-16T17:28:01.608Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c87f7765e49fa4f848897c",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c87f7765e49fa4f848897c_IMG_2604%20copy.jpg",
+          "alt": null
+        },
+        "name": "All weather Hillsborogh Pine ct 2",
+        "slug": "all-weather-hillsborogh-pine-ct-copy-2"
+      }
+    },
+    {
+      "id": "68c87f203197efab88171ba6",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T21:03:28.299Z",
+      "lastUpdated": "2025-09-15T21:13:35.021Z",
+      "lastPublished": "2025-09-16T17:28:01.608Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c87f1bdcf34a64421d75fe",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c87f1bdcf34a64421d75fe_3%20copy.jpg",
+          "alt": null
+        },
+        "name": "All weather Hillsborogh Pine ct 3",
+        "slug": "all-weather-hillsborogh-pine-ct-copy"
+      }
+    },
+    {
+      "id": "68c87e47490a4994db19a524",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-15T20:59:51.817Z",
+      "lastUpdated": "2025-09-15T20:59:51.817Z",
+      "lastPublished": "2025-09-15T20:59:51.817Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c87e439a25e87eb449765a",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c87e439a25e87eb449765a_2%20copy.jpg",
+          "alt": null
+        },
+        "name": "All weather Hillsborogh Pine ct",
+        "slug": "all-weather-hillsborogh-pine-ct"
+      }
+    },
+    {
+      "id": "68c1e4e14e095331cab8f55d",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-10T20:51:45.839Z",
+      "lastUpdated": "2025-09-10T21:25:45.419Z",
+      "lastPublished": "2025-09-11T06:06:39.844Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c1e4da87641ae1b6c8388f",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c1e4da87641ae1b6c8388f_ML82019061_2_0.jpg",
+          "alt": null
+        },
+        "name": "Villa Hillsborough 4",
+        "slug": "villa-hillsborough-3-copy"
+      }
+    },
+    {
+      "id": "68c1e3b696265200f30954a9",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-10T20:46:46.125Z",
+      "lastUpdated": "2025-09-10T20:48:47.317Z",
+      "lastPublished": "2025-09-11T06:06:39.844Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [
+          {
+            "fileId": "68c1e3aec656444714174803",
+            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c1e3aec656444714174803_ML82019061_6_0%20copy.jpg",
+            "alt": null
+          }
+        ],
+        "featured-image": {
+          "fileId": "68c1e3aec656444714174803",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c1e3aec656444714174803_ML82019061_6_0%20copy.jpg",
+          "alt": null
+        },
+        "name": "Villa Hillsborough 3",
+        "slug": "villa-hillsborough-3"
+      }
+    },
+    {
+      "id": "68c1e3053ac70422faa14e91",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-10T20:43:49.568Z",
+      "lastUpdated": "2025-09-10T20:43:49.568Z",
+      "lastPublished": "2025-09-10T20:43:49.568Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c1e3014c208aa0190f3a32",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c1e3014c208aa0190f3a32_ML82019061_14_0.jpg",
+          "alt": null
+        },
+        "name": "Villa Hillsborough 2",
+        "slug": "villa-hillsborough-2"
+      }
+    },
+    {
+      "id": "68c1e2c86b85eae1f624da61",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-10T20:42:48.687Z",
+      "lastUpdated": "2025-09-10T20:42:57.170Z",
+      "lastPublished": "2025-09-10T20:42:57.170Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c1e2c239323cddc951b404",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c1e2c239323cddc951b404_ML82019061_5_0.jpg",
+          "alt": null
+        },
+        "name": "Villa Hillsborough",
+        "slug": "villa-hillsborough"
+      }
+    },
+    {
+      "id": "68c1e279b73a21e6d9a6a6ac",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-10T20:41:29.362Z",
+      "lastUpdated": "2025-09-10T20:41:29.362Z",
+      "lastPublished": "2025-09-10T20:41:29.362Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c1e26dd8be9f9d0a5a66e5",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c1e26dd8be9f9d0a5a66e5_IMG_0048%20copy.jpg",
+          "alt": null
+        },
+        "name": "Cascade Vinyl 2",
+        "slug": "cascade-vinyl-2"
+      }
+    },
+    {
+      "id": "68c1e19706561e1f8d7bf1e8",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-10T20:37:43.118Z",
+      "lastUpdated": "2025-09-10T20:37:43.118Z",
+      "lastPublished": "2025-09-10T20:37:43.118Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c1e18e291dd5544d66a4db",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c1e18e291dd5544d66a4db_IMG_0045%20copy.jpg",
+          "alt": null
+        },
+        "name": "Cascade Vinyl",
+        "slug": "cascade-vinyl"
+      }
+    },
+    {
+      "id": "68c1e121da7b7a622ead316a",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-10T20:35:45.485Z",
+      "lastUpdated": "2025-09-10T20:35:45.485Z",
+      "lastPublished": "2025-09-10T20:35:45.485Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c1e11d5175ebd3c6935a09",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c1e11d5175ebd3c6935a09_IMG_2921%20copy1.jpg",
+          "alt": null
+        },
+        "name": "Jeldween new consrtuction aluminum clad 3",
+        "slug": "jeldween-new-consrtuction-aluminum-clad-3"
+      }
+    },
+    {
+      "id": "68c1e05aad371b91b46c35ca",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-10T20:32:26.538Z",
+      "lastUpdated": "2025-09-10T20:32:26.538Z",
+      "lastPublished": "2025-09-10T20:32:26.538Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c1e003616a2d64c36f65fa",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c1e003616a2d64c36f65fa_IMG_4488%20copy.jpg",
+          "alt": null
+        },
+        "name": "Jeldween new consrtuction aluminum clad 2",
+        "slug": "jeldween-new-consrtuction-aluminum-clad-2"
+      }
+    },
+    {
+      "id": "68c1e01b917e8f7a9061cfcf",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-09-10T20:31:23.316Z",
+      "lastUpdated": "2025-09-10T20:31:23.316Z",
+      "lastPublished": "2025-09-10T20:31:23.316Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [
+          {
+            "fileId": "68c1e003616a2d64c36f65fa",
+            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c1e003616a2d64c36f65fa_IMG_4488%20copy.jpg",
+            "alt": null
+          }
+        ],
+        "featured-image": {
+          "fileId": "68c1dffa190335c0d8ed49a7",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c1dffa190335c0d8ed49a7_IMG_2925%20copy.jpg",
+          "alt": null
+        },
+        "name": "Jeldween new consrtuction aluminum clad",
+        "slug": "jeldween-new-consrtuction-aluminum-clad"
+      }
+    },
+    {
+      "id": "688381a8210e196455210805",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-07-25T13:07:52.429Z",
+      "lastUpdated": "2025-07-25T13:08:00.125Z",
+      "lastPublished": "2025-07-25T13:08:31.962Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "688381ac192ac8f1f8a72d92",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688381ac192ac8f1f8a72d92_7.jpg",
+          "alt": null
+        },
+        "name": "Gallery Image 21",
+        "slug": "gallery-image-21"
+      }
+    },
+    {
+      "id": "6883819444452103cb76de93",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-07-25T13:07:32.852Z",
+      "lastUpdated": "2025-07-25T13:07:46.114Z",
+      "lastPublished": "2025-07-25T13:08:31.962Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "6883819d9411c98ed1087590",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6883819d9411c98ed1087590_1.jpg",
+          "alt": null
+        },
+        "name": "Gallery Image 20",
+        "slug": "gallery-image-20"
+      }
+    },
+    {
+      "id": "6883818451ac98fec156f30b",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-07-25T13:07:16.610Z",
+      "lastUpdated": "2025-07-25T13:07:25.747Z",
+      "lastPublished": "2025-07-25T13:08:31.962Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "6883818a51ac98fec156f4f1",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6883818a51ac98fec156f4f1_3.jpg",
+          "alt": null
+        },
+        "name": "Gallery Image 19",
+        "slug": "gallery-image-19"
+      }
+    },
+    {
+      "id": "68838163a822ee4802fb9d7a",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-07-25T13:06:43.598Z",
+      "lastUpdated": "2025-07-25T13:07:09.965Z",
+      "lastPublished": "2025-07-25T13:08:31.962Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "688381764d4b4f0b1c7987e0",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688381764d4b4f0b1c7987e0_6.jpg",
+          "alt": null
+        },
+        "name": "Gallery Image 18",
+        "slug": "gallery-image-18"
+      }
+    },
+    {
+      "id": "688380ad472b7f5b8e79dbdb",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-07-25T13:03:41.213Z",
+      "lastUpdated": "2025-07-25T13:03:53.961Z",
+      "lastPublished": "2025-07-25T13:08:31.962Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "688380b679056a0be53f6d41",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688380b679056a0be53f6d41_Frame%2026.jpg",
+          "alt": null
+        },
+        "name": "Gallery Image 17",
+        "slug": "gallery-image-17"
+      }
+    },
+    {
+      "id": "68838088f60c27508da8eea9",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-07-25T13:03:04.169Z",
+      "lastUpdated": "2025-09-15T21:24:17.726Z",
+      "lastPublished": "2025-09-16T17:28:01.608Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c883fec4b4d3727926bd2c",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c883fec4b4d3727926bd2c_DSC_0300%20copy.jpg",
+          "alt": null
+        },
+        "name": "Gallery Image 16",
+        "slug": "gallery-image-16"
+      }
+    },
+    {
+      "id": "68838055338925504970f8f6",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-07-25T13:02:13.404Z",
+      "lastUpdated": "2025-07-25T13:02:23.251Z",
+      "lastPublished": "2025-07-25T13:08:31.962Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "6883805ca03ba6c0a0ba7581",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6883805ca03ba6c0a0ba7581_Frame%2027.jpg",
+          "alt": null
+        },
+        "name": "Gallery Image 15",
+        "slug": "gallery-image-15"
+      }
+    },
+    {
+      "id": "68837fc8e4844513679186be",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-07-25T12:59:52.989Z",
+      "lastUpdated": "2025-07-25T13:01:51.370Z",
+      "lastPublished": "2025-07-25T13:08:31.962Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "6883803cfdf2b295d6678634",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6883803cfdf2b295d6678634_Frame%2024.jpg",
+          "alt": null
+        },
+        "name": "Gallery Image 14",
+        "slug": "gallery-image-14"
+      }
+    },
+    {
+      "id": "68837f18210e1964551fc7f4",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-07-25T12:56:56.201Z",
+      "lastUpdated": "2025-07-25T12:57:19.895Z",
+      "lastPublished": "2025-07-25T13:08:31.962Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68837d89eba765eb136ab983",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68837d89eba765eb136ab983_Frame%2039.jpg",
+          "alt": null
+        },
+        "name": "Gallery Image 13",
+        "slug": "gallery-image-13"
+      }
+    },
+    {
+      "id": "68837da9a0cc040c4ed2ad43",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-07-25T12:50:49.933Z",
+      "lastUpdated": "2025-07-25T12:51:03.841Z",
+      "lastPublished": "2025-07-25T12:53:14.739Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68837db4472b7f5b8e77e05a",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68837db4472b7f5b8e77e05a_Frame%2031.jpg",
+          "alt": null
+        },
+        "name": "Gallery Image 12",
+        "slug": "gallery-image-12"
+      }
+    },
+    {
+      "id": "68837d931895b95774db97ae",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-07-25T12:50:27.798Z",
+      "lastUpdated": "2025-09-15T21:28:51.120Z",
+      "lastPublished": "2025-09-16T17:28:01.608Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68c8850d03f555204c2ee456",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68c8850d03f555204c2ee456_IMG_3697%20copy.jpg",
+          "alt": null
+        },
+        "name": "Gallery Image 11",
+        "slug": "gallery-image-11"
+      }
+    },
+    {
+      "id": "68837d7657b94be5c612601a",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-07-25T12:49:58.987Z",
+      "lastUpdated": "2025-07-25T12:58:06.316Z",
+      "lastPublished": "2025-07-25T13:08:31.962Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68837d6bc361aa0ba1045eac",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68837d6bc361aa0ba1045eac_Frame%2029.jpg",
+          "alt": null
+        },
+        "name": "Gallery Image 10",
+        "slug": "gallery-image-10"
+      }
+    },
+    {
+      "id": "68837d61ec918fbd4a1165bf",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-07-25T12:49:37.771Z",
+      "lastUpdated": "2025-07-25T12:58:55.104Z",
+      "lastPublished": "2025-07-25T13:08:31.962Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68837f8b87816ec2e8483c95",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68837f8b87816ec2e8483c95_Frame%2034.jpg",
+          "alt": null
+        },
+        "name": "Gallery Image 9",
+        "slug": "gallery-image-9"
+      }
+    },
+    {
+      "id": "68837d4e68d52017147bf2b7",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-07-25T12:49:18.447Z",
+      "lastUpdated": "2025-07-25T12:49:30.080Z",
+      "lastPublished": "2025-07-25T12:53:14.739Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68837d5617f63550b5539b02",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68837d5617f63550b5539b02_Frame%2017.jpg",
+          "alt": null
+        },
+        "name": "Gallery Image 8",
+        "slug": "gallery-image-8"
+      }
+    },
+    {
+      "id": "68837d3b659c1cf80ea8b75b",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-07-25T12:48:59.157Z",
+      "lastUpdated": "2025-07-25T12:49:10.850Z",
+      "lastPublished": "2025-07-25T12:53:14.739Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68837d44674b0564cb25ee4c",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68837d44674b0564cb25ee4c_Frame%2016.jpg",
+          "alt": null
+        },
+        "name": "Gallery Image 7",
+        "slug": "gallery-image-7"
+      }
+    },
+    {
+      "id": "68837d253286544058c69e49",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-07-25T12:48:37.045Z",
+      "lastUpdated": "2025-07-25T12:48:48.560Z",
+      "lastPublished": "2025-07-25T12:53:14.739Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68837d2c60170917e2be19d0",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68837d2c60170917e2be19d0_Frame%2015.jpg",
+          "alt": null
+        },
+        "name": "Gallery Image 6",
+        "slug": "gallery-image-6"
+      }
+    },
+    {
+      "id": "68837d0e62f73bedea6f6904",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-07-25T12:48:14.716Z",
+      "lastUpdated": "2025-07-25T12:48:25.482Z",
+      "lastPublished": "2025-07-25T12:53:14.739Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68837d17539b7261a6d30b69",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68837d17539b7261a6d30b69_Frame%2014.jpg",
+          "alt": null
+        },
+        "name": "Gallery Image 5",
+        "slug": "gallery-image-5"
+      }
+    },
+    {
+      "id": "68837cfcfed183135f469670",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-07-25T12:47:56.738Z",
+      "lastUpdated": "2025-07-25T12:48:05.581Z",
+      "lastPublished": "2025-07-25T12:53:14.739Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68837d02448fcace0169fb09",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68837d02448fcace0169fb09_Frame%2012.jpg",
+          "alt": null
+        },
+        "name": "Gallery Image 4",
+        "slug": "gallery-image-4"
+      }
+    },
+    {
+      "id": "68837cdfec918fbd4a1111d2",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-07-25T12:47:27.594Z",
+      "lastUpdated": "2025-07-25T12:47:49.430Z",
+      "lastPublished": "2025-07-25T12:53:14.739Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [
+          {
+            "fileId": "68837cedbacf503578cc291a",
+            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68837cedbacf503578cc291a_Frame%2011.jpg",
+            "alt": null
+          }
+        ],
+        "featured-image": {
+          "fileId": "68837cedbacf503578cc291a",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68837cedbacf503578cc291a_Frame%2011.jpg",
+          "alt": null
+        },
+        "name": "Gallery Image 3",
+        "slug": "gallery-image-1"
+      }
+    },
+    {
+      "id": "68825b383507e62881ee8ff7",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-07-24T16:11:36.178Z",
+      "lastUpdated": "2025-07-25T12:47:19.665Z",
+      "lastPublished": "2025-07-25T12:53:14.739Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "68825b61f81ce44f12673973",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68825b61f81ce44f12673973_Screenshot%202025-07-24%20at%2019.12.13.png",
+          "alt": null
+        },
+        "name": "Gallery Image 2",
+        "slug": "galllery-2"
+      }
+    },
+    {
+      "id": "688136fe04e75068bf503efb",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2025-07-23T19:24:45.943Z",
+      "lastUpdated": "2025-07-25T12:47:12.682Z",
+      "lastPublished": "2025-07-25T12:53:14.739Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "gallery": [],
+        "featured-image": {
+          "fileId": "688236fed9cc28b78fb10d04",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688236fed9cc28b78fb10d04_IMG_2963%201.jpg",
+          "alt": null
+        },
+        "name": "Gallery Image 1",
+        "slug": "gallery"
+      }
     }
+  ],
+  "flattenedFieldMap": {
+    "gallery": "wf_gallery",
+    "featured-image": "wf_featured_image"
+  }
 }

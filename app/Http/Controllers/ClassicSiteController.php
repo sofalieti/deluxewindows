@@ -2184,20 +2184,43 @@ class ClassicSiteController extends Controller
             ->filter()
             ->values();
 
+        $brandId = (string) ($brand->webflow_item_id ?? '');
         $brandCollections = BrandCollectionsWebflowItem::query()
             ->where('is_archived', false)
             ->where('is_draft', false)
-            ->where('field_data->parent-brand', $brand->webflow_item_id)
+            ->where(function ($query) use ($brandId) {
+                $query->where('field_data->parent-brand', $brandId)
+                    // Tolerate double-encoded Reference IDs until DB is re-imported.
+                    ->orWhere('field_data->parent-brand', '"'.$brandId.'"');
+            })
             ->get()
             ->map(function ($collection) {
                 $fd = is_array($collection->field_data) ? $collection->field_data : [];
+                $mainMaterial = $fd['mainmaterial'] ?? null;
+                if (is_string($mainMaterial) && str_starts_with($mainMaterial, '"') && str_ends_with($mainMaterial, '"')) {
+                    $decoded = json_decode($mainMaterial, true);
+                    $mainMaterial = is_string($decoded) ? $decoded : $mainMaterial;
+                }
+                $materials = is_array($fd['materials'] ?? null) ? $fd['materials'] : [];
+                $materials = array_values(array_filter(array_map(function ($id) {
+                    if (! is_string($id)) {
+                        return null;
+                    }
+                    if (str_starts_with($id, '"') && str_ends_with($id, '"')) {
+                        $decoded = json_decode($id, true);
+
+                        return is_string($decoded) ? $decoded : $id;
+                    }
+
+                    return $id;
+                }, $materials)));
 
                 return [
                     'name'         => $fd['name'] ?? '',
                     'slug'         => $fd['slug'] ?? '',
                     'material'     => $fd['material'] ?? '',
-                    'mainmaterial' => $fd['mainmaterial'] ?? null,
-                    'materials'    => is_array($fd['materials'] ?? null) ? $fd['materials'] : [],
+                    'mainmaterial' => $mainMaterial,
+                    'materials'    => $materials,
                     'image'        => $this->extractImageUrl($fd, ['property-type---icon', 'featured-image']) ?? '',
                 ];
             })

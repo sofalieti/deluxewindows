@@ -1,125 +1,125 @@
 {
-    "table": "wf_sku",
-    "collectionId": "6841ddf8ace3d9d9facb15f3",
-    "collectionSlug": "sku",
-    "items": [
-        {
-            "id": "6841ddf8ace3d9d9facb16b5",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2024-03-15T15:42:14+00:00",
-            "lastUpdated": "2025-06-08T14:43:49+00:00",
-            "lastPublished": "2025-07-14T19:45:48+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "sku": null,
-                "name": "Statistics",
-                "slug": "1-property-credit",
-                "price": {
-                    "unit": "USD",
-                    "value": 25000
-                },
-                "width": null,
-                "height": null,
-                "length": null,
-                "weight": null,
-                "product": "\"6841ddf8ace3d9d9facb16b4\"",
-                "main-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/6841ddf8ace3d9d9facb1a8c_1-property-credit-icon-property-x-webflow-template.svg",
-                    "fileId": "6841ddf8ace3d9d9facb1a8c"
-                },
-                "sku-values": [],
-                "more-images": [],
-                "download-files": [],
-                "compare-at-price": null,
-                "ec-sku-billing-method": "one-time",
-                "ec-sku-subscription-plan": null
-            }
+  "table": "wf_sku",
+  "collectionId": "6841ddf8ace3d9d9facb15f3",
+  "collectionSlug": "sku",
+  "items": [
+    {
+      "id": "6841ddf8ace3d9d9facb16b5",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2024-03-15T15:42:14.374Z",
+      "lastUpdated": "2025-06-08T14:43:49.390Z",
+      "lastPublished": "2025-07-14T19:45:48.945Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "sku-values": {},
+        "product": "6841ddf8ace3d9d9facb16b4",
+        "main-image": {
+          "fileId": "6841ddf8ace3d9d9facb1a8c",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6841ddf8ace3d9d9facb1a8c_1-property-credit-icon-property-x-webflow-template.svg",
+          "alt": null
         },
-        {
-            "id": "6841ddf8ace3d9d9facb16b7",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2024-03-15T15:41:49+00:00",
-            "lastUpdated": "2025-06-08T14:44:41+00:00",
-            "lastPublished": "2025-07-14T19:45:48+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "sku": null,
-                "name": "Credentials",
-                "slug": "2-property-credit",
-                "price": {
-                    "unit": "USD",
-                    "value": 50000
-                },
-                "width": null,
-                "height": null,
-                "length": null,
-                "weight": null,
-                "product": "\"6841ddf8ace3d9d9facb16b3\"",
-                "main-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/6841ddf8ace3d9d9facb1a8d_2-property-credit-icon-property-x-webflow-template.svg",
-                    "fileId": "6841ddf8ace3d9d9facb1a8d"
-                },
-                "sku-values": [],
-                "more-images": [],
-                "download-files": [],
-                "compare-at-price": null,
-                "ec-sku-billing-method": "one-time",
-                "ec-sku-subscription-plan": null
-            }
+        "more-images": [],
+        "price": {
+          "unit": "USD",
+          "value": 25000
         },
-        {
-            "id": "6841ddf8ace3d9d9facb16b6",
-            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-            "createdOn": "2024-03-15T15:41:13+00:00",
-            "lastUpdated": "2024-03-25T17:18:20+00:00",
-            "lastPublished": "2025-07-14T19:45:48+00:00",
-            "isArchived": false,
-            "isDraft": false,
-            "fieldData": {
-                "sku": null,
-                "name": "5 property credit",
-                "slug": "5-property-credit",
-                "price": {
-                    "unit": "USD",
-                    "value": 100000
-                },
-                "width": null,
-                "height": null,
-                "length": null,
-                "weight": null,
-                "product": "\"6841ddf8ace3d9d9facb16b2\"",
-                "main-image": {
-                    "alt": null,
-                    "url": "/webflow-assets/images/6841ddf8ace3d9d9facb1a8e_5-property-credit-icon-property-x-webflow-template.svg",
-                    "fileId": "6841ddf8ace3d9d9facb1a8e"
-                },
-                "sku-values": [],
-                "more-images": [],
-                "download-files": [],
-                "compare-at-price": null,
-                "ec-sku-billing-method": "one-time",
-                "ec-sku-subscription-plan": null
-            }
-        }
-    ],
-    "flattenedFieldMap": {
-        "sku-values": "wf_sku_values",
-        "product": "wf_product",
-        "main-image": "wf_main_image",
-        "more-images": "wf_more_images",
-        "price": "wf_price",
-        "compare-at-price": "wf_compare_at_price",
-        "download-files": "wf_download_files",
-        "ec-sku-subscription-plan": "wf_ec_sku_subscription_plan",
-        "width": "wf_width",
-        "length": "wf_length",
-        "height": "wf_height",
-        "weight": "wf_weight",
-        "sku": "wf_sku",
-        "ec-sku-billing-method": "wf_ec_sku_billing_method"
+        "compare-at-price": null,
+        "download-files": [],
+        "ec-sku-subscription-plan": null,
+        "width": null,
+        "length": null,
+        "height": null,
+        "weight": null,
+        "sku": null,
+        "ec-sku-billing-method": "one-time",
+        "name": "Statistics",
+        "slug": "1-property-credit"
+      }
+    },
+    {
+      "id": "6841ddf8ace3d9d9facb16b7",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2024-03-15T15:41:49.863Z",
+      "lastUpdated": "2025-06-08T14:44:41.200Z",
+      "lastPublished": "2025-07-14T19:45:48.945Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "sku-values": {},
+        "product": "6841ddf8ace3d9d9facb16b3",
+        "main-image": {
+          "fileId": "6841ddf8ace3d9d9facb1a8d",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6841ddf8ace3d9d9facb1a8d_2-property-credit-icon-property-x-webflow-template.svg",
+          "alt": null
+        },
+        "more-images": [],
+        "price": {
+          "unit": "USD",
+          "value": 50000
+        },
+        "compare-at-price": null,
+        "download-files": [],
+        "ec-sku-subscription-plan": null,
+        "width": null,
+        "length": null,
+        "height": null,
+        "weight": null,
+        "sku": null,
+        "ec-sku-billing-method": "one-time",
+        "name": "Credentials",
+        "slug": "2-property-credit"
+      }
+    },
+    {
+      "id": "6841ddf8ace3d9d9facb16b6",
+      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+      "createdOn": "2024-03-15T15:41:13.607Z",
+      "lastUpdated": "2024-03-25T17:18:20.065Z",
+      "lastPublished": "2025-07-14T19:45:48.945Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "sku-values": {},
+        "product": "6841ddf8ace3d9d9facb16b2",
+        "main-image": {
+          "fileId": "6841ddf8ace3d9d9facb1a8e",
+          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6841ddf8ace3d9d9facb1a8e_5-property-credit-icon-property-x-webflow-template.svg",
+          "alt": null
+        },
+        "more-images": [],
+        "price": {
+          "unit": "USD",
+          "value": 100000
+        },
+        "compare-at-price": null,
+        "download-files": [],
+        "ec-sku-subscription-plan": null,
+        "width": null,
+        "length": null,
+        "height": null,
+        "weight": null,
+        "sku": null,
+        "ec-sku-billing-method": "one-time",
+        "name": "5 property credit",
+        "slug": "5-property-credit"
+      }
     }
+  ],
+  "flattenedFieldMap": {
+    "sku-values": "wf_sku_values",
+    "product": "wf_product",
+    "main-image": "wf_main_image",
+    "more-images": "wf_more_images",
+    "price": "wf_price",
+    "compare-at-price": "wf_compare_at_price",
+    "download-files": "wf_download_files",
+    "ec-sku-subscription-plan": "wf_ec_sku_subscription_plan",
+    "width": "wf_width",
+    "length": "wf_length",
+    "height": "wf_height",
+    "weight": "wf_weight",
+    "sku": "wf_sku",
+    "ec-sku-billing-method": "wf_ec_sku_billing_method"
+  }
 }

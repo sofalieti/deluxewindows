@@ -432,14 +432,17 @@ class WebflowCollectionEditScreen extends Screen
                     ->title($title)
                     ->options($options)
                     ->empty('Not selected')
-                    ->value(is_string($currentValue) ? $currentValue : null)
+                    ->value($this->normalizeRelationId($currentValue))
                     ->help('Select one related item.');
                 continue;
             }
 
             if ($type === 'multi_reference') {
                 $selected = is_array($currentValue)
-                    ? array_values(array_filter($currentValue, fn ($id) => is_string($id) && $id !== ''))
+                    ? array_values(array_filter(array_map(
+                        fn ($id) => $this->normalizeRelationId($id),
+                        $currentValue
+                    )))
                     : [];
 
                 $fields[] = Select::make('relationFields['.$fieldSlug.'][]')
@@ -743,6 +746,27 @@ class WebflowCollectionEditScreen extends Screen
         return $this->fieldDataCategory($slug) !== 'main'
             || str_contains($slug, 'faq')
             || str_contains($slug, 'frequently-asked');
+    }
+
+    private function normalizeRelationId(mixed $value): ?string
+    {
+        if (! is_string($value)) {
+            return null;
+        }
+
+        $trimmed = trim($value);
+        if ($trimmed === '') {
+            return null;
+        }
+
+        if ($trimmed[0] === '"' && str_ends_with($trimmed, '"')) {
+            $decoded = json_decode($trimmed, true);
+            if (is_string($decoded) && $decoded !== '') {
+                return $decoded;
+            }
+        }
+
+        return $trimmed;
     }
 }
 
