@@ -30,7 +30,24 @@
       "card": "summary_large_image"
     }
   },
-  "faq": [],
+  "faq": [
+    {
+      "question": "What are the main benefits of Steel Windows?",
+      "answer": "Steel Windows offer narrow architectural profiles, strength, and a distinctive premium appearance. The best fit depends on the home's architecture, opening sizes, performance goals, and budget."
+    },
+    {
+      "question": "How energy efficient are steel windows for Bay Area homes?",
+      "answer": "For Steel Windows, thermal breaks, glazing, weather seals, and installation details determine energy performance. Deluxe Windows compares complete window ratings and installation requirements for the specific opening."
+    },
+    {
+      "question": "What maintenance do Steel Windows require?",
+      "answer": "For Steel Windows, protective finishes should be inspected and damaged areas addressed promptly to prevent corrosion. Product-specific care instructions and warranty requirements should also be followed."
+    },
+    {
+      "question": "What should I compare before choosing Steel Windows?",
+      "answer": "When evaluating Steel Windows, compare frame construction, glass, operating style, finish, warranty, and installed price. Steel products are typically selected for architectural design goals rather than as a direct substitute for economy vinyl windows."
+    }
+  ],
   "schema": {
     "primary_type": "Product",
     "data": {

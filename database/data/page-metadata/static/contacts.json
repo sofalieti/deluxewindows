@@ -30,20 +30,20 @@
   },
   "faq": [
     {
-      "question": "Which material is best for your windows?",
-      "answer": "The best material depends on your home's style, climate, efficiency goals, and budget. Deluxe Windows offers vinyl, wood, aluminum, and fiberglass options and can recommend the right fit during a consultation."
+      "question": "How can I request an estimate from Deluxe Windows?",
+      "answer": "Use the contact form or call Deluxe Windows with the project address, product type, approximate quantity, and preferred appointment timing."
     },
     {
-      "question": "Is the consultation free?",
-      "answer": "Yes. Submit the contact form or call Deluxe Windows to schedule a free in-home consultation."
+      "question": "What information should I provide before a window consultation?",
+      "answer": "Share the property address, number of openings, current problems, preferred materials or brands, target schedule, and any known HOA or permit requirements."
     },
     {
-      "question": "When do I need new windows?",
-      "answer": "Common signs include drafts, leaks, condensation, high energy bills, uncomfortable rooms, and windows that are difficult to open or close."
+      "question": "Can I discuss both windows and doors during one consultation?",
+      "answer": "Yes. A consultation can cover window and door needs together so measurements, styles, materials, priorities, and project sequencing can be reviewed as one plan."
     },
     {
-      "question": "How do I choose window brands and styles?",
-      "answer": "The best brand and style depend on the home, opening, performance goals, and budget. A replacement specialist can assess the project and recommend suitable choices."
+      "question": "Does Deluxe Windows offer in-home project measurements?",
+      "answer": "Yes. In-home measurements can be scheduled for qualifying Bay Area projects after the initial project details and service address are confirmed."
     }
   ],
   "schema": {

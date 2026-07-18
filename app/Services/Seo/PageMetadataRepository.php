@@ -72,6 +72,8 @@ class PageMetadataRepository
         $titles = [];
         $descriptions = [];
         $primaryKeywords = [];
+        $faqQuestions = [];
+        $faqAnswers = [];
 
         if (! File::isDirectory($root)) {
             return ['valid' => 0, 'invalid' => ["Page metadata directory is missing: {$root}"]];
@@ -101,17 +103,29 @@ class PageMetadataRepository
                     throw new InvalidArgumentException("Duplicate public path: {$metadata->path}");
                 }
                 $seo = $decoded['seo'];
-                $this->assertUniqueSeoValue($titles, 'title', (string) $seo['title']);
-                $this->assertUniqueSeoValue(
+                $this->assertUniqueValue($titles, 'SEO title', (string) $seo['title']);
+                $this->assertUniqueValue(
                     $descriptions,
-                    'description',
+                    'SEO description',
                     (string) $seo['description']
                 );
-                $this->assertUniqueSeoValue(
+                $this->assertUniqueValue(
                     $primaryKeywords,
-                    'primary_keyword',
+                    'SEO primary_keyword',
                     (string) $seo['primary_keyword']
                 );
+                foreach ($metadata->faq as $item) {
+                    $this->assertUniqueValue(
+                        $faqQuestions,
+                        'FAQ question',
+                        $item['question']
+                    );
+                    $this->assertUniqueValue(
+                        $faqAnswers,
+                        'FAQ answer',
+                        $item['answer']
+                    );
+                }
                 $keys[$metadata->key] = true;
                 $paths[$metadata->path] = true;
                 $valid++;
@@ -222,6 +236,9 @@ class PageMetadataRepository
             $answer = trim((string) ($item['answer'] ?? ''));
             if ($question === '' || $answer === '') {
                 throw new InvalidArgumentException("FAQ item {$index} requires question and answer.");
+            }
+            if (preg_match('/[А-Яа-яЁё]/u', $question.$answer)) {
+                throw new InvalidArgumentException("FAQ item {$index} must contain English text only.");
             }
             $faq[] = ['question' => $question, 'answer' => $answer];
         }
@@ -373,11 +390,11 @@ class PageMetadataRepository
     /**
      * @param array<string, true> $seen
      */
-    private function assertUniqueSeoValue(array &$seen, string $field, string $value): void
+    private function assertUniqueValue(array &$seen, string $field, string $value): void
     {
         $normalized = mb_strtolower(trim($value));
         if (isset($seen[$normalized])) {
-            throw new InvalidArgumentException("Duplicate SEO {$field}: {$value}");
+            throw new InvalidArgumentException("Duplicate {$field}: {$value}");
         }
         $seen[$normalized] = true;
     }

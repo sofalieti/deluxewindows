@@ -13,7 +13,7 @@ class DoorBrandsExportCommand extends Command
     protected $signature = 'door-brands:export
                             {--file= : Destination JSON file (default: database/data/door-brands.json)}';
 
-    protected $description = 'Export door-brand content (description + FAQ) from the database into the JSON file';
+    protected $description = 'Export door-brand descriptions from the database into the JSON file';
 
     public function handle(): int
     {
@@ -28,7 +28,6 @@ class DoorBrandsExportCommand extends Command
                     'name' => (string) ($item->name ?? ''),
                     'doors_title' => (string) ($item->doors_title ?? ''),
                     'description' => (string) ($item->description ?? ''),
-                    'faq' => $item->faqItems(),
                 ];
             })
             ->values()

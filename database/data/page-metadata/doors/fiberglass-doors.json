@@ -29,7 +29,24 @@
       "card": "summary_large_image"
     }
   },
-  "faq": [],
+  "faq": [
+    {
+      "question": "What are the main benefits of Fiberglass Doors?",
+      "answer": "Fiberglass Doors offer dimensional stability, strength, and low-maintenance performance. The best fit depends on the home's architecture, opening sizes, performance goals, and budget."
+    },
+    {
+      "question": "How energy efficient are fiberglass doors for Bay Area homes?",
+      "answer": "For Fiberglass Doors, stable frames and insulated glass can provide strong thermal performance when the unit is correctly specified and installed. Deluxe Windows compares complete door ratings and installation requirements for the specific opening."
+    },
+    {
+      "question": "What maintenance do Fiberglass Doors require?",
+      "answer": "For Fiberglass Doors, routine cleaning and inspection of seals and hardware are normally the main upkeep requirements. Product-specific care instructions and warranty requirements should also be followed."
+    },
+    {
+      "question": "What should I compare before choosing Fiberglass Doors?",
+      "answer": "When evaluating Fiberglass Doors, compare frame construction, glass, operating style, finish, warranty, and installed price. Compare finish choices, frame profiles, glass packages, and installed cost rather than material alone."
+    }
+  ],
   "schema": {
     "primary_type": "Product",
     "data": {

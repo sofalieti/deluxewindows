@@ -28,7 +28,24 @@
       "card": "summary_large_image"
     }
   },
-  "faq": [],
+  "faq": [
+    {
+      "question": "What makes Ply Gem Aluminum Clad Windows suitable for a Bay Area replacement project?",
+      "answer": "Ply Gem Aluminum Clad Windows combine Ply Gem's product approach with a warm interior appearance with a protective aluminum exterior. Suitability still depends on the home's openings, exposure, design, and budget."
+    },
+    {
+      "question": "How do Ply Gem Aluminum Clad Windows perform for energy efficiency?",
+      "answer": "For Ply Gem Aluminum Clad Windows, performance depends on the interior frame, glazing package, spacers, and installation quality. The exact glass package and verified whole-window ratings should be reviewed before ordering."
+    },
+    {
+      "question": "What maintenance should I expect with Ply Gem Aluminum Clad Windows?",
+      "answer": "Maintenance for Ply Gem Aluminum Clad Windows follows the needs of aluminum-clad frames: the exterior cladding limits repainting while the interior finish should be cared for as specified by the manufacturer. Hardware and weather seals should also be inspected periodically."
+    },
+    {
+      "question": "Can Deluxe Windows provide installed pricing for Ply Gem Aluminum Clad Windows?",
+      "answer": "Yes. Installed pricing for Ply Gem Aluminum Clad Windows is prepared after measuring the openings and confirming style, glass, finish, hardware, access, and installation conditions."
+    }
+  ],
   "schema": {
     "primary_type": "Product",
     "data": {

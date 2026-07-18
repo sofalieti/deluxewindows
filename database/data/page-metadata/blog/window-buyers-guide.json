@@ -27,7 +27,24 @@
       "card": "summary_large_image"
     }
   },
-  "faq": [],
+  "faq": [
+    {
+      "question": "What is the main takeaway from “Complete Window Buyer's Guide”?",
+      "answer": "Choose replacement windows with confidence. Compare frame materials, styles, glass, energy ratings and installation options for Bay Area homes. Get expert help."
+    },
+    {
+      "question": "How should a Bay Area homeowner apply the advice in “Complete Window Buyer's Guide”?",
+      "answer": "Use the guidance in “Complete Window Buyer's Guide” as a starting point, then account for the home's age, openings, exposure, existing damage, comfort goals, and budget before selecting a solution."
+    },
+    {
+      "question": "Does “Complete Window Buyer's Guide” apply to every window or door project?",
+      "answer": "No. The considerations in “Complete Window Buyer's Guide” can change with frame material, product condition, installation method, local code, and the surrounding wall or waterproofing."
+    },
+    {
+      "question": "When should I request professional help after reading “Complete Window Buyer's Guide”?",
+      "answer": "Request an evaluation when the issue described in “Complete Window Buyer's Guide” involves safety, water intrusion, damaged framing, uncertain measurements, code requirements, or a full replacement decision."
+    }
+  ],
   "schema": {
     "primary_type": "BlogPosting",
     "data": {

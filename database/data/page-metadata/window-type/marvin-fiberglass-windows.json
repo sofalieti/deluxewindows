@@ -28,7 +28,24 @@
       "card": "summary_large_image"
     }
   },
-  "faq": [],
+  "faq": [
+    {
+      "question": "What makes Marvin Fiberglass Windows suitable for a Bay Area replacement project?",
+      "answer": "Marvin Fiberglass Windows combine Marvin's product approach with dimensional stability, strength, and low-maintenance performance. Suitability still depends on the home's openings, exposure, design, and budget."
+    },
+    {
+      "question": "How do Marvin Fiberglass Windows perform for energy efficiency?",
+      "answer": "For Marvin Fiberglass Windows, stable frames and insulated glass can provide strong thermal performance when the unit is correctly specified and installed. The exact glass package and verified whole-window ratings should be reviewed before ordering."
+    },
+    {
+      "question": "What maintenance should I expect with Marvin Fiberglass Windows?",
+      "answer": "Maintenance for Marvin Fiberglass Windows follows the needs of fiberglass frames: routine cleaning and inspection of seals and hardware are normally the main upkeep requirements. Hardware and weather seals should also be inspected periodically."
+    },
+    {
+      "question": "Can Deluxe Windows provide installed pricing for Marvin Fiberglass Windows?",
+      "answer": "Yes. Installed pricing for Marvin Fiberglass Windows is prepared after measuring the openings and confirming style, glass, finish, hardware, access, and installation conditions."
+    }
+  ],
   "schema": {
     "primary_type": "Product",
     "data": {

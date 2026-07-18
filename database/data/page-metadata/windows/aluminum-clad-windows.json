@@ -30,7 +30,24 @@
       "card": "summary_large_image"
     }
   },
-  "faq": [],
+  "faq": [
+    {
+      "question": "What are the main benefits of Aluminum Clad Windows?",
+      "answer": "Aluminum Clad Windows offer a warm interior appearance with a protective aluminum exterior. The best fit depends on the home's architecture, opening sizes, performance goals, and budget."
+    },
+    {
+      "question": "How energy efficient are aluminum-clad windows for Bay Area homes?",
+      "answer": "For Aluminum Clad Windows, performance depends on the interior frame, glazing package, spacers, and installation quality. Deluxe Windows compares complete window ratings and installation requirements for the specific opening."
+    },
+    {
+      "question": "What maintenance do Aluminum Clad Windows require?",
+      "answer": "For Aluminum Clad Windows, the exterior cladding limits repainting while the interior finish should be cared for as specified by the manufacturer. Product-specific care instructions and warranty requirements should also be followed."
+    },
+    {
+      "question": "What should I compare before choosing Aluminum Clad Windows?",
+      "answer": "When evaluating Aluminum Clad Windows, compare frame construction, glass, operating style, finish, warranty, and installed price. They are distinct from all-aluminum products because cladding protects another frame material rather than forming the entire frame."
+    }
+  ],
   "schema": {
     "primary_type": "Product",
     "data": {

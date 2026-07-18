@@ -28,7 +28,24 @@
       "card": "summary_large_image"
     }
   },
-  "faq": [],
+  "faq": [
+    {
+      "question": "What should homeowners know about Alside Mezzo Vinyl Windows?",
+      "answer": "Explore Alside Mezzo Energy Efficient Vinyl Windows West Coast specifications, glass, colors, hardware and installed pricing for Bay. Request a free estimate."
+    },
+    {
+      "question": "Which configurations are available in Alside Mezzo Vinyl Windows?",
+      "answer": "Available Alside Mezzo Vinyl Windows styles, sizes, glass packages, colors, and hardware depend on the exact product and opening. Deluxe Windows confirms current options before an order is prepared."
+    },
+    {
+      "question": "How should I compare Alside Mezzo Vinyl Windows with other Alside collections?",
+      "answer": "Compare Alside Mezzo Vinyl Windows with other Alside choices by frame material, style availability, energy ratings, design options, warranty, and installed project cost."
+    },
+    {
+      "question": "How is installed pricing for Alside Mezzo Vinyl Windows calculated?",
+      "answer": "Installed pricing for Alside Mezzo Vinyl Windows depends on opening dimensions, configuration, glass, finish, hardware, quantity, access, and any required preparation or permit work."
+    }
+  ],
   "schema": {
     "primary_type": "CollectionPage",
     "data": {

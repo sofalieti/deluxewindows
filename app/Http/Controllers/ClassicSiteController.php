@@ -942,7 +942,8 @@ class ClassicSiteController extends Controller
             ->filter()
             ->values();
 
-        // Door-specific content (description + FAQ), synced from database/data/door-brands.json
+        // Door-specific descriptions synced from database/data/door-brands.json.
+        // Public FAQ content is loaded only from page-metadata files.
         $doorBrand = DoorBrand::query()->where('slug', $slug)->first();
 
         $description = $doorBrand && trim((string) $doorBrand->description) !== ''

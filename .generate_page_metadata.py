@@ -34,7 +34,7 @@ def meta_description(value, limit=180):
     return shortened + "…"
 
 
-def write(key, path, title, description, primary_type="WebPage", image="", faq=None, data=None, og_type="website"):
+def write(key, path, title, description, primary_type="WebPage", image="", data=None, og_type="website"):
     EXPECTED.add(key)
     description = meta_description(description)
     payload = {
@@ -53,7 +53,7 @@ def write(key, path, title, description, primary_type="WebPage", image="", faq=N
             },
             "twitter_card": "summary_large_image",
         },
-        "faq": faq or [],
+        "faq": [],
         "schema": {
             "primary_type": primary_type,
             "data": data or {},
@@ -68,70 +68,23 @@ def write(key, path, title, description, primary_type="WebPage", image="", faq=N
     target.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
-COMMON_FAQ = [
-    {
-        "question": "Which material is best for your windows?",
-        "answer": "The best material depends on your home's style, climate, efficiency goals, and budget. Deluxe Windows offers vinyl, wood, aluminum, and fiberglass options and can recommend the right fit during a consultation.",
-    },
-    {
-        "question": "Is the consultation free?",
-        "answer": "Yes. Submit the contact form or call Deluxe Windows to schedule a free in-home consultation.",
-    },
-    {
-        "question": "When do I need new windows?",
-        "answer": "Common signs include drafts, leaks, condensation, high energy bills, uncomfortable rooms, and windows that are difficult to open or close.",
-    },
-    {
-        "question": "How do I choose window brands and styles?",
-        "answer": "The best brand and style depend on the home, opening, performance goals, and budget. A replacement specialist can assess the project and recommend suitable choices.",
-    },
-]
-
-FAQ_PAGE = [
-    {
-        "question": "Which material is best for your windows?",
-        "answer": "Vinyl is efficient and low maintenance, wood preserves a traditional appearance, wood-clad combines a wood interior with a durable exterior, aluminum provides slim strong frames, and fiberglass offers exceptional strength and durability. The best choice depends on the home, climate, and budget.",
-    },
-    {
-        "question": "Will I need to obtain a permit?",
-        "answer": "Permit requirements vary by city and property. Historic districts and homeowner associations may have additional rules. Deluxe Windows can help determine requirements and assist with the permit process.",
-    },
-    {
-        "question": "When do I need new windows?",
-        "answer": "Signs include high energy bills, rooms that are too hot or cold, recurring condensation, drafts or leaks, and windows that are difficult to operate.",
-    },
-    {
-        "question": "What causes condensation?",
-        "answer": "Condensation forms when humid air meets a cooler surface. Aging windows and weak insulation can allow moisture to collect on or between panes.",
-    },
-    {
-        "question": "Will I need retrofit or new construction installation?",
-        "answer": "Retrofit installation fits a custom window into the existing opening and is usually faster. New construction installation removes the surrounding frame and is appropriate when the opening or waterproofing also needs replacement.",
-    },
-    {
-        "question": "How do I choose window brands and styles?",
-        "answer": "A specialist should assess the home's architecture, openings, efficiency goals, and budget before recommending a product, style, and price range.",
-    },
-]
-
-
 STATIC = {
-    "home": ("/", "Deluxe Windows | Window Replacement – San Francisco Bay Area", "Upgrade your Bay Area home with energy-efficient windows. Deluxe Windows offers over 20 years of expert installation of vinyl, aluminum, fiberglass and wood windows.", "WebSite", COMMON_FAQ),
-    "windows-index": ("/windows", "Windows for Bay Area Homes | Deluxe Windows California", "Discover high-performance vinyl, wood, aluminum, and fiberglass windows installed by Deluxe Windows across the Bay Area.", "CollectionPage", []),
-    "doors-index": ("/doors", "Doors for Bay Area Homes | Deluxe Windows California", "Discover stylish, durable, and energy-efficient entry and patio doors installed by Deluxe Windows across the Bay Area.", "CollectionPage", []),
-    "brand-index": ("/brand", "Top Window & Door Brands | Deluxe Windows – Bay Area", "Explore premium window and door brands including Andersen, Marvin, Milgard, Simonton, and more.", "CollectionPage", []),
-    "blog-index": ("/blog", "Window Tips & Design Blog | Deluxe Windows – Bay Area", "Expert window tips, buying guides, and design inspiration for Bay Area homeowners from Deluxe Windows.", "CollectionPage", []),
-    "gallery": ("/gallery", "Photo Gallery | Deluxe Windows – Bay Area", "Browse completed window and door replacement projects across the Bay Area by Deluxe Windows.", "CollectionPage", []),
-    "glossary": ("/glossary", "Window & Door Glossary | Deluxe Windows", "Learn common window, door, glass, installation, and energy-efficiency terms.", "DefinedTermSet", []),
-    "faq": ("/faq", "Window & Door FAQs | Deluxe Windows – Bay Area", "Get expert answers about window and door replacement, installation, permits, energy savings, and costs.", "WebPage", FAQ_PAGE),
-    "testimonials": ("/testimonials", "Customer Reviews | Deluxe Windows – Bay Area", "Read customer reviews about Deluxe Windows installation, service quality, and experience.", "WebPage", []),
-    "financing": ("/financing", "Window & Door Financing | Deluxe Windows – Bay Area", "Explore flexible financing options for window and door replacement in the Bay Area.", "WebPage", []),
-    "about": ("/about", "About Deluxe Windows | Window Experts in the Bay Area", "Discover why Bay Area homeowners trust Deluxe Windows for expert window and door installation.", "AboutPage", []),
-    "contacts": ("/contacts", "Contact Deluxe Windows | Bay Area Window Experts", "Contact Deluxe Windows for window and door installation across the Bay Area.", "ContactPage", COMMON_FAQ),
-    "special-offers": ("/special-offers", "Window Replacement Deals | Special Offers – Deluxe Windows", "Explore Deluxe Windows seasonal discounts, limited-time promotions, and financing offers.", "WebPage", []),
+    "home": ("/", "Deluxe Windows | Window Replacement – San Francisco Bay Area", "Upgrade your Bay Area home with energy-efficient windows. Deluxe Windows offers over 20 years of expert installation of vinyl, aluminum, fiberglass and wood windows.", "WebSite"),
+    "windows-index": ("/windows", "Windows for Bay Area Homes | Deluxe Windows California", "Discover high-performance vinyl, wood, aluminum, and fiberglass windows installed by Deluxe Windows across the Bay Area.", "CollectionPage"),
+    "doors-index": ("/doors", "Doors for Bay Area Homes | Deluxe Windows California", "Discover stylish, durable, and energy-efficient entry and patio doors installed by Deluxe Windows across the Bay Area.", "CollectionPage"),
+    "brand-index": ("/brand", "Top Window & Door Brands | Deluxe Windows – Bay Area", "Explore premium window and door brands including Andersen, Marvin, Milgard, Simonton, and more.", "CollectionPage"),
+    "blog-index": ("/blog", "Window Tips & Design Blog | Deluxe Windows – Bay Area", "Expert window tips, buying guides, and design inspiration for Bay Area homeowners from Deluxe Windows.", "CollectionPage"),
+    "gallery": ("/gallery", "Photo Gallery | Deluxe Windows – Bay Area", "Browse completed window and door replacement projects across the Bay Area by Deluxe Windows.", "CollectionPage"),
+    "glossary": ("/glossary", "Window & Door Glossary | Deluxe Windows", "Learn common window, door, glass, installation, and energy-efficiency terms.", "DefinedTermSet"),
+    "faq": ("/faq", "Window & Door FAQs | Deluxe Windows – Bay Area", "Get expert answers about window and door replacement, installation, permits, energy savings, and costs.", "WebPage"),
+    "testimonials": ("/testimonials", "Customer Reviews | Deluxe Windows – Bay Area", "Read customer reviews about Deluxe Windows installation, service quality, and experience.", "WebPage"),
+    "financing": ("/financing", "Window & Door Financing | Deluxe Windows – Bay Area", "Explore flexible financing options for window and door replacement in the Bay Area.", "WebPage"),
+    "about": ("/about", "About Deluxe Windows | Window Experts in the Bay Area", "Discover why Bay Area homeowners trust Deluxe Windows for expert window and door installation.", "AboutPage"),
+    "contacts": ("/contacts", "Contact Deluxe Windows | Bay Area Window Experts", "Contact Deluxe Windows for window and door installation across the Bay Area.", "ContactPage"),
+    "special-offers": ("/special-offers", "Window Replacement Deals | Special Offers – Deluxe Windows", "Explore Deluxe Windows seasonal discounts, limited-time promotions, and financing offers.", "WebPage"),
 }
 
-for slug, (path, title, description, primary, faq) in STATIC.items():
+for slug, (path, title, description, primary) in STATIC.items():
     write(
         f"static/{slug}",
         path,
@@ -139,7 +92,6 @@ for slug, (path, title, description, primary, faq) in STATIC.items():
         description,
         primary,
         image=STATIC_OG_IMAGE,
-        faq=faq,
     )
 
 
@@ -202,7 +154,6 @@ for collection, route_prefix, primary in COLLECTIONS:
             description,
             primary,
             image=image,
-            faq=COMMON_FAQ if collection == "brands" else [],
             data=schema_data,
             og_type="article" if primary == "BlogPosting" else "website",
         )
@@ -224,11 +175,6 @@ for item in load_items("brands"):
         continue
     overlay = door_brand_data.get(slug, {})
     name = clean(fd.get("name")) or clean(overlay.get("name")) or slug.replace("-", " ").title()
-    faq = [
-        {"question": clean(row.get("question")), "answer": clean(row.get("answer"))}
-        for row in overlay.get("faq", [])
-        if clean(row.get("question")) and clean(row.get("answer"))
-    ]
     write(
         f"door-brands/{slug}",
         f"/door-brands/{slug}",
@@ -236,7 +182,6 @@ for item in load_items("brands"):
         clean(overlay.get("description")) or f"Explore {name} doors installed by Deluxe Windows in the Bay Area.",
         "Product",
         image=fd.get("opengraph-image") or fd.get("featured-image") or "",
-        faq=faq,
         data={"name": f"{name} Doors", "brand": name},
     )
 
@@ -264,12 +209,6 @@ for item in load_items("window-replacement"):
     if not slug:
         continue
     city = clean(fd.get("city-name") or fd.get("name")) or slug.replace("-", " ").title()
-    faqs = []
-    for index in range(1, 6):
-        question = clean(fd.get(f"faq-{index}-question"))
-        answer = clean(fd.get(f"faq-{index}-answer-plain-text") or fd.get(f"faq-{index}-answer"))
-        if question and answer:
-            faqs.append({"question": question, "answer": answer})
     write(
         f"window-replacement/{slug}",
         f"/window-replacement/{slug}",
@@ -277,7 +216,6 @@ for item in load_items("window-replacement"):
         generic_description(fd, city),
         "Service",
         image=fd.get("og-image") or fd.get("hero-image") or "",
-        faq=faqs,
         data={"name": f"Window Replacement in {city}", "area_served": city},
     )
 

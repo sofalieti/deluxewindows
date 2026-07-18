@@ -27,7 +27,24 @@
       "card": "summary_large_image"
     }
   },
-  "faq": [],
+  "faq": [
+    {
+      "question": "What is the main takeaway from “5 Ways to Temporarily Fix a Broken Window”?",
+      "answer": "Use these five temporary fixes to reduce drafts, cover cracks and secure a damaged window until a professional Bay Area replacement can be scheduled."
+    },
+    {
+      "question": "How should a Bay Area homeowner apply the advice in “5 Ways to Temporarily Fix a Broken Window”?",
+      "answer": "Use the guidance in “5 Ways to Temporarily Fix a Broken Window” as a starting point, then account for the home's age, openings, exposure, existing damage, comfort goals, and budget before selecting a solution."
+    },
+    {
+      "question": "Does “5 Ways to Temporarily Fix a Broken Window” apply to every window or door project?",
+      "answer": "No. The considerations in “5 Ways to Temporarily Fix a Broken Window” can change with frame material, product condition, installation method, local code, and the surrounding wall or waterproofing."
+    },
+    {
+      "question": "When should I request professional help after reading “5 Ways to Temporarily Fix a Broken Window”?",
+      "answer": "Request an evaluation when the issue described in “5 Ways to Temporarily Fix a Broken Window” involves safety, water intrusion, damaged framing, uncertain measurements, code requirements, or a full replacement decision."
+    }
+  ],
   "schema": {
     "primary_type": "BlogPosting",
     "data": {

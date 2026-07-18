@@ -27,7 +27,24 @@
       "card": "summary_large_image"
     }
   },
-  "faq": [],
+  "faq": [
+    {
+      "question": "What is the main takeaway from “How to Measure Windows for Replacement”?",
+      "answer": "Measure replacement windows at three points for width and height, then use the smallest dimensions. Follow our step-by-step Bay Area measurement guide."
+    },
+    {
+      "question": "How should a Bay Area homeowner apply the advice in “How to Measure Windows for Replacement”?",
+      "answer": "Use the guidance in “How to Measure Windows for Replacement” as a starting point, then account for the home's age, openings, exposure, existing damage, comfort goals, and budget before selecting a solution."
+    },
+    {
+      "question": "Does “How to Measure Windows for Replacement” apply to every window or door project?",
+      "answer": "No. The considerations in “How to Measure Windows for Replacement” can change with frame material, product condition, installation method, local code, and the surrounding wall or waterproofing."
+    },
+    {
+      "question": "When should I request professional help after reading “How to Measure Windows for Replacement”?",
+      "answer": "Request an evaluation when the issue described in “How to Measure Windows for Replacement” involves safety, water intrusion, damaged framing, uncertain measurements, code requirements, or a full replacement decision."
+    }
+  ],
   "schema": {
     "primary_type": "BlogPosting",
     "data": {

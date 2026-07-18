@@ -27,7 +27,24 @@
       "card": "summary_large_image"
     }
   },
-  "faq": [],
+  "faq": [
+    {
+      "question": "What is the main takeaway from “How Long Do Windows Last”?",
+      "answer": "Most windows last 15 to 30 years, depending on material, climate and maintenance. Learn the warning signs that your Bay Area windows need replacement."
+    },
+    {
+      "question": "How should a Bay Area homeowner apply the advice in “How Long Do Windows Last”?",
+      "answer": "Use the guidance in “How Long Do Windows Last” as a starting point, then account for the home's age, openings, exposure, existing damage, comfort goals, and budget before selecting a solution."
+    },
+    {
+      "question": "Does “How Long Do Windows Last” apply to every window or door project?",
+      "answer": "No. The considerations in “How Long Do Windows Last” can change with frame material, product condition, installation method, local code, and the surrounding wall or waterproofing."
+    },
+    {
+      "question": "When should I request professional help after reading “How Long Do Windows Last”?",
+      "answer": "Request an evaluation when the issue described in “How Long Do Windows Last” involves safety, water intrusion, damaged framing, uncertain measurements, code requirements, or a full replacement decision."
+    }
+  ],
   "schema": {
     "primary_type": "BlogPosting",
     "data": {

@@ -28,7 +28,24 @@
       "card": "summary_large_image"
     }
   },
-  "faq": [],
+  "faq": [
+    {
+      "question": "What makes Jeld-Wen Wood Clad Windows suitable for a Bay Area replacement project?",
+      "answer": "Jeld-Wen Wood Clad Windows combine JELD-WEN's product approach with a real-wood interior with a lower-maintenance protective exterior. Suitability still depends on the home's openings, exposure, design, and budget."
+    },
+    {
+      "question": "How do Jeld-Wen Wood Clad Windows perform for energy efficiency?",
+      "answer": "For Jeld-Wen Wood Clad Windows, the wood core, exterior cladding, glass package, and weather sealing all influence whole-window performance. The exact glass package and verified whole-window ratings should be reviewed before ordering."
+    },
+    {
+      "question": "What maintenance should I expect with Jeld-Wen Wood Clad Windows?",
+      "answer": "Maintenance for Jeld-Wen Wood Clad Windows follows the needs of wood-clad frames: the exterior needs less upkeep than exposed wood, while interior wood still requires appropriate finish care. Hardware and weather seals should also be inspected periodically."
+    },
+    {
+      "question": "Can Deluxe Windows provide installed pricing for Jeld-Wen Wood Clad Windows?",
+      "answer": "Yes. Installed pricing for Jeld-Wen Wood Clad Windows is prepared after measuring the openings and confirming style, glass, finish, hardware, access, and installation conditions."
+    }
+  ],
   "schema": {
     "primary_type": "Product",
     "data": {

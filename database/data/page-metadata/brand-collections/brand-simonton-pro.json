@@ -27,7 +27,24 @@
       "card": "summary_large_image"
     }
   },
-  "faq": [],
+  "faq": [
+    {
+      "question": "What should homeowners know about Simonton Pro?",
+      "answer": "Explore Simonton Pro specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate."
+    },
+    {
+      "question": "Which configurations are available in Simonton Pro?",
+      "answer": "Available Simonton Pro styles, sizes, glass packages, colors, and hardware depend on the exact product and opening. Deluxe Windows confirms current options before an order is prepared."
+    },
+    {
+      "question": "How should I compare Simonton Pro with other Simonton collections?",
+      "answer": "Compare Simonton Pro with other Simonton choices by frame material, style availability, energy ratings, design options, warranty, and installed project cost."
+    },
+    {
+      "question": "How is installed pricing for Simonton Pro calculated?",
+      "answer": "Installed pricing for Simonton Pro depends on opening dimensions, configuration, glass, finish, hardware, quantity, access, and any required preparation or permit work."
+    }
+  ],
   "schema": {
     "primary_type": "CollectionPage",
     "data": {

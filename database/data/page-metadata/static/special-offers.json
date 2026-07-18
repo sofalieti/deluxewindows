@@ -28,7 +28,24 @@
       "card": "summary_large_image"
     }
   },
-  "faq": [],
+  "faq": [
+    {
+      "question": "How do I confirm whether a Deluxe Windows offer is still active?",
+      "answer": "Use the dates and conditions shown with the offer, then confirm availability when requesting an estimate because promotions can change or expire."
+    },
+    {
+      "question": "Which products qualify for current Deluxe Windows promotions?",
+      "answer": "Eligibility depends on the specific offer, product, quantity, project location, and installation scope. The written proposal should identify any applied promotion."
+    },
+    {
+      "question": "Can multiple window or door offers be combined?",
+      "answer": "Offers should be treated as non-combinable unless their written terms explicitly allow combination. Confirm the applicable discount before approving the project."
+    },
+    {
+      "question": "Can a promotion be used with financing?",
+      "answer": "Compatibility between a promotion and financing depends on the current written terms of both programs and must be confirmed before the agreement is signed."
+    }
+  ],
   "schema": {
     "primary_type": "WebPage",
     "data": {},

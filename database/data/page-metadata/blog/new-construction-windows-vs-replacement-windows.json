@@ -27,7 +27,24 @@
       "card": "summary_large_image"
     }
   },
-  "faq": [],
+  "faq": [
+    {
+      "question": "What is the main takeaway from “New Construction Windows vs. Replacement Windows”?",
+      "answer": "New construction windows replace the full framed opening, while replacement windows fit an existing opening. Compare costs, scope and the best use cases."
+    },
+    {
+      "question": "How should a Bay Area homeowner apply the advice in “New Construction Windows vs. Replacement Windows”?",
+      "answer": "Use the guidance in “New Construction Windows vs. Replacement Windows” as a starting point, then account for the home's age, openings, exposure, existing damage, comfort goals, and budget before selecting a solution."
+    },
+    {
+      "question": "Does “New Construction Windows vs. Replacement Windows” apply to every window or door project?",
+      "answer": "No. The considerations in “New Construction Windows vs. Replacement Windows” can change with frame material, product condition, installation method, local code, and the surrounding wall or waterproofing."
+    },
+    {
+      "question": "When should I request professional help after reading “New Construction Windows vs. Replacement Windows”?",
+      "answer": "Request an evaluation when the issue described in “New Construction Windows vs. Replacement Windows” involves safety, water intrusion, damaged framing, uncertain measurements, code requirements, or a full replacement decision."
+    }
+  ],
   "schema": {
     "primary_type": "BlogPosting",
     "data": {

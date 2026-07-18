@@ -28,7 +28,24 @@
       "card": "summary_large_image"
     }
   },
-  "faq": [],
+  "faq": [
+    {
+      "question": "What makes Milgard Aluminum Windows suitable for a Bay Area replacement project?",
+      "answer": "Milgard Aluminum Windows combine Milgard's product approach with slim sightlines, structural strength, and a clean contemporary appearance. Suitability still depends on the home's openings, exposure, design, and budget."
+    },
+    {
+      "question": "How do Milgard Aluminum Windows perform for energy efficiency?",
+      "answer": "For Milgard Aluminum Windows, thermally improved frames and the selected glass package are especially important because aluminum conducts heat. The exact glass package and verified whole-window ratings should be reviewed before ordering."
+    },
+    {
+      "question": "What maintenance should I expect with Milgard Aluminum Windows?",
+      "answer": "Maintenance for Milgard Aluminum Windows follows the needs of aluminum frames: factory-finished aluminum is low maintenance, but tracks, drainage paths, seals, and hardware should remain clean. Hardware and weather seals should also be inspected periodically."
+    },
+    {
+      "question": "Can Deluxe Windows provide installed pricing for Milgard Aluminum Windows?",
+      "answer": "Yes. Installed pricing for Milgard Aluminum Windows is prepared after measuring the openings and confirming style, glass, finish, hardware, access, and installation conditions."
+    }
+  ],
   "schema": {
     "primary_type": "Product",
     "data": {

@@ -28,7 +28,24 @@
       "card": "summary_large_image"
     }
   },
-  "faq": [],
+  "faq": [
+    {
+      "question": "What makes Jeld-Wen Wood Windows suitable for a Bay Area replacement project?",
+      "answer": "Jeld-Wen Wood Windows combine JELD-WEN's product approach with natural interior character, design flexibility, and compatibility with traditional architecture. Suitability still depends on the home's openings, exposure, design, and budget."
+    },
+    {
+      "question": "How do Jeld-Wen Wood Windows perform for energy efficiency?",
+      "answer": "For Jeld-Wen Wood Windows, wood frames insulate naturally, while glass, weatherstripping, and installation determine the completed unit's performance. The exact glass package and verified whole-window ratings should be reviewed before ordering."
+    },
+    {
+      "question": "What maintenance should I expect with Jeld-Wen Wood Windows?",
+      "answer": "Maintenance for Jeld-Wen Wood Windows follows the needs of wood frames: exposed wood needs periodic inspection and finish maintenance to control moisture and weathering. Hardware and weather seals should also be inspected periodically."
+    },
+    {
+      "question": "Can Deluxe Windows provide installed pricing for Jeld-Wen Wood Windows?",
+      "answer": "Yes. Installed pricing for Jeld-Wen Wood Windows is prepared after measuring the openings and confirming style, glass, finish, hardware, access, and installation conditions."
+    }
+  ],
   "schema": {
     "primary_type": "Product",
     "data": {

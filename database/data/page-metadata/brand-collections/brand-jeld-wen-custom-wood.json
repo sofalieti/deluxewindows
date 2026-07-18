@@ -27,7 +27,24 @@
       "card": "summary_large_image"
     }
   },
-  "faq": [],
+  "faq": [
+    {
+      "question": "What should homeowners know about Jeld Wen Custom Wood?",
+      "answer": "Explore Jeld Wen Custom Wood specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate."
+    },
+    {
+      "question": "Which configurations are available in Jeld Wen Custom Wood?",
+      "answer": "Available Jeld Wen Custom Wood styles, sizes, glass packages, colors, and hardware depend on the exact product and opening. Deluxe Windows confirms current options before an order is prepared."
+    },
+    {
+      "question": "How should I compare Jeld Wen Custom Wood with other the manufacturer collections?",
+      "answer": "Compare Jeld Wen Custom Wood with other the manufacturer choices by frame material, style availability, energy ratings, design options, warranty, and installed project cost."
+    },
+    {
+      "question": "How is installed pricing for Jeld Wen Custom Wood calculated?",
+      "answer": "Installed pricing for Jeld Wen Custom Wood depends on opening dimensions, configuration, glass, finish, hardware, quantity, access, and any required preparation or permit work."
+    }
+  ],
   "schema": {
     "primary_type": "CollectionPage",
     "data": {

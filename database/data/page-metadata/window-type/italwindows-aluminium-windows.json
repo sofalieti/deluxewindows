@@ -28,7 +28,24 @@
       "card": "summary_large_image"
     }
   },
-  "faq": [],
+  "faq": [
+    {
+      "question": "What makes Italwindows Aluminum Windows suitable for a Bay Area replacement project?",
+      "answer": "Italwindows Aluminum Windows combine Italwindows's product approach with slim sightlines, structural strength, and a clean contemporary appearance. Suitability still depends on the home's openings, exposure, design, and budget."
+    },
+    {
+      "question": "How do Italwindows Aluminum Windows perform for energy efficiency?",
+      "answer": "For Italwindows Aluminum Windows, thermally improved frames and the selected glass package are especially important because aluminum conducts heat. The exact glass package and verified whole-window ratings should be reviewed before ordering."
+    },
+    {
+      "question": "What maintenance should I expect with Italwindows Aluminum Windows?",
+      "answer": "Maintenance for Italwindows Aluminum Windows follows the needs of aluminum frames: factory-finished aluminum is low maintenance, but tracks, drainage paths, seals, and hardware should remain clean. Hardware and weather seals should also be inspected periodically."
+    },
+    {
+      "question": "Can Deluxe Windows provide installed pricing for Italwindows Aluminum Windows?",
+      "answer": "Yes. Installed pricing for Italwindows Aluminum Windows is prepared after measuring the openings and confirming style, glass, finish, hardware, access, and installation conditions."
+    }
+  ],
   "schema": {
     "primary_type": "Product",
     "data": {

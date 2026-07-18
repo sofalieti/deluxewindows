@@ -27,7 +27,24 @@
       "card": "summary_large_image"
     }
   },
-  "faq": [],
+  "faq": [
+    {
+      "question": "What should homeowners know about Jeld Wen Premium Vinyl V 4500?",
+      "answer": "Explore Jeld Wen Premium Vinyl V 4500 specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate."
+    },
+    {
+      "question": "Which configurations are available in Jeld Wen Premium Vinyl V 4500?",
+      "answer": "Available Jeld Wen Premium Vinyl V 4500 styles, sizes, glass packages, colors, and hardware depend on the exact product and opening. Deluxe Windows confirms current options before an order is prepared."
+    },
+    {
+      "question": "How should I compare Jeld Wen Premium Vinyl V 4500 with other the manufacturer collections?",
+      "answer": "Compare Jeld Wen Premium Vinyl V 4500 with other the manufacturer choices by frame material, style availability, energy ratings, design options, warranty, and installed project cost."
+    },
+    {
+      "question": "How is installed pricing for Jeld Wen Premium Vinyl V 4500 calculated?",
+      "answer": "Installed pricing for Jeld Wen Premium Vinyl V 4500 depends on opening dimensions, configuration, glass, finish, hardware, quantity, access, and any required preparation or permit work."
+    }
+  ],
   "schema": {
     "primary_type": "CollectionPage",
     "data": {

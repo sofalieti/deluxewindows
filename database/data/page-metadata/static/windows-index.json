@@ -28,7 +28,24 @@
       "card": "summary_large_image"
     }
   },
-  "faq": [],
+  "faq": [
+    {
+      "question": "Which replacement window materials can I compare at Deluxe Windows?",
+      "answer": "Homeowners can compare vinyl, wood, wood-clad, aluminum, aluminum-clad, fiberglass, and steel window options, subject to current manufacturer availability."
+    },
+    {
+      "question": "How do I choose between window styles?",
+      "answer": "Choose an operating style by considering ventilation, egress, cleaning access, view area, furniture placement, architectural fit, and the dimensions of each opening."
+    },
+    {
+      "question": "What determines replacement window energy performance?",
+      "answer": "Whole-window ratings depend on the frame, glass coatings, pane configuration, gas fill, spacers, weather seals, product size, and installation quality."
+    },
+    {
+      "question": "How is installed window pricing calculated?",
+      "answer": "Installed window pricing depends on material, brand, style, dimensions, glass, finish, hardware, quantity, access, removal work, and permit or repair requirements."
+    }
+  ],
   "schema": {
     "primary_type": "CollectionPage",
     "data": {},

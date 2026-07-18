@@ -1981,3 +1981,12 @@
   }
 }
 
+.county-bottom-cta__title,
+.county-bottom-cta__phone {
+  color: #fff;
+}
+
+.county-bottom-cta__phone {
+  text-decoration: none;
+}
+

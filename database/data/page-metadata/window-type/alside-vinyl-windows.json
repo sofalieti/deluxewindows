@@ -28,7 +28,24 @@
       "card": "summary_large_image"
     }
   },
-  "faq": [],
+  "faq": [
+    {
+      "question": "What makes Alside Vinyl Windows suitable for a Bay Area replacement project?",
+      "answer": "Alside Vinyl Windows combine Alside's product approach with low maintenance, useful insulation, and broad value-oriented product selection. Suitability still depends on the home's openings, exposure, design, and budget."
+    },
+    {
+      "question": "How do Alside Vinyl Windows perform for energy efficiency?",
+      "answer": "For Alside Vinyl Windows, multi-chamber frames, Low-E glass, spacers, and professional installation can reduce heat transfer and air leakage. The exact glass package and verified whole-window ratings should be reviewed before ordering."
+    },
+    {
+      "question": "What maintenance should I expect with Alside Vinyl Windows?",
+      "answer": "Maintenance for Alside Vinyl Windows follows the needs of vinyl frames: vinyl does not require painting; cleaning frames, tracks, drainage openings, and hardware is usually sufficient. Hardware and weather seals should also be inspected periodically."
+    },
+    {
+      "question": "Can Deluxe Windows provide installed pricing for Alside Vinyl Windows?",
+      "answer": "Yes. Installed pricing for Alside Vinyl Windows is prepared after measuring the openings and confirming style, glass, finish, hardware, access, and installation conditions."
+    }
+  ],
   "schema": {
     "primary_type": "Product",
     "data": {

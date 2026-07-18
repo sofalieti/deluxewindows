@@ -27,7 +27,24 @@
       "card": "summary_large_image"
     }
   },
-  "faq": [],
+  "faq": [
+    {
+      "question": "What should homeowners know about Andersen A Series?",
+      "answer": "Explore Andersen A Series specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate."
+    },
+    {
+      "question": "Which configurations are available in Andersen A Series?",
+      "answer": "Available Andersen A Series styles, sizes, glass packages, colors, and hardware depend on the exact product and opening. Deluxe Windows confirms current options before an order is prepared."
+    },
+    {
+      "question": "How should I compare Andersen A Series with other Andersen collections?",
+      "answer": "Compare Andersen A Series with other Andersen choices by frame material, style availability, energy ratings, design options, warranty, and installed project cost."
+    },
+    {
+      "question": "How is installed pricing for Andersen A Series calculated?",
+      "answer": "Installed pricing for Andersen A Series depends on opening dimensions, configuration, glass, finish, hardware, quantity, access, and any required preparation or permit work."
+    }
+  ],
   "schema": {
     "primary_type": "CollectionPage",
     "data": {

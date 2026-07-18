@@ -27,7 +27,24 @@
       "card": "summary_large_image"
     }
   },
-  "faq": [],
+  "faq": [
+    {
+      "question": "What is the main takeaway from “The Complete Door Buyer's Guide”?",
+      "answer": "Choose the right entry or patio door by comparing materials, security, glass, energy performance and styles in this practical Bay Area buyer's guide."
+    },
+    {
+      "question": "How should a Bay Area homeowner apply the advice in “The Complete Door Buyer's Guide”?",
+      "answer": "Use the guidance in “The Complete Door Buyer's Guide” as a starting point, then account for the home's age, openings, exposure, existing damage, comfort goals, and budget before selecting a solution."
+    },
+    {
+      "question": "Does “The Complete Door Buyer's Guide” apply to every window or door project?",
+      "answer": "No. The considerations in “The Complete Door Buyer's Guide” can change with frame material, product condition, installation method, local code, and the surrounding wall or waterproofing."
+    },
+    {
+      "question": "When should I request professional help after reading “The Complete Door Buyer's Guide”?",
+      "answer": "Request an evaluation when the issue described in “The Complete Door Buyer's Guide” involves safety, water intrusion, damaged framing, uncertain measurements, code requirements, or a full replacement decision."
+    }
+  ],
   "schema": {
     "primary_type": "BlogPosting",
     "data": {

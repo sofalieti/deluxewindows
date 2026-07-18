@@ -30,7 +30,24 @@
       "card": "summary_large_image"
     }
   },
-  "faq": [],
+  "faq": [
+    {
+      "question": "What are the main benefits of Wood Windows?",
+      "answer": "Wood Windows offer natural interior character, design flexibility, and compatibility with traditional architecture. The best fit depends on the home's architecture, opening sizes, performance goals, and budget."
+    },
+    {
+      "question": "How energy efficient are wood windows for Bay Area homes?",
+      "answer": "For Wood Windows, wood frames insulate naturally, while glass, weatherstripping, and installation determine the completed unit's performance. Deluxe Windows compares complete window ratings and installation requirements for the specific opening."
+    },
+    {
+      "question": "What maintenance do Wood Windows require?",
+      "answer": "For Wood Windows, exposed wood needs periodic inspection and finish maintenance to control moisture and weathering. Product-specific care instructions and warranty requirements should also be followed."
+    },
+    {
+      "question": "What should I compare before choosing Wood Windows?",
+      "answer": "When evaluating Wood Windows, compare frame construction, glass, operating style, finish, warranty, and installed price. Unlike wood-clad products, exposed wood requires more exterior care unless another protective system is specified."
+    }
+  ],
   "schema": {
     "primary_type": "Product",
     "data": {

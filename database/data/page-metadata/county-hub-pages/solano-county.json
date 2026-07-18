@@ -28,7 +28,24 @@
       "card": "summary_large_image"
     }
   },
-  "faq": [],
+  "faq": [
+    {
+      "question": "Which cities does Deluxe Windows serve in Solano County?",
+      "answer": "Deluxe Windows serves window and door replacement projects across Solano County. Confirm the property address when requesting an estimate so travel, permitting, and installation details can be checked."
+    },
+    {
+      "question": "Do replacement windows require permits in Solano County?",
+      "answer": "Permit requirements in Solano County are set by the city or local building authority and can vary by project scope, property type, and historic status. Requirements are reviewed for the specific address."
+    },
+    {
+      "question": "Which window features matter for homes in Solano County?",
+      "answer": "For homes in Solano County, compare solar control, insulation, air leakage, frame durability, ventilation, and exposure. The right balance depends on the property's microclimate and orientation."
+    },
+    {
+      "question": "How do I request a window replacement estimate in Solano County?",
+      "answer": "Provide the Solano County property address, approximate window count, preferred materials, and any known access or HOA requirements. Deluxe Windows can then schedule measurements and prepare project-specific options."
+    }
+  ],
   "schema": {
     "primary_type": "CollectionPage",
     "data": {

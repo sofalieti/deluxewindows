@@ -27,7 +27,24 @@
       "card": "summary_large_image"
     }
   },
-  "faq": [],
+  "faq": [
+    {
+      "question": "What is the main takeaway from “How Replacement Windows Help Keep Your Home Cool”?",
+      "answer": "Replacement windows help keep homes cooler with Low-E glass, insulated frames and tighter seals. Learn which options perform best in Bay Area climates."
+    },
+    {
+      "question": "How should a Bay Area homeowner apply the advice in “How Replacement Windows Help Keep Your Home Cool”?",
+      "answer": "Use the guidance in “How Replacement Windows Help Keep Your Home Cool” as a starting point, then account for the home's age, openings, exposure, existing damage, comfort goals, and budget before selecting a solution."
+    },
+    {
+      "question": "Does “How Replacement Windows Help Keep Your Home Cool” apply to every window or door project?",
+      "answer": "No. The considerations in “How Replacement Windows Help Keep Your Home Cool” can change with frame material, product condition, installation method, local code, and the surrounding wall or waterproofing."
+    },
+    {
+      "question": "When should I request professional help after reading “How Replacement Windows Help Keep Your Home Cool”?",
+      "answer": "Request an evaluation when the issue described in “How Replacement Windows Help Keep Your Home Cool” involves safety, water intrusion, damaged framing, uncertain measurements, code requirements, or a full replacement decision."
+    }
+  ],
   "schema": {
     "primary_type": "BlogPosting",
     "data": {

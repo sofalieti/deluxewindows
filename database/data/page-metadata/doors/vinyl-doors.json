@@ -29,7 +29,24 @@
       "card": "summary_large_image"
     }
   },
-  "faq": [],
+  "faq": [
+    {
+      "question": "What are the main benefits of Vinyl Doors?",
+      "answer": "Vinyl Doors offer low maintenance, useful insulation, and broad value-oriented product selection. The best fit depends on the home's architecture, opening sizes, performance goals, and budget."
+    },
+    {
+      "question": "How energy efficient are vinyl doors for Bay Area homes?",
+      "answer": "For Vinyl Doors, multi-chamber frames, Low-E glass, spacers, and professional installation can reduce heat transfer and air leakage. Deluxe Windows compares complete door ratings and installation requirements for the specific opening."
+    },
+    {
+      "question": "What maintenance do Vinyl Doors require?",
+      "answer": "For Vinyl Doors, vinyl does not require painting; cleaning frames, tracks, drainage openings, and hardware is usually sufficient. Product-specific care instructions and warranty requirements should also be followed."
+    },
+    {
+      "question": "What should I compare before choosing Vinyl Doors?",
+      "answer": "When evaluating Vinyl Doors, compare frame construction, glass, operating style, finish, warranty, and installed price. Compare frame construction, reinforcement, glass packages, warranties, and installation details between brands."
+    }
+  ],
   "schema": {
     "primary_type": "Product",
     "data": {

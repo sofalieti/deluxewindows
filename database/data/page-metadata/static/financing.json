@@ -28,7 +28,24 @@
       "card": "summary_large_image"
     }
   },
-  "faq": [],
+  "faq": [
+    {
+      "question": "What project information is needed to discuss financing?",
+      "answer": "Provide the project address, estimated scope, selected products if known, and target schedule. Financing options can then be reviewed alongside the installation proposal."
+    },
+    {
+      "question": "Does checking window and door financing change the product estimate?",
+      "answer": "The product and installation scope should be priced first. Financing changes how an approved project is paid for, not the measurements or required installation work."
+    },
+    {
+      "question": "When are financing terms confirmed?",
+      "answer": "Rates, term length, payment amount, eligibility, and required disclosures are confirmed through the applicable financing provider before an agreement is accepted."
+    },
+    {
+      "question": "Can financing cover both windows and doors in one project?",
+      "answer": "A combined project may be considered, subject to the selected program, approved amount, project proposal, and financing provider's current terms."
+    }
+  ],
   "schema": {
     "primary_type": "WebPage",
     "data": {},

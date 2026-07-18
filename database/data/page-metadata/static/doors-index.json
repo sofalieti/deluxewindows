@@ -29,7 +29,24 @@
       "card": "summary_large_image"
     }
   },
-  "faq": [],
+  "faq": [
+    {
+      "question": "Which replacement door materials can I compare at Deluxe Windows?",
+      "answer": "Deluxe Windows offers access to wood, wood-clad, fiberglass, steel, vinyl, and aluminum door options across entry, patio, sliding, folding, and multi-panel configurations."
+    },
+    {
+      "question": "How do I choose between sliding, hinged, and folding doors?",
+      "answer": "Compare opening width, usable floor space, ventilation, accessibility, panel size, threshold details, weather exposure, security, and the desired indoor-outdoor connection."
+    },
+    {
+      "question": "What affects a replacement door's energy efficiency?",
+      "answer": "Door performance depends on the frame and panel material, glazing, spacers, weather seals, threshold, locking system, exposure, and installation accuracy."
+    },
+    {
+      "question": "What measurements are needed for an installed door estimate?",
+      "answer": "An estimate requires the structural opening, frame condition, wall depth, swing or panel direction, threshold, exterior exposure, access, finish details, and selected configuration."
+    }
+  ],
   "schema": {
     "primary_type": "CollectionPage",
     "data": {},

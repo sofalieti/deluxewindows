@@ -27,7 +27,24 @@
       "card": "summary_large_image"
     }
   },
-  "faq": [],
+  "faq": [
+    {
+      "question": "What should homeowners know about Ply Gem Mira Series?",
+      "answer": "Explore Ply Gem Mira Series specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate."
+    },
+    {
+      "question": "Which configurations are available in Ply Gem Mira Series?",
+      "answer": "Available Ply Gem Mira Series styles, sizes, glass packages, colors, and hardware depend on the exact product and opening. Deluxe Windows confirms current options before an order is prepared."
+    },
+    {
+      "question": "How should I compare Ply Gem Mira Series with other Ply Gem collections?",
+      "answer": "Compare Ply Gem Mira Series with other Ply Gem choices by frame material, style availability, energy ratings, design options, warranty, and installed project cost."
+    },
+    {
+      "question": "How is installed pricing for Ply Gem Mira Series calculated?",
+      "answer": "Installed pricing for Ply Gem Mira Series depends on opening dimensions, configuration, glass, finish, hardware, quantity, access, and any required preparation or permit work."
+    }
+  ],
   "schema": {
     "primary_type": "CollectionPage",
     "data": {

@@ -30,7 +30,24 @@
       "card": "summary_large_image"
     }
   },
-  "faq": [],
+  "faq": [
+    {
+      "question": "What are the main benefits of Wood Clad Windows?",
+      "answer": "Wood Clad Windows offer a real-wood interior with a lower-maintenance protective exterior. The best fit depends on the home's architecture, opening sizes, performance goals, and budget."
+    },
+    {
+      "question": "How energy efficient are wood-clad windows for Bay Area homes?",
+      "answer": "For Wood Clad Windows, the wood core, exterior cladding, glass package, and weather sealing all influence whole-window performance. Deluxe Windows compares complete window ratings and installation requirements for the specific opening."
+    },
+    {
+      "question": "What maintenance do Wood Clad Windows require?",
+      "answer": "For Wood Clad Windows, the exterior needs less upkeep than exposed wood, while interior wood still requires appropriate finish care. Product-specific care instructions and warranty requirements should also be followed."
+    },
+    {
+      "question": "What should I compare before choosing Wood Clad Windows?",
+      "answer": "When evaluating Wood Clad Windows, compare frame construction, glass, operating style, finish, warranty, and installed price. Wood-clad is a broad category; aluminum-clad is the specific version that uses aluminum as the exterior covering."
+    }
+  ],
   "schema": {
     "primary_type": "Product",
     "data": {

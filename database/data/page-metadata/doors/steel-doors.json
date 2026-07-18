@@ -29,7 +29,24 @@
       "card": "summary_large_image"
     }
   },
-  "faq": [],
+  "faq": [
+    {
+      "question": "What are the main benefits of Steel Doors?",
+      "answer": "Steel Doors offer narrow architectural profiles, strength, and a distinctive premium appearance. The best fit depends on the home's architecture, opening sizes, performance goals, and budget."
+    },
+    {
+      "question": "How energy efficient are steel doors for Bay Area homes?",
+      "answer": "For Steel Doors, thermal breaks, glazing, weather seals, and installation details determine energy performance. Deluxe Windows compares complete door ratings and installation requirements for the specific opening."
+    },
+    {
+      "question": "What maintenance do Steel Doors require?",
+      "answer": "For Steel Doors, protective finishes should be inspected and damaged areas addressed promptly to prevent corrosion. Product-specific care instructions and warranty requirements should also be followed."
+    },
+    {
+      "question": "What should I compare before choosing Steel Doors?",
+      "answer": "When evaluating Steel Doors, compare frame construction, glass, operating style, finish, warranty, and installed price. Steel products are typically selected for architectural design goals rather than as a direct substitute for economy vinyl windows."
+    }
+  ],
   "schema": {
     "primary_type": "Product",
     "data": {

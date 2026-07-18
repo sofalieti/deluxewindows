@@ -27,7 +27,24 @@
       "card": "summary_large_image"
     }
   },
-  "faq": [],
+  "faq": [
+    {
+      "question": "What should homeowners know about Milgard A250 Thermally Improved Aluminum?",
+      "answer": "Explore Milgard A250 Thermally Improved Aluminum specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate."
+    },
+    {
+      "question": "Which configurations are available in Milgard A250 Thermally Improved Aluminum?",
+      "answer": "Available Milgard A250 Thermally Improved Aluminum styles, sizes, glass packages, colors, and hardware depend on the exact product and opening. Deluxe Windows confirms current options before an order is prepared."
+    },
+    {
+      "question": "How should I compare Milgard A250 Thermally Improved Aluminum with other Milgard collections?",
+      "answer": "Compare Milgard A250 Thermally Improved Aluminum with other Milgard choices by frame material, style availability, energy ratings, design options, warranty, and installed project cost."
+    },
+    {
+      "question": "How is installed pricing for Milgard A250 Thermally Improved Aluminum calculated?",
+      "answer": "Installed pricing for Milgard A250 Thermally Improved Aluminum depends on opening dimensions, configuration, glass, finish, hardware, quantity, access, and any required preparation or permit work."
+    }
+  ],
   "schema": {
     "primary_type": "CollectionPage",
     "data": {

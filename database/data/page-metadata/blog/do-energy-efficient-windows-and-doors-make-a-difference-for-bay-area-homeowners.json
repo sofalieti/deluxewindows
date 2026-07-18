@@ -27,7 +27,24 @@
       "card": "summary_large_image"
     }
   },
-  "faq": [],
+  "faq": [
+    {
+      "question": "What is the main takeaway from “Do Energy-Efficient Windows and Doors Make a Difference”?",
+      "answer": "Energy-efficient windows and doors can improve comfort and reduce heat transfer. Learn which features matter most for Bay Area homes and utility costs."
+    },
+    {
+      "question": "How should a Bay Area homeowner apply the advice in “Do Energy-Efficient Windows and Doors Make a Difference”?",
+      "answer": "Use the guidance in “Do Energy-Efficient Windows and Doors Make a Difference” as a starting point, then account for the home's age, openings, exposure, existing damage, comfort goals, and budget before selecting a solution."
+    },
+    {
+      "question": "Does “Do Energy-Efficient Windows and Doors Make a Difference” apply to every window or door project?",
+      "answer": "No. The considerations in “Do Energy-Efficient Windows and Doors Make a Difference” can change with frame material, product condition, installation method, local code, and the surrounding wall or waterproofing."
+    },
+    {
+      "question": "When should I request professional help after reading “Do Energy-Efficient Windows and Doors Make a Difference”?",
+      "answer": "Request an evaluation when the issue described in “Do Energy-Efficient Windows and Doors Make a Difference” involves safety, water intrusion, damaged framing, uncertain measurements, code requirements, or a full replacement decision."
+    }
+  ],
   "schema": {
     "primary_type": "BlogPosting",
     "data": {

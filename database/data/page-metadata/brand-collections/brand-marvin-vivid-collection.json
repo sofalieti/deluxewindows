@@ -27,7 +27,24 @@
       "card": "summary_large_image"
     }
   },
-  "faq": [],
+  "faq": [
+    {
+      "question": "What should homeowners know about Marvin Vivid Collection?",
+      "answer": "Explore Marvin Vivid Collection specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate."
+    },
+    {
+      "question": "Which configurations are available in Marvin Vivid Collection?",
+      "answer": "Available Marvin Vivid Collection styles, sizes, glass packages, colors, and hardware depend on the exact product and opening. Deluxe Windows confirms current options before an order is prepared."
+    },
+    {
+      "question": "How should I compare Marvin Vivid Collection with other Marvin collections?",
+      "answer": "Compare Marvin Vivid Collection with other Marvin choices by frame material, style availability, energy ratings, design options, warranty, and installed project cost."
+    },
+    {
+      "question": "How is installed pricing for Marvin Vivid Collection calculated?",
+      "answer": "Installed pricing for Marvin Vivid Collection depends on opening dimensions, configuration, glass, finish, hardware, quantity, access, and any required preparation or permit work."
+    }
+  ],
   "schema": {
     "primary_type": "CollectionPage",
     "data": {

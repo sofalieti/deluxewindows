@@ -28,7 +28,24 @@
       "card": "summary_large_image"
     }
   },
-  "faq": [],
+  "faq": [
+    {
+      "question": "What makes Italwindows Steel Windows suitable for a Bay Area replacement project?",
+      "answer": "Italwindows Steel Windows combine Italwindows's product approach with narrow architectural profiles, strength, and a distinctive premium appearance. Suitability still depends on the home's openings, exposure, design, and budget."
+    },
+    {
+      "question": "How do Italwindows Steel Windows perform for energy efficiency?",
+      "answer": "For Italwindows Steel Windows, thermal breaks, glazing, weather seals, and installation details determine energy performance. The exact glass package and verified whole-window ratings should be reviewed before ordering."
+    },
+    {
+      "question": "What maintenance should I expect with Italwindows Steel Windows?",
+      "answer": "Maintenance for Italwindows Steel Windows follows the needs of steel frames: protective finishes should be inspected and damaged areas addressed promptly to prevent corrosion. Hardware and weather seals should also be inspected periodically."
+    },
+    {
+      "question": "Can Deluxe Windows provide installed pricing for Italwindows Steel Windows?",
+      "answer": "Yes. Installed pricing for Italwindows Steel Windows is prepared after measuring the openings and confirming style, glass, finish, hardware, access, and installation conditions."
+    }
+  ],
   "schema": {
     "primary_type": "Product",
     "data": {

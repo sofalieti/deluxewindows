@@ -30,7 +30,24 @@
       "card": "summary_large_image"
     }
   },
-  "faq": [],
+  "faq": [
+    {
+      "question": "What are the main benefits of Aluminum Windows?",
+      "answer": "Aluminum Windows offer slim sightlines, structural strength, and a clean contemporary appearance. The best fit depends on the home's architecture, opening sizes, performance goals, and budget."
+    },
+    {
+      "question": "How energy efficient are aluminum windows for Bay Area homes?",
+      "answer": "For Aluminum Windows, thermally improved frames and the selected glass package are especially important because aluminum conducts heat. Deluxe Windows compares complete window ratings and installation requirements for the specific opening."
+    },
+    {
+      "question": "What maintenance do Aluminum Windows require?",
+      "answer": "For Aluminum Windows, factory-finished aluminum is low maintenance, but tracks, drainage paths, seals, and hardware should remain clean. Product-specific care instructions and warranty requirements should also be followed."
+    },
+    {
+      "question": "What should I compare before choosing Aluminum Windows?",
+      "answer": "When evaluating Aluminum Windows, compare frame construction, glass, operating style, finish, warranty, and installed price. Confirm thermal performance, frame depth, finish, and condensation resistance for the exact product."
+    }
+  ],
   "schema": {
     "primary_type": "Product",
     "data": {

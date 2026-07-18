@@ -89,6 +89,59 @@ test('faq markup and faq schema use the same file entries', function () {
     }
 });
 
+test('all public faq content is unique and file backed', function () {
+    $records = collect(\Illuminate\Support\Facades\File::allFiles(
+        database_path('data/page-metadata')
+    ))->filter(fn ($file) => $file->getExtension() === 'json')
+        ->map(fn ($file) => json_decode(
+            (string) file_get_contents($file->getPathname()),
+            true,
+            512,
+            JSON_THROW_ON_ERROR
+        ));
+
+    $excludedPaths = [
+        '/about',
+        '/blog',
+        '/brand',
+        '/gallery',
+        '/glossary',
+        '/testimonials',
+    ];
+    $withFaq = $records->filter(fn (array $record): bool => $record['faq'] !== []);
+    $faqItems = $withFaq->flatMap(fn (array $record): array => $record['faq']);
+    $questions = $faqItems->pluck('question');
+    $answers = $faqItems->pluck('answer');
+
+    expect($withFaq)->toHaveCount(198)
+        ->and($records->whereIn('path', $excludedPaths)->pluck('faq')->filter())
+        ->toBeEmpty()
+        ->and($questions)->toHaveCount(794)
+        ->and($questions->map(fn (string $value): string => mb_strtolower($value))->unique())
+        ->toHaveCount(794)
+        ->and($answers->map(fn (string $value): string => mb_strtolower($value))->unique())
+        ->toHaveCount(794)
+        ->and(preg_match(
+            '/[А-Яа-яЁё]/u',
+            json_encode([$questions, $answers], JSON_UNESCAPED_UNICODE)
+        ))->toBe(0);
+
+    foreach ([
+        resource_path('views/windows/show.blade.php'),
+        resource_path('views/doors/show.blade.php'),
+        resource_path('views/financing.blade.php'),
+        resource_path('views/windows-show.blade.php'),
+    ] as $viewPath) {
+        expect(file_get_contents($viewPath))
+            ->not->toContain('Which material is best for your windows?')
+            ->not->toContain('Do You Have Any Question?');
+    }
+
+    expect(file_get_contents(app_path('Models/DoorBrand.php')))
+        ->not->toContain("'faq'")
+        ->not->toContain('faqItems');
+});
+
 test('shared head renders canonical metadata and valid json ld', function () {
     $metadata = app(PageMetadataRepository::class)->forPath('/blog/how-to-measure-windows-for-replacement');
     $schemas = app(SchemaBuilder::class)->build($metadata);

@@ -14,7 +14,7 @@ class DoorBrandsSyncCommand extends Command
                             {--file= : Path to the JSON source file (default: database/data/door-brands.json)}
                             {--prune : Delete door_brands rows whose slug is not present in the source file}';
 
-    protected $description = 'Sync door-brand content (description + FAQ) from a JSON file into the door_brands table';
+    protected $description = 'Sync door-brand descriptions from a JSON file into the door_brands table';
 
     public function handle(): int
     {
@@ -52,16 +52,10 @@ class DoorBrandsSyncCommand extends Command
 
             $seenSlugs[] = $slug;
 
-            $faq = $entry['faq'] ?? [];
-            if (! is_array($faq)) {
-                $faq = [];
-            }
-
             $attributes = [
                 'name' => isset($entry['name']) ? (string) $entry['name'] : null,
                 'description' => isset($entry['description']) ? (string) $entry['description'] : null,
                 'doors_title' => isset($entry['doors_title']) ? (string) $entry['doors_title'] : null,
-                'faq' => array_values($faq),
             ];
 
             $model = DoorBrand::query()->firstOrNew(['slug' => $slug]);
