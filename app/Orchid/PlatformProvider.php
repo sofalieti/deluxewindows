@@ -117,6 +117,10 @@ class PlatformProvider extends OrchidServiceProvider
             Menu::make('Leads')
                 ->icon('bs.inbox')
                 ->route('platform.leads'),
+
+            Menu::make('Sitemap.xml')
+                ->icon('bs.file-earmark-code')
+                ->route('platform.sitemap'),
         ];
 
         $accessMenu = [

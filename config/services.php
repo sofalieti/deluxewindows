@@ -54,4 +54,8 @@ return [
         ])),
     ],
 
+    'sitemap' => [
+        'base_url' => env('SITEMAP_BASE_URL', 'https://www.deluxewindows.com'),
+    ],
+
 ];

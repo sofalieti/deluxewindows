@@ -13,6 +13,7 @@ use App\Orchid\Screens\Examples\ExampleScreen;
 use App\Orchid\Screens\Examples\ExampleTextEditorsScreen;
 use App\Orchid\Screens\Leads\LeadListScreen;
 use App\Orchid\Screens\PlatformScreen;
+use App\Orchid\Screens\Seo\SitemapScreen;
 use App\Orchid\Screens\Role\RoleEditScreen;
 use App\Orchid\Screens\Role\RoleListScreen;
 use App\Orchid\Screens\User\UserEditScreen;
@@ -48,6 +49,9 @@ Route::screen('promotions', PromotionsScreen::class)
 
 Route::screen('leads', LeadListScreen::class)
     ->name('platform.leads');
+
+Route::screen('sitemap', SitemapScreen::class)
+    ->name('platform.sitemap');
 
 Route::screen('door-brands', DoorBrandListScreen::class)
     ->name('platform.door-brands');
