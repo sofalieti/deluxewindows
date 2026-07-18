@@ -1685,6 +1685,35 @@
   }
 }
 
+/*
+ * Brand / window-type / door-type sidebar.
+ * Webflow hides .w-dropdown-list until .w--open is set by IX JS. If that JS
+ * fails (or never opens nested material groups), "All brands" stays visible
+ * while collection links disappear. Keep both levels always open in CSS.
+ */
+.section_sidebar .dropdown-list-4.sidebar-list,
+.section_sidebar .dropdown-list-2.dd-sidebar.w-dropdown-list {
+  display: block !important;
+  position: static !important;
+  inset: auto !important;
+  transform: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  min-width: 0 !important;
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+.section_sidebar .scroll-block {
+  max-height: min(70vh, 560px);
+  overflow-y: auto;
+}
+
 /* Brand sidebar — on mobile show collections inline below the main content */
 @media (max-width: 991px) {
   /* Stack the two-column layout and move the sidebar column below main */
@@ -1758,25 +1787,11 @@
 
   /* Collections list always visible, in normal flow */
   .section_sidebar .dropdown-list-4.sidebar-list {
-    position: static !important;
-    inset: auto !important;
-    transform: none !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    pointer-events: auto !important;
     display: flex !important;
     flex-direction: column !important;
-    width: 100% !important;
-    min-width: 0 !important;
-    max-width: 100% !important;
-    height: auto !important;
-    max-height: none !important;
     margin: 0 !important;
     padding: 0 !important;
     border-radius: 0 !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    overflow: visible !important;
     z-index: auto !important;
   }
 
