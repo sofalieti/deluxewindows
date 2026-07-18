@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "key": "door-types/milgard-fiberglass-doors",
+  "path": "/door-types/milgard-fiberglass-doors",
+  "seo": {
+    "title": "Milgard Fiberglass Doors | Prices & Options | Deluxe",
+    "description": "Milgard Fiberglass Doors for Bay Area homes: Tuscany uses a classic frame profile while Trinsic maximizes visible glass with narrow frames. Get a free estimate.",
+    "canonical": "https://www.deluxewindows.com/door-types/milgard-fiberglass-doors",
+    "og": {
+      "title": "Milgard Fiberglass Doors | Prices & Options | Deluxe",
+      "description": "Milgard Fiberglass Doors for Bay Area homes: Tuscany uses a classic frame profile while Trinsic maximizes visible glass with narrow frames. Get a free estimate.",
+      "image": "/webflow-assets/images/688f329f6a17214fbe1acb42_Essence_0637-1024x817.jpg",
+      "type": "website"
+    },
+    "h1": "Milgard Fiberglass Doors",
+    "primary_keyword": "milgard fiberglass doors",
+    "target_keywords": [
+      "milgard fiberglass doors",
+      "milgard fiberglass doors prices"
+    ],
+    "search_intent": "brand-material",
+    "priority": "P2",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Milgard Fiberglass Doors | Prices & Options | Deluxe",
+      "description": "Milgard Fiberglass Doors for Bay Area homes: Tuscany uses a classic frame profile while Trinsic maximizes visible glass with narrow frames. Get a free estimate.",
+      "image": "/webflow-assets/images/688f329f6a17214fbe1acb42_Essence_0637-1024x817.jpg",
+      "card": "summary_large_image"
+    }
+  },
+  "faq": [
+    {
+      "question": "Why choose Milgard Fiberglass Doors for a Bay Area home?",
+      "answer": "Milgard Fiberglass Doors pair Milgard's door engineering with dimensional stability, strength and paintable low-maintenance frames. Tuscany uses a classic frame profile while Trinsic maximizes visible glass with narrow frames, so the door style is matched to the opening, exposure and security needs of the home."
+    },
+    {
+      "question": "What do Milgard Fiberglass Doors cost installed?",
+      "answer": "For Milgard Fiberglass Doors, the current promotion prices installations from $1599 per door installed (regular $2665). Panel count, glass, hardware and opening preparation set the final number, so Deluxe Windows quotes each door after measuring."
+    },
+    {
+      "question": "Which styles are available for Milgard Fiberglass Doors?",
+      "answer": "Milgard Fiberglass Doors span entry, sliding, French and multi-panel patio configurations, depending on Milgard's current catalog. Deluxe Windows confirms the exact options during the consultation."
+    },
+    {
+      "question": "Who installs Milgard Fiberglass Doors near me?",
+      "answer": "Deluxe Windows measures, orders and installs Milgard Fiberglass Doors throughout the Bay Area from its Burlingame showroom, and verifies operation and weather sealing after installation."
+    }
+  ],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Milgard Fiberglass Doors"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "key": "door-types/jeld-wen-vinyl-doors",
+  "path": "/door-types/jeld-wen-vinyl-doors",
+  "seo": {
+    "title": "JELD-WEN Vinyl Doors | Prices & Options | Deluxe",
+    "description": "JELD-WEN Vinyl Doors for Bay Area homes: JELD-WEN builds both value-focused vinyl lines and Siteline clad-wood architectural products. Get a free estimate.",
+    "canonical": "https://www.deluxewindows.com/door-types/jeld-wen-vinyl-doors",
+    "og": {
+      "title": "JELD-WEN Vinyl Doors | Prices & Options | Deluxe",
+      "description": "JELD-WEN Vinyl Doors for Bay Area homes: JELD-WEN builds both value-focused vinyl lines and Siteline clad-wood architectural products. Get a free estimate.",
+      "image": "/webflow-assets/images/688f4b3d77516719c3c3f855_Screenshot-2025-08-03-at-14.42.34-1.jpg",
+      "type": "website"
+    },
+    "h1": "JELD-WEN Vinyl Doors",
+    "primary_keyword": "jeld-wen vinyl doors",
+    "target_keywords": [
+      "jeld-wen vinyl doors",
+      "jeld-wen vinyl doors prices"
+    ],
+    "search_intent": "brand-material",
+    "priority": "P2",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "JELD-WEN Vinyl Doors | Prices & Options | Deluxe",
+      "description": "JELD-WEN Vinyl Doors for Bay Area homes: JELD-WEN builds both value-focused vinyl lines and Siteline clad-wood architectural products. Get a free estimate.",
+      "image": "/webflow-assets/images/688f4b3d77516719c3c3f855_Screenshot-2025-08-03-at-14.42.34-1.jpg",
+      "card": "summary_large_image"
+    }
+  },
+  "faq": [
+    {
+      "question": "Why choose JELD-WEN Vinyl Doors for a Bay Area home?",
+      "answer": "JELD-WEN Vinyl Doors pair JELD-WEN's door engineering with low maintenance, good insulation and the widest choice of budget-friendly series. JELD-WEN builds both value-focused vinyl lines and Siteline clad-wood architectural products, so the door style is matched to the opening, exposure and security needs of the home."
+    },
+    {
+      "question": "What do JELD-WEN Vinyl Doors cost installed?",
+      "answer": "For JELD-WEN Vinyl Doors, the current promotion prices installations from $1299 per door installed (regular $2165). Panel count, glass, hardware and opening preparation set the final number, so Deluxe Windows quotes each door after measuring."
+    },
+    {
+      "question": "Which styles are available for JELD-WEN Vinyl Doors?",
+      "answer": "JELD-WEN Vinyl Doors span entry, sliding, French and multi-panel patio configurations, depending on JELD-WEN's current catalog. Deluxe Windows confirms the exact options during the consultation."
+    },
+    {
+      "question": "Who installs JELD-WEN Vinyl Doors near me?",
+      "answer": "Deluxe Windows measures, orders and installs JELD-WEN Vinyl Doors throughout the Bay Area from its Burlingame showroom, and verifies operation and weather sealing after installation."
+    }
+  ],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Jeld-Wen Vinyl Doors"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

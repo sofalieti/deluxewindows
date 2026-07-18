@@ -9,6 +9,7 @@ use App\Models\Webflow\BrandCollectionsWebflowItem;
 use App\Models\Webflow\BrandsWebflowItem;
 use App\Models\Webflow\CountyHubPagesWebflowItem;
 use App\Models\Webflow\DoorsWebflowItem;
+use App\Models\Webflow\DoorTypesWebflowItem;
 use App\Models\Webflow\WindowReplacementWebflowItem;
 use App\Models\Webflow\WindowsWebflowItem;
 use App\Models\Webflow\WindowTypeWebflowItem;
@@ -33,6 +34,7 @@ class SitemapGeneratorService
         $this->addDoors();
         $this->addBrands();
         $this->addWindowTypes();
+        $this->addDoorTypes();
         $this->addBrandCollections();
         $this->addBlogPosts();
         $this->addCountyHubs();
@@ -111,6 +113,17 @@ class SitemapGeneratorService
             }
 
             $this->addModelSlug('/window-type/', $item, ['slug']);
+        }
+    }
+
+    private function addDoorTypes(): void
+    {
+        foreach ($this->published(DoorTypesWebflowItem::class) as $item) {
+            if ($item->webflowReference('property-listing---agent') === null) {
+                continue;
+            }
+
+            $this->addModelSlug('/door-types/', $item, ['slug']);
         }
     }
 

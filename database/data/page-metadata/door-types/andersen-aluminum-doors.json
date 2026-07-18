@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "key": "door-types/andersen-aluminum-doors",
+  "path": "/door-types/andersen-aluminum-doors",
+  "seo": {
+    "title": "Andersen Aluminum Doors | Prices & Options | Deluxe",
+    "description": "Andersen Aluminum Doors for Bay Area homes: the 100 Series uses Fibrex composite material that Andersen rates about twice as strong as vinyl.",
+    "canonical": "https://www.deluxewindows.com/door-types/andersen-aluminum-doors",
+    "og": {
+      "title": "Andersen Aluminum Doors | Prices & Options | Deluxe",
+      "description": "Andersen Aluminum Doors for Bay Area homes: the 100 Series uses Fibrex composite material that Andersen rates about twice as strong as vinyl.",
+      "image": "/webflow-assets/images/688f694d095ccc71f0101809_16204_MultiGlide-Aluminum-Clad-Wood-Door.webp",
+      "type": "website"
+    },
+    "h1": "Andersen Aluminum Doors",
+    "primary_keyword": "andersen aluminum doors",
+    "target_keywords": [
+      "andersen aluminum doors",
+      "andersen aluminum doors prices"
+    ],
+    "search_intent": "brand-material",
+    "priority": "P2",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Andersen Aluminum Doors | Prices & Options | Deluxe",
+      "description": "Andersen Aluminum Doors for Bay Area homes: the 100 Series uses Fibrex composite material that Andersen rates about twice as strong as vinyl.",
+      "image": "/webflow-assets/images/688f694d095ccc71f0101809_16204_MultiGlide-Aluminum-Clad-Wood-Door.webp",
+      "card": "summary_large_image"
+    }
+  },
+  "faq": [
+    {
+      "question": "Why choose Andersen Aluminum Doors for a Bay Area home?",
+      "answer": "Andersen Aluminum Doors pair Andersen's door engineering with slim sightlines, structural strength and a clean contemporary appearance. the 100 Series uses Fibrex composite material that Andersen rates about twice as strong as vinyl, so the door style is matched to the opening, exposure and security needs of the home."
+    },
+    {
+      "question": "What do Andersen Aluminum Doors cost installed?",
+      "answer": "For Andersen Aluminum Doors, the current promotion prices installations from $1599 per door installed (regular $2665). Panel count, glass, hardware and opening preparation set the final number, so Deluxe Windows quotes each door after measuring."
+    },
+    {
+      "question": "Which styles are available for Andersen Aluminum Doors?",
+      "answer": "Andersen Aluminum Doors span entry, sliding, French and multi-panel patio configurations, depending on Andersen's current catalog. Deluxe Windows confirms the exact options during the consultation."
+    },
+    {
+      "question": "Who installs Andersen Aluminum Doors near me?",
+      "answer": "Deluxe Windows measures, orders and installs Andersen Aluminum Doors throughout the Bay Area from its Burlingame showroom, and verifies operation and weather sealing after installation."
+    }
+  ],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Andersen Aluminum Doors"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

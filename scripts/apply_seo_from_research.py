@@ -623,6 +623,41 @@ def build_hero_pricing() -> dict[str, dict]:
         if cheapest:
             pricing[f"/door-brands/{slug}"] = {**cheapest, "unit": "door"}
 
+    # /door-types/{slug} — resolveDoorTypePricing (material door price first,
+    # then cheapest priced door of the parent brand, then the door fallback).
+    doors_by_slug = {item.get("fieldData", {}).get("slug"): item for item in doors}
+    for item in _webflow_items("door-types"):
+        fd = item.get("fieldData", {})
+        slug = fd.get("slug")
+        if not slug:
+            continue
+        found = None
+        normalized = slug.replace("aluminium", "aluminum")
+        for material in ("wood-clad", "fiberglass", "aluminum", "vinyl", "steel", "wood"):
+            if material not in normalized:
+                continue
+            door = doors_by_slug.get(f"{material}-doors")
+            found = _lookup_price(door_prices, (door or {}).get("id"), f"{material}-doors")
+            break
+        if not found:
+            brand_id = str(fd.get("property-listing---agent") or "")
+            cheapest = None
+            for door in doors:
+                dfd = door.get("fieldData", {})
+                if brand_id not in (dfd.get("doors-brands") or []):
+                    continue
+                price = _lookup_price(door_prices, door.get("id"), dfd.get("slug"))
+                if price is None:
+                    continue
+                value = float(price["final"].replace(",", ""))
+                if cheapest is None or value < float(cheapest["final"].replace(",", "")):
+                    cheapest = price
+            found = cheapest
+        pricing[f"/door-types/{slug}"] = {
+            **(found or {"base": "2165", "final": "1299"}),  # controller fallback
+            "unit": "door",
+        }
+
     # /brand-collections/{slug} — resolveCollectionHeroPricing
     for item in _webflow_items("brand-collections"):
         fd = item.get("fieldData", {})
@@ -700,6 +735,17 @@ class PageContext:
             self.material = material_slug or None
             material_label = slug_words(material_slug) if material_slug else ""
             return f"{self.brand} {material_label} Windows".replace("  ", " ").strip()
+        if self.family == "door-types":
+            # e.g. milgard-vinyl-doors, anlin-vinyl-door, italwindows-steel-doors-j3z67
+            text = re.sub(r"-doors?(-[a-z0-9]+)?$", "", slug.replace("aluminium", "aluminum"))
+            for brand_slug, name in sorted(BRAND_NAMES.items(), key=lambda kv: -len(kv[0])):
+                if text.startswith(brand_slug):
+                    self.brand = name
+                    text = text[len(brand_slug):].strip("-")
+                    break
+            self.material = text or None
+            material_label = slug_words(text) if text else ""
+            return f"{self.brand or ''} {material_label} Doors".replace("  ", " ").strip()
         if self.family == "brand-collections":
             h1 = str(self.record["seo"].get("h1") or "").strip()
             entity = h1 or slug_words(slug)
@@ -898,6 +944,20 @@ def build_seo(ctx: PageContext, titles: UniquePool, descriptions: UniquePool,
         )
         primary = entity.casefold()
         keywords = queries or [primary, f"{primary} prices"]
+    elif family == "door-types":
+        title = pick_title([
+            f"{entity} | Prices & Options | Deluxe",
+            f"{entity} | Deluxe Windows",
+            f"{entity} | Deluxe",
+        ], titles, path)
+        h1 = entity
+        description = fit_description(
+            f"{entity} for Bay Area homes: {ctx.brand_facts['note']}. Compare entry and patio "
+            f"configurations, glass options and installed pricing with Deluxe Windows.",
+            DESCRIPTION_EXTRAS,
+        )
+        primary = entity.casefold()
+        keywords = queries or [primary, f"{primary} prices"]
     elif family == "brand-collections":
         compact = entity
         for phrase in (
@@ -1084,7 +1144,7 @@ def answer_paa(question: str, ctx: PageContext) -> str:
     brand = ctx.brand_facts
     material = ctx.material_facts
     city = ctx.city
-    is_door_page = ctx.family in {"doors", "door-brands"} or "door" in question.casefold()
+    is_door_page = ctx.family in {"doors", "door-brands", "door-types"} or "door" in question.casefold()
 
     if intent == "cost":
         if ctx.family == "window-replacement" and city:
@@ -1314,6 +1374,28 @@ def generated_fill(ctx: PageContext) -> list[dict[str, str]]:
             {
                 "question": f"Which series are available for {entity}?",
                 "answer": f"Available {entity} series change with the manufacturer's current catalog — {brand['blurb']}. Deluxe Windows confirms the exact options during the consultation.",
+            },
+            {
+                "question": f"Who installs {entity} near me?",
+                "answer": f"Deluxe Windows measures, orders and installs {entity} throughout the Bay Area from its Burlingame showroom, and verifies operation and weather sealing after installation.",
+            },
+        ]
+    if ctx.family == "door-types":
+        return [
+            {
+                "question": f"Why choose {entity} for a Bay Area home?",
+                "answer": f"{entity} pair {ctx.brand}'s door engineering with {material['benefit']}. {brand['note']}, so the door style is matched to the opening, exposure and security needs of the home.",
+            },
+            {
+                "question": f"What do {entity} cost installed?",
+                "answer": (
+                    f"For {entity}, {price_phrase(ctx.pricing) if ctx.pricing else brand['cost']}. "
+                    f"Panel count, glass, hardware and opening preparation set the final number, so Deluxe Windows quotes each door after measuring."
+                ),
+            },
+            {
+                "question": f"Which styles are available for {entity}?",
+                "answer": f"{entity} span entry, sliding, French and multi-panel patio configurations, depending on {ctx.brand}'s current catalog. Deluxe Windows confirms the exact options during the consultation.",
             },
             {
                 "question": f"Who installs {entity} near me?",

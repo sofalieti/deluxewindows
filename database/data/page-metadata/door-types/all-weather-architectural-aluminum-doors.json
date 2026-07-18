@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "key": "door-types/all-weather-architectural-aluminum-doors",
+  "path": "/door-types/all-weather-architectural-aluminum-doors",
+  "seo": {
+    "title": "All Weather Architectural Aluminum Doors | Deluxe Windows",
+    "description": "All Weather Architectural Aluminum Doors for Bay Area homes: All Weather Architectural Aluminum builds thermally improved frames suited to modern Bay Area.",
+    "canonical": "https://www.deluxewindows.com/door-types/all-weather-architectural-aluminum-doors",
+    "og": {
+      "title": "All Weather Architectural Aluminum Doors | Deluxe Windows",
+      "description": "All Weather Architectural Aluminum Doors for Bay Area homes: All Weather Architectural Aluminum builds thermally improved frames suited to modern Bay Area.",
+      "image": "/webflow-assets/images/688f7ab8722ec3a7e62845c5_Shipyard-Condos-Project-03-scaled.webp",
+      "type": "website"
+    },
+    "h1": "All Weather Architectural Aluminum Doors",
+    "primary_keyword": "all weather architectural aluminum doors all weather architectural aluminum doors",
+    "target_keywords": [
+      "all weather architectural aluminum doors all weather architectural aluminum doors",
+      "all weather architectural aluminum doors",
+      "all weather architectural aluminum doors prices"
+    ],
+    "search_intent": "brand-material",
+    "priority": "P2",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "All Weather Architectural Aluminum Doors | Deluxe Windows",
+      "description": "All Weather Architectural Aluminum Doors for Bay Area homes: All Weather Architectural Aluminum builds thermally improved frames suited to modern Bay Area.",
+      "image": "/webflow-assets/images/688f7ab8722ec3a7e62845c5_Shipyard-Condos-Project-03-scaled.webp",
+      "card": "summary_large_image"
+    }
+  },
+  "faq": [
+    {
+      "question": "Why choose All Weather Architectural Aluminum Doors for a Bay Area home?",
+      "answer": "All Weather Architectural Aluminum Doors pair All Weather Architectural Aluminum's door engineering with a balance of appearance, comfort and durability. All Weather Architectural Aluminum builds thermally improved frames suited to modern Bay Area designs, so the door style is matched to the opening, exposure and security needs of the home."
+    },
+    {
+      "question": "What do All Weather Architectural Aluminum Doors cost installed?",
+      "answer": "For All Weather Architectural Aluminum Doors, the current promotion prices installations from $1599 per door installed (regular $2665). Panel count, glass, hardware and opening preparation set the final number, so Deluxe Windows quotes each door after measuring."
+    },
+    {
+      "question": "Which styles are available for All Weather Architectural Aluminum Doors?",
+      "answer": "All Weather Architectural Aluminum Doors span entry, sliding, French and multi-panel patio configurations, depending on All Weather Architectural Aluminum's current catalog. Deluxe Windows confirms the exact options during the consultation."
+    },
+    {
+      "question": "Who installs All Weather Architectural Aluminum Doors near me?",
+      "answer": "Deluxe Windows measures, orders and installs All Weather Architectural Aluminum Doors throughout the Bay Area from its Burlingame showroom, and verifies operation and weather sealing after installation."
+    }
+  ],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "All Weather Architectural Aluminum Doors"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

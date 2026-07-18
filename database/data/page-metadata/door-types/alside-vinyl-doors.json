@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "key": "door-types/alside-vinyl-doors",
+  "path": "/door-types/alside-vinyl-doors",
+  "seo": {
+    "title": "Alside Vinyl Doors | Prices & Options | Deluxe",
+    "description": "Alside Vinyl Doors for Bay Area homes: Alside is a major national distributor of exterior building products, including windows and patio doors.",
+    "canonical": "https://www.deluxewindows.com/door-types/alside-vinyl-doors",
+    "og": {
+      "title": "Alside Vinyl Doors | Prices & Options | Deluxe",
+      "description": "Alside Vinyl Doors for Bay Area homes: Alside is a major national distributor of exterior building products, including windows and patio doors.",
+      "image": "/webflow-assets/images/688f766b6ea560ac8d80a85d_Patio-Doors-Alside-Woodgrain-Interior.webp",
+      "type": "website"
+    },
+    "h1": "Alside Vinyl Doors",
+    "primary_keyword": "alside vinyl doors",
+    "target_keywords": [
+      "alside vinyl doors",
+      "alside vinyl doors prices"
+    ],
+    "search_intent": "brand-material",
+    "priority": "P2",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Alside Vinyl Doors | Prices & Options | Deluxe",
+      "description": "Alside Vinyl Doors for Bay Area homes: Alside is a major national distributor of exterior building products, including windows and patio doors.",
+      "image": "/webflow-assets/images/688f766b6ea560ac8d80a85d_Patio-Doors-Alside-Woodgrain-Interior.webp",
+      "card": "summary_large_image"
+    }
+  },
+  "faq": [
+    {
+      "question": "Why choose Alside Vinyl Doors for a Bay Area home?",
+      "answer": "Alside Vinyl Doors pair Alside's door engineering with low maintenance, good insulation and the widest choice of budget-friendly series. Alside is a major national distributor of exterior building products, including windows and patio doors, so the door style is matched to the opening, exposure and security needs of the home."
+    },
+    {
+      "question": "What do Alside Vinyl Doors cost installed?",
+      "answer": "For Alside Vinyl Doors, the current promotion prices installations from $1299 per door installed (regular $2165). Panel count, glass, hardware and opening preparation set the final number, so Deluxe Windows quotes each door after measuring."
+    },
+    {
+      "question": "Which styles are available for Alside Vinyl Doors?",
+      "answer": "Alside Vinyl Doors span entry, sliding, French and multi-panel patio configurations, depending on Alside's current catalog. Deluxe Windows confirms the exact options during the consultation."
+    },
+    {
+      "question": "Who installs Alside Vinyl Doors near me?",
+      "answer": "Deluxe Windows measures, orders and installs Alside Vinyl Doors throughout the Bay Area from its Burlingame showroom, and verifies operation and weather sealing after installation."
+    }
+  ],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Alside Vinyl Doors"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

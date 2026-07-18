@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "key": "door-types/milgard-vinyl-doors",
+  "path": "/door-types/milgard-vinyl-doors",
+  "seo": {
+    "title": "Milgard Vinyl Doors | Prices & Options | Deluxe",
+    "description": "Milgard Vinyl Doors for Bay Area homes: Tuscany uses a classic frame profile while Trinsic maximizes visible glass with narrow frames. Get a free estimate.",
+    "canonical": "https://www.deluxewindows.com/door-types/milgard-vinyl-doors",
+    "og": {
+      "title": "Milgard Vinyl Doors | Prices & Options | Deluxe",
+      "description": "Milgard Vinyl Doors for Bay Area homes: Tuscany uses a classic frame profile while Trinsic maximizes visible glass with narrow frames. Get a free estimate.",
+      "image": "/webflow-assets/images/688f335768b6787dbc584c7b_E1XUtiLXIAAnJQl.jpg",
+      "type": "website"
+    },
+    "h1": "Milgard Vinyl Doors",
+    "primary_keyword": "milgard vinyl doors",
+    "target_keywords": [
+      "milgard vinyl doors",
+      "milgard vinyl doors prices"
+    ],
+    "search_intent": "brand-material",
+    "priority": "P2",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Milgard Vinyl Doors | Prices & Options | Deluxe",
+      "description": "Milgard Vinyl Doors for Bay Area homes: Tuscany uses a classic frame profile while Trinsic maximizes visible glass with narrow frames. Get a free estimate.",
+      "image": "/webflow-assets/images/688f335768b6787dbc584c7b_E1XUtiLXIAAnJQl.jpg",
+      "card": "summary_large_image"
+    }
+  },
+  "faq": [
+    {
+      "question": "Why choose Milgard Vinyl Doors for a Bay Area home?",
+      "answer": "Milgard Vinyl Doors pair Milgard's door engineering with low maintenance, good insulation and the widest choice of budget-friendly series. Tuscany uses a classic frame profile while Trinsic maximizes visible glass with narrow frames, so the door style is matched to the opening, exposure and security needs of the home."
+    },
+    {
+      "question": "What do Milgard Vinyl Doors cost installed?",
+      "answer": "For Milgard Vinyl Doors, the current promotion prices installations from $1299 per door installed (regular $2165). Panel count, glass, hardware and opening preparation set the final number, so Deluxe Windows quotes each door after measuring."
+    },
+    {
+      "question": "Which styles are available for Milgard Vinyl Doors?",
+      "answer": "Milgard Vinyl Doors span entry, sliding, French and multi-panel patio configurations, depending on Milgard's current catalog. Deluxe Windows confirms the exact options during the consultation."
+    },
+    {
+      "question": "Who installs Milgard Vinyl Doors near me?",
+      "answer": "Deluxe Windows measures, orders and installs Milgard Vinyl Doors throughout the Bay Area from its Burlingame showroom, and verifies operation and weather sealing after installation."
+    }
+  ],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Milgard Vinyl Doors"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

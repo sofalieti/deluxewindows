@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "key": "door-types/marvin-wood-doors",
+  "path": "/door-types/marvin-wood-doors",
+  "seo": {
+    "title": "Marvin Wood Doors | Prices & Options | Deluxe",
+    "description": "Marvin Wood Doors for Bay Area homes: Marvin's Ultrex fiberglass is impact resistant and holds paint and shape in coastal climates. Get a free estimate.",
+    "canonical": "https://www.deluxewindows.com/door-types/marvin-wood-doors",
+    "og": {
+      "title": "Marvin Wood Doors | Prices & Options | Deluxe",
+      "description": "Marvin Wood Doors for Bay Area homes: Marvin's Ultrex fiberglass is impact resistant and holds paint and shape in coastal climates. Get a free estimate.",
+      "image": "/webflow-assets/images/688efcfce7d12a8517249a7f_front-door-craftsman-hazelnut-1.jpg",
+      "type": "website"
+    },
+    "h1": "Marvin Wood Doors",
+    "primary_keyword": "marvin wood doors",
+    "target_keywords": [
+      "marvin wood doors",
+      "marvin wood doors prices"
+    ],
+    "search_intent": "brand-material",
+    "priority": "P2",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Marvin Wood Doors | Prices & Options | Deluxe",
+      "description": "Marvin Wood Doors for Bay Area homes: Marvin's Ultrex fiberglass is impact resistant and holds paint and shape in coastal climates. Get a free estimate.",
+      "image": "/webflow-assets/images/688efcfce7d12a8517249a7f_front-door-craftsman-hazelnut-1.jpg",
+      "card": "summary_large_image"
+    }
+  },
+  "faq": [
+    {
+      "question": "Why choose Marvin Wood Doors for a Bay Area home?",
+      "answer": "Marvin Wood Doors pair Marvin's door engineering with natural interior character and strong compatibility with traditional architecture. Marvin's Ultrex fiberglass is impact resistant and holds paint and shape in coastal climates, so the door style is matched to the opening, exposure and security needs of the home."
+    },
+    {
+      "question": "What do Marvin Wood Doors cost installed?",
+      "answer": "For Marvin Wood Doors, the current promotion prices installations from $1999 per door installed (regular $3333). Panel count, glass, hardware and opening preparation set the final number, so Deluxe Windows quotes each door after measuring."
+    },
+    {
+      "question": "Which styles are available for Marvin Wood Doors?",
+      "answer": "Marvin Wood Doors span entry, sliding, French and multi-panel patio configurations, depending on Marvin's current catalog. Deluxe Windows confirms the exact options during the consultation."
+    },
+    {
+      "question": "Who installs Marvin Wood Doors near me?",
+      "answer": "Deluxe Windows measures, orders and installs Marvin Wood Doors throughout the Bay Area from its Burlingame showroom, and verifies operation and weather sealing after installation."
+    }
+  ],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Marvin Wood Doors"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

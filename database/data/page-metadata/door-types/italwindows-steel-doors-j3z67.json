@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "key": "door-types/italwindows-steel-doors-j3z67",
+  "path": "/door-types/italwindows-steel-doors-j3z67",
+  "seo": {
+    "title": "Italwindows Steel Doors | Prices & Options | Deluxe",
+    "description": "Italwindows Steel Doors for Bay Area homes: Italwindows focuses on narrow-profile designs for modern and architectural projects. Get a free estimate.",
+    "canonical": "https://www.deluxewindows.com/door-types/italwindows-steel-doors-j3z67",
+    "og": {
+      "title": "Italwindows Steel Doors | Prices & Options | Deluxe",
+      "description": "Italwindows Steel Doors for Bay Area homes: Italwindows focuses on narrow-profile designs for modern and architectural projects. Get a free estimate.",
+      "image": "",
+      "type": "website"
+    },
+    "h1": "Italwindows Steel Doors",
+    "primary_keyword": "italwindows steel doors",
+    "target_keywords": [
+      "italwindows steel doors",
+      "italwindows steel doors prices"
+    ],
+    "search_intent": "brand-material",
+    "priority": "P2",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Italwindows Steel Doors | Prices & Options | Deluxe",
+      "description": "Italwindows Steel Doors for Bay Area homes: Italwindows focuses on narrow-profile designs for modern and architectural projects. Get a free estimate.",
+      "image": "",
+      "card": "summary_large_image"
+    }
+  },
+  "faq": [
+    {
+      "question": "Why choose Italwindows Steel Doors for a Bay Area home?",
+      "answer": "Italwindows Steel Doors pair Italwindows's door engineering with the narrowest sightlines, exceptional strength and a distinctive architectural look. Italwindows focuses on narrow-profile designs for modern and architectural projects, so the door style is matched to the opening, exposure and security needs of the home."
+    },
+    {
+      "question": "What do Italwindows Steel Doors cost installed?",
+      "answer": "For Italwindows Steel Doors, the current promotion prices installations from $1299 per door installed (regular $2165). Panel count, glass, hardware and opening preparation set the final number, so Deluxe Windows quotes each door after measuring."
+    },
+    {
+      "question": "Which styles are available for Italwindows Steel Doors?",
+      "answer": "Italwindows Steel Doors span entry, sliding, French and multi-panel patio configurations, depending on Italwindows's current catalog. Deluxe Windows confirms the exact options during the consultation."
+    },
+    {
+      "question": "Who installs Italwindows Steel Doors near me?",
+      "answer": "Deluxe Windows measures, orders and installs Italwindows Steel Doors throughout the Bay Area from its Burlingame showroom, and verifies operation and weather sealing after installation."
+    }
+  ],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Italwindows Steel Doors"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "key": "door-types/jeld-wen-wood-clad-doors",
+  "path": "/door-types/jeld-wen-wood-clad-doors",
+  "seo": {
+    "title": "JELD-WEN Wood Clad Doors | Prices & Options | Deluxe",
+    "description": "JELD-WEN Wood Clad Doors for Bay Area homes: JELD-WEN builds both value-focused vinyl lines and Siteline clad-wood architectural products. Get a free estimate.",
+    "canonical": "https://www.deluxewindows.com/door-types/jeld-wen-wood-clad-doors",
+    "og": {
+      "title": "JELD-WEN Wood Clad Doors | Prices & Options | Deluxe",
+      "description": "JELD-WEN Wood Clad Doors for Bay Area homes: JELD-WEN builds both value-focused vinyl lines and Siteline clad-wood architectural products. Get a free estimate.",
+      "image": "/webflow-assets/images/688f4d48a82abb168b1df879_72418123.webp",
+      "type": "website"
+    },
+    "h1": "JELD-WEN Wood Clad Doors",
+    "primary_keyword": "jeld-wen wood clad doors",
+    "target_keywords": [
+      "jeld-wen wood clad doors",
+      "jeld-wen wood clad doors prices"
+    ],
+    "search_intent": "brand-material",
+    "priority": "P2",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "JELD-WEN Wood Clad Doors | Prices & Options | Deluxe",
+      "description": "JELD-WEN Wood Clad Doors for Bay Area homes: JELD-WEN builds both value-focused vinyl lines and Siteline clad-wood architectural products. Get a free estimate.",
+      "image": "/webflow-assets/images/688f4d48a82abb168b1df879_72418123.webp",
+      "card": "summary_large_image"
+    }
+  },
+  "faq": [
+    {
+      "question": "Why choose JELD-WEN Wood Clad Doors for a Bay Area home?",
+      "answer": "JELD-WEN Wood Clad Doors pair JELD-WEN's door engineering with a real-wood interior with a weather-resistant protective exterior shell. JELD-WEN builds both value-focused vinyl lines and Siteline clad-wood architectural products, so the door style is matched to the opening, exposure and security needs of the home."
+    },
+    {
+      "question": "What do JELD-WEN Wood Clad Doors cost installed?",
+      "answer": "For JELD-WEN Wood Clad Doors, the current promotion prices installations from $1599 per door installed (regular $2665). Panel count, glass, hardware and opening preparation set the final number, so Deluxe Windows quotes each door after measuring."
+    },
+    {
+      "question": "Which styles are available for JELD-WEN Wood Clad Doors?",
+      "answer": "JELD-WEN Wood Clad Doors span entry, sliding, French and multi-panel patio configurations, depending on JELD-WEN's current catalog. Deluxe Windows confirms the exact options during the consultation."
+    },
+    {
+      "question": "Who installs JELD-WEN Wood Clad Doors near me?",
+      "answer": "Deluxe Windows measures, orders and installs JELD-WEN Wood Clad Doors throughout the Bay Area from its Burlingame showroom, and verifies operation and weather sealing after installation."
+    }
+  ],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Jeld-Wen Wood Clad Doors"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

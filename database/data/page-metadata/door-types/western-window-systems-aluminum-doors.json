@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "key": "door-types/western-window-systems-aluminum-doors",
+  "path": "/door-types/western-window-systems-aluminum-doors",
+  "seo": {
+    "title": "Western Window Systems Aluminum Doors | Deluxe Windows",
+    "description": "Western Window Systems Aluminum Doors for Bay Area homes: Western Window Systems has specialized in indoor-outdoor living products since 1959.",
+    "canonical": "https://www.deluxewindows.com/door-types/western-window-systems-aluminum-doors",
+    "og": {
+      "title": "Western Window Systems Aluminum Doors | Deluxe Windows",
+      "description": "Western Window Systems Aluminum Doors for Bay Area homes: Western Window Systems has specialized in indoor-outdoor living products since 1959.",
+      "image": "/webflow-assets/images/688f7811579ab2c38f4d724a_03-900-AZ-Arcadia-Farmhouse.jpg",
+      "type": "website"
+    },
+    "h1": "Western Window Systems Aluminum Doors",
+    "primary_keyword": "western window systems aluminum doors",
+    "target_keywords": [
+      "western window systems aluminum doors",
+      "western window systems aluminum doors prices"
+    ],
+    "search_intent": "brand-material",
+    "priority": "P2",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Western Window Systems Aluminum Doors | Deluxe Windows",
+      "description": "Western Window Systems Aluminum Doors for Bay Area homes: Western Window Systems has specialized in indoor-outdoor living products since 1959.",
+      "image": "/webflow-assets/images/688f7811579ab2c38f4d724a_03-900-AZ-Arcadia-Farmhouse.jpg",
+      "card": "summary_large_image"
+    }
+  },
+  "faq": [
+    {
+      "question": "Why choose Western Window Systems Aluminum Doors for a Bay Area home?",
+      "answer": "Western Window Systems Aluminum Doors pair Western Window Systems's door engineering with slim sightlines, structural strength and a clean contemporary appearance. Western Window Systems has specialized in indoor-outdoor living products since 1959, so the door style is matched to the opening, exposure and security needs of the home."
+    },
+    {
+      "question": "What do Western Window Systems Aluminum Doors cost installed?",
+      "answer": "For Western Window Systems Aluminum Doors, the current promotion prices installations from $1599 per door installed (regular $2665). Panel count, glass, hardware and opening preparation set the final number, so Deluxe Windows quotes each door after measuring."
+    },
+    {
+      "question": "Which styles are available for Western Window Systems Aluminum Doors?",
+      "answer": "Western Window Systems Aluminum Doors span entry, sliding, French and multi-panel patio configurations, depending on Western Window Systems's current catalog. Deluxe Windows confirms the exact options during the consultation."
+    },
+    {
+      "question": "Who installs Western Window Systems Aluminum Doors near me?",
+      "answer": "Deluxe Windows measures, orders and installs Western Window Systems Aluminum Doors throughout the Bay Area from its Burlingame showroom, and verifies operation and weather sealing after installation."
+    }
+  ],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Western Window Systems Aluminum Doors"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

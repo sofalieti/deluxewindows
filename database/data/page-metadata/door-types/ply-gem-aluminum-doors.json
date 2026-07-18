@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "key": "door-types/ply-gem-aluminum-doors",
+  "path": "/door-types/ply-gem-aluminum-doors",
+  "seo": {
+    "title": "Ply Gem Aluminum Doors | Prices & Options | Deluxe",
+    "description": "Ply Gem Aluminum Doors for Bay Area homes: Ply Gem product families cover both replacement and new-construction openings. Get a free estimate.",
+    "canonical": "https://www.deluxewindows.com/door-types/ply-gem-aluminum-doors",
+    "og": {
+      "title": "Ply Gem Aluminum Doors | Prices & Options | Deluxe",
+      "description": "Ply Gem Aluminum Doors for Bay Area homes: Ply Gem product families cover both replacement and new-construction openings. Get a free estimate.",
+      "image": "/webflow-assets/images/688f6bbb5c42389784f143b7_Sliding-doors-patio-four-panels-AdobeStock.webp",
+      "type": "website"
+    },
+    "h1": "Ply Gem Aluminum Doors",
+    "primary_keyword": "ply gem aluminum doors",
+    "target_keywords": [
+      "ply gem aluminum doors",
+      "ply gem aluminum doors prices"
+    ],
+    "search_intent": "brand-material",
+    "priority": "P2",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Ply Gem Aluminum Doors | Prices & Options | Deluxe",
+      "description": "Ply Gem Aluminum Doors for Bay Area homes: Ply Gem product families cover both replacement and new-construction openings. Get a free estimate.",
+      "image": "/webflow-assets/images/688f6bbb5c42389784f143b7_Sliding-doors-patio-four-panels-AdobeStock.webp",
+      "card": "summary_large_image"
+    }
+  },
+  "faq": [
+    {
+      "question": "Why choose Ply Gem Aluminum Doors for a Bay Area home?",
+      "answer": "Ply Gem Aluminum Doors pair Ply Gem's door engineering with slim sightlines, structural strength and a clean contemporary appearance. Ply Gem product families cover both replacement and new-construction openings, so the door style is matched to the opening, exposure and security needs of the home."
+    },
+    {
+      "question": "What do Ply Gem Aluminum Doors cost installed?",
+      "answer": "For Ply Gem Aluminum Doors, the current promotion prices installations from $1599 per door installed (regular $2665). Panel count, glass, hardware and opening preparation set the final number, so Deluxe Windows quotes each door after measuring."
+    },
+    {
+      "question": "Which styles are available for Ply Gem Aluminum Doors?",
+      "answer": "Ply Gem Aluminum Doors span entry, sliding, French and multi-panel patio configurations, depending on Ply Gem's current catalog. Deluxe Windows confirms the exact options during the consultation."
+    },
+    {
+      "question": "Who installs Ply Gem Aluminum Doors near me?",
+      "answer": "Deluxe Windows measures, orders and installs Ply Gem Aluminum Doors throughout the Bay Area from its Burlingame showroom, and verifies operation and weather sealing after installation."
+    }
+  ],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Ply Gem Aluminum Doors"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

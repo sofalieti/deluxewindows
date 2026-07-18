@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "key": "door-types/italwindows-aluminium-doors",
+  "path": "/door-types/italwindows-aluminium-doors",
+  "seo": {
+    "title": "Italwindows Aluminum Doors | Prices & Options | Deluxe",
+    "description": "Italwindows Aluminum Doors for Bay Area homes: Italwindows focuses on narrow-profile designs for modern and architectural projects. Get a free estimate.",
+    "canonical": "https://www.deluxewindows.com/door-types/italwindows-aluminium-doors",
+    "og": {
+      "title": "Italwindows Aluminum Doors | Prices & Options | Deluxe",
+      "description": "Italwindows Aluminum Doors for Bay Area homes: Italwindows focuses on narrow-profile designs for modern and architectural projects. Get a free estimate.",
+      "image": "/webflow-assets/images/688f5f683da1f79ad7d2168b_Picture2.png",
+      "type": "website"
+    },
+    "h1": "Italwindows Aluminum Doors",
+    "primary_keyword": "italwindows aluminum doors",
+    "target_keywords": [
+      "italwindows aluminum doors",
+      "italwindows aluminum doors prices"
+    ],
+    "search_intent": "brand-material",
+    "priority": "P2",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Italwindows Aluminum Doors | Prices & Options | Deluxe",
+      "description": "Italwindows Aluminum Doors for Bay Area homes: Italwindows focuses on narrow-profile designs for modern and architectural projects. Get a free estimate.",
+      "image": "/webflow-assets/images/688f5f683da1f79ad7d2168b_Picture2.png",
+      "card": "summary_large_image"
+    }
+  },
+  "faq": [
+    {
+      "question": "Why choose Italwindows Aluminum Doors for a Bay Area home?",
+      "answer": "Italwindows Aluminum Doors pair Italwindows's door engineering with slim sightlines, structural strength and a clean contemporary appearance. Italwindows focuses on narrow-profile designs for modern and architectural projects, so the door style is matched to the opening, exposure and security needs of the home."
+    },
+    {
+      "question": "What do Italwindows Aluminum Doors cost installed?",
+      "answer": "For Italwindows Aluminum Doors, the current promotion prices installations from $1599 per door installed (regular $2665). Panel count, glass, hardware and opening preparation set the final number, so Deluxe Windows quotes each door after measuring."
+    },
+    {
+      "question": "Which styles are available for Italwindows Aluminum Doors?",
+      "answer": "Italwindows Aluminum Doors span entry, sliding, French and multi-panel patio configurations, depending on Italwindows's current catalog. Deluxe Windows confirms the exact options during the consultation."
+    },
+    {
+      "question": "Who installs Italwindows Aluminum Doors near me?",
+      "answer": "Deluxe Windows measures, orders and installs Italwindows Aluminum Doors throughout the Bay Area from its Burlingame showroom, and verifies operation and weather sealing after installation."
+    }
+  ],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Italwindows Aluminium Doors"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

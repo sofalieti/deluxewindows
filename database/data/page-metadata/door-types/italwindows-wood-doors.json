@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "key": "door-types/italwindows-wood-doors",
+  "path": "/door-types/italwindows-wood-doors",
+  "seo": {
+    "title": "Italwindows Wood Doors | Prices & Options | Deluxe",
+    "description": "Italwindows Wood Doors for Bay Area homes: Italwindows focuses on narrow-profile designs for modern and architectural projects. Get a free estimate.",
+    "canonical": "https://www.deluxewindows.com/door-types/italwindows-wood-doors",
+    "og": {
+      "title": "Italwindows Wood Doors | Prices & Options | Deluxe",
+      "description": "Italwindows Wood Doors for Bay Area homes: Italwindows focuses on narrow-profile designs for modern and architectural projects. Get a free estimate.",
+      "image": "/webflow-assets/images/688f62d55b562db6bb533c0b_Parma--Albo-29-1140x580.jpg",
+      "type": "website"
+    },
+    "h1": "Italwindows Wood Doors",
+    "primary_keyword": "italwindows wood doors",
+    "target_keywords": [
+      "italwindows wood doors",
+      "italwindows wood doors prices"
+    ],
+    "search_intent": "brand-material",
+    "priority": "P2",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Italwindows Wood Doors | Prices & Options | Deluxe",
+      "description": "Italwindows Wood Doors for Bay Area homes: Italwindows focuses on narrow-profile designs for modern and architectural projects. Get a free estimate.",
+      "image": "/webflow-assets/images/688f62d55b562db6bb533c0b_Parma--Albo-29-1140x580.jpg",
+      "card": "summary_large_image"
+    }
+  },
+  "faq": [
+    {
+      "question": "Why choose Italwindows Wood Doors for a Bay Area home?",
+      "answer": "Italwindows Wood Doors pair Italwindows's door engineering with natural interior character and strong compatibility with traditional architecture. Italwindows focuses on narrow-profile designs for modern and architectural projects, so the door style is matched to the opening, exposure and security needs of the home."
+    },
+    {
+      "question": "What do Italwindows Wood Doors cost installed?",
+      "answer": "For Italwindows Wood Doors, the current promotion prices installations from $1999 per door installed (regular $3333). Panel count, glass, hardware and opening preparation set the final number, so Deluxe Windows quotes each door after measuring."
+    },
+    {
+      "question": "Which styles are available for Italwindows Wood Doors?",
+      "answer": "Italwindows Wood Doors span entry, sliding, French and multi-panel patio configurations, depending on Italwindows's current catalog. Deluxe Windows confirms the exact options during the consultation."
+    },
+    {
+      "question": "Who installs Italwindows Wood Doors near me?",
+      "answer": "Deluxe Windows measures, orders and installs Italwindows Wood Doors throughout the Bay Area from its Burlingame showroom, and verifies operation and weather sealing after installation."
+    }
+  ],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Italwindows Wood Doors"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

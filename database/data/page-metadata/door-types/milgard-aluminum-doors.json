@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "key": "door-types/milgard-aluminum-doors",
+  "path": "/door-types/milgard-aluminum-doors",
+  "seo": {
+    "title": "Milgard Aluminum Doors | Prices & Options | Deluxe",
+    "description": "Milgard Aluminum Doors for Bay Area homes: Tuscany uses a classic frame profile while Trinsic maximizes visible glass with narrow frames. Get a free estimate.",
+    "canonical": "https://www.deluxewindows.com/door-types/milgard-aluminum-doors",
+    "og": {
+      "title": "Milgard Aluminum Doors | Prices & Options | Deluxe",
+      "description": "Milgard Aluminum Doors for Bay Area homes: Tuscany uses a classic frame profile while Trinsic maximizes visible glass with narrow frames. Get a free estimate.",
+      "image": "/webflow-assets/images/688f33f2c13418f046cb7983_milgard-aluminum-patio-doors.png",
+      "type": "website"
+    },
+    "h1": "Milgard Aluminum Doors",
+    "primary_keyword": "milgard aluminum doors",
+    "target_keywords": [
+      "milgard aluminum doors",
+      "milgard aluminum doors prices"
+    ],
+    "search_intent": "brand-material",
+    "priority": "P2",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Milgard Aluminum Doors | Prices & Options | Deluxe",
+      "description": "Milgard Aluminum Doors for Bay Area homes: Tuscany uses a classic frame profile while Trinsic maximizes visible glass with narrow frames. Get a free estimate.",
+      "image": "/webflow-assets/images/688f33f2c13418f046cb7983_milgard-aluminum-patio-doors.png",
+      "card": "summary_large_image"
+    }
+  },
+  "faq": [
+    {
+      "question": "Why choose Milgard Aluminum Doors for a Bay Area home?",
+      "answer": "Milgard Aluminum Doors pair Milgard's door engineering with slim sightlines, structural strength and a clean contemporary appearance. Tuscany uses a classic frame profile while Trinsic maximizes visible glass with narrow frames, so the door style is matched to the opening, exposure and security needs of the home."
+    },
+    {
+      "question": "What do Milgard Aluminum Doors cost installed?",
+      "answer": "For Milgard Aluminum Doors, the current promotion prices installations from $1599 per door installed (regular $2665). Panel count, glass, hardware and opening preparation set the final number, so Deluxe Windows quotes each door after measuring."
+    },
+    {
+      "question": "Which styles are available for Milgard Aluminum Doors?",
+      "answer": "Milgard Aluminum Doors span entry, sliding, French and multi-panel patio configurations, depending on Milgard's current catalog. Deluxe Windows confirms the exact options during the consultation."
+    },
+    {
+      "question": "Who installs Milgard Aluminum Doors near me?",
+      "answer": "Deluxe Windows measures, orders and installs Milgard Aluminum Doors throughout the Bay Area from its Burlingame showroom, and verifies operation and weather sealing after installation."
+    }
+  ],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Milgard Aluminum Doors"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

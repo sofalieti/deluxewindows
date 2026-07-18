@@ -129,6 +129,13 @@
 .scroll-block::-webkit-scrollbar { width: 6px; }
 .scroll-block::-webkit-scrollbar-thumb { background: #E79800; border-radius: 999px; }
 
+/* Current item in the brand sidebar (window-type / door-type pages) */
+.sidebar-item-2.w--current {
+  color: #1b73bb;
+  pointer-events: none;
+  cursor: default;
+}
+
 /* Make the form card always visible when placed outside of hero/sidebar context */
 .card-2.sidebar-v1---card.new-design.hero-section {
   display: block !important;

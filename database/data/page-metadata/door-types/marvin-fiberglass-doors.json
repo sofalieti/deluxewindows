@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "key": "door-types/marvin-fiberglass-doors",
+  "path": "/door-types/marvin-fiberglass-doors",
+  "seo": {
+    "title": "Marvin Fiberglass Doors | Prices & Options | Deluxe",
+    "description": "Marvin Fiberglass Doors for Bay Area homes: Marvin's Ultrex fiberglass is impact resistant and holds paint and shape in coastal climates. Get a free estimate.",
+    "canonical": "https://www.deluxewindows.com/door-types/marvin-fiberglass-doors",
+    "og": {
+      "title": "Marvin Fiberglass Doors | Prices & Options | Deluxe",
+      "description": "Marvin Fiberglass Doors for Bay Area homes: Marvin's Ultrex fiberglass is impact resistant and holds paint and shape in coastal climates. Get a free estimate.",
+      "image": "/webflow-assets/images/688efd96309fed3347c95d0b_trustile-traditional-style-black-front-door-1.jpg",
+      "type": "website"
+    },
+    "h1": "Marvin Fiberglass Doors",
+    "primary_keyword": "marvin fiberglass doors",
+    "target_keywords": [
+      "marvin fiberglass doors",
+      "marvin fiberglass doors prices"
+    ],
+    "search_intent": "brand-material",
+    "priority": "P2",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Marvin Fiberglass Doors | Prices & Options | Deluxe",
+      "description": "Marvin Fiberglass Doors for Bay Area homes: Marvin's Ultrex fiberglass is impact resistant and holds paint and shape in coastal climates. Get a free estimate.",
+      "image": "/webflow-assets/images/688efd96309fed3347c95d0b_trustile-traditional-style-black-front-door-1.jpg",
+      "card": "summary_large_image"
+    }
+  },
+  "faq": [
+    {
+      "question": "Why choose Marvin Fiberglass Doors for a Bay Area home?",
+      "answer": "Marvin Fiberglass Doors pair Marvin's door engineering with dimensional stability, strength and paintable low-maintenance frames. Marvin's Ultrex fiberglass is impact resistant and holds paint and shape in coastal climates, so the door style is matched to the opening, exposure and security needs of the home."
+    },
+    {
+      "question": "What do Marvin Fiberglass Doors cost installed?",
+      "answer": "For Marvin Fiberglass Doors, the current promotion prices installations from $1599 per door installed (regular $2665). Panel count, glass, hardware and opening preparation set the final number, so Deluxe Windows quotes each door after measuring."
+    },
+    {
+      "question": "Which styles are available for Marvin Fiberglass Doors?",
+      "answer": "Marvin Fiberglass Doors span entry, sliding, French and multi-panel patio configurations, depending on Marvin's current catalog. Deluxe Windows confirms the exact options during the consultation."
+    },
+    {
+      "question": "Who installs Marvin Fiberglass Doors near me?",
+      "answer": "Deluxe Windows measures, orders and installs Marvin Fiberglass Doors throughout the Bay Area from its Burlingame showroom, and verifies operation and weather sealing after installation."
+    }
+  ],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Marvin Fiberglass Doors"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

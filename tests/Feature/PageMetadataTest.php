@@ -21,12 +21,12 @@ test('all SEO assignments are unique concise and English only', function () {
             JSON_THROW_ON_ERROR
         ));
 
-    expect($records)->toHaveCount(204);
+    expect($records)->toHaveCount(227);
 
     foreach (['title', 'description', 'h1', 'primary_keyword'] as $field) {
         $values = $records->pluck("seo.{$field}");
-        expect($values->filter())->toHaveCount(204)
-            ->and($values->unique())->toHaveCount(204);
+        expect($values->filter())->toHaveCount(227)
+            ->and($values->unique())->toHaveCount(227);
     }
 
     foreach ($records as $record) {
@@ -116,14 +116,14 @@ test('all public faq content is unique and file backed', function () {
     $questions = $faqItems->pluck('question');
     $answers = $faqItems->pluck('answer');
 
-    expect($withFaq)->toHaveCount(198)
+    expect($withFaq)->toHaveCount(221)
         ->and($records->whereIn('path', $excludedPaths)->pluck('faq')->filter())
         ->toBeEmpty()
-        ->and($questions)->toHaveCount(787)
+        ->and($questions)->toHaveCount(879)
         ->and($questions->map(fn (string $value): string => mb_strtolower($value))->unique())
-        ->toHaveCount(787)
+        ->toHaveCount(879)
         ->and($answers->map(fn (string $value): string => mb_strtolower($value))->unique())
-        ->toHaveCount(787)
+        ->toHaveCount(879)
         ->and(preg_match(
             '/[А-Яа-яЁё]/u',
             json_encode([$questions, $answers], JSON_UNESCAPED_UNICODE)

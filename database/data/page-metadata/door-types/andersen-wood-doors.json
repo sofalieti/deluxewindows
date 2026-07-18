@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "key": "door-types/andersen-wood-doors",
+  "path": "/door-types/andersen-wood-doors",
+  "seo": {
+    "title": "Andersen Wood Doors | Prices & Options | Deluxe",
+    "description": "Andersen Wood Doors for Bay Area homes: the 100 Series uses Fibrex composite material that Andersen rates about twice as strong as vinyl. Get a free estimate.",
+    "canonical": "https://www.deluxewindows.com/door-types/andersen-wood-doors",
+    "og": {
+      "title": "Andersen Wood Doors | Prices & Options | Deluxe",
+      "description": "Andersen Wood Doors for Bay Area homes: the 100 Series uses Fibrex composite material that Andersen rates about twice as strong as vinyl. Get a free estimate.",
+      "image": "/webflow-assets/images/688f670fe11564cdcf07b8c8_craftsman-912x513-1.webp",
+      "type": "website"
+    },
+    "h1": "Andersen Wood Doors",
+    "primary_keyword": "andersen wood doors",
+    "target_keywords": [
+      "andersen wood doors",
+      "andersen wood doors prices"
+    ],
+    "search_intent": "brand-material",
+    "priority": "P2",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Andersen Wood Doors | Prices & Options | Deluxe",
+      "description": "Andersen Wood Doors for Bay Area homes: the 100 Series uses Fibrex composite material that Andersen rates about twice as strong as vinyl. Get a free estimate.",
+      "image": "/webflow-assets/images/688f670fe11564cdcf07b8c8_craftsman-912x513-1.webp",
+      "card": "summary_large_image"
+    }
+  },
+  "faq": [
+    {
+      "question": "Why choose Andersen Wood Doors for a Bay Area home?",
+      "answer": "Andersen Wood Doors pair Andersen's door engineering with natural interior character and strong compatibility with traditional architecture. the 100 Series uses Fibrex composite material that Andersen rates about twice as strong as vinyl, so the door style is matched to the opening, exposure and security needs of the home."
+    },
+    {
+      "question": "What do Andersen Wood Doors cost installed?",
+      "answer": "For Andersen Wood Doors, the current promotion prices installations from $1999 per door installed (regular $3333). Panel count, glass, hardware and opening preparation set the final number, so Deluxe Windows quotes each door after measuring."
+    },
+    {
+      "question": "Which styles are available for Andersen Wood Doors?",
+      "answer": "Andersen Wood Doors span entry, sliding, French and multi-panel patio configurations, depending on Andersen's current catalog. Deluxe Windows confirms the exact options during the consultation."
+    },
+    {
+      "question": "Who installs Andersen Wood Doors near me?",
+      "answer": "Deluxe Windows measures, orders and installs Andersen Wood Doors throughout the Bay Area from its Burlingame showroom, and verifies operation and weather sealing after installation."
+    }
+  ],
+  "schema": {
+    "primary_type": "Product",
+    "data": {
+      "name": "Andersen Wood Doors"
+    },
+    "extra": [],
+    "replace": []
+  }
+}
