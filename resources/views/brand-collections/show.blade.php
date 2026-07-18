@@ -551,8 +551,8 @@
 @endsection
 
 @section('bodyScripts')
-    <script src="/webflow-assets/js/jquery-3.5.1.min.js" type="text/javascript" defer></script>
-    <script src="/webflow-assets/js/webflow-brand-collections.js" type="text/javascript" defer></script>
+    <script src="/webflow-assets/js/jquery-3.5.1.min.js" type="text/javascript"></script>
+    <script src="/webflow-assets/js/webflow-brand-collections.js" type="text/javascript"></script>
 
     <script>
       (function () {
