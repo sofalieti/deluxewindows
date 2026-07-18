@@ -3,49 +3,51 @@
   "key": "brands/alside",
   "path": "/brands/alside",
   "seo": {
-    "title": "Alside Windows Bay Area | Deluxe Windows",
-    "description": "Compare Alside window collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate. Learn more today.",
+    "title": "Alside Windows Bay Area | Authorized Dealer | Deluxe",
+    "description": "Alside windows for Bay Area homes: value-focused vinyl lines such as Mezzo, Fusion and Sovereign. Get a free estimate. Expert Bay Area installation.",
     "canonical": "https://www.deluxewindows.com/brands/alside",
     "og": {
-      "title": "Alside Windows Bay Area | Deluxe Windows",
-      "description": "Compare Alside window collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate. Learn more today.",
+      "title": "Alside Windows Bay Area | Authorized Dealer | Deluxe",
+      "description": "Alside windows for Bay Area homes: value-focused vinyl lines such as Mezzo, Fusion and Sovereign. Get a free estimate. Expert Bay Area installation.",
       "image": "/webflow-assets/images/688a76851f0f6088a0c53667_Alside.avif",
       "type": "website"
     },
-    "h1": "Alside Windows — Bay Area Authorized Dealer & Installer",
+    "h1": "Alside Windows — Bay Area Dealer & Installer",
     "primary_keyword": "alside windows",
     "target_keywords": [
       "alside windows",
-      "alside windows near me",
-      "alside dealer",
-      "alside warranty"
+      "alside",
+      "alside vinyl windows",
+      "alside window prices",
+      "alside window",
+      "alside doors"
     ],
     "search_intent": "brand",
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Alside Windows Bay Area | Deluxe Windows",
-      "description": "Compare Alside window collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate. Learn more today.",
+      "title": "Alside Windows Bay Area | Authorized Dealer | Deluxe",
+      "description": "Alside windows for Bay Area homes: value-focused vinyl lines such as Mezzo, Fusion and Sovereign. Get a free estimate. Expert Bay Area installation.",
       "image": "/webflow-assets/images/688a76851f0f6088a0c53667_Alside.avif",
       "card": "summary_large_image"
     }
   },
   "faq": [
     {
-      "question": "What types of Alside windows does Deluxe Windows offer?",
-      "answer": "Deluxe Windows helps Bay Area homeowners compare value-focused replacement windows with low-maintenance vinyl options. Available series, styles, and configurations are confirmed for each project."
+      "question": "Are Alside windows good quality?",
+      "answer": "Alside is a solid choice when the series matches the home: the brand offers value-focused vinyl lines such as Mezzo, Fusion and Sovereign. Alside is a major national distributor of exterior building products, including windows and patio doors. Deluxe Windows compares verified ratings and installed cost before recommending it."
     },
     {
-      "question": "Are Alside windows a good fit for Bay Area homes?",
-      "answer": "Alside windows can be a good fit when their material, glass, size limits, and design match the property. Deluxe Windows evaluates those details before recommending a collection."
+      "question": "Who manufactures Alside windows?",
+      "answer": "Alside is a major national distributor of exterior building products, including windows and patio doors. Deluxe Windows works directly with the manufacturer's Bay Area distribution, so series availability and lead times for Alside are confirmed before ordering."
     },
     {
-      "question": "How should I compare Alside window collections?",
-      "answer": "Compare Alside collections by frame material, operating style, energy ratings, glass options, finish choices, warranty, and total installed price."
+      "question": "How long do Alside windows last?",
+      "answer": "Expect Alside products to serve 15-40 years depending on material when installed correctly. Alside vinyl windows are typically covered by a limited lifetime warranty for the original owner, and Deluxe Windows registers coverage for every installed project."
     },
     {
-      "question": "Does Deluxe Windows install Alside windows?",
-      "answer": "Yes. Deluxe Windows measures, specifies, and installs Alside windows for qualifying Bay Area projects, then verifies operation and fit after installation."
+      "question": "Which Alside windows does Deluxe Windows install in the Bay Area?",
+      "answer": "Deluxe Windows installs Alside windows across the brand's current lineup — value-focused vinyl lines such as Mezzo, Fusion and Sovereign — and confirms series availability for each Bay Area project before quoting."
     }
   ],
   "schema": {

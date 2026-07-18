@@ -4,11 +4,11 @@
   "path": "/window-replacement/san-francisco",
   "seo": {
     "title": "Window Replacement San Francisco, CA | Deluxe Windows",
-    "description": "Get expert window replacement in San Francisco, CA with leading brands, professional installation and solutions for local homes. Request a free estimate.",
+    "description": "Window replacement in San Francisco, CA with Milgard, Marvin, Andersen and more. San Francisco requires a building permit for every window replacement.",
     "canonical": "https://www.deluxewindows.com/window-replacement/san-francisco",
     "og": {
       "title": "Window Replacement San Francisco, CA | Deluxe Windows",
-      "description": "Get expert window replacement in San Francisco, CA with leading brands, professional installation and solutions for local homes. Request a free estimate.",
+      "description": "Window replacement in San Francisco, CA with Milgard, Marvin, Andersen and more. San Francisco requires a building permit for every window replacement.",
       "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
       "type": "website"
     },
@@ -16,35 +16,38 @@
     "primary_keyword": "window replacement san francisco",
     "target_keywords": [
       "window replacement san francisco",
-      "windows san francisco",
-      "window installation san francisco ca"
+      "window replacement center san francisco",
+      "replacement windows san francisco",
+      "san francisco window replacement",
+      "window installation san francisco",
+      "milgard windows san francisco"
     ],
     "search_intent": "local-city",
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
       "title": "Window Replacement San Francisco, CA | Deluxe Windows",
-      "description": "Get expert window replacement in San Francisco, CA with leading brands, professional installation and solutions for local homes. Request a free estimate.",
+      "description": "Window replacement in San Francisco, CA with Milgard, Marvin, Andersen and more. San Francisco requires a building permit for every window replacement.",
       "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
       "card": "summary_large_image"
     }
   },
   "faq": [
     {
+      "question": "How much does it cost to replace a window in San Francisco?",
+      "answer": "In San Francisco, Bay Area homeowners typically see about $1,500-$3,000 per window installed for quality vinyl, and more for fiberglass, clad-wood or architectural products. The final number depends on window count, sizes, frame material and access, so Deluxe Windows prices each San Francisco project after on-site measurements."
+    },
+    {
+      "question": "What is the average cost of a standard replacement window?",
+      "answer": "In San Francisco, Bay Area homeowners typically see about $1,500-$3,000 per window installed for quality vinyl, and more for fiberglass, clad-wood or architectural products. The final number depends on window count, sizes, frame material and access, so Deluxe Windows prices each San Francisco project after on-site measurements. Ask about San Francisco specifics when booking the free estimate."
+    },
+    {
+      "question": "Do you need a permit to replace windows in San Francisco?",
+      "answer": "Yes — San Francisco requires a building permit for every window replacement; in-kind swaps can now be permitted online. Deluxe Windows confirms the exact requirement with the local building department and handles the paperwork as part of the installation contract."
+    },
+    {
       "question": "How much does window replacement cost in San Francisco?",
-      "answer": "San Francisco homeowners typically invest $9,000 to $25,000 for a full window replacement project. The city's large stock of Victorian, Edwardian, and Craftsman homes often requires custom-sized sash and specialty glazing to match original profiles. Neighborhoods like Pacific Heights and St. Francis Wood — where homes sell for $3–5+ million — regularly see projects in the $25,000–$50,000 range. Oceanside neighborhoods in the Outer Sunset and Outer Richmond demand marine-grade specifications. Single window installation starts at approximately $750–$900."
-    },
-    {
-      "question": "Do I need a permit for window replacement in San Francisco?",
-      "answer": "Yes. San Francisco requires a building permit for virtually all window replacements. Properties in historic districts — including Alamo Square, Mission Dolores, and Pacific Heights — may also need Planning Department approval to ensure compatibility with the character of the historic district. The SF permitting process is thorough; our team manages all applications, Planning Department submittals, and inspection scheduling on your behalf."
-    },
-    {
-      "question": "Which window brands does Deluxe Windows install in San Francisco?",
-      "answer": "San Francisco's architectural and environmental demands call for the best. We most frequently install Marvin Integrity fiberglass-clad for Victorian and Edwardian homes needing superior moisture resistance, Andersen 400-Series for period-appropriate wood interiors, and Western Window Systems for contemporary homes in the Mission, SoMa, and Mission Bay requiring large sliding glass systems."
-    },
-    {
-      "question": "Does Deluxe Windows serve all San Francisco neighborhoods?",
-      "answer": "Yes — we serve all San Francisco neighborhoods including the Outer Sunset, Richmond, Noe Valley, Bernal Heights, Pacific Heights, Mission, Castro, Inner Sunset, Cole Valley, and all 94xxx zip codes."
+      "answer": "For San Francisco homes, Bay Area homeowners typically see about $1,500-$3,000 per window installed for quality vinyl, and more for fiberglass, clad-wood or architectural products. Deluxe Windows itemizes product, labor and permits in a written San Francisco quote after free on-site measurements."
     }
   ],
   "schema": {

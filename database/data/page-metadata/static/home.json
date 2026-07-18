@@ -3,12 +3,12 @@
   "key": "static/home",
   "path": "/",
   "seo": {
-    "title": "Bay Area Window & Door Replacement | Deluxe Windows",
-    "description": "Premium window and door replacement across the Bay Area. Compare Milgard, Marvin, Andersen and more. Visit our showroom or get a free estimate. Get expert help.",
+    "title": "Window Replacement Bay Area | Deluxe Windows",
+    "description": "Window and door replacement across the Bay Area from our Burlingame showroom. Compare Milgard, Marvin, Andersen, Anlin and more, then get a free estimate.",
     "canonical": "https://www.deluxewindows.com",
     "og": {
-      "title": "Bay Area Window & Door Replacement | Deluxe Windows",
-      "description": "Premium window and door replacement across the Bay Area. Compare Milgard, Marvin, Andersen and more. Visit our showroom or get a free estimate. Get expert help.",
+      "title": "Window Replacement Bay Area | Deluxe Windows",
+      "description": "Window and door replacement across the Bay Area from our Burlingame showroom. Compare Milgard, Marvin, Andersen, Anlin and more, then get a free estimate.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
       "type": "website"
     },
@@ -16,35 +16,37 @@
     "primary_keyword": "window replacement bay area",
     "target_keywords": [
       "window replacement bay area",
-      "windows and doors bay area",
-      "window company near me"
+      "milgard windows and doors",
+      "anlin windows and doors",
+      "windows and doors near me",
+      "windows and doors"
     ],
     "search_intent": "homepage",
     "priority": "P0",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Bay Area Window & Door Replacement | Deluxe Windows",
-      "description": "Premium window and door replacement across the Bay Area. Compare Milgard, Marvin, Andersen and more. Visit our showroom or get a free estimate. Get expert help.",
+      "title": "Window Replacement Bay Area | Deluxe Windows",
+      "description": "Window and door replacement across the Bay Area from our Burlingame showroom. Compare Milgard, Marvin, Andersen, Anlin and more, then get a free estimate.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
       "card": "summary_large_image"
     }
   },
   "faq": [
     {
-      "question": "What window and door services does Deluxe Windows provide?",
-      "answer": "Deluxe Windows helps Bay Area homeowners compare, measure, and install replacement windows and doors across multiple materials, brands, styles, and price levels."
+      "question": "Is it cheaper to replace all windows at once?",
+      "answer": "Professional installation of  follows measured openings, square-and-plumb setting, insulation, flashing and sealing, then an operating check. Deluxe Windows schedules most Bay Area projects within one to three days on site."
     },
     {
-      "question": "Which parts of the Bay Area does Deluxe Windows serve?",
-      "answer": "Service is available across the core Bay Area counties and cities represented in the Deluxe Windows service-area pages. Availability is confirmed for the project address."
+      "question": "Is it worth replacing 20 year old windows?",
+      "answer": " products earn their reputation through a balance of appearance, comfort and durability. The right call still depends on the home's openings, exposure and budget, which Deluxe Windows reviews during a free assessment."
     },
     {
-      "question": "How does a Deluxe Windows project begin?",
-      "answer": "A project begins with a consultation and site measurements, followed by product selection, an installation proposal, ordering, professional installation, and a final operating check."
+      "question": "What is the average cost of a good replacement window?",
+      "answer": "For  windows, typical pricing is a range set by frame material, glass and size. Installed Bay Area totals also reflect labor, permits and any opening repairs, which Deluxe Windows confirms in a written estimate."
     },
     {
-      "question": "Can Deluxe Windows help compare window and door brands?",
-      "answer": "Yes. Recommendations consider the home's architecture, opening sizes, material preferences, energy goals, design requirements, warranties, and project budget."
+      "question": "What is the cheapest time of year to replace windows?",
+      "answer": "Professional installation of  follows measured openings, square-and-plumb setting, insulation, flashing and sealing, then an operating check. Deluxe Windows schedules most Bay Area projects within one to three days on site. Ask about  specifics when booking the free estimate."
     }
   ],
   "schema": {

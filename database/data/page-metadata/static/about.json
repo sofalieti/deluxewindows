@@ -3,27 +3,28 @@
   "key": "static/about",
   "path": "/about",
   "seo": {
-    "title": "About Deluxe Windows | Bay Area Window Experts",
-    "description": "Meet Deluxe Windows, a trusted Bay Area window and door company offering expert product guidance, precise installation and free in-home estimates.",
+    "title": "About Deluxe Windows | Bay Area Window Company",
+    "description": "Learn about Deluxe Windows, a Bay Area window and door company with a Burlingame showroom, factory-trained installers and free in-home estimates.",
     "canonical": "https://www.deluxewindows.com/about",
     "og": {
-      "title": "About Deluxe Windows | Bay Area Window Experts",
-      "description": "Meet Deluxe Windows, a trusted Bay Area window and door company offering expert product guidance, precise installation and free in-home estimates.",
+      "title": "About Deluxe Windows | Bay Area Window Company",
+      "description": "Learn about Deluxe Windows, a Bay Area window and door company with a Burlingame showroom, factory-trained installers and free in-home estimates.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
       "type": "website"
     },
     "h1": "About Deluxe Windows",
-    "primary_keyword": "deluxe windows",
+    "primary_keyword": "deluxe windows inc",
     "target_keywords": [
-      "deluxe windows",
-      "about deluxe windows"
+      "deluxe windows inc",
+      "about deluxe windows",
+      "bay area window company"
     ],
     "search_intent": "hub",
     "priority": "P2",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "About Deluxe Windows | Bay Area Window Experts",
-      "description": "Meet Deluxe Windows, a trusted Bay Area window and door company offering expert product guidance, precise installation and free in-home estimates.",
+      "title": "About Deluxe Windows | Bay Area Window Company",
+      "description": "Learn about Deluxe Windows, a Bay Area window and door company with a Burlingame showroom, factory-trained installers and free in-home estimates.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
       "card": "summary_large_image"
     }

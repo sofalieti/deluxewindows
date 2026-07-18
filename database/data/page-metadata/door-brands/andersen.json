@@ -3,49 +3,51 @@
   "key": "door-brands/andersen",
   "path": "/door-brands/andersen",
   "seo": {
-    "title": "Andersen Doors Bay Area | Deluxe Windows",
-    "description": "Compare Andersen door collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate. Learn more today.",
+    "title": "Andersen Doors Bay Area | Patio & Entry | Deluxe",
+    "description": "Andersen patio, sliding and entry doors for Bay Area homes. Compare panel styles, glass and installed pricing, with expert installation by Deluxe Windows.",
     "canonical": "https://www.deluxewindows.com/door-brands/andersen",
     "og": {
-      "title": "Andersen Doors Bay Area | Deluxe Windows",
-      "description": "Compare Andersen door collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate. Learn more today.",
+      "title": "Andersen Doors Bay Area | Patio & Entry | Deluxe",
+      "description": "Andersen patio, sliding and entry doors for Bay Area homes. Compare panel styles, glass and installed pricing, with expert installation by Deluxe Windows.",
       "image": "/webflow-assets/images/688a75a9f58dabd4b2642bc5_Andersen.avif",
       "type": "website"
     },
-    "h1": "Andersen Doors — Bay Area Authorized Dealer & Installer",
+    "h1": "Andersen Doors — Patio, Sliding & Entry",
     "primary_keyword": "andersen doors",
     "target_keywords": [
       "andersen doors",
-      "andersen patio doors",
+      "andersen doors and windows",
+      "andersen windows and doors near me",
       "andersen sliding doors",
-      "andersen entry doors"
+      "anderson windows and doors",
+      "andersons windows and doors"
     ],
     "search_intent": "brand",
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Andersen Doors Bay Area | Deluxe Windows",
-      "description": "Compare Andersen door collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate. Learn more today.",
+      "title": "Andersen Doors Bay Area | Patio & Entry | Deluxe",
+      "description": "Andersen patio, sliding and entry doors for Bay Area homes. Compare panel styles, glass and installed pricing, with expert installation by Deluxe Windows.",
       "image": "/webflow-assets/images/688a75a9f58dabd4b2642bc5_Andersen.avif",
       "card": "summary_large_image"
     }
   },
   "faq": [
     {
-      "question": "What makes Andersen doors stand out?",
-      "answer": "Andersen combines over a century of craftsmanship with innovative materials like Fibrex, plus High-Performance Low-E4 glass, for doors that look great and perform for decades."
+      "question": "What is the average cost of an Andersen door?",
+      "answer": "For Andersen, installed Andersen windows in the Bay Area typically run about $700-$1,200 each, with premium series higher. Exact pricing depends on size, glass package and installation conditions, so Deluxe Windows prepares an itemized quote after measuring the openings."
     },
     {
-      "question": "Are Andersen patio doors energy efficient?",
-      "answer": "Yes. Andersen doors use High-Performance Low-E4 glass and tight weatherstripping to reduce heat transfer and help keep your home comfortable and efficient year-round."
+      "question": "Are Andersen doors worth the money?",
+      "answer": "Andersen is a solid choice when the series matches the home: the brand offers collections across Fibrex composite, wood, vinyl and aluminum-clad lines. the 100 Series uses Fibrex composite material that Andersen rates about twice as strong as vinyl. Deluxe Windows compares verified ratings and installed cost before recommending it. Ask about Andersen specifics when booking the free estimate."
     },
     {
-      "question": "Can I customize the look of my Andersen door?",
-      "answer": "Definitely. Andersen offers a wide range of colors, finishes, glass options, grilles, and hardware so your doors complement your home's style. We'll help you configure the details."
+      "question": "Which Andersen doors does Deluxe Windows install in the Bay Area?",
+      "answer": "Deluxe Windows installs Andersen doors across the brand's current lineup — collections across Fibrex composite, wood, vinyl and aluminum-clad lines — and confirms series availability for each Bay Area project before quoting."
     },
     {
-      "question": "Do you install Andersen doors in the Bay Area?",
-      "answer": "Yes. Deluxe Windows measures and professionally installs Andersen doors across the Bay Area, with a final inspection to ensure flawless operation."
+      "question": "How do I get installed pricing for Andersen doors?",
+      "answer": "Installed pricing for Andersen doors is prepared after on-site measurements: installed Andersen windows in the Bay Area typically run about $700-$1,200 each, with premium series higher. The written quote itemizes product, labor, permits and any opening repairs."
     }
   ],
   "schema": {

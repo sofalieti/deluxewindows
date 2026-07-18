@@ -3,47 +3,45 @@
   "key": "static/special-offers",
   "path": "/special-offers",
   "seo": {
-    "title": "Window Replacement Offers | Deluxe Windows",
-    "description": "View current window and door replacement offers from Deluxe Windows. Save on select Bay Area projects and request a free in-home estimate today.",
+    "title": "Window Replacement Deals & Offers | Deluxe Windows",
+    "description": "See current window and door replacement offers from Deluxe Windows. Check eligibility, combine savings with financing where allowed, and get an estimate.",
     "canonical": "https://www.deluxewindows.com/special-offers",
     "og": {
-      "title": "Window Replacement Offers | Deluxe Windows",
-      "description": "View current window and door replacement offers from Deluxe Windows. Save on select Bay Area projects and request a free in-home estimate today.",
+      "title": "Window Replacement Deals & Offers | Deluxe Windows",
+      "description": "See current window and door replacement offers from Deluxe Windows. Check eligibility, combine savings with financing where allowed, and get an estimate.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
       "type": "website"
     },
-    "h1": "Current Special Offers",
+    "h1": "Current Window and Door Offers",
     "primary_keyword": "window replacement deals",
     "target_keywords": [
       "window replacement deals",
-      "window discounts"
+      "window discounts",
+      "window sale bay area",
+      "special offers windows"
     ],
     "search_intent": "hub",
     "priority": "P2",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Window Replacement Offers | Deluxe Windows",
-      "description": "View current window and door replacement offers from Deluxe Windows. Save on select Bay Area projects and request a free in-home estimate today.",
+      "title": "Window Replacement Deals & Offers | Deluxe Windows",
+      "description": "See current window and door replacement offers from Deluxe Windows. Check eligibility, combine savings with financing where allowed, and get an estimate.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
       "card": "summary_large_image"
     }
   },
   "faq": [
     {
-      "question": "How do I confirm whether a Deluxe Windows offer is still active?",
-      "answer": "Use the dates and conditions shown with the offer, then confirm availability when requesting an estimate because promotions can change or expire."
+      "question": "How do I confirm a Deluxe Windows offer is active?",
+      "answer": "Check the dates and conditions shown with the offer, then confirm availability when requesting an estimate — promotions change and the written proposal identifies any applied discount."
     },
     {
-      "question": "Which products qualify for current Deluxe Windows promotions?",
-      "answer": "Eligibility depends on the specific offer, product, quantity, project location, and installation scope. The written proposal should identify any applied promotion."
+      "question": "Which products qualify for current promotions?",
+      "answer": "Eligibility depends on the specific offer, product line, quantity and installation scope; the estimate lists qualifying items so there are no surprises at contract time."
     },
     {
-      "question": "Can multiple window or door offers be combined?",
-      "answer": "Offers should be treated as non-combinable unless their written terms explicitly allow combination. Confirm the applicable discount before approving the project."
-    },
-    {
-      "question": "Can a promotion be used with financing?",
-      "answer": "Compatibility between a promotion and financing depends on the current written terms of both programs and must be confirmed before the agreement is signed."
+      "question": "Can offers be combined with financing?",
+      "answer": "Compatibility between a promotion and a financing program depends on the current written terms of both; Deluxe Windows confirms the combination before the agreement is signed."
     }
   ],
   "schema": {

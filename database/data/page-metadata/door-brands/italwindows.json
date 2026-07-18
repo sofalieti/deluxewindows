@@ -3,49 +3,48 @@
   "key": "door-brands/italwindows",
   "path": "/door-brands/italwindows",
   "seo": {
-    "title": "Italwindows Doors Bay Area | Deluxe Windows",
-    "description": "Compare Italwindows door collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate.",
+    "title": "Italwindows Doors Bay Area | Patio & Entry | Deluxe",
+    "description": "Italwindows patio, sliding and entry doors for Bay Area homes. Compare panel styles, glass and installed pricing, with expert installation by Deluxe Windows.",
     "canonical": "https://www.deluxewindows.com/door-brands/italwindows",
     "og": {
-      "title": "Italwindows Doors Bay Area | Deluxe Windows",
-      "description": "Compare Italwindows door collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate.",
+      "title": "Italwindows Doors Bay Area | Patio & Entry | Deluxe",
+      "description": "Italwindows patio, sliding and entry doors for Bay Area homes. Compare panel styles, glass and installed pricing, with expert installation by Deluxe Windows.",
       "image": "/webflow-assets/images/688a7489b613e7a9f3424dcf_italwindows.avif",
       "type": "website"
     },
-    "h1": "Italwindows Doors — Bay Area Authorized Dealer & Installer",
+    "h1": "Italwindows Doors — Patio, Sliding & Entry",
     "primary_keyword": "italwindows doors",
     "target_keywords": [
       "italwindows doors",
       "italwindows patio doors",
-      "italwindows sliding doors",
-      "italwindows entry doors"
+      "italwindows sliding doors"
     ],
     "search_intent": "brand",
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Italwindows Doors Bay Area | Deluxe Windows",
-      "description": "Compare Italwindows door collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate.",
+      "title": "Italwindows Doors Bay Area | Patio & Entry | Deluxe",
+      "description": "Italwindows patio, sliding and entry doors for Bay Area homes. Compare panel styles, glass and installed pricing, with expert installation by Deluxe Windows.",
       "image": "/webflow-assets/images/688a7489b613e7a9f3424dcf_italwindows.avif",
       "card": "summary_large_image"
     }
   },
   "faq": [
     {
-      "question": "What makes Italwindows doors unique?",
-      "answer": "Italwindows offers European-engineered aluminum door systems with slim sightlines and large glass areas — perfect for a modern look and seamless indoor-outdoor living."
+      "question": "Which Italwindows doors does Deluxe Windows install in the Bay Area?",
+      "answer": "Deluxe Windows installs Italwindows doors across the brand's current lineup — contemporary European-style steel, aluminum and wood window systems — and confirms series availability for each Bay Area project before quoting."
     },
     {
-      "question": "Are Italwindows doors energy efficient?",
-      "answer": "Yes. Their systems use thermally broken aluminum and high-performance glass for strong thermal and acoustic performance."
+      "question": "How do I get installed pricing for Italwindows doors?",
+      "answer": "Installed pricing for Italwindows doors is prepared after on-site measurements: Italwindows systems are quoted per project because profiles, glazing and finishes are built to order. The written quote itemizes product, labor, permits and any opening repairs."
     },
     {
-      "question": "Can Italwindows doors span large openings?",
-      "answer": "Absolutely — Italwindows specializes in large sliding and folding door systems that open up wide spaces while maintaining durability and smooth operation."
+      "question": "How long does Italwindows door installation take?",
+      "answer": "Most Italwindows door projects are installed within one to three working days once products arrive. Lead times for Italwindows orders are confirmed at contract signing."
     },
     {
-      "question": "Do you install Italwindows doors in the Bay Area?",
-      "answer": "Yes. Deluxe Windows handles measurement and professional installation of Italwindows door systems throughout the Bay Area."
+      "question": "Can I see Italwindows doors before ordering?",
+      "answer": "Yes. The Deluxe Windows showroom in Burlingame displays samples and finish options, and a consultant walks through Italwindows configurations that match the home's openings. This applies specifically to Italwindows projects."
     }
   ],
   "schema": {

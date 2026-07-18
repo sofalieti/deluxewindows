@@ -3,30 +3,29 @@
   "key": "static/brand-index",
   "path": "/brand",
   "seo": {
-    "title": "Window & Door Brands | Deluxe Windows",
-    "description": "Compare window and door brands available from Deluxe Windows, including Milgard, Marvin, Andersen, Simonton and more. Request a free estimate. Learn more today.",
+    "title": "Window & Door Brands We Install | Deluxe Windows",
+    "description": "Compare the window and door brands installed by Deluxe Windows, including Milgard, Marvin, Andersen, Simonton, Anlin and JELD-WEN. Get a free estimate.",
     "canonical": "https://www.deluxewindows.com/brand",
     "og": {
-      "title": "Window & Door Brands | Deluxe Windows",
-      "description": "Compare window and door brands available from Deluxe Windows, including Milgard, Marvin, Andersen, Simonton and more. Request a free estimate. Learn more today.",
+      "title": "Window & Door Brands We Install | Deluxe Windows",
+      "description": "Compare the window and door brands installed by Deluxe Windows, including Milgard, Marvin, Andersen, Simonton, Anlin and JELD-WEN. Get a free estimate.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
       "type": "website"
     },
-    "h1": "Brands We Carry",
-    "primary_keyword": "milgard",
+    "h1": "Window and Door Brands Available at Deluxe Windows",
+    "primary_keyword": "window brands",
     "target_keywords": [
-      "milgard",
-      "marvin",
-      "andersen",
-      "simonton",
-      "jeld-wen"
+      "window brands",
+      "best window brands",
+      "window manufacturers",
+      "door brands"
     ],
     "search_intent": "hub",
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Window & Door Brands | Deluxe Windows",
-      "description": "Compare window and door brands available from Deluxe Windows, including Milgard, Marvin, Andersen, Simonton and more. Request a free estimate. Learn more today.",
+      "title": "Window & Door Brands We Install | Deluxe Windows",
+      "description": "Compare the window and door brands installed by Deluxe Windows, including Milgard, Marvin, Andersen, Simonton, Anlin and JELD-WEN. Get a free estimate.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
       "card": "summary_large_image"
     }

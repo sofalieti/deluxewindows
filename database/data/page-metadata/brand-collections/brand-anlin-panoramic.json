@@ -4,25 +4,26 @@
   "path": "/brand-collections/brand-anlin-panoramic",
   "seo": {
     "title": "Anlin Panoramic | Deluxe Windows",
-    "description": "Explore Anlin Panoramic specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
+    "description": "Anlin Panoramic specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
     "canonical": "https://www.deluxewindows.com/brand-collections/brand-anlin-panoramic",
     "og": {
       "title": "Anlin Panoramic | Deluxe Windows",
-      "description": "Explore Anlin Panoramic specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
+      "description": "Anlin Panoramic specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
       "image": "/webflow-assets/images/694cde7a0e1fdaf600088cdb_694cd62f7d17f86e6cbe97a1_6891bf8ac46a3e984a2570f0_Anlin-Panoramic-Windows.webp",
       "type": "website"
     },
     "h1": "Anlin Panoramic",
     "primary_keyword": "anlin panoramic",
     "target_keywords": [
-      "anlin panoramic"
+      "anlin panoramic",
+      "anlin panoramic prices"
     ],
     "search_intent": "product-series",
     "priority": "P3",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
       "title": "Anlin Panoramic | Deluxe Windows",
-      "description": "Explore Anlin Panoramic specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
+      "description": "Anlin Panoramic specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
       "image": "/webflow-assets/images/694cde7a0e1fdaf600088cdb_694cd62f7d17f86e6cbe97a1_6891bf8ac46a3e984a2570f0_Anlin-Panoramic-Windows.webp",
       "card": "summary_large_image"
     }
@@ -30,19 +31,19 @@
   "faq": [
     {
       "question": "What should homeowners know about Anlin Panoramic?",
-      "answer": "Explore Anlin Panoramic specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate."
+      "answer": "Anlin Panoramic is part of Anlin's lineup: California-made vinyl replacement windows engineered for West Coast climates. Deluxe Windows checks that this collection matches the opening sizes and design goals before recommending it."
     },
     {
-      "question": "Which configurations are available in Anlin Panoramic?",
-      "answer": "Available Anlin Panoramic styles, sizes, glass packages, colors, and hardware depend on the exact product and opening. Deluxe Windows confirms current options before an order is prepared."
-    },
-    {
-      "question": "How should I compare Anlin Panoramic with other Anlin collections?",
-      "answer": "Compare Anlin Panoramic with other Anlin choices by frame material, style availability, energy ratings, design options, warranty, and installed project cost."
+      "question": "Which configurations does Anlin Panoramic offer?",
+      "answer": "Styles, sizes, glass packages, colors and hardware for Anlin Panoramic depend on the current catalog. Deluxe Windows confirms available configurations for each Bay Area order."
     },
     {
       "question": "How is installed pricing for Anlin Panoramic calculated?",
-      "answer": "Installed pricing for Anlin Panoramic depends on opening dimensions, configuration, glass, finish, hardware, quantity, access, and any required preparation or permit work."
+      "answer": "Installed pricing for Anlin Panoramic reflects opening dimensions, configuration, glass, finish, quantity and access. As a reference, installed Anlin windows in the Bay Area usually fall in the mid vinyl range, between economy vinyl and premium fiberglass."
+    },
+    {
+      "question": "How does Anlin Panoramic compare with other Anlin collections?",
+      "answer": "Compare Anlin Panoramic with sibling collections on frame construction, visible glass area, energy ratings, finish options, warranty and installed cost. Anlin has manufactured energy-efficient vinyl windows in Clovis, California since 1990."
     }
   ],
   "schema": {

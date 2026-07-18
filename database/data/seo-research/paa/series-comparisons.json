@@ -1,0 +1,106 @@
+{
+  "collected_at": "2026-07-18",
+  "source": "Apify automation-lab/google-search-scraper (Google US, en)",
+  "queries": {
+    "milgard tuscany series": {
+      "paa": [
+        "Are Milgard Tuscany windows good quality?",
+        "Which is better, Andersen or Milgard?",
+        "What are common problems with Milgard windows?",
+        "Are Milgard windows high end?"
+      ],
+      "facts": [
+        "V400 Tuscany Series vinyl windows offer SmartTouch hardware, SunCoat Low-E glass, and a Full Lifetime Warranty",
+        "Tuscany has a more traditional, classic frame design vs Trinsic's sleek modern look"
+      ]
+    },
+    "milgard trinsic series": {
+      "paa": [
+        "Are Milgard Trinsic windows any good?",
+        "What is the difference between Milgard Trinsic and Tuscany?",
+        "What are trinsic windows?",
+        "What is the difference between Milgard Styleline and trinsic?"
+      ],
+      "facts": [
+        "V300 Trinsic Series are contemporary vinyl windows with narrow frames, expansive glass area, and energy-efficient Low-E glass options"
+      ]
+    },
+    "milgard style line series": {
+      "paa": [
+        "What are the different lines of Milgard windows?",
+        "What is the difference between Milgard Styleline and trinsic?",
+        "Is Milgard Windows high end?",
+        "Which is better, Andersen or Milgard?"
+      ],
+      "facts": [
+        "V250 Style Line Series offers slim-frame vinyl windows with dual-pane efficiency and noise control at an affordable price"
+      ]
+    },
+    "andersen 100 series": {
+      "paa": [
+        "Are Andersen 100 series windows any good?",
+        "What is the difference between Andersen Series 100 and 200?",
+        "Is Andersen 100 or 400 series better?",
+        "How long do Andersen 100 series last?"
+      ],
+      "facts": [
+        "Andersen 100 Series is made of Fibrex composite material, claimed 2X stronger than vinyl; positioned as budget-friendly alternative to vinyl"
+      ]
+    },
+    "marvin essential collection": {
+      "paa": [
+        "Are Marvin Essential windows good quality?",
+        "What is the difference between Marvin Signature and Essentials?",
+        "Are Marvin Essential windows better than Andersen?",
+        "Are Marvin doors high end?"
+      ],
+      "facts": [
+        "Marvin Essential Collection uses durable Ultrex fiberglass interiors and exteriors, virtually maintenance free, with streamlined ordering options"
+      ]
+    },
+    "simonton daylightmax": {
+      "paa": [
+        "Are Simonton daylight max windows good?",
+        "Are Simonton Windows high quality?",
+        "What is the warranty on Simonton Daylight Max?",
+        "How long do Simonton Windows last?"
+      ],
+      "facts": [
+        "DaylightMax features a slim frame for more natural light, ProSolar Low-E glass, argon fill, Intercept spacer; ENERGY STAR qualified in all climate regions; blocks up to 99% of UV rays"
+      ]
+    },
+    "milgard vs andersen windows": {
+      "paa": [
+        "What are common problems with Milgard windows?",
+        "Is there a better window than Andersen?",
+        "What are the top 3 window brands?",
+        "Are Milgard windows high quality?"
+      ],
+      "facts": [
+        "Milgard windows typically cost $350-$1,200 per window; Andersen starts around $500; Milgard offers a full lifetime warranty vs Andersen's 10-20 years"
+      ]
+    },
+    "marvin vs andersen windows": {
+      "paa": [
+        "Are Anderson windows better than Marvin?",
+        "What are the top 3 window brands?",
+        "Is Anderson Renewal a rip-off?",
+        "Are Marvin windows high end?"
+      ],
+      "facts": [
+        "Andersen replacement windows generally range $700-$1,200 installed; Marvin costs more at $1,000-$1,800"
+      ]
+    },
+    "simonton vs milgard windows": {
+      "paa": [
+        "Are Simonton Windows high quality?",
+        "What are the top 3 window brands?",
+        "Is Milgard windows high end?",
+        "How long do Simonton Windows last?"
+      ],
+      "facts": [
+        "Simonton ranges $200-$1,200 per window, $265-$1,500 installed; Milgard priced slightly higher; both offer lifetime warranties"
+      ]
+    }
+  }
+}

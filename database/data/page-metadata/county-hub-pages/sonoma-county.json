@@ -4,11 +4,11 @@
   "path": "/county-hub-pages/sonoma-county",
   "seo": {
     "title": "Sonoma County Window Replacement | Deluxe Windows",
-    "description": "Explore window and door replacement across Sonoma County. Compare leading brands, energy-efficient products and professional installation. Get a free estimate.",
+    "description": "Window and door replacement across Sonoma County: leading brands, energy-efficient products and professional installation for every city we serve.",
     "canonical": "https://www.deluxewindows.com/county-hub-pages/sonoma-county",
     "og": {
       "title": "Sonoma County Window Replacement | Deluxe Windows",
-      "description": "Explore window and door replacement across Sonoma County. Compare leading brands, energy-efficient products and professional installation. Get a free estimate.",
+      "description": "Window and door replacement across Sonoma County: leading brands, energy-efficient products and professional installation for every city we serve.",
       "image": "/webflow-assets/images/69fc954e7b9bf04407ae45c4_generated-2026-05-07t13-34-39-783z-nhdblc.jpeg",
       "type": "website"
     },
@@ -23,7 +23,7 @@
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
       "title": "Sonoma County Window Replacement | Deluxe Windows",
-      "description": "Explore window and door replacement across Sonoma County. Compare leading brands, energy-efficient products and professional installation. Get a free estimate.",
+      "description": "Window and door replacement across Sonoma County: leading brands, energy-efficient products and professional installation for every city we serve.",
       "image": "/webflow-assets/images/69fc954e7b9bf04407ae45c4_generated-2026-05-07t13-34-39-783z-nhdblc.jpeg",
       "card": "summary_large_image"
     }
@@ -31,19 +31,19 @@
   "faq": [
     {
       "question": "Which cities does Deluxe Windows serve in Sonoma County?",
-      "answer": "Deluxe Windows serves window and door replacement projects across Sonoma County. Confirm the property address when requesting an estimate so travel, permitting, and installation details can be checked."
+      "answer": "Deluxe Windows installs windows and doors across Sonoma County; the service-area pages list covered cities, and coverage for a specific Sonoma County address is confirmed when booking the estimate."
     },
     {
-      "question": "Do replacement windows require permits in Sonoma County?",
-      "answer": "Permit requirements in Sonoma County are set by the city or local building authority and can vary by project scope, property type, and historic status. Requirements are reviewed for the specific address."
+      "question": "What does window replacement cost in Sonoma County?",
+      "answer": "Across Sonoma County, Bay Area homeowners typically see about $1,500-$3,000 per window installed for quality vinyl, and more for fiberglass, clad-wood or architectural products. Quotes are prepared per address because access, permits and product mix differ between Sonoma County cities."
     },
     {
-      "question": "Which window features matter for homes in Sonoma County?",
-      "answer": "For homes in Sonoma County, compare solar control, insulation, air leakage, frame durability, ventilation, and exposure. The right balance depends on the property's microclimate and orientation."
+      "question": "Do Sonoma County cities require window replacement permits?",
+      "answer": "Permit rules in Sonoma County are set by each city's building authority and can vary with project scope and historic status. Deluxe Windows checks the requirement for the specific address."
     },
     {
-      "question": "How do I request a window replacement estimate in Sonoma County?",
-      "answer": "Provide the Sonoma County property address, approximate window count, preferred materials, and any known access or HOA requirements. Deluxe Windows can then schedule measurements and prepare project-specific options."
+      "question": "Which window features matter most in Sonoma County?",
+      "answer": "For Sonoma County homes, weigh solar control, insulation, air leakage and frame durability against the local microclimate. Coastal, hillside and inland Sonoma County homes often need different glass packages."
     }
   ],
   "schema": {

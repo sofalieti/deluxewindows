@@ -4,25 +4,26 @@
   "path": "/brand-collections/brand-andersen-a-series",
   "seo": {
     "title": "Andersen A Series | Deluxe Windows",
-    "description": "Explore Andersen A Series specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
+    "description": "Andersen A Series specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
     "canonical": "https://www.deluxewindows.com/brand-collections/brand-andersen-a-series",
     "og": {
       "title": "Andersen A Series | Deluxe Windows",
-      "description": "Explore Andersen A Series specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
+      "description": "Andersen A Series specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
       "image": "/webflow-assets/images/6952469c0a8bd2226ccd585a_a-series-new-hero-image-768x450.avif",
       "type": "website"
     },
     "h1": "Andersen A Series",
     "primary_keyword": "andersen a series",
     "target_keywords": [
-      "andersen a series"
+      "andersen a series",
+      "andersen a series prices"
     ],
     "search_intent": "product-series",
     "priority": "P3",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
       "title": "Andersen A Series | Deluxe Windows",
-      "description": "Explore Andersen A Series specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
+      "description": "Andersen A Series specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
       "image": "/webflow-assets/images/6952469c0a8bd2226ccd585a_a-series-new-hero-image-768x450.avif",
       "card": "summary_large_image"
     }
@@ -30,19 +31,19 @@
   "faq": [
     {
       "question": "What should homeowners know about Andersen A Series?",
-      "answer": "Explore Andersen A Series specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate."
+      "answer": "Andersen A Series is part of Andersen's lineup: collections across Fibrex composite, wood, vinyl and aluminum-clad lines. Deluxe Windows checks that this collection matches the opening sizes and design goals before recommending it."
     },
     {
-      "question": "Which configurations are available in Andersen A Series?",
-      "answer": "Available Andersen A Series styles, sizes, glass packages, colors, and hardware depend on the exact product and opening. Deluxe Windows confirms current options before an order is prepared."
-    },
-    {
-      "question": "How should I compare Andersen A Series with other Andersen collections?",
-      "answer": "Compare Andersen A Series with other Andersen choices by frame material, style availability, energy ratings, design options, warranty, and installed project cost."
+      "question": "Which configurations does Andersen A Series offer?",
+      "answer": "Styles, sizes, glass packages, colors and hardware for Andersen A Series depend on the current catalog. Deluxe Windows confirms available configurations for each Bay Area order."
     },
     {
       "question": "How is installed pricing for Andersen A Series calculated?",
-      "answer": "Installed pricing for Andersen A Series depends on opening dimensions, configuration, glass, finish, hardware, quantity, access, and any required preparation or permit work."
+      "answer": "Installed pricing for Andersen A Series reflects opening dimensions, configuration, glass, finish, quantity and access. As a reference, installed Andersen windows in the Bay Area typically run about $700-$1,200 each, with premium series higher."
+    },
+    {
+      "question": "How does Andersen A Series compare with other Andersen collections?",
+      "answer": "Compare Andersen A Series with sibling collections on frame construction, visible glass area, energy ratings, finish options, warranty and installed cost. the 100 Series uses Fibrex composite material that Andersen rates about twice as strong as vinyl."
     }
   ],
   "schema": {

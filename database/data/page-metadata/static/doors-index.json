@@ -4,47 +4,49 @@
   "path": "/doors",
   "seo": {
     "title": "Entry & Patio Doors Bay Area | Deluxe Windows",
-    "description": "Explore entry, patio and exterior doors for Bay Area homes. Compare materials, styles and leading brands, then request a free in-home estimate. Get expert help.",
+    "description": "Explore entry, patio and sliding doors for Bay Area homes. Compare fiberglass, wood, steel and vinyl options with installed pricing and a free estimate.",
     "canonical": "https://www.deluxewindows.com/doors",
     "og": {
       "title": "Entry & Patio Doors Bay Area | Deluxe Windows",
-      "description": "Explore entry, patio and exterior doors for Bay Area homes. Compare materials, styles and leading brands, then request a free in-home estimate. Get expert help.",
+      "description": "Explore entry, patio and sliding doors for Bay Area homes. Compare fiberglass, wood, steel and vinyl options with installed pricing and a free estimate.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
       "type": "website"
     },
-    "h1": "Exterior, Entry & Patio Doors",
-    "primary_keyword": "entry doors",
+    "h1": "Entry, Patio and Sliding Doors for Bay Area Homes",
+    "primary_keyword": "patio doors",
     "target_keywords": [
-      "entry doors",
       "patio doors",
-      "sliding doors"
+      "entry doors",
+      "sliding doors",
+      "exterior doors",
+      "door replacement"
     ],
     "search_intent": "hub",
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
       "title": "Entry & Patio Doors Bay Area | Deluxe Windows",
-      "description": "Explore entry, patio and exterior doors for Bay Area homes. Compare materials, styles and leading brands, then request a free in-home estimate. Get expert help.",
+      "description": "Explore entry, patio and sliding doors for Bay Area homes. Compare fiberglass, wood, steel and vinyl options with installed pricing and a free estimate.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
       "card": "summary_large_image"
     }
   },
   "faq": [
     {
-      "question": "Which replacement door materials can I compare at Deluxe Windows?",
-      "answer": "Deluxe Windows offers access to wood, wood-clad, fiberglass, steel, vinyl, and aluminum door options across entry, patio, sliding, folding, and multi-panel configurations."
+      "question": "How much should a patio sliding door cost?",
+      "answer": "For doors doors, plan on a range set by frame material, glass and size. Installed Bay Area totals also reflect the frame condition, hardware and finishing, which Deluxe Windows confirms in a written estimate."
     },
     {
-      "question": "How do I choose between sliding, hinged, and folding doors?",
-      "answer": "Compare opening width, usable floor space, ventilation, accessibility, panel size, threshold details, weather exposure, security, and the desired indoor-outdoor connection."
+      "question": "What is the best brand for a sliding patio door?",
+      "answer": "Doors products earn their reputation through a balance of appearance, comfort and durability. The right call still depends on the home's openings, exposure and budget, which Deluxe Windows reviews during a free assessment."
     },
     {
-      "question": "What affects a replacement door's energy efficiency?",
-      "answer": "Door performance depends on the frame and panel material, glazing, spacers, weather seals, threshold, locking system, exposure, and installation accuracy."
+      "question": "What is the difference between a sliding French door and a sliding patio door?",
+      "answer": "The honest comparison depends on priorities: Doors stands out for window and door products suited to different home styles, while competitors trade differently on price, warranty and looks. Pricing is confirmed per series and opening during the estimate. Deluxe Windows shows both options side by side in the showroom."
     },
     {
-      "question": "What measurements are needed for an installed door estimate?",
-      "answer": "An estimate requires the structural opening, frame condition, wall depth, swing or panel direction, threshold, exterior exposure, access, finish details, and selected configuration."
+      "question": "How much does it cost to replace an entrance door?",
+      "answer": "For doors doors, plan on a range set by frame material, glass and size. Installed Bay Area totals also reflect the frame condition, hardware and finishing, which Deluxe Windows confirms in a written estimate. Ask about Doors specifics when booking the free estimate."
     }
   ],
   "schema": {

@@ -1,0 +1,124 @@
+{
+  "collected_at": "2026-07-18",
+  "source": "Apify automation-lab/google-search-scraper (Google US, en)",
+  "queries": {
+    "fiberglass entry doors": {
+      "paa": [
+        "What are the disadvantages of a fiberglass door?",
+        "What is the average cost of a fiberglass entry door?",
+        "Are fiberglass entry doors any good?",
+        "Who makes the best fiberglass entry door?"
+      ],
+      "facts": [
+        "Fiberglass exterior doors combine the natural look of wood with durability, energy efficiency, and low maintenance; typical retail starting prices $898-$1,377",
+        "Durable fiberglass skin won't rot, warp, twist or bow"
+      ]
+    },
+    "steel entry doors": {
+      "paa": [
+        "What are the disadvantages of a steel door?",
+        "Is a steel front door a good idea?",
+        "How much should a steel front door cost?",
+        "Who makes the best steel entry doors?"
+      ],
+      "facts": [
+        "Steel doors are galvanized to resist rust and corrosion, typically 24-gauge steel with a high-density polystyrene core",
+        "Steel entry doors are budget-friendly at $300 to $800 (2026 guide); premium slim steel doors run $2,160-$4,080+"
+      ]
+    },
+    "wood entry doors": {
+      "paa": [],
+      "facts": [
+        "Wood front doors are the most popular and best-selling door type for entryways; sold in mahogany, walnut, knotty alder and more",
+        "Panel wood exterior entry doors start around $825; wood doors require regular maintenance"
+      ]
+    },
+    "vinyl patio doors": {
+      "paa": [],
+      "facts": [
+        "Main benefits of vinyl patio doors: energy efficiency, low maintenance and durability; frames resist rot, rust and peeling",
+        "Multi-chambered vinyl frames prevent warping, sagging and bowing"
+      ]
+    },
+    "sliding patio doors": {
+      "paa": [
+        "How much should a patio sliding door cost?",
+        "What is the best brand for a sliding patio door?",
+        "What is the difference between a sliding French door and a sliding patio door?",
+        "How much does Home Depot charge to install a sliding glass patio door?"
+      ],
+      "facts": [
+        "Average price for patio doors ranges from $800 to over $5,000",
+        "Sliding doors come in two-, three- and four-panel configurations and require less space to operate than hinged doors"
+      ]
+    },
+    "sliding glass door replacement": {
+      "paa": [
+        "How much does it typically cost to replace a sliding glass door?",
+        "Can you replace just the sliding glass door?",
+        "What does home Depot charge to install a sliding glass door?",
+        "Is it better to repair or replace a sliding door?"
+      ],
+      "facts": [
+        "A new sliding glass door can cost from $336 to just under $9,000 depending on size, style and materials (2026)"
+      ]
+    },
+    "wood clad doors": {
+      "paa": [
+        "What is a wood clad door?",
+        "What is a wood clad?",
+        "What is the difference between wood and wood clad?"
+      ],
+      "facts": [
+        "Aluminum-clad wood doors combine a classic wood interior with the strength and protection of an extruded aluminum exterior"
+      ]
+    },
+    "entry door replacement cost": {
+      "paa": [
+        "How much does it cost to replace an entrance door?",
+        "How much does Home Depot charge to install a front door?",
+        "How much does Lowes charge to install an entry door?",
+        "How much should a new front door cost installed?"
+      ],
+      "facts": [
+        "Average cost to replace an exterior door and frame: $500 to $2,000 (2026)",
+        "Basic cost to install an exterior door: $957-$1,458 per door (May 2026)",
+        "Single entry door: $368-$1,378; double entry door: $478-$1,798",
+        "Standard single entry doors run $500-$1,000; steel $300-$800; fiberglass $500-$1,500"
+      ]
+    },
+    "milgard doors": {
+      "paa": [
+        "Is Milgard a good door brand?",
+        "Is Milgard or Jeld Wen better?",
+        "Which is better, Andersen or Milgard?",
+        "Is Milgard windows high end?"
+      ],
+      "facts": [
+        "Milgard patio doors include sliding and swinging options in vinyl, fiberglass, and thermal break aluminum"
+      ]
+    },
+    "marvin doors": {
+      "paa": [
+        "How much does a Marvin door cost?",
+        "Are Marvin doors worth the money?",
+        "Is Marvin better than Andersen?",
+        "Which is better, Pella or Marvin?"
+      ],
+      "facts": [
+        "Marvin Ultimate collection folding doors can create openings up to 55 feet wide and 10 feet high, using up to 16 panels"
+      ]
+    },
+    "jeld wen doors": {
+      "paa": [
+        "Is JELD-WEN a good door brand?",
+        "Which is better, JELD-WEN or Pella?",
+        "What is happening to JELD-WEN?",
+        "How much does a JELD-WEN door cost?"
+      ],
+      "facts": [
+        "JELD-WEN exterior doors come in authentic wood, fiberglass, and steel; style collections include Simply Modern, Coastal, Updated Traditional, and Farmhouse"
+      ]
+    }
+  }
+}

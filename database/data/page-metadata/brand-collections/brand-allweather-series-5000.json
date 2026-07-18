@@ -4,25 +4,26 @@
   "path": "/brand-collections/brand-allweather-series-5000",
   "seo": {
     "title": "All Weather Series 5000 | Deluxe Windows",
-    "description": "Explore All Weather Series 5000 specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
+    "description": "All Weather Series 5000 specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
     "canonical": "https://www.deluxewindows.com/brand-collections/brand-allweather-series-5000",
     "og": {
       "title": "All Weather Series 5000 | Deluxe Windows",
-      "description": "Explore All Weather Series 5000 specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
+      "description": "All Weather Series 5000 specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
       "image": "/webflow-assets/images/6979edd39d3ca18a58d95d6c_Los-Altos-Windows-scaled.webp",
       "type": "website"
     },
     "h1": "All Weather Series 5000",
-    "primary_keyword": "allweather series 5000",
+    "primary_keyword": "all weather series 5000",
     "target_keywords": [
-      "allweather series 5000"
+      "all weather series 5000",
+      "all weather series 5000 prices"
     ],
     "search_intent": "product-series",
     "priority": "P3",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
       "title": "All Weather Series 5000 | Deluxe Windows",
-      "description": "Explore All Weather Series 5000 specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
+      "description": "All Weather Series 5000 specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
       "image": "/webflow-assets/images/6979edd39d3ca18a58d95d6c_Los-Altos-Windows-scaled.webp",
       "card": "summary_large_image"
     }
@@ -30,19 +31,19 @@
   "faq": [
     {
       "question": "What should homeowners know about All Weather Series 5000?",
-      "answer": "Explore All Weather Series 5000 specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate."
+      "answer": "All Weather Series 5000 is part of the manufacturer's lineup: window and door products suited to different home styles. Deluxe Windows checks that this collection matches the opening sizes and design goals before recommending it."
     },
     {
-      "question": "Which configurations are available in All Weather Series 5000?",
-      "answer": "Available All Weather Series 5000 styles, sizes, glass packages, colors, and hardware depend on the exact product and opening. Deluxe Windows confirms current options before an order is prepared."
-    },
-    {
-      "question": "How should I compare All Weather Series 5000 with other the manufacturer collections?",
-      "answer": "Compare All Weather Series 5000 with other the manufacturer choices by frame material, style availability, energy ratings, design options, warranty, and installed project cost."
+      "question": "Which configurations does All Weather Series 5000 offer?",
+      "answer": "Styles, sizes, glass packages, colors and hardware for All Weather Series 5000 depend on the current catalog. Deluxe Windows confirms available configurations for each Bay Area order."
     },
     {
       "question": "How is installed pricing for All Weather Series 5000 calculated?",
-      "answer": "Installed pricing for All Weather Series 5000 depends on opening dimensions, configuration, glass, finish, hardware, quantity, access, and any required preparation or permit work."
+      "answer": "Installed pricing for All Weather Series 5000 reflects opening dimensions, configuration, glass, finish, quantity and access. As a reference, pricing is confirmed per series and opening during the estimate."
+    },
+    {
+      "question": "How does All Weather Series 5000 compare with other brand collections?",
+      "answer": "Compare All Weather Series 5000 with sibling collections on frame construction, visible glass area, energy ratings, finish options, warranty and installed cost. series availability is confirmed for each Bay Area project."
     }
   ],
   "schema": {

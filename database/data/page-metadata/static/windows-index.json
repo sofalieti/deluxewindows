@@ -4,18 +4,20 @@
   "path": "/windows",
   "seo": {
     "title": "Replacement Windows Bay Area | Deluxe Windows",
-    "description": "Explore replacement windows for Bay Area homes by material, style and brand. Compare energy-efficient options and request a free in-home estimate.",
+    "description": "Compare replacement windows by material, style and brand for Bay Area homes. Review vinyl, fiberglass, wood and aluminum options and get a free estimate.",
     "canonical": "https://www.deluxewindows.com/windows",
     "og": {
       "title": "Replacement Windows Bay Area | Deluxe Windows",
-      "description": "Explore replacement windows for Bay Area homes by material, style and brand. Compare energy-efficient options and request a free in-home estimate.",
+      "description": "Compare replacement windows by material, style and brand for Bay Area homes. Review vinyl, fiberglass, wood and aluminum options and get a free estimate.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
       "type": "website"
     },
     "h1": "Replacement Windows for Bay Area Homes",
-    "primary_keyword": "replacement windows bay area",
+    "primary_keyword": "replacement windows",
     "target_keywords": [
-      "replacement windows bay area",
+      "replacement windows",
+      "windows replacement",
+      "house windows",
       "new windows"
     ],
     "search_intent": "hub",
@@ -23,27 +25,27 @@
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
       "title": "Replacement Windows Bay Area | Deluxe Windows",
-      "description": "Explore replacement windows for Bay Area homes by material, style and brand. Compare energy-efficient options and request a free in-home estimate.",
+      "description": "Compare replacement windows by material, style and brand for Bay Area homes. Review vinyl, fiberglass, wood and aluminum options and get a free estimate.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
       "card": "summary_large_image"
     }
   },
   "faq": [
     {
-      "question": "Which replacement window materials can I compare at Deluxe Windows?",
-      "answer": "Homeowners can compare vinyl, wood, wood-clad, aluminum, aluminum-clad, fiberglass, and steel window options, subject to current manufacturer availability."
+      "question": "How much should it cost to install windows?",
+      "answer": "For windows windows, typical pricing is a range set by frame material, glass and size. Installed Bay Area totals also reflect labor, permits and any opening repairs, which Deluxe Windows confirms in a written estimate."
     },
     {
-      "question": "How do I choose between window styles?",
-      "answer": "Choose an operating style by considering ventilation, egress, cleaning access, view area, furniture placement, architectural fit, and the dimensions of each opening."
+      "question": "What is the correct way to install a window?",
+      "answer": "Professional installation of windows follows measured openings, square-and-plumb setting, insulation, flashing and sealing, then an operating check. Deluxe Windows schedules most Bay Area projects within one to three days on site."
     },
     {
-      "question": "What determines replacement window energy performance?",
-      "answer": "Whole-window ratings depend on the frame, glass coatings, pane configuration, gas fill, spacers, weather seals, product size, and installation quality."
+      "question": "Which window materials can I compare at Deluxe Windows?",
+      "answer": "Vinyl, wood, wood-clad, aluminum, aluminum-clad, fiberglass and steel windows are all available, and the showroom lets homeowners compare frames and glass side by side."
     },
     {
-      "question": "How is installed window pricing calculated?",
-      "answer": "Installed window pricing depends on material, brand, style, dimensions, glass, finish, hardware, quantity, access, removal work, and permit or repair requirements."
+      "question": "What determines replacement window pricing?",
+      "answer": "Installed window pricing depends on material, brand, style, dimensions, glass package, finish, quantity and access. Whole-house projects usually earn better per-window pricing than single openings."
     }
   ],
   "schema": {

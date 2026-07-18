@@ -1,0 +1,115 @@
+{
+  "collected_at": "2026-07-18",
+  "source": "Apify automation-lab/google-search-scraper (Google US, en)",
+  "queries": {
+    "andersen windows": {
+      "paa": [
+        "Who is cheaper, Pella or Anderson?",
+        "What are the cons of Andersen windows?",
+        "What is the difference between Andersen and Renewal by Andersen?",
+        "Who makes the best windows in the USA?"
+      ],
+      "facts": []
+    },
+    "marvin windows": {
+      "paa": [
+        "Are Marvin windows better than Andersen?",
+        "Are Marvin high end windows?",
+        "What is the lawsuit against Marvin windows?",
+        "What's the average cost of a Marvin window?"
+      ],
+      "facts": []
+    },
+    "milgard windows": {
+      "paa": [
+        "Is Milgard a good brand of window?",
+        "Is Milgard windows high end?",
+        "Is Milgard better than Andersen?",
+        "What are common problems with Milgard windows?"
+      ],
+      "facts": [
+        "Milgard window prices typically range from $150 to $2,500 per window (unit only), with installed costs often landing between $400 and $1,800+ (modernize.com, 2026)",
+        "Milgard series include Trinsic, Tuscany, Style Line, Ultra, and Standard and Thermally Improved Aluminum"
+      ]
+    },
+    "simonton windows": {
+      "paa": [
+        "Is Simonton a good brand of windows?",
+        "What are the top 3 window brands?",
+        "How do Simonton Windows compare to Andersen?",
+        "Who manufactures Simonton Windows?"
+      ],
+      "facts": [
+        "Simonton window prices typically range from $300 to $1,000 per window, with installation adding $150 to $500 per window (modernize.com, 2026)",
+        "Simonton has been an ENERGY STAR partner since 1999"
+      ]
+    },
+    "anlin windows": {
+      "paa": [
+        "Are Anlin windows high quality?",
+        "How much do Anlin windows cost?",
+        "How do Anlin windows compare to Andersen windows?",
+        "Is Anlin better than Milgard?"
+      ],
+      "facts": [
+        "Anlin is a California manufacturer (Clovis, CA) making energy-efficient vinyl replacement windows and doors since 1990, known for its industry-leading warranty"
+      ]
+    },
+    "ply gem windows": {
+      "paa": [
+        "Is Ply Gem windows a good brand?",
+        "Who manufactures Ply Gem windows?",
+        "How long is the Ply Gem window warranty?",
+        "What is a Ply Gem window?"
+      ],
+      "facts": [
+        "Ply Gem offers affordable, customizable options in vinyl, wood, and aluminum (modernize.com, 2026)"
+      ]
+    },
+    "alside windows": {
+      "paa": [
+        "Are Alside windows good quality?",
+        "Who manufactures Alside windows?",
+        "How long do Alside windows last?",
+        "What are the top 3 window brands?"
+      ],
+      "facts": [
+        "Alside is a leading distributor of exterior building products including siding, windows and patio doors, balancing durability, energy efficiency, and value"
+      ]
+    },
+    "western window systems": {
+      "paa": [
+        "Who bought Western windows?",
+        "What is the warranty on Western windows?",
+        "What are the top 10 window manufacturers?",
+        "Who are Western Window Systems competitors?"
+      ],
+      "facts": [
+        "Since 1959 Western Window Systems has focused on moving glass walls and windows that blend indoors and outdoors; available with dual- or triple-paned glass"
+      ]
+    },
+    "andersen doors": {
+      "paa": [
+        "What is the average cost of an Andersen door?",
+        "Are Andersen doors worth the money?",
+        "Which is better, Pella or Anderson?",
+        "What is the best brand of entry doors?"
+      ],
+      "facts": [
+        "Andersen is the largest window and door manufacturer in North America"
+      ]
+    },
+    "best window brands": {
+      "paa": [
+        "Is Pella better than Andersen?",
+        "What is the highest rated window company?",
+        "Are Jeld Wen windows junk?",
+        "What is the number one rated window?"
+      ],
+      "facts": [
+        "The most trusted window brands in the U.S. include Andersen, Pella, Marvin, Milgard, JELD-WEN, and Simonton (2026 roundups)",
+        "Consumer Reports lab tests include windows from Andersen, Jeld-Wen, Marvin, Pella"
+      ]
+    }
+  }
+}

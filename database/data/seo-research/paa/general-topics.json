@@ -1,0 +1,118 @@
+{
+  "collected_at": "2026-07-18",
+  "source": "Apify automation-lab/google-search-scraper (Google US, en)",
+  "queries": {
+    "how long do windows last": {
+      "paa": [
+        "Is it worth replacing 20 year old windows?",
+        "How often should windows be replaced?",
+        "Is it cheaper to replace all windows at once?",
+        "How do I know if my windows need replacing?"
+      ],
+      "facts": [
+        "Vinyl windows last 20-40 years; fiberglass up to 50; wood 30+ with maintenance; aluminum 15-30",
+        "Average residential window lifespan: 15-30 years; window glass about 20 years"
+      ]
+    },
+    "window installation": {
+      "paa": [
+        "How much should it cost to install windows?",
+        "What is the correct way to install a window?",
+        "How much does Home Depot charge to install a window per?",
+        "Can windows be installed for free?"
+      ],
+      "facts": []
+    },
+    "energy efficient windows": {
+      "paa": [
+        "What type of window is most energy-efficient?",
+        "Is there a tax credit for energy-efficient windows?",
+        "Do energy-efficient windows really make a difference?",
+        "Who has the best energy-efficient windows?"
+      ],
+      "facts": [
+        "ENERGY STAR certified windows save an average of 12% on energy bills each year ($101-$583 per year)",
+        "Windows meeting ENERGY STAR Most Efficient criteria are eligible for the 25C Federal Tax Credit ($600)",
+        "Energy-efficient windows cost $150-$2,000+ per window, most around $400"
+      ]
+    },
+    "replacement windows vs new construction": {
+      "paa": [
+        "Is a new construction window better than a replacement window?",
+        "Is it worth replacing 25 year old windows?",
+        "What is the cheapest time of year to replace windows?",
+        "What is the average cost to replace 12 windows in a home?"
+      ],
+      "facts": [
+        "Replacement windows fit into an existing frame without removing the surrounding wall; new construction windows have a nailing flange and replace the full framed opening",
+        "Replacement windows cost 50-100% less to install than new construction windows"
+      ]
+    },
+    "do new windows increase home value": {
+      "paa": [
+        "Do new windows increase appraisal value?",
+        "What increases a house's value the most?",
+        "Is it worth replacing 20 year old windows?",
+        "How to increase home value by $50,000?"
+      ],
+      "facts": [
+        "New windows ROI is typically 50-75%, up to 85%; vinyl windows return over 73% of project cost at resale",
+        "Replacing old windows with energy-efficient models raises property value by an average of $8,000-$12,000"
+      ]
+    },
+    "best window brands": {
+      "paa": [
+        "Is Pella better than Andersen?",
+        "What is the highest rated window company?",
+        "Are Jeld Wen windows junk?",
+        "What is the number one rated window?"
+      ],
+      "facts": [
+        "Most trusted US window brands per 2026 roundups: Andersen, Pella, Marvin, Milgard, JELD-WEN, Simonton"
+      ]
+    },
+    "how to measure windows for replacement": {
+      "paa": [
+        "Are replacement windows measured from inside or outside?",
+        "Is 32x48 a standard window size?",
+        "How do I know my window size?",
+        "Do window dimensions include the frame?"
+      ],
+      "facts": [
+        "Measure width between jambs at three points (top, middle, bottom) and use the smallest measurement"
+      ]
+    },
+    "window financing": {
+      "paa": [
+        "Can you do payment plans on window replacement?",
+        "Can you get 0% finance on windows?",
+        "What credit score do you need for Andersen windows?",
+        "What is the average cost of replacing 10 windows in a home?"
+      ],
+      "facts": [
+        "Common industry offers: 0% APR up to 36 months, 18-month 0% interest promotions, payments as low as $89/month"
+      ]
+    },
+    "dual pane windows": {
+      "paa": [
+        "What is a dual pane window?",
+        "Do double-pane windows really make a difference?",
+        "What is the average cost of a double-pane window?",
+        "Do dual pane windows reduce heat?"
+      ],
+      "facts": [
+        "Double-pane windows average $900, typical range $234-$1,224 per window"
+      ]
+    },
+    "window frame materials": {
+      "paa": [
+        "What is the best material for window frames?",
+        "What is the cheapest material for window frames?",
+        "What are Pella window frames made of?"
+      ],
+      "facts": [
+        "Five most common frame materials: wood, vinyl, aluminum, fiberglass, composite; steel is a premium niche"
+      ]
+    }
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "collected_at": "2026-07-18",
+  "source": "Apify automation-lab/google-search-scraper (Google US, en)",
+  "queries": {
+    "vinyl windows": {
+      "paa": [
+        "What are the disadvantages of vinyl windows?",
+        "Which window is better, vinyl or fiberglass?",
+        "What is the lifespan of a vinyl window?",
+        "Can vinyl windows be repaired?"
+      ],
+      "facts": [
+        "Vinyl frames are made from PVC and resist cracking, peeling, and rusting; never need painting",
+        "Vinyl windows typically last 20-40 years"
+      ]
+    },
+    "wood windows": {
+      "paa": [
+        "Does anyone still make wood windows?",
+        "What are the disadvantages of wood windows?",
+        "How expensive are wood windows?",
+        "What are the old fashioned wood windows called?"
+      ],
+      "facts": [
+        "Wood windows cost roughly $700 to $1,200 each (bhg.com 2025)",
+        "Wood windows last 30+ years with proper maintenance"
+      ]
+    },
+    "wood clad windows": {
+      "paa": [
+        "What is a wood clad window?",
+        "How much are wood-clad windows?",
+        "How long do wood clad windows last?",
+        "Are wood-clad windows better than vinyl?"
+      ],
+      "facts": [
+        "Clad windows are made of wood and feature an outer layer of protection (aluminum, fiberglass, or vinyl) over the frame and sash",
+        "Cladding helps preserve wood strength and beauty over time with virtually maintenance-free exteriors"
+      ]
+    },
+    "aluminum windows": {
+      "paa": [
+        "What is the disadvantage of aluminum windows?",
+        "Does anyone make aluminum windows anymore?",
+        "What is the lifespan of aluminum windows?",
+        "Is aluminium window better than vinyl?"
+      ],
+      "facts": [
+        "Aluminum windows typically last 15-30 years",
+        "Aluminum frames are known for strength, durability, slim profiles, and corrosion resistance; thermally enhanced designs improve energy efficiency"
+      ]
+    },
+    "aluminum clad windows": {
+      "paa": [
+        "Are aluminum clad windows worth it?",
+        "What are aluminum clad windows?",
+        "How much do aluminum clad windows cost?",
+        "Does Andersen have aluminum clad windows?"
+      ],
+      "facts": [
+        "Aluminum cladding protects the wood window from harsh weather, resists UV fading and insect infestation",
+        "Aluminum-clad wood combines aluminum exterior strength with warm real-wood interiors"
+      ]
+    },
+    "fiberglass windows": {
+      "paa": [
+        "What are the downsides of fiberglass windows?",
+        "Are fiberglass or vinyl windows better?",
+        "Is fiberglass a good material for windows?",
+        "Are fiberglass windows worth the extra money?"
+      ],
+      "facts": [
+        "Fiberglass windows last 30-50 years; strongest common frame material",
+        "Marvin's Ultrex fiberglass is impact resistant; Milgard fiberglass offers low thermal conductivity",
+        "Cheapest vinyl windows are about half the price of Marvin fiberglass (reddit r/Homebuilding)"
+      ]
+    },
+    "steel windows": {
+      "paa": [
+        "Are steel windows good or bad?",
+        "Are steel windows more expensive?",
+        "Do they make metal windows anymore?",
+        "Which is cheaper, aluminium or steel windows?"
+      ],
+      "facts": [
+        "Custom steel windows start around $1,440 per unit",
+        "Steel windows offer narrow sightlines, strength, proven durability; resistant to warping, rotting, and corrosion"
+      ]
+    },
+    "window frame materials": {
+      "paa": [
+        "What is the best material for window frames?",
+        "What is the cheapest material for window frames?",
+        "What are Pella window frames made of?"
+      ],
+      "facts": [
+        "Most popular frame materials: vinyl, aluminum, wood, wood-clad, fiberglass, composite, steel",
+        "Vinyl is the most common frame material today; steel is a premium choice"
+      ]
+    },
+    "dual pane windows": {
+      "paa": [
+        "What is a dual pane window?",
+        "Do double-pane windows really make a difference?",
+        "What is the average cost of a double-pane window?",
+        "Do dual pane windows reduce heat?"
+      ],
+      "facts": [
+        "Double-pane windows cost an average of $900, typically $234-$1,224 per window",
+        "Two panes of glass with a gas or air pocket between them insulate the room"
+      ]
+    }
+  }
+}

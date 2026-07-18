@@ -4,26 +4,27 @@
   "path": "/blog",
   "seo": {
     "title": "Window & Door Advice Blog | Deluxe Windows",
-    "description": "Read practical window and door guides for Bay Area homeowners, including buying advice, energy tips, materials and replacement planning. Learn more today.",
+    "description": "Read practical window and door guides for Bay Area homeowners: buying advice, materials, measuring, energy efficiency and replacement planning tips.",
     "canonical": "https://www.deluxewindows.com/blog",
     "og": {
       "title": "Window & Door Advice Blog | Deluxe Windows",
-      "description": "Read practical window and door guides for Bay Area homeowners, including buying advice, energy tips, materials and replacement planning. Learn more today.",
+      "description": "Read practical window and door guides for Bay Area homeowners: buying advice, materials, measuring, energy efficiency and replacement planning tips.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
       "type": "website"
     },
-    "h1": "Advice & Guides",
-    "primary_keyword": "advice & guides",
+    "h1": "Window and Door Advice for Bay Area Homeowners",
+    "primary_keyword": "window advice blog",
     "target_keywords": [
-      "advice & guides",
-      "blog"
+      "window advice blog",
+      "window replacement guides",
+      "door buying advice"
     ],
     "search_intent": "hub",
     "priority": "P3",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
       "title": "Window & Door Advice Blog | Deluxe Windows",
-      "description": "Read practical window and door guides for Bay Area homeowners, including buying advice, energy tips, materials and replacement planning. Learn more today.",
+      "description": "Read practical window and door guides for Bay Area homeowners: buying advice, materials, measuring, energy efficiency and replacement planning tips.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
       "card": "summary_large_image"
     }

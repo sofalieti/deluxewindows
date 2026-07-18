@@ -3,48 +3,51 @@
   "key": "doors/fiberglass-doors",
   "path": "/doors/fiberglass-doors",
   "seo": {
-    "title": "Fiberglass Doors Bay Area | Deluxe Windows",
-    "description": "Compare fiberglass entry and patio doors for Bay Area homes. Explore leading brands, custom sizes and professional installation. Get a free estimate.",
+    "title": "Fiberglass Doors Bay Area | Entry & Patio | Deluxe",
+    "description": "Fiberglass entry and patio doors for Bay Area homes, offering dimensional stability, strength and paintable low-maintenance frames. Get a free estimate.",
     "canonical": "https://www.deluxewindows.com/doors/fiberglass-doors",
     "og": {
-      "title": "Fiberglass Doors Bay Area | Deluxe Windows",
-      "description": "Compare fiberglass entry and patio doors for Bay Area homes. Explore leading brands, custom sizes and professional installation. Get a free estimate.",
+      "title": "Fiberglass Doors Bay Area | Entry & Patio | Deluxe",
+      "description": "Fiberglass entry and patio doors for Bay Area homes, offering dimensional stability, strength and paintable low-maintenance frames. Get a free estimate.",
       "image": "/webflow-assets/images/6841ddf8ace3d9d9facb1a87_home-buying-basics-thumbnail-v3-property-x-webflow-template.avif",
       "type": "website"
     },
-    "h1": "Fiberglass Exterior Doors in the Bay Area",
+    "h1": "Fiberglass Doors for Bay Area Homes",
     "primary_keyword": "fiberglass doors",
     "target_keywords": [
       "fiberglass doors",
-      "fiberglass exterior doors",
-      "fiberglass entry door"
+      "fiberglass windows and doors",
+      "fiberglass entry doors",
+      "fiberglass doors san francisco",
+      "fiberglass reinforced doors san francisco",
+      "milgard fiberglass doors"
     ],
     "search_intent": "door-material",
     "priority": "P2",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Fiberglass Doors Bay Area | Deluxe Windows",
-      "description": "Compare fiberglass entry and patio doors for Bay Area homes. Explore leading brands, custom sizes and professional installation. Get a free estimate.",
+      "title": "Fiberglass Doors Bay Area | Entry & Patio | Deluxe",
+      "description": "Fiberglass entry and patio doors for Bay Area homes, offering dimensional stability, strength and paintable low-maintenance frames. Get a free estimate.",
       "image": "/webflow-assets/images/6841ddf8ace3d9d9facb1a87_home-buying-basics-thumbnail-v3-property-x-webflow-template.avif",
       "card": "summary_large_image"
     }
   },
   "faq": [
     {
-      "question": "What are the main benefits of Fiberglass Doors?",
-      "answer": "Fiberglass Doors offer dimensional stability, strength, and low-maintenance performance. The best fit depends on the home's architecture, opening sizes, performance goals, and budget."
+      "question": "What are the disadvantages of a fiberglass door?",
+      "answer": "The main trade-offs of fiberglass products: upfront cost runs higher than vinyl and there are fewer budget series to choose from. Whether that matters depends on the home's exposure and budget, which Deluxe Windows reviews openly. Ask about Fiberglass specifics when booking the free estimate."
     },
     {
-      "question": "How energy efficient are fiberglass doors for Bay Area homes?",
-      "answer": "For Fiberglass Doors, stable frames and insulated glass can provide strong thermal performance when the unit is correctly specified and installed. Deluxe Windows compares complete door ratings and installation requirements for the specific opening."
+      "question": "What is the average cost of a fiberglass entry door?",
+      "answer": "For fiberglass doors, plan on fiberglass entry doors typically $500-$1,500, with smooth paintable models starting near $900. Installed Bay Area totals also reflect the frame condition, hardware and finishing, which Deluxe Windows confirms in a written estimate."
     },
     {
-      "question": "What maintenance do Fiberglass Doors require?",
-      "answer": "For Fiberglass Doors, routine cleaning and inspection of seals and hardware are normally the main upkeep requirements. Product-specific care instructions and warranty requirements should also be followed."
+      "question": "What are the main benefits of fiberglass doors?",
+      "answer": "Fiberglass doors offer dimensional stability, strength and paintable low-maintenance frames. Whether they fit depends on the home's architecture, opening sizes, performance goals and budget."
     },
     {
-      "question": "What should I compare before choosing Fiberglass Doors?",
-      "answer": "When evaluating Fiberglass Doors, compare frame construction, glass, operating style, finish, warranty, and installed price. Compare finish choices, frame profiles, glass packages, and installed cost rather than material alone."
+      "question": "How much do fiberglass doors cost installed in the Bay Area?",
+      "answer": "Plan on about $800-$1,500+ per window, above vinyl and below custom wood for fiberglass doors, plus installation that reflects access, removal and finishing. Deluxe Windows provides exact installed pricing after measuring."
     }
   ],
   "schema": {

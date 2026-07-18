@@ -3,49 +3,51 @@
   "key": "windows/steel-windows",
   "path": "/windows/steel-windows",
   "seo": {
-    "title": "Steel Windows Bay Area | Deluxe Windows",
-    "description": "Compare steel windows for Bay Area homes, including leading brands, energy ratings and installed pricing. Request a free in-home estimate. Learn more today.",
+    "title": "Steel Windows Bay Area | Cost & Brands | Deluxe",
+    "description": "Steel windows compared for Bay Area homes: typical lifespan 50+ years when finishes are maintained, custom units typically starting around $1,440 each, plus.",
     "canonical": "https://www.deluxewindows.com/windows/steel-windows",
     "og": {
-      "title": "Steel Windows Bay Area | Deluxe Windows",
-      "description": "Compare steel windows for Bay Area homes, including leading brands, energy ratings and installed pricing. Request a free in-home estimate. Learn more today.",
+      "title": "Steel Windows Bay Area | Cost & Brands | Deluxe",
+      "description": "Steel windows compared for Bay Area homes: typical lifespan 50+ years when finishes are maintained, custom units typically starting around $1,440 each, plus.",
       "image": "/webflow-assets/images/window-type-hero/steel-windows.avif",
       "type": "website"
     },
-    "h1": "Steel Replacement Windows in the Bay Area",
+    "h1": "Steel Windows for Bay Area Homes",
     "primary_keyword": "steel windows",
     "target_keywords": [
       "steel windows",
-      "steel window replacement",
-      "steel windows near me",
-      "best steel windows"
+      "luxury steel windows burlingame",
+      "custom steel windows burlingame",
+      "commercial steel windows burlingame",
+      "thermal steel windows burlingame",
+      "black steel windows"
     ],
     "search_intent": "window-material",
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Steel Windows Bay Area | Deluxe Windows",
-      "description": "Compare steel windows for Bay Area homes, including leading brands, energy ratings and installed pricing. Request a free in-home estimate. Learn more today.",
+      "title": "Steel Windows Bay Area | Cost & Brands | Deluxe",
+      "description": "Steel windows compared for Bay Area homes: typical lifespan 50+ years when finishes are maintained, custom units typically starting around $1,440 each, plus.",
       "image": "/webflow-assets/images/window-type-hero/steel-windows.avif",
       "card": "summary_large_image"
     }
   },
   "faq": [
     {
-      "question": "What are the main benefits of Steel Windows?",
-      "answer": "Steel Windows offer narrow architectural profiles, strength, and a distinctive premium appearance. The best fit depends on the home's architecture, opening sizes, performance goals, and budget."
+      "question": "Are steel windows good or bad?",
+      "answer": "Steel products earn their reputation through the narrowest sightlines, exceptional strength and a distinctive architectural look. The right call still depends on the home's openings, exposure and budget, which Deluxe Windows reviews during a free assessment."
     },
     {
-      "question": "How energy efficient are steel windows for Bay Area homes?",
-      "answer": "For Steel Windows, thermal breaks, glazing, weather seals, and installation details determine energy performance. Deluxe Windows compares complete window ratings and installation requirements for the specific opening."
+      "question": "Are steel windows more expensive?",
+      "answer": "For steel windows, typical pricing is custom units typically starting around $1,440 each. Installed Bay Area totals also reflect labor, permits and any opening repairs, which Deluxe Windows confirms in a written estimate."
     },
     {
-      "question": "What maintenance do Steel Windows require?",
-      "answer": "For Steel Windows, protective finishes should be inspected and damaged areas addressed promptly to prevent corrosion. Product-specific care instructions and warranty requirements should also be followed."
+      "question": "Do they make metal windows anymore?",
+      "answer": "For Steel, the answer depends on the exact series, glass and installation conditions. Deluxe Windows reviews the specifics during a free Bay Area consultation and puts the details in writing."
     },
     {
-      "question": "What should I compare before choosing Steel Windows?",
-      "answer": "When evaluating Steel Windows, compare frame construction, glass, operating style, finish, warranty, and installed price. Steel products are typically selected for architectural design goals rather than as a direct substitute for economy vinyl windows."
+      "question": "Which is cheaper, aluminium or steel windows?",
+      "answer": "The honest comparison depends on priorities: Steel stands out for window and door products suited to different home styles, while competitors trade differently on price, warranty and looks. Pricing is confirmed per series and opening during the estimate. Deluxe Windows shows both options side by side in the showroom."
     }
   ],
   "schema": {

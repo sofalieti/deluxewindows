@@ -4,25 +4,26 @@
   "path": "/brand-collections/brand-marvin-elevate-collection",
   "seo": {
     "title": "Marvin Elevate Collection | Deluxe Windows",
-    "description": "Explore Marvin Elevate Collection specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
+    "description": "Marvin Elevate Collection specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
     "canonical": "https://www.deluxewindows.com/brand-collections/brand-marvin-elevate-collection",
     "og": {
       "title": "Marvin Elevate Collection | Deluxe Windows",
-      "description": "Explore Marvin Elevate Collection specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
+      "description": "Marvin Elevate Collection specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
       "image": "/webflow-assets/images/688512e4c00d6d6ea0fc8212_PROD_Marvin_ElevateBi-FoldDoor.avif",
       "type": "website"
     },
     "h1": "Marvin Elevate Collection",
     "primary_keyword": "marvin elevate collection",
     "target_keywords": [
-      "marvin elevate collection"
+      "marvin elevate collection",
+      "marvin elevate collection prices"
     ],
     "search_intent": "product-series",
     "priority": "P3",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
       "title": "Marvin Elevate Collection | Deluxe Windows",
-      "description": "Explore Marvin Elevate Collection specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
+      "description": "Marvin Elevate Collection specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
       "image": "/webflow-assets/images/688512e4c00d6d6ea0fc8212_PROD_Marvin_ElevateBi-FoldDoor.avif",
       "card": "summary_large_image"
     }
@@ -30,19 +31,19 @@
   "faq": [
     {
       "question": "What should homeowners know about Marvin Elevate Collection?",
-      "answer": "Explore Marvin Elevate Collection specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate."
+      "answer": "Marvin Elevate Collection is part of Marvin's lineup: premium wood, fiberglass and clad collections such as Essential, Elevate and Ultimate. Deluxe Windows checks that this collection matches the opening sizes and design goals before recommending it."
     },
     {
-      "question": "Which configurations are available in Marvin Elevate Collection?",
-      "answer": "Available Marvin Elevate Collection styles, sizes, glass packages, colors, and hardware depend on the exact product and opening. Deluxe Windows confirms current options before an order is prepared."
-    },
-    {
-      "question": "How should I compare Marvin Elevate Collection with other Marvin collections?",
-      "answer": "Compare Marvin Elevate Collection with other Marvin choices by frame material, style availability, energy ratings, design options, warranty, and installed project cost."
+      "question": "Which configurations does Marvin Elevate Collection offer?",
+      "answer": "Styles, sizes, glass packages, colors and hardware for Marvin Elevate Collection depend on the current catalog. Deluxe Windows confirms available configurations for each Bay Area order."
     },
     {
       "question": "How is installed pricing for Marvin Elevate Collection calculated?",
-      "answer": "Installed pricing for Marvin Elevate Collection depends on opening dimensions, configuration, glass, finish, hardware, quantity, access, and any required preparation or permit work."
+      "answer": "Installed pricing for Marvin Elevate Collection reflects opening dimensions, configuration, glass, finish, quantity and access. As a reference, installed Marvin windows usually price between $1,000 and $1,800 each depending on series and glass."
+    },
+    {
+      "question": "How does Marvin Elevate Collection compare with other Marvin collections?",
+      "answer": "Compare Marvin Elevate Collection with sibling collections on frame construction, visible glass area, energy ratings, finish options, warranty and installed cost. Marvin's Ultrex fiberglass is impact resistant and holds paint and shape in coastal climates."
     }
   ],
   "schema": {

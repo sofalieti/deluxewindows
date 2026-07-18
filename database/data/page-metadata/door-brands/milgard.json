@@ -3,49 +3,51 @@
   "key": "door-brands/milgard",
   "path": "/door-brands/milgard",
   "seo": {
-    "title": "Milgard Doors Bay Area | Deluxe Windows",
-    "description": "Compare Milgard door collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate. Learn more today.",
+    "title": "Milgard Doors Bay Area | Patio & Entry | Deluxe",
+    "description": "Milgard patio, sliding and entry doors for Bay Area homes. Compare panel styles, glass and installed pricing, with expert installation by Deluxe Windows.",
     "canonical": "https://www.deluxewindows.com/door-brands/milgard",
     "og": {
-      "title": "Milgard Doors Bay Area | Deluxe Windows",
-      "description": "Compare Milgard door collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate. Learn more today.",
+      "title": "Milgard Doors Bay Area | Patio & Entry | Deluxe",
+      "description": "Milgard patio, sliding and entry doors for Bay Area homes. Compare panel styles, glass and installed pricing, with expert installation by Deluxe Windows.",
       "image": "/webflow-assets/images/688a760a252df50b4cbf9cd7_Milgard.avif",
       "type": "website"
     },
-    "h1": "Milgard Doors — Bay Area Authorized Dealer & Installer",
+    "h1": "Milgard Doors — Patio, Sliding & Entry",
     "primary_keyword": "milgard doors",
     "target_keywords": [
       "milgard doors",
-      "milgard patio doors",
-      "milgard sliding doors",
-      "milgard entry doors"
+      "milgard windows and doors sacramento",
+      "milgard windows doors",
+      "milgard french doors",
+      "milgard windows doors near me",
+      "milgard doors and windows"
     ],
     "search_intent": "brand",
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Milgard Doors Bay Area | Deluxe Windows",
-      "description": "Compare Milgard door collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate. Learn more today.",
+      "title": "Milgard Doors Bay Area | Patio & Entry | Deluxe",
+      "description": "Milgard patio, sliding and entry doors for Bay Area homes. Compare panel styles, glass and installed pricing, with expert installation by Deluxe Windows.",
       "image": "/webflow-assets/images/688a760a252df50b4cbf9cd7_Milgard.avif",
       "card": "summary_large_image"
     }
   },
   "faq": [
     {
-      "question": "Are Milgard doors a good value?",
-      "answer": "Yes. Milgard doors deliver dependable performance and solid energy efficiency at a budget-friendly price, which makes them one of the most popular choices for Bay Area homes."
+      "question": "Is Milgard or Jeld Wen better?",
+      "answer": "For Milgard, the answer depends on the exact series, glass and installation conditions. Deluxe Windows reviews the specifics during a free Bay Area consultation and puts the details in writing."
     },
     {
-      "question": "Are Milgard doors energy efficient?",
-      "answer": "Milgard doors feature SunCoat Low-E glass and tight weather seals that help keep conditioned air inside and lower your energy costs throughout the year."
+      "question": "Which is better, Andersen or Milgard?",
+      "answer": "Milgard stands out for vinyl, fiberglass and aluminum families including Trinsic, Tuscany, Style Line and Ultra, while Andersen offers collections across Fibrex composite, wood, vinyl and aluminum-clad lines. Neither wins outright: Milgard windows typically run $350-$1,200 per unit before installation, one of the widest price spans among major brands, so the better pick depends on budget, style and warranty priorities. Deluxe Windows carries both and shows them side by side. Ask about Milgard specifics when booking the free estimate."
     },
     {
-      "question": "What warranty comes with Milgard doors?",
-      "answer": "Milgard is known for its strong, homeowner-friendly warranty coverage. We'll walk you through the exact terms for the door line you choose during your consultation."
+      "question": "Which Milgard doors does Deluxe Windows install in the Bay Area?",
+      "answer": "Deluxe Windows installs Milgard doors across the brand's current lineup — vinyl, fiberglass and aluminum families including Trinsic, Tuscany, Style Line and Ultra — and confirms series availability for each Bay Area project before quoting."
     },
     {
-      "question": "Do you install Milgard doors in the Bay Area?",
-      "answer": "Yes. Deluxe Windows professionally measures and installs Milgard doors across the Bay Area, finishing every job with a detailed inspection."
+      "question": "How do I get installed pricing for Milgard doors?",
+      "answer": "Installed pricing for Milgard doors is prepared after on-site measurements: Milgard windows typically run $350-$1,200 per unit before installation, one of the widest price spans among major brands. The written quote itemizes product, labor, permits and any opening repairs."
     }
   ],
   "schema": {

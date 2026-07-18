@@ -119,11 +119,11 @@ test('all public faq content is unique and file backed', function () {
     expect($withFaq)->toHaveCount(198)
         ->and($records->whereIn('path', $excludedPaths)->pluck('faq')->filter())
         ->toBeEmpty()
-        ->and($questions)->toHaveCount(794)
+        ->and($questions)->toHaveCount(787)
         ->and($questions->map(fn (string $value): string => mb_strtolower($value))->unique())
-        ->toHaveCount(794)
+        ->toHaveCount(787)
         ->and($answers->map(fn (string $value): string => mb_strtolower($value))->unique())
-        ->toHaveCount(794)
+        ->toHaveCount(787)
         ->and(preg_match(
             '/[А-Яа-яЁё]/u',
             json_encode([$questions, $answers], JSON_UNESCAPED_UNICODE)

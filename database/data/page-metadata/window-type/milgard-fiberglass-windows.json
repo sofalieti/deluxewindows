@@ -3,12 +3,12 @@
   "key": "window-type/milgard-fiberglass-windows",
   "path": "/window-type/milgard-fiberglass-windows",
   "seo": {
-    "title": "Milgard Fiberglass Windows | Deluxe Windows",
-    "description": "Compare Milgard fiberglass windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Learn more today.",
+    "title": "Milgard Fiberglass Windows | Prices & Series | Deluxe",
+    "description": "Milgard Fiberglass Windows for Bay Area homes: Tuscany uses a classic frame profile while Trinsic maximizes visible glass with narrow frames.",
     "canonical": "https://www.deluxewindows.com/window-type/milgard-fiberglass-windows",
     "og": {
-      "title": "Milgard Fiberglass Windows | Deluxe Windows",
-      "description": "Compare Milgard fiberglass windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Learn more today.",
+      "title": "Milgard Fiberglass Windows | Prices & Series | Deluxe",
+      "description": "Milgard Fiberglass Windows for Bay Area homes: Tuscany uses a classic frame profile while Trinsic maximizes visible glass with narrow frames.",
       "image": "/webflow-assets/images/688f3125157b70cefca86cd3_Milgare-Fiberglass-C650-Ultra-Series-Windows-1024x576.avif",
       "type": "website"
     },
@@ -16,34 +16,38 @@
     "primary_keyword": "milgard fiberglass windows",
     "target_keywords": [
       "milgard fiberglass windows",
-      "milgard fiberglass windows prices"
+      "milgard ultra fiberglass windows",
+      "milgard windows fiberglass",
+      "milgard ultra fiberglass",
+      "milgard fiberglass windows cost",
+      "milgard fiberglass window"
     ],
     "search_intent": "brand-material",
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Milgard Fiberglass Windows | Deluxe Windows",
-      "description": "Compare Milgard fiberglass windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Learn more today.",
+      "title": "Milgard Fiberglass Windows | Prices & Series | Deluxe",
+      "description": "Milgard Fiberglass Windows for Bay Area homes: Tuscany uses a classic frame profile while Trinsic maximizes visible glass with narrow frames.",
       "image": "/webflow-assets/images/688f3125157b70cefca86cd3_Milgare-Fiberglass-C650-Ultra-Series-Windows-1024x576.avif",
       "card": "summary_large_image"
     }
   },
   "faq": [
     {
-      "question": "What makes Milgard Fiberglass Windows suitable for a Bay Area replacement project?",
-      "answer": "Milgard Fiberglass Windows combine Milgard's product approach with dimensional stability, strength, and low-maintenance performance. Suitability still depends on the home's openings, exposure, design, and budget."
+      "question": "Why choose Milgard Fiberglass Windows for a Bay Area home?",
+      "answer": "Milgard Fiberglass Windows combine Milgard's engineering with dimensional stability, strength and paintable low-maintenance frames. Tuscany uses a classic frame profile while Trinsic maximizes visible glass with narrow frames, which suits many Bay Area replacement projects."
     },
     {
-      "question": "How do Milgard Fiberglass Windows perform for energy efficiency?",
-      "answer": "For Milgard Fiberglass Windows, stable frames and insulated glass can provide strong thermal performance when the unit is correctly specified and installed. The exact glass package and verified whole-window ratings should be reviewed before ordering."
+      "question": "What do Milgard Fiberglass Windows cost installed?",
+      "answer": "For Milgard Fiberglass Windows, Milgard windows typically run $350-$1,200 per unit before installation, one of the widest price spans among major brands; the material itself usually prices at about $800-$1,500+ per window, above vinyl and below custom wood. Deluxe Windows quotes each opening after measuring."
     },
     {
-      "question": "What maintenance should I expect with Milgard Fiberglass Windows?",
-      "answer": "Maintenance for Milgard Fiberglass Windows follows the needs of fiberglass frames: routine cleaning and inspection of seals and hardware are normally the main upkeep requirements. Hardware and weather seals should also be inspected periodically."
+      "question": "Which series are available for Milgard Fiberglass Windows?",
+      "answer": "Available Milgard Fiberglass Windows series change with the manufacturer's current catalog — vinyl, fiberglass and aluminum families including Trinsic, Tuscany, Style Line and Ultra. Deluxe Windows confirms the exact options during the consultation."
     },
     {
-      "question": "Can Deluxe Windows provide installed pricing for Milgard Fiberglass Windows?",
-      "answer": "Yes. Installed pricing for Milgard Fiberglass Windows is prepared after measuring the openings and confirming style, glass, finish, hardware, access, and installation conditions."
+      "question": "Who installs Milgard Fiberglass Windows near me?",
+      "answer": "Deluxe Windows measures, orders and installs Milgard Fiberglass Windows throughout the Bay Area from its Burlingame showroom, and verifies operation and weather sealing after installation."
     }
   ],
   "schema": {

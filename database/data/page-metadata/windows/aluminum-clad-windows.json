@@ -3,49 +3,51 @@
   "key": "windows/aluminum-clad-windows",
   "path": "/windows/aluminum-clad-windows",
   "seo": {
-    "title": "Aluminum Clad Windows Bay Area | Deluxe Windows",
-    "description": "Compare aluminum clad windows for Bay Area homes, including leading brands, energy ratings and installed pricing. Request a free in-home estimate.",
+    "title": "Aluminum Clad Windows Bay Area | Cost & Brands | Deluxe",
+    "description": "Aluminum Clad windows compared for Bay Area homes: typical lifespan 30-50 years thanks to the protected wood core, premium pricing similar to other clad-wood.",
     "canonical": "https://www.deluxewindows.com/windows/aluminum-clad-windows",
     "og": {
-      "title": "Aluminum Clad Windows Bay Area | Deluxe Windows",
-      "description": "Compare aluminum clad windows for Bay Area homes, including leading brands, energy ratings and installed pricing. Request a free in-home estimate.",
+      "title": "Aluminum Clad Windows Bay Area | Cost & Brands | Deluxe",
+      "description": "Aluminum Clad windows compared for Bay Area homes: typical lifespan 30-50 years thanks to the protected wood core, premium pricing similar to other clad-wood.",
       "image": "/webflow-assets/images/window-type-hero/aluminum-clad-windows.avif",
       "type": "website"
     },
-    "h1": "Aluminum-Clad Replacement Windows in the Bay Area",
-    "primary_keyword": "aluminum-clad windows",
+    "h1": "Aluminum Clad Windows for Bay Area Homes",
+    "primary_keyword": "aluminum clad windows",
     "target_keywords": [
-      "aluminum-clad windows",
-      "aluminum-clad window replacement",
-      "aluminum-clad windows near me",
-      "best aluminum-clad windows"
+      "aluminum clad windows",
+      "andersen aluminum clad windows",
+      "andersen e series aluminum clad windows",
+      "aluminum clad wood window",
+      "aluminum clad wood",
+      "aluminum clad wood windows price"
     ],
     "search_intent": "window-material",
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Aluminum Clad Windows Bay Area | Deluxe Windows",
-      "description": "Compare aluminum clad windows for Bay Area homes, including leading brands, energy ratings and installed pricing. Request a free in-home estimate.",
+      "title": "Aluminum Clad Windows Bay Area | Cost & Brands | Deluxe",
+      "description": "Aluminum Clad windows compared for Bay Area homes: typical lifespan 30-50 years thanks to the protected wood core, premium pricing similar to other clad-wood.",
       "image": "/webflow-assets/images/window-type-hero/aluminum-clad-windows.avif",
       "card": "summary_large_image"
     }
   },
   "faq": [
     {
-      "question": "What are the main benefits of Aluminum Clad Windows?",
-      "answer": "Aluminum Clad Windows offer a warm interior appearance with a protective aluminum exterior. The best fit depends on the home's architecture, opening sizes, performance goals, and budget."
+      "question": "Are aluminum clad windows worth it?",
+      "answer": "Aluminum Clad products earn their reputation through a warm wood interior protected by an extruded aluminum exterior that resists UV and weather. The right call still depends on the home's openings, exposure and budget, which Deluxe Windows reviews during a free assessment."
     },
     {
-      "question": "How energy efficient are aluminum-clad windows for Bay Area homes?",
-      "answer": "For Aluminum Clad Windows, performance depends on the interior frame, glazing package, spacers, and installation quality. Deluxe Windows compares complete window ratings and installation requirements for the specific opening."
+      "question": "How much do aluminum clad windows cost?",
+      "answer": "For aluminum clad windows, typical pricing is premium pricing similar to other clad-wood products. Installed Bay Area totals also reflect labor, permits and any opening repairs, which Deluxe Windows confirms in a written estimate."
     },
     {
-      "question": "What maintenance do Aluminum Clad Windows require?",
-      "answer": "For Aluminum Clad Windows, the exterior cladding limits repainting while the interior finish should be cared for as specified by the manufacturer. Product-specific care instructions and warranty requirements should also be followed."
+      "question": "Does Andersen have aluminum clad windows?",
+      "answer": "For Aluminum Clad, the answer depends on the exact series, glass and installation conditions. Deluxe Windows reviews the specifics during a free Bay Area consultation and puts the details in writing."
     },
     {
-      "question": "What should I compare before choosing Aluminum Clad Windows?",
-      "answer": "When evaluating Aluminum Clad Windows, compare frame construction, glass, operating style, finish, warranty, and installed price. They are distinct from all-aluminum products because cladding protects another frame material rather than forming the entire frame."
+      "question": "What are the main benefits of aluminum clad windows?",
+      "answer": "Aluminum Clad windows offer a warm wood interior protected by an extruded aluminum exterior that resists UV and weather. Whether they fit depends on the home's architecture, opening sizes, performance goals and budget."
     }
   ],
   "schema": {

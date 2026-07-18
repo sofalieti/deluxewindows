@@ -3,47 +3,49 @@
   "key": "static/contacts",
   "path": "/contacts",
   "seo": {
-    "title": "Contact Our Burlingame Showroom | Deluxe Windows",
-    "description": "Contact Deluxe Windows or visit our Burlingame showroom for help choosing replacement windows and doors. Schedule a free in-home estimate today.",
+    "title": "Contact Deluxe Windows | Burlingame Showroom",
+    "description": "Contact Deluxe Windows or visit the Burlingame showroom to plan window and door replacement. Call, send the project details and book a free estimate.",
     "canonical": "https://www.deluxewindows.com/contacts",
     "og": {
-      "title": "Contact Our Burlingame Showroom | Deluxe Windows",
-      "description": "Contact Deluxe Windows or visit our Burlingame showroom for help choosing replacement windows and doors. Schedule a free in-home estimate today.",
+      "title": "Contact Deluxe Windows | Burlingame Showroom",
+      "description": "Contact Deluxe Windows or visit the Burlingame showroom to plan window and door replacement. Call, send the project details and book a free estimate.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
       "type": "website"
     },
-    "h1": "Contact Deluxe Windows",
+    "h1": "Contact Deluxe Windows — Burlingame Showroom & Estimates",
     "primary_keyword": "deluxe windows burlingame",
     "target_keywords": [
       "deluxe windows burlingame",
-      "window showroom bay area"
+      "window showroom bay area",
+      "window replacement estimate",
+      "deluxe windows contact"
     ],
     "search_intent": "hub",
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Contact Our Burlingame Showroom | Deluxe Windows",
-      "description": "Contact Deluxe Windows or visit our Burlingame showroom for help choosing replacement windows and doors. Schedule a free in-home estimate today.",
+      "title": "Contact Deluxe Windows | Burlingame Showroom",
+      "description": "Contact Deluxe Windows or visit the Burlingame showroom to plan window and door replacement. Call, send the project details and book a free estimate.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
       "card": "summary_large_image"
     }
   },
   "faq": [
     {
-      "question": "How can I request an estimate from Deluxe Windows?",
-      "answer": "Use the contact form or call Deluxe Windows with the project address, product type, approximate quantity, and preferred appointment timing."
+      "question": "How much does it cost to have a contractor replace a window?",
+      "answer": "For contacts windows, typical pricing is a range set by frame material, glass and size. Installed Bay Area totals also reflect labor, permits and any opening repairs, which Deluxe Windows confirms in a written estimate."
     },
     {
-      "question": "What information should I provide before a window consultation?",
-      "answer": "Share the property address, number of openings, current problems, preferred materials or brands, target schedule, and any known HOA or permit requirements."
+      "question": "What kind of contractor replaces windows?",
+      "answer": "For Contacts, the answer depends on the exact series, glass and installation conditions. Deluxe Windows reviews the specifics during a free Bay Area consultation and puts the details in writing."
     },
     {
-      "question": "Can I discuss both windows and doors during one consultation?",
-      "answer": "Yes. A consultation can cover window and door needs together so measurements, styles, materials, priorities, and project sequencing can be reviewed as one plan."
+      "question": "Which company is best for new windows?",
+      "answer": "Contacts products earn their reputation through a balance of appearance, comfort and durability. The right call still depends on the home's openings, exposure and budget, which Deluxe Windows reviews during a free assessment."
     },
     {
-      "question": "Does Deluxe Windows offer in-home project measurements?",
-      "answer": "Yes. In-home measurements can be scheduled for qualifying Bay Area projects after the initial project details and service address are confirmed."
+      "question": "How do I request an estimate from Deluxe Windows?",
+      "answer": "Call, use the contact form or visit the Burlingame showroom with the project address, product type and approximate quantity; an in-home measurement is then scheduled at a convenient time."
     }
   ],
   "schema": {

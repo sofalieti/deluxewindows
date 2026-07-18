@@ -1,0 +1,118 @@
+{
+  "collected_at": "2026-07-18",
+  "source": "Apify automation-lab/google-search-scraper (Google US, en)",
+  "queries": {
+    "how much does window replacement cost": {
+      "paa": [
+        "Is it cheaper to replace all windows at once?",
+        "Is it worth replacing 20 year old windows?",
+        "What is the average cost of a standard replacement window?",
+        "How much does Home Depot charge to replace a window?"
+      ],
+      "facts": [
+        "Estimate per unit by window type: awning $750-$1,886; bay $3,554-$10,245; casement $589-$2,993; double hung $478-$2,412; shaped $705-$6,276 (homewyse)",
+        "Common quoted industry range: about $1,500-$3,000 per window installed (reddit)",
+        "Vinyl windows: $300-$800 each; wood: $700-$1,200; fiberglass/composite: $800-$1,500+"
+      ]
+    },
+    "cost to replace all windows in house": {
+      "paa": [
+        "Is it cheaper to replace all windows at once?",
+        "What is the average cost to replace 12 windows in a home?",
+        "How much does it cost to change all the windows in your house?",
+        "Is it worth replacing 20 year old windows?"
+      ],
+      "facts": [
+        "Pella 2026: small project (8-10 windows) $6,400-$22,000+; medium (12-15) $9,600-$33,000+; large (18-25+) $14,400+",
+        "Basic cost to install replacement windows: $632-$967 per window (May 2026)",
+        "Replacing all windows in a house may cost $3,500-$12,000+, average around $7,500"
+      ]
+    },
+    "window replacement san francisco": {
+      "paa": [
+        "How much does it cost to replace a window in San Francisco?",
+        "What is the average cost of a standard replacement window?",
+        "Do you need a permit to replace windows in San Francisco?",
+        "Who is the best company to buy windows from?"
+      ],
+      "facts": [
+        "San Francisco requires a building permit for all types of window replacement; in-kind replacements can be permitted online",
+        "Bay Area quote example: $26k for 13 windows and 1 sliding door (reddit)"
+      ]
+    },
+    "window replacement san jose": {
+      "paa": [
+        "What is the typical price to replace a window?",
+        "Who is the best company to buy windows from?",
+        "What is the average cost of a bay window replacement?",
+        "Is it worth replacing 30 year old windows?"
+      ],
+      "facts": [
+        "San Jose Home Depot project cost examples: $3,610 to $16,795 per project"
+      ]
+    },
+    "window replacement oakland": {
+      "paa": [
+        "What is the typical price to replace a window?",
+        "Do you need a permit to replace windows in Oakland?",
+        "Who is the best company to buy windows from?",
+        "Is it worth replacing 20 year old windows?"
+      ],
+      "facts": [
+        "Oakland requires building permits for any window replacement in residential or commercial structures",
+        "Oakland pricing example: $500-$1,000 per window; 9 retrofit Anlin vinyl windows + 1 new construction about $11k excluding permit (reddit)"
+      ]
+    },
+    "window replacement fremont": {
+      "paa": [
+        "How much should an average window replacement cost?",
+        "Is it worth replacing 20 year old windows?",
+        "How much does Home Depot charge to put in a window?",
+        "What is the average cost to replace glass in a window?"
+      ],
+      "facts": [
+        "Fremont Home Depot examples: $1,453-$1,536 per 60x36 window"
+      ]
+    },
+    "window replacement santa rosa": {
+      "paa": [
+        "What is the average cost of a standard replacement window?",
+        "What is the cheapest time of year to replace windows?",
+        "Is it worth replacing 20 year old windows?",
+        "What company makes the best quality replacement windows?"
+      ],
+      "facts": [
+        "Santa Rosa Home Depot project examples: $5,761-$19,447"
+      ]
+    },
+    "window replacement walnut creek": {
+      "paa": [
+        "What is the typical cost to replace a window?",
+        "What is the cheapest time of year to replace windows?",
+        "What company is best for replacement windows?",
+        "Who is Andersen windows' biggest competitor?"
+      ],
+      "facts": []
+    },
+    "window companies bay area": {
+      "paa": [
+        "Who is the best company to buy windows from?",
+        "What is the average cost of a good replacement window?",
+        "Who is Andersen Windows' biggest competitor?",
+        "What is the cheapest time of year to replace windows?"
+      ],
+      "facts": []
+    },
+    "window replacement contractor": {
+      "paa": [
+        "How much does it cost to have a contractor replace a window?",
+        "What kind of contractor replaces windows?",
+        "What company is best for replacement windows?",
+        "Which company is best for new windows?"
+      ],
+      "facts": [
+        "Window replacement costs $180-$410 per window, average $280 per window for basic contractor jobs (2026)"
+      ]
+    }
+  }
+}

@@ -3,12 +3,12 @@
   "key": "window-type/wood-marvin-windows",
   "path": "/window-type/wood-marvin-windows",
   "seo": {
-    "title": "Marvin Wood Windows | Deluxe Windows",
-    "description": "Compare Marvin wood windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Explore your options today.",
+    "title": "Marvin Wood Windows | Prices & Series | Deluxe",
+    "description": "Marvin Wood Windows for Bay Area homes: Marvin's Ultrex fiberglass is impact resistant and holds paint and shape in coastal climates. Get a free estimate.",
     "canonical": "https://www.deluxewindows.com/window-type/wood-marvin-windows",
     "og": {
-      "title": "Marvin Wood Windows | Deluxe Windows",
-      "description": "Compare Marvin wood windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Explore your options today.",
+      "title": "Marvin Wood Windows | Prices & Series | Deluxe",
+      "description": "Marvin Wood Windows for Bay Area homes: Marvin's Ultrex fiberglass is impact resistant and holds paint and shape in coastal climates. Get a free estimate.",
       "image": "/webflow-assets/images/688e53d174f51bd2d0554cc6_Screenshot-2025-08-02-at-21.07.09.avif",
       "type": "website"
     },
@@ -16,34 +16,38 @@
     "primary_keyword": "marvin wood windows",
     "target_keywords": [
       "marvin wood windows",
-      "marvin wood windows prices"
+      "marvin wood window",
+      "marvin wood double hung windows",
+      "marvin wood clad windows",
+      "marvin ultimate wood windows",
+      "marvin all wood windows"
     ],
     "search_intent": "brand-material",
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Marvin Wood Windows | Deluxe Windows",
-      "description": "Compare Marvin wood windows, available series, energy performance and installed pricing. Get Bay Area guidance and a free estimate. Explore your options today.",
+      "title": "Marvin Wood Windows | Prices & Series | Deluxe",
+      "description": "Marvin Wood Windows for Bay Area homes: Marvin's Ultrex fiberglass is impact resistant and holds paint and shape in coastal climates. Get a free estimate.",
       "image": "/webflow-assets/images/688e53d174f51bd2d0554cc6_Screenshot-2025-08-02-at-21.07.09.avif",
       "card": "summary_large_image"
     }
   },
   "faq": [
     {
-      "question": "What makes Marvin Wood Windows suitable for a Bay Area replacement project?",
-      "answer": "Marvin Wood Windows combine Marvin's product approach with natural interior character, design flexibility, and compatibility with traditional architecture. Suitability still depends on the home's openings, exposure, design, and budget."
+      "question": "Why choose Marvin Wood Windows for a Bay Area home?",
+      "answer": "Marvin Wood Windows combine Marvin's engineering with natural interior character and strong compatibility with traditional architecture. Marvin's Ultrex fiberglass is impact resistant and holds paint and shape in coastal climates, which suits many Bay Area replacement projects."
     },
     {
-      "question": "How do Marvin Wood Windows perform for energy efficiency?",
-      "answer": "For Marvin Wood Windows, wood frames insulate naturally, while glass, weatherstripping, and installation determine the completed unit's performance. The exact glass package and verified whole-window ratings should be reviewed before ordering."
+      "question": "What do Marvin Wood Windows cost installed?",
+      "answer": "For Marvin Wood Windows, installed Marvin windows usually price between $1,000 and $1,800 each depending on series and glass; the material itself usually prices at roughly $700-$1,200 per window before installation. Deluxe Windows quotes each opening after measuring."
     },
     {
-      "question": "What maintenance should I expect with Marvin Wood Windows?",
-      "answer": "Maintenance for Marvin Wood Windows follows the needs of wood frames: exposed wood needs periodic inspection and finish maintenance to control moisture and weathering. Hardware and weather seals should also be inspected periodically."
+      "question": "Which series are available for Marvin Wood Windows?",
+      "answer": "Available Marvin Wood Windows series change with the manufacturer's current catalog — premium wood, fiberglass and clad collections such as Essential, Elevate and Ultimate. Deluxe Windows confirms the exact options during the consultation."
     },
     {
-      "question": "Can Deluxe Windows provide installed pricing for Marvin Wood Windows?",
-      "answer": "Yes. Installed pricing for Marvin Wood Windows is prepared after measuring the openings and confirming style, glass, finish, hardware, access, and installation conditions."
+      "question": "Who installs Marvin Wood Windows near me?",
+      "answer": "Deluxe Windows measures, orders and installs Marvin Wood Windows throughout the Bay Area from its Burlingame showroom, and verifies operation and weather sealing after installation."
     }
   ],
   "schema": {

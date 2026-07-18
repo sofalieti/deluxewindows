@@ -3,48 +3,51 @@
   "key": "doors/aluminum-doors",
   "path": "/doors/aluminum-doors",
   "seo": {
-    "title": "Aluminum Doors Bay Area | Deluxe Windows",
-    "description": "Compare aluminum entry and patio doors for Bay Area homes. Explore leading brands, custom sizes and professional installation. Get a free estimate.",
+    "title": "Aluminum Doors Bay Area | Entry & Patio | Deluxe",
+    "description": "Aluminum entry and patio doors for Bay Area homes, offering slim sightlines, structural strength and a clean contemporary appearance. Get a free estimate.",
     "canonical": "https://www.deluxewindows.com/doors/aluminum-doors",
     "og": {
-      "title": "Aluminum Doors Bay Area | Deluxe Windows",
-      "description": "Compare aluminum entry and patio doors for Bay Area homes. Explore leading brands, custom sizes and professional installation. Get a free estimate.",
+      "title": "Aluminum Doors Bay Area | Entry & Patio | Deluxe",
+      "description": "Aluminum entry and patio doors for Bay Area homes, offering slim sightlines, structural strength and a clean contemporary appearance. Get a free estimate.",
       "image": "/webflow-assets/images/6841ddf8ace3d9d9facb1a44_firs-time-homebuyers-guide-thumbnail-v3-property-x-webflow-template.avif",
       "type": "website"
     },
-    "h1": "Aluminum Exterior Doors in the Bay Area",
+    "h1": "Aluminum Doors for Bay Area Homes",
     "primary_keyword": "aluminum doors",
     "target_keywords": [
       "aluminum doors",
-      "aluminum exterior doors",
-      "aluminum entry door"
+      "aluminum windows and doors",
+      "architectural aluminium windows and doors",
+      "aluminum door",
+      "aluminum doors and windows",
+      "architectural aluminum windows and doors"
     ],
     "search_intent": "door-material",
     "priority": "P2",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Aluminum Doors Bay Area | Deluxe Windows",
-      "description": "Compare aluminum entry and patio doors for Bay Area homes. Explore leading brands, custom sizes and professional installation. Get a free estimate.",
+      "title": "Aluminum Doors Bay Area | Entry & Patio | Deluxe",
+      "description": "Aluminum entry and patio doors for Bay Area homes, offering slim sightlines, structural strength and a clean contemporary appearance. Get a free estimate.",
       "image": "/webflow-assets/images/6841ddf8ace3d9d9facb1a44_firs-time-homebuyers-guide-thumbnail-v3-property-x-webflow-template.avif",
       "card": "summary_large_image"
     }
   },
   "faq": [
     {
-      "question": "What are the main benefits of Aluminum Doors?",
-      "answer": "Aluminum Doors offer slim sightlines, structural strength, and a clean contemporary appearance. The best fit depends on the home's architecture, opening sizes, performance goals, and budget."
+      "question": "What are the main benefits of aluminum doors?",
+      "answer": "Aluminum doors offer slim sightlines, structural strength and a clean contemporary appearance. Whether they fit depends on the home's architecture, opening sizes, performance goals and budget."
     },
     {
-      "question": "How energy efficient are aluminum doors for Bay Area homes?",
-      "answer": "For Aluminum Doors, thermally improved frames and the selected glass package are especially important because aluminum conducts heat. Deluxe Windows compares complete door ratings and installation requirements for the specific opening."
+      "question": "How much do aluminum doors cost installed in the Bay Area?",
+      "answer": "Plan on mid-range pricing with slim frames that maximize glass area for aluminum doors, plus installation that reflects access, removal and finishing. Deluxe Windows provides exact installed pricing after measuring."
     },
     {
-      "question": "What maintenance do Aluminum Doors require?",
-      "answer": "For Aluminum Doors, factory-finished aluminum is low maintenance, but tracks, drainage paths, seals, and hardware should remain clean. Product-specific care instructions and warranty requirements should also be followed."
+      "question": "How long do aluminum doors last?",
+      "answer": "Aluminum doors typically serve 15-30 years, longer for thermally improved architectural frames. Installation quality and exposure matter, so Deluxe Windows also reviews flashing and seals during replacement."
     },
     {
-      "question": "What should I compare before choosing Aluminum Doors?",
-      "answer": "When evaluating Aluminum Doors, compare frame construction, glass, operating style, finish, warranty, and installed price. Confirm thermal performance, frame depth, finish, and condensation resistance for the exact product."
+      "question": "What maintenance do aluminum doors need?",
+      "answer": "For aluminum doors, factory finishes are low maintenance; keep tracks, drainage paths and seals clean. Manufacturer care instructions should be followed to keep the finish and warranty intact."
     }
   ],
   "schema": {

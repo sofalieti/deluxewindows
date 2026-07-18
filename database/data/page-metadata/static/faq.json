@@ -3,55 +3,57 @@
   "key": "static/faq",
   "path": "/faq",
   "seo": {
-    "title": "Window Replacement FAQ | Deluxe Windows",
-    "description": "Get clear answers about window replacement costs, installation, permits, financing, warranties and materials from our experienced Bay Area team.",
+    "title": "Window Replacement FAQ & Costs | Deluxe Windows",
+    "description": "Get answers about window replacement costs, permits, timelines, financing and warranties in the Bay Area, based on the questions homeowners ask most.",
     "canonical": "https://www.deluxewindows.com/faq",
     "og": {
-      "title": "Window Replacement FAQ | Deluxe Windows",
-      "description": "Get clear answers about window replacement costs, installation, permits, financing, warranties and materials from our experienced Bay Area team.",
+      "title": "Window Replacement FAQ & Costs | Deluxe Windows",
+      "description": "Get answers about window replacement costs, permits, timelines, financing and warranties in the Bay Area, based on the questions homeowners ask most.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
       "type": "website"
     },
-    "h1": "Frequently Asked Questions",
-    "primary_keyword": "window replacement faq",
+    "h1": "Window Replacement Questions, Answered",
+    "primary_keyword": "window replacement cost",
     "target_keywords": [
+      "window replacement cost",
+      "how much is a window replacement",
       "window replacement faq",
-      "window cost questions"
+      "window installation questions"
     ],
     "search_intent": "hub",
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Window Replacement FAQ | Deluxe Windows",
-      "description": "Get clear answers about window replacement costs, installation, permits, financing, warranties and materials from our experienced Bay Area team.",
+      "title": "Window Replacement FAQ & Costs | Deluxe Windows",
+      "description": "Get answers about window replacement costs, permits, timelines, financing and warranties in the Bay Area, based on the questions homeowners ask most.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
       "card": "summary_large_image"
     }
   },
   "faq": [
     {
-      "question": "Which material is best for your windows?",
-      "answer": "Vinyl is efficient and low maintenance, wood preserves a traditional appearance, wood-clad combines a wood interior with a durable exterior, aluminum provides slim strong frames, and fiberglass offers exceptional strength and durability. The best choice depends on the home, climate, and budget."
+      "question": "How much does window replacement cost in the Bay Area?",
+      "answer": "Most Bay Area projects land around $1,500-$3,000 per window installed for quality vinyl, with fiberglass, clad-wood and architectural products higher. Window count, sizes, glass and access move the number, so quotes follow on-site measurements."
     },
     {
-      "question": "Will I need to obtain a permit?",
-      "answer": "Permit requirements vary by city and property. Historic districts and homeowner associations may have additional rules. Deluxe Windows can help determine requirements and assist with the permit process."
+      "question": "How much does it cost to replace all windows in a house?",
+      "answer": "Whole-house pricing scales with count: industry data for 2026 shows 8-10 windows at roughly $6,400-$22,000 and 12-15 windows at $9,600-$33,000. Replacing everything at once is usually cheaper per window than phasing the work."
     },
     {
-      "question": "When do I need new windows?",
-      "answer": "Signs include high energy bills, rooms that are too hot or cold, recurring condensation, drafts or leaks, and windows that are difficult to operate."
+      "question": "Do I need a permit to replace windows in the Bay Area?",
+      "answer": "Most Bay Area cities require a permit: San Francisco requires one for every window replacement, and Oakland for any residential or commercial swap. Deluxe Windows confirms the rule for your address and files the paperwork."
     },
     {
-      "question": "What causes condensation?",
-      "answer": "Condensation forms when humid air meets a cooler surface. Aging windows and weak insulation can allow moisture to collect on or between panes."
+      "question": "How long does a window replacement project take?",
+      "answer": "Measurement takes one visit, manufacturing typically four to eight weeks, and installation one to three working days for most homes. Larger or specialty orders, such as clad-wood or steel, can extend the manufacturing window."
     },
     {
-      "question": "Will I need retrofit or new construction installation?",
-      "answer": "Retrofit installation fits a custom window into the existing opening and is usually faster. New construction installation removes the surrounding frame and is appropriate when the opening or waterproofing also needs replacement."
+      "question": "Should I choose retrofit or full-frame window replacement?",
+      "answer": "Retrofit installation keeps the existing frame and costs less, which suits sound stucco openings common in the Bay Area. Full-frame replacement removes everything to the studs and is the right call when frames show rot, leaks or previous poor installs."
     },
     {
-      "question": "How do I choose window brands and styles?",
-      "answer": "A specialist should assess the home's architecture, openings, efficiency goals, and budget before recommending a product, style, and price range."
+      "question": "Which window brands does Deluxe Windows carry?",
+      "answer": "Deluxe Windows carries Milgard, Marvin, Andersen, Anlin, Simonton, JELD-WEN, Ply Gem, Alside, Western Window Systems, Italwindows and All Weather Architectural Aluminum, so budget and premium projects can be compared in one place."
     }
   ],
   "schema": {

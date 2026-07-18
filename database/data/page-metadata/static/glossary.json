@@ -4,25 +4,28 @@
   "path": "/glossary",
   "seo": {
     "title": "Window & Door Glossary | Deluxe Windows",
-    "description": "Learn essential window and door terms, from Low-E glass and frame materials to installation methods, energy ratings and common product features.",
+    "description": "Learn essential window and door terms, from Low-E glass and dual pane windows to frame materials, energy ratings and common installation methods.",
     "canonical": "https://www.deluxewindows.com/glossary",
     "og": {
       "title": "Window & Door Glossary | Deluxe Windows",
-      "description": "Learn essential window and door terms, from Low-E glass and frame materials to installation methods, energy ratings and common product features.",
+      "description": "Learn essential window and door terms, from Low-E glass and dual pane windows to frame materials, energy ratings and common installation methods.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
       "type": "website"
     },
-    "h1": "Window Terminology Glossary",
-    "primary_keyword": "window terms glossary",
+    "h1": "Window and Door Terms Explained",
+    "primary_keyword": "window glossary",
     "target_keywords": [
-      "window terms glossary"
+      "window glossary",
+      "dual pane windows",
+      "window terms",
+      "low-e glass meaning"
     ],
     "search_intent": "hub",
     "priority": "P3",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
       "title": "Window & Door Glossary | Deluxe Windows",
-      "description": "Learn essential window and door terms, from Low-E glass and frame materials to installation methods, energy ratings and common product features.",
+      "description": "Learn essential window and door terms, from Low-E glass and dual pane windows to frame materials, energy ratings and common installation methods.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
       "card": "summary_large_image"
     }

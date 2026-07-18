@@ -3,47 +3,49 @@
   "key": "static/financing",
   "path": "/financing",
   "seo": {
-    "title": "Window & Door Financing | Deluxe Windows",
-    "description": "Explore flexible window and door financing options for your Bay Area project. Review payment choices and request a free estimate from Deluxe Windows.",
+    "title": "Window Financing Bay Area | Deluxe Windows",
+    "description": "Review window and door financing for Bay Area projects, including monthly payment plans. See how approval works and request a free project estimate.",
     "canonical": "https://www.deluxewindows.com/financing",
     "og": {
-      "title": "Window & Door Financing | Deluxe Windows",
-      "description": "Explore flexible window and door financing options for your Bay Area project. Review payment choices and request a free estimate from Deluxe Windows.",
+      "title": "Window Financing Bay Area | Deluxe Windows",
+      "description": "Review window and door financing for Bay Area projects, including monthly payment plans. See how approval works and request a free project estimate.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
       "type": "website"
     },
-    "h1": "Window & Door Financing",
+    "h1": "Window and Door Financing Options",
     "primary_keyword": "window financing",
     "target_keywords": [
       "window financing",
-      "windows payment plan"
+      "windows on finance",
+      "window payment plans",
+      "door financing"
     ],
     "search_intent": "hub",
     "priority": "P2",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Window & Door Financing | Deluxe Windows",
-      "description": "Explore flexible window and door financing options for your Bay Area project. Review payment choices and request a free estimate from Deluxe Windows.",
+      "title": "Window Financing Bay Area | Deluxe Windows",
+      "description": "Review window and door financing for Bay Area projects, including monthly payment plans. See how approval works and request a free project estimate.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
       "card": "summary_large_image"
     }
   },
   "faq": [
     {
-      "question": "What project information is needed to discuss financing?",
-      "answer": "Provide the project address, estimated scope, selected products if known, and target schedule. Financing options can then be reviewed alongside the installation proposal."
+      "question": "Can you do payment plans on window replacement?",
+      "answer": "For Financing, the answer depends on the exact series, glass and installation conditions. Deluxe Windows reviews the specifics during a free Bay Area consultation and puts the details in writing."
     },
     {
-      "question": "Does checking window and door financing change the product estimate?",
-      "answer": "The product and installation scope should be priced first. Financing changes how an approved project is paid for, not the measurements or required installation work."
+      "question": "Can you get 0% finance on windows?",
+      "answer": "For Financing, the answer depends on the exact series, glass and installation conditions. Deluxe Windows reviews the specifics during a free Bay Area consultation and puts the details in writing. Ask about Financing specifics when booking the free estimate."
     },
     {
-      "question": "When are financing terms confirmed?",
-      "answer": "Rates, term length, payment amount, eligibility, and required disclosures are confirmed through the applicable financing provider before an agreement is accepted."
+      "question": "What is the average cost of replacing 10 windows in a home?",
+      "answer": "For financing windows, typical pricing is a range set by frame material, glass and size. Installed Bay Area totals also reflect labor, permits and any opening repairs, which Deluxe Windows confirms in a written estimate."
     },
     {
-      "question": "Can financing cover both windows and doors in one project?",
-      "answer": "A combined project may be considered, subject to the selected program, approved amount, project proposal, and financing provider's current terms."
+      "question": "Can I pay for window replacement in installments?",
+      "answer": "Yes — financing with monthly payments is available for qualifying Bay Area projects, and the industry commonly offers promotional terms such as 0% APR periods on approved credit."
     }
   ],
   "schema": {

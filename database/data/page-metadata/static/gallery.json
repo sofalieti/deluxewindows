@@ -4,25 +4,27 @@
   "path": "/gallery",
   "seo": {
     "title": "Window & Door Project Gallery | Deluxe Windows",
-    "description": "Browse completed window and door installations by Deluxe Windows across the Bay Area. Explore project ideas, products and finishes for your home.",
+    "description": "Browse completed window and door installations by Deluxe Windows across the Bay Area. See real projects, products and finishes to plan your own upgrade.",
     "canonical": "https://www.deluxewindows.com/gallery",
     "og": {
       "title": "Window & Door Project Gallery | Deluxe Windows",
-      "description": "Browse completed window and door installations by Deluxe Windows across the Bay Area. Explore project ideas, products and finishes for your home.",
+      "description": "Browse completed window and door installations by Deluxe Windows across the Bay Area. See real projects, products and finishes to plan your own upgrade.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
       "type": "website"
     },
-    "h1": "Our Work",
-    "primary_keyword": "window installation photos bay area",
+    "h1": "Completed Window and Door Projects",
+    "primary_keyword": "window installation gallery",
     "target_keywords": [
-      "window installation photos bay area"
+      "window installation gallery",
+      "window projects bay area",
+      "door installation photos"
     ],
     "search_intent": "hub",
     "priority": "P3",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
       "title": "Window & Door Project Gallery | Deluxe Windows",
-      "description": "Browse completed window and door installations by Deluxe Windows across the Bay Area. Explore project ideas, products and finishes for your home.",
+      "description": "Browse completed window and door installations by Deluxe Windows across the Bay Area. See real projects, products and finishes to plan your own upgrade.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
       "card": "summary_large_image"
     }

@@ -3,48 +3,51 @@
   "key": "doors/wood-doors",
   "path": "/doors/wood-doors",
   "seo": {
-    "title": "Wood Doors Bay Area | Deluxe Windows",
-    "description": "Compare wood entry and patio doors for Bay Area homes. Explore leading brands, custom sizes and professional installation. Get a free estimate. Get expert help.",
+    "title": "Wood Doors Bay Area | Entry & Patio | Deluxe",
+    "description": "Wood entry and patio doors for Bay Area homes, offering natural interior character and strong compatibility with traditional architecture. Get a free estimate.",
     "canonical": "https://www.deluxewindows.com/doors/wood-doors",
     "og": {
-      "title": "Wood Doors Bay Area | Deluxe Windows",
-      "description": "Compare wood entry and patio doors for Bay Area homes. Explore leading brands, custom sizes and professional installation. Get a free estimate. Get expert help.",
+      "title": "Wood Doors Bay Area | Entry & Patio | Deluxe",
+      "description": "Wood entry and patio doors for Bay Area homes, offering natural interior character and strong compatibility with traditional architecture. Get a free estimate.",
       "image": "/webflow-assets/images/6841ddf8ace3d9d9facb1a8b_heres-how-decorate-your-new-home-thumbnail-v3-property-x-webflow-template.avif",
       "type": "website"
     },
-    "h1": "Wood Exterior Doors in the Bay Area",
+    "h1": "Wood Doors for Bay Area Homes",
     "primary_keyword": "wood doors",
     "target_keywords": [
       "wood doors",
-      "wood exterior doors",
-      "wood entry door"
+      "wood door company near me",
+      "prehung wood exterior doors",
+      "solid wood doors in san francisco",
+      "wooden works windows and doors corporation oakland ca",
+      "wood doors exterior"
     ],
     "search_intent": "door-material",
     "priority": "P2",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Wood Doors Bay Area | Deluxe Windows",
-      "description": "Compare wood entry and patio doors for Bay Area homes. Explore leading brands, custom sizes and professional installation. Get a free estimate. Get expert help.",
+      "title": "Wood Doors Bay Area | Entry & Patio | Deluxe",
+      "description": "Wood entry and patio doors for Bay Area homes, offering natural interior character and strong compatibility with traditional architecture. Get a free estimate.",
       "image": "/webflow-assets/images/6841ddf8ace3d9d9facb1a8b_heres-how-decorate-your-new-home-thumbnail-v3-property-x-webflow-template.avif",
       "card": "summary_large_image"
     }
   },
   "faq": [
     {
-      "question": "What are the main benefits of Wood Doors?",
-      "answer": "Wood Doors offer natural interior character, design flexibility, and compatibility with traditional architecture. The best fit depends on the home's architecture, opening sizes, performance goals, and budget."
+      "question": "What are the main benefits of wood doors?",
+      "answer": "Wood doors offer natural interior character and strong compatibility with traditional architecture. Whether they fit depends on the home's architecture, opening sizes, performance goals and budget."
     },
     {
-      "question": "How energy efficient are wood doors for Bay Area homes?",
-      "answer": "For Wood Doors, wood frames insulate naturally, while glass, weatherstripping, and installation determine the completed unit's performance. Deluxe Windows compares complete door ratings and installation requirements for the specific opening."
+      "question": "How much do wood doors cost installed in the Bay Area?",
+      "answer": "Plan on roughly $700-$1,200 per window before installation for wood doors, plus installation that reflects access, removal and finishing. Deluxe Windows provides exact installed pricing after measuring."
     },
     {
-      "question": "What maintenance do Wood Doors require?",
-      "answer": "For Wood Doors, exposed wood needs periodic inspection and finish maintenance to control moisture and weathering. Product-specific care instructions and warranty requirements should also be followed."
+      "question": "How long do wood doors last?",
+      "answer": "Wood doors typically serve 30 or more years with proper maintenance. Installation quality and exposure matter, so Deluxe Windows also reviews flashing and seals during replacement."
     },
     {
-      "question": "What should I compare before choosing Wood Doors?",
-      "answer": "When evaluating Wood Doors, compare frame construction, glass, operating style, finish, warranty, and installed price. Unlike wood-clad products, exposed wood requires more exterior care unless another protective system is specified."
+      "question": "What maintenance do wood doors need?",
+      "answer": "For wood doors, exposed wood needs periodic inspection and finish maintenance to control moisture. Manufacturer care instructions should be followed to keep the finish and warranty intact."
     }
   ],
   "schema": {

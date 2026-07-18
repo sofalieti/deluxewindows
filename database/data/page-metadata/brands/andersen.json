@@ -3,49 +3,51 @@
   "key": "brands/andersen",
   "path": "/brands/andersen",
   "seo": {
-    "title": "Andersen Windows Bay Area | Deluxe Windows",
-    "description": "Compare Andersen window collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate.",
+    "title": "Andersen Windows Bay Area | Authorized Dealer | Deluxe",
+    "description": "Andersen windows for Bay Area homes: collections across Fibrex composite, wood, vinyl and aluminum-clad lines. Get a free estimate. Compare series and pricing.",
     "canonical": "https://www.deluxewindows.com/brands/andersen",
     "og": {
-      "title": "Andersen Windows Bay Area | Deluxe Windows",
-      "description": "Compare Andersen window collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate.",
+      "title": "Andersen Windows Bay Area | Authorized Dealer | Deluxe",
+      "description": "Andersen windows for Bay Area homes: collections across Fibrex composite, wood, vinyl and aluminum-clad lines. Get a free estimate. Compare series and pricing.",
       "image": "/webflow-assets/images/688a75a9f58dabd4b2642bc5_Andersen.avif",
       "type": "website"
     },
-    "h1": "Andersen Windows — Bay Area Authorized Dealer & Installer",
+    "h1": "Andersen Windows — Bay Area Dealer & Installer",
     "primary_keyword": "andersen windows",
     "target_keywords": [
       "andersen windows",
+      "renewal by andersen",
       "andersen windows near me",
-      "andersen dealer",
-      "andersen warranty"
+      "windows by andersen",
+      "renewal by andersen near me",
+      "andersen renewal windows"
     ],
     "search_intent": "brand",
     "priority": "P0",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Andersen Windows Bay Area | Deluxe Windows",
-      "description": "Compare Andersen window collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate.",
+      "title": "Andersen Windows Bay Area | Authorized Dealer | Deluxe",
+      "description": "Andersen windows for Bay Area homes: collections across Fibrex composite, wood, vinyl and aluminum-clad lines. Get a free estimate. Compare series and pricing.",
       "image": "/webflow-assets/images/688a75a9f58dabd4b2642bc5_Andersen.avif",
       "card": "summary_large_image"
     }
   },
   "faq": [
     {
-      "question": "What types of Andersen windows does Deluxe Windows offer?",
-      "answer": "Deluxe Windows helps Bay Area homeowners compare window collections spanning several materials, styles, performance levels, and design approaches. Available series, styles, and configurations are confirmed for each project."
+      "question": "What are the cons of Andersen windows?",
+      "answer": "No brand is perfect: with Andersen, review series-level differences in pricing, lead times and hardware. the 100 Series uses Fibrex composite material that Andersen rates about twice as strong as vinyl. Deluxe Windows flags the honest trade-offs of each series before ordering."
     },
     {
-      "question": "Are Andersen windows a good fit for Bay Area homes?",
-      "answer": "Andersen windows can be a good fit when their material, glass, size limits, and design match the property. Deluxe Windows evaluates those details before recommending a collection."
+      "question": "Are Andersen 100 series windows any good?",
+      "answer": "Andersen is a solid choice when the series matches the home: the brand offers collections across Fibrex composite, wood, vinyl and aluminum-clad lines. the 100 Series uses Fibrex composite material that Andersen rates about twice as strong as vinyl. Deluxe Windows compares verified ratings and installed cost before recommending it."
     },
     {
-      "question": "How should I compare Andersen window collections?",
-      "answer": "Compare Andersen collections by frame material, operating style, energy ratings, glass options, finish choices, warranty, and total installed price."
+      "question": "What is the difference between Andersen Series 100 and 200?",
+      "answer": "The honest comparison depends on priorities: Andersen stands out for collections across Fibrex composite, wood, vinyl and aluminum-clad lines, while competitors trade differently on price, warranty and looks. Installed andersen windows in the bay area typically run about $700-$1,200 each, with premium series higher. Deluxe Windows shows both options side by side in the showroom."
     },
     {
-      "question": "Does Deluxe Windows install Andersen windows?",
-      "answer": "Yes. Deluxe Windows measures, specifies, and installs Andersen windows for qualifying Bay Area projects, then verifies operation and fit after installation."
+      "question": "Is Andersen 100 or 400 series better?",
+      "answer": "For Andersen, the answer depends on the exact series, glass and installation conditions. Deluxe Windows reviews the specifics during a free Bay Area consultation and puts the details in writing."
     }
   ],
   "schema": {

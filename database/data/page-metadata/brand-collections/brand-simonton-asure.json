@@ -4,25 +4,26 @@
   "path": "/brand-collections/brand-simonton-asure",
   "seo": {
     "title": "Simonton Asure | Deluxe Windows",
-    "description": "Explore Simonton Asure specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
+    "description": "Simonton Asure specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
     "canonical": "https://www.deluxewindows.com/brand-collections/brand-simonton-asure",
     "og": {
       "title": "Simonton Asure | Deluxe Windows",
-      "description": "Explore Simonton Asure specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
+      "description": "Simonton Asure specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
       "image": "/webflow-assets/images/6964b7b5dfa44f1ebf10cb88_689afc797bce555ea0d7030a_sim_interior_living_room_asure_3_lite_sliding_window_5050_module_p114.avif",
       "type": "website"
     },
     "h1": "Simonton Asure",
     "primary_keyword": "simonton asure",
     "target_keywords": [
-      "simonton asure"
+      "simonton asure",
+      "simonton asure prices"
     ],
     "search_intent": "product-series",
     "priority": "P3",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
       "title": "Simonton Asure | Deluxe Windows",
-      "description": "Explore Simonton Asure specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
+      "description": "Simonton Asure specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
       "image": "/webflow-assets/images/6964b7b5dfa44f1ebf10cb88_689afc797bce555ea0d7030a_sim_interior_living_room_asure_3_lite_sliding_window_5050_module_p114.avif",
       "card": "summary_large_image"
     }
@@ -30,19 +31,19 @@
   "faq": [
     {
       "question": "What should homeowners know about Simonton Asure?",
-      "answer": "Explore Simonton Asure specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate."
+      "answer": "Simonton Asure is part of Simonton's lineup: low-maintenance vinyl collections including DaylightMax with slim frames. Deluxe Windows checks that this collection matches the opening sizes and design goals before recommending it."
     },
     {
-      "question": "Which configurations are available in Simonton Asure?",
-      "answer": "Available Simonton Asure styles, sizes, glass packages, colors, and hardware depend on the exact product and opening. Deluxe Windows confirms current options before an order is prepared."
-    },
-    {
-      "question": "How should I compare Simonton Asure with other Simonton collections?",
-      "answer": "Compare Simonton Asure with other Simonton choices by frame material, style availability, energy ratings, design options, warranty, and installed project cost."
+      "question": "Which configurations does Simonton Asure offer?",
+      "answer": "Styles, sizes, glass packages, colors and hardware for Simonton Asure depend on the current catalog. Deluxe Windows confirms available configurations for each Bay Area order."
     },
     {
       "question": "How is installed pricing for Simonton Asure calculated?",
-      "answer": "Installed pricing for Simonton Asure depends on opening dimensions, configuration, glass, finish, hardware, quantity, access, and any required preparation or permit work."
+      "answer": "Installed pricing for Simonton Asure reflects opening dimensions, configuration, glass, finish, quantity and access. As a reference, Simonton windows generally range from $200-$1,200 per unit, or roughly $265-$1,500 installed."
+    },
+    {
+      "question": "How does Simonton Asure compare with other Simonton collections?",
+      "answer": "Compare Simonton Asure with sibling collections on frame construction, visible glass area, energy ratings, finish options, warranty and installed cost. Simonton has been an ENERGY STAR partner since 1999."
     }
   ],
   "schema": {

@@ -4,25 +4,26 @@
   "path": "/testimonials",
   "seo": {
     "title": "Deluxe Windows Reviews | Bay Area Customers",
-    "description": "Read reviews from Bay Area homeowners who chose Deluxe Windows for window and door replacement, product guidance and professional installation. Get expert help.",
+    "description": "Read reviews from Bay Area homeowners who chose Deluxe Windows for window and door replacement, product guidance and professional installation.",
     "canonical": "https://www.deluxewindows.com/testimonials",
     "og": {
       "title": "Deluxe Windows Reviews | Bay Area Customers",
-      "description": "Read reviews from Bay Area homeowners who chose Deluxe Windows for window and door replacement, product guidance and professional installation. Get expert help.",
+      "description": "Read reviews from Bay Area homeowners who chose Deluxe Windows for window and door replacement, product guidance and professional installation.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
       "type": "website"
     },
-    "h1": "What Our Customers Say",
+    "h1": "What Bay Area Homeowners Say About Deluxe Windows",
     "primary_keyword": "deluxe windows reviews",
     "target_keywords": [
-      "deluxe windows reviews"
+      "deluxe windows reviews",
+      "window company reviews bay area"
     ],
     "search_intent": "hub",
     "priority": "P3",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
       "title": "Deluxe Windows Reviews | Bay Area Customers",
-      "description": "Read reviews from Bay Area homeowners who chose Deluxe Windows for window and door replacement, product guidance and professional installation. Get expert help.",
+      "description": "Read reviews from Bay Area homeowners who chose Deluxe Windows for window and door replacement, product guidance and professional installation.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
       "card": "summary_large_image"
     }

@@ -4,26 +4,26 @@
   "path": "/brand-collections/classic-series",
   "seo": {
     "title": "Ply Gem Classic Series | Deluxe Windows",
-    "description": "Explore Ply Gem Classic Series specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
+    "description": "Ply Gem Classic Series specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
     "canonical": "https://www.deluxewindows.com/brand-collections/classic-series",
     "og": {
       "title": "Ply Gem Classic Series | Deluxe Windows",
-      "description": "Explore Ply Gem Classic Series specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
+      "description": "Ply Gem Classic Series specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
       "image": "/webflow-assets/images/695e42520b6d1e9d6b34df3a_pgw_classic_hero_1-400x400-1.webp",
       "type": "website"
     },
-    "h1": "Classic Series",
-    "primary_keyword": "classic series",
+    "h1": "Ply Gem Classic Series",
+    "primary_keyword": "ply gem classic series",
     "target_keywords": [
-      "classic series",
-      "classic series prices"
+      "ply gem classic series",
+      "ply gem classic series prices"
     ],
     "search_intent": "product-series",
     "priority": "P3",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
       "title": "Ply Gem Classic Series | Deluxe Windows",
-      "description": "Explore Ply Gem Classic Series specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate.",
+      "description": "Ply Gem Classic Series specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
       "image": "/webflow-assets/images/695e42520b6d1e9d6b34df3a_pgw_classic_hero_1-400x400-1.webp",
       "card": "summary_large_image"
     }
@@ -31,19 +31,19 @@
   "faq": [
     {
       "question": "What should homeowners know about Ply Gem Classic Series?",
-      "answer": "Explore Ply Gem Classic Series specifications, glass, colors, hardware and installed pricing for Bay Area homes. Compare options and request a free estimate."
+      "answer": "Ply Gem Classic Series is part of Ply Gem's lineup: practical vinyl and aluminum collections across several value levels. Deluxe Windows checks that this collection matches the opening sizes and design goals before recommending it."
     },
     {
-      "question": "Which configurations are available in Ply Gem Classic Series?",
-      "answer": "Available Ply Gem Classic Series styles, sizes, glass packages, colors, and hardware depend on the exact product and opening. Deluxe Windows confirms current options before an order is prepared."
-    },
-    {
-      "question": "How should I compare Ply Gem Classic Series with other Ply Gem collections?",
-      "answer": "Compare Ply Gem Classic Series with other Ply Gem choices by frame material, style availability, energy ratings, design options, warranty, and installed project cost."
+      "question": "Which configurations does Ply Gem Classic Series offer?",
+      "answer": "Styles, sizes, glass packages, colors and hardware for Ply Gem Classic Series depend on the current catalog. Deluxe Windows confirms available configurations for each Bay Area order."
     },
     {
       "question": "How is installed pricing for Ply Gem Classic Series calculated?",
-      "answer": "Installed pricing for Ply Gem Classic Series depends on opening dimensions, configuration, glass, finish, hardware, quantity, access, and any required preparation or permit work."
+      "answer": "Installed pricing for Ply Gem Classic Series reflects opening dimensions, configuration, glass, finish, quantity and access. As a reference, Ply Gem positions most series in the affordable vinyl segment, below premium fiberglass and wood pricing."
+    },
+    {
+      "question": "How does Ply Gem Classic Series compare with other Ply Gem collections?",
+      "answer": "Compare Ply Gem Classic Series with sibling collections on frame construction, visible glass area, energy ratings, finish options, warranty and installed cost. Ply Gem product families cover both replacement and new-construction openings."
     }
   ],
   "schema": {

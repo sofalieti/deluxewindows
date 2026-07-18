@@ -3,48 +3,51 @@
   "key": "doors/vinyl-doors",
   "path": "/doors/vinyl-doors",
   "seo": {
-    "title": "Vinyl Doors Bay Area | Deluxe Windows",
-    "description": "Compare vinyl entry and patio doors for Bay Area homes. Explore leading brands, custom sizes and professional installation. Get a free estimate.",
+    "title": "Vinyl Doors Bay Area | Entry & Patio | Deluxe",
+    "description": "Vinyl entry and patio doors for Bay Area homes, offering low maintenance, good insulation and the widest choice of budget-friendly series. Get a free estimate.",
     "canonical": "https://www.deluxewindows.com/doors/vinyl-doors",
     "og": {
-      "title": "Vinyl Doors Bay Area | Deluxe Windows",
-      "description": "Compare vinyl entry and patio doors for Bay Area homes. Explore leading brands, custom sizes and professional installation. Get a free estimate.",
+      "title": "Vinyl Doors Bay Area | Entry & Patio | Deluxe",
+      "description": "Vinyl entry and patio doors for Bay Area homes, offering low maintenance, good insulation and the widest choice of budget-friendly series. Get a free estimate.",
       "image": "/webflow-assets/images/6841ddf8ace3d9d9facb19a5_how-to-negotiate-a-house-price-effectively-thumbnail-v3-property-x-webflow-template.avif",
       "type": "website"
     },
-    "h1": "Vinyl Exterior Doors in the Bay Area",
+    "h1": "Vinyl Doors for Bay Area Homes",
     "primary_keyword": "vinyl doors",
     "target_keywords": [
       "vinyl doors",
+      "vinyl door",
       "vinyl exterior doors",
-      "vinyl entry door"
+      "vinyl windows and doors near me",
+      "patio door vinyl",
+      "vinyl windows doors"
     ],
     "search_intent": "door-material",
     "priority": "P2",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Vinyl Doors Bay Area | Deluxe Windows",
-      "description": "Compare vinyl entry and patio doors for Bay Area homes. Explore leading brands, custom sizes and professional installation. Get a free estimate.",
+      "title": "Vinyl Doors Bay Area | Entry & Patio | Deluxe",
+      "description": "Vinyl entry and patio doors for Bay Area homes, offering low maintenance, good insulation and the widest choice of budget-friendly series. Get a free estimate.",
       "image": "/webflow-assets/images/6841ddf8ace3d9d9facb19a5_how-to-negotiate-a-house-price-effectively-thumbnail-v3-property-x-webflow-template.avif",
       "card": "summary_large_image"
     }
   },
   "faq": [
     {
-      "question": "What are the main benefits of Vinyl Doors?",
-      "answer": "Vinyl Doors offer low maintenance, useful insulation, and broad value-oriented product selection. The best fit depends on the home's architecture, opening sizes, performance goals, and budget."
+      "question": "How much does it typically cost to replace a sliding glass door?",
+      "answer": "For vinyl doors, plan on sliding vinyl patio doors typically running $800-$5,000 installed depending on panels and glass. Installed Bay Area totals also reflect the frame condition, hardware and finishing, which Deluxe Windows confirms in a written estimate."
     },
     {
-      "question": "How energy efficient are vinyl doors for Bay Area homes?",
-      "answer": "For Vinyl Doors, multi-chamber frames, Low-E glass, spacers, and professional installation can reduce heat transfer and air leakage. Deluxe Windows compares complete door ratings and installation requirements for the specific opening."
+      "question": "Can you replace just the sliding glass door?",
+      "answer": "For Vinyl, the answer depends on the exact series, glass and installation conditions. Deluxe Windows reviews the specifics during a free Bay Area consultation and puts the details in writing."
     },
     {
-      "question": "What maintenance do Vinyl Doors require?",
-      "answer": "For Vinyl Doors, vinyl does not require painting; cleaning frames, tracks, drainage openings, and hardware is usually sufficient. Product-specific care instructions and warranty requirements should also be followed."
+      "question": "Is it better to repair or replace a sliding door?",
+      "answer": "For vinyl products, vinyl never needs painting; cleaning frames, tracks and weep holes is normally enough. Following the manufacturer's care schedule also keeps the warranty valid, and Deluxe Windows explains the routine at handover. Ask about Vinyl specifics when booking the free estimate."
     },
     {
-      "question": "What should I compare before choosing Vinyl Doors?",
-      "answer": "When evaluating Vinyl Doors, compare frame construction, glass, operating style, finish, warranty, and installed price. Compare frame construction, reinforcement, glass packages, warranties, and installation details between brands."
+      "question": "What are the main benefits of vinyl doors?",
+      "answer": "Vinyl doors offer low maintenance, good insulation and the widest choice of budget-friendly series. Whether they fit depends on the home's architecture, opening sizes, performance goals and budget."
     }
   ],
   "schema": {

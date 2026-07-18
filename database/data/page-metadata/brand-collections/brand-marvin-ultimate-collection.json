@@ -4,25 +4,26 @@
   "path": "/brand-collections/brand-marvin-ultimate-collection",
   "seo": {
     "title": "Marvin Ultimate Collection | Deluxe Windows",
-    "description": "Explore Marvin Ultimate Collection specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate. Learn more today.",
+    "description": "Marvin Ultimate Collection specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
     "canonical": "https://www.deluxewindows.com/brand-collections/brand-marvin-ultimate-collection",
     "og": {
       "title": "Marvin Ultimate Collection | Deluxe Windows",
-      "description": "Explore Marvin Ultimate Collection specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate. Learn more today.",
+      "description": "Marvin Ultimate Collection specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
       "image": "/webflow-assets/images/6884fb1f11f8986a34d16476_marvin-ultimate-exterior.avif",
       "type": "website"
     },
     "h1": "Marvin Ultimate Collection",
     "primary_keyword": "marvin ultimate collection",
     "target_keywords": [
-      "marvin ultimate collection"
+      "marvin ultimate collection",
+      "marvin ultimate collection prices"
     ],
     "search_intent": "product-series",
     "priority": "P3",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
       "title": "Marvin Ultimate Collection | Deluxe Windows",
-      "description": "Explore Marvin Ultimate Collection specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate. Learn more today.",
+      "description": "Marvin Ultimate Collection specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
       "image": "/webflow-assets/images/6884fb1f11f8986a34d16476_marvin-ultimate-exterior.avif",
       "card": "summary_large_image"
     }
@@ -30,19 +31,19 @@
   "faq": [
     {
       "question": "What should homeowners know about Marvin Ultimate Collection?",
-      "answer": "Explore Marvin Ultimate Collection specifications, glass, colors, hardware and installed pricing for Bay Area homes. Request a free estimate. Learn more today."
+      "answer": "Marvin Ultimate Collection is part of Marvin's lineup: premium wood, fiberglass and clad collections such as Essential, Elevate and Ultimate. Deluxe Windows checks that this collection matches the opening sizes and design goals before recommending it."
     },
     {
-      "question": "Which configurations are available in Marvin Ultimate Collection?",
-      "answer": "Available Marvin Ultimate Collection styles, sizes, glass packages, colors, and hardware depend on the exact product and opening. Deluxe Windows confirms current options before an order is prepared."
-    },
-    {
-      "question": "How should I compare Marvin Ultimate Collection with other Marvin collections?",
-      "answer": "Compare Marvin Ultimate Collection with other Marvin choices by frame material, style availability, energy ratings, design options, warranty, and installed project cost."
+      "question": "Which configurations does Marvin Ultimate Collection offer?",
+      "answer": "Styles, sizes, glass packages, colors and hardware for Marvin Ultimate Collection depend on the current catalog. Deluxe Windows confirms available configurations for each Bay Area order."
     },
     {
       "question": "How is installed pricing for Marvin Ultimate Collection calculated?",
-      "answer": "Installed pricing for Marvin Ultimate Collection depends on opening dimensions, configuration, glass, finish, hardware, quantity, access, and any required preparation or permit work."
+      "answer": "Installed pricing for Marvin Ultimate Collection reflects opening dimensions, configuration, glass, finish, quantity and access. As a reference, installed Marvin windows usually price between $1,000 and $1,800 each depending on series and glass."
+    },
+    {
+      "question": "How does Marvin Ultimate Collection compare with other Marvin collections?",
+      "answer": "Compare Marvin Ultimate Collection with sibling collections on frame construction, visible glass area, energy ratings, finish options, warranty and installed cost. Marvin's Ultrex fiberglass is impact resistant and holds paint and shape in coastal climates."
     }
   ],
   "schema": {

@@ -3,49 +3,51 @@
   "key": "brands/jeld-wen",
   "path": "/brands/jeld-wen",
   "seo": {
-    "title": "JELD-WEN Windows Bay Area | Deluxe Windows",
-    "description": "Compare JELD-WEN window collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate.",
+    "title": "JELD-WEN Windows Bay Area | Authorized Dealer | Deluxe",
+    "description": "JELD-WEN windows for Bay Area homes: a broad portfolio spanning vinyl, wood, and clad-wood windows at several price levels. Get a free estimate.",
     "canonical": "https://www.deluxewindows.com/brands/jeld-wen",
     "og": {
-      "title": "JELD-WEN Windows Bay Area | Deluxe Windows",
-      "description": "Compare JELD-WEN window collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate.",
+      "title": "JELD-WEN Windows Bay Area | Authorized Dealer | Deluxe",
+      "description": "JELD-WEN windows for Bay Area homes: a broad portfolio spanning vinyl, wood, and clad-wood windows at several price levels. Get a free estimate.",
       "image": "/webflow-assets/images/688a751848f910d5ccb0bd34_Jeld-Wen.avif",
       "type": "website"
     },
-    "h1": "JELD-WEN Windows — Bay Area Authorized Dealer & Installer",
+    "h1": "JELD-WEN Windows — Bay Area Dealer & Installer",
     "primary_keyword": "jeld-wen windows",
     "target_keywords": [
       "jeld-wen windows",
-      "jeld-wen windows near me",
-      "jeld-wen dealer",
-      "jeld-wen warranty"
+      "jeld wen",
+      "jeld wen windows",
+      "jeld wen doors",
+      "jeld wen windows near me",
+      "jeld wen window"
     ],
     "search_intent": "brand",
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "JELD-WEN Windows Bay Area | Deluxe Windows",
-      "description": "Compare JELD-WEN window collections for Bay Area homes, including popular styles, energy options and warranty coverage. Request a free estimate.",
+      "title": "JELD-WEN Windows Bay Area | Authorized Dealer | Deluxe",
+      "description": "JELD-WEN windows for Bay Area homes: a broad portfolio spanning vinyl, wood, and clad-wood windows at several price levels. Get a free estimate.",
       "image": "/webflow-assets/images/688a751848f910d5ccb0bd34_Jeld-Wen.avif",
       "card": "summary_large_image"
     }
   },
   "faq": [
     {
-      "question": "What types of JELD-WEN windows does Deluxe Windows offer?",
-      "answer": "Deluxe Windows helps Bay Area homeowners compare a broad window portfolio with multiple materials, styles, and price levels. Available series, styles, and configurations are confirmed for each project."
+      "question": "Is JELD-WEN a good door brand?",
+      "answer": "JELD-WEN is a solid choice when the series matches the home: the brand offers a broad portfolio spanning vinyl, wood, and clad-wood windows at several price levels. JELD-WEN builds both value-focused vinyl lines and Siteline clad-wood architectural products. Deluxe Windows compares verified ratings and installed cost before recommending it."
     },
     {
-      "question": "Are JELD-WEN windows a good fit for Bay Area homes?",
-      "answer": "JELD-WEN windows can be a good fit when their material, glass, size limits, and design match the property. Deluxe Windows evaluates those details before recommending a collection."
+      "question": "How much does a JELD-WEN door cost?",
+      "answer": "For JELD-WEN, JELD-WEN pricing spans economy vinyl through premium clad-wood, so quotes vary widely by series. Exact pricing depends on size, glass package and installation conditions, so Deluxe Windows prepares an itemized quote after measuring the openings."
     },
     {
-      "question": "How should I compare JELD-WEN window collections?",
-      "answer": "Compare JELD-WEN collections by frame material, operating style, energy ratings, glass options, finish choices, warranty, and total installed price."
+      "question": "Which JELD-WEN windows does Deluxe Windows install in the Bay Area?",
+      "answer": "Deluxe Windows installs JELD-WEN windows across the brand's current lineup — a broad portfolio spanning vinyl, wood, and clad-wood windows at several price levels — and confirms series availability for each Bay Area project before quoting."
     },
     {
-      "question": "Does Deluxe Windows install JELD-WEN windows?",
-      "answer": "Yes. Deluxe Windows measures, specifies, and installs JELD-WEN windows for qualifying Bay Area projects, then verifies operation and fit after installation."
+      "question": "How do I get installed pricing for JELD-WEN windows?",
+      "answer": "Installed pricing for JELD-WEN windows is prepared after on-site measurements: JELD-WEN pricing spans economy vinyl through premium clad-wood, so quotes vary widely by series. The written quote itemizes product, labor, permits and any opening repairs."
     }
   ],
   "schema": {

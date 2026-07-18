@@ -3,48 +3,51 @@
   "key": "doors/steel-doors",
   "path": "/doors/steel-doors",
   "seo": {
-    "title": "Steel Doors Bay Area | Deluxe Windows",
-    "description": "Compare steel entry and patio doors for Bay Area homes. Explore leading brands, custom sizes and professional installation. Get a free estimate.",
+    "title": "Steel Doors Bay Area | Entry & Patio | Deluxe",
+    "description": "Steel entry and patio doors for Bay Area homes, offering the narrowest sightlines, exceptional strength and a distinctive architectural look.",
     "canonical": "https://www.deluxewindows.com/doors/steel-doors",
     "og": {
-      "title": "Steel Doors Bay Area | Deluxe Windows",
-      "description": "Compare steel entry and patio doors for Bay Area homes. Explore leading brands, custom sizes and professional installation. Get a free estimate.",
+      "title": "Steel Doors Bay Area | Entry & Patio | Deluxe",
+      "description": "Steel entry and patio doors for Bay Area homes, offering the narrowest sightlines, exceptional strength and a distinctive architectural look.",
       "image": "/webflow-assets/images/6841ddf8ace3d9d9facb1a8b_heres-how-decorate-your-new-home-thumbnail-v3-property-x-webflow-template.avif",
       "type": "website"
     },
-    "h1": "Steel Exterior Doors in the Bay Area",
+    "h1": "Steel Doors for Bay Area Homes",
     "primary_keyword": "steel doors",
     "target_keywords": [
       "steel doors",
-      "steel exterior doors",
-      "steel entry door"
+      "steel doors and frames",
+      "steel security doors residential",
+      "jeld wen exterior steel doors",
+      "steel front door",
+      "luxury steel doors burlingame"
     ],
     "search_intent": "door-material",
     "priority": "P2",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Steel Doors Bay Area | Deluxe Windows",
-      "description": "Compare steel entry and patio doors for Bay Area homes. Explore leading brands, custom sizes and professional installation. Get a free estimate.",
+      "title": "Steel Doors Bay Area | Entry & Patio | Deluxe",
+      "description": "Steel entry and patio doors for Bay Area homes, offering the narrowest sightlines, exceptional strength and a distinctive architectural look.",
       "image": "/webflow-assets/images/6841ddf8ace3d9d9facb1a8b_heres-how-decorate-your-new-home-thumbnail-v3-property-x-webflow-template.avif",
       "card": "summary_large_image"
     }
   },
   "faq": [
     {
-      "question": "What are the main benefits of Steel Doors?",
-      "answer": "Steel Doors offer narrow architectural profiles, strength, and a distinctive premium appearance. The best fit depends on the home's architecture, opening sizes, performance goals, and budget."
+      "question": "What are the disadvantages of a steel door?",
+      "answer": "The main trade-offs of steel products: windows carry the highest price point of common frames, and finishes need upkeep to prevent corrosion. Whether that matters depends on the home's exposure and budget, which Deluxe Windows reviews openly."
     },
     {
-      "question": "How energy efficient are steel doors for Bay Area homes?",
-      "answer": "For Steel Doors, thermal breaks, glazing, weather seals, and installation details determine energy performance. Deluxe Windows compares complete door ratings and installation requirements for the specific opening."
+      "question": "Is a steel front door a good idea?",
+      "answer": "Steel products earn their reputation through the narrowest sightlines, exceptional strength and a distinctive architectural look. The right call still depends on the home's openings, exposure and budget, which Deluxe Windows reviews during a free assessment. Ask about Steel specifics when booking the free estimate."
     },
     {
-      "question": "What maintenance do Steel Doors require?",
-      "answer": "For Steel Doors, protective finishes should be inspected and damaged areas addressed promptly to prevent corrosion. Product-specific care instructions and warranty requirements should also be followed."
+      "question": "How much should a steel front door cost?",
+      "answer": "For steel doors, plan on steel entry doors at $300-$800 for standard models, the most budget-friendly entry material. Installed Bay Area totals also reflect the frame condition, hardware and finishing, which Deluxe Windows confirms in a written estimate."
     },
     {
-      "question": "What should I compare before choosing Steel Doors?",
-      "answer": "When evaluating Steel Doors, compare frame construction, glass, operating style, finish, warranty, and installed price. Steel products are typically selected for architectural design goals rather than as a direct substitute for economy vinyl windows."
+      "question": "What are the main benefits of steel doors?",
+      "answer": "Steel doors offer the narrowest sightlines, exceptional strength and a distinctive architectural look. Whether they fit depends on the home's architecture, opening sizes, performance goals and budget."
     }
   ],
   "schema": {
