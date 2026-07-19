@@ -460,7 +460,12 @@ class ClassicSiteController extends Controller
             'phone' => trim((string) ($request->input('phone') ?: $request->input('Phone'))),
             'city' => trim((string) ($request->input('city') ?: $request->input('Subject'))),
             'message' => trim((string) ($request->input('message') ?: $request->input('Message'))),
-            'page_url' => trim((string) ($request->input('page_url') ?: $request->headers->get('referer', ''))),
+            'page_url' => trim((string) (
+                $request->input('page_url')
+                ?: $request->input('Page')
+                ?: $request->input('URL')
+                ?: $request->headers->get('referer', '')
+            )),
             'landing_page' => trim((string) $request->input('landing_page')),
             'referrer' => trim((string) $request->input('referrer')),
             'geo_location' => trim((string) $request->input('geo_location')),
@@ -506,13 +511,18 @@ class ClassicSiteController extends Controller
             ? $validated['form_id']
             : \App\Services\LeadFormId::fromUrl($validated['page_url'] !== '' ? $validated['page_url'] : $request->headers->get('referer'));
 
+        $pageUrl = $validated['page_url'];
+        if ($pageUrl === '') {
+            $pageUrl = trim((string) $request->headers->get('referer', ''));
+        }
+
         Lead::query()->create([
             'full_name' => $validated['full_name'],
             'email' => $validated['email'],
             'phone' => $validated['phone'],
             'city' => $validated['city'],
             'message' => $validated['message'],
-            'page_url' => $validated['page_url'],
+            'page_url' => $pageUrl,
             'utm_source' => $validated['utm_source'],
             'utm_medium' => $validated['utm_medium'],
             'utm_campaign' => $validated['utm_campaign'],
@@ -544,7 +554,7 @@ class ClassicSiteController extends Controller
             'City: '.($validated['city'] !== '' ? $validated['city'] : '-'),
             'Message: '.($validated['message'] !== '' ? $validated['message'] : '-'),
             'Form ID: '.$formId,
-            'Page: '.($validated['page_url'] !== '' ? $validated['page_url'] : '-'),
+            'Page: '.($pageUrl !== '' ? $pageUrl : '-'),
             'UTM Source: '.($validated['utm_source'] !== '' ? $validated['utm_source'] : '-'),
             'UTM Medium: '.($validated['utm_medium'] !== '' ? $validated['utm_medium'] : '-'),
             'UTM Campaign: '.($validated['utm_campaign'] !== '' ? $validated['utm_campaign'] : '-'),
@@ -564,37 +574,44 @@ class ClassicSiteController extends Controller
         }
 
         $bridgeUrls = (array) config('services.lead_bridge.urls', []);
+        $bridgePayload = [
+            'Name' => $validated['full_name'],
+            'Email' => $validated['email'],
+            'Phone' => $validated['phone'],
+            'Subject' => $validated['city'],
+            'Message' => $validated['message'],
+            // Google sheet header is "Form ID". PHP http_build_query() would
+            // rename that key to Form_ID, so we encode the body manually below.
+            'Form ID' => $formId,
+            // Sheet column "Page" — current form page (not first-touch landing_page).
+            'Page' => $pageUrl,
+            'URL' => $pageUrl,
+            'landing_page' => $validated['landing_page'],
+            'referrer' => $validated['referrer'],
+            'ip_address' => $request->ip(),
+            'geo_location' => $validated['geo_location'],
+            'utm_source' => $validated['utm_source'],
+            'utm_medium' => $validated['utm_medium'],
+            'utm_campaign' => $validated['utm_campaign'],
+            'utm_content' => $validated['utm_content'],
+            'utm_term' => $validated['utm_term'],
+            'matchtype' => $validated['matchtype'],
+            'device' => $validated['device'],
+            'creative' => $validated['creative'],
+            'gclid' => $validated['gclid'],
+            'fbclid' => $validated['fbclid'],
+            'msclkid' => $validated['msclkid'],
+        ];
+        $bridgeBody = $this->encodeLeadBridgeBody($bridgePayload);
+
         foreach ($bridgeUrls as $bridgeUrl) {
             if (! is_string($bridgeUrl) || trim($bridgeUrl) === '') {
                 continue;
             }
             try {
-                Http::asForm()
+                Http::withBody($bridgeBody, 'application/x-www-form-urlencoded')
                     ->timeout(8)
-                    ->post($bridgeUrl, [
-                        'Name' => $validated['full_name'],
-                        'Email' => $validated['email'],
-                        'Phone' => $validated['phone'],
-                        'Subject' => $validated['city'],
-                        'Message' => $validated['message'],
-                        'Form ID' => $formId,
-                        'URL' => $validated['page_url'],
-                        'landing_page' => $validated['landing_page'],
-                        'referrer' => $validated['referrer'],
-                        'ip_address' => $request->ip(),
-                        'geo_location' => $validated['geo_location'],
-                        'utm_source' => $validated['utm_source'],
-                        'utm_medium' => $validated['utm_medium'],
-                        'utm_campaign' => $validated['utm_campaign'],
-                        'utm_content' => $validated['utm_content'],
-                        'utm_term' => $validated['utm_term'],
-                        'matchtype' => $validated['matchtype'],
-                        'device' => $validated['device'],
-                        'creative' => $validated['creative'],
-                        'gclid' => $validated['gclid'],
-                        'fbclid' => $validated['fbclid'],
-                        'msclkid' => $validated['msclkid'],
-                    ]);
+                    ->post($bridgeUrl);
             } catch (\Throwable $e) {
                 Log::warning('Lead bridge request failed', [
                     'url' => $bridgeUrl,
@@ -610,6 +627,25 @@ class ClassicSiteController extends Controller
         }
 
         return redirect()->back()->with('contact_success', true);
+    }
+
+    /**
+     * Encode Google lead-bridge form body without renaming keys that contain spaces.
+     * PHP http_build_query() turns "Form ID" into "Form_ID", which the Apps Script ignores.
+     *
+     * @param  array<string, mixed>  $payload
+     */
+    private function encodeLeadBridgeBody(array $payload): string
+    {
+        $parts = [];
+        foreach ($payload as $key => $value) {
+            if ($value === null) {
+                $value = '';
+            }
+            $parts[] = urlencode((string) $key).'='.urlencode((string) $value);
+        }
+
+        return implode('&', $parts);
     }
 
     private function resolveLearnMoreWindows(WindowsWebflowItem $window): \Illuminate\Support\Collection

@@ -73,9 +73,12 @@
         return '';
       };
 
+      const pageUrl = window.location.href;
+      const pagePath = window.location.pathname || '/';
+
       const formId = firstValue(['Form ID', 'form_id'])
         || (form.getAttribute('data-form-id') || '').trim()
-        || resolveFormId(window.location.pathname);
+        || resolveFormId(pagePath);
 
       const payload = {
         Name: firstValue(['Name', 'full_name', 'name']),
@@ -85,8 +88,10 @@
         Message: firstValue(['Message', 'message', 'Description', 'description']),
         'Form ID': formId,
         form_id: formId,
-        page_url: window.location.href,
-        landing_page: firstValue(['landing_page']) || storageGet('lead_param_landing_page'),
+        Page: pageUrl,
+        page_url: pageUrl,
+        URL: pageUrl,
+        landing_page: firstValue(['landing_page']) || storageGet('lead_param_landing_page') || pagePath,
         referrer: document.referrer,
         geo_location: geoLocation,
       };
