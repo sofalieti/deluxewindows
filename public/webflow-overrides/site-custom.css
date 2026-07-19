@@ -2004,3 +2004,33 @@
   text-decoration: none;
 }
 
+/* Homepage — For Professionals icons (white bg + darken blend) */
+.home-professionals .home-pro-icon {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #fff;
+}
+
+.home-professionals .home-pro-icon__img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  mix-blend-mode: darken;
+}
+
+@media screen and (max-width: 767px) {
+  .home-professionals .home-pro-icon {
+    width: 64px;
+    height: 64px;
+  }
+
+  .home-professionals .home-pro-icon__img {
+    width: 56px;
+    height: 56px;
+  }
+}
+

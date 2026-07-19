@@ -253,8 +253,8 @@
 
 /* ─── 12. BUTTONS FULL WIDTH ON PORTRAIT PHONES ─────────────────────
    "See all windows / See all doors / Learn More / Free Consultation"
-   buttons sit inside .buttons-row. On tiny screens make them full-
-   width for easier tapping.                                          */
+   buttons sit inside .buttons-row. On tiny screens center the label
+   with comfortable horizontal padding (keep natural button width). */
 
 @media screen and (max-width: 479px) {
   .buttons-row:not(.left) {
@@ -263,7 +263,7 @@
   }
 
   .buttons-row:not(.left) .primary-button.w-inline-block {
-    width: 100% !important;
+    /* width: 100% !important; */
     justify-content: center;
     text-align: center;
     padding-left: 16px !important;
@@ -277,9 +277,10 @@
    Make sure each card image doesn't overflow. */
 
 @media screen and (max-width: 767px) {
-  .image-wrapper.wrapperimage2 {
-    min-height: 200px;
-    max-height: 260px;
+  .image-wrapper.border-radius-image-default.height-100.wrapperimage2 {
+    /* width: 283px; */
+    height: 190px;
+    min-height: 180px;
   }
 
   .image-wrapper.wrapperimage2 .image {

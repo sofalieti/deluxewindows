@@ -1,8 +1,9 @@
 @php
-  $brandLikeHero = !empty($brandHero) || !empty($windowTypeHero) || !empty($collectionHero) || !empty($doorHero);
+  $typeHero = !empty($windowTypeHero) || !empty($doorTypeHero);
+  $brandLikeHero = !empty($brandHero) || $typeHero || !empty($collectionHero) || !empty($doorHero);
   $heroPageId = !empty($collectionHero)
     ? '69366119c296b5e2e8bdbfb8'
-    : (!empty($windowTypeHero)
+    : ($typeHero
       ? '688e50676f1dbd8cba0e091a'
       : (!empty($brandHero)
         ? '6841ddf8ace3d9d9facb1583'
@@ -11,7 +12,7 @@
           : (!empty($windowHeroImage) ? '6841ddf8ace3d9d9facb1582' : '6841df5688ca2f74fd53ec90'))));
   $heroElementId = !empty($collectionHero)
     ? '89b9e427-c9d3-6d8b-0afb-075923310b6c'
-    : (!empty($windowTypeHero)
+    : ($typeHero
       ? '3ab01c22-18de-4545-ffef-5a89d31afac2'
       : (!empty($brandHero)
         ? 'dc04ee7a-918f-7eb9-bff0-f9899431c4c3'
@@ -20,7 +21,7 @@
           : (!empty($windowHeroImage) ? '0d2c5edc-6a74-d360-f6d2-0a02682efe78' : 'c3765d23-1eba-01a8-993c-c59200a6f722'))));
   $heroEmailNode = !empty($collectionHero)
     ? 'w-node-_89b9e427-c9d3-6d8b-0afb-075923310b7e-e8bdbfb8'
-    : (!empty($windowTypeHero)
+    : ($typeHero
       ? 'w-node-_3ab01c22-18de-4545-ffef-5a89d31afad4-ba0e091a'
       : (!empty($brandHero)
         ? 'w-node-dc04ee7a-918f-7eb9-bff0-f9899431c4d5-facb1583'
@@ -29,7 +30,7 @@
           : (!empty($windowHeroImage) ? 'w-node-_0d2c5edc-6a74-d360-f6d2-0a02682efe8a-facb1582' : 'w-node-c3765d23-1eba-01a8-993c-c59200a6f734-fd53ec90'))));
   $heroPhoneNode = !empty($collectionHero)
     ? 'w-node-_89b9e427-c9d3-6d8b-0afb-075923310b86-e8bdbfb8'
-    : (!empty($windowTypeHero)
+    : ($typeHero
       ? 'w-node-_3ab01c22-18de-4545-ffef-5a89d31afadc-ba0e091a'
       : (!empty($brandHero)
         ? 'w-node-dc04ee7a-918f-7eb9-bff0-f9899431c4dd-facb1583'
@@ -38,7 +39,7 @@
           : (!empty($windowHeroImage) ? 'w-node-_0d2c5edc-6a74-d360-f6d2-0a02682efe92-facb1582' : 'w-node-c3765d23-1eba-01a8-993c-c59200a6f73c-fd53ec90'))));
   $heroCityNode = !empty($collectionHero)
     ? 'w-node-_89b9e427-c9d3-6d8b-0afb-075923310b8e-e8bdbfb8'
-    : (!empty($windowTypeHero)
+    : ($typeHero
       ? 'w-node-_3ab01c22-18de-4545-ffef-5a89d31afae4-ba0e091a'
       : (!empty($brandHero)
         ? 'w-node-dc04ee7a-918f-7eb9-bff0-f9899431c4e5-facb1583'
@@ -47,7 +48,7 @@
           : (!empty($windowHeroImage) ? 'w-node-_0d2c5edc-6a74-d360-f6d2-0a02682efe9a-facb1582' : 'w-node-c3765d23-1eba-01a8-993c-c59200a6f744-fd53ec90'))));
   $heroMessageNode = !empty($collectionHero)
     ? 'w-node-_89b9e427-c9d3-6d8b-0afb-075923310b95-e8bdbfb8'
-    : (!empty($windowTypeHero)
+    : ($typeHero
       ? 'w-node-_3ab01c22-18de-4545-ffef-5a89d31afaeb-ba0e091a'
       : (!empty($brandHero)
         ? 'w-node-dc04ee7a-918f-7eb9-bff0-f9899431c4ec-facb1583'
@@ -56,16 +57,16 @@
           : (!empty($windowHeroImage) ? 'w-node-_0d2c5edc-6a74-d360-f6d2-0a02682efea1-facb1582' : 'w-node-c3765d23-1eba-01a8-993c-c59200a6f74b-fd53ec90'))));
   $heroPricingBlockClass = !empty($collectionHero)
     ? 'rich-text-block-3'
-    : (!empty($windowTypeHero) ? 'rich-text-block-7' : 'rich-text-block-5');
+    : ($typeHero ? 'rich-text-block-7' : 'rich-text-block-5');
   $heroPricingHtml = !empty($collectionHero)
     ? ($heroFormHtml ?? app(\App\Services\PromotionControlService::class)->priceHtml('915', '$549'))
-    : (!empty($windowTypeHero)
+    : ($typeHero
       ? ($heroFormHtml ?? '<p>Starting from $1199 per window installed.</p><p><strong>Special pricing available upon request! </strong>‍</p>')
       : ($brandHeroFormHtml ?? '<p>Starting from $999 per window installed.</p><p><strong>Special pricing available upon request!</strong>‍</p>'));
   $heroMobilePriceTagHtml = promotion_hero_mobile_price_tag_html(
     $heroPricingHtml,
     !empty($collectionHero),
-    !empty($windowTypeHero),
+    $typeHero,
     $brandPromotionPricing ?? $heroPromotionPricing ?? null,
   );
   $hasSpecificPagePromotion = !empty($pagePromotionAvailable)
@@ -134,18 +135,32 @@
   if ($materialTypeSlug === '' && isset($windowFieldData['slug'])) {
     $materialTypeSlug = strtolower((string) $windowFieldData['slug']);
   }
+  // door-types slugs are brand+material (e.g. milgard-vinyl-doors) — map to material key.
+  if (!empty($doorTypeHero)) {
+    $doorMaterialSlug = null;
+    foreach (['wood-clad', 'fiberglass', 'aluminum', 'aluminium', 'vinyl', 'steel', 'wood'] as $material) {
+      if (str_contains($materialTypeSlug, $material)) {
+        $normalized = $material === 'aluminium' ? 'aluminum' : $material;
+        $doorMaterialSlug = $normalized.'-doors';
+        break;
+      }
+    }
+    $materialTypeSlug = $doorMaterialSlug ?? '';
+  }
   $isWindowsMaterialHero = !empty($windowTypeHero) || !empty($windowHeroImage);
-  $isDoorsMaterialHero = !empty($doorHero) || !empty($doorHeroImage);
+  $isDoorsMaterialHero = !empty($doorHero) || !empty($doorHeroImage) || !empty($doorTypeHero);
   $heroMaterialCopy = $isDoorsMaterialHero
     ? ($doorTypeHeroCopy[$materialTypeSlug] ?? null)
     : ($windowTypeHeroCopy[$materialTypeSlug] ?? null);
   $heroHeadlineText = $isWindowsMaterialHero
     ? (($heroMaterialCopy['headline'] ?? null) ?: 'Upgrade to Energy Efficient Windows for Less')
-    : ($isDoorsMaterialHero
+    : (!empty($doorTypeHero)
       ? (($heroMaterialCopy['headline'] ?? null) ?: 'Upgrade to Energy Efficient Doors for Less')
-      : ((!empty($doorBrandHero) && trim((string) ($brandName ?? '')) !== '')
-        ? 'Upgrade to Energy Efficient '.trim((string) $brandName).' Doors for Less'
-        : 'Upgrade to Energy Efficient Windows and Doors for Less'));
+      : ($isDoorsMaterialHero
+        ? (($heroMaterialCopy['headline'] ?? null) ?: 'Upgrade to Energy Efficient Doors for Less')
+        : ((!empty($doorBrandHero) && trim((string) ($brandName ?? '')) !== '')
+          ? 'Upgrade to Energy Efficient '.trim((string) $brandName).' Doors for Less'
+          : 'Upgrade to Energy Efficient Windows and Doors for Less')));
   $heroMiniDescription = $isWindowsMaterialHero || $isDoorsMaterialHero
     ? (($heroMaterialCopy['description'] ?? null) ?: ($isDoorsMaterialHero
       ? 'Get secure, stylish door solutions with better comfort and pricing for your home.'

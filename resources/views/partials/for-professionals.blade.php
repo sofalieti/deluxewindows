@@ -1,4 +1,4 @@
-      <section class="section top-none">
+      <section class="section top-none home-professionals">
         <div class="w-layout-blockcontainer container-default w-container">
           <div class="w-layout-grid grid-2-columns values-wrapper-grid">
             <div class="sticky-top static---tablet">
@@ -27,14 +27,14 @@
             <div id="w-node-_2dcee534-f7fc-66bd-7bdf-664b39d45fcd-fd53ec90" class="inner-container _592px _100-tablet">
               <div class="w-layout-grid grid-2-columns values-grid">
                 <div class="value-wrapper">
-                  <div class="image-wrapper">
+                  <div class="image-wrapper home-pro-icon">
                     <img
-                      src="/webflow-assets/images/68457ee6c123c7673849b267_design_services_24dp_E3E3E3_FILL1_wght400_GRAD0_opsz24%201.svg"
+                      src="/webflow-assets/images/home-professionals/icon-architects.png"
                       loading="eager"
-                      alt="For-architects-deluxe-windows"
-                      class="image"
-                      width="300"
-                      height="150"
+                      alt="For architects — Deluxe Windows"
+                      class="image home-pro-icon__img"
+                      width="128"
+                      height="128"
                     />
                   </div>
                   <div class="mg-top-small"><h3 class="display-5 mid">For Architects</h3></div>
@@ -46,14 +46,14 @@
                   </div>
                 </div>
                 <div class="value-wrapper">
-                  <div class="image-wrapper">
+                  <div class="image-wrapper home-pro-icon">
                     <img
-                      src="/webflow-assets/images/68457e9595b11552c12c4e93_home_repair_service_24dp_E3E3E3_FILL1_wght400_GRAD0_opsz24.svg"
+                      src="/webflow-assets/images/home-professionals/icon-contractors.png"
                       loading="eager"
-                      alt="For-contractors-deluxe-windows"
-                      class="image"
-                      width="300"
-                      height="150"
+                      alt="For contractors — Deluxe Windows"
+                      class="image home-pro-icon__img"
+                      width="128"
+                      height="128"
                     />
                   </div>
                   <div class="mg-top-small"><h3 class="display-5 mid">For Contractors</h3></div>
@@ -66,14 +66,14 @@
                   </div>
                 </div>
                 <div class="value-wrapper">
-                  <div class="image-wrapper">
+                  <div class="image-wrapper home-pro-icon">
                     <img
-                      src="/webflow-assets/images/68457e9f17ba59c9564f8638_apartment_24dp_E3E3E3_FILL1_wght400_GRAD0_opsz24.svg"
+                      src="/webflow-assets/images/home-professionals/icon-property-managers.png"
                       loading="eager"
-                      alt="For-property-managers-owners-deluxe-windows"
-                      class="image"
-                      width="300"
-                      height="150"
+                      alt="For property managers and owners — Deluxe Windows"
+                      class="image home-pro-icon__img"
+                      width="128"
+                      height="128"
                     />
                   </div>
                   <div class="mg-top-small">
