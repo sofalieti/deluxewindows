@@ -19,6 +19,8 @@
 <meta name="twitter:image" content="{{ $pageMetadata->twitterImage }}" />
 @endif
 
+@include('partials.schema-organization')
+
 @foreach($pageSchemas as $schema)
 <script type="application/ld+json">{!! json_encode(
     $schema,

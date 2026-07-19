@@ -11,16 +11,8 @@ class SchemaBuilder
      */
     public function build(PageMetadata $metadata): array
     {
-        $organizationId = $this->baseUrl().'/#organization';
+        $organizationId = OrganizationSchema::id();
         $schemas = [
-            [
-                '@context' => 'https://schema.org',
-                '@type' => 'HomeAndConstructionBusiness',
-                '@id' => $organizationId,
-                'name' => 'Deluxe Windows',
-                'url' => $this->baseUrl(),
-                'telephone' => site_phone_tel(),
-            ],
             $this->webPage($metadata, $organizationId),
             $this->breadcrumbs($metadata),
         ];

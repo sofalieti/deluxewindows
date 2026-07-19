@@ -50,6 +50,18 @@ test('all SEO assignments are unique concise and English only', function () {
     }
 });
 
+test('site-wide organization schema is rich and separate from page schemas', function () {
+    $org = \App\Services\Seo\OrganizationSchema::toArray();
+    $metadata = app(PageMetadataRepository::class)->forPath('/');
+    $pageSchemas = app(SchemaBuilder::class)->build($metadata);
+
+    expect($org['@type'])->toBe('HomeAndConstructionBusiness')
+        ->and($org['@id'])->toBe('https://www.deluxewindows.com/#organization')
+        ->and($org)->toHaveKeys(['aggregateRating', 'openingHoursSpecification', 'areaServed', 'priceRange', 'description'])
+        ->and($org['aggregateRating']['ratingValue'])->toBe('4.9')
+        ->and(collect($pageSchemas)->pluck('@type'))->not->toContain('HomeAndConstructionBusiness');
+});
+
 test('representative public page families resolve metadata and schema from files', function (
     string $path,
     string $expectedType

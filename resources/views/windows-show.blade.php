@@ -66,113 +66,13 @@
     </script>
     <link href="/webflow-assets/images/favicon.png" rel="shortcut icon" type="image/x-icon" />
     <link href="/webflow-assets/images/webclip-bg.png" rel="apple-touch-icon" />
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Product",
-        "name": "Vinyl Windows",
-        "description": "Vinyl windows are the most popular choice for Bay Area homeowners — low maintenance and energy-efficient. Deluxe Windows installs premium vinyl windows in San Francisco.",
-        "url": "/windows/vinyl-windows",
-        "category": "",
-        "image": "/webflow-assets/images/684d89095fe85b113c1b5224_Frame%208.avif",
-        "brand": {
-          "@type": "Brand",
-          "name": ""
-        },
-        "offers": {
-          "@type": "AggregateOffer",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock"
-        }
-      }
-    </script>
+    @include('partials.schema-organization')
     <style>
       .w-webflow-badge {
         display: none !important;
       }
     </style>
 
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "HomeAndConstructionBusiness",
-        "name": "Deluxe Windows",
-        "url": "/",
-        "telephone": "{{ site_phone_tel() }}",
-        "description": "Premium window and door replacement for San Francisco Bay Area homes. 30+ years, 100% employee owned.",
-        "priceRange": "$$",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "231",
-          "bestRating": "5"
-        },
-        "openingHoursSpecification": [
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-            "opens": "08:00",
-            "closes": "18:00"
-          },
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": "Saturday",
-            "opens": "09:00",
-            "closes": "15:00"
-          }
-        ],
-        "areaServed": {
-          "@type": "GeoCircle",
-          "geoMidpoint": {
-            "@type": "GeoCoordinates",
-            "latitude": 37.563,
-            "longitude": -122.0329
-          },
-          "geoRadius": "100000"
-        }
-      }
-    </script>
-
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "HomeAndConstructionBusiness",
-        "name": "Deluxe Windows",
-        "url": "/",
-        "telephone": "{{ site_phone_tel() }}",
-        "description": "Premium window and door replacement for San Francisco Bay Area homes. 30+ years, 100% employee owned.",
-        "priceRange": "$$",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "231",
-          "bestRating": "5"
-        },
-        "openingHoursSpecification": [
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-            "opens": "08:00",
-            "closes": "18:00"
-          },
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": "Saturday",
-            "opens": "09:00",
-            "closes": "15:00"
-          }
-        ],
-        "areaServed": {
-          "@type": "GeoCircle",
-          "geoMidpoint": {
-            "@type": "GeoCoordinates",
-            "latitude": 37.563,
-            "longitude": -122.0329
-          },
-          "geoRadius": "100000"
-        }
-      }
-    </script>
     <script type="text/javascript">
       window.__WEBFLOW_CURRENCY_SETTINGS = {
         currencyCode: "USD",
