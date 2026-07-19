@@ -544,6 +544,8 @@
   justify-self: end;
   width: 100%;
   max-width: 480px;
+  position: relative;
+  z-index: 2;
 }
 
 @media (max-width: 991px) {

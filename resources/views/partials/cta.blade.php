@@ -1,3 +1,6 @@
+@php
+  $ctaHref = $ctaHref ?? '/contacts';
+@endphp
       <section class="section-card-wrapper">
         <div class="section-card cta-v3">
           <div class="w-layout-blockcontainer container-default w-container">
@@ -21,7 +24,7 @@
                       <div class="buttons-row left">
                         <a
                           id="w-node-_6024598d-eaa2-3e85-ac05-fde8b7e66609-b7e66609"
-                          href="/#"
+                          href="{{ $ctaHref }}"
                           class="primary-button w-inline-block"
                           ><div class="text-block">Free Consultation</div></a
                         >

@@ -13,8 +13,8 @@ return [
     'presets' => [
         'gallery_main'  => ['width' => 1220, 'height' => null],
         'gallery_thumb' => ['width' => 220,  'height' => null],
-        'card'          => ['width' => 640,  'height' => null],
-        'card_sm'       => ['width' => 400,  'height' => null],
+        'card'          => ['width' => 400,  'height' => null],
+        'card_sm'       => ['width' => 320,  'height' => null],
         'logo'          => ['width' => 300,  'height' => null],
         'hero_bg'       => ['width' => 1920, 'height' => null],
         'hero_mobile'   => ['width' => 768,  'height' => null],

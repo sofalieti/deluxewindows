@@ -1,49 +1,6 @@
       <section class="section-card-wrapper"></section>
 
-      <section class="section-card-wrapper">
-        <div class="section-card cta-v3">
-          <div class="w-layout-blockcontainer container-default w-container">
-            <div class="w-layout-grid grid-2-columns cta-v3-grid">
-              <div id="w-node-_18d2b5aa-d38c-0c17-0c65-2877a44c97c5-ec241dd4" class="z-index-1">
-                <div class="inner-container _500px---mbl">
-                  <div class="inner-container _480px">
-                    <div class="inner-container _450px">
-                      <div class="inner-container _300px---mbp">
-                        <div class="mg-top-small">
-                          <h2 class="{{ $ctaHeadingClass ?? 'heading-28' }}">Your Dream Home Starts Here.</h2>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="mg-top-small">
-                      <div class="text-neutral-light">
-                        <p class="paragraph-20">Tell us about your project — we’ll take care of the rest.</p>
-                      </div>
-                    </div>
-                    <div class="mg-top-default">
-                      <div class="buttons-row left">
-                        <a
-                          id="w-node-_6024598d-eaa2-3e85-ac05-fde8b7e66609-b7e66609"
-                          href="#contact"
-                          class="primary-button w-inline-block"
-                        ><div class="text-block">Free Consultation</div></a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="image-wrapper cta-v3-image">
-                <x-img
-                  src="/webflow-assets/images/687ca4b70b8583ef4890bad4_iPad.avif"
-                  preset="cta"
-                  loading="eager"
-                  alt="Deluxe-windows"
-                  class="image"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      @include('partials.cta', ['ctaHref' => '#contact'])
 
       <section id="contact" class="section hero-v4">
         <div class="w-layout-blockcontainer container-default w-container">
