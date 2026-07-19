@@ -55,9 +55,10 @@
     }
   ],
   "schema": {
-    "primary_type": "WebPage",
+    "primary_type": "Product",
     "data": {
-      "name": "Ply Gem"
+      "name": "Ply Gem Windows",
+      "brand": "Ply Gem"
     },
     "extra": [],
     "replace": []

@@ -55,9 +55,10 @@
     }
   ],
   "schema": {
-    "primary_type": "WebPage",
+    "primary_type": "Product",
     "data": {
-      "name": "All Weather Architectural Aluminum"
+      "name": "All Weather Architectural Aluminum Windows",
+      "brand": "All Weather Architectural Aluminum"
     },
     "extra": [],
     "replace": []

@@ -475,6 +475,7 @@ class ClassicSiteController extends Controller
             'gclid' => trim((string) $request->input('gclid')),
             'fbclid' => trim((string) $request->input('fbclid')),
             'msclkid' => trim((string) $request->input('msclkid')),
+            'form_id' => trim((string) ($request->input('form_id') ?: $request->input('Form ID'))),
         ];
 
         $validated = validator($payload, [
@@ -498,7 +499,12 @@ class ClassicSiteController extends Controller
             'gclid' => 'nullable|string|max:255',
             'fbclid' => 'nullable|string|max:255',
             'msclkid' => 'nullable|string|max:255',
+            'form_id' => 'nullable|string|max:255',
         ])->validate();
+
+        $formId = $validated['form_id'] !== ''
+            ? $validated['form_id']
+            : \App\Services\LeadFormId::fromUrl($validated['page_url'] !== '' ? $validated['page_url'] : $request->headers->get('referer'));
 
         Lead::query()->create([
             'full_name' => $validated['full_name'],
@@ -526,6 +532,7 @@ class ClassicSiteController extends Controller
                 'gclid' => $validated['gclid'],
                 'fbclid' => $validated['fbclid'],
                 'msclkid' => $validated['msclkid'],
+                'form_id' => $formId,
             ],
         ]);
 
@@ -536,6 +543,7 @@ class ClassicSiteController extends Controller
             'Phone: '.$validated['phone'],
             'City: '.($validated['city'] !== '' ? $validated['city'] : '-'),
             'Message: '.($validated['message'] !== '' ? $validated['message'] : '-'),
+            'Form ID: '.$formId,
             'Page: '.($validated['page_url'] !== '' ? $validated['page_url'] : '-'),
             'UTM Source: '.($validated['utm_source'] !== '' ? $validated['utm_source'] : '-'),
             'UTM Medium: '.($validated['utm_medium'] !== '' ? $validated['utm_medium'] : '-'),
@@ -569,6 +577,7 @@ class ClassicSiteController extends Controller
                         'Phone' => $validated['phone'],
                         'Subject' => $validated['city'],
                         'Message' => $validated['message'],
+                        'Form ID' => $formId,
                         'URL' => $validated['page_url'],
                         'landing_page' => $validated['landing_page'],
                         'referrer' => $validated['referrer'],
@@ -852,12 +861,8 @@ class ClassicSiteController extends Controller
         $doorsTitle     = $fieldData['doors-title']            ?? "Explore {$name}'s Door Types";
         $sidebarMaterialGroups = $this->buildBrandSidebarMaterialGroups($brand, $fieldData);
         $controls = app(PromotionControlService::class);
-        $brandPricing = $this->resolveBrandPromotionPricing(
-            $brand,
-            (string) ($fieldData['slug'] ?? $slug),
-            (string) ($brand->webflow_item_id ?? ''),
-            $controls
-        );
+        $brandPricing = app(\App\Services\BrandPromotionPricing::class)
+            ->forWindowBrand($brand, (string) ($fieldData['slug'] ?? $slug));
         $brandHeroFormHtml = $brandPricing
             ? $controls->pricingHtmlFromMap($brandPricing, 'per window installed')
             : null;
@@ -959,7 +964,7 @@ class ClassicSiteController extends Controller
         // Door-brand hero price = cheapest priced door (Promotions → Door Types)
         // among all Doors linked to this brand via the `doors-brands` reference.
         $controls = app(PromotionControlService::class);
-        $brandPricing = $this->resolveCheapestDoorPricingForBrand($brand, $controls);
+        $brandPricing = app(\App\Services\BrandPromotionPricing::class)->forDoorBrand($brand);
         $brandHeroFormHtml = $brandPricing
             ? $controls->pricingHtmlFromMap($brandPricing, 'per door installed')
             : null;
@@ -978,66 +983,6 @@ class ClassicSiteController extends Controller
             'brandHeroFormHtml' => $brandHeroFormHtml,
             'brandPromotionPricing' => $brandPricing,
         ]);
-    }
-
-    /**
-     * Cheapest priced door linked to a brand.
-     *
-     * Scans the Doors collection for items whose `doors-brands` reference contains
-     * this brand, looks up each door's Promotions price (Door Types tab) and returns
-     * the one with the lowest final price. Returns null when no linked door is priced.
-     *
-     * @return array{base: string, final: string}|null
-     */
-    private function resolveCheapestDoorPricingForBrand(BrandsWebflowItem $brand, PromotionControlService $controls): ?array
-    {
-        $brandId = trim((string) ($brand->webflow_item_id ?? ''));
-        if ($brandId === '') {
-            return null;
-        }
-
-        $best = null;
-        $bestValue = null;
-
-        DoorsWebflowItem::query()
-            ->where('is_archived', false)
-            ->where('is_draft', false)
-            ->get()
-            ->each(function (DoorsWebflowItem $door) use ($brandId, $controls, &$best, &$bestValue) {
-                $fd = is_array($door->field_data) ? $door->field_data : [];
-
-                $brandRefs = $fd['doors-brands'] ?? [];
-                if (! is_array($brandRefs) || ! in_array($brandId, $brandRefs, true)) {
-                    return;
-                }
-
-                $pricing = $controls->doorPricing(
-                    (string) ($door->webflow_item_id ?? ''),
-                    (string) ($fd['slug'] ?? '')
-                );
-                if ($pricing === null) {
-                    return;
-                }
-
-                $value = $this->priceToFloat((string) ($pricing['final'] ?? ''));
-                if ($value === null) {
-                    return;
-                }
-
-                if ($bestValue === null || $value < $bestValue) {
-                    $bestValue = $value;
-                    $best = $pricing;
-                }
-            });
-
-        return $best;
-    }
-
-    private function priceToFloat(string $value): ?float
-    {
-        $clean = preg_replace('/[^0-9.]/', '', $value);
-
-        return ($clean === '' || $clean === null) ? null : (float) $clean;
     }
 
     private function defaultDoorBrandDescription(string $name): string
@@ -1295,7 +1240,7 @@ class ClassicSiteController extends Controller
             break;
         }
 
-        return $this->resolveCheapestDoorPricingForBrand($brand, $controls);
+        return app(\App\Services\BrandPromotionPricing::class)->forDoorBrand($brand);
     }
 
     public function legacyBrandCollectionRedirect(string $slug)
@@ -2434,81 +2379,6 @@ class ClassicSiteController extends Controller
         }
 
         return app(PromotionControlService::class)->priceHtml($baseMatch[1], $finalMatch[1], $suffix);
-    }
-
-    /**
-     * Brand price priority:
-     * 1) explicit brand override in Promotions tab
-     * 2) inherited from first linked Windows-type (materials relation)
-     *
-     * @return array{base: string, final: string}|null
-     */
-    private function resolveBrandPromotionPricing(
-        BrandsWebflowItem $brand,
-        string $brandSlug,
-        string $brandWebflowId,
-        PromotionControlService $controls,
-    ): ?array {
-        $override = $controls->brandPricing($brandWebflowId, $brandSlug);
-        if ($override !== null) {
-            return $override;
-        }
-
-        // Default brand pricing source: linked Windows main type.
-        $mainType = $brand->webflowReference('windowmaintype');
-        if ($mainType instanceof WindowsWebflowItem) {
-            $mainTypeFd = is_array($mainType->field_data) ? $mainType->field_data : [];
-            $mainTypeSlug = trim((string) ($mainTypeFd['slug'] ?? ''));
-            if ($mainTypeSlug !== '') {
-                $inherited = $controls->windowTypePricing(
-                    (string) ($mainType->webflow_item_id ?? ''),
-                    $mainTypeSlug
-                );
-                if ($inherited !== null) {
-                    return $inherited;
-                }
-            }
-        }
-
-        // Defensive fallback when reference resolver is unavailable.
-        $mainTypeId = trim((string) (is_array($brand->field_data) ? ($brand->field_data['windowmaintype'] ?? '') : ''));
-        if ($mainTypeId !== '') {
-            $mainTypeRow = WindowsWebflowItem::query()
-                ->where('webflow_item_id', $mainTypeId)
-                ->orWhere('field_data->slug', $mainTypeId)
-                ->first();
-            if ($mainTypeRow instanceof WindowsWebflowItem) {
-                $mainTypeFd = is_array($mainTypeRow->field_data) ? $mainTypeRow->field_data : [];
-                $mainTypeSlug = trim((string) ($mainTypeFd['slug'] ?? ''));
-                if ($mainTypeSlug !== '') {
-                    $inherited = $controls->windowTypePricing(
-                        (string) ($mainTypeRow->webflow_item_id ?? ''),
-                        $mainTypeSlug
-                    );
-                    if ($inherited !== null) {
-                        return $inherited;
-                    }
-                }
-            }
-        }
-
-        // Legacy fallback for older links that still rely on materials references.
-        foreach ($brand->webflowReferences('materials') as $material) {
-            $fd = is_array($material->field_data) ? $material->field_data : [];
-            $materialSlug = trim((string) ($fd['slug'] ?? ''));
-            if ($materialSlug === '') {
-                continue;
-            }
-            $inherited = $controls->windowTypePricing(
-                (string) ($material->webflow_item_id ?? ''),
-                $materialSlug
-            );
-            if ($inherited !== null) {
-                return $inherited;
-            }
-        }
-
-        return null;
     }
 
     private function brandCollectionMatchesMaterial(array $collection, string $materialName, ?string $materialWebflowId): bool

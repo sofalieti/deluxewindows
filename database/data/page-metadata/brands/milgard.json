@@ -55,9 +55,10 @@
     }
   ],
   "schema": {
-    "primary_type": "WebPage",
+    "primary_type": "Product",
     "data": {
-      "name": "Milgard"
+      "name": "Milgard Windows",
+      "brand": "Milgard"
     },
     "extra": [],
     "replace": []

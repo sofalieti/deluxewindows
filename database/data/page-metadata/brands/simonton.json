@@ -55,9 +55,10 @@
     }
   ],
   "schema": {
-    "primary_type": "WebPage",
+    "primary_type": "Product",
     "data": {
-      "name": "Simonton"
+      "name": "Simonton Windows",
+      "brand": "Simonton"
     },
     "extra": [],
     "replace": []

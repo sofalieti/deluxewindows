@@ -55,9 +55,10 @@
     }
   ],
   "schema": {
-    "primary_type": "WebPage",
+    "primary_type": "Product",
     "data": {
-      "name": "Jeld-Wen"
+      "name": "Jeld-Wen Windows",
+      "brand": "Jeld-Wen"
     },
     "extra": [],
     "replace": []

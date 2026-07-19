@@ -59,9 +59,10 @@
     }
   ],
   "schema": {
-    "primary_type": "WebPage",
+    "primary_type": "Product",
     "data": {
-      "name": "Andersen"
+      "name": "Andersen Windows",
+      "brand": "Andersen"
     },
     "extra": [],
     "replace": []

@@ -55,9 +55,10 @@
     }
   ],
   "schema": {
-    "primary_type": "WebPage",
+    "primary_type": "Product",
     "data": {
-      "name": "Western Window Systems"
+      "name": "Western Window Systems Windows",
+      "brand": "Western Window Systems"
     },
     "extra": [],
     "replace": []

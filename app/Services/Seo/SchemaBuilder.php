@@ -149,19 +149,7 @@ class SchemaBuilder
                 'name' => 'Deluxe Windows',
                 'publisher' => ['@id' => $organizationId],
             ],
-            'Product' => [
-                '@context' => 'https://schema.org',
-                '@type' => 'Product',
-                '@id' => $metadata->canonical.'#product',
-                'name' => (string) ($data['name'] ?? $metadata->title),
-                'description' => $metadata->description,
-                'url' => $metadata->canonical,
-                ...(is_string($metadata->ogImage) ? ['image' => $metadata->ogImage] : []),
-                'brand' => [
-                    '@type' => 'Brand',
-                    'name' => (string) ($data['brand'] ?? 'Deluxe Windows'),
-                ],
-            ],
+            'Product' => $this->productSchema($metadata, $data),
             'Service' => [
                 '@context' => 'https://schema.org',
                 '@type' => 'Service',
@@ -194,6 +182,57 @@ class SchemaBuilder
             ],
             default => null,
         };
+    }
+
+    /**
+     * @param  array<string, mixed>  $data
+     * @return array<string, mixed>
+     */
+    private function productSchema(PageMetadata $metadata, array $data): array
+    {
+        $product = [
+            '@context' => 'https://schema.org',
+            '@type' => 'Product',
+            '@id' => $metadata->canonical.'#product',
+            'name' => (string) ($data['name'] ?? $metadata->title),
+            'description' => $metadata->description,
+            'url' => $metadata->canonical,
+            ...(is_string($metadata->ogImage) ? ['image' => $metadata->ogImage] : []),
+            'brand' => [
+                '@type' => 'Brand',
+                'name' => (string) ($data['brand'] ?? 'Deluxe Windows'),
+            ],
+        ];
+
+        $offer = $this->brandOfferForPath($metadata->path, $metadata->canonical);
+        if ($offer !== []) {
+            $product['offers'] = $offer;
+        }
+
+        return $product;
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    private function brandOfferForPath(string $path, string $canonical): array
+    {
+        try {
+            /** @var \App\Services\BrandPromotionPricing $resolver */
+            $resolver = app(\App\Services\BrandPromotionPricing::class);
+            $pricing = $resolver->forPath($path);
+            if ($pricing === null) {
+                return [];
+            }
+
+            $unit = str_starts_with($path, '/door-brands/')
+                ? 'per door installed'
+                : 'per window installed';
+
+            return $resolver->toSchemaOffer($pricing, $canonical, $unit);
+        } catch (\Throwable) {
+            return [];
+        }
     }
 
     private function baseUrl(): string

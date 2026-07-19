@@ -2034,3 +2034,76 @@
   }
 }
 
+/* Lead form submit — loading spinner */
+.lead-form-submit-host {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.lead-form-submit-host > input[type="submit"],
+.lead-form-submit-host > button[type="submit"] {
+  width: 100%;
+}
+
+.lead-form-spinner {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1.35rem;
+  height: 1.35rem;
+  margin: -0.675rem 0 0 -0.675rem;
+  box-sizing: border-box;
+  border: 2.5px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.lead-form-submit-host.is-loading .lead-form-spinner {
+  display: block;
+  animation: lead-form-spin 0.7s linear infinite;
+}
+
+.lead-form-submit-host.is-loading > input[type="submit"],
+.lead-form-submit-host.is-loading > button[type="submit"] {
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  cursor: wait;
+  pointer-events: none;
+  transform: none !important;
+  filter: brightness(0.96);
+}
+
+.lead-form-submit-host.is-loading > button[type="submit"] .lead-form-btn-label {
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes lead-form-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lead-form-submit-host.is-loading .lead-form-spinner {
+    animation: none;
+    border-color: rgba(255, 255, 255, 0.55);
+    border-top-color: #fff;
+    opacity: 0.9;
+  }
+
+  .lead-form-submit-host.is-loading > input[type="submit"],
+  .lead-form-submit-host.is-loading > button[type="submit"] {
+    color: #fff !important;
+    -webkit-text-fill-color: #fff !important;
+  }
+
+  .lead-form-submit-host.is-loading .lead-form-spinner {
+    display: none;
+  }
+}
+

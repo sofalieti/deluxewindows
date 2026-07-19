@@ -53,9 +53,10 @@
     }
   ],
   "schema": {
-    "primary_type": "WebPage",
+    "primary_type": "Product",
     "data": {
-      "name": "Italwindows"
+      "name": "Italwindows Windows",
+      "brand": "Italwindows"
     },
     "extra": [],
     "replace": []
