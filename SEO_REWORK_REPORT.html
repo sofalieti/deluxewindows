@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEO Rework Report — Deluxe Windows</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #142033;
+  --muted: #5b6b7c;
+  --line: #d7e0ea;
+  --paper: #f6f8fb;
+  --card: #ffffff;
+  --accent: #0f4d89;
+  --accent-soft: #e8f1fa;
+  --p0: #b42318;
+  --p0-bg: #fef3f2;
+  --p1: #b54708;
+  --p1-bg: #fffaeb;
+  --p2: #027a48;
+  --p2-bg: #ecfdf3;
+  --shadow: 0 10px 30px rgba(20, 32, 51, 0.06);
+  --radius: 16px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 500px at 10% -10%, #dbeafe 0%, transparent 55%),
+    radial-gradient(900px 400px at 100% 0%, #eef2ff 0%, transparent 50%),
+    var(--paper);
+  font-family: "DM Sans", system-ui, sans-serif;
+  line-height: 1.55;
+  font-size: 15px;
+}
+.wrap { max-width: 1080px; margin: 0 auto; padding: 40px 20px 80px; }
+.hero {
+  display: grid;
+  gap: 18px;
+  padding: 36px 32px;
+  border-radius: 24px;
+  background: linear-gradient(145deg, #0f4d89 0%, #163a5f 55%, #12263c 100%);
+  color: #f4f8fc;
+  box-shadow: var(--shadow);
+  margin-bottom: 28px;
+}
+.hero h1 {
+  margin: 0;
+  font-family: Fraunces, Georgia, serif;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+.hero .lede { margin: 0; color: #c9daf0; max-width: 52ch; }
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 8px;
+}
+.stat {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  padding: 14px 16px;
+}
+.stat strong { display: block; font-size: 1.45rem; font-weight: 700; }
+.stat span { color: #b7cae2; font-size: 0.82rem; }
+.toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 28px;
+}
+.toc a {
+  text-decoration: none;
+  color: var(--accent);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+.toc a:hover { background: var(--accent-soft); }
+.section {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+.section > summary,
+.fold > summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 22px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  user-select: none;
+}
+.section > summary::-webkit-details-marker,
+.fold > summary::-webkit-details-marker { display: none; }
+.section > summary::after,
+.fold > summary::after {
+  content: "";
+  width: 10px; height: 10px;
+  border-right: 2px solid var(--muted);
+  border-bottom: 2px solid var(--muted);
+  transform: rotate(45deg);
+  transition: transform .18s ease;
+  flex: 0 0 auto;
+}
+.section[open] > summary::after,
+.fold[open] > summary::after { transform: rotate(-135deg); }
+.section-body { padding: 0 22px 22px; }
+.section h2 {
+  margin: 0;
+  font-family: Fraunces, Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+.muted { color: var(--muted); }
+.intro {
+  margin: 0 0 14px;
+  color: var(--muted);
+}
+.callout {
+  background: var(--accent-soft);
+  border: 1px solid #c5d9ef;
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin: 0 0 16px;
+}
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; }
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+th, td { padding: 10px 12px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+th { background: #f0f4f8; font-size: 0.78rem; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+tr:last-child td { border-bottom: 0; }
+code, .mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.82em;
+  background: #eef3f8;
+  padding: 1px 6px;
+  border-radius: 6px;
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+.badge-p0 { background: var(--p0-bg); color: var(--p0); }
+.badge-p1 { background: var(--p1-bg); color: var(--p1); }
+.badge-p2 { background: var(--p2-bg); color: var(--p2); }
+.badge-misc { background: #eef2f6; color: #475467; }
+.card-list { display: grid; gap: 10px; }
+.fold {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fbfcfe;
+}
+.fold > summary {
+  font-size: 0.95rem;
+  padding: 14px 16px;
+}
+.fold-summary-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+.fold-body { padding: 0 16px 16px; }
+.meta-grid {
+  display: grid;
+  gap: 8px;
+  margin-top: 8px;
+}
+.meta-row {
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  gap: 10px;
+  padding: 10px 12px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.meta-row b { color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: .04em; padding-top: 2px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 14px; }
+.chip {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 0.88rem;
+}
+.chip strong { color: var(--accent); }
+.footer {
+  margin-top: 28px;
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-align: center;
+}
+@media (max-width: 800px) {
+  .stats { grid-template-columns: 1fr 1fr; }
+  .hero { padding: 28px 20px; }
+  .meta-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div>
+    <h1>SEO Rework Report</h1>
+    <p class="lede">Deluxe Windows · page-metadata · 19 июля 2026 · Title / H1 / Schema.org</p>
+  </div>
+  <div class="stats">
+    <div class="stat"><strong>228</strong><span>Страниц с SEO</span></div>
+    <div class="stat"><strong>13</strong><span>Типов страниц</span></div>
+    <div class="stat"><strong>20</strong><span>Новых страниц в плане</span></div>
+    <div class="stat"><strong>≤60</strong><span>Max title length</span></div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Содержание">
+  <a href="#summary">Итоги</a>
+  <a href="#schema">Schema.org</a>
+  <a href="#types">Типы страниц</a>
+  <a href="#expansion">Новые страницы</a>
+  <a href="#inventory">Инвентарь</a>
+</nav>
+
+<details class="section" id="summary" open>
+  <summary><h2>Итоги SEO Rework</h2></summary>
+  <div class="section-body">
+    <div class="callout">
+      Пересобраны Title, Meta Description, H1 и keywords на основе Google Ads Search Terms,
+      Search Console Queries и People Also Ask (Apify). FAQ обновлены; цены в FAQ привязаны к hero-промо страницы.
+    </div>
+    <p class="muted">
+      Правила: уникальность Title / Description / H1 / primary keyword · Titles продающие
+      (Installation / Replacement) · «Deluxe» только на главной · города только на городских страницах ·
+      Description 140–160 · English only.
+    </p>
+  </div>
+</details>
+
+<details class="section" id="schema" open>
+  <summary><h2>1. Schema.org JSON-LD</h2></summary>
+  <div class="section-body">
+    <p class="intro">Organization вынесен отдельно — один блок «о компании» на всех страницах. Остальное page-specific через SchemaBuilder + page-metadata.</p>
+    <div class="callout">
+      <b>Site-wide:</b> HomeAndConstructionBusiness<br>
+      <span class="mono">@id https://www.deluxewindows.com/#organization</span>
+      <ul>
+        <li>name, url, telephone</li>
+        <li>description, priceRange $$</li>
+        <li>aggregateRating 4.9 / 231 reviews</li>
+        <li>hours Mon–Fri 08–18, Sat 09–15</li>
+        <li>areaServed GeoCircle (Bay Area, 100 km)</li>
+      </ul>
+    </div>
+<details class="fold" open><summary>Типы schema по семействам</summary><div class="fold-body"><div class="table-wrap"><table><thead><tr><th>Семейство</th><th>Paths</th><th>N</th><th>Primary</th><th>Стек</th></tr></thead><tbody><tr><td>Все страницы (база)</td><td class='mono'>layouts.classic → seo-head</td><td>все</td><td>—</td><td>Organization + WebPage* + BreadcrumbList + FAQPage†</td></tr><tr><td>Главная</td><td class='mono'>/</td><td>1</td><td>WebSite</td><td>Organization + WebPage + BreadcrumbList + WebSite + FAQPage</td></tr><tr><td>About</td><td class='mono'>/about</td><td>1</td><td>AboutPage</td><td>Organization + AboutPage + BreadcrumbList + FAQPage</td></tr><tr><td>Contacts</td><td class='mono'>/contacts</td><td>1</td><td>ContactPage</td><td>Organization + ContactPage + BreadcrumbList + FAQPage</td></tr><tr><td>Glossary</td><td class='mono'>/glossary</td><td>1</td><td>DefinedTermSet</td><td>Organization + WebPage + BreadcrumbList + DefinedTermSet + FAQPage</td></tr><tr><td>Города (service areas)</td><td class='mono'>/window-replacement/{city}</td><td>32</td><td>Service</td><td>Organization + WebPage + BreadcrumbList + Service + FAQPage</td></tr><tr><td>Округа</td><td class='mono'>/county-hub-pages/{county}</td><td>9</td><td>CollectionPage</td><td>Organization + CollectionPage + BreadcrumbList + FAQPage</td></tr><tr><td>Материалы окон / дверей</td><td class='mono'>/windows/*, /doors/*</td><td>13</td><td>Product</td><td>Organization + WebPage + BreadcrumbList + Product + FAQPage</td></tr><tr><td>Бренд + материал</td><td class='mono'>/window-type/*, /door-types/*</td><td>47</td><td>Product</td><td>Organization + WebPage + BreadcrumbList + Product + FAQPage</td></tr><tr><td>Бренды окон / дверей</td><td class='mono'>/brands/*, /door-brands/*</td><td>22</td><td>Product</td><td>Organization + WebPage + BreadcrumbList + Product + FAQPage</td></tr><tr><td>Серии / коллекции</td><td class='mono'>/brand-collections/*</td><td>80</td><td>CollectionPage</td><td>Organization + CollectionPage + BreadcrumbList + FAQPage</td></tr><tr><td>Блог</td><td class='mono'>/blog/{slug}</td><td>12</td><td>BlogPosting</td><td>Organization + WebPage + BreadcrumbList + BlogPosting + FAQPage</td></tr><tr><td>Индексы / статика</td><td class='mono'>/windows, /doors, /blog, /gallery, /faq, /financing, …</td><td>11+</td><td>mixed</td><td>Organization + WebPage|CollectionPage + BreadcrumbList ± FAQPage</td></tr></tbody></table></div></div></details><details class="fold"><summary>Заметки по семействам</summary><div class="fold-body"><div class="table-wrap"><table><thead><tr><th>Семейство</th><th>Notes</th></tr></thead><tbody><tr><td>Все страницы (база)</td><td>*WebPage / AboutPage / ContactPage / CollectionPage по primary_type. †если есть FAQ в metadata (~222 стр.)</td></tr><tr><td>Главная</td><td>WebSite @id …/#website, publisher → Organization</td></tr><tr><td>About</td><td>WebPage-слот заменён на AboutPage</td></tr><tr><td>Города (service areas)</td><td>provider → Organization; areaServed из schema.data при наличии</td></tr><tr><td>Материалы окон / дверей</td><td>Product + Brand; image из OG</td></tr><tr><td>Бренд + материал</td><td>Product + Brand; image из OG</td></tr><tr><td>Бренды окон / дверей</td><td>Offer/AggregateOffer из Hero promo (BrandPromotionPricing)</td></tr><tr><td>Блог</td><td>headline, dates из schema.data</td></tr><tr><td>Индексы / статика</td><td>Индексы чаще CollectionPage; offers/financing — WebPage</td></tr></tbody></table></div></div></details><details class="fold" open><summary>Что ещё можно добавить</summary><div class="fold-body"><div class="card-list"><details class="fold">
+<summary><span class="fold-summary-row"><span class="badge badge-p0">P0</span><span>PostalAddress + geo на Organization (шоурум Burlingame)</span></span></summary>
+<div class="fold-body"><div class="meta-grid"><div class="meta-row"><b>Зачем</b><div>NAP для Local Pack / Maps; сейчас только GeoCircle без street address</div></div></div></div>
+</details><details class="fold">
+<summary><span class="fold-summary-row"><span class="badge badge-p1">P1</span><span>Offer / AggregateOffer на остальные Product (materials, window-type, door-types)</span></span></summary>
+<div class="fold-body"><div class="meta-grid"><div class="meta-row"><b>Зачем</b><div>На /brands/* и /door-brands/* уже есть Offer из Hero promo; расширить на типы материалов</div></div></div></div>
+</details><details class="fold">
+<summary><span class="fold-summary-row"><span class="badge badge-p1">P1</span><span>areaServed City на Service (имя города страницы)</span></span></summary>
+<div class="fold-body"><div class="meta-grid"><div class="meta-row"><b>Зачем</b><div>Явная привязка услуги к городу; GeoCircle только на org</div></div></div></div>
+</details><details class="fold">
+<summary><span class="fold-summary-row"><span class="badge badge-p1">P1</span><span>Review / AggregateRating на testimonials + org sync</span></span></summary>
+<div class="fold-body"><div class="meta-grid"><div class="meta-row"><b>Зачем</b><div>Отзывы как сущности; рейтинг org уже есть, страницы reviews — нет</div></div></div></div>
+</details><details class="fold">
+<summary><span class="fold-summary-row"><span class="badge badge-p1">P1</span><span>ItemList на индексы (/windows, /doors, /brand, gallery)</span></span></summary>
+<div class="fold-body"><div class="meta-grid"><div class="meta-row"><b>Зачем</b><div>Список продуктов/проектов для AI/crawlers</div></div></div></div>
+</details><details class="fold">
+<summary><span class="fold-summary-row"><span class="badge badge-p1">P1</span><span>HowTo на measurement / buyer guides</span></span></summary>
+<div class="fold-body"><div class="meta-grid"><div class="meta-row"><b>Зачем</b><div>Сильный формат для AI Overviews и how-to rich results</div></div></div></div>
+</details><details class="fold">
+<summary><span class="fold-summary-row"><span class="badge badge-p2">P2</span><span>VideoObject если появятся видео установки</span></span></summary>
+<div class="fold-body"><div class="meta-grid"><div class="meta-row"><b>Зачем</b><div>Video rich results</div></div></div></div>
+</details><details class="fold">
+<summary><span class="fold-summary-row"><span class="badge badge-p2">P2</span><span>sameAs (Facebook, Instagram, GBP) на Organization</span></span></summary>
+<div class="fold-body"><div class="meta-grid"><div class="meta-row"><b>Зачем</b><div>Entity linking Knowledge Graph</div></div></div></div>
+</details><details class="fold">
+<summary><span class="fold-summary-row"><span class="badge badge-p2">P2</span><span>Speakable / Article на blog (опционально)</span></span></summary>
+<div class="fold-body"><div class="meta-grid"><div class="meta-row"><b>Зачем</b><div>Доп. сигналы для Google News / Assistant — низкий приоритет</div></div></div></div>
+</details></div></div></details></div></details>
+<details class="section" id="types" open>
+  <summary><h2>2. Сводка по типам страниц</h2></summary>
+  <div class="section-body">
+    <div class="chips">
+<div class='chip'><strong>1</strong> Главная</div><div class='chip'><strong>7</strong> Материалы окон</div><div class='chip'><strong>6</strong> Материалы дверей</div><div class='chip'><strong>11</strong> Бренды окон</div><div class='chip'><strong>11</strong> Бренды дверей</div><div class='chip'><strong>24</strong> Бренд + материал (окна)</div><div class='chip'><strong>23</strong> Бренд + материал (двери)</div><div class='chip'><strong>80</strong> Серии / коллекции</div><div class='chip'><strong>32</strong> Города (service areas)</div><div class='chip'><strong>9</strong> Округа</div><div class='chip'><strong>12</strong> Блог</div><div class='chip'><strong>1</strong> Каталог брендов</div><div class='chip'><strong>11</strong> Служебные / статика</div></div><div class='table-wrap'><table><thead><tr><th>Тип</th><th>Семейство</th><th>Кол-во</th></tr></thead><tbody><tr><td>Главная</td><td class='mono'>home</td><td>1</td></tr><tr><td>Материалы окон</td><td class='mono'>windows</td><td>7</td></tr><tr><td>Материалы дверей</td><td class='mono'>doors</td><td>6</td></tr><tr><td>Бренды окон</td><td class='mono'>brands</td><td>11</td></tr><tr><td>Бренды дверей</td><td class='mono'>door-brands</td><td>11</td></tr><tr><td>Бренд + материал (окна)</td><td class='mono'>window-type</td><td>24</td></tr><tr><td>Бренд + материал (двери)</td><td class='mono'>door-types</td><td>23</td></tr><tr><td>Серии / коллекции</td><td class='mono'>brand-collections</td><td>80</td></tr><tr><td>Города (service areas)</td><td class='mono'>window-replacement</td><td>32</td></tr><tr><td>Округа</td><td class='mono'>county-hub-pages</td><td>9</td></tr><tr><td>Блог</td><td class='mono'>blog</td><td>12</td></tr><tr><td>Каталог брендов</td><td class='mono'>brand</td><td>1</td></tr><tr><td>Служебные / статика</td><td class='mono'>static</td><td>11</td></tr></tbody></table></div></div></details>
+<details class="section" id="expansion" open>
+  <summary><h2>3. Предложенные новые страницы (20)</h2></summary>
+  <div class="section-body">
+    <p class="intro">Из Deluxe_Windows_SEO_content_map.xlsx · лист «02 Новые страницы». Раскройте карточку — там «Почему», контент и статус.</p>
+<details class="fold" open><summary>Локальная: город (шоурум) · 1</summary><div class="fold-body"><div class="card-list"><details class="fold">
+<summary><span class="fold-summary-row"><span class="badge badge-p0">P0</span><span>Window Replacement Burlingame, CA | Showroom | Deluxe Windows</span></span></summary>
+<div class="fold-body">
+  <div class="meta-grid">
+    <div class="meta-row"><b>URL</b><div class="mono">/window-replacement/burlingame</div></div>
+    <div class="meta-row"><b>Почему</b><div>266 показов, 42 клика, $403, 3 конверсии. Брендовый запрос «deluxe windows burlingame». Город с шоурумом — страницы нет.</div></div>
+    <div class="meta-row"><b>Контент</b><div>FAQ: адрес и часы шоурума, cost, брендовый ряд. Schema: LocalBusiness + NAP + geo</div></div>
+    <div class="meta-row"><b>Статус</b><div>не сделано</div></div>
+  </div>
+</div>
+</details></div></div></details><details class="fold" open><summary>Pillar: цены · 1</summary><div class="fold-body"><div class="card-list"><details class="fold">
+<summary><span class="fold-summary-row"><span class="badge badge-p0">P0</span><span>How Much Does Window Replacement Cost in the Bay Area? [2026]</span></span></summary>
+<div class="fold-body">
+  <div class="meta-grid">
+    <div class="meta-row"><b>URL</b><div class="mono">/blog/window-replacement-cost-bay-area</div></div>
+    <div class="meta-row"><b>Почему</b><div>696 запросов про cost/price, 1140 показов, 0 конверсий — ни одна страница не отвечает на вопрос о цене. Главный GEO-магнит.</div></div>
+    <div class="meta-row"><b>Контент</b><div>Таблица цен по материалам/стилям, cost per window, «cost to replace 25 windows». FAQPage schema</div></div>
+    <div class="meta-row"><b>Статус</b><div>не сделано</div></div>
+  </div>
+</div>
+</details></div></div></details><details class="fold" open><summary>Сравнение (перехват) · 1</summary><div class="fold-body"><div class="card-list"><details class="fold">
+<summary><span class="fold-summary-row"><span class="badge badge-p0">P0</span><span>Andersen vs Renewal by Andersen: What Is the Difference?</span></span></summary>
+<div class="fold-body">
+  <div class="meta-grid">
+    <div class="meta-row"><b>URL</b><div class="mono">/blog/andersen-vs-renewal-by-andersen</div></div>
+    <div class="meta-row"><b>Почему</b><div>Renewal by Andersen: 1823 показа, 35 кликов, $600. Люди путают бренды — страница-перехват.</div></div>
+    <div class="meta-row"><b>Контент</b><div>Разница дилерской модели, цены, что выбрать. Сильный перехват конкурентного трафика</div></div>
+    <div class="meta-row"><b>Статус</b><div>не сделано</div></div>
+  </div>
+</div>
+</details></div></div></details><details class="fold" open><summary>Двери по функции · 3</summary><div class="fold-body"><div class="card-list"><details class="fold">
+<summary><span class="fold-summary-row"><span class="badge badge-p1">P1</span><span>Sliding &amp; Patio Doors Bay Area | Milgard, Marvin | Deluxe Windows</span></span></summary>
+<div class="fold-body">
+  <div class="meta-grid">
+    <div class="meta-row"><b>URL</b><div class="mono">/doors/sliding-patio-doors</div></div>
+    <div class="meta-row"><b>Почему</b><div>Sliding door 738 + patio door 479 показов, $374 при почти нулевой конверсии — трафик падает на страницы материалов.</div></div>
+    <div class="meta-row"><b>Контент</b><div>FAQ: sliding door replacement cost, patio door installation, vinyl vs aluminum patio door</div></div>
+    <div class="meta-row"><b>Статус</b><div>не сделано</div></div>
+  </div>
+</div>
+</details><details class="fold">
+<summary><span class="fold-summary-row"><span class="badge badge-p1">P1</span><span>Entry &amp; Front Doors Bay Area | Wood, Fiberglass, Steel | Deluxe Windows</span></span></summary>
+<div class="fold-body">
+  <div class="meta-grid">
+    <div class="meta-row"><b>URL</b><div class="mono">/doors/entry-front-doors</div></div>
+    <div class="meta-row"><b>Почему</b><div>Front door 284 + entry door 104 показов. Страниц по функции нет.</div></div>
+    <div class="meta-row"><b>Контент</b><div>FAQ: front door cost installed, fiberglass vs steel vs wood entry door</div></div>
+    <div class="meta-row"><b>Статус</b><div>не сделано</div></div>
+  </div>
+</div>
+</details><details class="fold">
+<summary><span class="fold-summary-row"><span class="badge badge-p1">P1</span><span>French Doors Bay Area | Interior &amp; Exterior | Deluxe Windows</span></span></summary>
+<div class="fold-body">
+  <div class="meta-grid">
+    <div class="meta-row"><b>URL</b><div class="mono">/doors/french-doors</div></div>
+    <div class="meta-row"><b>Почему</b><div>164 показа. Высокомаржинальный продукт.</div></div>
+    <div class="meta-row"><b>Контент</b><div>FAQ: french door cost, french vs sliding patio door</div></div>
+    <div class="meta-row"><b>Статус</b><div>не сделано</div></div>
+  </div>
+</div>
+</details></div></div></details><details class="fold" open><summary>Стили окон · 6</summary><div class="fold-body"><div class="card-list"><details class="fold">
+<summary><span class="fold-summary-row"><span class="badge badge-p1">P1</span><span>Garden Windows Bay Area | Kitchen Garden Windows | Deluxe Windows</span></span></summary>
+<div class="fold-body">
+  <div class="meta-grid">
+    <div class="meta-row"><b>URL</b><div class="mono">/window-styles/garden-windows</div></div>
+    <div class="meta-row"><b>Почему</b><div>251 показ, 10 кликов, $113, 1 конверсия — самый горячий стиль без страницы.</div></div>
+    <div class="meta-row"><b>Контент</b><div>FAQ: garden window cost, sizes, replacement</div></div>
+    <div class="meta-row"><b>Статус</b><div>не сделано</div></div>
+  </div>
+</div>
+</details><details class="fold">
+<summary><span class="fold-summary-row"><span class="badge badge-p1">P1</span><span>Casement Windows Bay Area | Deluxe Windows</span></span></summary>
+<div class="fold-body">
+  <div class="meta-grid">
+    <div class="meta-row"><b>URL</b><div class="mono">/window-styles/casement-windows</div></div>
+    <div class="meta-row"><b>Почему</b><div>229 показов, 138 запросов. Сайт организован по материалу, спрос — по стилю.</div></div>
+    <div class="meta-row"><b>Контент</b><div>FAQ: casement vs double hung, casement window cost</div></div>
+    <div class="meta-row"><b>Статус</b><div>не сделано</div></div>
+  </div>
+</div>
+</details><details class="fold">
+<summary><span class="fold-summary-row"><span class="badge badge-p1">P1</span><span>Bay &amp; Bow Windows Bay Area | Deluxe Windows</span></span></summary>
+<div class="fold-body">
+  <div class="meta-grid">
+    <div class="meta-row"><b>URL</b><div class="mono">/window-styles/bay-bow-windows</div></div>
+    <div class="meta-row"><b>Почему</b><div>Bay window 196 показов + bow. Дорогой продукт.</div></div>
+    <div class="meta-row"><b>Контент</b><div>FAQ: bay window cost installed, bay vs bow</div></div>
+    <div class="meta-row"><b>Статус</b><div>не сделано</div></div>
+  </div>
+</div>
+</details><details class="fold">
+<summary><span class="fold-summary-row"><span class="badge badge-p1">P1</span><span>Sliding (Slider) Windows Bay Area | Deluxe Windows</span></span></summary>
+<div class="fold-body">
+  <div class="meta-grid">
+    <div class="meta-row"><b>URL</b><div class="mono">/window-styles/sliding-windows</div></div>
+    <div class="meta-row"><b>Почему</b><div>168 показов.</div></div>
+    <div class="meta-row"><b>Контент</b><div>FAQ: sliding window sizes, horizontal slider cost</div></div>
+    <div class="meta-row"><b>Статус</b><div>не сделано</div></div>
+  </div>
+</div>
+</details><details class="fold">
+<summary><span class="fold-summary-row"><span class="badge badge-p1">P1</span><span>Double Hung &amp; Single Hung Windows | Deluxe Windows</span></span></summary>
+<div class="fold-body">
+  <div class="meta-grid">
+    <div class="meta-row"><b>URL</b><div class="mono">/window-styles/double-single-hung-windows</div></div>
+    <div class="meta-row"><b>Почему</b><div>Double hung 109 + single hung 35 показов.</div></div>
+    <div class="meta-row"><b>Контент</b><div>FAQ: double vs single hung, standard sizes</div></div>
+    <div class="meta-row"><b>Статус</b><div>не сделано</div></div>
+  </div>
+</div>
+</details><details class="fold">
+<summary><span class="fold-summary-row"><span class="badge badge-p1">P1</span><span>Awning &amp; Picture Windows Bay Area | Deluxe Windows</span></span></summary>
+<div class="fold-body">
+  <div class="meta-grid">
+    <div class="meta-row"><b>URL</b><div class="mono">/window-styles/awning-picture-windows</div></div>
+    <div class="meta-row"><b>Почему</b><div>Awning 122 + picture 86 показов. Можно объединить или раздельно.</div></div>
+    <div class="meta-row"><b>Контент</b><div>FAQ: picture window sizes (36x84 и др.), awning window uses</div></div>
+    <div class="meta-row"><b>Статус</b><div>не сделано</div></div>
+  </div>
+</div>
+</details></div></div></details><details class="fold" open><summary>Pillar: размеры · 1</summary><div class="fold-body"><div class="card-list"><details class="fold">
+<summary><span class="fold-summary-row"><span class="badge badge-p1">P1</span><span>Standard Window Sizes Guide: Charts by Room &amp; Style [2026]</span></span></summary>
+<div class="fold-body">
+  <div class="meta-grid">
+    <div class="meta-row"><b>URL</b><div class="mono">/blog/window-sizes-guide</div></div>
+    <div class="meta-row"><b>Почему</b><div>581 запрос с размерами (bathroom window standard size, 36x84 picture window). Верх воронки.</div></div>
+    <div class="meta-row"><b>Контент</b><div>Таблицы размеров по комнатам и стилям. FAQPage schema</div></div>
+    <div class="meta-row"><b>Статус</b><div>не сделано</div></div>
+  </div>
+</div>
+</details></div></div></details><details class="fold" open><summary>Сравнение (GEO) · 1</summary><div class="fold-body"><div class="card-list"><details class="fold">
+<summary><span class="fold-summary-row"><span class="badge badge-p2">P2</span><span>Vinyl vs Fiberglass Windows: Which Is Better for Bay Area Homes?</span></span></summary>
+<div class="fold-body">
+  <div class="meta-grid">
+    <div class="meta-row"><b>URL</b><div class="mono">/blog/vinyl-vs-fiberglass-windows</div></div>
+    <div class="meta-row"><b>Почему</b><div>Сравнительные запросы + любимый формат AI Overviews. Нужна парная к vinyl-статье.</div></div>
+    <div class="meta-row"><b>Контент</b><div>Сравнительная таблица, verdict в первом абзаце</div></div>
+    <div class="meta-row"><b>Статус</b><div>не сделано</div></div>
+  </div>
+</div>
+</details></div></div></details><details class="fold" open><summary>Сравнение брендов (GEO) · 2</summary><div class="fold-body"><div class="card-list"><details class="fold">
+<summary><span class="fold-summary-row"><span class="badge badge-p2">P2</span><span>Marvin vs Andersen Windows: Dealer Comparison [2026]</span></span></summary>
+<div class="fold-body">
+  <div class="meta-grid">
+    <div class="meta-row"><b>URL</b><div class="mono">/blog/marvin-vs-andersen-windows</div></div>
+    <div class="meta-row"><b>Почему</b><div>«marvin windows vs andersen» + паттерн brand-vs-brand. Дилер обоих — уникальная позиция.</div></div>
+    <div class="meta-row"><b>Контент</b><div>Таблица: серии, цены, warranty, для какого дома</div></div>
+    <div class="meta-row"><b>Статус</b><div>не сделано</div></div>
+  </div>
+</div>
+</details><details class="fold">
+<summary><span class="fold-summary-row"><span class="badge badge-p2">P2</span><span>Milgard vs Anlin vs Simonton: Vinyl Windows Compared</span></span></summary>
+<div class="fold-body">
+  <div class="meta-grid">
+    <div class="meta-row"><b>URL</b><div class="mono">/blog/milgard-vs-anlin-vs-simonton</div></div>
+    <div class="meta-row"><b>Почему</b><div>anlin vs milgard / simonton vs milgard — виниловый сегмент.</div></div>
+    <div class="meta-row"><b>Контент</b><div>Сравнительная таблица виниловых линеек</div></div>
+    <div class="meta-row"><b>Статус</b><div>не сделано</div></div>
+  </div>
+</div>
+</details></div></div></details><details class="fold" open><summary>Сравнение серий · 1</summary><div class="fold-body"><div class="card-list"><details class="fold">
+<summary><span class="fold-summary-row"><span class="badge badge-p2">P2</span><span>Milgard Trinsic vs Tuscany: Which Series to Choose?</span></span></summary>
+<div class="fold-body">
+  <div class="meta-grid">
+    <div class="meta-row"><b>URL</b><div class="mono">/blog/milgard-trinsic-vs-tuscany</div></div>
+    <div class="meta-row"><b>Почему</b><div>«milgard trinsic vs tuscany» + серийные запросы. Микро-страница под готовый спрос.</div></div>
+    <div class="meta-row"><b>Контент</b><div>Таблица отличий V300 vs V400</div></div>
+    <div class="meta-row"><b>Статус</b><div>не сделано</div></div>
+  </div>
+</div>
+</details></div></div></details><details class="fold" open><summary>Сервис / доверие · 1</summary><div class="fold-body"><div class="card-list"><details class="fold">
+<summary><span class="fold-summary-row"><span class="badge badge-p2">P2</span><span>Window Warranty Help: Milgard, Simonton, Andersen, Marvin | Deluxe Windows</span></span></summary>
+<div class="fold-body">
+  <div class="meta-grid">
+    <div class="meta-row"><b>URL</b><div class="mono">/warranty-support</div></div>
+    <div class="meta-row"><b>Почему</b><div>Warranty — крупнейший вопросный кластер (milgard ~700 показов суммарно). В Ads — в минуса; органика ловит бесплатно.</div></div>
+    <div class="meta-row"><b>Контент</b><div>Как подать claim по каждому бренду, ссылки на производителей, помощь дилера</div></div>
+    <div class="meta-row"><b>Статус</b><div>не сделано</div></div>
+  </div>
+</div>
+</details></div></div></details><details class="fold" open><summary>Локальные: города · 1</summary><div class="fold-body"><div class="card-list"><details class="fold">
+<summary><span class="fold-summary-row"><span class="badge badge-p2">P2</span><span>Window Replacement {City}, CA | Deluxe Windows</span></span></summary>
+<div class="fold-body">
+  <div class="meta-grid">
+    <div class="meta-row"><b>URL</b><div class="mono">/window-replacement/{city}</div></div>
+    <div class="meta-row"><b>Почему</b><div>Novato, Brentwood, Union City, Cupertino, Castro Valley, Pittsburg — спрос 11–26 показов, страниц нет (Novato $46, Castro Valley $52 впустую).</div></div>
+    <div class="meta-row"><b>Контент</b><div>Шаблон городской страницы (как существующие P2-города)</div></div>
+    <div class="meta-row"><b>Статус</b><div>не сделано</div></div>
+  </div>
+</div>
+</details></div></div></details><details class="fold" open><summary>Сервис · 1</summary><div class="fold-body"><div class="card-list"><details class="fold">
+<summary><span class="fold-summary-row"><span class="badge badge-misc">Решение</span><span>Window Repair Bay Area | Deluxe Windows</span></span></summary>
+<div class="fold-body">
+  <div class="meta-grid">
+    <div class="meta-row"><b>URL</b><div class="mono">/window-repair (или минус-слова)</div></div>
+    <div class="meta-row"><b>Почему</b><div>50 repair-запросов, $143, 0 конверсий. Если ремонт НЕ делаете — в минуса; если делаете — страница.</div></div>
+    <div class="meta-row"><b>Контент</b><div>Либо страница, либо минус-слова: repair, fix, broken</div></div>
+    <div class="meta-row"><b>Статус</b><div>решение бизнеса</div></div>
+  </div>
+</div>
+</details></div></div></details></div></details>
+<details class="section" id="inventory">
+  <summary><h2>4. Инвентарь страниц (228)</h2></summary>
+  <div class="section-body">
+    <p class="intro">Раскройте семейство, чтобы увидеть Path / Title / H1 / Primary keyword.</p>
+    <div class="card-list">
+<details class="fold"><summary>Главная · 1</summary><div class="fold-body"><div class="table-wrap"><table><thead><tr><th>Path</th><th>Title</th><th>H1</th><th>Primary</th></tr></thead><tbody><tr><td class='mono'>/</td><td>Window Replacement Bay Area | Deluxe Windows</td><td>Bay Area Window &amp; Door Replacement Experts</td><td>window replacement bay area</td></tr></tbody></table></div></div></details><details class="fold"><summary>Материалы окон · 7</summary><div class="fold-body"><div class="table-wrap"><table><thead><tr><th>Path</th><th>Title</th><th>H1</th><th>Primary</th></tr></thead><tbody><tr><td class='mono'>/windows/aluminum-clad-windows</td><td>Aluminum Clad Window Replacement Bay Area | Cost</td><td>Aluminum Clad Windows for Bay Area Homes</td><td>aluminum clad windows</td></tr><tr><td class='mono'>/windows/aluminum-windows</td><td>Aluminum Window Replacement Bay Area | Cost &amp; Installation</td><td>Aluminum Windows for Bay Area Homes</td><td>aluminum windows</td></tr><tr><td class='mono'>/windows/fiberglass-windows</td><td>Fiberglass Window Replacement Bay Area | Cost &amp; Installation</td><td>Fiberglass Windows for Bay Area Homes</td><td>fiberglass windows</td></tr><tr><td class='mono'>/windows/steel-windows</td><td>Steel Window Replacement Bay Area | Cost &amp; Installation</td><td>Steel Windows for Bay Area Homes</td><td>steel windows</td></tr><tr><td class='mono'>/windows/vinyl-windows</td><td>Vinyl Window Replacement Bay Area | Cost &amp; Installation</td><td>Vinyl Windows for Bay Area Homes</td><td>vinyl windows</td></tr><tr><td class='mono'>/windows/wood-clad-windows</td><td>Wood Clad Window Replacement Bay Area | Cost &amp; Installation</td><td>Wood Clad Windows for Bay Area Homes</td><td>wood clad windows</td></tr><tr><td class='mono'>/windows/wood-windows</td><td>Wood Window Replacement Bay Area | Cost &amp; Installation</td><td>Wood Windows for Bay Area Homes</td><td>wood windows</td></tr></tbody></table></div></div></details><details class="fold"><summary>Материалы дверей · 6</summary><div class="fold-body"><div class="table-wrap"><table><thead><tr><th>Path</th><th>Title</th><th>H1</th><th>Primary</th></tr></thead><tbody><tr><td class='mono'>/doors/aluminum-doors</td><td>Aluminum Door Installation Bay Area | Entry &amp; Patio</td><td>Aluminum Doors for Bay Area Homes</td><td>aluminum doors</td></tr><tr><td class='mono'>/doors/fiberglass-doors</td><td>Fiberglass Door Installation Bay Area | Entry &amp; Patio</td><td>Fiberglass Doors for Bay Area Homes</td><td>fiberglass doors</td></tr><tr><td class='mono'>/doors/steel-doors</td><td>Steel Door Installation Bay Area | Entry &amp; Patio</td><td>Steel Doors for Bay Area Homes</td><td>steel doors</td></tr><tr><td class='mono'>/doors/vinyl-doors</td><td>Vinyl Door Installation Bay Area | Entry &amp; Patio</td><td>Vinyl Doors for Bay Area Homes</td><td>vinyl doors</td></tr><tr><td class='mono'>/doors/wood-clad-doors</td><td>Wood Clad Door Installation Bay Area | Entry &amp; Patio</td><td>Wood Clad Doors for Bay Area Homes</td><td>wood clad doors</td></tr><tr><td class='mono'>/doors/wood-doors</td><td>Wood Door Installation Bay Area | Entry &amp; Patio</td><td>Wood Doors for Bay Area Homes</td><td>wood doors</td></tr></tbody></table></div></div></details><details class="fold"><summary>Бренды окон · 11</summary><div class="fold-body"><div class="table-wrap"><table><thead><tr><th>Path</th><th>Title</th><th>H1</th><th>Primary</th></tr></thead><tbody><tr><td class='mono'>/brands/all-weather-architectural-aluminum</td><td>All Weather Aluminum Window Installation Bay Area</td><td>All Weather Architectural Aluminum Windows — Bay Area Dealer &amp; Installer</td><td>all weather architectural aluminum windows</td></tr><tr><td class='mono'>/brands/alside</td><td>Alside Window Replacement &amp; Installation | Bay Area</td><td>Alside Windows — Bay Area Dealer &amp; Installer</td><td>alside windows</td></tr><tr><td class='mono'>/brands/andersen</td><td>Andersen Window Replacement &amp; Installation | Bay Area</td><td>Andersen Windows — Bay Area Dealer &amp; Installer</td><td>andersen windows</td></tr><tr><td class='mono'>/brands/anlin</td><td>Anlin Window Replacement &amp; Installation | Bay Area</td><td>Anlin Windows — Bay Area Dealer &amp; Installer</td><td>anlin windows</td></tr><tr><td class='mono'>/brands/italwindows</td><td>Italwindows Window Replacement &amp; Installation | Bay Area</td><td>Italwindows Windows — Bay Area Dealer &amp; Installer</td><td>italwindows windows</td></tr><tr><td class='mono'>/brands/jeld-wen</td><td>JELD-WEN Window Replacement &amp; Installation | Bay Area</td><td>JELD-WEN Windows — Bay Area Dealer &amp; Installer</td><td>jeld-wen windows</td></tr><tr><td class='mono'>/brands/marvin</td><td>Marvin Window Replacement &amp; Installation | Bay Area</td><td>Marvin Windows — Bay Area Dealer &amp; Installer</td><td>marvin windows</td></tr><tr><td class='mono'>/brands/milgard</td><td>Milgard Window Replacement &amp; Installation | Bay Area</td><td>Milgard Windows — Bay Area Dealer &amp; Installer</td><td>milgard windows</td></tr><tr><td class='mono'>/brands/ply-gem</td><td>Ply Gem Window Replacement &amp; Installation | Bay Area</td><td>Ply Gem Windows — Bay Area Dealer &amp; Installer</td><td>ply gem windows</td></tr><tr><td class='mono'>/brands/simonton</td><td>Simonton Window Replacement &amp; Installation | Bay Area</td><td>Simonton Windows — Bay Area Dealer &amp; Installer</td><td>simonton windows</td></tr><tr><td class='mono'>/brands/western-window-systems</td><td>Western Window Systems Window Installation Bay Area</td><td>Western Window Systems Windows — Bay Area Dealer &amp; Installer</td><td>western window systems windows</td></tr></tbody></table></div></div></details><details class="fold"><summary>Бренды дверей · 11</summary><div class="fold-body"><div class="table-wrap"><table><thead><tr><th>Path</th><th>Title</th><th>H1</th><th>Primary</th></tr></thead><tbody><tr><td class='mono'>/door-brands/all-weather-architectural-aluminum</td><td>All Weather Aluminum Door Installation Bay Area</td><td>All Weather Architectural Aluminum Doors — Patio, Sliding &amp; Entry</td><td>all weather architectural aluminum doors</td></tr><tr><td class='mono'>/door-brands/alside</td><td>Alside Door Installation Bay Area | Patio &amp; Entry</td><td>Alside Doors — Patio, Sliding &amp; Entry</td><td>alside doors</td></tr><tr><td class='mono'>/door-brands/andersen</td><td>Andersen Door Installation Bay Area | Patio &amp; Entry</td><td>Andersen Doors — Patio, Sliding &amp; Entry</td><td>andersen doors</td></tr><tr><td class='mono'>/door-brands/anlin</td><td>Anlin Door Installation Bay Area | Patio &amp; Entry</td><td>Anlin Doors — Patio, Sliding &amp; Entry</td><td>anlin doors</td></tr><tr><td class='mono'>/door-brands/italwindows</td><td>Italwindows Door Installation Bay Area | Patio &amp; Entry</td><td>Italwindows Doors — Patio, Sliding &amp; Entry</td><td>italwindows doors</td></tr><tr><td class='mono'>/door-brands/jeld-wen</td><td>JELD-WEN Door Installation Bay Area | Patio &amp; Entry</td><td>JELD-WEN Doors — Patio, Sliding &amp; Entry</td><td>jeld-wen doors</td></tr><tr><td class='mono'>/door-brands/marvin</td><td>Marvin Door Installation Bay Area | Patio &amp; Entry</td><td>Marvin Doors — Patio, Sliding &amp; Entry</td><td>marvin doors</td></tr><tr><td class='mono'>/door-brands/milgard</td><td>Milgard Door Installation Bay Area | Patio &amp; Entry</td><td>Milgard Doors — Patio, Sliding &amp; Entry</td><td>milgard doors</td></tr><tr><td class='mono'>/door-brands/ply-gem</td><td>Ply Gem Door Installation Bay Area | Patio &amp; Entry</td><td>Ply Gem Doors — Patio, Sliding &amp; Entry</td><td>ply gem doors</td></tr><tr><td class='mono'>/door-brands/simonton</td><td>Simonton Door Installation Bay Area | Patio &amp; Entry</td><td>Simonton Doors — Patio, Sliding &amp; Entry</td><td>simonton doors</td></tr><tr><td class='mono'>/door-brands/western-window-systems</td><td>Western Window Systems Door Installation Bay Area</td><td>Western Window Systems Doors — Patio, Sliding &amp; Entry</td><td>western window systems doors</td></tr></tbody></table></div></div></details><details class="fold"><summary>Бренд + материал (окна) · 24</summary><div class="fold-body"><div class="table-wrap"><table><thead><tr><th>Path</th><th>Title</th><th>H1</th><th>Primary</th></tr></thead><tbody><tr><td class='mono'>/window-type/all-weather-architectural-aluminum-windows</td><td>All Weather Architectural Aluminum Windows Installation</td><td>All Weather Architectural Aluminum Windows</td><td>all weather architectural aluminum windows all weather architectural aluminum windows</td></tr><tr><td class='mono'>/window-type/alside-vinyl-windows</td><td>Alside Vinyl Windows | Installation Cost &amp; Series</td><td>Alside Vinyl Windows</td><td>alside vinyl windows</td></tr><tr><td class='mono'>/window-type/andersen-aluminum-windows</td><td>Andersen Aluminum Windows | Installation Cost &amp; Series</td><td>Andersen Aluminum Windows</td><td>andersen aluminum windows</td></tr><tr><td class='mono'>/window-type/andersen-fiberglass-windows</td><td>Andersen Fiberglass Windows | Installation Cost &amp; Series</td><td>Andersen Fiberglass Windows</td><td>andersen fiberglass windows</td></tr><tr><td class='mono'>/window-type/andersen-vinyl-windows</td><td>Andersen Vinyl Windows | Installation Cost &amp; Series</td><td>Andersen Vinyl Windows</td><td>andersen vinyl windows</td></tr><tr><td class='mono'>/window-type/andersen-wood-windows</td><td>Andersen Wood Windows | Installation Cost &amp; Series</td><td>Andersen Wood Windows</td><td>andersen wood windows</td></tr><tr><td class='mono'>/window-type/anlin-vinyl-windows</td><td>Anlin Vinyl Windows | Installation Cost &amp; Series</td><td>Anlin Vinyl Windows</td><td>anlin vinyl windows</td></tr><tr><td class='mono'>/window-type/italwindows-aluminium-windows</td><td>Italwindows Aluminum Windows | Installation Cost &amp; Series</td><td>Italwindows Aluminum Windows</td><td>italwindows aluminum windows</td></tr><tr><td class='mono'>/window-type/italwindows-steel-windows</td><td>Italwindows Steel Windows | Installation Cost &amp; Series</td><td>Italwindows Steel Windows</td><td>italwindows steel windows</td></tr><tr><td class='mono'>/window-type/italwindows-wood-windows</td><td>Italwindows Wood Windows | Installation Cost &amp; Series</td><td>Italwindows Wood Windows</td><td>italwindows wood windows</td></tr><tr><td class='mono'>/window-type/jeld-wen-vinyl-windows</td><td>JELD-WEN Vinyl Windows | Installation Cost &amp; Series</td><td>JELD-WEN Vinyl Windows</td><td>jeld-wen vinyl windows</td></tr><tr><td class='mono'>/window-type/jeld-wen-wood-clad-windows</td><td>JELD-WEN Wood Clad Windows | Installation Cost &amp; Series</td><td>JELD-WEN Wood Clad Windows</td><td>jeld-wen wood clad windows</td></tr><tr><td class='mono'>/window-type/jeld-wen-wood-windows</td><td>JELD-WEN Wood Windows | Installation Cost &amp; Series</td><td>JELD-WEN Wood Windows</td><td>jeld-wen wood windows</td></tr><tr><td class='mono'>/window-type/marvin-aluminum-windows</td><td>Marvin Aluminum Windows | Installation Cost &amp; Series</td><td>Marvin Aluminum Windows</td><td>marvin aluminum windows</td></tr><tr><td class='mono'>/window-type/marvin-fiberglass-windows</td><td>Marvin Fiberglass Windows | Installation Cost &amp; Series</td><td>Marvin Fiberglass Windows</td><td>marvin fiberglass windows</td></tr><tr><td class='mono'>/window-type/milgard-aluminum-windows</td><td>Milgard Aluminum Windows | Installation Cost &amp; Series</td><td>Milgard Aluminum Windows</td><td>milgard aluminum windows</td></tr><tr><td class='mono'>/window-type/milgard-fiberglass-windows</td><td>Milgard Fiberglass Windows | Installation Cost &amp; Series</td><td>Milgard Fiberglass Windows</td><td>milgard fiberglass windows</td></tr><tr><td class='mono'>/window-type/milgard-vinyl-windows</td><td>Milgard Vinyl Windows | Installation Cost &amp; Series</td><td>Milgard Vinyl Windows</td><td>milgard vinyl windows</td></tr><tr><td class='mono'>/window-type/ply-gem-aluminum-clad-windows</td><td>Ply Gem Aluminum Clad Windows | Installation Cost &amp; Series</td><td>Ply Gem Aluminum Clad Windows</td><td>ply gem aluminum clad windows</td></tr><tr><td class='mono'>/window-type/ply-gem-aluminum-windows</td><td>Ply Gem Aluminum Windows | Installation Cost &amp; Series</td><td>Ply Gem Aluminum Windows</td><td>ply gem aluminum windows</td></tr><tr><td class='mono'>/window-type/ply-gem-vinyl-windows</td><td>Ply Gem Vinyl Windows | Installation Cost &amp; Series</td><td>Ply Gem Vinyl Windows</td><td>ply gem vinyl windows</td></tr><tr><td class='mono'>/window-type/simonton-vinyl-windows</td><td>Simonton Vinyl Windows | Installation Cost &amp; Series</td><td>Simonton Vinyl Windows</td><td>simonton vinyl windows</td></tr><tr><td class='mono'>/window-type/western-window-systems-aluminum-windows</td><td>Western Window Systems Aluminum Windows | Installation Cost</td><td>Western Window Systems Aluminum Windows</td><td>western window systems aluminum windows</td></tr><tr><td class='mono'>/window-type/wood-marvin-windows</td><td>Marvin Wood Windows | Installation Cost &amp; Series</td><td>Marvin Wood Windows</td><td>marvin wood windows</td></tr></tbody></table></div></div></details><details class="fold"><summary>Бренд + материал (двери) · 23</summary><div class="fold-body"><div class="table-wrap"><table><thead><tr><th>Path</th><th>Title</th><th>H1</th><th>Primary</th></tr></thead><tbody><tr><td class='mono'>/door-types/all-weather-architectural-aluminum-doors</td><td>All Weather Architectural Aluminum Doors | Installation Cost</td><td>All Weather Architectural Aluminum Doors</td><td>all weather architectural aluminum doors all weather architectural aluminum doors</td></tr><tr><td class='mono'>/door-types/alside-vinyl-doors</td><td>Alside Vinyl Doors | Installation Cost &amp; Options</td><td>Alside Vinyl Doors</td><td>alside vinyl doors</td></tr><tr><td class='mono'>/door-types/andersen-aluminum-doors</td><td>Andersen Aluminum Doors | Installation Cost &amp; Options</td><td>Andersen Aluminum Doors</td><td>andersen aluminum doors</td></tr><tr><td class='mono'>/door-types/andersen-fiberglass-doors</td><td>Andersen Fiberglass Doors | Installation Cost &amp; Options</td><td>Andersen Fiberglass Doors</td><td>andersen fiberglass doors</td></tr><tr><td class='mono'>/door-types/andersen-vinyl-doors</td><td>Andersen Vinyl Doors | Installation Cost &amp; Options</td><td>Andersen Vinyl Doors</td><td>andersen vinyl doors</td></tr><tr><td class='mono'>/door-types/andersen-wood-doors</td><td>Andersen Wood Doors | Installation Cost &amp; Options</td><td>Andersen Wood Doors</td><td>andersen wood doors</td></tr><tr><td class='mono'>/door-types/anlin-vinyl-door</td><td>Anlin Vinyl Doors | Installation Cost &amp; Options</td><td>Anlin Vinyl Doors</td><td>anlin vinyl doors</td></tr><tr><td class='mono'>/door-types/italwindows-aluminium-doors</td><td>Italwindows Aluminum Doors | Installation Cost &amp; Options</td><td>Italwindows Aluminum Doors</td><td>italwindows aluminum doors</td></tr><tr><td class='mono'>/door-types/italwindows-steel-doors-j3z67</td><td>Italwindows Steel Doors | Installation Cost &amp; Options</td><td>Italwindows Steel Doors</td><td>italwindows steel doors</td></tr><tr><td class='mono'>/door-types/italwindows-wood-doors</td><td>Italwindows Wood Doors | Installation Cost &amp; Options</td><td>Italwindows Wood Doors</td><td>italwindows wood doors</td></tr><tr><td class='mono'>/door-types/jeld-wen-vinyl-doors</td><td>JELD-WEN Vinyl Doors | Installation Cost &amp; Options</td><td>JELD-WEN Vinyl Doors</td><td>jeld-wen vinyl doors</td></tr><tr><td class='mono'>/door-types/jeld-wen-wood-clad-doors</td><td>JELD-WEN Wood Clad Doors | Installation Cost &amp; Options</td><td>JELD-WEN Wood Clad Doors</td><td>jeld-wen wood clad doors</td></tr><tr><td class='mono'>/door-types/jeld-wen-wood-doors</td><td>JELD-WEN Wood Doors | Installation Cost &amp; Options</td><td>JELD-WEN Wood Doors</td><td>jeld-wen wood doors</td></tr><tr><td class='mono'>/door-types/marvin-aluminum-doors</td><td>Marvin Aluminum Doors | Installation Cost &amp; Options</td><td>Marvin Aluminum Doors</td><td>marvin aluminum doors</td></tr><tr><td class='mono'>/door-types/marvin-fiberglass-doors</td><td>Marvin Fiberglass Doors | Installation Cost &amp; Options</td><td>Marvin Fiberglass Doors</td><td>marvin fiberglass doors</td></tr><tr><td class='mono'>/door-types/marvin-wood-doors</td><td>Marvin Wood Doors | Installation Cost &amp; Options</td><td>Marvin Wood Doors</td><td>marvin wood doors</td></tr><tr><td class='mono'>/door-types/milgard-aluminum-doors</td><td>Milgard Aluminum Doors | Installation Cost &amp; Options</td><td>Milgard Aluminum Doors</td><td>milgard aluminum doors</td></tr><tr><td class='mono'>/door-types/milgard-fiberglass-doors</td><td>Milgard Fiberglass Doors | Installation Cost &amp; Options</td><td>Milgard Fiberglass Doors</td><td>milgard fiberglass doors</td></tr><tr><td class='mono'>/door-types/milgard-vinyl-doors</td><td>Milgard Vinyl Doors | Installation Cost &amp; Options</td><td>Milgard Vinyl Doors</td><td>milgard vinyl doors</td></tr><tr><td class='mono'>/door-types/ply-gem-aluminum-doors</td><td>Ply Gem Aluminum Doors | Installation Cost &amp; Options</td><td>Ply Gem Aluminum Doors</td><td>ply gem aluminum doors</td></tr><tr><td class='mono'>/door-types/ply-gem-vinyl-doors</td><td>Ply Gem Vinyl Doors | Installation Cost &amp; Options</td><td>Ply Gem Vinyl Doors</td><td>ply gem vinyl doors</td></tr><tr><td class='mono'>/door-types/simonton-vinyl-doors</td><td>Simonton Vinyl Doors | Installation Cost &amp; Options</td><td>Simonton Vinyl Doors</td><td>simonton vinyl doors</td></tr><tr><td class='mono'>/door-types/western-window-systems-aluminum-doors</td><td>Western Window Systems Aluminum Doors | Installation Cost</td><td>Western Window Systems Aluminum Doors</td><td>western window systems aluminum doors</td></tr></tbody></table></div></div></details><details class="fold"><summary>Серии / коллекции · 80</summary><div class="fold-body"><div class="table-wrap"><table><thead><tr><th>Path</th><th>Title</th><th>H1</th><th>Primary</th></tr></thead><tbody><tr><td class='mono'>/brand-collections/brand-allweather-series-5000</td><td>All Weather Series 5000 | Prices &amp; Installation</td><td>All Weather Series 5000</td><td>all weather series 5000</td></tr><tr><td class='mono'>/brand-collections/brand-allweather-series-6000</td><td>All Weather Series 6000 | Prices &amp; Installation</td><td>All Weather Series 6000</td><td>all weather series 6000</td></tr><tr><td class='mono'>/brand-collections/brand-allweather-series-6100</td><td>All Weather Series 6100 | Prices &amp; Installation</td><td>All Weather Series 6100</td><td>all weather series 6100</td></tr><tr><td class='mono'>/brand-collections/brand-allweather-series-6200</td><td>All Weather Series 6200 | Prices &amp; Installation</td><td>All Weather Series 6200</td><td>all weather series 6200</td></tr><tr><td class='mono'>/brand-collections/brand-andersen-100-series</td><td>Andersen 100 Series | Prices &amp; Installation</td><td>Andersen 100 Series</td><td>andersen 100 series</td></tr><tr><td class='mono'>/brand-collections/brand-andersen-200-series</td><td>Andersen 200 Series | Prices &amp; Installation</td><td>Andersen 200 Series</td><td>andersen 200 series</td></tr><tr><td class='mono'>/brand-collections/brand-andersen-400-series</td><td>Andersen 400 Series | Prices &amp; Installation</td><td>Andersen 400 Series</td><td>andersen 400 series</td></tr><tr><td class='mono'>/brand-collections/brand-andersen-a-series</td><td>Andersen A Series | Prices &amp; Installation</td><td>Andersen A Series</td><td>andersen a series</td></tr><tr><td class='mono'>/brand-collections/brand-andersen-e-series</td><td>Andersen E Series | Prices &amp; Installation</td><td>Andersen E Series</td><td>andersen e series</td></tr><tr><td class='mono'>/brand-collections/brand-anlin-catalina</td><td>Anlin Catalina | Prices &amp; Installation</td><td>Anlin Catalina</td><td>anlin catalina</td></tr><tr><td class='mono'>/brand-collections/brand-anlin-coronado</td><td>Anlin Coronado | Prices &amp; Installation</td><td>Anlin Coronado</td><td>anlin coronado</td></tr><tr><td class='mono'>/brand-collections/brand-anlin-del-mar</td><td>Anlin Del Mar | Prices &amp; Installation</td><td>Anlin Del Mar</td><td>anlin del mar</td></tr><tr><td class='mono'>/brand-collections/brand-anlin-panoramic</td><td>Anlin Panoramic | Prices &amp; Installation</td><td>Anlin Panoramic</td><td>anlin panoramic</td></tr><tr><td class='mono'>/brand-collections/brand-jeld-wen-brickmould-vinyl</td><td>JELD-WEN Jeld Wen Brickmould Vinyl | Prices &amp; Installation</td><td>JELD-WEN Jeld Wen Brickmould Vinyl</td><td>jeld-wen jeld wen brickmould vinyl</td></tr><tr><td class='mono'>/brand-collections/brand-jeld-wen-builders-vinyl-v-2500</td><td>JELD-WEN Jeld Wen Builders Vinyl V 2500 | Installation</td><td>JELD-WEN Jeld Wen Builders Vinyl V 2500</td><td>jeld-wen jeld wen builders vinyl v 2500</td></tr><tr><td class='mono'>/brand-collections/brand-jeld-wen-custom-wood</td><td>JELD-WEN Jeld Wen Custom Wood | Prices &amp; Installation</td><td>JELD-WEN Jeld Wen Custom Wood</td><td>jeld-wen jeld wen custom wood</td></tr><tr><td class='mono'>/brand-collections/brand-jeld-wen-df-hybrid-vinyl</td><td>JELD-WEN Jeld Wen Df Hybrid Vinyl | Prices &amp; Installation</td><td>JELD-WEN Jeld Wen Df Hybrid Vinyl</td><td>jeld-wen jeld wen df hybrid vinyl</td></tr><tr><td class='mono'>/brand-collections/brand-jeld-wen-epicvue-clad-wood</td><td>JELD-WEN Jeld Wen Epicvue Clad Wood | Prices &amp; Installation</td><td>JELD-WEN Jeld Wen Epicvue Clad Wood</td><td>jeld-wen jeld wen epicvue clad wood</td></tr><tr><td class='mono'>/brand-collections/brand-jeld-wen-flat-casing-vinyl</td><td>JELD-WEN Jeld Wen Flat Casing Vinyl | Prices &amp; Installation</td><td>JELD-WEN Jeld Wen Flat Casing Vinyl</td><td>jeld-wen jeld wen flat casing vinyl</td></tr><tr><td class='mono'>/brand-collections/brand-jeld-wen-premium-atlantic-tm-vinyl</td><td>JELD-WEN Jeld Wen Premium Atlantic Vinyl | Installation</td><td>JELD-WEN Jeld Wen Premium Atlantic Vinyl</td><td>jeld-wen jeld wen premium atlantic vinyl</td></tr><tr><td class='mono'>/brand-collections/brand-jeld-wen-premium-tm-vinyl-v-4500</td><td>JELD-WEN Jeld Wen Premium Vinyl V 4500 | Installation</td><td>JELD-WEN Jeld Wen Premium Vinyl V 4500</td><td>jeld-wen jeld wen premium vinyl v 4500</td></tr><tr><td class='mono'>/brand-collections/brand-jeld-wen-siteline-clad-wood-windows</td><td>JELD-WEN Jeld Wen Siteline Clad Wood Windows | Installation</td><td>JELD-WEN Jeld Wen Siteline Clad Wood Windows</td><td>jeld-wen jeld wen siteline clad wood windows</td></tr><tr><td class='mono'>/brand-collections/brand-jeld-wen-w-5500-clad-wood</td><td>JELD-WEN Jeld Wen W 5500 Clad Wood | Prices &amp; Installation</td><td>JELD-WEN Jeld Wen W 5500 Clad Wood</td><td>jeld-wen jeld wen w 5500 clad wood</td></tr><tr><td class='mono'>/brand-collections/brand-marvin-elevate-collection</td><td>Marvin Elevate Collection | Prices &amp; Installation</td><td>Marvin Elevate Collection</td><td>marvin elevate collection</td></tr><tr><td class='mono'>/brand-collections/brand-marvin-essential-collection</td><td>Marvin Essential Collection | Prices &amp; Installation</td><td>Marvin Essential Collection</td><td>marvin essential collection</td></tr><tr><td class='mono'>/brand-collections/brand-marvin-modern-collection</td><td>Marvin Modern Collection | Prices &amp; Installation</td><td>Marvin Modern Collection</td><td>marvin modern collection</td></tr><tr><td class='mono'>/brand-collections/brand-marvin-ultimate-collection</td><td>Marvin Ultimate Collection | Prices &amp; Installation</td><td>Marvin Ultimate Collection</td><td>marvin ultimate collection</td></tr><tr><td class='mono'>/brand-collections/brand-marvin-vivid-collection</td><td>Marvin Vivid Collection | Prices &amp; Installation</td><td>Marvin Vivid Collection</td><td>marvin vivid collection</td></tr><tr><td class='mono'>/brand-collections/brand-milgard-a250-thermally-improved-aluminum</td><td>Milgard A250 Thermally Improved Aluminum | Installation</td><td>Milgard A250 Thermally Improved Aluminum</td><td>milgard a250 thermally improved aluminum</td></tr><tr><td class='mono'>/brand-collections/brand-milgard-c650-ultra-series</td><td>Milgard C650 Ultra Series | Prices &amp; Installation</td><td>Milgard C650 Ultra Series</td><td>milgard c650 ultra series</td></tr><tr><td class='mono'>/brand-collections/brand-milgard-v250-style-line-series</td><td>Milgard V250 Style Line Series | Prices &amp; Installation</td><td>Milgard V250 Style Line Series</td><td>milgard v250 style line series</td></tr><tr><td class='mono'>/brand-collections/brand-milgard-v300-trinsic-series</td><td>Milgard V300 Trinsic Series | Prices &amp; Installation</td><td>Milgard V300 Trinsic Series</td><td>milgard v300 trinsic series</td></tr><tr><td class='mono'>/brand-collections/brand-milgard-v400-tuscany-series</td><td>Milgard V400 Tuscany Series | Prices &amp; Installation</td><td>Milgard V400 Tuscany Series</td><td>milgard v400 tuscany series</td></tr><tr><td class='mono'>/brand-collections/brand-milgard-v450-homemaker-series</td><td>Milgard V450 Homemaker Series | Prices &amp; Installation</td><td>Milgard V450 Homemaker Series</td><td>milgard v450 homemaker series</td></tr><tr><td class='mono'>/brand-collections/brand-ply-gem-1100-series</td><td>Ply Gem 1100 Series | Prices &amp; Installation</td><td>Ply Gem 1100 Series</td><td>ply gem 1100 series</td></tr><tr><td class='mono'>/brand-collections/brand-ply-gem-1500-series</td><td>Ply Gem 1500 Series | Prices &amp; Installation</td><td>Ply Gem 1500 Series</td><td>ply gem 1500 series</td></tr><tr><td class='mono'>/brand-collections/brand-ply-gem-3700-series</td><td>Ply Gem 3700 Series | Prices &amp; Installation</td><td>Ply Gem 3700 Series</td><td>ply gem 3700 series</td></tr><tr><td class='mono'>/brand-collections/brand-ply-gem-4700-series</td><td>Ply Gem 4700 Series | Prices &amp; Installation</td><td>Ply Gem 4700 Series</td><td>ply gem 4700 series</td></tr><tr><td class='mono'>/brand-collections/brand-ply-gem-4800-series</td><td>Ply Gem 4800 Series | Prices &amp; Installation</td><td>Ply Gem 4800 Series</td><td>ply gem 4800 series</td></tr><tr><td class='mono'>/brand-collections/brand-ply-gem-5000-series</td><td>Ply Gem 5000 Series | Prices &amp; Installation</td><td>Ply Gem 5000 Series</td><td>ply gem 5000 series</td></tr><tr><td class='mono'>/brand-collections/brand-ply-gem-mira-series</td><td>Ply Gem Mira Series | Prices &amp; Installation</td><td>Ply Gem Mira Series</td><td>ply gem mira series</td></tr><tr><td class='mono'>/brand-collections/brand-simonton-5050</td><td>Simonton 5050 | Prices &amp; Installation</td><td>Simonton 5050</td><td>simonton 5050</td></tr><tr><td class='mono'>/brand-collections/brand-simonton-5500</td><td>Simonton 5500 | Prices &amp; Installation</td><td>Simonton 5500</td><td>simonton 5500</td></tr><tr><td class='mono'>/brand-collections/brand-simonton-6100</td><td>Simonton 6100 | Prices &amp; Installation</td><td>Simonton 6100</td><td>simonton 6100</td></tr><tr><td class='mono'>/brand-collections/brand-simonton-6200</td><td>Simonton 6200 | Prices &amp; Installation</td><td>Simonton 6200</td><td>simonton 6200</td></tr><tr><td class='mono'>/brand-collections/brand-simonton-6500</td><td>Simonton 6500 | Prices &amp; Installation</td><td>Simonton 6500</td><td>simonton 6500</td></tr><tr><td class='mono'>/brand-collections/brand-simonton-asure</td><td>Simonton Asure | Prices &amp; Installation</td><td>Simonton Asure</td><td>simonton asure</td></tr><tr><td class='mono'>/brand-collections/brand-simonton-comfortsmart</td><td>Simonton Comfortsmart | Prices &amp; Installation</td><td>Simonton Comfortsmart</td><td>simonton comfortsmart</td></tr><tr><td class='mono'>/brand-collections/brand-simonton-daylightmax</td><td>Simonton Daylightmax | Prices &amp; Installation</td><td>Simonton Daylightmax</td><td>simonton daylightmax</td></tr><tr><td class='mono'>/brand-collections/brand-simonton-harborlight</td><td>Simonton Harborlight | Prices &amp; Installation</td><td>Simonton Harborlight</td><td>simonton harborlight</td></tr><tr><td class='mono'>/brand-collections/brand-simonton-madeira</td><td>Simonton Madeira | Prices &amp; Installation</td><td>Simonton Madeira</td><td>simonton madeira</td></tr><tr><td class='mono'>/brand-collections/brand-simonton-premium</td><td>Simonton Premium | Prices &amp; Installation</td><td>Simonton Premium</td><td>simonton premium</td></tr><tr><td class='mono'>/brand-collections/brand-simonton-pro</td><td>Simonton Pro | Prices &amp; Installation</td><td>Simonton Pro</td><td>simonton pro</td></tr><tr><td class='mono'>/brand-collections/brand-simonton-stormbreaker-plus</td><td>Simonton Stormbreaker Plus | Prices &amp; Installation</td><td>Simonton Stormbreaker Plus</td><td>simonton stormbreaker plus</td></tr><tr><td class='mono'>/brand-collections/brand-western-window-systems-series-600</td><td>Western Window Systems Series 600 | Prices &amp; Installation</td><td>Western Window Systems Series 600</td><td>western window systems series 600</td></tr><tr><td class='mono'>/brand-collections/brand-western-window-systems-series-610</td><td>Western Window Systems Series 610 | Prices &amp; Installation</td><td>Western Window Systems Series 610</td><td>western window systems series 610</td></tr><tr><td class='mono'>/brand-collections/brand-western-window-systems-series-670</td><td>Western Window Systems Series 670 | Prices &amp; Installation</td><td>Western Window Systems Series 670</td><td>western window systems series 670</td></tr><tr><td class='mono'>/brand-collections/brand-western-window-systems-series-7610</td><td>Western Window Systems Series 7610 | Prices &amp; Installation</td><td>Western Window Systems Series 7610</td><td>western window systems series 7610</td></tr><tr><td class='mono'>/brand-collections/brand-western-window-systems-series-7630</td><td>Western Window Systems Series 7630 | Prices &amp; Installation</td><td>Western Window Systems Series 7630</td><td>western window systems series 7630</td></tr><tr><td class='mono'>/brand-collections/brand-western-window-systems-series-7660-7665-7670-7680</td><td>Western Window Systems Series 7660 7665 7670 7680</td><td>Western Window Systems Series 7660 7665 7670 7680</td><td>western window systems series 7660 7665 7670 7680</td></tr><tr><td class='mono'>/brand-collections/brickmould-300</td><td>Simonton Brickmould 300 | Prices &amp; Installation</td><td>Simonton Brickmould 300</td><td>simonton brickmould 300</td></tr><tr><td class='mono'>/brand-collections/brickmould-600</td><td>Simonton Brickmould 600 | Prices &amp; Installation</td><td>Simonton Brickmould 600</td><td>simonton brickmould 600</td></tr><tr><td class='mono'>/brand-collections/classic-series</td><td>Ply Gem Classic Series | Prices &amp; Installation</td><td>Ply Gem Classic Series</td><td>ply gem classic series</td></tr><tr><td class='mono'>/brand-collections/contractor</td><td>Simonton Contractor | Prices &amp; Installation</td><td>Simonton Contractor</td><td>simonton contractor</td></tr><tr><td class='mono'>/brand-collections/east-2000-series</td><td>Ply Gem East 2000 Series | Prices &amp; Installation</td><td>Ply Gem East 2000 Series</td><td>ply gem east 2000 series</td></tr><tr><td class='mono'>/brand-collections/east-5100-series</td><td>Ply Gem East 5100 Series | Prices &amp; Installation</td><td>Ply Gem East 5100 Series</td><td>ply gem east 5100 series</td></tr><tr><td class='mono'>/brand-collections/east-premium-series</td><td>Ply Gem East Premium Series | Prices &amp; Installation</td><td>Ply Gem East Premium Series</td><td>ply gem east premium series</td></tr><tr><td class='mono'>/brand-collections/east-pro-series</td><td>Ply Gem East Pro Series | Prices &amp; Installation</td><td>Ply Gem East Pro Series</td><td>ply gem east pro series</td></tr><tr><td class='mono'>/brand-collections/fairfield-70-series-vinyl-windows</td><td>Alside Fairfield 70 Series Vinyl Windows | Installation</td><td>Alside Fairfield 70 Series Vinyl Windows</td><td>alside fairfield 70 series vinyl windows</td></tr><tr><td class='mono'>/brand-collections/fairfield-80-series-vinyl-windows</td><td>Alside Fairfield 80 Series Vinyl Windows | Installation</td><td>Alside Fairfield 80 Series Vinyl Windows</td><td>alside fairfield 80 series vinyl windows</td></tr><tr><td class='mono'>/brand-collections/fusion-r-quality-vinyl-windows</td><td>Alside Fusion Quality Vinyl Windows | Prices &amp; Installation</td><td>Alside Fusion Quality Vinyl Windows</td><td>alside fusion quality vinyl windows</td></tr><tr><td class='mono'>/brand-collections/mezzo-r-energy-efficient-vinyl-windows-west-coast</td><td>Alside Mezzo Vinyl Windows | Prices &amp; Installation</td><td>Alside Mezzo Energy Efficient Vinyl Windows West Coast</td><td>alside mezzo energy efficient vinyl windows west coast</td></tr><tr><td class='mono'>/brand-collections/series-8630</td><td>Western Window Systems Series 8630 | Prices &amp; Installation</td><td>Western Window Systems Series 8630</td><td>western window systems series 8630</td></tr><tr><td class='mono'>/brand-collections/series-8660-8665-8670</td><td>Western Window Systems Series 8660 8665 8670 | Installation</td><td>Western Window Systems Series 8660 8665 8670</td><td>western window systems series 8660 8665 8670</td></tr><tr><td class='mono'>/brand-collections/sovereign-ultra-premium-vinyl-windows</td><td>Alside Sovereign Vinyl Windows | Prices &amp; Installation</td><td>Alside Sovereign Ultra Premium Vinyl Windows</td><td>alside sovereign ultra premium vinyl windows</td></tr><tr><td class='mono'>/brand-collections/valuepro-tm---affordable-vinyl-windows</td><td>Alside Valuepro Vinyl Windows | Prices &amp; Installation</td><td>Alside Valuepro Affordable Vinyl Windows</td><td>alside valuepro affordable vinyl windows</td></tr><tr><td class='mono'>/brand-collections/vero-tm-vinyl-windows---true-quality-true-value</td><td>Alside Vero Vinyl Windows | Prices &amp; Installation</td><td>Alside Vero Vinyl Windows True Quality True Value</td><td>alside vero vinyl windows true quality true value</td></tr><tr><td class='mono'>/brand-collections/west-400-series</td><td>Ply Gem West 400 Series | Prices &amp; Installation</td><td>Ply Gem West 400 Series</td><td>ply gem west 400 series</td></tr><tr><td class='mono'>/brand-collections/west-pro-series-200</td><td>Ply Gem West Pro Series 200 | Prices &amp; Installation</td><td>Ply Gem West Pro Series 200</td><td>ply gem west pro series 200</td></tr><tr><td class='mono'>/brand-collections/west-pro-series-700</td><td>Ply Gem West Pro Series 700 | Prices &amp; Installation</td><td>Ply Gem West Pro Series 700</td><td>ply gem west pro series 700</td></tr></tbody></table></div></div></details><details class="fold"><summary>Города (service areas) · 32</summary><div class="fold-body"><div class="table-wrap"><table><thead><tr><th>Path</th><th>Title</th><th>H1</th><th>Primary</th></tr></thead><tbody><tr><td class='mono'>/window-replacement/alameda</td><td>Window Replacement Alameda, CA | Cost &amp; Installation</td><td>Window Replacement in Alameda, California</td><td>window replacement alameda</td></tr><tr><td class='mono'>/window-replacement/antioch</td><td>Window Replacement Antioch, CA | Cost &amp; Installation</td><td>Window Replacement in Antioch, California</td><td>window replacement antioch</td></tr><tr><td class='mono'>/window-replacement/berkeley</td><td>Window Replacement Berkeley, CA | Cost &amp; Installation</td><td>Window Replacement in Berkeley, California</td><td>window replacement berkeley</td></tr><tr><td class='mono'>/window-replacement/burlingame</td><td>Window Replacement Burlingame, CA | Cost &amp; Installation</td><td>Window Replacement in Burlingame, California</td><td>window replacement burlingame</td></tr><tr><td class='mono'>/window-replacement/concord</td><td>Window Replacement Concord, CA | Cost &amp; Installation</td><td>Window Replacement in Concord, California</td><td>window replacement concord</td></tr><tr><td class='mono'>/window-replacement/daly-city</td><td>Window Replacement Daly City, CA | Cost &amp; Installation</td><td>Window Replacement in Daly City, California</td><td>window replacement daly city</td></tr><tr><td class='mono'>/window-replacement/fairfield</td><td>Window Replacement Fairfield, CA | Cost &amp; Installation</td><td>Window Replacement in Fairfield, California</td><td>window replacement fairfield</td></tr><tr><td class='mono'>/window-replacement/fremont</td><td>Window Replacement Fremont, CA | Cost &amp; Installation</td><td>Window Replacement in Fremont, California</td><td>window replacement fremont</td></tr><tr><td class='mono'>/window-replacement/hayward</td><td>Window Replacement Hayward, CA | Cost &amp; Installation</td><td>Window Replacement in Hayward, California</td><td>window replacement hayward</td></tr><tr><td class='mono'>/window-replacement/livermore</td><td>Window Replacement Livermore, CA | Cost &amp; Installation</td><td>Window Replacement in Livermore, California</td><td>window replacement livermore</td></tr><tr><td class='mono'>/window-replacement/milpitas</td><td>Window Replacement Milpitas, CA | Cost &amp; Installation</td><td>Window Replacement in Milpitas, California</td><td>window replacement milpitas</td></tr><tr><td class='mono'>/window-replacement/mountain-view</td><td>Window Replacement Mountain View, CA | Cost &amp; Installation</td><td>Window Replacement in Mountain View, California</td><td>window replacement mountain view</td></tr><tr><td class='mono'>/window-replacement/napa</td><td>Window Replacement Napa, CA | Cost &amp; Installation</td><td>Window Replacement in Napa, California</td><td>window replacement napa</td></tr><tr><td class='mono'>/window-replacement/oakland</td><td>Window Replacement Oakland, CA | Cost &amp; Installation</td><td>Window Replacement in Oakland, California</td><td>window replacement oakland</td></tr><tr><td class='mono'>/window-replacement/petaluma</td><td>Window Replacement Petaluma, CA | Cost &amp; Installation</td><td>Window Replacement in Petaluma, California</td><td>window replacement petaluma</td></tr><tr><td class='mono'>/window-replacement/piedmont</td><td>Window Replacement Piedmont, CA | Cost &amp; Installation</td><td>Window Replacement in Piedmont, California</td><td>window replacement piedmont</td></tr><tr><td class='mono'>/window-replacement/pleasanton</td><td>Window Replacement Pleasanton, CA | Cost &amp; Installation</td><td>Window Replacement in Pleasanton, California</td><td>window replacement pleasanton</td></tr><tr><td class='mono'>/window-replacement/redwood-city</td><td>Window Replacement Redwood City, CA | Cost &amp; Installation</td><td>Window Replacement in Redwood City, California</td><td>window replacement redwood city</td></tr><tr><td class='mono'>/window-replacement/richmond</td><td>Window Replacement Richmond, CA | Cost &amp; Installation</td><td>Window Replacement in Richmond, California</td><td>window replacement richmond</td></tr><tr><td class='mono'>/window-replacement/san-francisco</td><td>Window Replacement San Francisco, CA | Cost &amp; Installation</td><td>Window Replacement in San Francisco, California</td><td>window replacement san francisco</td></tr><tr><td class='mono'>/window-replacement/san-jose</td><td>Window Replacement San Jose, CA | Cost &amp; Installation</td><td>Window Replacement in San Jose, California</td><td>window replacement san jose</td></tr><tr><td class='mono'>/window-replacement/san-leandro</td><td>Window Replacement San Leandro, CA | Cost &amp; Installation</td><td>Window Replacement in San Leandro, California</td><td>window replacement san leandro</td></tr><tr><td class='mono'>/window-replacement/san-mateo</td><td>Window Replacement San Mateo, CA | Cost &amp; Installation</td><td>Window Replacement in San Mateo, California</td><td>window replacement san mateo</td></tr><tr><td class='mono'>/window-replacement/san-rafael</td><td>Window Replacement San Rafael, CA | Cost &amp; Installation</td><td>Window Replacement in San Rafael, California</td><td>window replacement san rafael</td></tr><tr><td class='mono'>/window-replacement/san-ramon</td><td>Window Replacement San Ramon, CA | Cost &amp; Installation</td><td>Window Replacement in San Ramon, California</td><td>window replacement san ramon</td></tr><tr><td class='mono'>/window-replacement/santa-clara</td><td>Window Replacement Santa Clara, CA | Cost &amp; Installation</td><td>Window Replacement in Santa Clara, California</td><td>window replacement santa clara</td></tr><tr><td class='mono'>/window-replacement/santa-rosa</td><td>Window Replacement Santa Rosa, CA | Cost &amp; Installation</td><td>Window Replacement in Santa Rosa, California</td><td>window replacement santa rosa</td></tr><tr><td class='mono'>/window-replacement/south-san-francisco</td><td>Window Replacement South San Francisco CA | Installation</td><td>Window Replacement in South San Francisco, California</td><td>window replacement south san francisco</td></tr><tr><td class='mono'>/window-replacement/sunnyvale</td><td>Window Replacement Sunnyvale, CA | Cost &amp; Installation</td><td>Window Replacement in Sunnyvale, California</td><td>window replacement sunnyvale</td></tr><tr><td class='mono'>/window-replacement/vacaville</td><td>Window Replacement Vacaville, CA | Cost &amp; Installation</td><td>Window Replacement in Vacaville, California</td><td>window replacement vacaville</td></tr><tr><td class='mono'>/window-replacement/vallejo</td><td>Window Replacement Vallejo, CA | Cost &amp; Installation</td><td>Window Replacement in Vallejo, California</td><td>window replacement vallejo</td></tr><tr><td class='mono'>/window-replacement/walnut-creek</td><td>Window Replacement Walnut Creek, CA | Cost &amp; Installation</td><td>Window Replacement in Walnut Creek, California</td><td>window replacement walnut creek</td></tr></tbody></table></div></div></details><details class="fold"><summary>Округа · 9</summary><div class="fold-body"><div class="table-wrap"><table><thead><tr><th>Path</th><th>Title</th><th>H1</th><th>Primary</th></tr></thead><tbody><tr><td class='mono'>/county-hub-pages/alameda-county</td><td>Window Replacement Alameda County | Installation &amp; Cost</td><td>Window &amp; Door Replacement in Alameda County</td><td>window replacement alameda county</td></tr><tr><td class='mono'>/county-hub-pages/contra-costa-county</td><td>Window Replacement Contra Costa County | Installation &amp; Cost</td><td>Window &amp; Door Replacement in Contra Costa County</td><td>window replacement contra costa county</td></tr><tr><td class='mono'>/county-hub-pages/marin-county</td><td>Window Replacement Marin County | Installation &amp; Cost</td><td>Window &amp; Door Replacement in Marin County</td><td>window replacement marin county</td></tr><tr><td class='mono'>/county-hub-pages/napa-county</td><td>Window Replacement Napa County | Installation &amp; Cost</td><td>Window &amp; Door Replacement in Napa County</td><td>window replacement napa county</td></tr><tr><td class='mono'>/county-hub-pages/san-francisco-county</td><td>San Francisco County Window Replacement &amp; Installation</td><td>Window &amp; Door Replacement in San Francisco County</td><td>window replacement san francisco county</td></tr><tr><td class='mono'>/county-hub-pages/san-mateo-county</td><td>Window Replacement San Mateo County | Installation &amp; Cost</td><td>Window &amp; Door Replacement in San Mateo County</td><td>window replacement san mateo county</td></tr><tr><td class='mono'>/county-hub-pages/santa-clara-county</td><td>Window Replacement Santa Clara County | Installation &amp; Cost</td><td>Window &amp; Door Replacement in Santa Clara County</td><td>window replacement santa clara county</td></tr><tr><td class='mono'>/county-hub-pages/solano-county</td><td>Window Replacement Solano County | Installation &amp; Cost</td><td>Window &amp; Door Replacement in Solano County</td><td>window replacement solano county</td></tr><tr><td class='mono'>/county-hub-pages/sonoma-county</td><td>Window Replacement Sonoma County | Installation &amp; Cost</td><td>Window &amp; Door Replacement in Sonoma County</td><td>window replacement sonoma county</td></tr></tbody></table></div></div></details><details class="fold"><summary>Блог · 12</summary><div class="fold-body"><div class="table-wrap"><table><thead><tr><th>Path</th><th>Title</th><th>H1</th><th>Primary</th></tr></thead><tbody><tr><td class='mono'>/blog/5-quick-and-easy-ways-on-how-to-temporarily-fix-a-window</td><td>5 Temporary Fixes for a Broken Window | Quick Guide</td><td>5 Ways to Temporarily Fix a Broken Window</td><td>temporary window fix</td></tr><tr><td class='mono'>/blog/comprehensive-guide-to-choosing-the-right-replacement-windows</td><td>How to Choose Replacement Windows | Full Guide</td><td>How to Choose the Right Replacement Windows</td><td>how to choose replacement windows</td></tr><tr><td class='mono'>/blog/do-energy-efficient-windows-and-doors-make-a-difference-for-bay-area-homeowners</td><td>Do Energy-Efficient Windows Work? | Savings &amp; Tax Credit</td><td>Do Energy-Efficient Windows and Doors Make a Difference?</td><td>energy efficient windows</td></tr><tr><td class='mono'>/blog/do-new-windows-increase-home-value-for-bay-area-homeowners</td><td>Do New Windows Increase Home Value? | ROI Guide</td><td>Do New Windows Increase Home Value for Bay Area Homes?</td><td>do new windows increase home value</td></tr><tr><td class='mono'>/blog/how-can-replacement-windows-keep-your-home-cool</td><td>How Replacement Windows Keep Homes Cool | Low-E Glass</td><td>How Replacement Windows Help Keep Your Home Cool</td><td>windows to keep house cool</td></tr><tr><td class='mono'>/blog/how-long-do-windows-last</td><td>How Long Do Windows Last? | Lifespan by Material</td><td>How Long Do Windows Last?</td><td>how long do windows last</td></tr><tr><td class='mono'>/blog/how-to-measure-windows-for-replacement</td><td>How to Measure Windows for Replacement | Guide</td><td>How to Measure Windows for Replacement</td><td>how to measure windows for replacement</td></tr><tr><td class='mono'>/blog/new-construction-windows-vs-replacement-windows</td><td>New Construction vs Replacement Windows | Which to Pick</td><td>New Construction Windows vs. Replacement Windows</td><td>new construction windows vs replacement</td></tr><tr><td class='mono'>/blog/the-ultimate-door-buyers-guide</td><td>Door Buyer&#x27;s Guide | Entry &amp; Patio Doors Compared</td><td>The Complete Door Buyer&#x27;s Guide</td><td>door buyers guide</td></tr><tr><td class='mono'>/blog/what-kind-of-window-frame-is-right-for-you</td><td>Best Window Frame Materials Compared | Cost &amp; Lifespan</td><td>Which Window Frame Material Is Right for You?</td><td>best window frame material</td></tr><tr><td class='mono'>/blog/why-vinyl-windows-are-the-smart-choice-for-bay-area-homeowners</td><td>Why Choose Vinyl Windows? | Benefits &amp; Cost</td><td>Why Vinyl Windows Work Well for Bay Area Homes</td><td>why choose vinyl windows</td></tr><tr><td class='mono'>/blog/window-buyers-guide</td><td>Window Buyer&#x27;s Guide | How to Choose Replacement Windows</td><td>Complete Window Buyer&#x27;s Guide</td><td>window buyers guide</td></tr></tbody></table></div></div></details><details class="fold"><summary>Каталог брендов · 1</summary><div class="fold-body"><div class="table-wrap"><table><thead><tr><th>Path</th><th>Title</th><th>H1</th><th>Primary</th></tr></thead><tbody><tr><td class='mono'>/brand</td><td>Best Window &amp; Door Brands Installed | Bay Area</td><td>Window and Door Brands Available at Deluxe Windows</td><td>window brands</td></tr></tbody></table></div></div></details><details class="fold"><summary>Служебные / статика · 11</summary><div class="fold-body"><div class="table-wrap"><table><thead><tr><th>Path</th><th>Title</th><th>H1</th><th>Primary</th></tr></thead><tbody><tr><td class='mono'>/about</td><td>About Us | Bay Area Window &amp; Door Installation Experts</td><td>About Deluxe Windows</td><td>deluxe windows inc</td></tr><tr><td class='mono'>/blog</td><td>Window &amp; Door Advice Blog | Bay Area Guides</td><td>Window and Door Advice for Bay Area Homeowners</td><td>window advice blog</td></tr><tr><td class='mono'>/contacts</td><td>Contact Us | Free Window Replacement Estimates</td><td>Contact Deluxe Windows — Burlingame Showroom &amp; Estimates</td><td>deluxe windows burlingame</td></tr><tr><td class='mono'>/doors</td><td>Entry &amp; Patio Door Installation Bay Area | Cost</td><td>Entry, Patio and Sliding Doors for Bay Area Homes</td><td>patio doors</td></tr><tr><td class='mono'>/faq</td><td>Window Replacement FAQ | Cost, Permits &amp; Installation</td><td>Window Replacement Questions, Answered</td><td>window replacement cost</td></tr><tr><td class='mono'>/financing</td><td>Window Replacement Financing Bay Area | Monthly Plans</td><td>Window and Door Financing Options</td><td>window financing</td></tr><tr><td class='mono'>/gallery</td><td>Window &amp; Door Installation Gallery | Bay Area Projects</td><td>Completed Window and Door Projects</td><td>window installation gallery</td></tr><tr><td class='mono'>/glossary</td><td>Window &amp; Door Glossary | Replacement Terms Explained</td><td>Window and Door Terms Explained</td><td>window glossary</td></tr><tr><td class='mono'>/special-offers</td><td>Window Replacement Deals Bay Area | Current Offers</td><td>Current Window and Door Offers</td><td>window replacement deals</td></tr><tr><td class='mono'>/testimonials</td><td>Window Replacement Reviews | Bay Area Customers</td><td>What Bay Area Homeowners Say About Deluxe Windows</td><td>deluxe windows reviews</td></tr><tr><td class='mono'>/windows</td><td>Replacement Windows Bay Area | Cost &amp; Installation</td><td>Replacement Windows for Bay Area Homes</td><td>replacement windows</td></tr></tbody></table></div></div></details></div></div></details>
+<p class="footer">Сгенерировано из Cursor canvas <b>seo-rework-report</b> · Deluxe Windows</p>
+</div>
+</body>
+</html>

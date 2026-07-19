@@ -574,49 +574,50 @@ class ClassicSiteController extends Controller
         }
 
         $bridgeUrls = (array) config('services.lead_bridge.urls', []);
-        $bridgePayload = [
-            'Name' => $validated['full_name'],
-            'Email' => $validated['email'],
-            'Phone' => $validated['phone'],
-            'Subject' => $validated['city'],
-            'Message' => $validated['message'],
-            // Google sheet header is "Form ID". PHP http_build_query() would
-            // rename that key to Form_ID, so we encode the body manually below.
-            'Form ID' => $formId,
-            // Sheet column "Page" — current form page (not first-touch landing_page).
-            'Page' => $pageUrl,
-            'URL' => $pageUrl,
-            'landing_page' => $validated['landing_page'],
-            'referrer' => $validated['referrer'],
-            'ip_address' => $request->ip(),
-            'geo_location' => $validated['geo_location'],
-            'utm_source' => $validated['utm_source'],
-            'utm_medium' => $validated['utm_medium'],
-            'utm_campaign' => $validated['utm_campaign'],
-            'utm_content' => $validated['utm_content'],
-            'utm_term' => $validated['utm_term'],
-            'matchtype' => $validated['matchtype'],
-            'device' => $validated['device'],
-            'creative' => $validated['creative'],
-            'gclid' => $validated['gclid'],
-            'fbclid' => $validated['fbclid'],
-            'msclkid' => $validated['msclkid'],
-        ];
-        $bridgeBody = $this->encodeLeadBridgeBody($bridgePayload);
+        // AJAX submits already write the Google sheet from the browser (URLSearchParams),
+        // which preserves "Form ID" / "Page". Server posts only for non-JS fallbacks.
+        if (! $request->expectsJson() && ! $request->ajax()) {
+            $bridgePayload = [
+                'Name' => $validated['full_name'],
+                'Email' => $validated['email'],
+                'Phone' => $validated['phone'],
+                'Subject' => $validated['city'],
+                'Message' => $validated['message'],
+                'Form ID' => $formId,
+                'Page' => $pageUrl,
+                'URL' => $pageUrl,
+                'landing_page' => $validated['landing_page'],
+                'referrer' => $validated['referrer'],
+                'ip_address' => $request->ip(),
+                'geo_location' => $validated['geo_location'],
+                'utm_source' => $validated['utm_source'],
+                'utm_medium' => $validated['utm_medium'],
+                'utm_campaign' => $validated['utm_campaign'],
+                'utm_content' => $validated['utm_content'],
+                'utm_term' => $validated['utm_term'],
+                'matchtype' => $validated['matchtype'],
+                'device' => $validated['device'],
+                'creative' => $validated['creative'],
+                'gclid' => $validated['gclid'],
+                'fbclid' => $validated['fbclid'],
+                'msclkid' => $validated['msclkid'],
+            ];
+            $bridgeBody = $this->encodeLeadBridgeBody($bridgePayload);
 
-        foreach ($bridgeUrls as $bridgeUrl) {
-            if (! is_string($bridgeUrl) || trim($bridgeUrl) === '') {
-                continue;
-            }
-            try {
-                Http::withBody($bridgeBody, 'application/x-www-form-urlencoded')
-                    ->timeout(8)
-                    ->post($bridgeUrl);
-            } catch (\Throwable $e) {
-                Log::warning('Lead bridge request failed', [
-                    'url' => $bridgeUrl,
-                    'error' => $e->getMessage(),
-                ]);
+            foreach ($bridgeUrls as $bridgeUrl) {
+                if (! is_string($bridgeUrl) || trim($bridgeUrl) === '') {
+                    continue;
+                }
+                try {
+                    Http::withBody($bridgeBody, 'application/x-www-form-urlencoded')
+                        ->timeout(8)
+                        ->post($bridgeUrl);
+                } catch (\Throwable $e) {
+                    Log::warning('Lead bridge request failed', [
+                        'url' => $bridgeUrl,
+                        'error' => $e->getMessage(),
+                    ]);
+                }
             }
         }
 

@@ -3,6 +3,7 @@
   (function () {
     const endpoint = @json(route('contact.submit'));
     const csrf = @json(csrf_token());
+    const googleBridges = @json(array_values(array_filter((array) config('services.lead_bridge.urls', []))));
     const trackingParams = [
       'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term',
       'matchtype', 'device', 'creative', 'gclid', 'fbclid', 'msclkid'
@@ -99,6 +100,55 @@
         payload[param] = firstValue([param]) || storageGet('lead_param_' + param);
       });
       return payload;
+    }
+
+    /**
+     * Direct browser → Google Apps Script (same path that historically filled the sheet).
+     * URLSearchParams keeps keys like "Form ID" intact (unlike PHP http_build_query).
+     */
+    function postToGoogleBridges(payload) {
+      if (!Array.isArray(googleBridges) || googleBridges.length === 0) {
+        return;
+      }
+
+      const formId = String(payload['Form ID'] || payload.form_id || '').trim();
+      const pageUrl = String(payload.Page || payload.page_url || payload.URL || window.location.href || '').trim();
+      const pagePath = (function () {
+        try {
+          return pageUrl ? (new URL(pageUrl)).pathname : (window.location.pathname || '/');
+        } catch (_) {
+          return window.location.pathname || '/';
+        }
+      })();
+
+      const body = new URLSearchParams();
+      body.append('Form ID', formId);
+      body.append('Page', pageUrl);
+      body.append('URL', pageUrl);
+      body.append('Name', String(payload.Name || ''));
+      body.append('Email', String(payload.Email || ''));
+      body.append('Phone', String(payload.Phone || ''));
+      body.append('Subject', String(payload.Subject || ''));
+      body.append('Message', String(payload.Message || ''));
+      body.append('landing_page', String(payload.landing_page || pagePath));
+      body.append('referrer', String(payload.referrer || ''));
+      body.append('geo_location', String(payload.geo_location || ''));
+      trackingParams.forEach(function (param) {
+        body.append(param, String(payload[param] || ''));
+      });
+
+      googleBridges.forEach(function (url) {
+        if (!url) return;
+        try {
+          fetch(url, {
+            method: 'POST',
+            body: body,
+            keepalive: true,
+          });
+        } catch (_) {
+          // Sheet write is best-effort; Laravel still stores the lead.
+        }
+      });
     }
 
     function titleCaseSlug(slug, stripSuffix) {
@@ -264,6 +314,8 @@
       setSubmitLoading(submitBtn, true);
       try {
         const payload = toPayload(form, await getGeoLocation());
+        // Google sheet first (browser URLSearchParams), then Laravel lead store.
+        postToGoogleBridges(payload);
         const res = await fetch(endpoint, {
           method: 'POST',
           headers: {
@@ -313,4 +365,3 @@
   })();
 </script>
 @endonce
-
