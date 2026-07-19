@@ -1219,15 +1219,8 @@ class ClassicSiteController extends Controller
             ->filter()
             ->values();
 
-        // Referenced series link to /brand-collections/{slug}; skip refs whose
-        // slug has no published brand-collections page.
-        $publishedCollectionSlugs = BrandCollectionsWebflowItem::query()
-            ->where('is_archived', false)
-            ->where('is_draft', false)
-            ->pluck('field_data->slug')
-            ->filter()
-            ->flip();
-
+        // Series cards — same pattern as window-type collections-new-template:
+        // door-type-collections-2 references brand-collections items.
         $collections = $doorType->webflowReferences('door-type-collections-2')
             ->map(function ($collection) {
                 $fd = is_array($collection->field_data) ? $collection->field_data : [];
@@ -1242,10 +1235,12 @@ class ClassicSiteController extends Controller
                     'image' => $image ?? '',
                 ];
             })
-            ->filter(fn ($c) => $c['name'] !== '' && $c['slug'] !== '' && isset($publishedCollectionSlugs[$c['slug']]))
+            ->filter(fn ($c) => $c['name'] !== '' && $c['slug'] !== '')
             ->values();
 
-        $collectionsTitle = $fieldData['explore-collection-text'] ?? "Explore {$brandName} Collections";
+        $collectionsTitle = $fieldData['explore-collection-text']
+            ?? $fieldData['title']
+            ?? "Explore {$brandName} Collections";
 
         $controls = app(PromotionControlService::class);
         $doorTypePricing = $this->resolveDoorTypePricing($slug, $parentBrand, $controls);

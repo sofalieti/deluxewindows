@@ -135,7 +135,7 @@ if (! function_exists('promotion_category')) {
     {
         $path = trim(request()->path(), '/');
 
-        if (preg_match('/^(doors(?:\/|$)|door-brands(?:\/|$))/', $path) === 1) {
+        if (preg_match('/^(doors(?:\/|$)|door-brands(?:\/|$)|door-types(?:\/|$))/', $path) === 1) {
             return 'doors';
         }
 
