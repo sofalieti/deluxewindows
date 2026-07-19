@@ -8,11 +8,13 @@
 
 @section('content')
     @include('partials.hero', [
-      'windowTypeHero' => true,
+      'doorTypeHero' => true,
       'brandLogo' => $logo,
       'heroBackgroundImage' => $featuredImage,
       'heroFormHtml' => $heroFormHtml,
       'windowHeroImage' => null,
+      'slug' => $slug,
+      'doorTypeName' => $name,
     ])
 
     @include('partials.trust-badges')

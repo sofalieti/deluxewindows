@@ -143,12 +143,16 @@
     ? (($heroMaterialCopy['headline'] ?? null) ?: 'Upgrade to Energy Efficient Windows for Less')
     : ($isDoorsMaterialHero
       ? (($heroMaterialCopy['headline'] ?? null) ?: 'Upgrade to Energy Efficient Doors for Less')
-      : 'Upgrade to Energy Efficient Windows and Doors for Less');
+      : ((!empty($doorBrandHero) && trim((string) ($brandName ?? '')) !== '')
+        ? 'Upgrade to Energy Efficient '.trim((string) $brandName).' Doors for Less'
+        : 'Upgrade to Energy Efficient Windows and Doors for Less'));
   $heroMiniDescription = $isWindowsMaterialHero || $isDoorsMaterialHero
     ? (($heroMaterialCopy['description'] ?? null) ?: ($isDoorsMaterialHero
       ? 'Get secure, stylish door solutions with better comfort and pricing for your home.'
       : 'Get high-performance window solutions with better comfort and pricing for your home.'))
-    : '';
+    : ((!empty($doorBrandHero) && trim((string) ($brandName ?? '')) !== '')
+      ? 'Authorized '.trim((string) $brandName).' door installation across the Bay Area — entry, patio, and sliding.'
+      : '');
 @endphp
 
       <div class="div-block-59">
@@ -215,7 +219,7 @@
                       @endif
                       <p>‍</p>
                       <div class="w-embed">
-                        <h2 data-city="">Local Installers</h2>
+                        <h2 data-city="">Bay Area Installers</h2>
                       </div>
                     </div>
                     <div class="hero-mobile-promo-slot hero-mobile-promo-slot--mobile">
