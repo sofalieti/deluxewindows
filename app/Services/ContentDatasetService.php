@@ -214,6 +214,7 @@ class ContentDatasetService
                 'series_prices' => $item->series_prices ?? [],
                 'brand_prices' => $item->brand_prices ?? [],
                 'door_prices' => $item->door_prices ?? [],
+                'calendar_periods' => $item->calendar_periods ?? [],
             ])
             ->values()
             ->all();
@@ -332,6 +333,7 @@ class ContentDatasetService
                     'series_prices' => is_array($item['series_prices'] ?? null) ? $item['series_prices'] : [],
                     'brand_prices' => is_array($item['brand_prices'] ?? null) ? $item['brand_prices'] : [],
                     'door_prices' => is_array($item['door_prices'] ?? null) ? $item['door_prices'] : [],
+                    'calendar_periods' => is_array($item['calendar_periods'] ?? null) ? $item['calendar_periods'] : [],
                 ]
             );
         }

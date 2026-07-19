@@ -3,7 +3,7 @@
         "scope": "default",
         "global_promotion_name": "Summer Sale",
         "global_discount_percent": 40,
-        "global_end_date": "2026-08-30",
+        "global_end_date": "2026-09-02",
         "phone_display": "(650) 461-4446",
         "phone_tel": "+16504614446",
         "window_type_prices": {
@@ -89,6 +89,200 @@
                 "base": "2165",
                 "final": "1299"
             }
-        }
+        },
+        "calendar_periods": [
+            {
+                "title": "New Year's Sale",
+                "start": "2026-01-01",
+                "end": "2026-01-07",
+                "kind": "holiday"
+            },
+            {
+                "title": "Winter Window & Door Sale",
+                "start": "2026-01-08",
+                "end": "2026-01-15",
+                "kind": "seasonal"
+            },
+            {
+                "title": "Martin Luther King Jr. Day Sale",
+                "start": "2026-01-16",
+                "end": "2026-01-22",
+                "kind": "holiday"
+            },
+            {
+                "title": "Winter Window & Door Sale",
+                "start": "2026-01-23",
+                "end": "2026-02-08",
+                "kind": "seasonal"
+            },
+            {
+                "title": "Presidents' Day Sale",
+                "start": "2026-02-09",
+                "end": "2026-02-19",
+                "kind": "holiday"
+            },
+            {
+                "title": "Winter Window & Door Sale",
+                "start": "2026-02-20",
+                "end": "2026-03-13",
+                "kind": "seasonal"
+            },
+            {
+                "title": "St. Patrick's Day Sale",
+                "start": "2026-03-14",
+                "end": "2026-03-20",
+                "kind": "holiday"
+            },
+            {
+                "title": "Spring Replacement Sale",
+                "start": "2026-03-21",
+                "end": "2026-03-30",
+                "kind": "seasonal"
+            },
+            {
+                "title": "Easter Sale",
+                "start": "2026-03-31",
+                "end": "2026-04-07",
+                "kind": "holiday"
+            },
+            {
+                "title": "Spring Replacement Sale",
+                "start": "2026-04-08",
+                "end": "2026-05-05",
+                "kind": "seasonal"
+            },
+            {
+                "title": "Mother's Day Sale",
+                "start": "2026-05-06",
+                "end": "2026-05-12",
+                "kind": "holiday"
+            },
+            {
+                "title": "Spring Replacement Sale",
+                "start": "2026-05-13",
+                "end": "2026-05-20",
+                "kind": "seasonal"
+            },
+            {
+                "title": "Memorial Day Sale",
+                "start": "2026-05-21",
+                "end": "2026-05-27",
+                "kind": "holiday"
+            },
+            {
+                "title": "Spring Replacement Sale",
+                "start": "2026-05-28",
+                "end": "2026-06-17",
+                "kind": "seasonal"
+            },
+            {
+                "title": "Juneteenth Sale",
+                "start": "2026-06-18",
+                "end": "2026-06-19",
+                "kind": "holiday"
+            },
+            {
+                "title": "Father's Day Sale",
+                "start": "2026-06-20",
+                "end": "2026-06-22",
+                "kind": "holiday"
+            },
+            {
+                "title": "Summer Sale",
+                "start": "2026-06-23",
+                "end": "2026-06-29",
+                "kind": "seasonal"
+            },
+            {
+                "title": "Independence Day Sale",
+                "start": "2026-06-30",
+                "end": "2026-07-07",
+                "kind": "holiday"
+            },
+            {
+                "title": "Summer Sale",
+                "start": "2026-07-08",
+                "end": "2026-09-02",
+                "kind": "seasonal"
+            },
+            {
+                "title": "Labor Day Sale",
+                "start": "2026-09-03",
+                "end": "2026-09-09",
+                "kind": "holiday"
+            },
+            {
+                "title": "Fall Savings Event",
+                "start": "2026-09-10",
+                "end": "2026-10-08",
+                "kind": "seasonal"
+            },
+            {
+                "title": "Columbus Day / Indigenous Peoples Day Sale",
+                "start": "2026-10-09",
+                "end": "2026-10-15",
+                "kind": "holiday"
+            },
+            {
+                "title": "Fall Savings Event",
+                "start": "2026-10-16",
+                "end": "2026-10-25",
+                "kind": "seasonal"
+            },
+            {
+                "title": "Halloween Sale",
+                "start": "2026-10-26",
+                "end": "2026-11-01",
+                "kind": "holiday"
+            },
+            {
+                "title": "Fall Savings Event",
+                "start": "2026-11-02",
+                "end": "2026-11-07",
+                "kind": "seasonal"
+            },
+            {
+                "title": "Veterans Day Sale",
+                "start": "2026-11-08",
+                "end": "2026-11-13",
+                "kind": "holiday"
+            },
+            {
+                "title": "Fall Savings Event",
+                "start": "2026-11-14",
+                "end": "2026-11-22",
+                "kind": "seasonal"
+            },
+            {
+                "title": "Thanksgiving Sale",
+                "start": "2026-11-23",
+                "end": "2026-11-26",
+                "kind": "holiday"
+            },
+            {
+                "title": "Black Friday / Cyber Monday Sale",
+                "start": "2026-11-27",
+                "end": "2026-12-02",
+                "kind": "holiday"
+            },
+            {
+                "title": "Winter Window & Door Sale",
+                "start": "2026-12-03",
+                "end": "2026-12-14",
+                "kind": "seasonal"
+            },
+            {
+                "title": "Christmas Sale",
+                "start": "2026-12-15",
+                "end": "2026-12-25",
+                "kind": "holiday"
+            },
+            {
+                "title": "New Year's Eve Sale",
+                "start": "2026-12-26",
+                "end": "2026-12-31",
+                "kind": "holiday"
+            }
+        ]
     }
 ]

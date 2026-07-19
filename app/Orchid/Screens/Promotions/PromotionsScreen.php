@@ -9,6 +9,7 @@ use App\Models\Webflow\BrandCollectionsWebflowItem;
 use App\Models\Webflow\BrandsWebflowItem;
 use App\Models\Webflow\DoorsWebflowItem;
 use App\Models\Webflow\WindowsWebflowItem;
+use App\Services\PromotionCalendarService;
 use App\Services\PromotionControlService;
 use App\Services\PromotionSettingsService;
 use Illuminate\Http\Request;
@@ -45,9 +46,17 @@ class PromotionsScreen extends Screen
     /** @var array<string, array{base: string, final: string}> */
     private array $doorPricesForView = [];
 
+    /** @var list<array{title: string, start: string, end: string, kind: string}> */
+    private array $calendarPeriodsForView = [];
+
+    private ?string $activeCalendarStart = null;
+
+    private string $calendarToday = '';
+
     public function __construct(
         private readonly PromotionControlService $controls,
         private readonly PromotionSettingsService $legacyPromotionSettings,
+        private readonly PromotionCalendarService $calendar,
     ) {
     }
 
@@ -110,6 +119,13 @@ class PromotionsScreen extends Screen
         $this->brandPricesForView = $brandPrices;
         $this->doorPricesForView = $doorPrices;
 
+        $today = now('America/Los_Angeles')->startOfDay();
+        $this->calendarToday = $today->toDateString();
+        $periods = $this->calendar->ensurePeriodsForYear($control, (int) $today->year);
+        $this->calendarPeriodsForView = $periods;
+        $active = $this->calendar->activePeriod($periods, $today);
+        $this->activeCalendarStart = $active['start'] ?? null;
+
         return [
             'promotions' => [
                 'global_promotion_name' => (string) ($control->global_promotion_name ?? ''),
@@ -121,6 +137,7 @@ class PromotionsScreen extends Screen
                 'series_prices' => $seriesPrices,
                 'brand_prices' => $brandPrices,
                 'door_prices' => $doorPrices,
+                'calendar_periods' => $periods,
             ],
         ];
     }
@@ -132,12 +149,21 @@ class PromotionsScreen extends Screen
 
     public function description(): ?string
     {
-        return 'Manage global discount, end date, and per-page pricing in one place.';
+        return 'Manage global discount, holiday calendar, end date, and per-page pricing in one place.';
     }
 
     public function commandBar(): iterable
     {
         return [
+            Button::make('Apply today’s calendar')
+                ->icon('bs.calendar-check')
+                ->method('applyCalendarNow')
+                ->novalidate(),
+            Button::make('Regenerate calendar')
+                ->icon('bs.arrow-clockwise')
+                ->method('regenerateCalendar')
+                ->confirm('Replace the calendar table with a fresh year of U.S. holidays? Unsaved edits will be lost.')
+                ->novalidate(),
             Button::make('Save promotions')
                 ->icon('bs.check-circle')
                 ->method('save'),
@@ -201,6 +227,11 @@ class PromotionsScreen extends Screen
                     'values' => $this->doorPricesForView,
                     'help' => 'Price per Doors item. Base and Final are required.',
                 ]),
+                'Calendar' => Layout::view('admin.promotions.calendar-tab', [
+                    'periods' => $this->calendarPeriodsForView,
+                    'activeStart' => $this->activeCalendarStart,
+                    'today' => $this->calendarToday,
+                ]),
             ]),
         ];
     }
@@ -227,6 +258,9 @@ class PromotionsScreen extends Screen
         $seriesPrices = $this->normalizePricingMap($data['series_prices'] ?? [], false);
         $brandPrices = $this->normalizePricingMap($data['brand_prices'] ?? [], false);
         $doorPrices = $this->normalizePricingMap($data['door_prices'] ?? [], true);
+        $calendarPeriods = $this->calendar->normalizePeriods(
+            is_array($data['calendar_periods'] ?? null) ? $data['calendar_periods'] : null
+        );
 
         $control = $this->controls->get();
         $control->global_promotion_name = $promotionName;
@@ -240,6 +274,9 @@ class PromotionsScreen extends Screen
         if (Schema::hasColumn('promotion_controls', 'door_prices')) {
             $control->door_prices = $doorPrices;
         }
+        if (Schema::hasColumn('promotion_controls', 'calendar_periods')) {
+            $control->calendar_periods = $calendarPeriods;
+        }
         $control->save();
 
         $this->syncLegacyGlobalSettings(
@@ -251,6 +288,38 @@ class PromotionsScreen extends Screen
         $this->legacyPromotionSettings->forgetCache();
 
         Toast::info('Promotions updated.');
+
+        return redirect()->route('platform.promotions');
+    }
+
+    public function regenerateCalendar()
+    {
+        $control = $this->controls->get();
+        $year = (int) now('America/Los_Angeles')->year;
+        $periods = $this->calendar->defaultPeriodsForYear($year);
+        if (Schema::hasColumn('promotion_controls', 'calendar_periods')) {
+            $control->calendar_periods = $periods;
+            $control->save();
+            $this->controls->forgetCache();
+        }
+
+        Toast::info("Promotion calendar regenerated for {$year}.");
+
+        return redirect()->route('platform.promotions');
+    }
+
+    public function applyCalendarNow()
+    {
+        $result = $this->calendar->applyCurrentPeriod();
+        $this->legacyPromotionSettings->forgetCache();
+
+        if ($result['title'] === null) {
+            Toast::warning('No calendar period matches today.');
+        } elseif ($result['changed']) {
+            Toast::info('Global Promotion Title set to “'.$result['title'].'”.');
+        } else {
+            Toast::info('Already on “'.$result['title'].'”.');
+        }
 
         return redirect()->route('platform.promotions');
     }

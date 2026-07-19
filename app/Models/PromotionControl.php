@@ -19,6 +19,7 @@ class PromotionControl extends Model
         'series_prices',
         'brand_prices',
         'door_prices',
+        'calendar_periods',
     ];
 
     protected function casts(): array
@@ -29,6 +30,7 @@ class PromotionControl extends Model
             'series_prices' => 'array',
             'brand_prices' => 'array',
             'door_prices' => 'array',
+            'calendar_periods' => 'array',
         ];
     }
 }
