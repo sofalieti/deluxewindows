@@ -272,22 +272,18 @@
 }
 
 
-/* ─── 13. WINDOWS CARDS — ensure single col fills screen ────────────
-   At 767px Webflow already makes .posts-right---grid single-col.
-   Make sure each card image doesn't overflow. */
+/* ─── 13. WINDOWS CARDS — fixed card image height ───────────────── */
 
-@media screen and (max-width: 767px) {
-  .image-wrapper.border-radius-image-default.height-100.wrapperimage2 {
-    /* width: 283px; */
-    height: 190px;
-    min-height: 180px;
-  }
+.image-wrapper.border-radius-image-default.height-100.wrapperimage2 {
+  /* width: 283px; */
+  height: 190px;
+  min-height: 180px;
+}
 
-  .image-wrapper.wrapperimage2 .image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+.image-wrapper.wrapperimage2 .image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 

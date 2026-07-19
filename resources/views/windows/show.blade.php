@@ -170,7 +170,7 @@
                     <div class="property-card-top-content-v1">
                       <div class="image-wrapper border-radius-image-default property-card-top-content-v1---image">
                         @if($lw['image'])
-                        <img src="{{ $lw['image'] }}" loading="eager" alt="{{ $lw['name'] }}" class="image cover-image" />
+                        <x-img :src="$lw['image']" preset="card" :alt="$lw['name']" loading="eager" class="image cover-image" />
                         @else
                         <img src="/webflow-assets/images/placeholder.60f9b1840c.svg" loading="eager" alt="" class="image cover-image w-dyn-bind-empty" width="300" height="150" />
                         @endif

@@ -10,12 +10,16 @@
 
 @php
     $originalSrc = is_string($src) ? trim($src) : '';
+    $presetName = is_string($preset) ? $preset : 'card';
+    $attrWidth = is_numeric($width) ? (int) $width : null;
+    $attrHeight = is_numeric($height) ? (int) $height : null;
+
     try {
         $responsive = thumbnail_responsive(
             $originalSrc,
-            $preset,
-            is_numeric($width) ? (int) $width : null,
-            is_numeric($height) ? (int) $height : null,
+            $presetName,
+            $attrWidth,
+            $attrHeight,
             $sizes,
         );
     } catch (\Throwable) {
@@ -31,8 +35,8 @@
     @if($responsive['sizes']) sizes="{{ $responsive['sizes'] }}" @endif
     alt="{{ $alt }}"
     loading="{{ $loading }}"
-    @if($width) width="{{ $width }}" @endif
-    @if($height) height="{{ $height }}" @endif
+    @if($attrWidth) width="{{ $attrWidth }}" @endif
+    @if($attrHeight) height="{{ $attrHeight }}" @endif
     {{ $attributes }}
 />
 @endif

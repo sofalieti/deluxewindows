@@ -179,12 +179,7 @@
 
         <h1 class="blog-post-h1">How to Measure Windows for Replacement?</h1>
 
-        <img
-          class="blog-hero-image"
-          src="/webflow-assets/images/688101a136422bbc5a379a18_Measuring-Windows-AdobeStock_896821-scaled.jpeg"
-          alt="Measuring windows for replacement"
-          loading="eager"
-        />
+        <x-img src="/webflow-assets/images/688101a136422bbc5a379a18_Measuring-Windows-AdobeStock_896821-scaled.jpeg" preset="content" alt="Measuring windows for replacement" loading="eager" class="blog-hero-image" />
 
         <div class="blog-post-body">
 
@@ -222,12 +217,7 @@
           <h2>Special window measurements</h2>
           <p>Now let's take a look at a few non-standard measurements. Any window is measurable, some simply take a bit more know-how. Here are a few of the most common special window measurements.</p>
 
-          <img
-            class="blog-inline-image"
-            src="/webflow-assets/images/688101d94a1b7da7f6d8d29e_how-to-measure-for-replacement-windows-AdobeStock_280295402-scaled.jpeg"
-            alt="Measuring replacement windows"
-            loading="lazy"
-          />
+          <x-img src="/webflow-assets/images/688101d94a1b7da7f6d8d29e_how-to-measure-for-replacement-windows-AdobeStock_280295402-scaled.jpeg" preset="content" alt="Measuring replacement windows" loading="lazy" class="blog-inline-image" />
 
           <h3>How to measure window depth</h3>
           <p>To measure window depth, simply measure the distance between the inside and the outside of the frame on either the top or bottom of the window. It's a small and easy measurement, but it can be an essential one. Depth isn't a standard measurement included on most replacement window products because 9 out of 10 times, it's not essential for a safe fit. However, if you're looking to replace a window in a structure like a modular home, it's worth checking the depth. Some modern homes have extremely narrow frames and require specific types of replacements. If the distance from front trim to back trim is less than 3¼ inches, you'll need to purchase a custom replacement.</p>
@@ -290,11 +280,7 @@
         <div class="blog-related-grid">
 
           <a href="/blog/why-vinyl-windows-are-the-smart-choice-for-bay-area-homeowners" class="blog-related-card">
-            <img
-              src="/webflow-assets/images/6a1199cfeb37217428d5c09c_3de94598-6d4b-4f27-89ce-477a45d7653e.png"
-              alt="Vinyl windows"
-              loading="lazy"
-            />
+            <x-img src="/webflow-assets/images/6a1199cfeb37217428d5c09c_3de94598-6d4b-4f27-89ce-477a45d7653e.png" preset="content" alt="Vinyl windows" loading="lazy" />
             <div class="blog-related-card-body">
               <div class="blog-related-card-title">Why Vinyl Windows Are the Smart Choice for Bay Area Homeowners</div>
               <div class="blog-related-card-date">May 23, 2026</div>
@@ -302,11 +288,7 @@
           </a>
 
           <a href="/blog/do-energy-efficient-windows-and-doors-make-a-difference-for-bay-area-homeowners" class="blog-related-card">
-            <img
-              src="/webflow-assets/images/6a1198a6ed206a190cd9ce26_692b7073-5aa8-4458-8c11-0784911b9e09.png"
-              alt="Energy-efficient windows"
-              loading="lazy"
-            />
+            <x-img src="/webflow-assets/images/6a1198a6ed206a190cd9ce26_692b7073-5aa8-4458-8c11-0784911b9e09.png" preset="content" alt="Energy-efficient windows" loading="lazy" />
             <div class="blog-related-card-body">
               <div class="blog-related-card-title">Do Energy-Efficient Windows and Doors Make a Difference for Bay Area Homeowners?</div>
               <div class="blog-related-card-date">May 23, 2026</div>
@@ -314,11 +296,7 @@
           </a>
 
           <a href="/blog/do-new-windows-increase-home-value-for-bay-area-homeowners" class="blog-related-card">
-            <img
-              src="/webflow-assets/images/6a1197c9c652b2bcd5838cea_cb424730-79ac-4ce6-bb8f-ef8fdfa226f9.png"
-              alt="New windows increase home value"
-              loading="lazy"
-            />
+            <x-img src="/webflow-assets/images/6a1197c9c652b2bcd5838cea_cb424730-79ac-4ce6-bb8f-ef8fdfa226f9.png" preset="content" alt="New windows increase home value" loading="lazy" />
             <div class="blog-related-card-body">
               <div class="blog-related-card-title">Do New Windows Increase Home Value for Bay Area Homeowners?</div>
               <div class="blog-related-card-date">May 23, 2026</div>

@@ -245,11 +245,7 @@
               <div class="nav-menu-left-side-2">
                 <div class="logo-wrapper v1">
                   <a href="/" class="logo-link-2 w-inline-block"
-                    ><img
-                      src="/webflow-assets/images/686acba4611e759fd8169f9d_photo_2025-07-06-22.14.41.avif"
-                      alt=""
-                      class="image-14"
-                  /></a>
+                    ><x-img src="/webflow-assets/images/686acba4611e759fd8169f9d_photo_2025-07-06-22.14.41.avif" preset="card" alt="" class="image-14" /></a>
                 </div>
                 <nav role="navigation" class="nav-menu-wrapper-2 w-nav-menu">
                   <ul role="list" class="list-nav-menu-2">
@@ -392,19 +388,7 @@
                                 id="w-node-_632206d9-3c73-e5be-be34-15992c2e8373-2c2e830e"
                                 class="mega-menu-banner w-clearfix"
                               >
-                                <img
-                                  sizes="100vw"
-                                  srcset="
-                                    /webflow-assets/images/6862abfc8f55643864a69255_Frame%201-p-500.avif   500w,
-                                    /webflow-assets/images/6862abfc8f55643864a69255_Frame%201-p-800.avif   800w,
-                                    /webflow-assets/images/6862abfc8f55643864a69255_Frame%201-p-1080.avif 1080w,
-                                    /webflow-assets/images/6862abfc8f55643864a69255_Frame%201.avif        2000w
-                                  "
-                                  alt=""
-                                  src="/webflow-assets/images/6862abfc8f55643864a69255_Frame%201.avif"
-                                  loading="lazy"
-                                  class="image-14 cover-image property-wrapper-v3---image"
-                                />
+                                <x-img src="/webflow-assets/images/6862abfc8f55643864a69255_Frame%201.avif" preset="card" alt="" loading="lazy" class="image-14 cover-image property-wrapper-v3---image" />
                                 <div class="w-layout-blockcontainer container-2 w-container">
                                   <h5>40% OFF Windows</h5>
                                   <div class="text-regular-2">
@@ -557,19 +541,7 @@
                                 id="w-node-_632206d9-3c73-e5be-be34-15992c2e83b8-2c2e830e"
                                 class="mega-menu-banner w-clearfix"
                               >
-                                <img
-                                  sizes="100vw"
-                                  srcset="
-                                    /webflow-assets/images/6845713efb9f90434a8611f6_4-p-500.avif   500w,
-                                    /webflow-assets/images/6845713efb9f90434a8611f6_4-p-800.avif   800w,
-                                    /webflow-assets/images/6845713efb9f90434a8611f6_4-p-1080.avif 1080w,
-                                    /webflow-assets/images/6845713efb9f90434a8611f6_4.avif        2000w
-                                  "
-                                  alt=""
-                                  src="/webflow-assets/images/6845713efb9f90434a8611f6_4.avif"
-                                  loading="lazy"
-                                  class="image-14 cover-image property-wrapper-v3---image"
-                                />
+                                <x-img src="/webflow-assets/images/6845713efb9f90434a8611f6_4.avif" preset="card" alt="" loading="lazy" class="image-14 cover-image property-wrapper-v3---image" />
                                 <div class="w-layout-blockcontainer container-2 w-container">
                                   <h5>40% OFF Doors</h5>
                                   <div class="text-regular-2">
@@ -657,19 +629,7 @@
                                 id="w-node-_632206d9-3c73-e5be-be34-15992c2e83e1-2c2e830e"
                                 class="mega-menu-banner w-clearfix"
                               >
-                                <img
-                                  sizes="100vw"
-                                  srcset="
-                                    /webflow-assets/images/6862abfc8f55643864a69255_Frame%201-p-500.avif   500w,
-                                    /webflow-assets/images/6862abfc8f55643864a69255_Frame%201-p-800.avif   800w,
-                                    /webflow-assets/images/6862abfc8f55643864a69255_Frame%201-p-1080.avif 1080w,
-                                    /webflow-assets/images/6862abfc8f55643864a69255_Frame%201.avif        2000w
-                                  "
-                                  alt=""
-                                  src="/webflow-assets/images/6862abfc8f55643864a69255_Frame%201.avif"
-                                  loading="lazy"
-                                  class="image-14 cover-image property-wrapper-v3---image"
-                                />
+                                <x-img src="/webflow-assets/images/6862abfc8f55643864a69255_Frame%201.avif" preset="card" alt="" loading="lazy" class="image-14 cover-image property-wrapper-v3---image" />
                                 <div class="w-layout-blockcontainer container-2 w-container">
                                   <h5>40% OFF Windows</h5>
                                   <div class="text-regular-2">
@@ -795,19 +755,7 @@
                                 id="w-node-_632206d9-3c73-e5be-be34-15992c2e840a-2c2e830e"
                                 class="mega-menu-banner w-clearfix"
                               >
-                                <img
-                                  sizes="100vw"
-                                  srcset="
-                                    /webflow-assets/images/6862abfc8f55643864a69255_Frame%201-p-500.avif   500w,
-                                    /webflow-assets/images/6862abfc8f55643864a69255_Frame%201-p-800.avif   800w,
-                                    /webflow-assets/images/6862abfc8f55643864a69255_Frame%201-p-1080.avif 1080w,
-                                    /webflow-assets/images/6862abfc8f55643864a69255_Frame%201.avif        2000w
-                                  "
-                                  alt=""
-                                  src="/webflow-assets/images/6862abfc8f55643864a69255_Frame%201.avif"
-                                  loading="lazy"
-                                  class="image-14 cover-image property-wrapper-v3---image"
-                                />
+                                <x-img src="/webflow-assets/images/6862abfc8f55643864a69255_Frame%201.avif" preset="card" alt="" loading="lazy" class="image-14 cover-image property-wrapper-v3---image" />
                                 <div class="w-layout-blockcontainer container-2 w-container">
                                   <h5>40% OFF Windows</h5>
                                   <div class="text-regular-2">
@@ -861,12 +809,7 @@
             <div class="container-regular">
               <div class="navbar-wrapper">
                 <a href="/" class="navbar-brand w-nav-brand"
-                  ><img
-                    width="283"
-                    loading="lazy"
-                    alt=""
-                    src="/webflow-assets/images/686acba4611e759fd8169f9d_photo_2025-07-06-22.14.41.avif"
-                    class="image-24" /></a
+                  ><x-img src="/webflow-assets/images/686acba4611e759fd8169f9d_photo_2025-07-06-22.14.41.avif" preset="card" alt="" loading="lazy" width="283" class="image-24" /></a
                 ><a href="tel:{{ site_phone_tel() }}" class="link-15"><strong>Sales: </strong> {{ site_phone_display() }}</a>
                 <nav role="navigation" class="nav-menu-wrapper-4 w-nav-menu">
                   <ul role="list" class="nav-menu-2 w-list-unstyled">
@@ -1600,12 +1543,7 @@
                 id="w-node-ff29ee4e-64c7-c519-8491-6880c3d6f48a-facb1582"
                 class="lightbox-link w-inline-block w-lightbox"
                 ><div data-w-id="562736ba-09f8-d605-686e-5ae6e833ca6d" class="image-wrapper _w-h-100">
-                  <img
-                    src="/webflow-assets/images/684d89095fe85b113c1b5224_Frame%208.avif"
-                    loading="eager"
-                    alt=""
-                    class="image cover-image _200px---mbp"
-                  />
+                  <x-img src="/webflow-assets/images/684d89095fe85b113c1b5224_Frame%208.avif" preset="gallery_main" alt="" loading="eager" class="image cover-image _200px---mbp" />
                 </div>
                 <script type="application/json" class="w-json">
                   {
@@ -1784,12 +1722,7 @@
                   >
                     <a href="#" class="_w-h-100 w-inline-block w-lightbox"
                       ><div data-w-id="e4b146c4-78d2-56ac-daa8-7c86e981ed4d" class="image-wrapper _w-h-100">
-                        <img
-                          src="/webflow-assets/images/695e00a375e654f6496bc79b_imgi_78_PGW_Interior_LivingRoom_MIRA_AwningWindow_Black_InspirationGallery_Module_6_1696x610_p32.avif"
-                          loading="eager"
-                          alt=""
-                          class="image cover-image _120px---mbp"
-                        />
+                        <x-img src="/webflow-assets/images/695e00a375e654f6496bc79b_imgi_78_PGW_Interior_LivingRoom_MIRA_AwningWindow_Black_InspirationGallery_Module_6_1696x610_p32.avif" preset="gallery_thumb" alt="" loading="eager" class="image cover-image _120px---mbp" />
                       </div>
                       <script type="application/json" class="w-json">
                         {
@@ -1819,12 +1752,7 @@
                   >
                     <a href="#" class="_w-h-100 w-inline-block w-lightbox"
                       ><div data-w-id="e4b146c4-78d2-56ac-daa8-7c86e981ed4d" class="image-wrapper _w-h-100">
-                        <img
-                          src="/webflow-assets/images/684d89095fe85b113c1b5224_Frame%208.avif"
-                          loading="eager"
-                          alt=""
-                          class="image cover-image _120px---mbp"
-                        />
+                        <x-img src="/webflow-assets/images/684d89095fe85b113c1b5224_Frame%208.avif" preset="gallery_thumb" alt="" loading="eager" class="image cover-image _120px---mbp" />
                       </div>
                       <script type="application/json" class="w-json">
                         {
@@ -1870,12 +1798,7 @@
                   >
                     <a href="#" class="_w-h-100 w-inline-block w-lightbox"
                       ><div data-w-id="e4b146c4-78d2-56ac-daa8-7c86e981ed4d" class="image-wrapper _w-h-100">
-                        <img
-                          src="/webflow-assets/images/687e2bbbcf84c63258838bc4_homeguide-marvin-signature-windows-and-doors.avif"
-                          loading="eager"
-                          alt=""
-                          class="image cover-image _120px---mbp"
-                        />
+                        <x-img src="/webflow-assets/images/687e2bbbcf84c63258838bc4_homeguide-marvin-signature-windows-and-doors.avif" preset="gallery_thumb" alt="" loading="eager" class="image cover-image _120px---mbp" />
                       </div>
                       <script type="application/json" class="w-json">
                         {
@@ -1921,12 +1844,7 @@
                   >
                     <a href="#" class="_w-h-100 w-inline-block w-lightbox"
                       ><div data-w-id="e4b146c4-78d2-56ac-daa8-7c86e981ed4d" class="image-wrapper _w-h-100">
-                        <img
-                          src="/webflow-assets/images/684d8fd91fff20336f9a857c_Frame%2029.avif"
-                          loading="eager"
-                          alt=""
-                          class="image cover-image _120px---mbp"
-                        />
+                        <x-img src="/webflow-assets/images/684d8fd91fff20336f9a857c_Frame%2029.avif" preset="gallery_thumb" alt="" loading="eager" class="image cover-image _120px---mbp" />
                       </div>
                       <script type="application/json" class="w-json">
                         {
@@ -1972,12 +1890,7 @@
                   >
                     <a href="#" class="_w-h-100 w-inline-block w-lightbox"
                       ><div data-w-id="e4b146c4-78d2-56ac-daa8-7c86e981ed4d" class="image-wrapper _w-h-100">
-                        <img
-                          src="/webflow-assets/images/684d9286149b8ff5cccdddbc_Frame%2039.avif"
-                          loading="eager"
-                          alt=""
-                          class="image cover-image _120px---mbp"
-                        />
+                        <x-img src="/webflow-assets/images/684d9286149b8ff5cccdddbc_Frame%2039.avif" preset="gallery_thumb" alt="" loading="eager" class="image cover-image _120px---mbp" />
                       </div>
                       <script type="application/json" class="w-json">
                         {
@@ -2023,12 +1936,7 @@
                   >
                     <a href="#" class="_w-h-100 w-inline-block w-lightbox"
                       ><div data-w-id="e4b146c4-78d2-56ac-daa8-7c86e981ed4d" class="image-wrapper _w-h-100">
-                        <img
-                          src="/webflow-assets/images/684d8c0f6326c95b90a2816b_Frame%2019.avif"
-                          loading="eager"
-                          alt=""
-                          class="image cover-image _120px---mbp"
-                        />
+                        <x-img src="/webflow-assets/images/684d8c0f6326c95b90a2816b_Frame%2019.avif" preset="gallery_thumb" alt="" loading="eager" class="image cover-image _120px---mbp" />
                       </div>
                       <script type="application/json" class="w-json">
                         {
@@ -2074,12 +1982,7 @@
                   >
                     <a href="#" class="_w-h-100 w-inline-block w-lightbox"
                       ><div data-w-id="e4b146c4-78d2-56ac-daa8-7c86e981ed4d" class="image-wrapper _w-h-100">
-                        <img
-                          src="/webflow-assets/images/68755fbd78e6bf0cc4107a42_1.avif"
-                          loading="eager"
-                          alt=""
-                          class="image cover-image _120px---mbp"
-                        />
+                        <x-img src="/webflow-assets/images/68755fbd78e6bf0cc4107a42_1.avif" preset="gallery_thumb" alt="" loading="eager" class="image cover-image _120px---mbp" />
                       </div>
                       <script type="application/json" class="w-json">
                         {
@@ -2163,12 +2066,7 @@
                   <a href="/window-type/milgard-vinyl-windows" class="property-wrapper-v1 w-inline-block"
                     ><div class="property-card-top-content-v1">
                       <div class="image-wrapper border-radius-image-default property-card-top-content-v1---image">
-                        <img
-                          src="/webflow-assets/images/688a760a252df50b4cbf9cd7_Milgard.avif"
-                          loading="eager"
-                          alt=""
-                          class="image cover-image"
-                        />
+                        <x-img src="/webflow-assets/images/688a760a252df50b4cbf9cd7_Milgard.avif" preset="brand_grid" alt="" loading="eager" class="image cover-image" />
                       </div></div
                   ></a>
                 </div>
@@ -2176,12 +2074,7 @@
                   <a href="/window-type/jeld-wen-vinyl-windows" class="property-wrapper-v1 w-inline-block"
                     ><div class="property-card-top-content-v1">
                       <div class="image-wrapper border-radius-image-default property-card-top-content-v1---image">
-                        <img
-                          src="/webflow-assets/images/688a751848f910d5ccb0bd34_Jeld%20Wen.avif"
-                          loading="eager"
-                          alt=""
-                          class="image cover-image"
-                        />
+                        <x-img src="/webflow-assets/images/688a751848f910d5ccb0bd34_Jeld%20Wen.avif" preset="brand_grid" alt="" loading="eager" class="image cover-image" />
                       </div></div
                   ></a>
                 </div>
@@ -2189,12 +2082,7 @@
                   <a href="/window-type/anlin-vinyl-windows" class="property-wrapper-v1 w-inline-block"
                     ><div class="property-card-top-content-v1">
                       <div class="image-wrapper border-radius-image-default property-card-top-content-v1---image">
-                        <img
-                          src="/webflow-assets/images/688a76b7e94512a795b803e9_Anlin.avif"
-                          loading="eager"
-                          alt=""
-                          class="image cover-image"
-                        />
+                        <x-img src="/webflow-assets/images/688a76b7e94512a795b803e9_Anlin.avif" preset="brand_grid" alt="" loading="eager" class="image cover-image" />
                       </div></div
                   ></a>
                 </div>
@@ -2202,12 +2090,7 @@
                   <a href="/window-type/alside-vinyl-windows" class="property-wrapper-v1 w-inline-block"
                     ><div class="property-card-top-content-v1">
                       <div class="image-wrapper border-radius-image-default property-card-top-content-v1---image">
-                        <img
-                          src="/webflow-assets/images/688a76851f0f6088a0c53667_Alside.avif"
-                          loading="eager"
-                          alt=""
-                          class="image cover-image"
-                        />
+                        <x-img src="/webflow-assets/images/688a76851f0f6088a0c53667_Alside.avif" preset="brand_grid" alt="" loading="eager" class="image cover-image" />
                       </div></div
                   ></a>
                 </div>
@@ -2215,12 +2098,7 @@
                   <a href="/window-type/ply-gem-vinyl-windows" class="property-wrapper-v1 w-inline-block"
                     ><div class="property-card-top-content-v1">
                       <div class="image-wrapper border-radius-image-default property-card-top-content-v1---image">
-                        <img
-                          src="/webflow-assets/images/688a756ee649c541284c8b78_Plygem.avif"
-                          loading="eager"
-                          alt=""
-                          class="image cover-image"
-                        />
+                        <x-img src="/webflow-assets/images/688a756ee649c541284c8b78_Plygem.avif" preset="brand_grid" alt="" loading="eager" class="image cover-image" />
                       </div></div
                   ></a>
                 </div>
@@ -2228,12 +2106,7 @@
                   <a href="/window-type/simonton-vinyl-windows" class="property-wrapper-v1 w-inline-block"
                     ><div class="property-card-top-content-v1">
                       <div class="image-wrapper border-radius-image-default property-card-top-content-v1---image">
-                        <img
-                          src="/webflow-assets/images/688a74bb9c532933d19231ea_Simonton.avif"
-                          loading="eager"
-                          alt=""
-                          class="image cover-image"
-                        />
+                        <x-img src="/webflow-assets/images/688a74bb9c532933d19231ea_Simonton.avif" preset="brand_grid" alt="" loading="eager" class="image cover-image" />
                       </div></div
                   ></a>
                 </div>
@@ -2241,12 +2114,7 @@
                   <a href="/window-type/andersen-vinyl-windows" class="property-wrapper-v1 w-inline-block"
                     ><div class="property-card-top-content-v1">
                       <div class="image-wrapper border-radius-image-default property-card-top-content-v1---image">
-                        <img
-                          src="/webflow-assets/images/688a75a9f58dabd4b2642bc5_Andersen.avif"
-                          loading="eager"
-                          alt=""
-                          class="image cover-image"
-                        />
+                        <x-img src="/webflow-assets/images/688a75a9f58dabd4b2642bc5_Andersen.avif" preset="brand_grid" alt="" loading="eager" class="image cover-image" />
                       </div></div
                   ></a>
                 </div>
@@ -2598,12 +2466,7 @@
                 </div>
               </div>
               <div class="image-wrapper cta-v3-image">
-                <img
-                  src="/webflow-assets/images/687ca4b70b8583ef4890bad4_iPad.avif"
-                  loading="eager"
-                  alt="Deluxe-windows"
-                  class="image"
-                />
+                <x-img src="/webflow-assets/images/687ca4b70b8583ef4890bad4_iPad.avif" preset="cta" alt="Deluxe-windows" loading="eager" class="image" />
               </div>
             </div>
           </div>
@@ -2708,15 +2571,7 @@
                   <div class="center-content---tablet">
                     <div class="logo-wrapper v1">
                       <a href="/" class="logo-link w-inline-block"
-                        ><img
-                          src="/webflow-assets/images/686ad2b4b668ce59a9c25b0e_White.avif"
-                          alt=""
-                          sizes="(max-width: 719px) 100vw, 719px"
-                          srcset="
-                            /webflow-assets/images/686ad2b4b668ce59a9c25b0e_White-p-500.png 500w,
-                            /webflow-assets/images/686ad2b4b668ce59a9c25b0e_White.avif      719w
-                          "
-                      /></a>
+                        ><x-img src="/webflow-assets/images/686ad2b4b668ce59a9c25b0e_White.avif" preset="card" alt="" /></a>
                     </div>
                   </div>
                 </div>

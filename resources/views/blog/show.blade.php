@@ -33,12 +33,7 @@
           @if($heroImage)
           <div class="mg-top-extra-large">
             <div class="image-wrapper border-radius-image-default">
-              <img
-                src="{{ $heroImage }}"
-                loading="eager"
-                alt="{{ $title }}"
-                class="image post---featured-image"
-              />
+              <x-img :src="$heroImage" preset="content" :alt="$title" loading="eager" class="image post---featured-image" />
             </div>
           </div>
           @endif

@@ -49,7 +49,7 @@
               <div class="container-default-7 _1100 top0 collection">
                 <div class="hero_collection-wrapper">
                   @if($brandLogoSvg ?? $brandLogo)
-                  <img loading="lazy" src="{{ $brandLogoSvg ?? $brandLogo }}" alt="{{ $brandName }}" class="svg50 hidden-desktop" />
+                  <x-img :src="$brandLogoSvg ?? $brandLogo" preset="logo" :alt="$brandName" loading="lazy" class="svg50 hidden-desktop" />
                   @endif
                   <h1 class="heading-48">{{ $name }}</h1>
                   @if($longDescription)

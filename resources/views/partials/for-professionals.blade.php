@@ -28,14 +28,7 @@
               <div class="w-layout-grid grid-2-columns values-grid">
                 <div class="value-wrapper">
                   <div class="image-wrapper home-pro-icon">
-                    <img
-                      src="/webflow-assets/images/home-professionals/icon-architects.png"
-                      loading="eager"
-                      alt="For architects — Deluxe Windows"
-                      class="image home-pro-icon__img"
-                      width="128"
-                      height="128"
-                    />
+                    <x-img src="/webflow-assets/images/home-professionals/icon-architects.png" preset="pro_icon" alt="For architects — Deluxe Windows" loading="eager" width="128" height="128" class="image home-pro-icon__img" />
                   </div>
                   <div class="mg-top-small"><h3 class="display-5 mid">For Architects</h3></div>
                   <div class="mg-top-extra-small">
@@ -47,14 +40,7 @@
                 </div>
                 <div class="value-wrapper">
                   <div class="image-wrapper home-pro-icon">
-                    <img
-                      src="/webflow-assets/images/home-professionals/icon-contractors.png"
-                      loading="eager"
-                      alt="For contractors — Deluxe Windows"
-                      class="image home-pro-icon__img"
-                      width="128"
-                      height="128"
-                    />
+                    <x-img src="/webflow-assets/images/home-professionals/icon-contractors.png" preset="pro_icon" alt="For contractors — Deluxe Windows" loading="eager" width="128" height="128" class="image home-pro-icon__img" />
                   </div>
                   <div class="mg-top-small"><h3 class="display-5 mid">For Contractors</h3></div>
                   <div class="mg-top-extra-small">
@@ -67,14 +53,7 @@
                 </div>
                 <div class="value-wrapper">
                   <div class="image-wrapper home-pro-icon">
-                    <img
-                      src="/webflow-assets/images/home-professionals/icon-property-managers.png"
-                      loading="eager"
-                      alt="For property managers and owners — Deluxe Windows"
-                      class="image home-pro-icon__img"
-                      width="128"
-                      height="128"
-                    />
+                    <x-img src="/webflow-assets/images/home-professionals/icon-property-managers.png" preset="pro_icon" alt="For property managers and owners — Deluxe Windows" loading="eager" width="128" height="128" class="image home-pro-icon__img" />
                   </div>
                   <div class="mg-top-small">
                     <h3 class="display-5 mid">For Property<br />managers/owners</h3>

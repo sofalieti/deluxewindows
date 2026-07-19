@@ -7,7 +7,7 @@
         <div class="div-block-4">
           <div class="section-card hero-card---v3">
             <div class="image-wrapper hero-image---v3">
-              <img src="/webflow-assets/images/684596fa8657fd035b9c4e62_Mask-group9.avif" loading="eager" alt="" class="image hero-icon-image---v3" />
+              <x-img src="/webflow-assets/images/684596fa8657fd035b9c4e62_Mask-group9.avif" preset="card_sm" alt="" loading="eager" class="image hero-icon-image---v3" />
             </div>
             <div class="hero-content-wrapper---v3 page-intro-hero">
               <div class="inner-container _620px center">
@@ -36,7 +36,7 @@
           <div class="w-layout-grid grid-2-columns image-left-grid-v1">
             <div class="inner-container _613px _100-mbl">
               <div class="image-wrapper border-radius-image-default">
-                <img src="/webflow-assets/images/68459655fb9f90434a93ada6_Mask-group5.avif" loading="eager" alt="" class="image cover-image grid-image-left" />
+                <x-img src="/webflow-assets/images/68459655fb9f90434a93ada6_Mask-group5.avif" preset="content" alt="" loading="eager" class="image cover-image grid-image-left" />
               </div>
             </div>
             <div class="mission-grid---right-content-wrapper">
@@ -164,7 +164,7 @@
                 </div>
               </div>
               <div class="image-wrapper cta-v3-image">
-                <img src="/webflow-assets/images/687ca4b70b8583ef4890bad4_iPad.avif" loading="eager" alt="Deluxe-windows" class="image" />
+                <x-img src="/webflow-assets/images/687ca4b70b8583ef4890bad4_iPad.avif" preset="cta" alt="Deluxe-windows" loading="eager" class="image" />
               </div>
             </div>
           </div>

@@ -23,7 +23,7 @@
       <div class="brand-strip__item">
         <a href="{{ $href !== '' ? $href : '#' }}" class="brand-strip__link w-inline-block">
           @if($image !== '')
-            <img src="{{ webflow_image_url($image) }}" alt="{{ $alt }}" loading="lazy" class="brand-strip__image" />
+            <x-img :src="$image" preset="brand_grid" :alt="$alt" loading="lazy" class="brand-strip__image" />
           @else
             <span class="text-muted">{{ $alt !== '' ? $alt : 'Brand' }}</span>
           @endif
@@ -41,7 +41,7 @@
       <div class="brand-strip__item brand-strip__item--dup" aria-hidden="true">
         <a href="{{ $href !== '' ? $href : '#' }}" class="brand-strip__link w-inline-block" tabindex="-1">
           @if($image !== '')
-            <img src="{{ webflow_image_url($image) }}" alt="" loading="lazy" class="brand-strip__image" />
+            <x-img :src="$image" preset="brand_grid" alt="" loading="lazy" class="brand-strip__image" />
           @else
             <span class="text-muted">{{ $alt !== '' ? $alt : 'Brand' }}</span>
           @endif
@@ -58,7 +58,7 @@
       <div class="brand-strip__item brand-strip__item--dup" aria-hidden="true">
         <a href="{{ $href !== '' ? $href : '#' }}" class="brand-strip__link w-inline-block" tabindex="-1">
           @if($image !== '')
-            <img src="{{ webflow_image_url($image) }}" alt="" loading="lazy" class="brand-strip__image" />
+            <x-img :src="$image" preset="brand_grid" alt="" loading="lazy" class="brand-strip__image" />
           @else
             <span class="text-muted">{{ $alt !== '' ? $alt : 'Brand' }}</span>
           @endif

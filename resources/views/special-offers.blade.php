@@ -34,7 +34,7 @@
                 <div role="listitem" class="featured-blog-card-v3 w-dyn-item">
                   @if($coupon['image'] !== '')
                   <a href="#email-form-2" class="image-wrapper featured-blog-v3 w-inline-block">
-                    <img src="{{ $coupon['image'] }}" loading="eager" alt="" class="image cover-image" />
+                    <x-img :src="$coupon['image']" preset="card" alt="" loading="eager" class="image cover-image" />
                   </a>
                   @endif
                   <a href="#email-form-2" class="card featured-card-blog-v3 w-inline-block">

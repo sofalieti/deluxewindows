@@ -144,7 +144,7 @@
                     <div class="property-card-top-content-v1">
                       <div class="image-wrapper border-radius-image-default property-card-top-content-v1---image">
                         @if($brand['image'])
-                        <img src="{{ $brand['image'] }}" loading="eager" alt="{{ $brand['name'] }}" class="image cover-image" />
+                        <x-img :src="$brand['image']" preset="brand_grid" :alt="$brand['name']" loading="eager" class="image cover-image" />
                         @endif
                       </div>
                     </div>
@@ -180,7 +180,7 @@
                     <div class="blog-card-top-content-v1 _3-posts---item">
                       <div class="image-wrapper border-radius-image-default blog-card-top-content-v1---image">
                         @if($ld['image'])
-                        <img src="{{ $ld['image'] }}" loading="eager" alt="{{ $ld['name'] }}" class="image cover-image" />
+                        <x-img :src="$ld['image']" preset="card" :alt="$ld['name']" loading="eager" class="image cover-image" />
                         @endif
                       </div>
                       <div class="badge-wrapper---top-left"></div>

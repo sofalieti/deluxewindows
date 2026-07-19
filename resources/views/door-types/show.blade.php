@@ -56,7 +56,7 @@
               <div class="windows-types-header">
                 <div class="logo-wrap padding0">
                   @if($logo)
-                  <img src="{{ $logo }}" loading="lazy" alt="{{ $brandName }}" class="image-27 brand-mob" />
+                  <x-img :src="$logo" preset="logo" :alt="$brandName" loading="lazy" class="image-27 brand-mob" />
                   @endif
                 </div>
                 <h1 class="display-8 mid types">{{ $name }}</h1>

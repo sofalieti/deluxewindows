@@ -29,6 +29,8 @@ return [
         'footer_logo'   => ['width' => 200,  'height' => null],
         'nav_logo'      => ['width' => 180,  'height' => null],
         'icon'          => ['width' => 48,   'height' => null],
+        'pro_icon'      => ['width' => 128,  'height' => null],
+        'content'       => ['width' => 1200, 'height' => null],
     ],
 
     'quality'   => 82,

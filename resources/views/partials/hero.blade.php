@@ -274,7 +274,7 @@
                   <div class="div-block-22">
                     @if($brandLikeHero)
                     @if(!empty($brandLogo))
-                    <img loading="lazy" src="{{ $brandLogo }}" alt="" class="svg50 sidebar-svg top-svg" />
+                    <x-img :src="$brandLogo" preset="logo" alt="" loading="lazy" class="svg50 sidebar-svg top-svg" />
                     @endif
                     @if(!$hideHeroPricing)
                     <label for="email-banner" class="body-14"></label>

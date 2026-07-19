@@ -152,14 +152,18 @@ class ImageThumbnailService
 
     private function resolveSourcePath(string $source): ?string
     {
+        $source = explode('#', explode('?', $source, 2)[0], 2)[0];
+
         if (preg_match('~^https?://~i', $source)) {
             $path = parse_url($source, PHP_URL_PATH);
             if (is_string($path) && $path !== '') {
-                return $this->resolveSourcePath($path);
+                return $this->resolveSourcePath(rawurldecode($path));
             }
 
             return null;
         }
+
+        $source = rawurldecode($source);
 
         if (str_starts_with($source, '/storage/')) {
             $relative = ltrim(substr($source, strlen('/storage/')), '/');

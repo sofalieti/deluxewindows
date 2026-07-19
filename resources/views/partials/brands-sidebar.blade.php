@@ -5,7 +5,7 @@
   <nav class="dropdown-list-4 sidebar-list" data-dd="list">
     <div class="sidebar_content-wrapper-2 bottom brands">
       @if($logo)
-      <img loading="lazy" src="{{ $logo }}" alt="{{ $name }}" class="svg50 sidebar-svg top-svg" />
+      <x-img :src="$logo" preset="logo" :alt="$name" loading="lazy" class="svg50 sidebar-svg top-svg" />
       @endif
       <a href="{{ $allBrandsHref ?? '/brands' }}" class="all-brands-block w-inline-block" tabindex="0">
         <div class="icon-font-rounded arrow">&#xE824;</div>
@@ -27,7 +27,7 @@
                 <div role="listitem" class="w-dyn-item">
                   <a href="/brand-collections/{{ $collection['slug'] }}" class="sidebar-item-2 w-inline-block{{ !empty($currentCollectionSlug) && $currentCollectionSlug === $collection['slug'] ? ' w--current' : '' }}">
                     @if($collection['image'])
-                    <img loading="lazy" src="{{ $collection['image'] }}" alt="{{ $collection['name'] }}" class="sidebar-img" />
+                    <x-img :src="$collection['image']" preset="sidebar" :alt="$collection['name']" loading="lazy" class="sidebar-img" />
                     @endif
                     <div class="sidebar-txt text-size-16">{{ $collection['name'] }}</div>
                   </a>

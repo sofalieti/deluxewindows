@@ -157,17 +157,17 @@
                   <div class="w-tab-content">
                     <div data-w-tab="Tab 1" class="w-tab-pane w--tab-active">
                       <div>
-                        <img loading="eager" src="/webflow-assets/images/684d61fbe99d2a34dfe1cec8_3.avif" alt="Deluxe-Windows" class="image border-radius-image-default" />
+                        <x-img src="/webflow-assets/images/684d61fbe99d2a34dfe1cec8_3.avif" preset="pro_icon" alt="Deluxe-Windows" loading="eager" class="image border-radius-image-default" />
                       </div>
                     </div>
                     <div data-w-tab="Tab 2" class="w-tab-pane">
                       <div class="image-wrapper process-image-02---v3">
-                        <img loading="eager" src="/webflow-assets/images/684d61af09ea06494d87b10a_1.avif" alt="Deluxe-Windows" class="image border-radius-image-default" />
+                        <x-img src="/webflow-assets/images/684d61af09ea06494d87b10a_1.avif" preset="pro_icon" alt="Deluxe-Windows" loading="eager" class="image border-radius-image-default" />
                       </div>
                     </div>
                     <div data-w-tab="Tab 3" class="w-tab-pane">
                       <div>
-                        <img loading="eager" src="/webflow-assets/images/684d60095fe85b113c0c60b2_2.avif" alt="Deluxe-windows-contarct" class="border-radius-image-default" />
+                        <x-img src="/webflow-assets/images/684d60095fe85b113c0c60b2_2.avif" preset="pro_icon" alt="Deluxe-windows-contarct" loading="eager" class="border-radius-image-default" />
                         <div class="card-float process-card-03---v3"></div>
                       </div>
                     </div>
@@ -208,7 +208,7 @@
                   </div>
                 </div>
                 <div class="image-wrapper cta-v3-image">
-                  <img src="/webflow-assets/images/687ca4b70b8583ef4890bad4_iPad.avif" loading="eager" alt="Deluxe-windows" class="image" />
+                  <x-img src="/webflow-assets/images/687ca4b70b8583ef4890bad4_iPad.avif" preset="cta" alt="Deluxe-windows" loading="eager" class="image" />
                 </div>
               </div>
             </div>
