@@ -3,11 +3,11 @@
   "key": "window-replacement/berkeley",
   "path": "/window-replacement/berkeley",
   "seo": {
-    "title": "Window Replacement Berkeley, CA | Deluxe Windows",
+    "title": "Window Replacement Berkeley, CA | Cost & Installation",
     "description": "Window replacement in Berkeley, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Berkeley project.",
     "canonical": "https://www.deluxewindows.com/window-replacement/berkeley",
     "og": {
-      "title": "Window Replacement Berkeley, CA | Deluxe Windows",
+      "title": "Window Replacement Berkeley, CA | Cost & Installation",
       "description": "Window replacement in Berkeley, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Berkeley project.",
       "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
       "type": "website"
@@ -26,7 +26,7 @@
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Window Replacement Berkeley, CA | Deluxe Windows",
+      "title": "Window Replacement Berkeley, CA | Cost & Installation",
       "description": "Window replacement in Berkeley, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Berkeley project.",
       "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
       "card": "summary_large_image"
@@ -48,6 +48,10 @@
     {
       "question": "How long does window replacement take in Berkeley?",
       "answer": "Most Berkeley projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+    },
+    {
+      "question": "How do I book a free window replacement estimate in Berkeley?",
+      "answer": "Call or send the project details online and a Deluxe Windows consultant visits the Berkeley home, measures every opening and prepares a written installed quote — the visit is free and there is no obligation to order."
     }
   ],
   "schema": {

@@ -3,12 +3,12 @@
   "key": "window-replacement/south-san-francisco",
   "path": "/window-replacement/south-san-francisco",
   "seo": {
-    "title": "Window Replacement South San Francisco, CA | Deluxe Windows",
-    "description": "Window replacement in South San Francisco, CA with Milgard, Marvin, Andersen and more. Get a free estimate. Expert Bay Area installation. Licensed installers.",
+    "title": "Window Replacement South San Francisco CA | Installation",
+    "description": "Window replacement in South San Francisco, CA with Milgard, Marvin, Andersen and more. Get a free installation estimate. Expert Bay Area installation.",
     "canonical": "https://www.deluxewindows.com/window-replacement/south-san-francisco",
     "og": {
-      "title": "Window Replacement South San Francisco, CA | Deluxe Windows",
-      "description": "Window replacement in South San Francisco, CA with Milgard, Marvin, Andersen and more. Get a free estimate. Expert Bay Area installation. Licensed installers.",
+      "title": "Window Replacement South San Francisco CA | Installation",
+      "description": "Window replacement in South San Francisco, CA with Milgard, Marvin, Andersen and more. Get a free installation estimate. Expert Bay Area installation.",
       "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
       "type": "website"
     },
@@ -25,8 +25,8 @@
     "priority": "P2",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Window Replacement South San Francisco, CA | Deluxe Windows",
-      "description": "Window replacement in South San Francisco, CA with Milgard, Marvin, Andersen and more. Get a free estimate. Expert Bay Area installation. Licensed installers.",
+      "title": "Window Replacement South San Francisco CA | Installation",
+      "description": "Window replacement in South San Francisco, CA with Milgard, Marvin, Andersen and more. Get a free installation estimate. Expert Bay Area installation.",
       "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
       "card": "summary_large_image"
     }
@@ -47,6 +47,10 @@
     {
       "question": "How long does window replacement take in South San Francisco?",
       "answer": "Most South San Francisco projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+    },
+    {
+      "question": "How do I book a free window replacement estimate in South San Francisco?",
+      "answer": "Call or send the project details online and a Deluxe Windows consultant visits the South San Francisco home, measures every opening and prepares a written installed quote — the visit is free and there is no obligation to order."
     }
   ],
   "schema": {

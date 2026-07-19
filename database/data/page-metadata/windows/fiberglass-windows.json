@@ -3,11 +3,11 @@
   "key": "windows/fiberglass-windows",
   "path": "/windows/fiberglass-windows",
   "seo": {
-    "title": "Fiberglass Windows Bay Area | Cost & Brands | Deluxe",
+    "title": "Fiberglass Window Replacement Bay Area | Cost & Installation",
     "description": "Fiberglass windows compared for Bay Area homes: typical lifespan 30-50 years, the longest of common frame materials, about $800-$1,500+ per window, above.",
     "canonical": "https://www.deluxewindows.com/windows/fiberglass-windows",
     "og": {
-      "title": "Fiberglass Windows Bay Area | Cost & Brands | Deluxe",
+      "title": "Fiberglass Window Replacement Bay Area | Cost & Installation",
       "description": "Fiberglass windows compared for Bay Area homes: typical lifespan 30-50 years, the longest of common frame materials, about $800-$1,500+ per window, above.",
       "image": "/webflow-assets/images/window-type-hero/fiberglass-windows.avif",
       "type": "website"
@@ -26,7 +26,7 @@
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Fiberglass Windows Bay Area | Cost & Brands | Deluxe",
+      "title": "Fiberglass Window Replacement Bay Area | Cost & Installation",
       "description": "Fiberglass windows compared for Bay Area homes: typical lifespan 30-50 years, the longest of common frame materials, about $800-$1,500+ per window, above.",
       "image": "/webflow-assets/images/window-type-hero/fiberglass-windows.avif",
       "card": "summary_large_image"
@@ -48,6 +48,10 @@
     {
       "question": "Are fiberglass windows worth the extra money?",
       "answer": "Fiberglass products earn their reputation through dimensional stability, strength and paintable low-maintenance frames. The right call still depends on the home's openings, exposure and budget, which Deluxe Windows reviews during a free assessment. Ask about Fiberglass specifics when booking the free estimate."
+    },
+    {
+      "question": "How much do fiberglass windows cost installed in the Bay Area?",
+      "answer": "For fiberglass windows, the current promotion prices installations from $549 per window installed (regular $915). The final quote reflects access, removal and finishing, and Deluxe Windows confirms exact installed pricing after measuring."
     }
   ],
   "schema": {

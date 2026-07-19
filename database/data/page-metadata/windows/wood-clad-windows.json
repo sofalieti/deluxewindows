@@ -3,11 +3,11 @@
   "key": "windows/wood-clad-windows",
   "path": "/windows/wood-clad-windows",
   "seo": {
-    "title": "Wood Clad Windows Bay Area | Cost & Brands | Deluxe",
+    "title": "Wood Clad Window Replacement Bay Area | Cost & Installation",
     "description": "Wood Clad windows compared for Bay Area homes: typical lifespan 30-50 years when the cladding and seals are maintained, a premium over bare wood, offset by.",
     "canonical": "https://www.deluxewindows.com/windows/wood-clad-windows",
     "og": {
-      "title": "Wood Clad Windows Bay Area | Cost & Brands | Deluxe",
+      "title": "Wood Clad Window Replacement Bay Area | Cost & Installation",
       "description": "Wood Clad windows compared for Bay Area homes: typical lifespan 30-50 years when the cladding and seals are maintained, a premium over bare wood, offset by.",
       "image": "/webflow-assets/images/window-type-hero/wood-clad-windows.avif",
       "type": "website"
@@ -26,7 +26,7 @@
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Wood Clad Windows Bay Area | Cost & Brands | Deluxe",
+      "title": "Wood Clad Window Replacement Bay Area | Cost & Installation",
       "description": "Wood Clad windows compared for Bay Area homes: typical lifespan 30-50 years when the cladding and seals are maintained, a premium over bare wood, offset by.",
       "image": "/webflow-assets/images/window-type-hero/wood-clad-windows.avif",
       "card": "summary_large_image"
@@ -46,8 +46,12 @@
       "answer": "Wood-clad offers a real-wood interior with a weather-resistant protective exterior shell at a premium over bare wood, offset by much lower exterior upkeep, while vinyl brings low maintenance, good insulation and the widest choice of budget-friendly series and typically lasts 20-40 years. The better fit depends on budget, architecture and how long you plan to keep the home."
     },
     {
-      "question": "What are the main benefits of wood clad windows?",
-      "answer": "Wood Clad windows offer a real-wood interior with a weather-resistant protective exterior shell. Whether they fit depends on the home's architecture, opening sizes, performance goals and budget."
+      "question": "How much do wood clad windows cost installed in the Bay Area?",
+      "answer": "For wood clad windows, the current promotion prices installations from $549 per window installed (regular $915). The final quote reflects access, removal and finishing, and Deluxe Windows confirms exact installed pricing after measuring."
+    },
+    {
+      "question": "Is removal of the old windows included when replacing with wood clad windows?",
+      "answer": "Yes — removal and disposal of the old windows are part of the wood clad windows installation scope, along with insulation, sealing and a final operating check. Everything is itemized in the written Bay Area quote."
     }
   ],
   "schema": {

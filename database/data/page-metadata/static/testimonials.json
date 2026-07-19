@@ -3,11 +3,11 @@
   "key": "static/testimonials",
   "path": "/testimonials",
   "seo": {
-    "title": "Deluxe Windows Reviews | Bay Area Customers",
+    "title": "Window Replacement Reviews | Bay Area Customers",
     "description": "Read reviews from Bay Area homeowners who chose Deluxe Windows for window and door replacement, product guidance and professional installation.",
     "canonical": "https://www.deluxewindows.com/testimonials",
     "og": {
-      "title": "Deluxe Windows Reviews | Bay Area Customers",
+      "title": "Window Replacement Reviews | Bay Area Customers",
       "description": "Read reviews from Bay Area homeowners who chose Deluxe Windows for window and door replacement, product guidance and professional installation.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
       "type": "website"
@@ -22,7 +22,7 @@
     "priority": "P3",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Deluxe Windows Reviews | Bay Area Customers",
+      "title": "Window Replacement Reviews | Bay Area Customers",
       "description": "Read reviews from Bay Area homeowners who chose Deluxe Windows for window and door replacement, product guidance and professional installation.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
       "card": "summary_large_image"

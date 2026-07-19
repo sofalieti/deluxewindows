@@ -3,11 +3,11 @@
   "key": "static/blog-index",
   "path": "/blog",
   "seo": {
-    "title": "Window & Door Advice Blog | Deluxe Windows",
+    "title": "Window & Door Advice Blog | Bay Area Guides",
     "description": "Read practical window and door guides for Bay Area homeowners: buying advice, materials, measuring, energy efficiency and replacement planning tips.",
     "canonical": "https://www.deluxewindows.com/blog",
     "og": {
-      "title": "Window & Door Advice Blog | Deluxe Windows",
+      "title": "Window & Door Advice Blog | Bay Area Guides",
       "description": "Read practical window and door guides for Bay Area homeowners: buying advice, materials, measuring, energy efficiency and replacement planning tips.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
       "type": "website"
@@ -23,7 +23,7 @@
     "priority": "P3",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Window & Door Advice Blog | Deluxe Windows",
+      "title": "Window & Door Advice Blog | Bay Area Guides",
       "description": "Read practical window and door guides for Bay Area homeowners: buying advice, materials, measuring, energy efficiency and replacement planning tips.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
       "card": "summary_large_image"

@@ -3,12 +3,12 @@
   "key": "brands/andersen",
   "path": "/brands/andersen",
   "seo": {
-    "title": "Andersen Windows Bay Area | Authorized Dealer | Deluxe",
-    "description": "Andersen windows for Bay Area homes: collections across Fibrex composite, wood, vinyl and aluminum-clad lines. Get a free estimate. Compare series and pricing.",
+    "title": "Andersen Window Replacement & Installation | Bay Area",
+    "description": "Andersen windows for Bay Area homes: collections across Fibrex composite, wood, vinyl and aluminum-clad lines. Get a free installation estimate.",
     "canonical": "https://www.deluxewindows.com/brands/andersen",
     "og": {
-      "title": "Andersen Windows Bay Area | Authorized Dealer | Deluxe",
-      "description": "Andersen windows for Bay Area homes: collections across Fibrex composite, wood, vinyl and aluminum-clad lines. Get a free estimate. Compare series and pricing.",
+      "title": "Andersen Window Replacement & Installation | Bay Area",
+      "description": "Andersen windows for Bay Area homes: collections across Fibrex composite, wood, vinyl and aluminum-clad lines. Get a free installation estimate.",
       "image": "/webflow-assets/images/688a75a9f58dabd4b2642bc5_Andersen.avif",
       "type": "website"
     },
@@ -26,8 +26,8 @@
     "priority": "P0",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Andersen Windows Bay Area | Authorized Dealer | Deluxe",
-      "description": "Andersen windows for Bay Area homes: collections across Fibrex composite, wood, vinyl and aluminum-clad lines. Get a free estimate. Compare series and pricing.",
+      "title": "Andersen Window Replacement & Installation | Bay Area",
+      "description": "Andersen windows for Bay Area homes: collections across Fibrex composite, wood, vinyl and aluminum-clad lines. Get a free installation estimate.",
       "image": "/webflow-assets/images/688a75a9f58dabd4b2642bc5_Andersen.avif",
       "card": "summary_large_image"
     }
@@ -48,6 +48,14 @@
     {
       "question": "Is Andersen 100 or 400 series better?",
       "answer": "For Andersen, the answer depends on the exact series, glass and installation conditions. Deluxe Windows reviews the specifics during a free Bay Area consultation and puts the details in writing."
+    },
+    {
+      "question": "How do I get installed pricing for Andersen windows?",
+      "answer": "Installed pricing for Andersen windows is prepared after on-site measurements: the current promotion prices installations from $499 per window installed (regular $832). The written quote itemizes product, labor, permits and any opening repairs."
+    },
+    {
+      "question": "Is there a better window than Andersen?",
+      "answer": "For Andersen, the answer depends on the exact series, glass and installation conditions. Deluxe Windows reviews the specifics during a free Bay Area consultation and puts the details in writing. Ask about Andersen specifics when booking the free estimate."
     }
   ],
   "schema": {

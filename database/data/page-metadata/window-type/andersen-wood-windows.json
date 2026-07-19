@@ -3,12 +3,12 @@
   "key": "window-type/andersen-wood-windows",
   "path": "/window-type/andersen-wood-windows",
   "seo": {
-    "title": "Andersen Wood Windows | Prices & Series | Deluxe",
-    "description": "Andersen Wood Windows for Bay Area homes: the 100 Series uses Fibrex composite material that Andersen rates about twice as strong as vinyl. Get a free estimate.",
+    "title": "Andersen Wood Windows | Installation Cost & Series",
+    "description": "Andersen Wood Windows for Bay Area homes: the 100 Series uses Fibrex composite material that Andersen rates about twice as strong as vinyl. Licensed installers.",
     "canonical": "https://www.deluxewindows.com/window-type/andersen-wood-windows",
     "og": {
-      "title": "Andersen Wood Windows | Prices & Series | Deluxe",
-      "description": "Andersen Wood Windows for Bay Area homes: the 100 Series uses Fibrex composite material that Andersen rates about twice as strong as vinyl. Get a free estimate.",
+      "title": "Andersen Wood Windows | Installation Cost & Series",
+      "description": "Andersen Wood Windows for Bay Area homes: the 100 Series uses Fibrex composite material that Andersen rates about twice as strong as vinyl. Licensed installers.",
       "image": "/webflow-assets/images/688f64e63cdbaadbf331bc9f_andersen-e-series-windows-woodstain-bedroom-interior-1.avif",
       "type": "website"
     },
@@ -26,8 +26,8 @@
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Andersen Wood Windows | Prices & Series | Deluxe",
-      "description": "Andersen Wood Windows for Bay Area homes: the 100 Series uses Fibrex composite material that Andersen rates about twice as strong as vinyl. Get a free estimate.",
+      "title": "Andersen Wood Windows | Installation Cost & Series",
+      "description": "Andersen Wood Windows for Bay Area homes: the 100 Series uses Fibrex composite material that Andersen rates about twice as strong as vinyl. Licensed installers.",
       "image": "/webflow-assets/images/688f64e63cdbaadbf331bc9f_andersen-e-series-windows-woodstain-bedroom-interior-1.avif",
       "card": "summary_large_image"
     }
@@ -40,6 +40,10 @@
     {
       "question": "What do Andersen Wood Windows cost installed?",
       "answer": "For Andersen Wood Windows, the current promotion prices installations from $589 per window installed (regular $982). The exact number depends on sizes, glass package and installation conditions, so Deluxe Windows quotes each opening after measuring."
+    },
+    {
+      "question": "Is installation included in the Andersen Wood Windows quote?",
+      "answer": "Yes — the written quote for Andersen Wood Windows covers product, professional installation, removal of the old units, sealing and haul-away. Optional extras like interior trim work are listed separately so the Bay Area price is transparent."
     },
     {
       "question": "Which series are available for Andersen Wood Windows?",

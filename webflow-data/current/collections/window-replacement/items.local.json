@@ -3173,10 +3173,10 @@
       "id": "69ce81619726e1e79ddbadc3",
       "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
       "createdOn": "2026-04-02T14:46:57.715Z",
-      "lastUpdated": "2026-04-18T20:32:12.571Z",
-      "lastPublished": null,
+      "lastUpdated": "2026-07-19T10:15:04.769Z",
+      "lastPublished": "2026-07-19T10:15:04.769Z",
       "isArchived": false,
-      "isDraft": true,
+      "isDraft": false,
       "fieldData": {
         "city-name": "Burlingame",
         "city-slug": "burlingame",
@@ -3207,7 +3207,7 @@
           "fileId": "688129a7fdac73f612686f21",
           "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif"
         },
-        "is-priority": false,
+        "is-priority": true,
         "is-published": false,
         "population": null,
         "schema-json": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"HomeAndConstructionBusiness\",\"@id\":\"https://www.deluxewindows.com/#organization\",\"name\":\"Deluxe Windows\",\"url\":\"https://www.deluxewindows.com\",\"telephone\":\"+18887304144\",\"description\":\"Premium window and door replacement for San Francisco Bay Area homes. 30+ years, 100% employee owned.\",\"priceRange\":\"$$\",\"openingHoursSpecification\":[{\"@type\":\"OpeningHoursSpecification\",\"dayOfWeek\":[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\"],\"opens\":\"08:00\",\"closes\":\"18:00\"},{\"@type\":\"OpeningHoursSpecification\",\"dayOfWeek\":\"Saturday\",\"opens\":\"09:00\",\"closes\":\"15:00\"}],\"areaServed\":{\"@type\":\"City\",\"name\":\"Burlingame\",\"containedInPlace\":{\"@type\":\"State\",\"name\":\"California\"}}},{\"@type\":\"Service\",\"@id\":\"https://www.deluxewindows.com/window-replacement/burlingame#service\",\"name\":\"Window Replacement in Burlingame, CA\",\"provider\":{\"@id\":\"https://www.deluxewindows.com/#organization\"},\"areaServed\":{\"@type\":\"City\",\"name\":\"Burlingame\",\"containedInPlace\":{\"@type\":\"State\",\"name\":\"California\"}},\"serviceType\":\"Window Replacement\",\"description\":\"Window replacement in Burlingame, San Mateo County. Energy-efficient installs, top brands, free quotes. Deluxe Windows Bay Area.\",\"offers\":{\"@type\":\"Offer\",\"name\":\"Free Quote\",\"price\":\"0\",\"priceCurrency\":\"USD\"}},{\"@type\":\"FAQPage\",\"@id\":\"https://www.deluxewindows.com/window-replacement/burlingame#faq\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"How much does window replacement cost in Burlingame?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Burlingame homeowners typically invest $7,500 to $18,000 for a full window replacement project. The city\\u0027s stately Peninsula homes вЂ” many built in the 1920sвЂ“1950s вЂ” often have larger windows and custom configurations that add to cost. Projects in the Burlingame Park and Ray Park neighborhoods frequently spec Andersen or Milgard Ultra fiberglass. Single window installation starts around $650вЂ“$750.\"}},{\"@type\":\"Question\",\"name\":\"Do I need a permit for window replacement in Burlingame?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Yes. Burlingame requires a building permit for window replacement. Homes in the Burlingame Park, Easton Addition, or other areas on the City\\u0027s historic resources inventory may require additional planning review. Our team manages all permit applications and coordinates with Burlingame\\u0027s Building Division on your behalf.\"}},{\"@type\":\"Question\",\"name\":\"Which window brands does Deluxe Windows install in Burlingame?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Burlingame\\u0027s high-value market calls for premium products. We most frequently install Andersen 400-Series wood-clad for the city\\u0027s Spanish Colonial and Craftsman estates, Milgard Ultra fiberglass for superior performance in the Peninsula\\u0027s mild coastal climate, and Marvin Elevate for custom hillside properties.\"}},{\"@type\":\"Question\",\"name\":\"Does Deluxe Windows serve all Burlingame neighborhoods?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Yes вЂ” we serve all Burlingame neighborhoods including Burlingame Park, Ray Park, Easton Addition, Lyon-Hoag, Mills Estates, and the Rollins Road corridor. Zip code: 94010.\"}}]}]}",

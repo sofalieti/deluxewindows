@@ -3,11 +3,11 @@
   "key": "window-replacement/santa-rosa",
   "path": "/window-replacement/santa-rosa",
   "seo": {
-    "title": "Window Replacement Santa Rosa, CA | Deluxe Windows",
+    "title": "Window Replacement Santa Rosa, CA | Cost & Installation",
     "description": "Window replacement in Santa Rosa, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Santa Rosa project.",
     "canonical": "https://www.deluxewindows.com/window-replacement/santa-rosa",
     "og": {
-      "title": "Window Replacement Santa Rosa, CA | Deluxe Windows",
+      "title": "Window Replacement Santa Rosa, CA | Cost & Installation",
       "description": "Window replacement in Santa Rosa, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Santa Rosa project.",
       "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
       "type": "website"
@@ -23,7 +23,7 @@
     "priority": "P2",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Window Replacement Santa Rosa, CA | Deluxe Windows",
+      "title": "Window Replacement Santa Rosa, CA | Cost & Installation",
       "description": "Window replacement in Santa Rosa, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Santa Rosa project.",
       "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
       "card": "summary_large_image"
@@ -45,6 +45,10 @@
     {
       "question": "Which window brands work best for Santa Rosa homes?",
       "answer": "Popular choices in Santa Rosa include Milgard, Anlin and Simonton vinyl for value, and Marvin or Andersen for premium projects. The right pick depends on the home's age, style and exposure in Santa Rosa."
+    },
+    {
+      "question": "How long does window replacement take in Santa Rosa?",
+      "answer": "Most Santa Rosa projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
     }
   ],
   "schema": {

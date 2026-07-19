@@ -3,12 +3,12 @@
   "key": "brands/jeld-wen",
   "path": "/brands/jeld-wen",
   "seo": {
-    "title": "JELD-WEN Windows Bay Area | Authorized Dealer | Deluxe",
-    "description": "JELD-WEN windows for Bay Area homes: a broad portfolio spanning vinyl, wood, and clad-wood windows at several price levels. Get a free estimate.",
+    "title": "JELD-WEN Window Replacement & Installation | Bay Area",
+    "description": "JELD-WEN windows for Bay Area homes: a broad portfolio spanning vinyl, wood, and clad-wood windows at several price levels. Get a free installation estimate.",
     "canonical": "https://www.deluxewindows.com/brands/jeld-wen",
     "og": {
-      "title": "JELD-WEN Windows Bay Area | Authorized Dealer | Deluxe",
-      "description": "JELD-WEN windows for Bay Area homes: a broad portfolio spanning vinyl, wood, and clad-wood windows at several price levels. Get a free estimate.",
+      "title": "JELD-WEN Window Replacement & Installation | Bay Area",
+      "description": "JELD-WEN windows for Bay Area homes: a broad portfolio spanning vinyl, wood, and clad-wood windows at several price levels. Get a free installation estimate.",
       "image": "/webflow-assets/images/688a751848f910d5ccb0bd34_Jeld-Wen.avif",
       "type": "website"
     },
@@ -26,8 +26,8 @@
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "JELD-WEN Windows Bay Area | Authorized Dealer | Deluxe",
-      "description": "JELD-WEN windows for Bay Area homes: a broad portfolio spanning vinyl, wood, and clad-wood windows at several price levels. Get a free estimate.",
+      "title": "JELD-WEN Window Replacement & Installation | Bay Area",
+      "description": "JELD-WEN windows for Bay Area homes: a broad portfolio spanning vinyl, wood, and clad-wood windows at several price levels. Get a free installation estimate.",
       "image": "/webflow-assets/images/688a751848f910d5ccb0bd34_Jeld-Wen.avif",
       "card": "summary_large_image"
     }
@@ -40,6 +40,10 @@
     {
       "question": "How much does a JELD-WEN door cost?",
       "answer": "For JELD-WEN, JELD-WEN pricing spans economy vinyl through premium clad-wood, so quotes vary widely by series. Exact pricing depends on size, glass package and installation conditions, so Deluxe Windows prepares an itemized quote after measuring the openings."
+    },
+    {
+      "question": "How soon can JELD-WEN windows be installed in the Bay Area?",
+      "answer": "After the free on-site measurement, JELD-WEN orders typically arrive in four to eight weeks, and installation itself takes one to three working days. Deluxe Windows confirms the schedule in writing at contract signing."
     },
     {
       "question": "Which JELD-WEN windows does Deluxe Windows install in the Bay Area?",

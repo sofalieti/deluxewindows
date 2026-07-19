@@ -3,11 +3,11 @@
   "key": "county-hub-pages/napa-county",
   "path": "/county-hub-pages/napa-county",
   "seo": {
-    "title": "Napa County Window Replacement | Deluxe Windows",
+    "title": "Window Replacement Napa County | Installation & Cost",
     "description": "Window and door replacement across Napa County: leading brands, energy-efficient products and professional installation for every city we serve.",
     "canonical": "https://www.deluxewindows.com/county-hub-pages/napa-county",
     "og": {
-      "title": "Napa County Window Replacement | Deluxe Windows",
+      "title": "Window Replacement Napa County | Installation & Cost",
       "description": "Window and door replacement across Napa County: leading brands, energy-efficient products and professional installation for every city we serve.",
       "image": "/webflow-assets/images/69fc954e7b9bf04407ae45c1_generated-2026-05-07t13-34-51-004z-ecgdpc.jpeg",
       "type": "website"
@@ -22,7 +22,7 @@
     "priority": "P2",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Napa County Window Replacement | Deluxe Windows",
+      "title": "Window Replacement Napa County | Installation & Cost",
       "description": "Window and door replacement across Napa County: leading brands, energy-efficient products and professional installation for every city we serve.",
       "image": "/webflow-assets/images/69fc954e7b9bf04407ae45c1_generated-2026-05-07t13-34-51-004z-ecgdpc.jpeg",
       "card": "summary_large_image"
@@ -44,6 +44,10 @@
     {
       "question": "Which window features matter most in Napa County?",
       "answer": "For Napa County homes, weigh solar control, insulation, air leakage and frame durability against the local microclimate. Coastal, hillside and inland Napa County homes often need different glass packages."
+    },
+    {
+      "question": "How do I schedule window installation in Napa County?",
+      "answer": "Request a free estimate and a Deluxe Windows consultant measures the Napa County home, prepares an installed quote and books the crew once products arrive — most Napa County installations finish within one to three working days."
     }
   ],
   "schema": {

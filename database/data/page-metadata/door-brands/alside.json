@@ -3,11 +3,11 @@
   "key": "door-brands/alside",
   "path": "/door-brands/alside",
   "seo": {
-    "title": "Alside Doors Bay Area | Patio & Entry | Deluxe",
+    "title": "Alside Door Installation Bay Area | Patio & Entry",
     "description": "Alside patio, sliding and entry doors for Bay Area homes. Compare panel styles, glass and installed pricing, with expert installation by Deluxe Windows.",
     "canonical": "https://www.deluxewindows.com/door-brands/alside",
     "og": {
-      "title": "Alside Doors Bay Area | Patio & Entry | Deluxe",
+      "title": "Alside Door Installation Bay Area | Patio & Entry",
       "description": "Alside patio, sliding and entry doors for Bay Area homes. Compare panel styles, glass and installed pricing, with expert installation by Deluxe Windows.",
       "image": "/webflow-assets/images/688a76851f0f6088a0c53667_Alside.avif",
       "type": "website"
@@ -23,7 +23,7 @@
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Alside Doors Bay Area | Patio & Entry | Deluxe",
+      "title": "Alside Door Installation Bay Area | Patio & Entry",
       "description": "Alside patio, sliding and entry doors for Bay Area homes. Compare panel styles, glass and installed pricing, with expert installation by Deluxe Windows.",
       "image": "/webflow-assets/images/688a76851f0f6088a0c53667_Alside.avif",
       "card": "summary_large_image"
@@ -31,12 +31,16 @@
   },
   "faq": [
     {
-      "question": "Which Alside doors does Deluxe Windows install in the Bay Area?",
-      "answer": "Deluxe Windows installs Alside doors across the brand's current lineup — value-focused vinyl lines such as Mezzo, Fusion and Sovereign — and confirms series availability for each Bay Area project before quoting."
-    },
-    {
       "question": "How do I get installed pricing for Alside doors?",
       "answer": "Installed pricing for Alside doors is prepared after on-site measurements: the current promotion prices installations from $1299 per door installed (regular $2165). The written quote itemizes product, labor, permits and any opening repairs."
+    },
+    {
+      "question": "How soon can Alside doors be installed in the Bay Area?",
+      "answer": "After the free on-site measurement, Alside orders typically arrive in four to eight weeks, and installation itself takes one to three working days. Deluxe Windows confirms the schedule in writing at contract signing. This applies specifically to Alside projects."
+    },
+    {
+      "question": "Which Alside doors does Deluxe Windows install in the Bay Area?",
+      "answer": "Deluxe Windows installs Alside doors across the brand's current lineup — value-focused vinyl lines such as Mezzo, Fusion and Sovereign — and confirms series availability for each Bay Area project before quoting."
     },
     {
       "question": "How long does Alside door installation take?",

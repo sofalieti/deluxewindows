@@ -3,11 +3,11 @@
   "key": "door-brands/andersen",
   "path": "/door-brands/andersen",
   "seo": {
-    "title": "Andersen Doors Bay Area | Patio & Entry | Deluxe",
+    "title": "Andersen Door Installation Bay Area | Patio & Entry",
     "description": "Andersen patio, sliding and entry doors for Bay Area homes. Compare panel styles, glass and installed pricing, with expert installation by Deluxe Windows.",
     "canonical": "https://www.deluxewindows.com/door-brands/andersen",
     "og": {
-      "title": "Andersen Doors Bay Area | Patio & Entry | Deluxe",
+      "title": "Andersen Door Installation Bay Area | Patio & Entry",
       "description": "Andersen patio, sliding and entry doors for Bay Area homes. Compare panel styles, glass and installed pricing, with expert installation by Deluxe Windows.",
       "image": "/webflow-assets/images/688a75a9f58dabd4b2642bc5_Andersen.avif",
       "type": "website"
@@ -26,7 +26,7 @@
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Andersen Doors Bay Area | Patio & Entry | Deluxe",
+      "title": "Andersen Door Installation Bay Area | Patio & Entry",
       "description": "Andersen patio, sliding and entry doors for Bay Area homes. Compare panel styles, glass and installed pricing, with expert installation by Deluxe Windows.",
       "image": "/webflow-assets/images/688a75a9f58dabd4b2642bc5_Andersen.avif",
       "card": "summary_large_image"
@@ -42,12 +42,20 @@
       "answer": "Andersen is a solid choice when the series matches the home: the brand offers collections across Fibrex composite, wood, vinyl and aluminum-clad lines. the 100 Series uses Fibrex composite material that Andersen rates about twice as strong as vinyl. Deluxe Windows compares verified ratings and installed cost before recommending it. Ask about Andersen specifics when booking the free estimate."
     },
     {
+      "question": "How soon can Andersen doors be installed in the Bay Area?",
+      "answer": "After the free on-site measurement, Andersen orders typically arrive in four to eight weeks, and installation itself takes one to three working days. Deluxe Windows confirms the schedule in writing at contract signing."
+    },
+    {
       "question": "Which Andersen doors does Deluxe Windows install in the Bay Area?",
       "answer": "Deluxe Windows installs Andersen doors across the brand's current lineup — collections across Fibrex composite, wood, vinyl and aluminum-clad lines — and confirms series availability for each Bay Area project before quoting."
     },
     {
       "question": "How long does Andersen door installation take?",
       "answer": "Most Andersen door projects are installed within one to three working days once products arrive. Lead times for Andersen orders are confirmed at contract signing."
+    },
+    {
+      "question": "Are Anderson windows better than Marvin?",
+      "answer": "Andersen stands out for collections across Fibrex composite, wood, vinyl and aluminum-clad lines, while Marvin offers premium wood, fiberglass and clad collections such as Essential, Elevate and Ultimate. Neither wins outright: installed Andersen windows in the Bay Area typically run about $700-$1,200 each, with premium series higher, so the better pick depends on budget, style and warranty priorities. Deluxe Windows carries both and shows them side by side."
     }
   ],
   "schema": {

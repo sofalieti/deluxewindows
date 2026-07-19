@@ -3,11 +3,11 @@
   "key": "windows/wood-windows",
   "path": "/windows/wood-windows",
   "seo": {
-    "title": "Wood Windows Bay Area | Cost & Brands | Deluxe",
+    "title": "Wood Window Replacement Bay Area | Cost & Installation",
     "description": "Wood windows compared for Bay Area homes: typical lifespan 30 or more years with proper maintenance, roughly $700-$1,200 per window before installation, plus.",
     "canonical": "https://www.deluxewindows.com/windows/wood-windows",
     "og": {
-      "title": "Wood Windows Bay Area | Cost & Brands | Deluxe",
+      "title": "Wood Window Replacement Bay Area | Cost & Installation",
       "description": "Wood windows compared for Bay Area homes: typical lifespan 30 or more years with proper maintenance, roughly $700-$1,200 per window before installation, plus.",
       "image": "/webflow-assets/images/window-type-hero/wood-windows.avif",
       "type": "website"
@@ -26,7 +26,7 @@
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Wood Windows Bay Area | Cost & Brands | Deluxe",
+      "title": "Wood Window Replacement Bay Area | Cost & Installation",
       "description": "Wood windows compared for Bay Area homes: typical lifespan 30 or more years with proper maintenance, roughly $700-$1,200 per window before installation, plus.",
       "image": "/webflow-assets/images/window-type-hero/wood-windows.avif",
       "card": "summary_large_image"
@@ -48,6 +48,10 @@
     {
       "question": "What are the old fashioned wood windows called?",
       "answer": "Wood windows are built around a wood frame system, chosen for natural interior character and strong compatibility with traditional architecture. In practice the choice covers frame construction, glazing package and finish, all of which Deluxe Windows documents in each product proposal."
+    },
+    {
+      "question": "Is removal of the old windows included when replacing with wood windows?",
+      "answer": "Yes — removal and disposal of the old windows are part of the wood windows installation scope, along with insulation, sealing and a final operating check. Everything is itemized in the written Bay Area quote."
     }
   ],
   "schema": {

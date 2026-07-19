@@ -3,11 +3,11 @@
   "key": "county-hub-pages/marin-county",
   "path": "/county-hub-pages/marin-county",
   "seo": {
-    "title": "Marin County Window Replacement | Deluxe Windows",
+    "title": "Window Replacement Marin County | Installation & Cost",
     "description": "Window and door replacement across Marin County: leading brands, energy-efficient products and professional installation for every city we serve.",
     "canonical": "https://www.deluxewindows.com/county-hub-pages/marin-county",
     "og": {
-      "title": "Marin County Window Replacement | Deluxe Windows",
+      "title": "Window Replacement Marin County | Installation & Cost",
       "description": "Window and door replacement across Marin County: leading brands, energy-efficient products and professional installation for every city we serve.",
       "image": "/webflow-assets/images/69fc954e7b9bf04407ae45d3_generated-2026-05-07t13-33-51-925z-zhxd10.jpeg",
       "type": "website"
@@ -26,7 +26,7 @@
     "priority": "P2",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Marin County Window Replacement | Deluxe Windows",
+      "title": "Window Replacement Marin County | Installation & Cost",
       "description": "Window and door replacement across Marin County: leading brands, energy-efficient products and professional installation for every city we serve.",
       "image": "/webflow-assets/images/69fc954e7b9bf04407ae45d3_generated-2026-05-07t13-33-51-925z-zhxd10.jpeg",
       "card": "summary_large_image"
@@ -48,6 +48,10 @@
     {
       "question": "Which window features matter most in Marin County?",
       "answer": "For Marin County homes, weigh solar control, insulation, air leakage and frame durability against the local microclimate. Coastal, hillside and inland Marin County homes often need different glass packages."
+    },
+    {
+      "question": "How do I schedule window installation in Marin County?",
+      "answer": "Request a free estimate and a Deluxe Windows consultant measures the Marin County home, prepares an installed quote and books the crew once products arrive — most Marin County installations finish within one to three working days."
     }
   ],
   "schema": {

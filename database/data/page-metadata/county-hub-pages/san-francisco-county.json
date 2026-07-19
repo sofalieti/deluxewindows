@@ -3,11 +3,11 @@
   "key": "county-hub-pages/san-francisco-county",
   "path": "/county-hub-pages/san-francisco-county",
   "seo": {
-    "title": "San Francisco County Window Replacement | Deluxe Windows",
+    "title": "San Francisco County Window Replacement & Installation",
     "description": "Window and door replacement across San Francisco County: leading brands, energy-efficient products and professional installation for every city we serve.",
     "canonical": "https://www.deluxewindows.com/county-hub-pages/san-francisco-county",
     "og": {
-      "title": "San Francisco County Window Replacement | Deluxe Windows",
+      "title": "San Francisco County Window Replacement & Installation",
       "description": "Window and door replacement across San Francisco County: leading brands, energy-efficient products and professional installation for every city we serve.",
       "image": "/webflow-assets/images/69fc954e7b9bf04407ae45c7_generated-2026-05-07t13-34-34-997z-6m6ghv.jpeg",
       "type": "website"
@@ -22,7 +22,7 @@
     "priority": "P2",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "San Francisco County Window Replacement | Deluxe Windows",
+      "title": "San Francisco County Window Replacement & Installation",
       "description": "Window and door replacement across San Francisco County: leading brands, energy-efficient products and professional installation for every city we serve.",
       "image": "/webflow-assets/images/69fc954e7b9bf04407ae45c7_generated-2026-05-07t13-34-34-997z-6m6ghv.jpeg",
       "card": "summary_large_image"
@@ -44,6 +44,10 @@
     {
       "question": "Which window features matter most in San Francisco County?",
       "answer": "For San Francisco County homes, weigh solar control, insulation, air leakage and frame durability against the local microclimate. Coastal, hillside and inland San Francisco County homes often need different glass packages."
+    },
+    {
+      "question": "How do I schedule window installation in San Francisco County?",
+      "answer": "Request a free estimate and a Deluxe Windows consultant measures the San Francisco County home, prepares an installed quote and books the crew once products arrive — most San Francisco County installations finish within one to three working days."
     }
   ],
   "schema": {

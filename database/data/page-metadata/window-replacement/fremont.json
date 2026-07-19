@@ -3,12 +3,12 @@
   "key": "window-replacement/fremont",
   "path": "/window-replacement/fremont",
   "seo": {
-    "title": "Window Replacement Fremont, CA | Deluxe Windows",
-    "description": "Window replacement in Fremont, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Fremont project. Get a free estimate.",
+    "title": "Window Replacement Fremont, CA | Cost & Installation",
+    "description": "Window replacement in Fremont, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Fremont project. Licensed installers.",
     "canonical": "https://www.deluxewindows.com/window-replacement/fremont",
     "og": {
-      "title": "Window Replacement Fremont, CA | Deluxe Windows",
-      "description": "Window replacement in Fremont, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Fremont project. Get a free estimate.",
+      "title": "Window Replacement Fremont, CA | Cost & Installation",
+      "description": "Window replacement in Fremont, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Fremont project. Licensed installers.",
       "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
       "type": "website"
     },
@@ -26,8 +26,8 @@
     "priority": "P2",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Window Replacement Fremont, CA | Deluxe Windows",
-      "description": "Window replacement in Fremont, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Fremont project. Get a free estimate.",
+      "title": "Window Replacement Fremont, CA | Cost & Installation",
+      "description": "Window replacement in Fremont, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Fremont project. Licensed installers.",
       "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
       "card": "summary_large_image"
     }
@@ -48,6 +48,10 @@
     {
       "question": "Which window brands work best for Fremont homes?",
       "answer": "Popular choices in Fremont include Milgard, Anlin and Simonton vinyl for value, and Marvin or Andersen for premium projects. The right pick depends on the home's age, style and exposure in Fremont."
+    },
+    {
+      "question": "How long does window replacement take in Fremont?",
+      "answer": "Most Fremont projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
     }
   ],
   "schema": {

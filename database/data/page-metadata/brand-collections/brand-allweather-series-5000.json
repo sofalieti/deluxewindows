@@ -3,11 +3,11 @@
   "key": "brand-collections/brand-allweather-series-5000",
   "path": "/brand-collections/brand-allweather-series-5000",
   "seo": {
-    "title": "All Weather Series 5000 | Deluxe Windows",
+    "title": "All Weather Series 5000 | Prices & Installation",
     "description": "All Weather Series 5000 specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
     "canonical": "https://www.deluxewindows.com/brand-collections/brand-allweather-series-5000",
     "og": {
-      "title": "All Weather Series 5000 | Deluxe Windows",
+      "title": "All Weather Series 5000 | Prices & Installation",
       "description": "All Weather Series 5000 specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
       "image": "/webflow-assets/images/6979edd39d3ca18a58d95d6c_Los-Altos-Windows-scaled.webp",
       "type": "website"
@@ -22,7 +22,7 @@
     "priority": "P3",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "All Weather Series 5000 | Deluxe Windows",
+      "title": "All Weather Series 5000 | Prices & Installation",
       "description": "All Weather Series 5000 specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
       "image": "/webflow-assets/images/6979edd39d3ca18a58d95d6c_Los-Altos-Windows-scaled.webp",
       "card": "summary_large_image"
@@ -44,6 +44,14 @@
     {
       "question": "How does All Weather Series 5000 compare with other brand collections?",
       "answer": "Compare All Weather Series 5000 with sibling collections on frame construction, visible glass area, energy ratings, finish options, warranty and installed cost. series availability is confirmed for each Bay Area project."
+    },
+    {
+      "question": "How do I order All Weather Series 5000 with installation?",
+      "answer": "Ordering All Weather Series 5000 starts with a free on-site measurement; Deluxe Windows then quotes the collection installed, places the factory order and schedules the crew, so one contract covers product, installation and warranty registration."
+    },
+    {
+      "question": "How to increase home value by $50,000?",
+      "answer": "For All Weather Series 5000, the answer depends on the exact series, glass and installation conditions. Deluxe Windows reviews the specifics during a free Bay Area consultation and puts the details in writing."
     }
   ],
   "schema": {

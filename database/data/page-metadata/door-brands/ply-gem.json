@@ -3,11 +3,11 @@
   "key": "door-brands/ply-gem",
   "path": "/door-brands/ply-gem",
   "seo": {
-    "title": "Ply Gem Doors Bay Area | Patio & Entry | Deluxe",
+    "title": "Ply Gem Door Installation Bay Area | Patio & Entry",
     "description": "Ply Gem patio, sliding and entry doors for Bay Area homes. Compare panel styles, glass and installed pricing, with expert installation by Deluxe Windows.",
     "canonical": "https://www.deluxewindows.com/door-brands/ply-gem",
     "og": {
-      "title": "Ply Gem Doors Bay Area | Patio & Entry | Deluxe",
+      "title": "Ply Gem Door Installation Bay Area | Patio & Entry",
       "description": "Ply Gem patio, sliding and entry doors for Bay Area homes. Compare panel styles, glass and installed pricing, with expert installation by Deluxe Windows.",
       "image": "/webflow-assets/images/688a756ee649c541284c8b78_Plygem.avif",
       "type": "website"
@@ -25,7 +25,7 @@
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Ply Gem Doors Bay Area | Patio & Entry | Deluxe",
+      "title": "Ply Gem Door Installation Bay Area | Patio & Entry",
       "description": "Ply Gem patio, sliding and entry doors for Bay Area homes. Compare panel styles, glass and installed pricing, with expert installation by Deluxe Windows.",
       "image": "/webflow-assets/images/688a756ee649c541284c8b78_Plygem.avif",
       "card": "summary_large_image"
@@ -33,12 +33,16 @@
   },
   "faq": [
     {
-      "question": "Which Ply Gem doors does Deluxe Windows install in the Bay Area?",
-      "answer": "Deluxe Windows installs Ply Gem doors across the brand's current lineup — practical vinyl and aluminum collections across several value levels — and confirms series availability for each Bay Area project before quoting."
-    },
-    {
       "question": "How do I get installed pricing for Ply Gem doors?",
       "answer": "Installed pricing for Ply Gem doors is prepared after on-site measurements: the current promotion prices installations from $1299 per door installed (regular $2165). The written quote itemizes product, labor, permits and any opening repairs."
+    },
+    {
+      "question": "How soon can Ply Gem doors be installed in the Bay Area?",
+      "answer": "After the free on-site measurement, Ply Gem orders typically arrive in four to eight weeks, and installation itself takes one to three working days. Deluxe Windows confirms the schedule in writing at contract signing."
+    },
+    {
+      "question": "Which Ply Gem doors does Deluxe Windows install in the Bay Area?",
+      "answer": "Deluxe Windows installs Ply Gem doors across the brand's current lineup — practical vinyl and aluminum collections across several value levels — and confirms series availability for each Bay Area project before quoting."
     },
     {
       "question": "How long does Ply Gem door installation take?",

@@ -3,12 +3,12 @@
   "key": "brands/anlin",
   "path": "/brands/anlin",
   "seo": {
-    "title": "Anlin Windows Bay Area | Authorized Dealer | Deluxe",
-    "description": "Anlin windows for Bay Area homes: California-made vinyl replacement windows engineered for West Coast climates. Get a free estimate. Compare series and pricing.",
+    "title": "Anlin Window Replacement & Installation | Bay Area",
+    "description": "Anlin windows for Bay Area homes: California-made vinyl replacement windows engineered for West Coast climates. Get a free installation estimate.",
     "canonical": "https://www.deluxewindows.com/brands/anlin",
     "og": {
-      "title": "Anlin Windows Bay Area | Authorized Dealer | Deluxe",
-      "description": "Anlin windows for Bay Area homes: California-made vinyl replacement windows engineered for West Coast climates. Get a free estimate. Compare series and pricing.",
+      "title": "Anlin Window Replacement & Installation | Bay Area",
+      "description": "Anlin windows for Bay Area homes: California-made vinyl replacement windows engineered for West Coast climates. Get a free installation estimate.",
       "image": "/webflow-assets/images/688a76b7e94512a795b803e9_Anlin.avif",
       "type": "website"
     },
@@ -26,8 +26,8 @@
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Anlin Windows Bay Area | Authorized Dealer | Deluxe",
-      "description": "Anlin windows for Bay Area homes: California-made vinyl replacement windows engineered for West Coast climates. Get a free estimate. Compare series and pricing.",
+      "title": "Anlin Window Replacement & Installation | Bay Area",
+      "description": "Anlin windows for Bay Area homes: California-made vinyl replacement windows engineered for West Coast climates. Get a free installation estimate.",
       "image": "/webflow-assets/images/688a76b7e94512a795b803e9_Anlin.avif",
       "card": "summary_large_image"
     }
@@ -48,6 +48,10 @@
     {
       "question": "Is Anlin better than Milgard?",
       "answer": "Anlin stands out for California-made vinyl replacement windows engineered for West Coast climates, while Milgard offers vinyl, fiberglass and aluminum families including Trinsic, Tuscany, Style Line and Ultra. Neither wins outright: installed Anlin windows in the Bay Area usually fall in the mid vinyl range, between economy vinyl and premium fiberglass, so the better pick depends on budget, style and warranty priorities. Deluxe Windows carries both and shows them side by side."
+    },
+    {
+      "question": "How soon can Anlin windows be installed in the Bay Area?",
+      "answer": "After the free on-site measurement, Anlin orders typically arrive in four to eight weeks, and installation itself takes one to three working days. Deluxe Windows confirms the schedule in writing at contract signing."
     }
   ],
   "schema": {

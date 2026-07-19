@@ -3,11 +3,11 @@
   "key": "brand-collections/brand-marvin-essential-collection",
   "path": "/brand-collections/brand-marvin-essential-collection",
   "seo": {
-    "title": "Marvin Essential Collection | Deluxe Windows",
+    "title": "Marvin Essential Collection | Prices & Installation",
     "description": "Marvin Essential Collection specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
     "canonical": "https://www.deluxewindows.com/brand-collections/brand-marvin-essential-collection",
     "og": {
-      "title": "Marvin Essential Collection | Deluxe Windows",
+      "title": "Marvin Essential Collection | Prices & Installation",
       "description": "Marvin Essential Collection specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
       "image": "/webflow-assets/images/688515c60584072faaad4708_marvin-essential-casement-window-slidingpatiodoor-5-essentiallargersizes.avif",
       "type": "website"
@@ -22,7 +22,7 @@
     "priority": "P3",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Marvin Essential Collection | Deluxe Windows",
+      "title": "Marvin Essential Collection | Prices & Installation",
       "description": "Marvin Essential Collection specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
       "image": "/webflow-assets/images/688515c60584072faaad4708_marvin-essential-casement-window-slidingpatiodoor-5-essentiallargersizes.avif",
       "card": "summary_large_image"
@@ -44,6 +44,10 @@
     {
       "question": "How does Marvin Essential Collection compare with other Marvin collections?",
       "answer": "Compare Marvin Essential Collection with sibling collections on frame construction, visible glass area, energy ratings, finish options, warranty and installed cost. Marvin's Ultrex fiberglass is impact resistant and holds paint and shape in coastal climates."
+    },
+    {
+      "question": "How do I order Marvin Essential Collection with installation?",
+      "answer": "Ordering Marvin Essential Collection starts with a free on-site measurement; Deluxe Windows then quotes the collection installed, places the factory order and schedules the crew, so one contract covers product, installation and warranty registration."
     }
   ],
   "schema": {

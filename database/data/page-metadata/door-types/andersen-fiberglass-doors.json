@@ -3,11 +3,11 @@
   "key": "door-types/andersen-fiberglass-doors",
   "path": "/door-types/andersen-fiberglass-doors",
   "seo": {
-    "title": "Andersen Fiberglass Doors | Prices & Options | Deluxe",
+    "title": "Andersen Fiberglass Doors | Installation Cost & Options",
     "description": "Andersen Fiberglass Doors for Bay Area homes: the 100 Series uses Fibrex composite material that Andersen rates about twice as strong as vinyl.",
     "canonical": "https://www.deluxewindows.com/door-types/andersen-fiberglass-doors",
     "og": {
-      "title": "Andersen Fiberglass Doors | Prices & Options | Deluxe",
+      "title": "Andersen Fiberglass Doors | Installation Cost & Options",
       "description": "Andersen Fiberglass Doors for Bay Area homes: the 100 Series uses Fibrex composite material that Andersen rates about twice as strong as vinyl.",
       "image": "/webflow-assets/images/688f6776cafbb046ff6d5b8a_storm-screen.webp",
       "type": "website"
@@ -22,13 +22,17 @@
     "priority": "P2",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Andersen Fiberglass Doors | Prices & Options | Deluxe",
+      "title": "Andersen Fiberglass Doors | Installation Cost & Options",
       "description": "Andersen Fiberglass Doors for Bay Area homes: the 100 Series uses Fibrex composite material that Andersen rates about twice as strong as vinyl.",
       "image": "/webflow-assets/images/688f6776cafbb046ff6d5b8a_storm-screen.webp",
       "card": "summary_large_image"
     }
   },
   "faq": [
+    {
+      "question": "What is the best brand of entry doors?",
+      "answer": "Andersen Fiberglass Doors is a solid choice when the series matches the home: the brand offers collections across Fibrex composite, wood, vinyl and aluminum-clad lines. the 100 Series uses Fibrex composite material that Andersen rates about twice as strong as vinyl. Deluxe Windows compares verified ratings and installed cost before recommending it."
+    },
     {
       "question": "Why choose Andersen Fiberglass Doors for a Bay Area home?",
       "answer": "Andersen Fiberglass Doors pair Andersen's door engineering with dimensional stability, strength and paintable low-maintenance frames. the 100 Series uses Fibrex composite material that Andersen rates about twice as strong as vinyl, so the door style is matched to the opening, exposure and security needs of the home."
@@ -38,12 +42,12 @@
       "answer": "For Andersen Fiberglass Doors, the current promotion prices installations from $1599 per door installed (regular $2665). Panel count, glass, hardware and opening preparation set the final number, so Deluxe Windows quotes each door after measuring."
     },
     {
-      "question": "Which styles are available for Andersen Fiberglass Doors?",
-      "answer": "Andersen Fiberglass Doors span entry, sliding, French and multi-panel patio configurations, depending on Andersen's current catalog. Deluxe Windows confirms the exact options during the consultation."
+      "question": "How fast can Andersen Fiberglass Doors be ordered and installed?",
+      "answer": "After measuring, Andersen Fiberglass Doors typically arrive in four to eight weeks and are installed in about a day per door, including removal of the old unit, sealing and hardware adjustment. The exact Bay Area schedule is confirmed in writing."
     },
     {
-      "question": "Who installs Andersen Fiberglass Doors near me?",
-      "answer": "Deluxe Windows measures, orders and installs Andersen Fiberglass Doors throughout the Bay Area from its Burlingame showroom, and verifies operation and weather sealing after installation."
+      "question": "Which styles are available for Andersen Fiberglass Doors?",
+      "answer": "Andersen Fiberglass Doors span entry, sliding, French and multi-panel patio configurations, depending on Andersen's current catalog. Deluxe Windows confirms the exact options during the consultation."
     }
   ],
   "schema": {

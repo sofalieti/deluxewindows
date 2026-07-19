@@ -3,12 +3,12 @@
   "key": "brands/simonton",
   "path": "/brands/simonton",
   "seo": {
-    "title": "Simonton Windows Bay Area | Authorized Dealer | Deluxe",
-    "description": "Simonton windows for Bay Area homes: low-maintenance vinyl collections including DaylightMax with slim frames. Get a free estimate. Compare series and pricing.",
+    "title": "Simonton Window Replacement & Installation | Bay Area",
+    "description": "Simonton windows for Bay Area homes: low-maintenance vinyl collections including DaylightMax with slim frames. Get a free installation estimate.",
     "canonical": "https://www.deluxewindows.com/brands/simonton",
     "og": {
-      "title": "Simonton Windows Bay Area | Authorized Dealer | Deluxe",
-      "description": "Simonton windows for Bay Area homes: low-maintenance vinyl collections including DaylightMax with slim frames. Get a free estimate. Compare series and pricing.",
+      "title": "Simonton Window Replacement & Installation | Bay Area",
+      "description": "Simonton windows for Bay Area homes: low-maintenance vinyl collections including DaylightMax with slim frames. Get a free installation estimate.",
       "image": "/webflow-assets/images/688a74bb9c532933d19231ea_Simonton.avif",
       "type": "website"
     },
@@ -26,8 +26,8 @@
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Simonton Windows Bay Area | Authorized Dealer | Deluxe",
-      "description": "Simonton windows for Bay Area homes: low-maintenance vinyl collections including DaylightMax with slim frames. Get a free estimate. Compare series and pricing.",
+      "title": "Simonton Window Replacement & Installation | Bay Area",
+      "description": "Simonton windows for Bay Area homes: low-maintenance vinyl collections including DaylightMax with slim frames. Get a free installation estimate.",
       "image": "/webflow-assets/images/688a74bb9c532933d19231ea_Simonton.avif",
       "card": "summary_large_image"
     }
@@ -48,6 +48,10 @@
     {
       "question": "Who manufactures Simonton Windows?",
       "answer": "Simonton has been an ENERGY STAR partner since 1999. Deluxe Windows works directly with the manufacturer's Bay Area distribution, so series availability and lead times for Simonton are confirmed before ordering."
+    },
+    {
+      "question": "How do I get installed pricing for Simonton windows?",
+      "answer": "Installed pricing for Simonton windows is prepared after on-site measurements: the current promotion prices installations from $499 per window installed (regular $832). The written quote itemizes product, labor, permits and any opening repairs."
     }
   ],
   "schema": {

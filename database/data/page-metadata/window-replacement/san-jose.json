@@ -3,11 +3,11 @@
   "key": "window-replacement/san-jose",
   "path": "/window-replacement/san-jose",
   "seo": {
-    "title": "Window Replacement San Jose, CA | Deluxe Windows",
+    "title": "Window Replacement San Jose, CA | Cost & Installation",
     "description": "Window replacement in San Jose, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every San Jose project.",
     "canonical": "https://www.deluxewindows.com/window-replacement/san-jose",
     "og": {
-      "title": "Window Replacement San Jose, CA | Deluxe Windows",
+      "title": "Window Replacement San Jose, CA | Cost & Installation",
       "description": "Window replacement in San Jose, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every San Jose project.",
       "image": "/webflow-assets/images/69ce7b5a4b7a0c4005c10a68_688129a7fdac73f612686f21_pexels-linkedin-1251842.jpeg",
       "type": "website"
@@ -26,7 +26,7 @@
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Window Replacement San Jose, CA | Deluxe Windows",
+      "title": "Window Replacement San Jose, CA | Cost & Installation",
       "description": "Window replacement in San Jose, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every San Jose project.",
       "image": "/webflow-assets/images/69ce7b5a4b7a0c4005c10a68_688129a7fdac73f612686f21_pexels-linkedin-1251842.jpeg",
       "card": "summary_large_image"
@@ -48,6 +48,10 @@
     {
       "question": "Is it worth replacing 30 year old windows?",
       "answer": "San Jose products earn their reputation through a balance of appearance, comfort and durability. The right call still depends on the home's openings, exposure and budget, which Deluxe Windows reviews during a free assessment. Ask about San Jose specifics when booking the free estimate."
+    },
+    {
+      "question": "Do I need a permit to replace windows in San Jose?",
+      "answer": "Permitting: San Jose follows standard California permitting, confirmed per project scope. Deluxe Windows verifies requirements with the building department and manages the paperwork for San Jose installations."
     }
   ],
   "schema": {

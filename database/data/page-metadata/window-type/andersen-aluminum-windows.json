@@ -3,11 +3,11 @@
   "key": "window-type/andersen-aluminum-windows",
   "path": "/window-type/andersen-aluminum-windows",
   "seo": {
-    "title": "Andersen Aluminum Windows | Prices & Series | Deluxe",
+    "title": "Andersen Aluminum Windows | Installation Cost & Series",
     "description": "Andersen Aluminum Windows for Bay Area homes: the 100 Series uses Fibrex composite material that Andersen rates about twice as strong as vinyl.",
     "canonical": "https://www.deluxewindows.com/window-type/andersen-aluminum-windows",
     "og": {
-      "title": "Andersen Aluminum Windows | Prices & Series | Deluxe",
+      "title": "Andersen Aluminum Windows | Installation Cost & Series",
       "description": "Andersen Aluminum Windows for Bay Area homes: the 100 Series uses Fibrex composite material that Andersen rates about twice as strong as vinyl.",
       "image": "/webflow-assets/images/688f65a0d965015d4e6589b9_homeguide-dining-room-with-Andersen-windows.avif",
       "type": "website"
@@ -25,7 +25,7 @@
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Andersen Aluminum Windows | Prices & Series | Deluxe",
+      "title": "Andersen Aluminum Windows | Installation Cost & Series",
       "description": "Andersen Aluminum Windows for Bay Area homes: the 100 Series uses Fibrex composite material that Andersen rates about twice as strong as vinyl.",
       "image": "/webflow-assets/images/688f65a0d965015d4e6589b9_homeguide-dining-room-with-Andersen-windows.avif",
       "card": "summary_large_image"
@@ -39,6 +39,10 @@
     {
       "question": "What do Andersen Aluminum Windows cost installed?",
       "answer": "For Andersen Aluminum Windows, the current promotion prices installations from $549 per window installed (regular $915). The exact number depends on sizes, glass package and installation conditions, so Deluxe Windows quotes each opening after measuring."
+    },
+    {
+      "question": "Is installation included in the Andersen Aluminum Windows quote?",
+      "answer": "Yes — the written quote for Andersen Aluminum Windows covers product, professional installation, removal of the old units, sealing and haul-away. Optional extras like interior trim work are listed separately so the Bay Area price is transparent."
     },
     {
       "question": "Which series are available for Andersen Aluminum Windows?",

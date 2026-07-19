@@ -3,11 +3,11 @@
   "key": "windows/aluminum-windows",
   "path": "/windows/aluminum-windows",
   "seo": {
-    "title": "Aluminum Windows Bay Area | Cost & Brands | Deluxe",
+    "title": "Aluminum Window Replacement Bay Area | Cost & Installation",
     "description": "Aluminum windows compared for Bay Area homes: typical lifespan 15-30 years, longer for thermally improved architectural frames, mid-range pricing with slim.",
     "canonical": "https://www.deluxewindows.com/windows/aluminum-windows",
     "og": {
-      "title": "Aluminum Windows Bay Area | Cost & Brands | Deluxe",
+      "title": "Aluminum Window Replacement Bay Area | Cost & Installation",
       "description": "Aluminum windows compared for Bay Area homes: typical lifespan 15-30 years, longer for thermally improved architectural frames, mid-range pricing with slim.",
       "image": "/webflow-assets/images/window-type-hero/aluminum-windows.avif",
       "type": "website"
@@ -26,7 +26,7 @@
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Aluminum Windows Bay Area | Cost & Brands | Deluxe",
+      "title": "Aluminum Window Replacement Bay Area | Cost & Installation",
       "description": "Aluminum windows compared for Bay Area homes: typical lifespan 15-30 years, longer for thermally improved architectural frames, mid-range pricing with slim.",
       "image": "/webflow-assets/images/window-type-hero/aluminum-windows.avif",
       "card": "summary_large_image"
@@ -48,6 +48,10 @@
     {
       "question": "Is aluminium window better than vinyl?",
       "answer": "Aluminum offers slim sightlines, structural strength and a clean contemporary appearance at mid-range pricing with slim frames that maximize glass area, while vinyl brings low maintenance, good insulation and the widest choice of budget-friendly series and typically lasts 20-40 years. The better fit depends on budget, architecture and how long you plan to keep the home."
+    },
+    {
+      "question": "How much do aluminum windows cost installed in the Bay Area?",
+      "answer": "For aluminum windows, the current promotion prices installations from $549 per window installed (regular $915). The final quote reflects access, removal and finishing, and Deluxe Windows confirms exact installed pricing after measuring."
     }
   ],
   "schema": {

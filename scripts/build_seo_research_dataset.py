@@ -30,11 +30,11 @@ GSC_CSV = ROOT / "database" / "data" / "search-console" / "queries.csv"
 WORKBOOK = ROOT / "Deluxe_Windows_SEO_content_map.xlsx"
 
 CITY_SLUGS = {
-    "alameda", "antioch", "berkeley", "concord", "daly-city", "fairfield",
-    "fremont", "hayward", "livermore", "milpitas", "mountain-view", "napa",
-    "oakland", "petaluma", "piedmont", "pleasanton", "redwood-city",
-    "richmond", "san-francisco", "san-jose", "san-leandro", "san-mateo",
-    "san-rafael", "san-ramon", "santa-clara", "santa-rosa",
+    "alameda", "antioch", "berkeley", "burlingame", "concord", "daly-city",
+    "fairfield", "fremont", "hayward", "livermore", "milpitas",
+    "mountain-view", "napa", "oakland", "petaluma", "piedmont", "pleasanton",
+    "redwood-city", "richmond", "san-francisco", "san-jose", "san-leandro",
+    "san-mateo", "san-rafael", "san-ramon", "santa-clara", "santa-rosa",
     "south-san-francisco", "sunnyvale", "vacaville", "vallejo", "walnut-creek",
 }
 
@@ -202,6 +202,38 @@ def detect_city(query: str) -> str | None:
     return None
 
 
+def question_fallback_targets(question: str, pages: dict[str, dict]) -> list[str]:
+    """Keyword-based candidate pages for a single PAA question, used when the
+    seed's own targets have no free FAQ slots left."""
+    query = norm(question)
+    is_door = bool(re.search(r"\bdoors?\b", query))
+    brand = detect_brand(query)
+    material = detect_material(query)
+    is_cost = bool(re.search(r"\b(cost|price|cheap|expensive|much)\b", query))
+
+    candidates: list[str] = []
+    if brand and material:
+        for candidate in (
+            f"/window-type/{brand}-{material}-windows",
+            f"/door-types/{brand}-{material}-doors",
+        ):
+            candidates.append(candidate)
+    if brand:
+        candidates.append(f"/door-brands/{brand}" if is_door else f"/brands/{brand}")
+        candidates.append(f"/brands/{brand}" if is_door else f"/door-brands/{brand}")
+    if material:
+        if is_door:
+            candidates.append(f"/doors/{material}-doors")
+        else:
+            candidates.append(f"/windows/{material}-windows")
+    if is_door:
+        candidates.append("/doors")
+    if is_cost:
+        candidates.extend(["/faq", "/financing", "/special-offers"])
+    candidates.extend(["/faq", "/glossary"])
+    return [c for c in dict.fromkeys(candidates) if c in pages]
+
+
 def rule_based_page(query: str, pages: dict[str, dict]) -> str | None:
     """Map a query to the most specific matching page path."""
     is_door = bool(re.search(r"\bdoors?\b", query))
@@ -300,19 +332,33 @@ def main() -> None:
         payload["queries"].sort(key=weight, reverse=True)
         payload["queries"] = payload["queries"][:40]
 
-    # Attach PAA seeds to pages with the same routing rules.
+    # Attach PAA seeds to pages with the same routing rules. Every seed fans
+    # out to its primary page plus any secondary targets so a question that is
+    # already claimed by one page can still be used by the next candidate.
+    paa_pool: list[dict] = []
     for seed, data in paa.items():
-        path = explicit.get(seed) or rule_based_page(seed, pages)
+        primary = explicit.get(seed) or rule_based_page(seed, pages)
         targets: list[str] = []
-        if path:
-            targets.append(path)
-        else:
-            targets.extend(PAA_SEED_TARGETS.get(seed, []))
+        if primary:
+            targets.append(primary)
+        for extra in PAA_SEED_TARGETS.get(seed, []):
+            if extra not in targets:
+                targets.append(extra)
         for target in targets:
             if target in per_page:
                 per_page[target]["paa"].extend(data["paa"])
                 per_page[target]["facts"].extend(data["facts"])
                 per_page[target]["paa_sources"].append(seed)
+        for question in data["paa"]:
+            question_targets = list(targets)
+            for extra in question_fallback_targets(str(question), pages):
+                if extra not in question_targets:
+                    question_targets.append(extra)
+            paa_pool.append({
+                "question": question,
+                "seed": seed,
+                "targets": [t for t in question_targets if t in per_page],
+            })
 
     dataset = {
         "generated_from": [
@@ -333,11 +379,13 @@ def main() -> None:
             for row in faq_bank
         ],
         "pages": per_page,
+        "paa_pool": paa_pool,
         "unmapped_top": sorted(unmapped, key=weight, reverse=True)[:150],
         "stats": {
             "ads_queries": len(ads_terms),
             "gsc_queries": len(gsc),
             "paa_seeds": len(paa),
+            "paa_pool": len(paa_pool),
             "mapped_queries": sum(len(p["queries"]) for p in per_page.values()),
             "pages_with_queries": sum(1 for p in per_page.values() if p["queries"]),
             "pages_with_paa": sum(1 for p in per_page.values() if p["paa"]),
@@ -353,49 +401,109 @@ def main() -> None:
 
 
 # Seeds that describe a topic rather than one page: fan them out to every
-# page family that benefits from the questions.
+# page family that benefits from the questions. Order matters — the first
+# page with a free FAQ slot claims the question.
 PAA_SEED_TARGETS: dict[str, list[str]] = {
-    "how much does window replacement cost": ["/faq", "/"],
-    "cost to replace all windows in house": ["/faq"],
-    "window companies bay area": ["/", "/contacts"],
-    "window replacement contractor": ["/contacts"],
-    "best window brands": ["/brand"],
-    "how long do windows last": ["/blog/how-long-do-windows-last"],
-    "window installation": ["/windows"],
+    "how much does window replacement cost": ["/faq", "/", "/windows", "/special-offers"],
+    "cost to replace all windows in house": ["/faq", "/windows", "/financing"],
+    "window companies bay area": ["/", "/contacts", "/testimonials", "/about"],
+    "window replacement contractor": ["/contacts", "/about", "/testimonials"],
+    "best window brands": ["/brand", "/windows", "/faq"],
+    "how long do windows last": ["/blog/how-long-do-windows-last", "/faq", "/windows"],
+    "window installation": ["/windows", "/faq", "/gallery"],
     "energy efficient windows": [
         "/blog/do-energy-efficient-windows-and-doors-make-a-difference-for-bay-area-homeowners",
+        "/glossary",
+        "/windows/vinyl-windows",
     ],
     "replacement windows vs new construction": [
         "/blog/new-construction-windows-vs-replacement-windows",
+        "/faq",
     ],
     "do new windows increase home value": [
         "/blog/do-new-windows-increase-home-value-for-bay-area-homeowners",
+        "/faq",
     ],
     "how to measure windows for replacement": [
         "/blog/how-to-measure-windows-for-replacement",
+        "/faq",
     ],
-    "window financing": ["/financing"],
-    "dual pane windows": ["/glossary"],
+    "window financing": ["/financing", "/faq", "/special-offers"],
+    "dual pane windows": ["/glossary", "/windows/vinyl-windows", "/faq"],
     "window frame materials": [
         "/blog/what-kind-of-window-frame-is-right-for-you",
+        "/windows",
+        "/glossary",
     ],
-    "entry door replacement cost": ["/doors"],
-    "sliding patio doors": ["/doors"],
-    "sliding glass door replacement": ["/doors/vinyl-doors"],
-    "fiberglass entry doors": ["/doors/fiberglass-doors"],
-    "steel entry doors": ["/doors/steel-doors"],
-    "wood entry doors": ["/doors/wood-doors"],
-    "vinyl patio doors": ["/doors/vinyl-doors"],
-    "wood clad doors": ["/doors/wood-clad-doors"],
-    "milgard tuscany series": ["/brand-collections/brand-milgard-v400-tuscany-series"],
-    "milgard trinsic series": ["/brand-collections/brand-milgard-v300-trinsic-series"],
-    "milgard style line series": ["/brand-collections/brand-milgard-v250-style-line-series"],
-    "andersen 100 series": ["/brand-collections/brand-andersen-100-series"],
-    "marvin essential collection": ["/brand-collections/brand-marvin-essential-collection"],
-    "simonton daylightmax": ["/brand-collections/brand-simonton-daylightmax"],
-    "milgard vs andersen windows": ["/brands/milgard"],
-    "marvin vs andersen windows": ["/brands/marvin"],
-    "simonton vs milgard windows": ["/brands/simonton"],
+    "entry door replacement cost": ["/doors", "/doors/fiberglass-doors", "/faq"],
+    "sliding patio doors": ["/doors", "/doors/vinyl-doors", "/doors/aluminum-doors"],
+    "sliding glass door replacement": ["/doors/vinyl-doors", "/doors", "/doors/aluminum-doors"],
+    "fiberglass entry doors": ["/doors/fiberglass-doors", "/doors"],
+    "steel entry doors": ["/doors/steel-doors", "/doors"],
+    "wood entry doors": ["/doors/wood-doors", "/doors"],
+    "vinyl patio doors": ["/doors/vinyl-doors", "/doors"],
+    "wood clad doors": ["/doors/wood-clad-doors", "/doors"],
+    "milgard tuscany series": [
+        "/brand-collections/brand-milgard-v400-tuscany-series",
+        "/window-type/milgard-vinyl-windows",
+        "/brands/milgard",
+    ],
+    "milgard trinsic series": [
+        "/brand-collections/brand-milgard-v300-trinsic-series",
+        "/window-type/milgard-vinyl-windows",
+        "/brands/milgard",
+    ],
+    "milgard style line series": [
+        "/brand-collections/brand-milgard-v250-style-line-series",
+        "/window-type/milgard-vinyl-windows",
+        "/brands/milgard",
+    ],
+    "andersen 100 series": [
+        "/brand-collections/brand-andersen-100-series",
+        "/window-type/andersen-vinyl-windows",
+        "/brands/andersen",
+    ],
+    "marvin essential collection": [
+        "/brand-collections/brand-marvin-essential-collection",
+        "/window-type/marvin-fiberglass-windows",
+        "/brands/marvin",
+    ],
+    "simonton daylightmax": [
+        "/brand-collections/brand-simonton-daylightmax",
+        "/window-type/simonton-vinyl-windows",
+        "/brands/simonton",
+    ],
+    "milgard vs andersen windows": ["/brands/milgard", "/brands/andersen", "/brand"],
+    "marvin vs andersen windows": ["/brands/marvin", "/brands/andersen", "/brand"],
+    "simonton vs milgard windows": ["/brands/simonton", "/brands/milgard", "/brand"],
+    # Brand seeds: overflow from /brands/* into brand+material and collections.
+    "andersen windows": ["/brands/andersen", "/window-type/andersen-vinyl-windows", "/window-type/andersen-wood-windows"],
+    "marvin windows": ["/brands/marvin", "/window-type/marvin-fiberglass-windows", "/window-type/wood-marvin-windows"],
+    "milgard windows": ["/brands/milgard", "/window-type/milgard-vinyl-windows", "/window-type/milgard-fiberglass-windows"],
+    "simonton windows": ["/brands/simonton", "/window-type/simonton-vinyl-windows"],
+    "anlin windows": ["/brands/anlin", "/window-type/anlin-vinyl-windows"],
+    "ply gem windows": ["/brands/ply-gem", "/window-type/ply-gem-vinyl-windows"],
+    "alside windows": ["/brands/alside", "/window-type/alside-vinyl-windows"],
+    "western window systems": ["/brands/western-window-systems", "/window-type/western-window-systems-aluminum-windows"],
+    "andersen doors": ["/door-brands/andersen", "/door-types/andersen-fiberglass-doors", "/door-types/andersen-wood-doors"],
+    "milgard doors": ["/door-brands/milgard", "/door-types/milgard-vinyl-doors", "/door-types/milgard-fiberglass-doors"],
+    "marvin doors": ["/door-brands/marvin", "/door-types/marvin-wood-doors", "/door-types/marvin-fiberglass-doors"],
+    "jeld wen doors": ["/door-brands/jeld-wen", "/door-types/jeld-wen-wood-doors", "/door-types/jeld-wen-vinyl-doors"],
+    # Material seeds: overflow from /windows/* into brand+material pages.
+    "vinyl windows": ["/windows/vinyl-windows", "/window-type/anlin-vinyl-windows", "/window-type/simonton-vinyl-windows"],
+    "wood windows": ["/windows/wood-windows", "/window-type/andersen-wood-windows", "/window-type/jeld-wen-wood-windows"],
+    "wood clad windows": ["/windows/wood-clad-windows", "/window-type/jeld-wen-wood-clad-windows"],
+    "aluminum windows": ["/windows/aluminum-windows", "/window-type/milgard-aluminum-windows", "/window-type/western-window-systems-aluminum-windows"],
+    "aluminum clad windows": ["/windows/aluminum-clad-windows", "/window-type/ply-gem-aluminum-clad-windows"],
+    "fiberglass windows": ["/windows/fiberglass-windows", "/window-type/marvin-fiberglass-windows", "/window-type/milgard-fiberglass-windows"],
+    "steel windows": ["/windows/steel-windows", "/window-type/italwindows-steel-windows"],
+    # Local seeds: overflow into the county hub of the same city.
+    "window replacement san francisco": ["/window-replacement/san-francisco", "/county-hub-pages/san-francisco-county"],
+    "window replacement san jose": ["/window-replacement/san-jose", "/county-hub-pages/santa-clara-county"],
+    "window replacement oakland": ["/window-replacement/oakland", "/county-hub-pages/alameda-county"],
+    "window replacement fremont": ["/window-replacement/fremont", "/county-hub-pages/alameda-county"],
+    "window replacement santa rosa": ["/window-replacement/santa-rosa", "/county-hub-pages/sonoma-county"],
+    "window replacement walnut creek": ["/window-replacement/walnut-creek", "/county-hub-pages/contra-costa-county"],
 }
 
 

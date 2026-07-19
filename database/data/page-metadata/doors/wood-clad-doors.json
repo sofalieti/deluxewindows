@@ -3,12 +3,12 @@
   "key": "doors/wood-clad-doors",
   "path": "/doors/wood-clad-doors",
   "seo": {
-    "title": "Wood Clad Doors Bay Area | Entry & Patio | Deluxe",
-    "description": "Wood Clad entry and patio doors for Bay Area homes, offering a real-wood interior with a weather-resistant protective exterior shell. Get a free estimate.",
+    "title": "Wood Clad Door Installation Bay Area | Entry & Patio",
+    "description": "Wood Clad entry and patio doors for Bay Area homes, offering a real-wood interior with a weather-resistant protective exterior shell. Book a free in-home quote.",
     "canonical": "https://www.deluxewindows.com/doors/wood-clad-doors",
     "og": {
-      "title": "Wood Clad Doors Bay Area | Entry & Patio | Deluxe",
-      "description": "Wood Clad entry and patio doors for Bay Area homes, offering a real-wood interior with a weather-resistant protective exterior shell. Get a free estimate.",
+      "title": "Wood Clad Door Installation Bay Area | Entry & Patio",
+      "description": "Wood Clad entry and patio doors for Bay Area homes, offering a real-wood interior with a weather-resistant protective exterior shell. Book a free in-home quote.",
       "image": "/webflow-assets/images/6841ddf8ace3d9d9facb1a8b_heres-how-decorate-your-new-home-thumbnail-v3-property-x-webflow-template.avif",
       "type": "website"
     },
@@ -23,8 +23,8 @@
     "priority": "P2",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Wood Clad Doors Bay Area | Entry & Patio | Deluxe",
-      "description": "Wood Clad entry and patio doors for Bay Area homes, offering a real-wood interior with a weather-resistant protective exterior shell. Get a free estimate.",
+      "title": "Wood Clad Door Installation Bay Area | Entry & Patio",
+      "description": "Wood Clad entry and patio doors for Bay Area homes, offering a real-wood interior with a weather-resistant protective exterior shell. Book a free in-home quote.",
       "image": "/webflow-assets/images/6841ddf8ace3d9d9facb1a8b_heres-how-decorate-your-new-home-thumbnail-v3-property-x-webflow-template.avif",
       "card": "summary_large_image"
     }
@@ -39,12 +39,16 @@
       "answer": "Wood-clad offers a real-wood interior with a weather-resistant protective exterior shell at a premium over bare wood, offset by much lower exterior upkeep, while wood brings natural interior character and strong compatibility with traditional architecture and typically lasts 30 or more years with proper maintenance. The better fit depends on budget, architecture and how long you plan to keep the home."
     },
     {
-      "question": "What are the main benefits of wood clad doors?",
-      "answer": "Wood Clad doors offer a real-wood interior with a weather-resistant protective exterior shell. Whether they fit depends on the home's architecture, opening sizes, performance goals and budget."
-    },
-    {
       "question": "How much do wood clad doors cost installed in the Bay Area?",
       "answer": "For wood clad doors, the current promotion prices installations from $1599 per door installed (regular $2665). The final quote reflects access, removal and finishing, and Deluxe Windows confirms exact installed pricing after measuring."
+    },
+    {
+      "question": "Is removal of the old doors included when replacing with wood clad doors?",
+      "answer": "Yes — removal and disposal of the old doors are part of the wood clad doors installation scope, along with insulation, sealing and a final operating check. Everything is itemized in the written Bay Area quote."
+    },
+    {
+      "question": "What are the main benefits of wood clad doors?",
+      "answer": "Wood Clad doors offer a real-wood interior with a weather-resistant protective exterior shell. Whether they fit depends on the home's architecture, opening sizes, performance goals and budget."
     }
   ],
   "schema": {

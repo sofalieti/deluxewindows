@@ -3,11 +3,11 @@
   "key": "doors/steel-doors",
   "path": "/doors/steel-doors",
   "seo": {
-    "title": "Steel Doors Bay Area | Entry & Patio | Deluxe",
+    "title": "Steel Door Installation Bay Area | Entry & Patio",
     "description": "Steel entry and patio doors for Bay Area homes, offering the narrowest sightlines, exceptional strength and a distinctive architectural look.",
     "canonical": "https://www.deluxewindows.com/doors/steel-doors",
     "og": {
-      "title": "Steel Doors Bay Area | Entry & Patio | Deluxe",
+      "title": "Steel Door Installation Bay Area | Entry & Patio",
       "description": "Steel entry and patio doors for Bay Area homes, offering the narrowest sightlines, exceptional strength and a distinctive architectural look.",
       "image": "/webflow-assets/images/6841ddf8ace3d9d9facb1a8b_heres-how-decorate-your-new-home-thumbnail-v3-property-x-webflow-template.avif",
       "type": "website"
@@ -26,7 +26,7 @@
     "priority": "P2",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Steel Doors Bay Area | Entry & Patio | Deluxe",
+      "title": "Steel Door Installation Bay Area | Entry & Patio",
       "description": "Steel entry and patio doors for Bay Area homes, offering the narrowest sightlines, exceptional strength and a distinctive architectural look.",
       "image": "/webflow-assets/images/6841ddf8ace3d9d9facb1a8b_heres-how-decorate-your-new-home-thumbnail-v3-property-x-webflow-template.avif",
       "card": "summary_large_image"
@@ -44,6 +44,10 @@
     {
       "question": "How much should a steel front door cost?",
       "answer": "For steel doors, the current promotion prices installations from $1299 per door installed (regular $2165). Installed Bay Area totals also reflect the frame condition, hardware and finishing, which Deluxe Windows confirms in a written estimate."
+    },
+    {
+      "question": "Is removal of the old doors included when replacing with steel doors?",
+      "answer": "Yes — removal and disposal of the old doors are part of the steel doors installation scope, along with insulation, sealing and a final operating check. Everything is itemized in the written Bay Area quote."
     },
     {
       "question": "What are the main benefits of steel doors?",

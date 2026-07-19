@@ -3,12 +3,12 @@
   "key": "brands/italwindows",
   "path": "/brands/italwindows",
   "seo": {
-    "title": "Italwindows Windows Bay Area | Authorized Dealer | Deluxe",
-    "description": "Italwindows windows for Bay Area homes: contemporary European-style steel, aluminum and wood window systems. Get a free estimate. Expert Bay Area installation.",
+    "title": "Italwindows Window Replacement & Installation | Bay Area",
+    "description": "Italwindows windows for Bay Area homes: contemporary European-style steel, aluminum and wood window systems. Get a free installation estimate.",
     "canonical": "https://www.deluxewindows.com/brands/italwindows",
     "og": {
-      "title": "Italwindows Windows Bay Area | Authorized Dealer | Deluxe",
-      "description": "Italwindows windows for Bay Area homes: contemporary European-style steel, aluminum and wood window systems. Get a free estimate. Expert Bay Area installation.",
+      "title": "Italwindows Window Replacement & Installation | Bay Area",
+      "description": "Italwindows windows for Bay Area homes: contemporary European-style steel, aluminum and wood window systems. Get a free installation estimate.",
       "image": "/webflow-assets/images/688a7489b613e7a9f3424dcf_italwindows.avif",
       "type": "website"
     },
@@ -24,20 +24,24 @@
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Italwindows Windows Bay Area | Authorized Dealer | Deluxe",
-      "description": "Italwindows windows for Bay Area homes: contemporary European-style steel, aluminum and wood window systems. Get a free estimate. Expert Bay Area installation.",
+      "title": "Italwindows Window Replacement & Installation | Bay Area",
+      "description": "Italwindows windows for Bay Area homes: contemporary European-style steel, aluminum and wood window systems. Get a free installation estimate.",
       "image": "/webflow-assets/images/688a7489b613e7a9f3424dcf_italwindows.avif",
       "card": "summary_large_image"
     }
   },
   "faq": [
     {
-      "question": "Which Italwindows windows does Deluxe Windows install in the Bay Area?",
-      "answer": "Deluxe Windows installs Italwindows windows across the brand's current lineup — contemporary European-style steel, aluminum and wood window systems — and confirms series availability for each Bay Area project before quoting."
-    },
-    {
       "question": "How do I get installed pricing for Italwindows windows?",
       "answer": "Installed pricing for Italwindows windows is prepared after on-site measurements: the current promotion prices installations from $549 per window installed (regular $915). The written quote itemizes product, labor, permits and any opening repairs."
+    },
+    {
+      "question": "How soon can Italwindows windows be installed in the Bay Area?",
+      "answer": "After the free on-site measurement, Italwindows orders typically arrive in four to eight weeks, and installation itself takes one to three working days. Deluxe Windows confirms the schedule in writing at contract signing."
+    },
+    {
+      "question": "Which Italwindows windows does Deluxe Windows install in the Bay Area?",
+      "answer": "Deluxe Windows installs Italwindows windows across the brand's current lineup — contemporary European-style steel, aluminum and wood window systems — and confirms series availability for each Bay Area project before quoting."
     },
     {
       "question": "How long does Italwindows window installation take?",

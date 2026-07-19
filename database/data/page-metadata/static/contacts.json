@@ -3,11 +3,11 @@
   "key": "static/contacts",
   "path": "/contacts",
   "seo": {
-    "title": "Contact Deluxe Windows | Burlingame Showroom",
+    "title": "Contact Us | Free Window Replacement Estimates",
     "description": "Contact Deluxe Windows or visit the Burlingame showroom to plan window and door replacement. Call, send the project details and book a free estimate.",
     "canonical": "https://www.deluxewindows.com/contacts",
     "og": {
-      "title": "Contact Deluxe Windows | Burlingame Showroom",
+      "title": "Contact Us | Free Window Replacement Estimates",
       "description": "Contact Deluxe Windows or visit the Burlingame showroom to plan window and door replacement. Call, send the project details and book a free estimate.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
       "type": "website"
@@ -24,7 +24,7 @@
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Contact Deluxe Windows | Burlingame Showroom",
+      "title": "Contact Us | Free Window Replacement Estimates",
       "description": "Contact Deluxe Windows or visit the Burlingame showroom to plan window and door replacement. Call, send the project details and book a free estimate.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
       "card": "summary_large_image"
@@ -46,6 +46,10 @@
     {
       "question": "How do I request an estimate from Deluxe Windows?",
       "answer": "Call, use the contact form or visit the Burlingame showroom with the project address, product type and approximate quantity; an in-home measurement is then scheduled at a convenient time."
+    },
+    {
+      "question": "What should I prepare before a window consultation?",
+      "answer": "Have the property address, the number of openings, any current problems such as drafts or condensation, preferred materials or brands, and any HOA or permit constraints you already know about."
     }
   ],
   "schema": {

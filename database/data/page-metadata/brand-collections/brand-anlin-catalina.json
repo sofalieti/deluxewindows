@@ -3,11 +3,11 @@
   "key": "brand-collections/brand-anlin-catalina",
   "path": "/brand-collections/brand-anlin-catalina",
   "seo": {
-    "title": "Anlin Catalina | Deluxe Windows",
+    "title": "Anlin Catalina | Prices & Installation",
     "description": "Anlin Catalina specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
     "canonical": "https://www.deluxewindows.com/brand-collections/brand-anlin-catalina",
     "og": {
-      "title": "Anlin Catalina | Deluxe Windows",
+      "title": "Anlin Catalina | Prices & Installation",
       "description": "Anlin Catalina specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
       "image": "/webflow-assets/images/694cdd79368e49c005c324ca_694cd62f6fa1a60e42e440ae_6891be431a3a0f5a1bab1e6b_Cor-2-copy.webp",
       "type": "website"
@@ -22,7 +22,7 @@
     "priority": "P3",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Anlin Catalina | Deluxe Windows",
+      "title": "Anlin Catalina | Prices & Installation",
       "description": "Anlin Catalina specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
       "image": "/webflow-assets/images/694cdd79368e49c005c324ca_694cd62f6fa1a60e42e440ae_6891be431a3a0f5a1bab1e6b_Cor-2-copy.webp",
       "card": "summary_large_image"
@@ -44,6 +44,10 @@
     {
       "question": "How does Anlin Catalina compare with other Anlin collections?",
       "answer": "Compare Anlin Catalina with sibling collections on frame construction, visible glass area, energy ratings, finish options, warranty and installed cost. Anlin has manufactured energy-efficient vinyl windows in Clovis, California since 1990."
+    },
+    {
+      "question": "How do I order Anlin Catalina with installation?",
+      "answer": "Ordering Anlin Catalina starts with a free on-site measurement; Deluxe Windows then quotes the collection installed, places the factory order and schedules the crew, so one contract covers product, installation and warranty registration."
     }
   ],
   "schema": {

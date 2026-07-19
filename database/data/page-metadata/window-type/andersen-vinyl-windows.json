@@ -3,11 +3,11 @@
   "key": "window-type/andersen-vinyl-windows",
   "path": "/window-type/andersen-vinyl-windows",
   "seo": {
-    "title": "Andersen Vinyl Windows | Prices & Series | Deluxe",
+    "title": "Andersen Vinyl Windows | Installation Cost & Series",
     "description": "Andersen Vinyl Windows for Bay Area homes: the 100 Series uses Fibrex composite material that Andersen rates about twice as strong as vinyl.",
     "canonical": "https://www.deluxewindows.com/window-type/andersen-vinyl-windows",
     "og": {
-      "title": "Andersen Vinyl Windows | Prices & Series | Deluxe",
+      "title": "Andersen Vinyl Windows | Installation Cost & Series",
       "description": "Andersen Vinyl Windows for Bay Area homes: the 100 Series uses Fibrex composite material that Andersen rates about twice as strong as vinyl.",
       "image": "/webflow-assets/images/688f654f5cc7344238ef3199_100-series-hero-new.avif",
       "type": "website"
@@ -26,13 +26,17 @@
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Andersen Vinyl Windows | Prices & Series | Deluxe",
+      "title": "Andersen Vinyl Windows | Installation Cost & Series",
       "description": "Andersen Vinyl Windows for Bay Area homes: the 100 Series uses Fibrex composite material that Andersen rates about twice as strong as vinyl.",
       "image": "/webflow-assets/images/688f654f5cc7344238ef3199_100-series-hero-new.avif",
       "card": "summary_large_image"
     }
   },
   "faq": [
+    {
+      "question": "How long do Andersen 100 series last?",
+      "answer": "Expect Andersen Vinyl Windows products to serve 20-40 years when installed correctly. Andersen backs windows with a limited warranty of up to 20 years on glass and 10 years on non-glass parts, and Deluxe Windows registers coverage for every installed project."
+    },
     {
       "question": "Why choose Andersen Vinyl Windows for a Bay Area home?",
       "answer": "Andersen Vinyl Windows combine Andersen's engineering with low maintenance, good insulation and the widest choice of budget-friendly series. the 100 Series uses Fibrex composite material that Andersen rates about twice as strong as vinyl, which suits many Bay Area replacement projects."
@@ -42,12 +46,12 @@
       "answer": "For Andersen Vinyl Windows, the current promotion prices installations from $499 per window installed (regular $832). The exact number depends on sizes, glass package and installation conditions, so Deluxe Windows quotes each opening after measuring."
     },
     {
-      "question": "Which series are available for Andersen Vinyl Windows?",
-      "answer": "Available Andersen Vinyl Windows series change with the manufacturer's current catalog — collections across Fibrex composite, wood, vinyl and aluminum-clad lines. Deluxe Windows confirms the exact options during the consultation."
+      "question": "Is installation included in the Andersen Vinyl Windows quote?",
+      "answer": "Yes — the written quote for Andersen Vinyl Windows covers product, professional installation, removal of the old units, sealing and haul-away. Optional extras like interior trim work are listed separately so the Bay Area price is transparent."
     },
     {
-      "question": "Who installs Andersen Vinyl Windows near me?",
-      "answer": "Deluxe Windows measures, orders and installs Andersen Vinyl Windows throughout the Bay Area from its Burlingame showroom, and verifies operation and weather sealing after installation."
+      "question": "Which series are available for Andersen Vinyl Windows?",
+      "answer": "Available Andersen Vinyl Windows series change with the manufacturer's current catalog — collections across Fibrex composite, wood, vinyl and aluminum-clad lines. Deluxe Windows confirms the exact options during the consultation."
     }
   ],
   "schema": {

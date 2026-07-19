@@ -3,11 +3,11 @@
   "key": "window-type/alside-vinyl-windows",
   "path": "/window-type/alside-vinyl-windows",
   "seo": {
-    "title": "Alside Vinyl Windows | Prices & Series | Deluxe",
+    "title": "Alside Vinyl Windows | Installation Cost & Series",
     "description": "Alside Vinyl Windows for Bay Area homes: Alside is a major national distributor of exterior building products, including windows and patio doors.",
     "canonical": "https://www.deluxewindows.com/window-type/alside-vinyl-windows",
     "og": {
-      "title": "Alside Vinyl Windows | Prices & Series | Deluxe",
+      "title": "Alside Vinyl Windows | Installation Cost & Series",
       "description": "Alside Vinyl Windows for Bay Area homes: Alside is a major national distributor of exterior building products, including windows and patio doors.",
       "image": "/webflow-assets/images/688f75f9b93852be99ce1aa1_Alside_Mezzo_Slider_Beauty2-1024x683.avif",
       "type": "website"
@@ -22,7 +22,7 @@
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Alside Vinyl Windows | Prices & Series | Deluxe",
+      "title": "Alside Vinyl Windows | Installation Cost & Series",
       "description": "Alside Vinyl Windows for Bay Area homes: Alside is a major national distributor of exterior building products, including windows and patio doors.",
       "image": "/webflow-assets/images/688f75f9b93852be99ce1aa1_Alside_Mezzo_Slider_Beauty2-1024x683.avif",
       "card": "summary_large_image"
@@ -36,6 +36,10 @@
     {
       "question": "What do Alside Vinyl Windows cost installed?",
       "answer": "For Alside Vinyl Windows, the current promotion prices installations from $499 per window installed (regular $832). The exact number depends on sizes, glass package and installation conditions, so Deluxe Windows quotes each opening after measuring."
+    },
+    {
+      "question": "Is installation included in the Alside Vinyl Windows quote?",
+      "answer": "Yes — the written quote for Alside Vinyl Windows covers product, professional installation, removal of the old units, sealing and haul-away. Optional extras like interior trim work are listed separately so the Bay Area price is transparent."
     },
     {
       "question": "Which series are available for Alside Vinyl Windows?",

@@ -3,11 +3,11 @@
   "key": "brand-collections/west-400-series",
   "path": "/brand-collections/west-400-series",
   "seo": {
-    "title": "Ply Gem West 400 Series | Deluxe Windows",
+    "title": "Ply Gem West 400 Series | Prices & Installation",
     "description": "Ply Gem West 400 Series specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
     "canonical": "https://www.deluxewindows.com/brand-collections/west-400-series",
     "og": {
-      "title": "Ply Gem West 400 Series | Deluxe Windows",
+      "title": "Ply Gem West 400 Series | Prices & Installation",
       "description": "Ply Gem West 400 Series specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
       "image": "/webflow-assets/images/695e1cf80aaf7e4f619049c1_pgw_400_west_hero_1-400x400-1.jpg",
       "type": "website"
@@ -22,7 +22,7 @@
     "priority": "P3",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Ply Gem West 400 Series | Deluxe Windows",
+      "title": "Ply Gem West 400 Series | Prices & Installation",
       "description": "Ply Gem West 400 Series specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
       "image": "/webflow-assets/images/695e1cf80aaf7e4f619049c1_pgw_400_west_hero_1-400x400-1.jpg",
       "card": "summary_large_image"
@@ -44,6 +44,10 @@
     {
       "question": "How does Ply Gem West 400 Series compare with other Ply Gem collections?",
       "answer": "Compare Ply Gem West 400 Series with sibling collections on frame construction, visible glass area, energy ratings, finish options, warranty and installed cost. Ply Gem product families cover both replacement and new-construction openings."
+    },
+    {
+      "question": "How do I order Ply Gem West 400 Series with installation?",
+      "answer": "Ordering Ply Gem West 400 Series starts with a free on-site measurement; Deluxe Windows then quotes the collection installed, places the factory order and schedules the crew, so one contract covers product, installation and warranty registration."
     }
   ],
   "schema": {

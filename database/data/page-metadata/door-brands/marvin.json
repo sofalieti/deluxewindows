@@ -3,11 +3,11 @@
   "key": "door-brands/marvin",
   "path": "/door-brands/marvin",
   "seo": {
-    "title": "Marvin Doors Bay Area | Patio & Entry | Deluxe",
+    "title": "Marvin Door Installation Bay Area | Patio & Entry",
     "description": "Marvin patio, sliding and entry doors for Bay Area homes. Compare panel styles, glass and installed pricing, with expert installation by Deluxe Windows.",
     "canonical": "https://www.deluxewindows.com/door-brands/marvin",
     "og": {
-      "title": "Marvin Doors Bay Area | Patio & Entry | Deluxe",
+      "title": "Marvin Door Installation Bay Area | Patio & Entry",
       "description": "Marvin patio, sliding and entry doors for Bay Area homes. Compare panel styles, glass and installed pricing, with expert installation by Deluxe Windows.",
       "image": "/webflow-assets/images/688a75debadab986e83c4dc4_Marvin.avif",
       "type": "website"
@@ -26,7 +26,7 @@
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Marvin Doors Bay Area | Patio & Entry | Deluxe",
+      "title": "Marvin Door Installation Bay Area | Patio & Entry",
       "description": "Marvin patio, sliding and entry doors for Bay Area homes. Compare panel styles, glass and installed pricing, with expert installation by Deluxe Windows.",
       "image": "/webflow-assets/images/688a75debadab986e83c4dc4_Marvin.avif",
       "card": "summary_large_image"
@@ -40,6 +40,10 @@
     {
       "question": "Is Marvin better than Andersen?",
       "answer": "Marvin stands out for premium wood, fiberglass and clad collections such as Essential, Elevate and Ultimate, while Andersen offers collections across Fibrex composite, wood, vinyl and aluminum-clad lines. Neither wins outright: installed Marvin windows usually price between $1,000 and $1,800 each depending on series and glass, so the better pick depends on budget, style and warranty priorities. Deluxe Windows carries both and shows them side by side. Ask about Marvin specifics when booking the free estimate."
+    },
+    {
+      "question": "How soon can Marvin doors be installed in the Bay Area?",
+      "answer": "After the free on-site measurement, Marvin orders typically arrive in four to eight weeks, and installation itself takes one to three working days. Deluxe Windows confirms the schedule in writing at contract signing. This applies specifically to Marvin projects."
     },
     {
       "question": "Which Marvin doors does Deluxe Windows install in the Bay Area?",

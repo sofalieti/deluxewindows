@@ -3,11 +3,11 @@
   "key": "static/doors-index",
   "path": "/doors",
   "seo": {
-    "title": "Entry & Patio Doors Bay Area | Deluxe Windows",
+    "title": "Entry & Patio Door Installation Bay Area | Cost",
     "description": "Explore entry, patio and sliding doors for Bay Area homes. Compare fiberglass, wood, steel and vinyl options with installed pricing and a free estimate.",
     "canonical": "https://www.deluxewindows.com/doors",
     "og": {
-      "title": "Entry & Patio Doors Bay Area | Deluxe Windows",
+      "title": "Entry & Patio Door Installation Bay Area | Cost",
       "description": "Explore entry, patio and sliding doors for Bay Area homes. Compare fiberglass, wood, steel and vinyl options with installed pricing and a free estimate.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
       "type": "website"
@@ -25,7 +25,7 @@
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Entry & Patio Doors Bay Area | Deluxe Windows",
+      "title": "Entry & Patio Door Installation Bay Area | Cost",
       "description": "Explore entry, patio and sliding doors for Bay Area homes. Compare fiberglass, wood, steel and vinyl options with installed pricing and a free estimate.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
       "card": "summary_large_image"
@@ -33,20 +33,24 @@
   },
   "faq": [
     {
-      "question": "How much should a patio sliding door cost?",
-      "answer": "For doors doors, plan on a range set by frame material, glass and size. Installed Bay Area totals also reflect the frame condition, hardware and finishing, which Deluxe Windows confirms in a written estimate."
-    },
-    {
-      "question": "What is the best brand for a sliding patio door?",
+      "question": "Are fiberglass entry doors any good?",
       "answer": "Doors products earn their reputation through a balance of appearance, comfort and durability. The right call still depends on the home's openings, exposure and budget, which Deluxe Windows reviews during a free assessment."
     },
     {
-      "question": "What is the difference between a sliding French door and a sliding patio door?",
-      "answer": "The honest comparison depends on priorities: Doors stands out for window and door products suited to different home styles, while competitors trade differently on price, warranty and looks. Pricing is confirmed per series and opening during the estimate. Deluxe Windows shows both options side by side in the showroom."
+      "question": "Who makes the best fiberglass entry door?",
+      "answer": "Doors products earn their reputation through a balance of appearance, comfort and durability. The right call still depends on the home's openings, exposure and budget, which Deluxe Windows reviews during a free assessment. Ask about Doors specifics when booking the free estimate."
     },
     {
-      "question": "How much does it cost to replace an entrance door?",
-      "answer": "For doors doors, plan on a range set by frame material, glass and size. Installed Bay Area totals also reflect the frame condition, hardware and finishing, which Deluxe Windows confirms in a written estimate. Ask about Doors specifics when booking the free estimate."
+      "question": "What is a wood clad?",
+      "answer": "Doors windows are built around a window frame system, chosen for a balance of appearance, comfort and durability. In practice the choice covers frame construction, glazing package and finish, all of which Deluxe Windows documents in each product proposal."
+    },
+    {
+      "question": "How much should a new front door cost installed?",
+      "answer": "For doors doors, plan on a range set by frame material, glass and size. Installed Bay Area totals also reflect the frame condition, hardware and finishing, which Deluxe Windows confirms in a written estimate."
+    },
+    {
+      "question": "Which door types does Deluxe Windows install?",
+      "answer": "Entry, patio, sliding, French and multi-panel doors in fiberglass, wood, wood-clad, steel, vinyl and aluminum, matched to the opening, exposure and security requirements of the home."
     }
   ],
   "schema": {

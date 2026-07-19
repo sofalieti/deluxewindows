@@ -3,11 +3,11 @@
   "key": "window-type/andersen-fiberglass-windows",
   "path": "/window-type/andersen-fiberglass-windows",
   "seo": {
-    "title": "Andersen Fiberglass Windows | Prices & Series | Deluxe",
+    "title": "Andersen Fiberglass Windows | Installation Cost & Series",
     "description": "Andersen Fiberglass Windows for Bay Area homes: the 100 Series uses Fibrex composite material that Andersen rates about twice as strong as vinyl.",
     "canonical": "https://www.deluxewindows.com/window-type/andersen-fiberglass-windows",
     "og": {
-      "title": "Andersen Fiberglass Windows | Prices & Series | Deluxe",
+      "title": "Andersen Fiberglass Windows | Installation Cost & Series",
       "description": "Andersen Fiberglass Windows for Bay Area homes: the 100 Series uses Fibrex composite material that Andersen rates about twice as strong as vinyl.",
       "image": "/webflow-assets/images/688f662b796c112dbaa36c82_Andersen-Windows-Installation-1.avif",
       "type": "website"
@@ -26,7 +26,7 @@
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Andersen Fiberglass Windows | Prices & Series | Deluxe",
+      "title": "Andersen Fiberglass Windows | Installation Cost & Series",
       "description": "Andersen Fiberglass Windows for Bay Area homes: the 100 Series uses Fibrex composite material that Andersen rates about twice as strong as vinyl.",
       "image": "/webflow-assets/images/688f662b796c112dbaa36c82_Andersen-Windows-Installation-1.avif",
       "card": "summary_large_image"
@@ -40,6 +40,10 @@
     {
       "question": "What do Andersen Fiberglass Windows cost installed?",
       "answer": "For Andersen Fiberglass Windows, the current promotion prices installations from $549 per window installed (regular $915). The exact number depends on sizes, glass package and installation conditions, so Deluxe Windows quotes each opening after measuring."
+    },
+    {
+      "question": "Is installation included in the Andersen Fiberglass Windows quote?",
+      "answer": "Yes — the written quote for Andersen Fiberglass Windows covers product, professional installation, removal of the old units, sealing and haul-away. Optional extras like interior trim work are listed separately so the Bay Area price is transparent."
     },
     {
       "question": "Which series are available for Andersen Fiberglass Windows?",

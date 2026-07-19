@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "key": "window-replacement/burlingame",
+  "path": "/window-replacement/burlingame",
+  "seo": {
+    "title": "Window Replacement Burlingame, CA | Cost & Installation",
+    "description": "Window replacement in Burlingame, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Burlingame project.",
+    "canonical": "https://www.deluxewindows.com/window-replacement/burlingame",
+    "og": {
+      "title": "Window Replacement Burlingame, CA | Cost & Installation",
+      "description": "Window replacement in Burlingame, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Burlingame project.",
+      "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+      "type": "website"
+    },
+    "h1": "Window Replacement in Burlingame, California",
+    "primary_keyword": "window replacement burlingame",
+    "target_keywords": [
+      "window replacement burlingame",
+      "deluxe windows burlingame",
+      "windows company burlingame ca",
+      "luxury steel windows burlingame",
+      "custom steel windows burlingame",
+      "commercial steel windows burlingame"
+    ],
+    "search_intent": "local-city",
+    "priority": "P0",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Window Replacement Burlingame, CA | Cost & Installation",
+      "description": "Window replacement in Burlingame, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Burlingame project.",
+      "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+      "card": "summary_large_image"
+    }
+  },
+  "faq": [
+    {
+      "question": "How much does window replacement cost in Burlingame?",
+      "answer": "For Burlingame homes, with the current promotion quality vinyl replacement starts at $549 per window installed (regular $915), while fiberglass, clad-wood and architectural products price higher. Deluxe Windows itemizes product, labor and permits in a written Burlingame quote after free on-site measurements."
+    },
+    {
+      "question": "Do I need a permit to replace windows in Burlingame?",
+      "answer": "Permitting: Burlingame follows standard California permitting, confirmed per project scope. Deluxe Windows verifies requirements with the building department and manages the paperwork for Burlingame installations."
+    },
+    {
+      "question": "Which window brands work best for Burlingame homes?",
+      "answer": "Popular choices in Burlingame include Milgard, Anlin and Simonton vinyl for value, and Marvin or Andersen for premium projects. The right pick depends on the home's age, style and exposure in Burlingame."
+    },
+    {
+      "question": "How long does window replacement take in Burlingame?",
+      "answer": "Most Burlingame projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+    },
+    {
+      "question": "How do I book a free window replacement estimate in Burlingame?",
+      "answer": "Call or send the project details online and a Deluxe Windows consultant visits the Burlingame home, measures every opening and prepares a written installed quote — the visit is free and there is no obligation to order."
+    }
+  ],
+  "schema": {
+    "primary_type": "Service",
+    "data": {
+      "name": "Window Replacement in Burlingame",
+      "area_served": "Burlingame"
+    },
+    "extra": [],
+    "replace": []
+  }
+}

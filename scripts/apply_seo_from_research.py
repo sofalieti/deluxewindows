@@ -232,84 +232,84 @@ STATIC_SEO = {
         ["window replacement bay area", "deluxe windows", "window companies bay area", "bay area window and door replacement"],
     ),
     "/windows": (
-        "Replacement Windows Bay Area | Deluxe Windows",
+        "Replacement Windows Bay Area | Cost & Installation",
         "Replacement Windows for Bay Area Homes",
         "Compare replacement windows by material, style and brand for Bay Area homes. Review vinyl, fiberglass, wood and aluminum options and get a free estimate.",
         "replacement windows",
         ["replacement windows", "windows replacement", "house windows", "new windows"],
     ),
     "/doors": (
-        "Entry & Patio Doors Bay Area | Deluxe Windows",
+        "Entry & Patio Door Installation Bay Area | Cost",
         "Entry, Patio and Sliding Doors for Bay Area Homes",
         "Explore entry, patio and sliding doors for Bay Area homes. Compare fiberglass, wood, steel and vinyl options with installed pricing and a free estimate.",
         "patio doors",
         ["patio doors", "entry doors", "sliding doors", "exterior doors", "door replacement"],
     ),
     "/brand": (
-        "Window & Door Brands We Install | Deluxe Windows",
+        "Best Window & Door Brands Installed | Bay Area",
         "Window and Door Brands Available at Deluxe Windows",
         "Compare the window and door brands installed by Deluxe Windows, including Milgard, Marvin, Andersen, Simonton, Anlin and JELD-WEN. Get a free estimate.",
         "window brands",
         ["window brands", "best window brands", "window manufacturers", "door brands"],
     ),
     "/contacts": (
-        "Contact Deluxe Windows | Burlingame Showroom",
+        "Contact Us | Free Window Replacement Estimates",
         "Contact Deluxe Windows — Burlingame Showroom & Estimates",
         "Contact Deluxe Windows or visit the Burlingame showroom to plan window and door replacement. Call, send the project details and book a free estimate.",
         "deluxe windows burlingame",
         ["deluxe windows burlingame", "window showroom bay area", "window replacement estimate", "deluxe windows contact"],
     ),
     "/faq": (
-        "Window Replacement FAQ & Costs | Deluxe Windows",
+        "Window Replacement FAQ | Cost, Permits & Installation",
         "Window Replacement Questions, Answered",
         "Get answers about window replacement costs, permits, timelines, financing and warranties in the Bay Area, based on the questions homeowners ask most.",
         "window replacement cost",
         ["window replacement cost", "how much is a window replacement", "window replacement faq", "window installation questions"],
     ),
     "/about": (
-        "About Deluxe Windows | Bay Area Window Company",
+        "About Us | Bay Area Window & Door Installation Experts",
         "About Deluxe Windows",
         "Learn about Deluxe Windows, a Bay Area window and door company with a Burlingame showroom, factory-trained installers and free in-home estimates.",
         "deluxe windows inc",
         ["deluxe windows inc", "about deluxe windows", "bay area window company"],
     ),
     "/financing": (
-        "Window Financing Bay Area | Deluxe Windows",
+        "Window Replacement Financing Bay Area | Monthly Plans",
         "Window and Door Financing Options",
         "Review window and door financing for Bay Area projects, including monthly payment plans. See how approval works and request a free project estimate.",
         "window financing",
         ["window financing", "windows on finance", "window payment plans", "door financing"],
     ),
     "/special-offers": (
-        "Window Replacement Deals & Offers | Deluxe Windows",
+        "Window Replacement Deals Bay Area | Current Offers",
         "Current Window and Door Offers",
         "See current window and door replacement offers from Deluxe Windows. Check eligibility, combine savings with financing where allowed, and get an estimate.",
         "window replacement deals",
         ["window replacement deals", "window discounts", "window sale bay area", "special offers windows"],
     ),
     "/blog": (
-        "Window & Door Advice Blog | Deluxe Windows",
+        "Window & Door Advice Blog | Bay Area Guides",
         "Window and Door Advice for Bay Area Homeowners",
         "Read practical window and door guides for Bay Area homeowners: buying advice, materials, measuring, energy efficiency and replacement planning tips.",
         "window advice blog",
         ["window advice blog", "window replacement guides", "door buying advice"],
     ),
     "/gallery": (
-        "Window & Door Project Gallery | Deluxe Windows",
+        "Window & Door Installation Gallery | Bay Area Projects",
         "Completed Window and Door Projects",
         "Browse completed window and door installations by Deluxe Windows across the Bay Area. See real projects, products and finishes to plan your own upgrade.",
         "window installation gallery",
         ["window installation gallery", "window projects bay area", "door installation photos"],
     ),
     "/glossary": (
-        "Window & Door Glossary | Deluxe Windows",
+        "Window & Door Glossary | Replacement Terms Explained",
         "Window and Door Terms Explained",
         "Learn essential window and door terms, from Low-E glass and dual pane windows to frame materials, energy ratings and common installation methods.",
         "window glossary",
         ["window glossary", "dual pane windows", "window terms", "low-e glass meaning"],
     ),
     "/testimonials": (
-        "Deluxe Windows Reviews | Bay Area Customers",
+        "Window Replacement Reviews | Bay Area Customers",
         "What Bay Area Homeowners Say About Deluxe Windows",
         "Read reviews from Bay Area homeowners who chose Deluxe Windows for window and door replacement, product guidance and professional installation.",
         "deluxe windows reviews",
@@ -319,84 +319,84 @@ STATIC_SEO = {
 
 BLOG_SEO = {
     "/blog/do-new-windows-increase-home-value-for-bay-area-homeowners": (
-        "Do New Windows Increase Home Value? | Deluxe",
+        "Do New Windows Increase Home Value? | ROI Guide",
         "Do New Windows Increase Home Value for Bay Area Homes?",
         "New windows typically return 50-75% of their cost and can add $8,000-$12,000 in value. See what matters most for Bay Area homes before replacing windows.",
         "do new windows increase home value",
         ["do new windows increase home value", "window replacement roi", "new windows appraisal value"],
     ),
     "/blog/how-to-measure-windows-for-replacement": (
-        "How to Measure Windows for Replacement | Deluxe",
+        "How to Measure Windows for Replacement | Guide",
         "How to Measure Windows for Replacement",
         "Measure width and height at three points and use the smallest numbers. Follow this step-by-step replacement window measuring guide for accurate sizing.",
         "how to measure windows for replacement",
         ["how to measure windows for replacement", "measure replacement windows", "window measurement guide"],
     ),
     "/blog/the-ultimate-door-buyers-guide": (
-        "Door Buyer's Guide | Deluxe Windows",
+        "Door Buyer's Guide | Entry & Patio Doors Compared",
         "The Complete Door Buyer's Guide",
         "Choose the right entry or patio door by comparing materials, security, glass, energy performance and styles in this practical Bay Area buyer's guide.",
         "door buyers guide",
         ["door buyers guide", "how to choose a front door", "entry door comparison"],
     ),
     "/blog/what-kind-of-window-frame-is-right-for-you": (
-        "Best Window Frame Materials Compared | Deluxe",
+        "Best Window Frame Materials Compared | Cost & Lifespan",
         "Which Window Frame Material Is Right for You?",
         "Compare vinyl, wood, aluminum, fiberglass and steel window frames by cost, lifespan, maintenance and efficiency to pick the best fit for your Bay Area home.",
         "best window frame material",
         ["best window frame material", "window frame materials", "cheapest window frame material"],
     ),
     "/blog/window-buyers-guide": (
-        "Window Buyer's Guide | Deluxe Windows",
+        "Window Buyer's Guide | How to Choose Replacement Windows",
         "Complete Window Buyer's Guide",
         "Choose replacement windows with confidence. Compare frame materials, styles, glass, energy ratings and installation options for Bay Area homes.",
         "window buyers guide",
         ["window buyers guide", "how to choose replacement windows brands"],
     ),
     "/blog/5-quick-and-easy-ways-on-how-to-temporarily-fix-a-window": (
-        "5 Temporary Fixes for a Broken Window | Deluxe",
+        "5 Temporary Fixes for a Broken Window | Quick Guide",
         "5 Ways to Temporarily Fix a Broken Window",
         "Use these five temporary fixes to reduce drafts, cover cracks and secure a damaged window until a professional Bay Area replacement can be scheduled.",
         "temporary window fix",
         ["temporary window fix", "how to fix a broken window temporarily"],
     ),
     "/blog/comprehensive-guide-to-choosing-the-right-replacement-windows": (
-        "How to Choose Replacement Windows | Deluxe",
+        "How to Choose Replacement Windows | Full Guide",
         "How to Choose the Right Replacement Windows",
         "Compare replacement window materials, styles, glass and energy ratings before you buy. Use this guide to plan the right upgrade for your Bay Area home.",
         "how to choose replacement windows",
         ["how to choose replacement windows", "replacement window guide"],
     ),
     "/blog/do-energy-efficient-windows-and-doors-make-a-difference-for-bay-area-homeowners": (
-        "Do Energy-Efficient Windows Work? | Deluxe",
+        "Do Energy-Efficient Windows Work? | Savings & Tax Credit",
         "Do Energy-Efficient Windows and Doors Make a Difference?",
         "ENERGY STAR windows save about 12% on energy bills and may qualify for a $600 tax credit. See which features matter most for Bay Area homes and comfort.",
         "energy efficient windows",
         ["energy efficient windows", "energy efficient windows tax credit", "do energy efficient windows make a difference"],
     ),
     "/blog/how-can-replacement-windows-keep-your-home-cool": (
-        "How Replacement Windows Keep Homes Cool | Deluxe",
+        "How Replacement Windows Keep Homes Cool | Low-E Glass",
         "How Replacement Windows Help Keep Your Home Cool",
         "Replacement windows help keep homes cooler with Low-E glass, insulated frames and tighter seals. Learn which options perform best in Bay Area climates.",
         "windows to keep house cool",
         ["windows to keep house cool", "low-e glass heat reduction"],
     ),
     "/blog/how-long-do-windows-last": (
-        "How Long Do Windows Last? Lifespan Guide | Deluxe",
+        "How Long Do Windows Last? | Lifespan by Material",
         "How Long Do Windows Last?",
         "Vinyl windows last 20-40 years, fiberglass up to 50, wood 30+ and aluminum 15-30. Learn the warning signs that your Bay Area windows need replacement.",
         "how long do windows last",
         ["how long do windows last", "window lifespan", "how often should windows be replaced"],
     ),
     "/blog/new-construction-windows-vs-replacement-windows": (
-        "New Construction vs Replacement Windows | Deluxe",
+        "New Construction vs Replacement Windows | Which to Pick",
         "New Construction Windows vs. Replacement Windows",
         "Replacement windows fit an existing opening and cost 50-100% less to install; new construction windows replace the full framed opening. Compare use cases.",
         "new construction windows vs replacement",
         ["new construction windows vs replacement", "retrofit vs full frame windows"],
     ),
     "/blog/why-vinyl-windows-are-the-smart-choice-for-bay-area-homeowners": (
-        "Why Choose Vinyl Windows? | Deluxe Windows",
+        "Why Choose Vinyl Windows? | Benefits & Cost",
         "Why Vinyl Windows Work Well for Bay Area Homes",
         "Vinyl windows offer low maintenance, strong efficiency and practical pricing. See why they are a popular replacement choice for Bay Area homeowners.",
         "why choose vinyl windows",
@@ -828,8 +828,9 @@ def fit_description(text: str, extras: list[str]) -> str:
 
 
 DESCRIPTION_EXTRAS = [
-    "Get a free estimate.",
+    "Get a free installation estimate.",
     "Expert Bay Area installation.",
+    "Book a free in-home quote.",
     "Visit our Burlingame showroom.",
     "Compare series and pricing.",
     "Serving the whole Bay Area.",
@@ -872,9 +873,9 @@ def build_seo(ctx: PageContext, titles: UniquePool, descriptions: UniquePool,
     elif family == "brands":
         brand = SHORT_BRAND.get(entity, entity)
         title = pick_title([
-            f"{brand} Windows Bay Area | Authorized Dealer | Deluxe",
-            f"{brand} Windows Bay Area | Deluxe Windows",
-            f"{brand} Windows | Bay Area Dealer | Deluxe",
+            f"{brand} Window Replacement & Installation | Bay Area",
+            f"{brand} Windows Bay Area | Replacement & Installation",
+            f"{brand} Window Installation Bay Area",
         ], titles, path)
         h1 = f"{entity} Windows — Bay Area Dealer & Installer"
         description = fit_description(
@@ -888,9 +889,9 @@ def build_seo(ctx: PageContext, titles: UniquePool, descriptions: UniquePool,
     elif family == "door-brands":
         brand = SHORT_BRAND.get(entity, entity)
         title = pick_title([
-            f"{brand} Doors Bay Area | Patio & Entry | Deluxe",
-            f"{brand} Doors Bay Area | Deluxe Windows",
-            f"{brand} Doors | Bay Area Dealer | Deluxe",
+            f"{brand} Door Installation Bay Area | Patio & Entry",
+            f"{brand} Doors Bay Area | Replacement & Installation",
+            f"{brand} Door Installation Bay Area",
         ], titles, path)
         h1 = f"{entity} Doors — Patio, Sliding & Entry"
         description = fit_description(
@@ -903,9 +904,9 @@ def build_seo(ctx: PageContext, titles: UniquePool, descriptions: UniquePool,
     elif family == "windows":
         facts = ctx.material_facts
         title = pick_title([
-            f"{entity} Windows Bay Area | Cost & Brands | Deluxe",
-            f"{entity} Windows Bay Area | Deluxe Windows",
-            f"{entity} Windows | Bay Area | Deluxe",
+            f"{entity} Window Replacement Bay Area | Cost & Installation",
+            f"{entity} Window Replacement Bay Area | Cost",
+            f"{entity} Windows Bay Area | Replacement Cost",
         ], titles, path)
         h1 = f"{entity} Windows for Bay Area Homes"
         description = fit_description(
@@ -918,9 +919,9 @@ def build_seo(ctx: PageContext, titles: UniquePool, descriptions: UniquePool,
     elif family == "doors":
         facts = ctx.material_facts
         title = pick_title([
-            f"{entity} Doors Bay Area | Entry & Patio | Deluxe",
-            f"{entity} Doors Bay Area | Deluxe Windows",
-            f"{entity} Doors | Bay Area | Deluxe",
+            f"{entity} Door Installation Bay Area | Entry & Patio",
+            f"{entity} Door Installation Bay Area | Cost",
+            f"{entity} Doors Bay Area | Installation Cost",
         ], titles, path)
         h1 = f"{entity} Doors for Bay Area Homes"
         description = fit_description(
@@ -932,9 +933,10 @@ def build_seo(ctx: PageContext, titles: UniquePool, descriptions: UniquePool,
         keywords = queries or [primary, f"{entity.casefold()} entry doors", f"{entity.casefold()} patio doors"]
     elif family == "window-type":
         title = pick_title([
-            f"{entity} | Prices & Series | Deluxe",
-            f"{entity} | Deluxe Windows",
-            f"{entity} | Deluxe",
+            f"{entity} | Installation Cost & Series",
+            f"{entity} | Installation Cost",
+            f"{entity} Installation",
+            entity,
         ], titles, path)
         h1 = entity
         description = fit_description(
@@ -946,9 +948,10 @@ def build_seo(ctx: PageContext, titles: UniquePool, descriptions: UniquePool,
         keywords = queries or [primary, f"{primary} prices"]
     elif family == "door-types":
         title = pick_title([
-            f"{entity} | Prices & Options | Deluxe",
-            f"{entity} | Deluxe Windows",
-            f"{entity} | Deluxe",
+            f"{entity} | Installation Cost & Options",
+            f"{entity} | Installation Cost",
+            f"{entity} Installation",
+            entity,
         ], titles, path)
         h1 = entity
         description = fit_description(
@@ -969,10 +972,10 @@ def build_seo(ctx: PageContext, titles: UniquePool, descriptions: UniquePool,
         for full, short in SHORT_BRAND.items():
             compact = compact.replace(full, short)
         title = pick_title([
-            f"{entity} | Deluxe Windows",
-            f"{entity} | Deluxe",
-            f"{compact} | Deluxe Windows",
-            f"{compact} | Deluxe",
+            f"{entity} | Prices & Installation",
+            f"{compact} | Prices & Installation",
+            f"{entity} | Installation",
+            f"{compact} | Installation",
             compact,
         ], titles, path)
         h1 = entity
@@ -986,9 +989,9 @@ def build_seo(ctx: PageContext, titles: UniquePool, descriptions: UniquePool,
     elif family == "window-replacement":
         city = entity
         title = pick_title([
-            f"Window Replacement {city}, CA | Deluxe Windows",
-            f"Window Replacement {city} CA | Deluxe",
-            f"Replacement Windows {city} | Deluxe",
+            f"Window Replacement {city}, CA | Cost & Installation",
+            f"Window Replacement {city} CA | Installation",
+            f"Window Replacement {city}, CA",
         ], titles, path)
         h1 = f"Window Replacement in {city}, California"
         permit = PERMIT_CITIES.get(ctx.slug)
@@ -1003,9 +1006,9 @@ def build_seo(ctx: PageContext, titles: UniquePool, descriptions: UniquePool,
     elif family == "county-hub-pages":
         county = entity
         title = pick_title([
-            f"{county} Window Replacement | Deluxe Windows",
-            f"{county} Replacement Windows | Deluxe",
-            f"Window Replacement {county} | Deluxe",
+            f"Window Replacement {county} | Installation & Cost",
+            f"{county} Window Replacement & Installation",
+            f"Window Replacement {county}",
         ], titles, path)
         h1 = f"Window & Door Replacement in {county}"
         description = fit_description(
@@ -1314,16 +1317,20 @@ def generated_fill(ctx: PageContext) -> list[dict[str, str]]:
         product = "doors" if ctx.family == "door-brands" else "windows"
         return [
             {
-                "question": f"Which {entity} {product} does Deluxe Windows install in the Bay Area?",
-                "answer": f"Deluxe Windows installs {entity} {product} across the brand's current lineup — {brand['blurb']} — and confirms series availability for each Bay Area project before quoting.",
-            },
-            {
                 "question": f"How do I get installed pricing for {entity} {product}?",
                 "answer": (
                     f"Installed pricing for {entity} {product} is prepared after on-site measurements: "
                     f"{price_phrase(ctx.pricing) if ctx.pricing else brand['cost']}. "
                     f"The written quote itemizes product, labor, permits and any opening repairs."
                 ),
+            },
+            {
+                "question": f"How soon can {entity} {product} be installed in the Bay Area?",
+                "answer": f"After the free on-site measurement, {entity} orders typically arrive in four to eight weeks, and installation itself takes one to three working days. Deluxe Windows confirms the schedule in writing at contract signing.",
+            },
+            {
+                "question": f"Which {entity} {product} does Deluxe Windows install in the Bay Area?",
+                "answer": f"Deluxe Windows installs {entity} {product} across the brand's current lineup — {brand['blurb']} — and confirms series availability for each Bay Area project before quoting.",
             },
             {
                 "question": f"How long does {entity} {product.rstrip('s')} installation take?",
@@ -1339,15 +1346,19 @@ def generated_fill(ctx: PageContext) -> list[dict[str, str]]:
         cost_fact = material.get("door_cost", material["cost"]) if product == "doors" else material["cost"]
         return [
             {
-                "question": f"What are the main benefits of {entity.lower()} {product}?",
-                "answer": f"{entity} {product} offer {material['benefit']}. Whether they fit depends on the home's architecture, opening sizes, performance goals and budget.",
-            },
-            {
                 "question": f"How much do {entity.lower()} {product} cost installed in the Bay Area?",
                 "answer": (
                     f"For {entity.lower()} {product}, {price_phrase(ctx.pricing) if ctx.pricing else f'plan on {cost_fact}'}. "
                     f"The final quote reflects access, removal and finishing, and Deluxe Windows confirms exact installed pricing after measuring."
                 ),
+            },
+            {
+                "question": f"Is removal of the old {product} included when replacing with {entity.lower()} {product}?",
+                "answer": f"Yes — removal and disposal of the old {product} are part of the {entity.lower()} {product} installation scope, along with insulation, sealing and a final operating check. Everything is itemized in the written Bay Area quote.",
+            },
+            {
+                "question": f"What are the main benefits of {entity.lower()} {product}?",
+                "answer": f"{entity} {product} offer {material['benefit']}. Whether they fit depends on the home's architecture, opening sizes, performance goals and budget.",
             },
             {
                 "question": f"How long do {entity.lower()} {product} last?",
@@ -1372,6 +1383,10 @@ def generated_fill(ctx: PageContext) -> list[dict[str, str]]:
                 ),
             },
             {
+                "question": f"Is installation included in the {entity} quote?",
+                "answer": f"Yes — the written quote for {entity} covers product, professional installation, removal of the old units, sealing and haul-away. Optional extras like interior trim work are listed separately so the Bay Area price is transparent.",
+            },
+            {
                 "question": f"Which series are available for {entity}?",
                 "answer": f"Available {entity} series change with the manufacturer's current catalog — {brand['blurb']}. Deluxe Windows confirms the exact options during the consultation.",
             },
@@ -1392,6 +1407,10 @@ def generated_fill(ctx: PageContext) -> list[dict[str, str]]:
                     f"For {entity}, {price_phrase(ctx.pricing) if ctx.pricing else brand['cost']}. "
                     f"Panel count, glass, hardware and opening preparation set the final number, so Deluxe Windows quotes each door after measuring."
                 ),
+            },
+            {
+                "question": f"How fast can {entity} be ordered and installed?",
+                "answer": f"After measuring, {entity} typically arrive in four to eight weeks and are installed in about a day per door, including removal of the old unit, sealing and hardware adjustment. The exact Bay Area schedule is confirmed in writing.",
             },
             {
                 "question": f"Which styles are available for {entity}?",
@@ -1423,6 +1442,10 @@ def generated_fill(ctx: PageContext) -> list[dict[str, str]]:
                 "question": f"How does {entity} compare with other {ctx.brand or 'brand'} collections?",
                 "answer": f"Compare {entity} with sibling collections on frame construction, visible glass area, energy ratings, finish options, warranty and installed cost. {brand['note']}.",
             },
+            {
+                "question": f"How do I order {entity} with installation?",
+                "answer": f"Ordering {entity} starts with a free on-site measurement; Deluxe Windows then quotes the collection installed, places the factory order and schedules the crew, so one contract covers product, installation and warranty registration.",
+            },
         ]
     if ctx.family == "window-replacement":
         city = ctx.city or entity
@@ -1444,6 +1467,10 @@ def generated_fill(ctx: PageContext) -> list[dict[str, str]]:
                 "question": f"How long does window replacement take in {city}?",
                 "answer": f"Most {city} projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering.",
             },
+            {
+                "question": f"How do I book a free window replacement estimate in {city}?",
+                "answer": f"Call or send the project details online and a Deluxe Windows consultant visits the {city} home, measures every opening and prepares a written installed quote — the visit is free and there is no obligation to order.",
+            },
         ]
     if ctx.family == "county-hub-pages":
         county = entity
@@ -1463,6 +1490,10 @@ def generated_fill(ctx: PageContext) -> list[dict[str, str]]:
             {
                 "question": f"Which window features matter most in {county}?",
                 "answer": f"For {county} homes, weigh solar control, insulation, air leakage and frame durability against the local microclimate. Coastal, hillside and inland {county} homes often need different glass packages.",
+            },
+            {
+                "question": f"How do I schedule window installation in {county}?",
+                "answer": f"Request a free estimate and a Deluxe Windows consultant measures the {county} home, prepares an installed quote and books the crew once products arrive — most {county} installations finish within one to three working days.",
             },
         ]
     if ctx.family == "blog":
@@ -1614,9 +1645,11 @@ FAQ_HUB = [
 
 
 def build_faq(ctx: PageContext, questions_pool: UniquePool, answers_pool: UniquePool,
-              stats: dict) -> list[dict[str, str]]:
+              stats: dict) -> tuple[list[dict[str, str]], set[str]]:
+    signatures: set[str] = set()
+
     if ctx.path in EXCLUDED_FAQ_PATHS:
-        return []
+        return [], signatures
 
     items: list[dict[str, str]] = []
 
@@ -1624,11 +1657,12 @@ def build_faq(ctx: PageContext, questions_pool: UniquePool, answers_pool: Unique
         for item in FAQ_HUB:
             if questions_pool.claim(item["question"], ctx.path) and answers_pool.claim(item["answer"], ctx.path):
                 items.append(dict(item))
+                signatures.add(question_signature(item["question"]))
                 stats["bank"] += 1
-        return items
+        return items, signatures
 
-    # 1. Real PAA questions routed to this page (max 4, no near-duplicates).
-    signatures: set[str] = set()
+    # 1. Real PAA questions routed to this page (max 4 in the first pass so a
+    # sales-intent question always fits; the global pass tops pages up to 6).
     used_intents: set[str] = set()
     for raw in ctx.data.get("paa", []):
         if len(items) >= 4:
@@ -1639,21 +1673,23 @@ def build_faq(ctx: PageContext, questions_pool: UniquePool, answers_pool: Unique
         signature = question_signature(question)
         if signature in signatures:
             continue
-        if not questions_pool.claim(question, ctx.path):
+        if questions_pool.owner(question):
             continue
-        signatures.add(signature)
         answer = answer_paa(question, ctx)
-        if len(answer) < 80 or not answers_pool.claim(answer, ctx.path):
+        if len(answer) < 80 or answers_pool.owner(answer):
             answer = answer + f" Ask about {ctx.entity} specifics when booking the free estimate."
-            if not answers_pool.claim(answer, ctx.path):
+            if answers_pool.owner(answer):
                 continue
+        questions_pool.claim(question, ctx.path)
+        answers_pool.claim(answer, ctx.path)
+        signatures.add(signature)
         items.append({"question": question, "answer": answer})
         used_intents.add(classify_intent(question))
         stats["paa"] += 1
 
-    # 2. Family fill to reach at least 4 questions (skip near-duplicates of PAA).
+    # 2. Family fill to reach at least 5 questions (skip near-duplicates of PAA).
     for item in generated_fill(ctx):
-        if len(items) >= 4 and len(items) >= 3:
+        if len(items) >= 5:
             break
         question = clean_question(item["question"])
         signature = question_signature(question)
@@ -1666,23 +1702,115 @@ def build_faq(ctx: PageContext, questions_pool: UniquePool, answers_pool: Unique
             and intent in {"cost", "lifespan", "warranty", "maintenance"}
         ):
             continue
-        signatures.add(signature)
-        used_intents.add(intent)
         answer = item["answer"].strip()
         if len(answer) < 80:
             answer += " Deluxe Windows confirms the specifics for each Bay Area project in writing."
-        if not questions_pool.claim(question, ctx.path):
+        if questions_pool.owner(question):
             continue
-        if not answers_pool.claim(answer, ctx.path):
+        if answers_pool.owner(answer):
             answer += f" This applies specifically to {ctx.entity} projects."
-            if not answers_pool.claim(answer, ctx.path):
+            if answers_pool.owner(answer):
                 continue
+        questions_pool.claim(question, ctx.path)
+        answers_pool.claim(answer, ctx.path)
+        signatures.add(signature)
+        used_intents.add(intent)
         items.append({"question": question, "answer": answer})
         stats["generated"] += 1
 
     if not 3 <= len(items) <= 6:
         raise RuntimeError(f"{ctx.path}: produced {len(items)} FAQ items")
-    return items
+    return items, signatures
+
+
+BRAND_SLUG_TOKENS = {
+    "andersen": "andersen", "anderson": "andersen", "marvin": "marvin",
+    "milgard": "milgard", "simonton": "simonton", "anlin": "anlin",
+    "jeld wen": "jeld-wen", "jeld-wen": "jeld-wen", "ply gem": "ply-gem",
+    "alside": "alside", "western window": "western-window-systems",
+}
+
+
+def relevance_candidates(question: str, results: dict) -> list[str]:
+    """Broad, deterministic candidate scan for a question that did not fit on
+    any of its primary targets: brand pages first, then family pages."""
+    lowered = question.casefold()
+    is_door = bool(re.search(r"\bdoors?\b", lowered))
+    brand = next((slug for token, slug in BRAND_SLUG_TOKENS.items() if token in lowered), None)
+
+    buckets: list[str] = []
+    for path in sorted(results):
+        if brand and brand in path:
+            buckets.append(path)
+    for path in sorted(results):
+        family = path.strip("/").split("/", 1)[0]
+        if is_door and family in {"doors", "door-brands", "door-types"}:
+            buckets.append(path)
+        elif not is_door and family in {"windows", "brands", "window-type", "brand-collections"}:
+            buckets.append(path)
+    buckets.append("/faq")
+    return list(dict.fromkeys(buckets))
+
+
+def try_place_question(question: str, signature: str, targets: list[str], results: dict,
+                       questions_pool: UniquePool, answers_pool: UniquePool,
+                       stats: dict, reasons: list[str] | None = None) -> bool:
+    for target in targets:
+        payload = results.get(target)
+        if payload is None or payload["ctx"].path in EXCLUDED_FAQ_PATHS:
+            if reasons is not None:
+                reasons.append(f"{target}: excluded")
+            continue
+        if len(payload["faq"]) >= 6:
+            if reasons is not None:
+                reasons.append(f"{target}: full")
+            continue
+        if signature in payload["signatures"]:
+            if reasons is not None:
+                reasons.append(f"{target}: near-duplicate")
+            continue
+        ctx = payload["ctx"]
+        answer = answer_paa(question, ctx)
+        if len(answer) < 80 or answers_pool.owner(answer):
+            answer = answer + f" Ask about {ctx.entity} specifics when booking the free estimate."
+            if answers_pool.owner(answer):
+                if reasons is not None:
+                    reasons.append(f"{target}: answer-collision")
+                continue
+        if not questions_pool.claim(question, ctx.path):
+            return True
+        answers_pool.claim(answer, ctx.path)
+        payload["faq"].append({"question": question, "answer": answer})
+        payload["signatures"].add(signature)
+        stats["paa"] += 1
+        return True
+    return False
+
+
+def distribute_remaining_paa(dataset: dict, results: dict, questions_pool: UniquePool,
+                             answers_pool: UniquePool, stats: dict) -> None:
+    """Global second pass: place every still-unused PAA question on the first
+    candidate page that has a free FAQ slot (max 6 per page)."""
+    for entry in dataset.get("paa_pool", []):
+        question = clean_question(str(entry["question"]))
+        if not question_allowed(question):
+            continue
+        if questions_pool.owner(question):
+            continue
+        signature = question_signature(question)
+        placed = try_place_question(
+            question, signature, list(entry.get("targets", [])),
+            results, questions_pool, answers_pool, stats,
+        )
+        if not placed:
+            reasons: list[str] = []
+            placed = try_place_question(
+                question, signature, relevance_candidates(question, results),
+                results, questions_pool, answers_pool, stats, reasons,
+            )
+            if not placed:
+                summary = "; ".join(reasons[:5]) or "no candidates"
+                print(f"UNPLACED PAA: {question} ({summary})")
 
 
 # ---------------------------------------------------------------------------
@@ -1724,8 +1852,15 @@ def main() -> None:
         path = str(record["path"])
         ctx = PageContext(record, pages_data.get(path, {"queries": [], "paa": [], "facts": []}))
         seo_update = build_seo(ctx, titles, descriptions, h1s, primaries)
-        faq = build_faq(ctx, questions_pool, answers_pool, stats)
-        results[path] = {"seo": seo_update, "faq": faq, "file": file, "record": record}
+        faq, signatures = build_faq(ctx, questions_pool, answers_pool, stats)
+        results[path] = {
+            "seo": seo_update, "faq": faq, "file": file, "record": record,
+            "ctx": ctx, "signatures": signatures,
+        }
+
+    # Global second pass: distribute every unused PAA question to the first
+    # candidate page with a free FAQ slot.
+    distribute_remaining_paa(dataset, results, questions_pool, answers_pool, stats)
 
     changed = 0
     for path, payload in results.items():

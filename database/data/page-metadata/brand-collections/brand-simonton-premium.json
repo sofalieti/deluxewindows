@@ -3,11 +3,11 @@
   "key": "brand-collections/brand-simonton-premium",
   "path": "/brand-collections/brand-simonton-premium",
   "seo": {
-    "title": "Simonton Premium | Deluxe Windows",
+    "title": "Simonton Premium | Prices & Installation",
     "description": "Simonton Premium specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
     "canonical": "https://www.deluxewindows.com/brand-collections/brand-simonton-premium",
     "og": {
-      "title": "Simonton Premium | Deluxe Windows",
+      "title": "Simonton Premium | Prices & Installation",
       "description": "Simonton Premium specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
       "image": "/webflow-assets/images/6964b7b7f3facc40f0705a99_689aff12399887cfa6c1caa7_sim_exterior_premium_double_hung_window_5050_module_p11113.avif",
       "type": "website"
@@ -22,7 +22,7 @@
     "priority": "P3",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Simonton Premium | Deluxe Windows",
+      "title": "Simonton Premium | Prices & Installation",
       "description": "Simonton Premium specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
       "image": "/webflow-assets/images/6964b7b7f3facc40f0705a99_689aff12399887cfa6c1caa7_sim_exterior_premium_double_hung_window_5050_module_p11113.avif",
       "card": "summary_large_image"
@@ -44,6 +44,10 @@
     {
       "question": "How does Simonton Premium compare with other Simonton collections?",
       "answer": "Compare Simonton Premium with sibling collections on frame construction, visible glass area, energy ratings, finish options, warranty and installed cost. Simonton has been an ENERGY STAR partner since 1999."
+    },
+    {
+      "question": "How do I order Simonton Premium with installation?",
+      "answer": "Ordering Simonton Premium starts with a free on-site measurement; Deluxe Windows then quotes the collection installed, places the factory order and schedules the crew, so one contract covers product, installation and warranty registration."
     }
   ],
   "schema": {

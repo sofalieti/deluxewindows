@@ -3,11 +3,11 @@
   "key": "windows/vinyl-windows",
   "path": "/windows/vinyl-windows",
   "seo": {
-    "title": "Vinyl Windows Bay Area | Cost & Brands | Deluxe",
+    "title": "Vinyl Window Replacement Bay Area | Cost & Installation",
     "description": "Vinyl windows compared for Bay Area homes: typical lifespan 20-40 years, about $300-$800 per window plus installation, plus leading brands and installation.",
     "canonical": "https://www.deluxewindows.com/windows/vinyl-windows",
     "og": {
-      "title": "Vinyl Windows Bay Area | Cost & Brands | Deluxe",
+      "title": "Vinyl Window Replacement Bay Area | Cost & Installation",
       "description": "Vinyl windows compared for Bay Area homes: typical lifespan 20-40 years, about $300-$800 per window plus installation, plus leading brands and installation.",
       "image": "/webflow-assets/images/window-type-hero/vinyl-windows-hero-bg-v1.avif",
       "type": "website"
@@ -26,7 +26,7 @@
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Vinyl Windows Bay Area | Cost & Brands | Deluxe",
+      "title": "Vinyl Window Replacement Bay Area | Cost & Installation",
       "description": "Vinyl windows compared for Bay Area homes: typical lifespan 20-40 years, about $300-$800 per window plus installation, plus leading brands and installation.",
       "image": "/webflow-assets/images/window-type-hero/vinyl-windows-hero-bg-v1.avif",
       "card": "summary_large_image"
@@ -34,20 +34,28 @@
   },
   "faq": [
     {
-      "question": "What are the disadvantages of vinyl windows?",
-      "answer": "The main trade-offs of vinyl windows: frames are thicker than aluminum or steel, exterior color choices are narrower, and economy series can distort in strong sun. Whether that matters depends on the home's exposure and budget, which Deluxe Windows reviews openly."
+      "question": "What type of window is most energy-efficient?",
+      "answer": "Energy performance for vinyl comes from the whole unit: frame, Low-E glass, gas fill, spacers and installation. ENERGY STAR certified windows save about 12% on energy bills, and qualifying models may earn the $600 federal 25C tax credit."
     },
     {
-      "question": "Which window is better, vinyl or fiberglass?",
-      "answer": "Vinyl offers low maintenance, good insulation and the widest choice of budget-friendly series at about $300-$800 per window plus installation, while fiberglass brings dimensional stability, strength and paintable low-maintenance frames and typically lasts 30-50 years, the longest of common frame materials. The better fit depends on budget, architecture and how long you plan to keep the home."
+      "question": "Is there a tax credit for energy-efficient windows?",
+      "answer": "Energy performance for vinyl comes from the whole unit: frame, Low-E glass, gas fill, spacers and installation. ENERGY STAR certified windows save about 12% on energy bills, and qualifying models may earn the $600 federal 25C tax credit. Ask about Vinyl specifics when booking the free estimate."
     },
     {
-      "question": "What is the lifespan of a vinyl window?",
-      "answer": "Vinyl windows and doors typically serve 20-40 years. Quality of installation, sun exposure and upkeep move products to either end of that range, so seals and hardware should be checked periodically."
+      "question": "Who has the best energy-efficient windows?",
+      "answer": "Vinyl products earn their reputation through low maintenance, good insulation and the widest choice of budget-friendly series. The right call still depends on the home's openings, exposure and budget, which Deluxe Windows reviews during a free assessment."
     },
     {
-      "question": "Can vinyl windows be repaired?",
-      "answer": "Minor vinyl issues — hardware, weatherstripping, screens or a fogged glass unit — can often be repaired. Cracked or warped frames and repeated seal failures usually make replacement the more economical fix, which Deluxe Windows assesses honestly on site."
+      "question": "What is a dual pane window?",
+      "answer": "Vinyl windows are built around a vinyl frame system, chosen for low maintenance, good insulation and the widest choice of budget-friendly series. In practice the choice covers frame construction, glazing package and finish, all of which Deluxe Windows documents in each product proposal."
+    },
+    {
+      "question": "How much do vinyl windows cost installed in the Bay Area?",
+      "answer": "For vinyl windows, the current promotion prices installations from $499 per window installed (regular $832). The final quote reflects access, removal and finishing, and Deluxe Windows confirms exact installed pricing after measuring."
+    },
+    {
+      "question": "What is the average cost of a double-pane window?",
+      "answer": "For vinyl windows, the current promotion prices installations from $499 per window installed (regular $832). Installed Bay Area totals also reflect labor, permits and any opening repairs, which Deluxe Windows confirms in a written estimate."
     }
   ],
   "schema": {

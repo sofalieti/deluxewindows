@@ -3,12 +3,12 @@
   "key": "doors/vinyl-doors",
   "path": "/doors/vinyl-doors",
   "seo": {
-    "title": "Vinyl Doors Bay Area | Entry & Patio | Deluxe",
-    "description": "Vinyl entry and patio doors for Bay Area homes, offering low maintenance, good insulation and the widest choice of budget-friendly series. Get a free estimate.",
+    "title": "Vinyl Door Installation Bay Area | Entry & Patio",
+    "description": "Vinyl entry and patio doors for Bay Area homes, offering low maintenance, good insulation and the widest choice of budget-friendly series. Licensed installers.",
     "canonical": "https://www.deluxewindows.com/doors/vinyl-doors",
     "og": {
-      "title": "Vinyl Doors Bay Area | Entry & Patio | Deluxe",
-      "description": "Vinyl entry and patio doors for Bay Area homes, offering low maintenance, good insulation and the widest choice of budget-friendly series. Get a free estimate.",
+      "title": "Vinyl Door Installation Bay Area | Entry & Patio",
+      "description": "Vinyl entry and patio doors for Bay Area homes, offering low maintenance, good insulation and the widest choice of budget-friendly series. Licensed installers.",
       "image": "/webflow-assets/images/6841ddf8ace3d9d9facb19a5_how-to-negotiate-a-house-price-effectively-thumbnail-v3-property-x-webflow-template.avif",
       "type": "website"
     },
@@ -26,24 +26,28 @@
     "priority": "P2",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Vinyl Doors Bay Area | Entry & Patio | Deluxe",
-      "description": "Vinyl entry and patio doors for Bay Area homes, offering low maintenance, good insulation and the widest choice of budget-friendly series. Get a free estimate.",
+      "title": "Vinyl Door Installation Bay Area | Entry & Patio",
+      "description": "Vinyl entry and patio doors for Bay Area homes, offering low maintenance, good insulation and the widest choice of budget-friendly series. Licensed installers.",
       "image": "/webflow-assets/images/6841ddf8ace3d9d9facb19a5_how-to-negotiate-a-house-price-effectively-thumbnail-v3-property-x-webflow-template.avif",
       "card": "summary_large_image"
     }
   },
   "faq": [
     {
-      "question": "How much does it typically cost to replace a sliding glass door?",
-      "answer": "For vinyl doors, the current promotion prices installations from $1299 per door installed (regular $2165). Installed Bay Area totals also reflect the frame condition, hardware and finishing, which Deluxe Windows confirms in a written estimate."
-    },
-    {
       "question": "Can you replace just the sliding glass door?",
       "answer": "For Vinyl, the answer depends on the exact series, glass and installation conditions. Deluxe Windows reviews the specifics during a free Bay Area consultation and puts the details in writing."
     },
     {
       "question": "Is it better to repair or replace a sliding door?",
-      "answer": "Minor vinyl issues — hardware, weatherstripping, screens or a fogged glass unit — can often be repaired. Cracked or warped frames and repeated seal failures usually make replacement the more economical fix, which Deluxe Windows assesses honestly on site. Ask about Vinyl specifics when booking the free estimate."
+      "answer": "Minor vinyl issues — hardware, weatherstripping, screens or a fogged glass unit — can often be repaired. Cracked or warped frames and repeated seal failures usually make replacement the more economical fix, which Deluxe Windows assesses honestly on site."
+    },
+    {
+      "question": "How much do vinyl doors cost installed in the Bay Area?",
+      "answer": "For vinyl doors, the current promotion prices installations from $1299 per door installed (regular $2165). The final quote reflects access, removal and finishing, and Deluxe Windows confirms exact installed pricing after measuring."
+    },
+    {
+      "question": "Is removal of the old doors included when replacing with vinyl doors?",
+      "answer": "Yes — removal and disposal of the old doors are part of the vinyl doors installation scope, along with insulation, sealing and a final operating check. Everything is itemized in the written Bay Area quote."
     },
     {
       "question": "What are the main benefits of vinyl doors?",

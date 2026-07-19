@@ -3,12 +3,12 @@
   "key": "doors/fiberglass-doors",
   "path": "/doors/fiberglass-doors",
   "seo": {
-    "title": "Fiberglass Doors Bay Area | Entry & Patio | Deluxe",
-    "description": "Fiberglass entry and patio doors for Bay Area homes, offering dimensional stability, strength and paintable low-maintenance frames. Get a free estimate.",
+    "title": "Fiberglass Door Installation Bay Area | Entry & Patio",
+    "description": "Fiberglass entry and patio doors for Bay Area homes, offering dimensional stability, strength and paintable low-maintenance frames. Book a free in-home quote.",
     "canonical": "https://www.deluxewindows.com/doors/fiberglass-doors",
     "og": {
-      "title": "Fiberglass Doors Bay Area | Entry & Patio | Deluxe",
-      "description": "Fiberglass entry and patio doors for Bay Area homes, offering dimensional stability, strength and paintable low-maintenance frames. Get a free estimate.",
+      "title": "Fiberglass Door Installation Bay Area | Entry & Patio",
+      "description": "Fiberglass entry and patio doors for Bay Area homes, offering dimensional stability, strength and paintable low-maintenance frames. Book a free in-home quote.",
       "image": "/webflow-assets/images/6841ddf8ace3d9d9facb1a87_home-buying-basics-thumbnail-v3-property-x-webflow-template.avif",
       "type": "website"
     },
@@ -26,8 +26,8 @@
     "priority": "P2",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Fiberglass Doors Bay Area | Entry & Patio | Deluxe",
-      "description": "Fiberglass entry and patio doors for Bay Area homes, offering dimensional stability, strength and paintable low-maintenance frames. Get a free estimate.",
+      "title": "Fiberglass Door Installation Bay Area | Entry & Patio",
+      "description": "Fiberglass entry and patio doors for Bay Area homes, offering dimensional stability, strength and paintable low-maintenance frames. Book a free in-home quote.",
       "image": "/webflow-assets/images/6841ddf8ace3d9d9facb1a87_home-buying-basics-thumbnail-v3-property-x-webflow-template.avif",
       "card": "summary_large_image"
     }
@@ -42,12 +42,16 @@
       "answer": "For fiberglass doors, the current promotion prices installations from $1599 per door installed (regular $2665). Installed Bay Area totals also reflect the frame condition, hardware and finishing, which Deluxe Windows confirms in a written estimate."
     },
     {
-      "question": "What are the main benefits of fiberglass doors?",
-      "answer": "Fiberglass doors offer dimensional stability, strength and paintable low-maintenance frames. Whether they fit depends on the home's architecture, opening sizes, performance goals and budget."
+      "question": "How much does it cost to replace an entrance door?",
+      "answer": "For fiberglass doors, the current promotion prices installations from $1599 per door installed (regular $2665). Installed Bay Area totals also reflect the frame condition, hardware and finishing, which Deluxe Windows confirms in a written estimate. Ask about Fiberglass specifics when booking the free estimate."
     },
     {
-      "question": "How long do fiberglass doors last?",
-      "answer": "Fiberglass doors typically serve 30-50 years, the longest of common frame materials. Installation quality and exposure matter, so Deluxe Windows also reviews flashing and seals during replacement."
+      "question": "Is removal of the old doors included when replacing with fiberglass doors?",
+      "answer": "Yes — removal and disposal of the old doors are part of the fiberglass doors installation scope, along with insulation, sealing and a final operating check. Everything is itemized in the written Bay Area quote."
+    },
+    {
+      "question": "What are the main benefits of fiberglass doors?",
+      "answer": "Fiberglass doors offer dimensional stability, strength and paintable low-maintenance frames. Whether they fit depends on the home's architecture, opening sizes, performance goals and budget."
     }
   ],
   "schema": {

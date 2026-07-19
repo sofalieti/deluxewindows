@@ -3,11 +3,11 @@
   "key": "door-brands/milgard",
   "path": "/door-brands/milgard",
   "seo": {
-    "title": "Milgard Doors Bay Area | Patio & Entry | Deluxe",
+    "title": "Milgard Door Installation Bay Area | Patio & Entry",
     "description": "Milgard patio, sliding and entry doors for Bay Area homes. Compare panel styles, glass and installed pricing, with expert installation by Deluxe Windows.",
     "canonical": "https://www.deluxewindows.com/door-brands/milgard",
     "og": {
-      "title": "Milgard Doors Bay Area | Patio & Entry | Deluxe",
+      "title": "Milgard Door Installation Bay Area | Patio & Entry",
       "description": "Milgard patio, sliding and entry doors for Bay Area homes. Compare panel styles, glass and installed pricing, with expert installation by Deluxe Windows.",
       "image": "/webflow-assets/images/688a760a252df50b4cbf9cd7_Milgard.avif",
       "type": "website"
@@ -26,7 +26,7 @@
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Milgard Doors Bay Area | Patio & Entry | Deluxe",
+      "title": "Milgard Door Installation Bay Area | Patio & Entry",
       "description": "Milgard patio, sliding and entry doors for Bay Area homes. Compare panel styles, glass and installed pricing, with expert installation by Deluxe Windows.",
       "image": "/webflow-assets/images/688a760a252df50b4cbf9cd7_Milgard.avif",
       "card": "summary_large_image"
@@ -42,12 +42,16 @@
       "answer": "Milgard stands out for vinyl, fiberglass and aluminum families including Trinsic, Tuscany, Style Line and Ultra, while Andersen offers collections across Fibrex composite, wood, vinyl and aluminum-clad lines. Neither wins outright: Milgard windows typically run $350-$1,200 per unit before installation, one of the widest price spans among major brands, so the better pick depends on budget, style and warranty priorities. Deluxe Windows carries both and shows them side by side. Ask about Milgard specifics when booking the free estimate."
     },
     {
-      "question": "Which Milgard doors does Deluxe Windows install in the Bay Area?",
-      "answer": "Deluxe Windows installs Milgard doors across the brand's current lineup — vinyl, fiberglass and aluminum families including Trinsic, Tuscany, Style Line and Ultra — and confirms series availability for each Bay Area project before quoting."
-    },
-    {
       "question": "How do I get installed pricing for Milgard doors?",
       "answer": "Installed pricing for Milgard doors is prepared after on-site measurements: the current promotion prices installations from $1299 per door installed (regular $2165). The written quote itemizes product, labor, permits and any opening repairs."
+    },
+    {
+      "question": "How soon can Milgard doors be installed in the Bay Area?",
+      "answer": "After the free on-site measurement, Milgard orders typically arrive in four to eight weeks, and installation itself takes one to three working days. Deluxe Windows confirms the schedule in writing at contract signing."
+    },
+    {
+      "question": "Which Milgard doors does Deluxe Windows install in the Bay Area?",
+      "answer": "Deluxe Windows installs Milgard doors across the brand's current lineup — vinyl, fiberglass and aluminum families including Trinsic, Tuscany, Style Line and Ultra — and confirms series availability for each Bay Area project before quoting."
     }
   ],
   "schema": {

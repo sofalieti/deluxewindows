@@ -3,11 +3,11 @@
   "key": "brand-collections/brand-marvin-vivid-collection",
   "path": "/brand-collections/brand-marvin-vivid-collection",
   "seo": {
-    "title": "Marvin Vivid Collection | Deluxe Windows",
+    "title": "Marvin Vivid Collection | Prices & Installation",
     "description": "Marvin Vivid Collection specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
     "canonical": "https://www.deluxewindows.com/brand-collections/brand-marvin-vivid-collection",
     "og": {
-      "title": "Marvin Vivid Collection | Deluxe Windows",
+      "title": "Marvin Vivid Collection | Prices & Installation",
       "description": "Marvin Vivid Collection specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
       "image": "/webflow-assets/images/693ecf23904413aab59d839a_69146a875befaae2c0971daf_filtersquality100filltransparent.avif",
       "type": "website"
@@ -22,7 +22,7 @@
     "priority": "P3",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Marvin Vivid Collection | Deluxe Windows",
+      "title": "Marvin Vivid Collection | Prices & Installation",
       "description": "Marvin Vivid Collection specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
       "image": "/webflow-assets/images/693ecf23904413aab59d839a_69146a875befaae2c0971daf_filtersquality100filltransparent.avif",
       "card": "summary_large_image"
@@ -44,6 +44,10 @@
     {
       "question": "How does Marvin Vivid Collection compare with other Marvin collections?",
       "answer": "Compare Marvin Vivid Collection with sibling collections on frame construction, visible glass area, energy ratings, finish options, warranty and installed cost. Marvin's Ultrex fiberglass is impact resistant and holds paint and shape in coastal climates."
+    },
+    {
+      "question": "How do I order Marvin Vivid Collection with installation?",
+      "answer": "Ordering Marvin Vivid Collection starts with a free on-site measurement; Deluxe Windows then quotes the collection installed, places the factory order and schedules the crew, so one contract covers product, installation and warranty registration."
     }
   ],
   "schema": {

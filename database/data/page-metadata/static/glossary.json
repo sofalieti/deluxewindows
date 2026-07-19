@@ -3,11 +3,11 @@
   "key": "static/glossary",
   "path": "/glossary",
   "seo": {
-    "title": "Window & Door Glossary | Deluxe Windows",
+    "title": "Window & Door Glossary | Replacement Terms Explained",
     "description": "Learn essential window and door terms, from Low-E glass and dual pane windows to frame materials, energy ratings and common installation methods.",
     "canonical": "https://www.deluxewindows.com/glossary",
     "og": {
-      "title": "Window & Door Glossary | Deluxe Windows",
+      "title": "Window & Door Glossary | Replacement Terms Explained",
       "description": "Learn essential window and door terms, from Low-E glass and dual pane windows to frame materials, energy ratings and common installation methods.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
       "type": "website"
@@ -24,7 +24,7 @@
     "priority": "P3",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Window & Door Glossary | Deluxe Windows",
+      "title": "Window & Door Glossary | Replacement Terms Explained",
       "description": "Learn essential window and door terms, from Low-E glass and dual pane windows to frame materials, energy ratings and common installation methods.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
       "card": "summary_large_image"

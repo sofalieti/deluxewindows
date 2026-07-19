@@ -3,11 +3,11 @@
   "key": "county-hub-pages/sonoma-county",
   "path": "/county-hub-pages/sonoma-county",
   "seo": {
-    "title": "Sonoma County Window Replacement | Deluxe Windows",
+    "title": "Window Replacement Sonoma County | Installation & Cost",
     "description": "Window and door replacement across Sonoma County: leading brands, energy-efficient products and professional installation for every city we serve.",
     "canonical": "https://www.deluxewindows.com/county-hub-pages/sonoma-county",
     "og": {
-      "title": "Sonoma County Window Replacement | Deluxe Windows",
+      "title": "Window Replacement Sonoma County | Installation & Cost",
       "description": "Window and door replacement across Sonoma County: leading brands, energy-efficient products and professional installation for every city we serve.",
       "image": "/webflow-assets/images/69fc954e7b9bf04407ae45c4_generated-2026-05-07t13-34-39-783z-nhdblc.jpeg",
       "type": "website"
@@ -22,7 +22,7 @@
     "priority": "P2",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Sonoma County Window Replacement | Deluxe Windows",
+      "title": "Window Replacement Sonoma County | Installation & Cost",
       "description": "Window and door replacement across Sonoma County: leading brands, energy-efficient products and professional installation for every city we serve.",
       "image": "/webflow-assets/images/69fc954e7b9bf04407ae45c4_generated-2026-05-07t13-34-39-783z-nhdblc.jpeg",
       "card": "summary_large_image"
@@ -44,6 +44,10 @@
     {
       "question": "Which window features matter most in Sonoma County?",
       "answer": "For Sonoma County homes, weigh solar control, insulation, air leakage and frame durability against the local microclimate. Coastal, hillside and inland Sonoma County homes often need different glass packages."
+    },
+    {
+      "question": "How do I schedule window installation in Sonoma County?",
+      "answer": "Request a free estimate and a Deluxe Windows consultant measures the Sonoma County home, prepares an installed quote and books the crew once products arrive — most Sonoma County installations finish within one to three working days."
     }
   ],
   "schema": {

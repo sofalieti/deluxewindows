@@ -3,11 +3,11 @@
   "key": "brand-collections/brand-simonton-madeira",
   "path": "/brand-collections/brand-simonton-madeira",
   "seo": {
-    "title": "Simonton Madeira | Deluxe Windows",
+    "title": "Simonton Madeira | Prices & Installation",
     "description": "Simonton Madeira specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
     "canonical": "https://www.deluxewindows.com/brand-collections/brand-simonton-madeira",
     "og": {
-      "title": "Simonton Madeira | Deluxe Windows",
+      "title": "Simonton Madeira | Prices & Installation",
       "description": "Simonton Madeira specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
       "image": "/webflow-assets/images/696759f0c1e78048dc591a1b_sim_interior_dining_room_madeira_casement_window_5050_module_p11116-1.avif",
       "type": "website"
@@ -22,7 +22,7 @@
     "priority": "P3",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Simonton Madeira | Deluxe Windows",
+      "title": "Simonton Madeira | Prices & Installation",
       "description": "Simonton Madeira specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
       "image": "/webflow-assets/images/696759f0c1e78048dc591a1b_sim_interior_dining_room_madeira_casement_window_5050_module_p11116-1.avif",
       "card": "summary_large_image"
@@ -44,6 +44,10 @@
     {
       "question": "How does Simonton Madeira compare with other Simonton collections?",
       "answer": "Compare Simonton Madeira with sibling collections on frame construction, visible glass area, energy ratings, finish options, warranty and installed cost. Simonton has been an ENERGY STAR partner since 1999."
+    },
+    {
+      "question": "How do I order Simonton Madeira with installation?",
+      "answer": "Ordering Simonton Madeira starts with a free on-site measurement; Deluxe Windows then quotes the collection installed, places the factory order and schedules the crew, so one contract covers product, installation and warranty registration."
     }
   ],
   "schema": {

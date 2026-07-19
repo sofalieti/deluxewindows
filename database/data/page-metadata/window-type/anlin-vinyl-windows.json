@@ -3,12 +3,12 @@
   "key": "window-type/anlin-vinyl-windows",
   "path": "/window-type/anlin-vinyl-windows",
   "seo": {
-    "title": "Anlin Vinyl Windows | Prices & Series | Deluxe",
-    "description": "Anlin Vinyl Windows for Bay Area homes: Anlin has manufactured energy-efficient vinyl windows in Clovis, California since 1990. Get a free estimate.",
+    "title": "Anlin Vinyl Windows | Installation Cost & Series",
+    "description": "Anlin Vinyl Windows for Bay Area homes: Anlin has manufactured energy-efficient vinyl windows in Clovis, California since 1990. Expert Bay Area installation.",
     "canonical": "https://www.deluxewindows.com/window-type/anlin-vinyl-windows",
     "og": {
-      "title": "Anlin Vinyl Windows | Prices & Series | Deluxe",
-      "description": "Anlin Vinyl Windows for Bay Area homes: Anlin has manufactured energy-efficient vinyl windows in Clovis, California since 1990. Get a free estimate.",
+      "title": "Anlin Vinyl Windows | Installation Cost & Series",
+      "description": "Anlin Vinyl Windows for Bay Area homes: Anlin has manufactured energy-efficient vinyl windows in Clovis, California since 1990. Expert Bay Area installation.",
       "image": "/webflow-assets/images/688f4f8ac3a40ec8b9165e94_Pan-5-scaled-e1713469115198.avif",
       "type": "website"
     },
@@ -21,28 +21,32 @@
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Anlin Vinyl Windows | Prices & Series | Deluxe",
-      "description": "Anlin Vinyl Windows for Bay Area homes: Anlin has manufactured energy-efficient vinyl windows in Clovis, California since 1990. Get a free estimate.",
+      "title": "Anlin Vinyl Windows | Installation Cost & Series",
+      "description": "Anlin Vinyl Windows for Bay Area homes: Anlin has manufactured energy-efficient vinyl windows in Clovis, California since 1990. Expert Bay Area installation.",
       "image": "/webflow-assets/images/688f4f8ac3a40ec8b9165e94_Pan-5-scaled-e1713469115198.avif",
       "card": "summary_large_image"
     }
   },
   "faq": [
     {
+      "question": "What are the disadvantages of vinyl windows?",
+      "answer": "No brand is perfect: with Anlin Vinyl Windows, review series-level differences in pricing, lead times and hardware. Anlin has manufactured energy-efficient vinyl windows in Clovis, California since 1990. Deluxe Windows flags the honest trade-offs of each series before ordering."
+    },
+    {
+      "question": "Which window is better, vinyl or fiberglass?",
+      "answer": "The honest comparison depends on priorities: Anlin Vinyl Windows stands out for California-made vinyl replacement windows engineered for West Coast climates, while competitors trade differently on price, warranty and looks. Installed anlin windows in the bay area usually fall in the mid vinyl range, between economy vinyl and premium fiberglass. Deluxe Windows shows both options side by side in the showroom."
+    },
+    {
+      "question": "What is the lifespan of a vinyl window?",
+      "answer": "Expect Anlin Vinyl Windows products to serve 20-40 years when installed correctly. Anlin's double lifetime warranty is transferable to the next homeowner and covers glass breakage on many series, and Deluxe Windows registers coverage for every installed project."
+    },
+    {
+      "question": "Can vinyl windows be repaired?",
+      "answer": "Minor anlin vinyl windows issues — hardware, weatherstripping, screens or a fogged glass unit — can often be repaired. Cracked or warped frames and repeated seal failures usually make replacement the more economical fix, which Deluxe Windows assesses honestly on site."
+    },
+    {
       "question": "Why choose Anlin Vinyl Windows for a Bay Area home?",
       "answer": "Anlin Vinyl Windows combine Anlin's engineering with low maintenance, good insulation and the widest choice of budget-friendly series. Anlin has manufactured energy-efficient vinyl windows in Clovis, California since 1990, which suits many Bay Area replacement projects."
-    },
-    {
-      "question": "What do Anlin Vinyl Windows cost installed?",
-      "answer": "For Anlin Vinyl Windows, the current promotion prices installations from $499 per window installed (regular $832). The exact number depends on sizes, glass package and installation conditions, so Deluxe Windows quotes each opening after measuring."
-    },
-    {
-      "question": "Which series are available for Anlin Vinyl Windows?",
-      "answer": "Available Anlin Vinyl Windows series change with the manufacturer's current catalog — California-made vinyl replacement windows engineered for West Coast climates. Deluxe Windows confirms the exact options during the consultation."
-    },
-    {
-      "question": "Who installs Anlin Vinyl Windows near me?",
-      "answer": "Deluxe Windows measures, orders and installs Anlin Vinyl Windows throughout the Bay Area from its Burlingame showroom, and verifies operation and weather sealing after installation."
     }
   ],
   "schema": {

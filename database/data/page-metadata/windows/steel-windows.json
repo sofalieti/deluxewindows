@@ -3,11 +3,11 @@
   "key": "windows/steel-windows",
   "path": "/windows/steel-windows",
   "seo": {
-    "title": "Steel Windows Bay Area | Cost & Brands | Deluxe",
+    "title": "Steel Window Replacement Bay Area | Cost & Installation",
     "description": "Steel windows compared for Bay Area homes: typical lifespan 50+ years when finishes are maintained, custom units typically starting around $1,440 each, plus.",
     "canonical": "https://www.deluxewindows.com/windows/steel-windows",
     "og": {
-      "title": "Steel Windows Bay Area | Cost & Brands | Deluxe",
+      "title": "Steel Window Replacement Bay Area | Cost & Installation",
       "description": "Steel windows compared for Bay Area homes: typical lifespan 50+ years when finishes are maintained, custom units typically starting around $1,440 each, plus.",
       "image": "/webflow-assets/images/window-type-hero/steel-windows.avif",
       "type": "website"
@@ -16,17 +16,17 @@
     "primary_keyword": "steel windows",
     "target_keywords": [
       "steel windows",
-      "luxury steel windows burlingame",
-      "custom steel windows burlingame",
-      "commercial steel windows burlingame",
-      "thermal steel windows burlingame",
-      "black steel windows"
+      "black steel windows",
+      "architectural steel windows",
+      "modern steel windows",
+      "stainless steel windows",
+      "steel windows residential"
     ],
     "search_intent": "window-material",
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Steel Windows Bay Area | Cost & Brands | Deluxe",
+      "title": "Steel Window Replacement Bay Area | Cost & Installation",
       "description": "Steel windows compared for Bay Area homes: typical lifespan 50+ years when finishes are maintained, custom units typically starting around $1,440 each, plus.",
       "image": "/webflow-assets/images/window-type-hero/steel-windows.avif",
       "card": "summary_large_image"
@@ -48,6 +48,10 @@
     {
       "question": "Which is cheaper, aluminium or steel windows?",
       "answer": "Steel offers the narrowest sightlines, exceptional strength and a distinctive architectural look at custom units typically starting around $1,440 each, while aluminum brings slim sightlines, structural strength and a clean contemporary appearance and typically lasts 15-30 years, longer for thermally improved architectural frames. The better fit depends on budget, architecture and how long you plan to keep the home."
+    },
+    {
+      "question": "Is removal of the old windows included when replacing with steel windows?",
+      "answer": "Yes — removal and disposal of the old windows are part of the steel windows installation scope, along with insulation, sealing and a final operating check. Everything is itemized in the written Bay Area quote."
     }
   ],
   "schema": {

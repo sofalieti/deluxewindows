@@ -3,11 +3,11 @@
   "key": "blog/how-long-do-windows-last",
   "path": "/blog/how-long-do-windows-last",
   "seo": {
-    "title": "How Long Do Windows Last? Lifespan Guide | Deluxe",
+    "title": "How Long Do Windows Last? | Lifespan by Material",
     "description": "Vinyl windows last 20-40 years, fiberglass up to 50, wood 30+ and aluminum 15-30. Learn the warning signs that your Bay Area windows need replacement.",
     "canonical": "https://www.deluxewindows.com/blog/how-long-do-windows-last",
     "og": {
-      "title": "How Long Do Windows Last? Lifespan Guide | Deluxe",
+      "title": "How Long Do Windows Last? | Lifespan by Material",
       "description": "Vinyl windows last 20-40 years, fiberglass up to 50, wood 30+ and aluminum 15-30. Learn the warning signs that your Bay Area windows need replacement.",
       "image": "/webflow-assets/images/6880fbfbc5faaa597dbffac8_cj-joW0X7sWNfA-unsplash-1.jpg",
       "type": "article"
@@ -23,7 +23,7 @@
     "priority": "P3",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "How Long Do Windows Last? Lifespan Guide | Deluxe",
+      "title": "How Long Do Windows Last? | Lifespan by Material",
       "description": "Vinyl windows last 20-40 years, fiberglass up to 50, wood 30+ and aluminum 15-30. Learn the warning signs that your Bay Area windows need replacement.",
       "image": "/webflow-assets/images/6880fbfbc5faaa597dbffac8_cj-joW0X7sWNfA-unsplash-1.jpg",
       "card": "summary_large_image"
@@ -45,6 +45,10 @@
     {
       "question": "How should Bay Area homeowners apply “How Long Do Windows Last”?",
       "answer": "Use “How Long Do Windows Last” as a starting point, then factor in the home's age, opening condition, exposure and budget before choosing products or scheduling work."
+    },
+    {
+      "question": "When should I get professional help after reading “How Long Do Windows Last”?",
+      "answer": "Bring in a professional when the situation covered in “How Long Do Windows Last” involves safety, water intrusion, structural damage, uncertain measurements or a full replacement decision."
     }
   ],
   "schema": {

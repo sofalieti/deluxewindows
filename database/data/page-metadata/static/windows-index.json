@@ -3,11 +3,11 @@
   "key": "static/windows-index",
   "path": "/windows",
   "seo": {
-    "title": "Replacement Windows Bay Area | Deluxe Windows",
+    "title": "Replacement Windows Bay Area | Cost & Installation",
     "description": "Compare replacement windows by material, style and brand for Bay Area homes. Review vinyl, fiberglass, wood and aluminum options and get a free estimate.",
     "canonical": "https://www.deluxewindows.com/windows",
     "og": {
-      "title": "Replacement Windows Bay Area | Deluxe Windows",
+      "title": "Replacement Windows Bay Area | Cost & Installation",
       "description": "Compare replacement windows by material, style and brand for Bay Area homes. Review vinyl, fiberglass, wood and aluminum options and get a free estimate.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
       "type": "website"
@@ -24,7 +24,7 @@
     "priority": "P0",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Replacement Windows Bay Area | Deluxe Windows",
+      "title": "Replacement Windows Bay Area | Cost & Installation",
       "description": "Compare replacement windows by material, style and brand for Bay Area homes. Review vinyl, fiberglass, wood and aluminum options and get a free estimate.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
       "card": "summary_large_image"
@@ -32,20 +32,28 @@
   },
   "faq": [
     {
-      "question": "How much should it cost to install windows?",
-      "answer": "For windows windows, the current promotion prices installations from $549 per window installed (regular $915). Installed Bay Area totals also reflect labor, permits and any opening repairs, which Deluxe Windows confirms in a written estimate."
+      "question": "What is the highest rated window company?",
+      "answer": "Windows windows are built around a window frame system, chosen for a balance of appearance, comfort and durability. In practice the choice covers frame construction, glazing package and finish, all of which Deluxe Windows documents in each product proposal."
     },
     {
-      "question": "What is the correct way to install a window?",
-      "answer": "Professional installation of windows follows measured openings, square-and-plumb setting, insulation, flashing and sealing, then an operating check. Deluxe Windows schedules most Bay Area projects within one to three days on site."
+      "question": "Are Jeld Wen windows junk?",
+      "answer": "Windows products earn their reputation through a balance of appearance, comfort and durability. The right call still depends on the home's openings, exposure and budget, which Deluxe Windows reviews during a free assessment."
+    },
+    {
+      "question": "What is the number one rated window?",
+      "answer": "Windows windows are built around a window frame system, chosen for a balance of appearance, comfort and durability. In practice the choice covers frame construction, glazing package and finish, all of which Deluxe Windows documents in each product proposal. Ask about Windows specifics when booking the free estimate."
+    },
+    {
+      "question": "How much should it cost to install windows?",
+      "answer": "For windows windows, the current promotion prices installations from $549 per window installed (regular $915). Installed Bay Area totals also reflect labor, permits and any opening repairs, which Deluxe Windows confirms in a written estimate."
     },
     {
       "question": "Which window materials can I compare at Deluxe Windows?",
       "answer": "Vinyl, wood, wood-clad, aluminum, aluminum-clad, fiberglass and steel windows are all available, and the showroom lets homeowners compare frames and glass side by side."
     },
     {
-      "question": "How do I pick the right window style?",
-      "answer": "Choose the operating style by weighing ventilation, egress requirements, cleaning access, view area and architectural fit; the same opening can often take double hung, casement or slider designs."
+      "question": "What is the correct way to install a window?",
+      "answer": "Professional installation of windows follows measured openings, square-and-plumb setting, insulation, flashing and sealing, then an operating check. Deluxe Windows schedules most Bay Area projects within one to three days on site."
     }
   ],
   "schema": {

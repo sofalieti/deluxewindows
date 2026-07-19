@@ -3,11 +3,11 @@
   "key": "door-brands/anlin",
   "path": "/door-brands/anlin",
   "seo": {
-    "title": "Anlin Doors Bay Area | Patio & Entry | Deluxe",
+    "title": "Anlin Door Installation Bay Area | Patio & Entry",
     "description": "Anlin patio, sliding and entry doors for Bay Area homes. Compare panel styles, glass and installed pricing, with expert installation by Deluxe Windows.",
     "canonical": "https://www.deluxewindows.com/door-brands/anlin",
     "og": {
-      "title": "Anlin Doors Bay Area | Patio & Entry | Deluxe",
+      "title": "Anlin Door Installation Bay Area | Patio & Entry",
       "description": "Anlin patio, sliding and entry doors for Bay Area homes. Compare panel styles, glass and installed pricing, with expert installation by Deluxe Windows.",
       "image": "/webflow-assets/images/688a76b7e94512a795b803e9_Anlin.avif",
       "type": "website"
@@ -26,7 +26,7 @@
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Anlin Doors Bay Area | Patio & Entry | Deluxe",
+      "title": "Anlin Door Installation Bay Area | Patio & Entry",
       "description": "Anlin patio, sliding and entry doors for Bay Area homes. Compare panel styles, glass and installed pricing, with expert installation by Deluxe Windows.",
       "image": "/webflow-assets/images/688a76b7e94512a795b803e9_Anlin.avif",
       "card": "summary_large_image"
@@ -34,12 +34,16 @@
   },
   "faq": [
     {
-      "question": "Which Anlin doors does Deluxe Windows install in the Bay Area?",
-      "answer": "Deluxe Windows installs Anlin doors across the brand's current lineup — California-made vinyl replacement windows engineered for West Coast climates — and confirms series availability for each Bay Area project before quoting."
-    },
-    {
       "question": "How do I get installed pricing for Anlin doors?",
       "answer": "Installed pricing for Anlin doors is prepared after on-site measurements: the current promotion prices installations from $1299 per door installed (regular $2165). The written quote itemizes product, labor, permits and any opening repairs."
+    },
+    {
+      "question": "How soon can Anlin doors be installed in the Bay Area?",
+      "answer": "After the free on-site measurement, Anlin orders typically arrive in four to eight weeks, and installation itself takes one to three working days. Deluxe Windows confirms the schedule in writing at contract signing. This applies specifically to Anlin projects."
+    },
+    {
+      "question": "Which Anlin doors does Deluxe Windows install in the Bay Area?",
+      "answer": "Deluxe Windows installs Anlin doors across the brand's current lineup — California-made vinyl replacement windows engineered for West Coast climates — and confirms series availability for each Bay Area project before quoting."
     },
     {
       "question": "How long does Anlin door installation take?",

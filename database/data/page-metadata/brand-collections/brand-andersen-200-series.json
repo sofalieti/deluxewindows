@@ -3,11 +3,11 @@
   "key": "brand-collections/brand-andersen-200-series",
   "path": "/brand-collections/brand-andersen-200-series",
   "seo": {
-    "title": "Andersen 200 Series | Deluxe Windows",
+    "title": "Andersen 200 Series | Prices & Installation",
     "description": "Andersen 200 Series specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
     "canonical": "https://www.deluxewindows.com/brand-collections/brand-andersen-200-series",
     "og": {
-      "title": "Andersen 200 Series | Deluxe Windows",
+      "title": "Andersen 200 Series | Prices & Installation",
       "description": "Andersen 200 Series specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
       "image": "/webflow-assets/images/69523e6113cfc9cc8ba9c516_200-series-new-hero-image-768x450.avif",
       "type": "website"
@@ -22,7 +22,7 @@
     "priority": "P3",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Andersen 200 Series | Deluxe Windows",
+      "title": "Andersen 200 Series | Prices & Installation",
       "description": "Andersen 200 Series specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
       "image": "/webflow-assets/images/69523e6113cfc9cc8ba9c516_200-series-new-hero-image-768x450.avif",
       "card": "summary_large_image"
@@ -44,6 +44,10 @@
     {
       "question": "How does Andersen 200 Series compare with other Andersen collections?",
       "answer": "Compare Andersen 200 Series with sibling collections on frame construction, visible glass area, energy ratings, finish options, warranty and installed cost. the 100 Series uses Fibrex composite material that Andersen rates about twice as strong as vinyl."
+    },
+    {
+      "question": "How do I order Andersen 200 Series with installation?",
+      "answer": "Ordering Andersen 200 Series starts with a free on-site measurement; Deluxe Windows then quotes the collection installed, places the factory order and schedules the crew, so one contract covers product, installation and warranty registration."
     }
   ],
   "schema": {

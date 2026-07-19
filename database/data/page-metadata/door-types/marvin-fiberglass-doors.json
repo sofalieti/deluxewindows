@@ -3,12 +3,12 @@
   "key": "door-types/marvin-fiberglass-doors",
   "path": "/door-types/marvin-fiberglass-doors",
   "seo": {
-    "title": "Marvin Fiberglass Doors | Prices & Options | Deluxe",
-    "description": "Marvin Fiberglass Doors for Bay Area homes: Marvin's Ultrex fiberglass is impact resistant and holds paint and shape in coastal climates. Get a free estimate.",
+    "title": "Marvin Fiberglass Doors | Installation Cost & Options",
+    "description": "Marvin Fiberglass Doors for Bay Area homes: Marvin's Ultrex fiberglass is impact resistant and holds paint and shape in coastal climates. Licensed installers.",
     "canonical": "https://www.deluxewindows.com/door-types/marvin-fiberglass-doors",
     "og": {
-      "title": "Marvin Fiberglass Doors | Prices & Options | Deluxe",
-      "description": "Marvin Fiberglass Doors for Bay Area homes: Marvin's Ultrex fiberglass is impact resistant and holds paint and shape in coastal climates. Get a free estimate.",
+      "title": "Marvin Fiberglass Doors | Installation Cost & Options",
+      "description": "Marvin Fiberglass Doors for Bay Area homes: Marvin's Ultrex fiberglass is impact resistant and holds paint and shape in coastal climates. Licensed installers.",
       "image": "/webflow-assets/images/688efd96309fed3347c95d0b_trustile-traditional-style-black-front-door-1.jpg",
       "type": "website"
     },
@@ -22,13 +22,17 @@
     "priority": "P2",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Marvin Fiberglass Doors | Prices & Options | Deluxe",
-      "description": "Marvin Fiberglass Doors for Bay Area homes: Marvin's Ultrex fiberglass is impact resistant and holds paint and shape in coastal climates. Get a free estimate.",
+      "title": "Marvin Fiberglass Doors | Installation Cost & Options",
+      "description": "Marvin Fiberglass Doors for Bay Area homes: Marvin's Ultrex fiberglass is impact resistant and holds paint and shape in coastal climates. Licensed installers.",
       "image": "/webflow-assets/images/688efd96309fed3347c95d0b_trustile-traditional-style-black-front-door-1.jpg",
       "card": "summary_large_image"
     }
   },
   "faq": [
+    {
+      "question": "Are Marvin doors worth the money?",
+      "answer": "Marvin Fiberglass Doors is a solid choice when the series matches the home: the brand offers premium wood, fiberglass and clad collections such as Essential, Elevate and Ultimate. Marvin's Ultrex fiberglass is impact resistant and holds paint and shape in coastal climates. Deluxe Windows compares verified ratings and installed cost before recommending it."
+    },
     {
       "question": "Why choose Marvin Fiberglass Doors for a Bay Area home?",
       "answer": "Marvin Fiberglass Doors pair Marvin's door engineering with dimensional stability, strength and paintable low-maintenance frames. Marvin's Ultrex fiberglass is impact resistant and holds paint and shape in coastal climates, so the door style is matched to the opening, exposure and security needs of the home."
@@ -38,12 +42,12 @@
       "answer": "For Marvin Fiberglass Doors, the current promotion prices installations from $1599 per door installed (regular $2665). Panel count, glass, hardware and opening preparation set the final number, so Deluxe Windows quotes each door after measuring."
     },
     {
-      "question": "Which styles are available for Marvin Fiberglass Doors?",
-      "answer": "Marvin Fiberglass Doors span entry, sliding, French and multi-panel patio configurations, depending on Marvin's current catalog. Deluxe Windows confirms the exact options during the consultation."
+      "question": "How fast can Marvin Fiberglass Doors be ordered and installed?",
+      "answer": "After measuring, Marvin Fiberglass Doors typically arrive in four to eight weeks and are installed in about a day per door, including removal of the old unit, sealing and hardware adjustment. The exact Bay Area schedule is confirmed in writing."
     },
     {
-      "question": "Who installs Marvin Fiberglass Doors near me?",
-      "answer": "Deluxe Windows measures, orders and installs Marvin Fiberglass Doors throughout the Bay Area from its Burlingame showroom, and verifies operation and weather sealing after installation."
+      "question": "Which styles are available for Marvin Fiberglass Doors?",
+      "answer": "Marvin Fiberglass Doors span entry, sliding, French and multi-panel patio configurations, depending on Marvin's current catalog. Deluxe Windows confirms the exact options during the consultation."
     }
   ],
   "schema": {

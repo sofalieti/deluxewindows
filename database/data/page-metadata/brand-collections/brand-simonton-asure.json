@@ -3,11 +3,11 @@
   "key": "brand-collections/brand-simonton-asure",
   "path": "/brand-collections/brand-simonton-asure",
   "seo": {
-    "title": "Simonton Asure | Deluxe Windows",
+    "title": "Simonton Asure | Prices & Installation",
     "description": "Simonton Asure specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
     "canonical": "https://www.deluxewindows.com/brand-collections/brand-simonton-asure",
     "og": {
-      "title": "Simonton Asure | Deluxe Windows",
+      "title": "Simonton Asure | Prices & Installation",
       "description": "Simonton Asure specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
       "image": "/webflow-assets/images/6964b7b5dfa44f1ebf10cb88_689afc797bce555ea0d7030a_sim_interior_living_room_asure_3_lite_sliding_window_5050_module_p114.avif",
       "type": "website"
@@ -22,7 +22,7 @@
     "priority": "P3",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Simonton Asure | Deluxe Windows",
+      "title": "Simonton Asure | Prices & Installation",
       "description": "Simonton Asure specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
       "image": "/webflow-assets/images/6964b7b5dfa44f1ebf10cb88_689afc797bce555ea0d7030a_sim_interior_living_room_asure_3_lite_sliding_window_5050_module_p114.avif",
       "card": "summary_large_image"
@@ -44,6 +44,10 @@
     {
       "question": "How does Simonton Asure compare with other Simonton collections?",
       "answer": "Compare Simonton Asure with sibling collections on frame construction, visible glass area, energy ratings, finish options, warranty and installed cost. Simonton has been an ENERGY STAR partner since 1999."
+    },
+    {
+      "question": "How do I order Simonton Asure with installation?",
+      "answer": "Ordering Simonton Asure starts with a free on-site measurement; Deluxe Windows then quotes the collection installed, places the factory order and schedules the crew, so one contract covers product, installation and warranty registration."
     }
   ],
   "schema": {

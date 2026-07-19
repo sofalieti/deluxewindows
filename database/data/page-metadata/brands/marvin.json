@@ -3,12 +3,12 @@
   "key": "brands/marvin",
   "path": "/brands/marvin",
   "seo": {
-    "title": "Marvin Windows Bay Area | Authorized Dealer | Deluxe",
-    "description": "Marvin windows for Bay Area homes: premium wood, fiberglass and clad collections such as Essential, Elevate and Ultimate. Get a free estimate.",
+    "title": "Marvin Window Replacement & Installation | Bay Area",
+    "description": "Marvin windows for Bay Area homes: premium wood, fiberglass and clad collections such as Essential, Elevate and Ultimate. Get a free installation estimate.",
     "canonical": "https://www.deluxewindows.com/brands/marvin",
     "og": {
-      "title": "Marvin Windows Bay Area | Authorized Dealer | Deluxe",
-      "description": "Marvin windows for Bay Area homes: premium wood, fiberglass and clad collections such as Essential, Elevate and Ultimate. Get a free estimate.",
+      "title": "Marvin Window Replacement & Installation | Bay Area",
+      "description": "Marvin windows for Bay Area homes: premium wood, fiberglass and clad collections such as Essential, Elevate and Ultimate. Get a free installation estimate.",
       "image": "/webflow-assets/images/688a75debadab986e83c4dc4_Marvin.avif",
       "type": "website"
     },
@@ -26,8 +26,8 @@
     "priority": "P0",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Marvin Windows Bay Area | Authorized Dealer | Deluxe",
-      "description": "Marvin windows for Bay Area homes: premium wood, fiberglass and clad collections such as Essential, Elevate and Ultimate. Get a free estimate.",
+      "title": "Marvin Window Replacement & Installation | Bay Area",
+      "description": "Marvin windows for Bay Area homes: premium wood, fiberglass and clad collections such as Essential, Elevate and Ultimate. Get a free installation estimate.",
       "image": "/webflow-assets/images/688a75debadab986e83c4dc4_Marvin.avif",
       "card": "summary_large_image"
     }
@@ -48,6 +48,10 @@
     {
       "question": "Are Marvin Essential windows good quality?",
       "answer": "Marvin is a solid choice when the series matches the home: the brand offers premium wood, fiberglass and clad collections such as Essential, Elevate and Ultimate. Marvin's Ultrex fiberglass is impact resistant and holds paint and shape in coastal climates. Deluxe Windows compares verified ratings and installed cost before recommending it. Ask about Marvin specifics when booking the free estimate."
+    },
+    {
+      "question": "How soon can Marvin windows be installed in the Bay Area?",
+      "answer": "After the free on-site measurement, Marvin orders typically arrive in four to eight weeks, and installation itself takes one to three working days. Deluxe Windows confirms the schedule in writing at contract signing."
     }
   ],
   "schema": {

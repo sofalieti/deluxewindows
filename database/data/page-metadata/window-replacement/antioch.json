@@ -3,12 +3,12 @@
   "key": "window-replacement/antioch",
   "path": "/window-replacement/antioch",
   "seo": {
-    "title": "Window Replacement Antioch, CA | Deluxe Windows",
-    "description": "Window replacement in Antioch, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Antioch project. Get a free estimate.",
+    "title": "Window Replacement Antioch, CA | Cost & Installation",
+    "description": "Window replacement in Antioch, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Antioch project. Licensed installers.",
     "canonical": "https://www.deluxewindows.com/window-replacement/antioch",
     "og": {
-      "title": "Window Replacement Antioch, CA | Deluxe Windows",
-      "description": "Window replacement in Antioch, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Antioch project. Get a free estimate.",
+      "title": "Window Replacement Antioch, CA | Cost & Installation",
+      "description": "Window replacement in Antioch, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Antioch project. Licensed installers.",
       "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
       "type": "website"
     },
@@ -25,8 +25,8 @@
     "priority": "P2",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Window Replacement Antioch, CA | Deluxe Windows",
-      "description": "Window replacement in Antioch, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Antioch project. Get a free estimate.",
+      "title": "Window Replacement Antioch, CA | Cost & Installation",
+      "description": "Window replacement in Antioch, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Antioch project. Licensed installers.",
       "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
       "card": "summary_large_image"
     }
@@ -47,6 +47,10 @@
     {
       "question": "How long does window replacement take in Antioch?",
       "answer": "Most Antioch projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+    },
+    {
+      "question": "How do I book a free window replacement estimate in Antioch?",
+      "answer": "Call or send the project details online and a Deluxe Windows consultant visits the Antioch home, measures every opening and prepares a written installed quote — the visit is free and there is no obligation to order."
     }
   ],
   "schema": {

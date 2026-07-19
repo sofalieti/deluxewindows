@@ -3,11 +3,11 @@
   "key": "window-replacement/redwood-city",
   "path": "/window-replacement/redwood-city",
   "seo": {
-    "title": "Window Replacement Redwood City, CA | Deluxe Windows",
+    "title": "Window Replacement Redwood City, CA | Cost & Installation",
     "description": "Window replacement in Redwood City, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Redwood City project.",
     "canonical": "https://www.deluxewindows.com/window-replacement/redwood-city",
     "og": {
-      "title": "Window Replacement Redwood City, CA | Deluxe Windows",
+      "title": "Window Replacement Redwood City, CA | Cost & Installation",
       "description": "Window replacement in Redwood City, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Redwood City project.",
       "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
       "type": "website"
@@ -26,7 +26,7 @@
     "priority": "P2",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Window Replacement Redwood City, CA | Deluxe Windows",
+      "title": "Window Replacement Redwood City, CA | Cost & Installation",
       "description": "Window replacement in Redwood City, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Redwood City project.",
       "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
       "card": "summary_large_image"
@@ -48,6 +48,10 @@
     {
       "question": "How long does window replacement take in Redwood City?",
       "answer": "Most Redwood City projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+    },
+    {
+      "question": "How do I book a free window replacement estimate in Redwood City?",
+      "answer": "Call or send the project details online and a Deluxe Windows consultant visits the Redwood City home, measures every opening and prepares a written installed quote — the visit is free and there is no obligation to order."
     }
   ],
   "schema": {

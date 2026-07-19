@@ -3,11 +3,11 @@
   "key": "brand-collections/brand-allweather-series-6200",
   "path": "/brand-collections/brand-allweather-series-6200",
   "seo": {
-    "title": "All Weather Series 6200 | Deluxe Windows",
+    "title": "All Weather Series 6200 | Prices & Installation",
     "description": "All Weather Series 6200 specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
     "canonical": "https://www.deluxewindows.com/brand-collections/brand-allweather-series-6200",
     "og": {
-      "title": "All Weather Series 6200 | Deluxe Windows",
+      "title": "All Weather Series 6200 | Prices & Installation",
       "description": "All Weather Series 6200 specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
       "image": "/webflow-assets/images/6979ebfde1eb2add70873b6a_All-Weather_Series-6200-Hero-Web-Res_RGB-e1681844069471.webp",
       "type": "website"
@@ -22,7 +22,7 @@
     "priority": "P3",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "All Weather Series 6200 | Deluxe Windows",
+      "title": "All Weather Series 6200 | Prices & Installation",
       "description": "All Weather Series 6200 specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
       "image": "/webflow-assets/images/6979ebfde1eb2add70873b6a_All-Weather_Series-6200-Hero-Web-Res_RGB-e1681844069471.webp",
       "card": "summary_large_image"
@@ -44,6 +44,14 @@
     {
       "question": "How does All Weather Series 6200 compare with other brand collections?",
       "answer": "Compare All Weather Series 6200 with sibling collections on frame construction, visible glass area, energy ratings, finish options, warranty and installed cost. series availability is confirmed for each Bay Area project."
+    },
+    {
+      "question": "How do I order All Weather Series 6200 with installation?",
+      "answer": "Ordering All Weather Series 6200 starts with a free on-site measurement; Deluxe Windows then quotes the collection installed, places the factory order and schedules the crew, so one contract covers product, installation and warranty registration."
+    },
+    {
+      "question": "Do dual pane windows reduce heat?",
+      "answer": "Energy performance for all weather series 6200 comes from the whole unit: frame, Low-E glass, gas fill, spacers and installation. ENERGY STAR certified windows save about 12% on energy bills, and qualifying models may earn the $600 federal 25C tax credit."
     }
   ],
   "schema": {

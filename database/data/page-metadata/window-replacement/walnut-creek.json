@@ -3,11 +3,11 @@
   "key": "window-replacement/walnut-creek",
   "path": "/window-replacement/walnut-creek",
   "seo": {
-    "title": "Window Replacement Walnut Creek, CA | Deluxe Windows",
+    "title": "Window Replacement Walnut Creek, CA | Cost & Installation",
     "description": "Window replacement in Walnut Creek, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Walnut Creek project.",
     "canonical": "https://www.deluxewindows.com/window-replacement/walnut-creek",
     "og": {
-      "title": "Window Replacement Walnut Creek, CA | Deluxe Windows",
+      "title": "Window Replacement Walnut Creek, CA | Cost & Installation",
       "description": "Window replacement in Walnut Creek, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Walnut Creek project.",
       "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
       "type": "website"
@@ -26,7 +26,7 @@
     "priority": "P2",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Window Replacement Walnut Creek, CA | Deluxe Windows",
+      "title": "Window Replacement Walnut Creek, CA | Cost & Installation",
       "description": "Window replacement in Walnut Creek, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Walnut Creek project.",
       "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
       "card": "summary_large_image"
@@ -48,6 +48,10 @@
     {
       "question": "Which window brands work best for Walnut Creek homes?",
       "answer": "Popular choices in Walnut Creek include Milgard, Anlin and Simonton vinyl for value, and Marvin or Andersen for premium projects. The right pick depends on the home's age, style and exposure in Walnut Creek."
+    },
+    {
+      "question": "How long does window replacement take in Walnut Creek?",
+      "answer": "Most Walnut Creek projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
     }
   ],
   "schema": {

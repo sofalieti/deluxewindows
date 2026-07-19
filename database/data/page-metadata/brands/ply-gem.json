@@ -3,12 +3,12 @@
   "key": "brands/ply-gem",
   "path": "/brands/ply-gem",
   "seo": {
-    "title": "Ply Gem Windows Bay Area | Authorized Dealer | Deluxe",
-    "description": "Ply Gem windows for Bay Area homes: practical vinyl and aluminum collections across several value levels. Get a free estimate. Expert Bay Area installation.",
+    "title": "Ply Gem Window Replacement & Installation | Bay Area",
+    "description": "Ply Gem windows for Bay Area homes: practical vinyl and aluminum collections across several value levels. Get a free installation estimate. Licensed installers.",
     "canonical": "https://www.deluxewindows.com/brands/ply-gem",
     "og": {
-      "title": "Ply Gem Windows Bay Area | Authorized Dealer | Deluxe",
-      "description": "Ply Gem windows for Bay Area homes: practical vinyl and aluminum collections across several value levels. Get a free estimate. Expert Bay Area installation.",
+      "title": "Ply Gem Window Replacement & Installation | Bay Area",
+      "description": "Ply Gem windows for Bay Area homes: practical vinyl and aluminum collections across several value levels. Get a free installation estimate. Licensed installers.",
       "image": "/webflow-assets/images/688a756ee649c541284c8b78_Plygem.avif",
       "type": "website"
     },
@@ -26,8 +26,8 @@
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Ply Gem Windows Bay Area | Authorized Dealer | Deluxe",
-      "description": "Ply Gem windows for Bay Area homes: practical vinyl and aluminum collections across several value levels. Get a free estimate. Expert Bay Area installation.",
+      "title": "Ply Gem Window Replacement & Installation | Bay Area",
+      "description": "Ply Gem windows for Bay Area homes: practical vinyl and aluminum collections across several value levels. Get a free installation estimate. Licensed installers.",
       "image": "/webflow-assets/images/688a756ee649c541284c8b78_Plygem.avif",
       "card": "summary_large_image"
     }
@@ -48,6 +48,10 @@
     {
       "question": "What is a Ply Gem window?",
       "answer": "Ply Gem windows are built around a window frame system, chosen for a balance of appearance, comfort and durability. In practice the choice covers frame construction, glazing package and finish, all of which Deluxe Windows documents in each product proposal."
+    },
+    {
+      "question": "How do I get installed pricing for Ply Gem windows?",
+      "answer": "Installed pricing for Ply Gem windows is prepared after on-site measurements: the current promotion prices installations from $499 per window installed (regular $832). The written quote itemizes product, labor, permits and any opening repairs."
     }
   ],
   "schema": {

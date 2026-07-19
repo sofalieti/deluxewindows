@@ -3,11 +3,11 @@
   "key": "county-hub-pages/contra-costa-county",
   "path": "/county-hub-pages/contra-costa-county",
   "seo": {
-    "title": "Contra Costa County Window Replacement | Deluxe Windows",
+    "title": "Window Replacement Contra Costa County | Installation & Cost",
     "description": "Window and door replacement across Contra Costa County: leading brands, energy-efficient products and professional installation for every city we serve.",
     "canonical": "https://www.deluxewindows.com/county-hub-pages/contra-costa-county",
     "og": {
-      "title": "Contra Costa County Window Replacement | Deluxe Windows",
+      "title": "Window Replacement Contra Costa County | Installation & Cost",
       "description": "Window and door replacement across Contra Costa County: leading brands, energy-efficient products and professional installation for every city we serve.",
       "image": "/webflow-assets/images/69fc954e7b9bf04407ae45cf_generated-2026-05-07t13-32-48-881z-s3gv8b.jpeg",
       "type": "website"
@@ -22,7 +22,7 @@
     "priority": "P2",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Contra Costa County Window Replacement | Deluxe Windows",
+      "title": "Window Replacement Contra Costa County | Installation & Cost",
       "description": "Window and door replacement across Contra Costa County: leading brands, energy-efficient products and professional installation for every city we serve.",
       "image": "/webflow-assets/images/69fc954e7b9bf04407ae45cf_generated-2026-05-07t13-32-48-881z-s3gv8b.jpeg",
       "card": "summary_large_image"
@@ -44,6 +44,10 @@
     {
       "question": "Which window features matter most in Contra Costa County?",
       "answer": "For Contra Costa County homes, weigh solar control, insulation, air leakage and frame durability against the local microclimate. Coastal, hillside and inland Contra Costa County homes often need different glass packages."
+    },
+    {
+      "question": "How do I schedule window installation in Contra Costa County?",
+      "answer": "Request a free estimate and a Deluxe Windows consultant measures the Contra Costa County home, prepares an installed quote and books the crew once products arrive — most Contra Costa County installations finish within one to three working days."
     }
   ],
   "schema": {

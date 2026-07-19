@@ -3,12 +3,12 @@
   "key": "window-replacement/oakland",
   "path": "/window-replacement/oakland",
   "seo": {
-    "title": "Window Replacement Oakland, CA | Deluxe Windows",
-    "description": "Window replacement in Oakland, CA with Milgard, Marvin, Andersen and more. Get a free estimate. Expert Bay Area installation. Visit our Burlingame showroom.",
+    "title": "Window Replacement Oakland, CA | Cost & Installation",
+    "description": "Window replacement in Oakland, CA with Milgard, Marvin, Andersen and more. Get a free installation estimate. Expert Bay Area installation. Licensed installers.",
     "canonical": "https://www.deluxewindows.com/window-replacement/oakland",
     "og": {
-      "title": "Window Replacement Oakland, CA | Deluxe Windows",
-      "description": "Window replacement in Oakland, CA with Milgard, Marvin, Andersen and more. Get a free estimate. Expert Bay Area installation. Visit our Burlingame showroom.",
+      "title": "Window Replacement Oakland, CA | Cost & Installation",
+      "description": "Window replacement in Oakland, CA with Milgard, Marvin, Andersen and more. Get a free installation estimate. Expert Bay Area installation. Licensed installers.",
       "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
       "type": "website"
     },
@@ -26,8 +26,8 @@
     "priority": "P1",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Window Replacement Oakland, CA | Deluxe Windows",
-      "description": "Window replacement in Oakland, CA with Milgard, Marvin, Andersen and more. Get a free estimate. Expert Bay Area installation. Visit our Burlingame showroom.",
+      "title": "Window Replacement Oakland, CA | Cost & Installation",
+      "description": "Window replacement in Oakland, CA with Milgard, Marvin, Andersen and more. Get a free installation estimate. Expert Bay Area installation. Licensed installers.",
       "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
       "card": "summary_large_image"
     }
@@ -48,6 +48,10 @@
     {
       "question": "How long does window replacement take in Oakland?",
       "answer": "Most Oakland projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+    },
+    {
+      "question": "How do I book a free window replacement estimate in Oakland?",
+      "answer": "Call or send the project details online and a Deluxe Windows consultant visits the Oakland home, measures every opening and prepares a written installed quote — the visit is free and there is no obligation to order."
     }
   ],
   "schema": {

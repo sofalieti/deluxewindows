@@ -3,11 +3,11 @@
   "key": "blog/new-construction-windows-vs-replacement-windows",
   "path": "/blog/new-construction-windows-vs-replacement-windows",
   "seo": {
-    "title": "New Construction vs Replacement Windows | Deluxe",
+    "title": "New Construction vs Replacement Windows | Which to Pick",
     "description": "Replacement windows fit an existing opening and cost 50-100% less to install; new construction windows replace the full framed opening. Compare use cases.",
     "canonical": "https://www.deluxewindows.com/blog/new-construction-windows-vs-replacement-windows",
     "og": {
-      "title": "New Construction vs Replacement Windows | Deluxe",
+      "title": "New Construction vs Replacement Windows | Which to Pick",
       "description": "Replacement windows fit an existing opening and cost 50-100% less to install; new construction windows replace the full framed opening. Compare use cases.",
       "image": "/webflow-assets/images/6880f9d4a118459d7f9fe81a_getty-images-1GZaPSlcHlE-unsplash-1.jpg",
       "type": "article"
@@ -22,7 +22,7 @@
     "priority": "P3",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "New Construction vs Replacement Windows | Deluxe",
+      "title": "New Construction vs Replacement Windows | Which to Pick",
       "description": "Replacement windows fit an existing opening and cost 50-100% less to install; new construction windows replace the full framed opening. Compare use cases.",
       "image": "/webflow-assets/images/6880f9d4a118459d7f9fe81a_getty-images-1GZaPSlcHlE-unsplash-1.jpg",
       "card": "summary_large_image"
@@ -44,6 +44,10 @@
     {
       "question": "What is the key takeaway from “New Construction Windows vs. Replacement Windows”?",
       "answer": "Replacement windows fit an existing opening and cost 50-100% less to install; new construction windows replace the full framed opening. Compare use cases."
+    },
+    {
+      "question": "How should Bay Area homeowners apply “New Construction Windows vs. Replacement Windows”?",
+      "answer": "Use “New Construction Windows vs. Replacement Windows” as a starting point, then factor in the home's age, opening condition, exposure and budget before choosing products or scheduling work."
     }
   ],
   "schema": {

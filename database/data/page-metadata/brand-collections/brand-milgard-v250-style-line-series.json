@@ -3,11 +3,11 @@
   "key": "brand-collections/brand-milgard-v250-style-line-series",
   "path": "/brand-collections/brand-milgard-v250-style-line-series",
   "seo": {
-    "title": "Milgard V250 Style Line Series | Deluxe Windows",
+    "title": "Milgard V250 Style Line Series | Prices & Installation",
     "description": "Milgard V250 Style Line Series specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
     "canonical": "https://www.deluxewindows.com/brand-collections/brand-milgard-v250-style-line-series",
     "og": {
-      "title": "Milgard V250 Style Line Series | Deluxe Windows",
+      "title": "Milgard V250 Style Line Series | Prices & Installation",
       "description": "Milgard V250 Style Line Series specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
       "image": "/webflow-assets/images/693661d8882df952b82168c6_68909992eea248d6110a3672_65628044.webp",
       "type": "website"
@@ -22,13 +22,21 @@
     "priority": "P3",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Milgard V250 Style Line Series | Deluxe Windows",
+      "title": "Milgard V250 Style Line Series | Prices & Installation",
       "description": "Milgard V250 Style Line Series specifications for Bay Area homes: styles, glass options, colors, hardware and installed pricing, reviewed with Deluxe Windows.",
       "image": "/webflow-assets/images/693661d8882df952b82168c6_68909992eea248d6110a3672_65628044.webp",
       "card": "summary_large_image"
     }
   },
   "faq": [
+    {
+      "question": "What are the different lines of Milgard windows?",
+      "answer": "Milgard V250 Style Line Series windows are built around a window frame system, chosen for a balance of appearance, comfort and durability. In practice the choice covers frame construction, glazing package and finish, all of which Deluxe Windows documents in each product proposal."
+    },
+    {
+      "question": "What is the difference between Milgard Styleline and trinsic?",
+      "answer": "The honest comparison depends on priorities: Milgard V250 Style Line Series stands out for vinyl, fiberglass and aluminum families including Trinsic, Tuscany, Style Line and Ultra, while competitors trade differently on price, warranty and looks. Milgard windows typically run $350-$1,200 per unit before installation, one of the widest price spans among major brands. Deluxe Windows shows both options side by side in the showroom."
+    },
     {
       "question": "What should homeowners know about Milgard V250 Style Line Series?",
       "answer": "Milgard V250 Style Line Series is part of Milgard's lineup: vinyl, fiberglass and aluminum families including Trinsic, Tuscany, Style Line and Ultra. Deluxe Windows checks that this collection matches the opening sizes and design goals before recommending it."
@@ -40,10 +48,6 @@
     {
       "question": "How is installed pricing for Milgard V250 Style Line Series calculated?",
       "answer": "Installed pricing for Milgard V250 Style Line Series reflects opening dimensions, configuration, glass, finish, quantity and access. As a reference, the current promotion prices installations from $499 per window installed (regular $832)."
-    },
-    {
-      "question": "How does Milgard V250 Style Line Series compare with other Milgard collections?",
-      "answer": "Compare Milgard V250 Style Line Series with sibling collections on frame construction, visible glass area, energy ratings, finish options, warranty and installed cost. Tuscany uses a classic frame profile while Trinsic maximizes visible glass with narrow frames."
     }
   ],
   "schema": {
