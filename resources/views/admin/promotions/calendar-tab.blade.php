@@ -11,10 +11,9 @@
 
 <div class="promo-calendar-tab">
   <p class="promo-calendar-tab__intro">
-    Year-long promotion calendar (America/Los_Angeles). Every U.S. federal holiday and major
-    retail holiday has a window; gaps are filled with seasonal sales so every day of the year
-    is covered. A scheduled job runs every 3 hours and sets
-    <strong>Global Promotion Title</strong> (and the offer end date) from the active row.
+    Year-long calendar (America/Los_Angeles): all U.S. holidays + seasonal fillers.
+    <strong>Max period length: 2 weeks</strong>. A job every 3 hours sets
+    <strong>Global Promotion Title</strong> from the active row.
   </p>
 
   <div class="promo-calendar-tab__toolbar">

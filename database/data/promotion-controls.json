@@ -3,7 +3,7 @@
         "scope": "default",
         "global_promotion_name": "Summer Sale",
         "global_discount_percent": 40,
-        "global_end_date": "2026-09-02",
+        "global_end_date": "2026-07-21",
         "phone_display": "(650) 461-4446",
         "phone_tel": "+16504614446",
         "window_type_prices": {
@@ -112,6 +112,12 @@
             {
                 "title": "Winter Window & Door Sale",
                 "start": "2026-01-23",
+                "end": "2026-02-05",
+                "kind": "seasonal"
+            },
+            {
+                "title": "Winter Window & Door Sale",
+                "start": "2026-02-06",
                 "end": "2026-02-08",
                 "kind": "seasonal"
             },
@@ -124,6 +130,12 @@
             {
                 "title": "Winter Window & Door Sale",
                 "start": "2026-02-20",
+                "end": "2026-03-05",
+                "kind": "seasonal"
+            },
+            {
+                "title": "Spring Replacement Sale",
+                "start": "2026-03-06",
                 "end": "2026-03-13",
                 "kind": "seasonal"
             },
@@ -148,6 +160,12 @@
             {
                 "title": "Spring Replacement Sale",
                 "start": "2026-04-08",
+                "end": "2026-04-21",
+                "kind": "seasonal"
+            },
+            {
+                "title": "Spring Replacement Sale",
+                "start": "2026-04-22",
                 "end": "2026-05-05",
                 "kind": "seasonal"
             },
@@ -172,6 +190,12 @@
             {
                 "title": "Spring Replacement Sale",
                 "start": "2026-05-28",
+                "end": "2026-06-10",
+                "kind": "seasonal"
+            },
+            {
+                "title": "Summer Sale",
+                "start": "2026-06-11",
                 "end": "2026-06-17",
                 "kind": "seasonal"
             },
@@ -202,6 +226,30 @@
             {
                 "title": "Summer Sale",
                 "start": "2026-07-08",
+                "end": "2026-07-21",
+                "kind": "seasonal"
+            },
+            {
+                "title": "Summer Sale",
+                "start": "2026-07-22",
+                "end": "2026-08-04",
+                "kind": "seasonal"
+            },
+            {
+                "title": "Summer Sale",
+                "start": "2026-08-05",
+                "end": "2026-08-18",
+                "kind": "seasonal"
+            },
+            {
+                "title": "Summer Sale",
+                "start": "2026-08-19",
+                "end": "2026-09-01",
+                "kind": "seasonal"
+            },
+            {
+                "title": "Fall Savings Event",
+                "start": "2026-09-02",
                 "end": "2026-09-02",
                 "kind": "seasonal"
             },
@@ -214,6 +262,18 @@
             {
                 "title": "Fall Savings Event",
                 "start": "2026-09-10",
+                "end": "2026-09-23",
+                "kind": "seasonal"
+            },
+            {
+                "title": "Fall Savings Event",
+                "start": "2026-09-24",
+                "end": "2026-10-07",
+                "kind": "seasonal"
+            },
+            {
+                "title": "Fall Savings Event",
+                "start": "2026-10-08",
                 "end": "2026-10-08",
                 "kind": "seasonal"
             },

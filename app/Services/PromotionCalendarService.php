@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Schema;
 
 class PromotionCalendarService
 {
+    /** Longest allowed promo window, inclusive of start and end. */
+    public const MAX_PERIOD_DAYS = 14;
+
     public function __construct(
         private readonly PromotionControlService $controls,
     ) {
@@ -19,7 +22,7 @@ class PromotionCalendarService
     /**
      * Build a contiguous Jan 1–Dec 31 calendar for $year covering every
      * U.S. federal holiday plus major retail holidays, with seasonal
-     * filler titles for the gaps.
+     * filler titles for the gaps. No period exceeds MAX_PERIOD_DAYS (2 weeks).
      *
      * @return list<array{title: string, start: string, end: string, kind: string}>
      */
@@ -70,12 +73,15 @@ class PromotionCalendarService
             if ($endDate->lt($startDate)) {
                 [$startDate, $endDate] = [$endDate, $startDate];
             }
-            $normalized[] = [
-                'title' => $title,
-                'start' => $startDate->toDateString(),
-                'end' => $endDate->toDateString(),
-                'kind' => trim((string) ($period['kind'] ?? 'custom')) ?: 'custom',
-            ];
+            $kind = trim((string) ($period['kind'] ?? 'custom')) ?: 'custom';
+            foreach ($this->chunkRange($startDate, $endDate, $kind, $title) as $chunk) {
+                $normalized[] = [
+                    'title' => $chunk['title'],
+                    'start' => $chunk['start']->toDateString(),
+                    'end' => $chunk['end']->toDateString(),
+                    'kind' => $chunk['kind'],
+                ];
+            }
         }
 
         usort($normalized, fn (array $a, array $b): int => strcmp($a['start'], $b['start']));
@@ -273,43 +279,84 @@ class PromotionCalendarService
             if ($cursor->lt($start)) {
                 $gapEnd = $start->copy()->subDay();
                 if ($gapEnd->gte($cursor)) {
-                    $filled[] = [
-                        'title' => $this->seasonalTitle($cursor),
-                        'start' => $cursor->copy(),
-                        'end' => $gapEnd,
-                        'kind' => 'seasonal',
-                    ];
+                    foreach ($this->chunkRange($cursor, $gapEnd, 'seasonal') as $chunk) {
+                        $filled[] = $chunk;
+                    }
                 }
             }
-            $filled[] = [
-                'title' => $period['title'],
-                'start' => $start,
-                'end' => $end,
-                'kind' => $period['kind'],
-            ];
+            foreach ($this->chunkRange($start, $end, $period['kind'], $period['title']) as $chunk) {
+                $filled[] = $chunk;
+            }
             $cursor = $end->copy()->addDay();
         }
 
         if ($cursor->lte($yearEnd)) {
-            $filled[] = [
-                'title' => $this->seasonalTitle($cursor),
-                'start' => $cursor->copy(),
-                'end' => $yearEnd->copy(),
-                'kind' => 'seasonal',
-            ];
+            foreach ($this->chunkRange($cursor, $yearEnd, 'seasonal') as $chunk) {
+                $filled[] = $chunk;
+            }
         }
 
         return $filled;
     }
 
+    /**
+     * Split any period longer than MAX_PERIOD_DAYS into consecutive chunks.
+     *
+     * @param list<array{title: string, start: Carbon, end: Carbon, kind: string}> $periods
+     * @return list<array{title: string, start: Carbon, end: Carbon, kind: string}>
+     */
+    private function splitOverlongPeriods(array $periods): array
+    {
+        $out = [];
+        foreach ($periods as $period) {
+            foreach ($this->chunkRange($period['start'], $period['end'], $period['kind'], $period['title']) as $chunk) {
+                $out[] = $chunk;
+            }
+        }
+
+        return $out;
+    }
+
+    /**
+     * @return list<array{title: string, start: Carbon, end: Carbon, kind: string}>
+     */
+    private function chunkRange(Carbon $start, Carbon $end, string $kind, ?string $fixedTitle = null): array
+    {
+        $chunks = [];
+        $cursor = $start->copy()->startOfDay();
+        $endDay = $end->copy()->startOfDay();
+
+        while ($cursor->lte($endDay)) {
+            $chunkEnd = $cursor->copy()->addDays(self::MAX_PERIOD_DAYS - 1);
+            if ($chunkEnd->gt($endDay)) {
+                $chunkEnd = $endDay->copy();
+            }
+            $title = $fixedTitle;
+            if ($title === null || $kind === 'seasonal') {
+                $title = $this->seasonalTitle($cursor);
+            }
+            $chunks[] = [
+                'title' => $title,
+                'start' => $cursor->copy(),
+                'end' => $chunkEnd,
+                'kind' => $kind,
+            ];
+            $cursor = $chunkEnd->copy()->addDay();
+        }
+
+        return $chunks;
+    }
+
     private function seasonalTitle(Carbon $date): string
     {
-        return match ((int) $date->month) {
+        $base = match ((int) $date->month) {
             12, 1, 2 => 'Winter Window & Door Sale',
             3, 4, 5 => 'Spring Replacement Sale',
             6, 7, 8 => 'Summer Sale',
             default => 'Fall Savings Event',
         };
+
+        return $base;
     }
 
     /**
