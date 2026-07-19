@@ -13,7 +13,7 @@ CANVAS = Path(
     r"C:\Users\archi\.cursor\projects\d-Projects-deluxe-windows-new"
     r"\canvases\seo-rework-report.canvas.tsx"
 )
-OUT = Path(r"D:\Projects\deluxe windows new\SEO_REWORK_REPORT.html")
+OUT = Path(r"D:\Projects\deluxe windows new\public\seo-reports\SEO_REWORK_REPORT.html")
 
 
 def load_json_const(src: str, name: str):
@@ -163,6 +163,7 @@ def main() -> None:
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
 <title>SEO Rework Report — Deluxe Windows</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -565,6 +566,7 @@ code, .mono {
 """
     )
 
+    OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text("".join(parts), encoding="utf-8")
     print(f"Wrote {OUT} ({OUT.stat().st_size} bytes)")
     print(f"expansion={len(expansion)} upgrades={len(upgrades)} schema={len(schema_by_page)}")

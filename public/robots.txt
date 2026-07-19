@@ -1,5 +1,5 @@
 User-agent: *
-Disallow:
+Disallow: /seo-reports/
 
 Sitemap: https://www.deluxewindows.com/sitemap.xml
 # AI / LLM context: https://www.deluxewindows.com/llms.txt

@@ -1935,13 +1935,21 @@
     align-items: flex-start !important;
   }
 
-  /* Our Guarantee — center header + cards on mobile */
+  /* Our Guarantee — center header + cards on mobile;
+     white cards stay compact (not full container width). */
   .classic-public-page .guarantee-section .f-header-grid-asymmetrical,
   .classic-public-page .guarantee-section .f-max-width-large,
   .classic-public-page .guarantee-section .f-grid-three-column-2 {
     justify-items: center !important;
     justify-content: center !important;
     text-align: center !important;
+  }
+
+  .classic-public-page .guarantee-section .f-grid-three-column-2 {
+    width: 100%;
+    max-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .classic-public-page .guarantee-section h3,
@@ -1960,7 +1968,11 @@
   }
 
   .classic-public-page .guarantee-section .f-feature-card-filled {
+    width: 100%;
+    max-width: 360px;
+    justify-self: center;
     align-items: center !important;
+    box-sizing: border-box;
   }
 
   .classic-public-page .section:not(.section_breadcrumbs) .inner-container.center,

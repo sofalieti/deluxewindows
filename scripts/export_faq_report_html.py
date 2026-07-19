@@ -9,7 +9,7 @@ from collections import defaultdict
 from pathlib import Path
 
 ROOT = Path(r"D:\Projects\deluxe windows new\database\data\page-metadata")
-OUT = Path(r"D:\Projects\deluxe windows new\SEO_FAQ_REPORT.html")
+OUT = Path(r"D:\Projects\deluxe windows new\public\seo-reports\SEO_FAQ_REPORT.html")
 
 FAMILY_META: dict[str, tuple[str, int]] = {
     "static": ("Служебные / статика", 10),
@@ -87,6 +87,7 @@ def main() -> None:
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
 <title>FAQ Report — Deluxe Windows</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -549,6 +550,7 @@ body {
 """
     )
 
+    OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text("".join(parts), encoding="utf-8")
     print(f"Wrote {OUT} ({OUT.stat().st_size} bytes)")
     print(f"pages={len(pages)} with_faq={len(with_faq)} empty={len(empty)} questions={total_q}")
