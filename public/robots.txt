@@ -2,3 +2,4 @@ User-agent: *
 Disallow:
 
 Sitemap: https://www.deluxewindows.com/sitemap.xml
+# AI / LLM context: https://www.deluxewindows.com/llms.txt
