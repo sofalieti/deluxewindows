@@ -84,6 +84,41 @@
   opacity: 1;
 }
 
+/* Keep FAQ aligned to the site grid — no right-edge overflow */
+.page-metadata-faq .container-default {
+  width: 100%;
+  max-width: 1248px;
+  box-sizing: border-box;
+}
+
+.page-metadata-faq .faqs-grid-v3 {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.page-metadata-faq .faqs-grid-v3 > .inner-container._763px {
+  width: 100%;
+  max-width: min(763px, 100%);
+  min-width: 0;
+  justify-self: stretch;
+  box-sizing: border-box;
+}
+
+.page-metadata-faq .card.accordion-card.v2,
+.page-metadata-faq .accordion-v6 {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.page-metadata-faq .accordion-item-wrapper,
+.page-metadata-faq .accordion-item-wrapper:hover {
+  transform: none !important;
+}
+
 .special-offers-icon {
   flex-shrink: 0;
   display: block;
