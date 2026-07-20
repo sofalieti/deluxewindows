@@ -90,7 +90,7 @@ class WebflowCollectionListScreen extends Screen
 
     public function description(): ?string
     {
-        return 'Drag rows to change order, then click Save order. This order is used on the website.';
+        return 'Drag rows to change order. Order saves automatically and is used on the website.';
     }
 
     public function permission(): ?iterable
@@ -101,13 +101,6 @@ class WebflowCollectionListScreen extends Screen
     public function commandBar(): iterable
     {
         return [
-            Button::make('Save order')
-                ->icon('bs.check2-square')
-                ->class('btn btn-primary')
-                ->method('reorder')
-                ->set('form', 'wf-collection-reorder-form')
-                ->canSee($this->collectionSlug !== '' && ! request()->filled('search')),
-
             Button::make('Search')
                 ->icon('bs.search')
                 ->method('applySearch'),
@@ -183,6 +176,10 @@ class WebflowCollectionListScreen extends Screen
         }
 
         if ($itemIds === []) {
+            if ($request->expectsJson() || $request->ajax()) {
+                return response()->json(['ok' => false, 'message' => 'Nothing to save.'], 422);
+            }
+
             Toast::warning('Nothing to save.');
 
             return redirect()->route('platform.webflow.collection', ['collection' => $collection]);
@@ -192,6 +189,14 @@ class WebflowCollectionListScreen extends Screen
 
         if ($collection === 'coupons') {
             app(PromotionSettingsService::class)->forgetCache();
+        }
+
+        if ($request->expectsJson() || $request->ajax()) {
+            return response()->json([
+                'ok' => true,
+                'updated' => $updated,
+                'message' => $updated > 0 ? 'Order saved.' : 'Nothing to save.',
+            ]);
         }
 
         Toast::info($updated > 0 ? 'Order saved.' : 'Nothing to save.');
