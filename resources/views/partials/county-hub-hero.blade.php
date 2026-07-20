@@ -18,7 +18,7 @@
                       <div class="code-embed-7 w-embed">⚲ Serving {{ $countyName }}</div>
                       <div class="code-embed-6 w-embed">
                         <h1 class="heading-4">
-                          Windows &amp; Doors in <span class="city-highlight">{{ $countyName }}</span><span class="h1-subline">Installation &amp; Replacement</span>
+                          Windows &amp; Doors in <span class="city-highlight">{{ $countyName }}</span><span class="h1-subline">Installation &amp; Replacement | Bay Area</span>
                         </h1>
                       </div>
                       <p class="paragraph-62">Professional window &amp; door installation by Bay Area's most trusted team. Vinyl, fiberglass, wood &amp; aluminum — every brand, every style, free estimate.</p>

@@ -3,11 +3,11 @@
   "key": "static/about",
   "path": "/about",
   "seo": {
-    "title": "About Us Window & Door Replacement & Installation Experts",
+    "title": "About Us | Bay Area Replacement & Installation",
     "description": "Learn about Deluxe Windows, a Bay Area window and door company with a Burlingame showroom, factory-trained installers and free in-home estimates.",
     "canonical": "https://www.deluxewindows.com/about",
     "og": {
-      "title": "About Us Window & Door Replacement & Installation Experts",
+      "title": "About Us | Bay Area Replacement & Installation",
       "description": "Learn about Deluxe Windows, a Bay Area window and door company with a Burlingame showroom, factory-trained installers and free in-home estimates.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
       "type": "website"
@@ -23,7 +23,7 @@
     "priority": "P2",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "About Us Window & Door Replacement & Installation Experts",
+      "title": "About Us | Bay Area Replacement & Installation",
       "description": "Learn about Deluxe Windows, a Bay Area window and door company with a Burlingame showroom, factory-trained installers and free in-home estimates.",
       "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
       "card": "summary_large_image"

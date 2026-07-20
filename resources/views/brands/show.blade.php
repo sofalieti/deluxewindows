@@ -49,7 +49,7 @@
                       $brandH1 .= ' Windows';
                   }
                 @endphp
-                <h1 class="display-8 mid types">{{ $brandH1 }}<span class="h1-subline">Installation &amp; Replacement</span></h1>
+                <h1 class="display-8 mid types">{{ $brandH1 }}<span class="h1-subline">Installation &amp; Replacement | Bay Area</span></h1>
                 <div class="mg-top-default"><div class="property-details"></div></div>
                 <div class="mg-top-default"><div class="property-details"></div></div>
               </div>

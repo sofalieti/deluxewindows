@@ -42,7 +42,7 @@
                     $brandH1 .= ' Doors';
                 }
               @endphp
-              <h1 class="display-8 mid types">{{ $brandH1 }}<span class="h1-subline">Installation &amp; Replacement</span></h1>
+              <h1 class="display-8 mid types">{{ $brandH1 }}<span class="h1-subline">Installation &amp; Replacement | Bay Area</span></h1>
             </div>
             @if($description)
             <div class="rich-text-v2 mg-bottom--16px w-richtext">
