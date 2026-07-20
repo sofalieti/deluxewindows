@@ -933,9 +933,10 @@ def build_seo(ctx: PageContext, titles: UniquePool, descriptions: UniquePool,
         keywords = queries or [primary, f"{entity.casefold()} entry doors", f"{entity.casefold()} patio doors"]
     elif family == "window-type":
         title = pick_title([
-            f"{entity} | Bay Area Replacement & Installation",
-            f"{entity} | Bay Area Replacement & Installation",
-            f"{entity} Installation",
+            f"{entity} | Bay Area Installation & Replacement",
+            f"{entity} | Bay Area Installation Replacement",
+            f"{entity} | Bay Area Installation",
+            f"{entity} | Bay Area",
             entity,
         ], titles, path)
         h1 = entity
@@ -948,9 +949,10 @@ def build_seo(ctx: PageContext, titles: UniquePool, descriptions: UniquePool,
         keywords = queries or [primary, f"{primary} prices"]
     elif family == "door-types":
         title = pick_title([
-            f"{entity} | Bay Area Replacement & Installation",
-            f"{entity} | Bay Area Replacement & Installation",
-            f"{entity} Installation",
+            f"{entity} | Bay Area Installation & Replacement",
+            f"{entity} | Bay Area Installation Replacement",
+            f"{entity} | Bay Area Installation",
+            f"{entity} | Bay Area",
             entity,
         ], titles, path)
         h1 = entity
@@ -972,10 +974,13 @@ def build_seo(ctx: PageContext, titles: UniquePool, descriptions: UniquePool,
         for full, short in SHORT_BRAND.items():
             compact = compact.replace(full, short)
         title = pick_title([
-            f"{entity} | Bay Area Replacement & Installation",
-            f"{compact} | Bay Area Replacement & Installation",
-            f"{entity} | Installation",
-            f"{compact} | Installation",
+            f"{entity} | Bay Area Installation & Replacement",
+            f"{compact} | Bay Area Installation & Replacement",
+            f"{entity} | Bay Area Installation Replacement",
+            f"{compact} | Bay Area Installation Replacement",
+            f"{entity} | Bay Area Installation",
+            f"{compact} | Bay Area Installation",
+            f"{compact} | Bay Area",
             compact,
         ], titles, path)
         h1 = entity

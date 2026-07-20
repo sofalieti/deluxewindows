@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Rebuild Installation/Replacement titles from H1 with Bay Area, max 60 chars."""
+"""Rebuild product SEO titles: short name, Bay Area, Installation, Replacement last."""
 
 from __future__ import annotations
 
@@ -12,10 +12,15 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 META = ROOT / "database" / "data" / "page-metadata"
 
-SUFFIX_FULL = "| Bay Area Replacement & Installation"
-SUFFIX_SWAP = "| Bay Area Installation & Replacement"
-SUFFIX_BA_END = "| Installation & Replacement Bay Area"
-SUFFIX_PLAIN = "| Installation & Replacement"
+MAX_TITLE = 60
+
+# Longest → shortest; Replacement is always the last add-on.
+SUFFIXES = (
+    "| Bay Area Installation & Replacement",
+    "| Bay Area Installation Replacement",  # no "&" saves 2 chars
+    "| Bay Area Installation",
+    "| Bay Area",
+)
 
 FILLERS = {
     "collection",
@@ -46,45 +51,6 @@ FILLERS = {
     "custom",
 }
 
-
-def collect_titles() -> dict[str, str]:
-    titles: dict[str, str] = {}
-    for path in META.rglob("*.json"):
-        data = json.loads(path.read_text(encoding="utf-8"))
-        title = (data.get("seo") or {}).get("title") or ""
-        page = data.get("path") or str(path)
-        if title:
-            titles[title.casefold()] = page
-    return titles
-
-
-MAX_TITLE = 65
-
-
-def claim(titles: dict[str, str], page: str, candidates: list[str]) -> str | None:
-    for candidate in candidates:
-        candidate = re.sub(r"\s+", " ", candidate).strip()
-        if not candidate or len(candidate) > MAX_TITLE:
-            continue
-        key = candidate.casefold()
-        owner = titles.get(key)
-        if owner is None or owner == page:
-            titles[key] = page
-            return candidate
-    return None
-
-
-def clean_name(name: str) -> str:
-    name = re.sub(r"\bJELD-WEN\s+Jeld\s+Wen\b", "JELD-WEN", name, flags=re.I)
-    name = re.sub(r"\bJeld\s+Wen\b", "JELD-WEN", name, flags=re.I)
-    name = re.sub(r"\bJELD-WEN(?:\s+JELD-WEN)+\b", "JELD-WEN", name, flags=re.I)
-    return re.sub(r"\s+", " ", name).strip()
-
-
-def bare_token(token: str) -> str:
-    return re.sub(r"[^a-z0-9]+", "", token.casefold())
-
-
 PRODUCT_WORDS = {"windows", "window", "doors", "door"}
 MATERIALS = {
     "vinyl",
@@ -98,35 +64,15 @@ MATERIALS = {
 }
 
 
-def enrich_bases(name: str, bases: list[str], page: str) -> list[str]:
-    """Prefer bases that keep Windows/Doors on type pages."""
-    out: list[str] = []
-    seen: set[str] = set()
+def clean_name(name: str) -> str:
+    name = re.sub(r"\bJELD-WEN\s+Jeld\s+Wen\b", "JELD-WEN", name, flags=re.I)
+    name = re.sub(r"\bJeld\s+Wen\b", "JELD-WEN", name, flags=re.I)
+    name = re.sub(r"\bJELD-WEN(?:\s+JELD-WEN)+\b", "JELD-WEN", name, flags=re.I)
+    return re.sub(r"\s+", " ", name).strip()
 
-    def add(text: str) -> None:
-        text = re.sub(r"\s+", " ", text).strip()
-        if text and text.casefold() not in seen:
-            seen.add(text.casefold())
-            out.append(text)
 
-    want_doors = page.startswith("/door-types/")
-    want_windows = page.startswith("/window-type")
-
-    # Product-marked bases first (so claim keeps Windows vs Doors distinct)
-    if want_doors or want_windows:
-        for base in bases:
-            lower = base.casefold()
-            if want_doors and "door" not in lower:
-                add(f"{base} Doors")
-            if want_windows and "window" not in lower:
-                add(f"{base} Windows")
-        for base in bases:
-            add(base)
-        return out
-
-    for base in bases:
-        add(base)
-    return out
+def bare_token(token: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "", token.casefold())
 
 
 def base_variants(name: str) -> list[str]:
@@ -164,10 +110,6 @@ def base_variants(name: str) -> list[str]:
         parts = variant.split()
         if len(parts) > 2 and bare_token(parts[-1]) in PRODUCT_WORDS:
             add(parts[:-1])
-
-    # Free space for Bay Area suffix: drop trailing material if needed
-    for variant in list(variants):
-        parts = variant.split()
         if len(parts) > 2 and bare_token(parts[-1]) in MATERIALS:
             add(parts[:-1])
 
@@ -180,17 +122,50 @@ def base_variants(name: str) -> list[str]:
     return variants
 
 
+def enrich_bases(name: str, bases: list[str], page: str) -> list[str]:
+    out: list[str] = []
+    seen: set[str] = set()
+
+    def add(text: str) -> None:
+        text = re.sub(r"\s+", " ", text).strip()
+        if text and text.casefold() not in seen:
+            seen.add(text.casefold())
+            out.append(text)
+
+    want_doors = page.startswith("/door-types/")
+    want_windows = page.startswith("/window-type")
+
+    if want_doors or want_windows:
+        # Prefer keeping product word; try plural then singular for fit.
+        for base in bases:
+            lower = base.casefold()
+            if want_doors and "door" not in lower:
+                add(f"{base} Doors")
+                add(f"{base} Door")
+            if want_windows and "window" not in lower:
+                add(f"{base} Windows")
+                add(f"{base} Window")
+        for base in bases:
+            lower = base.casefold()
+            if want_doors and lower.endswith(" doors"):
+                add(base[:-1])  # Door
+            if want_windows and lower.endswith(" windows"):
+                add(base[:-1])  # Window
+            add(base)
+        return out
+
+    for base in bases:
+        add(base)
+    return out
+
+
 def build_candidates(name: str, page: str = "") -> list[str]:
     bases = enrich_bases(name, base_variants(name), page)
     out: list[str] = []
-
-    for suffix in (SUFFIX_FULL, SUFFIX_SWAP, SUFFIX_BA_END):
+    # Prefer fuller suffix first; within each suffix, try longer then shorter names.
+    for suffix in SUFFIXES:
         for base in bases:
             out.append(f"{base} {suffix}")
-    for base in bases:
-        out.append(f"{base} Bay Area {SUFFIX_PLAIN}")
-    for base in bases:
-        out.append(f"{base} {SUFFIX_PLAIN}")
 
     seen: set[str] = set()
     unique: list[str] = []
@@ -203,20 +178,37 @@ def build_candidates(name: str, page: str = "") -> list[str]:
     return unique
 
 
-def needs_restore(seo: dict, page: str) -> bool:
-    title = seo.get("title") or ""
+def collect_titles() -> dict[str, str]:
+    titles: dict[str, str] = {}
+    for path in META.rglob("*.json"):
+        data = json.loads(path.read_text(encoding="utf-8"))
+        title = (data.get("seo") or {}).get("title") or ""
+        page = data.get("path") or str(path)
+        if title:
+            titles[title.casefold()] = page
+    return titles
+
+
+def claim(titles: dict[str, str], page: str, candidates: list[str]) -> str | None:
+    for candidate in candidates:
+        candidate = re.sub(r"\s+", " ", candidate).strip()
+        if not candidate or len(candidate) > MAX_TITLE:
+            continue
+        key = candidate.casefold()
+        owner = titles.get(key)
+        if owner is None or owner == page:
+            titles[key] = page
+            return candidate
+    return None
+
+
+def needs_rebuild(page: str, seo: dict) -> bool:
     h1 = (seo.get("h1") or "").strip()
     if not h1:
         return False
-    if not (
-        page.startswith("/brand-collections/")
-        or page.startswith("/door-types/")
-        or page.startswith("/window-type/")
-        or page.startswith("/window-types/")
-    ):
-        return False
-    # Always rebuild these product pages to keep R&I + Bay Area consistent
-    return True
+    return page.startswith(
+        ("/brand-collections/", "/door-types/", "/window-type/", "/window-types/")
+    )
 
 
 def sync_social(seo: dict, old_title: str, new_title: str) -> None:
@@ -225,7 +217,7 @@ def sync_social(seo: dict, old_title: str, new_title: str) -> None:
         if not isinstance(block, dict):
             continue
         current = block.get("title") or ""
-        if current in ("", old_title) or re.search(r"installation|replacement", current, re.I):
+        if current in ("", old_title) or re.search(r"installation|replacement|bay area", current, re.I):
             block["title"] = new_title
 
 
@@ -238,7 +230,7 @@ def main() -> int:
         data = json.loads(path.read_text(encoding="utf-8"))
         seo = data.get("seo") or {}
         page = data.get("path") or str(path)
-        if not needs_restore(seo, page):
+        if not needs_rebuild(page, seo):
             continue
 
         old = seo.get("title") or ""
@@ -266,7 +258,7 @@ def main() -> int:
 
     over = []
     dups: dict[str, list[str]] = {}
-    no_ri = []
+    bad = []
     for path in META.rglob("*.json"):
         data = json.loads(path.read_text(encoding="utf-8"))
         seo = data.get("seo") or {}
@@ -275,29 +267,47 @@ def main() -> int:
         if len(title) > MAX_TITLE:
             over.append((page, len(title), title))
         dups.setdefault(title.casefold(), []).append(page)
-        if page.startswith(("/brand-collections/", "/door-types/", "/window-type/")):
-            if not (
-                re.search(r"replacement", title, re.I)
-                and re.search(r"installation", title, re.I)
-                and re.search(r"bay area", title, re.I)
-            ):
-                no_ri.append((page, title))
+        if needs_rebuild(page, seo):
+            if not re.search(r"bay area", title, re.I):
+                bad.append((page, title, "missing Bay Area"))
+            elif not re.search(r"installation", title, re.I):
+                # allowed only if name+Bay Area already maxed uniqueness
+                pass
 
     real_dups = {k: v for k, v in dups.items() if len(v) > 1 and k}
-    print(f"changed={len(changed)} failed={len(failed)} over={len(over)} no_ri={len(no_ri)} dups={len(real_dups)}")
-    for page, old, new, length in changed[:30]:
+    print(f"changed={len(changed)} failed={len(failed)} over={len(over)} bad={len(bad)} dups={len(real_dups)}")
+    for page, old, new, length in changed[:25]:
         print(f"  {page} ({length})\n    {old}\n    -> {new}")
-    if len(changed) > 30:
-        print(f"  … +{len(changed) - 30} more")
+    if len(changed) > 25:
+        print(f"  … +{len(changed) - 25} more")
     if failed:
-        print("FAILED:")
-        for row in failed[:20]:
-            print(" ", row)
-    if over or real_dups or no_ri:
+        print("FAILED", failed[:10])
+    if over or real_dups:
         print("OVER", over[:5])
         print("DUPS", list(real_dups.items())[:3])
-        print("NO_RI", no_ri[:5])
         return 1
+
+    # Sample suffix distribution
+    from collections import Counter
+
+    c = Counter()
+    for path in META.rglob("*.json"):
+        data = json.loads(path.read_text(encoding="utf-8"))
+        page = data.get("path") or ""
+        if not page.startswith(("/brand-collections/", "/door-types/", "/window-type/")):
+            continue
+        t = (data.get("seo") or {}).get("title") or ""
+        if t.endswith("| Bay Area Installation & Replacement"):
+            c["full"] += 1
+        elif t.endswith("| Bay Area Installation Replacement"):
+            c["full_no_amp"] += 1
+        elif t.endswith("| Bay Area Installation"):
+            c["install"] += 1
+        elif t.endswith("| Bay Area"):
+            c["bay"] += 1
+        else:
+            c["other"] += 1
+    print("suffix_counts", dict(c))
 
     sys.path.insert(0, str(ROOT / "scripts"))
     try:
