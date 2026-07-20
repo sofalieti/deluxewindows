@@ -87,7 +87,6 @@ class WebflowCodegenService
 
         foreach ($manifest['collections'] as $collection) {
             $slug = (string) $collection['slug'];
-            $importPath = storage_path("app/{$root}/imports/{$slug}.json");
             $payload = $this->resolveImportPayload($root, $slug, $collection);
             if (! is_array($payload)) {
                 continue;
@@ -99,12 +98,30 @@ class WebflowCodegenService
             }
             $jsonColumns = $this->jsonColumnsForTable($table);
             $dateTimeColumns = $this->dateTimeColumnsForTable($table);
+            $fieldMap = is_array($payload['flattenedFieldMap'] ?? null) ? $payload['flattenedFieldMap'] : [];
+            $existingById = $this->existingRowsByWebflowId($table);
 
             $rows = [];
             foreach (($payload['items'] ?? []) as $item) {
-                $fieldData = $this->sanitizeFieldDataValues($item['fieldData'] ?? []);
+                $webflowItemId = (string) ($item['id'] ?? '');
+                if ($webflowItemId === '') {
+                    continue;
+                }
+
+                // Never import image fields — keep whatever is already in the DB.
+                $fieldData = $this->stripImageFields(
+                    $this->sanitizeFieldDataValues($item['fieldData'] ?? [])
+                );
+                $existing = $existingById[$webflowItemId] ?? null;
+                if (is_array($existing)) {
+                    $fieldData = array_merge(
+                        $fieldData,
+                        $this->extractImageFields($this->fieldDataFromExistingRow($existing, $fieldMap))
+                    );
+                }
+
                 $row = [
-                    'webflow_item_id' => (string) ($item['id'] ?? ''),
+                    'webflow_item_id' => $webflowItemId,
                     'webflow_cms_locale_id' => $item['cmsLocaleId'] ?? null,
                     'webflow_created_on' => $this->toDatabaseDateTime($item['createdOn'] ?? null),
                     'webflow_updated_on' => $this->toDatabaseDateTime($item['lastUpdated'] ?? null),
@@ -116,7 +133,10 @@ class WebflowCodegenService
                     'updated_at' => now(),
                 ];
 
-                foreach (($payload['flattenedFieldMap'] ?? []) as $wfField => $columnName) {
+                foreach ($fieldMap as $wfField => $columnName) {
+                    if (! is_string($wfField) || ! is_string($columnName) || $columnName === '') {
+                        continue;
+                    }
                     $value = $fieldData[$wfField] ?? null;
                     $row[$columnName] = $this->normalizeFieldValue(
                         $value,
@@ -125,9 +145,7 @@ class WebflowCodegenService
                     );
                 }
 
-                if ($row['webflow_item_id'] !== '') {
-                    $rows[] = $row;
-                }
+                $rows[] = $row;
             }
 
             if ($rows !== []) {
@@ -207,7 +225,8 @@ class WebflowCodegenService
                     'lastPublished' => $this->asIsoString($row['webflow_published_on'] ?? null),
                     'isArchived' => (bool) ($row['is_archived'] ?? false),
                     'isDraft' => (bool) ($row['is_draft'] ?? false),
-                    'fieldData' => $fieldData,
+                    // Image fields stay in DB only — datasets never carry or overwrite them.
+                    'fieldData' => $this->stripImageFields($fieldData),
                 ];
             }
 
@@ -560,6 +579,138 @@ BLADE;
         }
 
         return $clean;
+    }
+
+    /**
+     * @return array<string, array<string, mixed>>
+     */
+    private function existingRowsByWebflowId(string $table): array
+    {
+        $rows = \DB::table($table)->get();
+        $byId = [];
+        foreach ($rows as $rowObj) {
+            $row = (array) $rowObj;
+            $id = (string) ($row['webflow_item_id'] ?? '');
+            if ($id !== '') {
+                $byId[$id] = $row;
+            }
+        }
+
+        return $byId;
+    }
+
+    /**
+     * @param  array<string, mixed>  $row
+     * @param  array<string, string>  $fieldMap
+     * @return array<string, mixed>
+     */
+    private function fieldDataFromExistingRow(array $row, array $fieldMap): array
+    {
+        $fieldData = [];
+        if (isset($row['field_data']) && is_string($row['field_data']) && $row['field_data'] !== '') {
+            $decoded = json_decode($row['field_data'], true);
+            if (is_array($decoded)) {
+                $fieldData = $decoded;
+            }
+        }
+
+        foreach ($fieldMap as $wfField => $columnName) {
+            if (! is_string($wfField) || ! is_string($columnName) || $columnName === '') {
+                continue;
+            }
+            if (! array_key_exists($columnName, $row)) {
+                continue;
+            }
+            $fieldData[$wfField] = $this->decodeStoredValue($row[$columnName]);
+        }
+
+        return $this->sanitizeFieldDataValues($fieldData);
+    }
+
+    /**
+     * @param  array<string, mixed>  $fieldData
+     * @return array<string, mixed>
+     */
+    private function stripImageFields(array $fieldData): array
+    {
+        $clean = [];
+        foreach ($fieldData as $key => $value) {
+            if ($this->isImageFieldKey((string) $key) || $this->isImageFieldValue($value)) {
+                continue;
+            }
+            $clean[$key] = $value;
+        }
+
+        return $clean;
+    }
+
+    /**
+     * @param  array<string, mixed>  $fieldData
+     * @return array<string, mixed>
+     */
+    private function extractImageFields(array $fieldData): array
+    {
+        $images = [];
+        foreach ($fieldData as $key => $value) {
+            if ($this->isImageFieldKey((string) $key) || $this->isImageFieldValue($value)) {
+                $images[$key] = $value;
+            }
+        }
+
+        return $images;
+    }
+
+    private function isImageFieldKey(string $key): bool
+    {
+        $normalized = Str::lower($key);
+
+        foreach (['image', 'photo', 'logo', 'avatar', 'gallery', 'thumbnail', 'icon', 'svg'] as $needle) {
+            if (str_contains($normalized, $needle)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private function isImageFieldValue(mixed $value): bool
+    {
+        if (is_string($value) && $value !== '') {
+            return $this->looksLikeImageUrl($value);
+        }
+
+        if (! is_array($value) || $value === []) {
+            return false;
+        }
+
+        if (array_is_list($value)) {
+            return $this->isImageFieldValue($value[0]);
+        }
+
+        if (array_key_exists('fileId', $value)) {
+            return true;
+        }
+
+        if (array_key_exists('url', $value) && is_string($value['url']) && $value['url'] !== '') {
+            return $this->looksLikeImageUrl($value['url']) || array_key_exists('alt', $value);
+        }
+
+        return false;
+    }
+
+    private function looksLikeImageUrl(string $value): bool
+    {
+        $path = strtolower(parse_url($value, PHP_URL_PATH) ?: $value);
+
+        if (str_contains($path, '/webflow-assets/images/')
+            || str_contains($path, '/webflow-media/')
+            || str_contains($path, '/storage/webflow-uploads/')
+            || str_contains($path, 'cdn.prod.website-files.com')
+            || str_contains($value, 'cdn.prod.website-files.com')) {
+            return true;
+        }
+
+        return (bool) preg_match('/\.(avif|jpe?g|png|gif|webp|svg)(\?|$)/i', $path);
     }
 
     private function decodeStoredValue(mixed $value): mixed

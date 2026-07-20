@@ -26,7 +26,7 @@ class ContentDatasetsScreen extends Screen
 
     public function description(): ?string
     {
-        return 'Export or import site content and validate file-backed page metadata in one operation.';
+        return 'Export or import site content (text/data only — image fields in the database are never changed).';
     }
 
     public function commandBar(): iterable

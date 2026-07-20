@@ -41,7 +41,8 @@
         promotion settings, and validated file-backed SEO, FAQ, and schema metadata.
     </p>
     <p class="mb-0 text-muted">
-        Leads, admin users, system tables, and caches are not included.
+        Leads, admin users, system tables, caches, and image fields are not included.
+        Image URLs and files in the database are left unchanged on import and export.
         Import updates or creates records and never deletes records that are absent from files.
     </p>
 </div>
