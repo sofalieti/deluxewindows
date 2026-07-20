@@ -2290,10 +2290,10 @@ h1 .h1-subline {
 /* Gallery: tall images pan vertically, easing slows near the edges */
 .dw-gallery__main img.dw-gallery-pan-y,
 .dw-gallery__thumb img.dw-gallery-pan-y {
-  object-position: center 0%;
   animation-name: dw-gallery-pan-y;
-  animation-duration: var(--dw-gallery-pan-duration, 14s);
-  animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1);
+  animation-duration: var(--dw-gallery-pan-duration, 9s);
+  /* Soft ease-in at start, soft ease-out at the edge (no hard kick). */
+  animation-timing-function: cubic-bezier(0.37, 0.0, 0.63, 1);
   animation-iteration-count: infinite;
   animation-direction: alternate;
   will-change: object-position;

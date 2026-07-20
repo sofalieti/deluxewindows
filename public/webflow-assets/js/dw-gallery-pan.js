@@ -40,9 +40,9 @@
 
   function panDuration(img) {
     var ratio = overflowRatio(img);
-    // Taller crops take longer so the motion stays gentle.
-    var seconds = 10 + Math.min(14, (ratio - 1) * 12);
-    return seconds.toFixed(1) + 's';
+    // ~1.5× faster than the first pass; taller crops still take a bit longer.
+    var seconds = (10 + Math.min(14, (ratio - 1) * 12)) / 1.5;
+    return Math.max(6, seconds).toFixed(1) + 's';
   }
 
   function stopPan(img) {
@@ -50,13 +50,22 @@
     img.style.removeProperty('--dw-gallery-pan-duration');
   }
 
-  function startPan(img) {
-    stopPan(img);
+  function startPan(img, force) {
     if (!shouldPan(img)) {
+      stopPan(img);
       return;
     }
-    img.style.setProperty('--dw-gallery-pan-duration', panDuration(img));
-    // Restart from the top edge.
+    var duration = panDuration(img);
+    // Avoid restarting mid-pan (causes the initial jerk), unless forced (new src).
+    if (
+      !force &&
+      img.classList.contains('dw-gallery-pan-y') &&
+      img.style.getPropertyValue('--dw-gallery-pan-duration') === duration
+    ) {
+      return;
+    }
+    stopPan(img);
+    img.style.setProperty('--dw-gallery-pan-duration', duration);
     void img.offsetWidth;
     img.classList.add('dw-gallery-pan-y');
   }
@@ -99,7 +108,7 @@
     var srcObserver = new MutationObserver(function () {
       whenReady(main, function () {
         if (!isMobile()) {
-          startPan(main);
+          startPan(main, true);
         }
       });
     });
