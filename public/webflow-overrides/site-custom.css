@@ -847,6 +847,11 @@
 }
 
 @media (max-width: 479px) {
+  .inner-container._400px---mbl {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
   .mobile-top-strip__inner {
     padding-left: max(12px, env(safe-area-inset-left));
     padding-right: max(12px, env(safe-area-inset-right));
