@@ -33,12 +33,10 @@ class ContentDatasetsScreen extends Screen
     {
         return [
             Button::make('Export all to files')
-                ->icon('bs.download')
                 ->method('exportAll')
                 ->confirm('Export all current database content to the project dataset files?'),
 
             Button::make('Import all from files')
-                ->icon('bs.upload')
                 ->method('importAll')
                 ->confirm('Import all dataset files into the database? Existing matching records will be updated; other records will not be deleted.'),
         ];

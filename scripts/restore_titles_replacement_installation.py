@@ -58,10 +58,13 @@ def collect_titles() -> dict[str, str]:
     return titles
 
 
+MAX_TITLE = 65
+
+
 def claim(titles: dict[str, str], page: str, candidates: list[str]) -> str | None:
     for candidate in candidates:
         candidate = re.sub(r"\s+", " ", candidate).strip()
-        if not candidate or len(candidate) > 60:
+        if not candidate or len(candidate) > MAX_TITLE:
             continue
         key = candidate.casefold()
         owner = titles.get(key)
@@ -93,52 +96,6 @@ MATERIALS = {
     "steel",
     "hybrid",
 }
-
-
-def base_variants(name: str) -> list[str]:
-    words = [w for w in clean_name(name).split() if w]
-    variants: list[str] = []
-    seen: set[str] = set()
-
-    def add(parts: list[str]) -> None:
-        text = re.sub(r"\s+", " ", " ".join(parts)).strip(" -|,")
-        if text and text.casefold() not in seen:
-            seen.add(text.casefold())
-            variants.append(text)
-
-    add(words)
-
-    # Drop fillers / trailing product words only — keep brand + materials + digits
-    current = words[:]
-    progress = True
-    while progress and len(current) > 1:
-        progress = False
-        for i in range(len(current) - 1, 0, -1):
-            token = current[i]
-            if any(ch.isdigit() for ch in token):
-                continue
-            bare = bare_token(token)
-            if bare in MATERIALS:
-                continue
-            if bare not in FILLERS and bare not in PRODUCT_WORDS:
-                continue
-            current = current[:i] + current[i + 1 :]
-            add(current)
-            progress = True
-            break
-
-    for variant in list(variants):
-        parts = variant.split()
-        if len(parts) > 2 and bare_token(parts[-1]) in PRODUCT_WORDS:
-            add(parts[:-1])
-
-    digit_words = [w for w in words if any(ch.isdigit() for ch in w)]
-    if digit_words:
-        add([words[0], digit_words[-1]])
-        if len(words) > 1 and bare_token(words[1]) not in FILLERS | PRODUCT_WORDS:
-            add([words[0], words[1], digit_words[-1]])
-
-    return variants
 
 
 def enrich_bases(name: str, bases: list[str], page: str) -> list[str]:
@@ -315,13 +272,14 @@ def main() -> int:
         seo = data.get("seo") or {}
         title = seo.get("title") or ""
         page = data.get("path") or str(path)
-        if len(title) > 60:
+        if len(title) > MAX_TITLE:
             over.append((page, len(title), title))
         dups.setdefault(title.casefold(), []).append(page)
         if page.startswith(("/brand-collections/", "/door-types/", "/window-type/")):
-            if re.search(r"installation", title, re.I) and (
-                not re.search(r"replacement", title, re.I)
-                or not re.search(r"bay area", title, re.I)
+            if not (
+                re.search(r"replacement", title, re.I)
+                and re.search(r"installation", title, re.I)
+                and re.search(r"bay area", title, re.I)
             ):
                 no_ri.append((page, title))
 

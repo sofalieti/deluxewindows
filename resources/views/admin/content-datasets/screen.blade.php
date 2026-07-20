@@ -41,7 +41,7 @@
         promotion settings, and validated file-backed SEO, FAQ, and schema metadata.
     </p>
     <p class="mb-0 text-muted">
-        Leads, admin users, system tables, caches, and media files are not included.
+        Leads, admin users, system tables, and caches are not included.
         Import updates or creates records and never deletes records that are absent from files.
     </p>
 </div>

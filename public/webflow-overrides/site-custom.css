@@ -100,7 +100,7 @@
 
 .page-metadata-faq .faqs-grid-v3 > .inner-container._763px {
   width: 100%;
-  max-width: min(763px, 100%);
+  max-width: none;
   min-width: 0;
   justify-self: stretch;
   box-sizing: border-box;
@@ -2349,5 +2349,38 @@ h1 .h1-subline {
     animation: none !important;
     object-position: center center !important;
   }
+}
+
+/* Remove Webflow max-width: 763px utility */
+.inner-container._763px {
+  max-width: none;
+}
+
+/* Financing plan cards (No FICO / Lower Fixed Rates / Longer Terms) */
+.card.plan-card {
+  box-shadow:
+    0 1px 2px rgba(13, 37, 62, 0.06),
+    0 4px 14px rgba(13, 37, 62, 0.1),
+    0 10px 28px rgba(13, 37, 62, 0.08);
+}
+
+.card.plan-card:hover {
+  box-shadow:
+    0 2px 4px rgba(13, 37, 62, 0.07),
+    0 8px 20px rgba(13, 37, 62, 0.12),
+    0 16px 36px rgba(13, 37, 62, 0.1);
+}
+
+/* Small gap between the divider stripe and the 4 feature points below */
+.card.plan-card .product-card---bottom-content > .mg-top-default {
+  margin-bottom: 18px;
+}
+
+.card.plan-card .product-card---bottom-content > .mg-top-default + * {
+  margin-top: 0;
+}
+
+.grid-3-columns.pricing-grid {
+  padding: 6px 4px 10px;
 }
 
