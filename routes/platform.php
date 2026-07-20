@@ -138,3 +138,5 @@ Route::screen('webflow/{collection}/{item}/edit', WebflowCollectionEditScreen::c
 
 Route::post('webflow/upload-image', [WebflowImageUploadController::class, 'upload'])
     ->name('platform.webflow.upload-image');
+Route::post('webflow/delete-image', [WebflowImageUploadController::class, 'delete'])
+    ->name('platform.webflow.delete-image');

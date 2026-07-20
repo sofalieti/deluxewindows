@@ -316,7 +316,7 @@ class WebflowCollectionEditScreen extends Screen
 
             // Multi-image: numeric array where the first element is an image object
             if (is_array($value) && ! empty($value) && is_array($value[0] ?? null) && array_key_exists('url', $value[0])) {
-                $fields = array_merge($fields, $this->buildMultiImageFields($name, $title, $value));
+                $fields = array_merge($fields, $this->buildMultiImageFields($name, $title, (string) $key, $value));
                 continue;
             }
 
@@ -383,8 +383,14 @@ class WebflowCollectionEditScreen extends Screen
 
         // Single image object: when the user edits just the URL string, merge it back.
         if (is_array($existing) && array_key_exists('url', $existing) && ! array_key_exists(0, $existing) && is_string($value)) {
-            if ($value === '') {
-                return $existing; // Don't accidentally clear the image
+            if (trim($value) === '') {
+                $cleared = $existing;
+                $cleared['url'] = '';
+                if (array_key_exists('fileId', $cleared)) {
+                    $cleared['fileId'] = null;
+                }
+
+                return $cleared;
             }
 
             return array_merge($existing, ['url' => $value]);
@@ -634,25 +640,17 @@ class WebflowCollectionEditScreen extends Screen
     {
         $imageUrl = is_string($value['url'] ?? null) ? $value['url'] : '';
         $safeKey  = preg_replace('/[^a-zA-Z0-9]/', '_', $fieldKey);
+        $escUrl   = htmlspecialchars($imageUrl, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+        $hasImage = $imageUrl !== '';
 
-        $previewHtml = '';
-        if ($imageUrl !== '') {
-            $esc = htmlspecialchars($imageUrl, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
-            $previewHtml = '<div style="margin-bottom:10px">'
-                .'<img id="wf-preview-'.$safeKey.'" src="'.$esc.'" '
-                .'style="max-width:300px;max-height:180px;object-fit:contain;border:1px solid #dee2e6;'
-                .'border-radius:6px;padding:4px;background:#f8f9fa;display:block" '
-                .'onerror="this.style.display=\'none\'">'
-                .'</div>';
-        } else {
-            $previewHtml = '<div id="wf-preview-wrapper-'.$safeKey.'" style="margin-bottom:10px">'
-                .'<img id="wf-preview-'.$safeKey.'" src="" '
-                .'style="max-width:300px;max-height:180px;object-fit:contain;border:1px solid #dee2e6;'
-                .'border-radius:6px;padding:4px;background:#f8f9fa;display:none" />'
-                .'</div>';
-        }
+        $previewHtml = '<div id="wf-preview-wrapper-'.$safeKey.'" style="margin-bottom:10px'.($hasImage ? '' : ';display:none').'">'
+            .'<img id="wf-preview-'.$safeKey.'" src="'.$escUrl.'" '
+            .'style="max-width:300px;max-height:180px;object-fit:contain;border:1px solid #dee2e6;'
+            .'border-radius:6px;padding:4px;background:#f8f9fa;display:'.($hasImage ? 'block' : 'none').'" '
+            .'onerror="this.style.display=\'none\'">'
+            .'</div>';
 
-        $uploadHtml = '<div style="margin-top:6px">'
+        $uploadHtml = '<div style="margin-top:6px;display:flex;flex-wrap:wrap;gap:8px;align-items:center">'
             .'<input type="file" id="wf-file-'.$safeKey.'" accept="image/jpeg,image/png,image/gif,image/webp,image/avif" '
             .'style="display:none" '
             .'onchange="webflowHandleImageUpload(this,'.json_encode($fieldKey).','.json_encode($safeKey).')">'
@@ -661,46 +659,57 @@ class WebflowCollectionEditScreen extends Screen
             .'class="btn btn-sm btn-outline-secondary">'
             .'📁 Upload image'
             .'</button>'
+            .'<button type="button" id="wf-del-'.$safeKey.'" '
+            .'onclick="webflowClearImage('.json_encode($fieldKey).','.json_encode($safeKey).')" '
+            .'class="btn btn-sm btn-outline-danger"'
+            .($hasImage ? '' : ' style="display:none"').'>'
+            .'🗑 Delete image'
+            .'</button>'
             .'</div>';
 
         return [
             Input::make($inputName)
                 ->title($title)
                 ->value($imageUrl)
-                ->help($previewHtml.$uploadHtml.'<small class="text-muted d-block mt-1">Edit URL or upload a new file above.</small>'),
+                ->help($previewHtml.$uploadHtml.'<small class="text-muted d-block mt-1">Edit URL, upload a new file, or delete the image. Save the item to apply.</small>'),
         ];
     }
 
     /**
      * @return Field[]
      */
-    private function buildMultiImageFields(string $inputName, string $title, array $value): array
+    private function buildMultiImageFields(string $inputName, string $title, string $fieldKey, array $value): array
     {
-        $previewHtml = '<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;">';
-        foreach (array_slice($value, 0, 8) as $img) {
-            if (is_array($img) && is_string($img['url'] ?? null) && $img['url'] !== '') {
-                $esc = htmlspecialchars($img['url'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
-                $previewHtml .= '<img src="'.$esc.'" '
-                    .'style="width:90px;height:68px;object-fit:cover;border-radius:4px;border:1px solid #dee2e6;" '
-                    .'onerror="this.style.display=\'none\'">';
-            }
-        }
+        $safeKey = preg_replace('/[^a-zA-Z0-9]/', '_', $fieldKey);
+        $previewHtml = '<div id="wf-multi-preview-'.$safeKey.'" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px;">';
 
-        $total = count($value);
-        if ($total > 8) {
-            $previewHtml .= '<span style="line-height:68px;color:#6c757d;font-size:13px">+'.($total - 8).' more</span>';
+        foreach (array_values($value) as $index => $img) {
+            if (! is_array($img) || ! is_string($img['url'] ?? null) || $img['url'] === '') {
+                continue;
+            }
+            $esc = htmlspecialchars($img['url'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+            $previewHtml .= '<div class="wf-multi-thumb" data-index="'.$index.'" style="position:relative;width:90px;height:68px;">'
+                .'<img src="'.$esc.'" '
+                .'style="width:90px;height:68px;object-fit:cover;border-radius:4px;border:1px solid #dee2e6;display:block;" '
+                .'onerror="this.parentElement.style.display=\'none\'">'
+                .'<button type="button" title="Delete image" '
+                .'onclick="webflowRemoveMultiImage('.json_encode($fieldKey).','.json_encode($safeKey).','.$index.')" '
+                .'style="position:absolute;top:2px;right:2px;width:22px;height:22px;padding:0;border:none;'
+                .'border-radius:50%;background:rgba(185,28,28,.92);color:#fff;font-size:14px;line-height:22px;'
+                .'cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.25)">×</button>'
+                .'</div>';
         }
 
         $previewHtml .= '</div>';
 
-        $encoded = json_encode($value, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+        $encoded = json_encode(array_values($value), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 
         return [
             TextArea::make($inputName)
                 ->title($title)
                 ->rows(5)
                 ->value(is_string($encoded) ? $encoded : '[]')
-                ->help($previewHtml.'<small class="text-muted">JSON array — edit the <code>url</code> values to replace individual images.</small>'),
+                ->help($previewHtml.'<small class="text-muted">Click × on a thumbnail to remove it, or edit the JSON <code>url</code> values. Save the item to apply.</small>'),
         ];
     }
 
