@@ -33,6 +33,7 @@
     </script>
     @include('partials.seo-head')
     <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta name="theme-color" content="#0f4d89" />
     <link href="{{ site_css_bundle_url([
       'webflow-assets/css/webflow.min.css',
       'webflow-assets/css/fonts.css',
