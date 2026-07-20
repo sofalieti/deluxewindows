@@ -280,39 +280,62 @@ class PromotionControlService
         }
 
         $start = strpos($html, '<div class="promo-price-tag');
-        if ($start === false) {
-            return null;
-        }
-
-        $openEnd = strpos($html, '>', $start);
-        if ($openEnd === false) {
-            return null;
-        }
-
-        $depth = 1;
-        $pos = $openEnd + 1;
-        $length = strlen($html);
-
-        while ($pos < $length && $depth > 0) {
-            $nextOpen = strpos($html, '<div', $pos);
-            $nextClose = strpos($html, '</div>', $pos);
-
-            if ($nextClose === false) {
+        if ($start !== false) {
+            $openEnd = strpos($html, '>', $start);
+            if ($openEnd === false) {
                 return null;
             }
 
-            if ($nextOpen !== false && $nextOpen < $nextClose) {
-                $depth++;
-                $pos = $nextOpen + 4;
-                continue;
+            $depth = 1;
+            $pos = $openEnd + 1;
+            $length = strlen($html);
+
+            while ($pos < $length && $depth > 0) {
+                $nextOpen = strpos($html, '<div', $pos);
+                $nextClose = strpos($html, '</div>', $pos);
+
+                if ($nextClose === false) {
+                    return null;
+                }
+
+                if ($nextOpen !== false && $nextOpen < $nextClose) {
+                    $depth++;
+                    $pos = $nextOpen + 4;
+                    continue;
+                }
+
+                $depth--;
+                $pos = $nextClose + 6;
+
+                if ($depth === 0) {
+                    return substr($html, $start, $pos - $start);
+                }
             }
 
-            $depth--;
-            $pos = $nextClose + 6;
+            return null;
+        }
 
-            if ($depth === 0) {
-                return substr($html, $start, $pos - $start);
+        // Classic desktop richtext: Starting from <s>832</s> $499
+        if (preg_match(
+            '/Starting from\s*<s>\s*\$?\s*([0-9][0-9,]*(?:\.[0-9]{1,2})?)\s*<\/s>\s*(\$?\s*[0-9][0-9,]*(?:\.[0-9]{1,2})?)/i',
+            $html,
+            $match
+        ) === 1) {
+            $suffix = 'per window';
+            if (preg_match('/<\/div>\s*<p>\s*([^<]+?)\s*<\/p>/i', $html, $suffixMatch) === 1) {
+                $suffix = trim(html_entity_decode($suffixMatch[1], ENT_QUOTES | ENT_HTML5, 'UTF-8'));
             }
+
+            return $this->priceTagHtml($match[1], $match[2], $suffix !== '' ? $suffix : 'per window');
+        }
+
+        // Classic desktop richtext: Starting from $999 per window installed.
+        if (preg_match(
+            '/Starting from\s+(\$?\s*[0-9][0-9,]*(?:\.[0-9]{1,2})?)\s+([^.<]+)/i',
+            strip_tags(str_replace(['<s>', '</s>'], ' ', $html)),
+            $match
+        ) === 1 && ! str_contains(strtolower($html), '<s>')) {
+            return $this->priceTagHtmlStartingFrom($match[1], trim($match[2]));
         }
 
         return null;
@@ -352,68 +375,51 @@ class PromotionControlService
         return $this->priceTagHtml('915', '$549', 'per window installed');
     }
 
+    /**
+     * Desktop hero pricing (no red badge). Dual price → strikethrough richtext.
+     * Mobile red badge is built separately via priceTagHtml().
+     */
     public function priceHtml(string $base, string $final, string $suffix = 'per window'): string
     {
-        $base = e($this->normalizeMoney($base));
+        $baseAmount = e($this->moneyAmount($base));
         $final = e($this->normalizeMoney($final));
         $suffix = e($suffix);
-        $discount = e($this->globalDiscountLabel());
-        $promoName = e($this->globalPromotionName());
+        $headline = e($this->globalDiscountPercent().'% off for limited time');
 
-        return '<div class="promo-offer-card">'
-            .'<h3 class="promo-offer-title">'.$promoName.'</h3>'
-            .'<div class="promo-offer-headline">'.$discount.'</div>'
-            .'<div class="promo-offer-subtitle">Limited-time pricing</div>'
-            .$this->priceTagHtml($base, $final, $suffix)
-            .'</div>';
+        return '<h3><strong>'.$headline.'</strong></h3>'
+            .'<div class="w-embed hero-promo-priced">Starting from <s>'.$baseAmount.'</s> '.$final.'<sup>*</sup></div>'
+            .'<p>'.$suffix.'</p>'
+            .'<p>‍</p>';
     }
 
     public function homePriceHtml(string $category = 'general'): string
     {
-        $discount = e($this->globalDiscountLabel());
-        $percent = e($this->globalDiscountPercent().'%');
-        $categoryCopy = match ($category) {
-            'windows' => [
-                'title' => 'Get Deluxe Windows for Less',
-                'subtitle' => 'Limited-time window replacement offer',
-                'note' => 'OFF Windows',
-            ],
-            'doors' => [
-                'title' => 'Get Deluxe Doors for Less',
-                'subtitle' => 'Limited-time door replacement offer',
-                'note' => 'OFF Doors',
-            ],
-            default => [
-                'title' => 'Get Deluxe Windows and Doors for Less',
-                'subtitle' => 'Limited-time home improvement offer',
-                'note' => 'OFF Windows & Doors',
-            ],
-        };
+        $headline = e($this->globalDiscountPercent().'% off for limited time');
 
-        return '<div class="promo-offer-card promo-offer-card--home">'
-            .'<h3 class="promo-offer-title">'.e($categoryCopy['title']).'</h3>'
-            .'<div class="promo-offer-headline">'.$discount.'</div>'
-            .'<div class="promo-offer-subtitle">'.e($categoryCopy['subtitle']).'</div>'
-            .'<div class="promo-price-tag promo-price-tag--percent">'
-            .'<div class="promo-price-tag-line promo-price-tag-line--new"><span class="promo-price-tag-new">'.$percent.'</span></div>'
-            .'<div class="promo-price-tag-note">'.e($categoryCopy['note']).'</div>'
-            .'</div>'
-            .'</div>';
+        return '<h3><strong>'.$headline.'</strong></h3>'
+            .'<p><strong>Special pricing available upon request!</strong>‍</p>';
     }
 
+    /**
+     * Desktop hero pricing when only a final/"from" price exists (no red badge).
+     */
     public function priceHtmlStartingFrom(string $final, string $suffix = 'per window installed'): string
     {
         $final = e($this->normalizeMoney($final));
         $suffix = e($suffix);
-        $discount = e($this->globalDiscountLabel());
-        $promoName = e($this->globalPromotionName());
 
-        return '<div class="promo-offer-card">'
-            .'<h3 class="promo-offer-title">'.$promoName.'</h3>'
-            .'<div class="promo-offer-headline">'.$discount.'</div>'
-            .'<div class="promo-offer-subtitle">Special pricing available upon request!</div>'
-            .$this->priceTagHtmlStartingFrom($final, $suffix)
-            .'</div>';
+        return '<p class="hero-promo-priced">Starting from '.$final.' '.$suffix.'.</p>'
+            .'<p><strong>Special pricing available upon request!</strong>‍</p>';
+    }
+
+    private function moneyAmount(string $value): string
+    {
+        $normalized = $this->normalizeMoney($value);
+        if (str_starts_with($normalized, '$')) {
+            return substr($normalized, 1);
+        }
+
+        return $normalized;
     }
 
     private function normalizeMoney(string $value): string

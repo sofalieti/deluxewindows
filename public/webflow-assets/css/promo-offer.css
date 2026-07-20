@@ -43,7 +43,7 @@
   width: 224px;
   border-radius: 12px;
   padding: 10px 12px 9px;
-  background: linear-gradient(145deg, #cc1212 0%, #a90d0d 100%) !important;
+  background: linear-gradient(145deg, #297bb5 0%, #2872a7 100%) !important;
   color: #fff !important;
   box-shadow: 0 10px 20px rgba(120, 10, 10, 0.35);
   transform: translateY(-50%) rotate(-7deg);
@@ -55,6 +55,20 @@
 .form-block-2 .estimate-form-promo .promo-price-tag {
   right: -60px;
   top: 50%;
+}
+
+/* Red price badge is mobile-only (hero-mobile-promo). Never show it in desktop hero forms. */
+@media screen and (min-width: 992px) {
+  .form-block-2 .estimate-form-promo .promo-price-tag,
+  .promo-offer-context--form .promo-price-tag,
+  .estimate-form-promo .promo-offer-card .promo-price-tag {
+    display: none !important;
+  }
+
+  .promo-offer-card,
+  .w-richtext .promo-offer-card {
+    padding-right: 14px;
+  }
 }
 
 .promo-price-tag-line,

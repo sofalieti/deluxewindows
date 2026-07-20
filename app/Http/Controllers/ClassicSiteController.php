@@ -1111,7 +1111,7 @@ class ClassicSiteController extends Controller
 
         $collectionsTitle = $fieldData['title'] ?? "Explore {$brandName} Collections";
         $heroFormHtml     = $this->resolveWindowTypeHeroPricing($windowType, $fieldData);
-        $pagePromotionAvailable = str_contains($heroFormHtml, 'promo-offer-card');
+        $pagePromotionAvailable = $this->heroHtmlHasSpecificPricing($heroFormHtml);
 
         return view('window-types.show', [
             'name'                  => $name,
@@ -1229,7 +1229,7 @@ class ClassicSiteController extends Controller
         $heroFormHtml = $doorTypePricing
             ? $controls->pricingHtmlFromMap($doorTypePricing, 'per door installed')
             : $controls->priceHtml('2165', '$1299', 'per door installed');
-        $pagePromotionAvailable = str_contains($heroFormHtml, 'promo-offer-card');
+        $pagePromotionAvailable = $this->heroHtmlHasSpecificPricing($heroFormHtml);
 
         return view('door-types.show', [
             'name'                  => $name,
@@ -2534,5 +2534,15 @@ class ClassicSiteController extends Controller
         $short = preg_replace('/\s+Windows$/i', '', trim($materialName));
 
         return is_string($short) && $short !== '' ? $short : $materialName;
+    }
+
+    /**
+     * Detect page-specific hero pricing HTML (desktop richtext or legacy card).
+     */
+    private function heroHtmlHasSpecificPricing(string $html): bool
+    {
+        return str_contains($html, 'hero-promo-priced')
+            || str_contains($html, 'promo-offer-card')
+            || str_contains($html, '<s>');
     }
 }

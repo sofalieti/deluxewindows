@@ -63,15 +63,19 @@
     : ($typeHero
       ? ($heroFormHtml ?? '<p>Starting from $1199 per window installed.</p><p><strong>Special pricing available upon request! </strong>‍</p>')
       : ($brandHeroFormHtml ?? '<p>Starting from $999 per window installed.</p><p><strong>Special pricing available upon request!</strong>‍</p>'));
+  // Prefer the HTML actually rendered in the desktop form (window/door material pages).
+  $heroPromoSourceHtml = $windowDiscountHtml ?? $doorDiscountHtml ?? $heroPricingHtml;
   $heroMobilePriceTagHtml = promotion_hero_mobile_price_tag_html(
-    $heroPricingHtml,
+    $heroPromoSourceHtml,
     !empty($collectionHero),
     $typeHero,
     $brandPromotionPricing ?? $heroPromotionPricing ?? null,
   );
   $hasSpecificPagePromotion = !empty($pagePromotionAvailable)
     || !empty($brandPromotionPricing ?? null)
-    || !empty($heroPromotionPricing ?? null);
+    || !empty($heroPromotionPricing ?? null)
+    || str_contains((string) $heroPromoSourceHtml, 'hero-promo-priced')
+    || str_contains((string) $heroPromoSourceHtml, '<s>');
   // Hide the hero promo/price block entirely when a page opts in and has no price
   // (e.g. door-brand pages where no linked door has a Promotions price).
   $hideHeroPricing = !empty($hideHeroPromoWhenEmpty) && empty($brandHeroFormHtml ?? null);
