@@ -90,7 +90,7 @@ class WebflowCollectionListScreen extends Screen
 
     public function description(): ?string
     {
-        return 'Drag rows to change the order shown on the website. Edit imported Webflow collection entries.';
+        return 'Drag rows to change order, then click Save order. This order is used on the website.';
     }
 
     public function permission(): ?iterable
@@ -101,6 +101,13 @@ class WebflowCollectionListScreen extends Screen
     public function commandBar(): iterable
     {
         return [
+            Button::make('Save order')
+                ->icon('bs.check2-square')
+                ->class('btn btn-primary')
+                ->method('reorder')
+                ->set('form', 'wf-collection-reorder-form')
+                ->canSee($this->collectionSlug !== '' && ! request()->filled('search')),
+
             Button::make('Search')
                 ->icon('bs.search')
                 ->method('applySearch'),

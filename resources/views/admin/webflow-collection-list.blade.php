@@ -9,22 +9,45 @@
     ]);
 @endphp
 
-<div
+<form
+    id="wf-collection-reorder-form"
+    method="post"
+    action="{{ $reorderUrl }}"
     class="bg-white rounded shadow-sm mb-3 wf-collection-list"
-    data-wf-reorder-url="{{ $reorderUrl }}"
     data-wf-reorder-enabled="{{ $reorderEnabled ? '1' : '0' }}"
 >
-    <div class="px-3 py-2 border-bottom text-muted small">
-        @if($reorderEnabled)
-            Drag the handle to change website display order. Order saves automatically.
-        @else
-            Clear search to reorder items. Drag-and-drop is disabled while a filter is active.
+    @csrf
+
+    <div class="px-3 py-2 border-bottom d-flex flex-wrap align-items-center justify-content-between gap-2">
+        <div class="text-muted small mb-0">
+            @if($reorderEnabled)
+                Drag rows to set the website display order, then click <strong>Save order</strong>.
+            @else
+                Clear search to reorder items. Drag-and-drop is disabled while a filter is active.
+            @endif
+        </div>
+
+        @if($reorderEnabled && $items->isNotEmpty())
+            <button
+                type="submit"
+                id="wf-save-order-btn"
+                class="btn btn-primary btn-sm wf-save-order-btn"
+                disabled
+            >
+                Save order
+            </button>
         @endif
     </div>
 
     @if($items->isEmpty())
         <div class="p-4 text-muted">No items found.</div>
     @else
+        <div id="wf-reorder-ids">
+            @foreach($items as $item)
+                <input type="hidden" name="item_ids[]" value="{{ (int) data_get($item, 'id', 0) }}">
+            @endforeach
+        </div>
+
         <ol class="list-group list-group-flush wf-collection-sortable" id="wf-collection-sortable">
             @foreach($items as $item)
                 @php
@@ -82,26 +105,36 @@
                     <div class="wf-collection-row__actions">
                         <a class="btn btn-link btn-sm" href="{{ $editUrl }}">Edit</a>
 
-                        <form method="post" action="{{ $toggleUrl }}" class="d-inline">
-                            @csrf
-                            <input type="hidden" name="item_id" value="{{ $id }}">
-                            <button type="submit" class="btn btn-link btn-sm">
-                                {{ $isDraft ? 'Enable' : 'Disable' }}
-                            </button>
-                        </form>
+                        <button
+                            type="submit"
+                            formaction="{{ $toggleUrl }}"
+                            formmethod="post"
+                            name="item_id"
+                            value="{{ $id }}"
+                            class="btn btn-link btn-sm"
+                            formnovalidate
+                        >
+                            {{ $isDraft ? 'Enable' : 'Disable' }}
+                        </button>
 
-                        <form method="post" action="{{ $deleteUrl }}" class="d-inline"
-                              onsubmit="return confirm('Delete this item? This action cannot be undone.');">
-                            @csrf
-                            <input type="hidden" name="item_id" value="{{ $id }}">
-                            <button type="submit" class="btn btn-link btn-sm text-danger">Delete</button>
-                        </form>
+                        <button
+                            type="submit"
+                            formaction="{{ $deleteUrl }}"
+                            formmethod="post"
+                            name="item_id"
+                            value="{{ $id }}"
+                            class="btn btn-link btn-sm text-danger"
+                            formnovalidate
+                            onclick="return confirm('Delete this item? This action cannot be undone.');"
+                        >
+                            Delete
+                        </button>
                     </div>
                 </li>
             @endforeach
         </ol>
     @endif
-</div>
+</form>
 
 <script>
 (function () {
@@ -111,38 +144,32 @@
             return;
         }
 
-        var root = document.querySelector('.wf-collection-list');
+        var form = document.getElementById('wf-collection-reorder-form');
         var list = document.getElementById('wf-collection-sortable');
-        if (!root || !list) {
+        var idsBox = document.getElementById('wf-reorder-ids');
+        var saveBtn = document.getElementById('wf-save-order-btn');
+        if (!form || !list || !idsBox) {
             return;
         }
 
-        var url = root.getAttribute('data-wf-reorder-url');
-        var enabled = root.getAttribute('data-wf-reorder-enabled') === '1';
-        var saving = false;
-
+        var enabled = form.getAttribute('data-wf-reorder-enabled') === '1';
         if (!enabled) {
             return;
         }
 
-        function csrfToken() {
-            var meta = document.querySelector('meta[name="csrf-token"]');
-            return meta ? meta.getAttribute('content') : (window._token || '');
-        }
-
-        function toast(message, type) {
-            if (window.Toast && typeof window.Toast.fire === 'function') {
-                window.Toast.fire({ icon: type === 'danger' ? 'error' : 'success', title: message });
-                return;
-            }
-            console.log('[wf-reorder]', message);
-        }
-
-        function collectIds() {
-            return Array.prototype.map.call(
+        function syncHiddenIds() {
+            var ids = Array.prototype.map.call(
                 list.querySelectorAll('.wf-collection-row[data-model-id]'),
                 function (el) { return el.getAttribute('data-model-id'); }
             );
+            idsBox.innerHTML = '';
+            ids.forEach(function (id) {
+                var input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = 'item_ids[]';
+                input.value = id;
+                idsBox.appendChild(input);
+            });
         }
 
         function renumber() {
@@ -154,44 +181,13 @@
             );
         }
 
-        function saveOrder() {
-            if (saving || !url) {
+        function markDirty() {
+            if (!saveBtn) {
                 return;
             }
-            saving = true;
-            var ids = collectIds();
-            var body = new FormData();
-            body.append('_token', csrfToken());
-            ids.forEach(function (id) {
-                body.append('item_ids[]', id);
-            });
-
-            fetch(url, {
-                method: 'POST',
-                body: body,
-                headers: {
-                    'X-Requested-With': 'XMLHttpRequest',
-                    'Accept': 'application/json',
-                },
-                credentials: 'same-origin',
-            })
-                .then(function (res) {
-                    if (!res.ok) {
-                        throw new Error('HTTP ' + res.status);
-                    }
-                    return res.json().catch(function () { return { ok: true }; });
-                })
-                .then(function () {
-                    renumber();
-                    toast('Order saved.');
-                })
-                .catch(function (err) {
-                    console.error(err);
-                    toast('Failed to save order.', 'danger');
-                })
-                .finally(function () {
-                    saving = false;
-                });
+            saveBtn.disabled = false;
+            saveBtn.classList.add('is-dirty');
+            saveBtn.textContent = 'Save order';
         }
 
         Sortable.create(list, {
@@ -199,8 +195,24 @@
             handle: '.reorder-handle',
             draggable: '.wf-collection-row',
             onEnd: function () {
-                saveOrder();
+                syncHiddenIds();
+                renumber();
+                markDirty();
             },
+        });
+
+        form.addEventListener('submit', function (event) {
+            // Only the main Save order button (or Enter) should submit reorder.
+            // Enable/Disable/Delete use formaction and must keep their own target.
+            var submitter = event.submitter;
+            if (submitter && submitter.getAttribute('formaction')) {
+                return;
+            }
+            syncHiddenIds();
+            if (saveBtn) {
+                saveBtn.disabled = true;
+                saveBtn.textContent = 'Saving…';
+            }
         });
     }
 
