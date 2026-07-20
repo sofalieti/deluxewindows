@@ -40,5 +40,6 @@
         </svg>
       </span>
     </a>
+    <p class="hero-mobile-promo__owned">We are – 100% employee owned &amp; over 30 years in business!</p>
   @endif
 </div>

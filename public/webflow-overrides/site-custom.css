@@ -418,28 +418,32 @@
   width: 100%;
   min-height: 44px;
   padding: 0 16px;
-  border: 1px solid rgba(255, 255, 255, 0.55);
+  border: 1px solid #c96a00;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.92);
-  color: #1f3347;
+  background: linear-gradient(180deg, #e08a00 0%, #c45f00 100%);
+  color: #ffffff;
   font-size: 14px;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1;
   letter-spacing: 0.01em;
   text-decoration: none;
-  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.12);
+  box-shadow: 0 8px 20px rgba(196, 95, 0, 0.28);
   -webkit-tap-highlight-color: transparent;
 }
 
 .hero-mobile-promo__phone:active {
   transform: translateY(1px);
-  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 4px 12px rgba(196, 95, 0, 0.24);
 }
 
 .hero-mobile-promo__phone-number {
   flex: 1 1 auto;
+  display: flex;
+  align-items: center;
   text-align: left;
   white-space: nowrap;
+  color: #ffffff;
+  line-height: 1;
 }
 
 .hero-mobile-promo__phone-icon {
@@ -450,13 +454,36 @@
   width: 28px;
   height: 28px;
   border-radius: 999px;
-  background: #e8eef4;
-  color: #0f4d89;
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+}
+
+.hero-mobile-promo__owned {
+  display: none;
+  margin: 2px 0 0;
+  max-width: 240px;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  text-align: center;
+  text-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.7),
+    0 1px 3px rgba(0, 0, 0, 0.85);
 }
 
 @media (max-width: 991px) {
   .hero-mobile-promo__phone {
     display: inline-flex;
+  }
+
+  .hero-mobile-promo__owned {
+    display: block;
+  }
+
+  .title-left---content-right.paragraph-content.alt.hero-page .hero-mini-description {
+    display: none !important;
   }
 }
 
