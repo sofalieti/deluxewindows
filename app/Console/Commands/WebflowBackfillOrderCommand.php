@@ -55,20 +55,8 @@ class WebflowBackfillOrderCommand extends Command
                 continue;
             }
 
-            $sorted = $rows->sortBy([
-                function ($row) {
-                    $fieldData = is_string($row->field_data ?? null)
-                        ? (json_decode((string) $row->field_data, true) ?: [])
-                        : (is_array($row->field_data ?? null) ? $row->field_data : []);
-
-                    return is_numeric($fieldData['order'] ?? null)
-                        ? (int) $fieldData['order']
-                        : WebflowItemOrder::MISSING;
-                },
-                fn ($row) => (int) $row->id,
-            ])->values();
-
-            $ids = $sorted->map(fn ($row) => (int) $row->id)->all();
+            $sorted = WebflowItemOrder::sort($rows);
+            $ids = $sorted->map(fn ($row) => (int) data_get($row, 'id', 0))->all();
 
             if ($dryRun) {
                 $this->info("{$slug}: would renumber {$sorted->count()} item(s)");

@@ -997,11 +997,48 @@
   background-repeat: no-repeat;
 }
 
-/* Mobile: shift hero background ~20% to the left of center */
+/* Mobile hero: pan left edge → center, ease-in-out (slow at ends), then back */
+@keyframes dw-hero-pan-x-bg {
+  from {
+    background-position: 0% center;
+  }
+  to {
+    background-position: 50% center;
+  }
+}
+
+@keyframes dw-hero-pan-x-object {
+  from {
+    object-position: 0% center;
+  }
+  to {
+    object-position: 50% center;
+  }
+}
+
 @media (max-width: 767px) {
-  .div-block-59 > .div-block-61,
-  .div-block-59 #hero-bg-wrapper {
-    background-position: 30% center !important;
+  .div-block-59 > .div-block-61[data-parallax],
+  .div-block-59 > .div-block-61[style*="background-image"] {
+    animation: dw-hero-pan-x-bg 14s ease-in-out infinite alternate;
+    will-change: background-position;
+  }
+
+  .video-bg-container .hero-bg-image,
+  .service-area-hero__image {
+    object-fit: cover;
+    animation: dw-hero-pan-x-object 14s ease-in-out infinite alternate;
+    will-change: object-position;
+  }
+}
+
+@media (max-width: 767px) and (prefers-reduced-motion: reduce) {
+  .div-block-59 > .div-block-61[data-parallax],
+  .div-block-59 > .div-block-61[style*="background-image"],
+  .video-bg-container .hero-bg-image,
+  .service-area-hero__image {
+    animation: none;
+    background-position: 0% center;
+    object-position: 0% center;
   }
 }
 

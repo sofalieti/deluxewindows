@@ -75,7 +75,7 @@
 
                     <div class="wf-collection-row__main">
                         <div class="wf-collection-row__title">
-                            <span class="wf-collection-row__order">#{{ $order >= 999999 ? '—' : $order }}</span>
+                            <span class="wf-collection-row__order">#{{ $order > 0 ? $order : $loop->iteration }}</span>
                             <strong>{{ \Illuminate\Support\Str::limit($name, 80) }}</strong>
                             @if($isDraft)
                                 <span class="badge bg-secondary">Disabled</span>

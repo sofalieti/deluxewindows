@@ -64,8 +64,9 @@ class WebflowCollectionListScreen extends Screen
             return new Repository($item);
         });
 
-        $items = WebflowItemOrder::sort($rows)->map(function (Repository $item) {
-            $item['order'] = WebflowItemOrder::key($item);
+        $items = WebflowItemOrder::sort($rows)->values()->map(function (Repository $item, int $index) {
+            // Show 1..N position in the sorted list (matches visual order).
+            $item['order'] = $index + 1;
             $item['relation_summary'] = $this->relationSummary($item);
 
             return $item;

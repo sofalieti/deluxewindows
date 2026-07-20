@@ -33,10 +33,11 @@ final class WebflowItemOrder
      */
     public static function sort(iterable $items): Collection
     {
+        // sortBy([...]) uses comparators (a, b), not single-value extractors.
         return collect($items)
             ->sortBy([
-                fn ($item) => self::key($item),
-                fn ($item) => (int) data_get($item, 'id', 0),
+                static fn ($a, $b) => self::key($a) <=> self::key($b),
+                static fn ($a, $b) => ((int) data_get($a, 'id', 0)) <=> ((int) data_get($b, 'id', 0)),
             ])
             ->values();
     }

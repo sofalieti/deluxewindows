@@ -43,7 +43,12 @@ class DoorBrandListScreen extends Screen
                 ];
             })
             ->filter()
-            ->values();
+            ->values()
+            ->map(function (array $row, int $index): array {
+                $row['order'] = $index + 1;
+
+                return $row;
+            });
 
         return [
             'brands' => $rows,
