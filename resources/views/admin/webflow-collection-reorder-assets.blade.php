@@ -1,2 +1,2 @@
 <link rel="stylesheet" href="{{ asset('css/admin-webflow-collection-list.css') }}">
-<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.6/Sortable.min.js" defer></script>
+<meta name="wf-sortable-src" content="{{ asset('js/sortable.min.js') }}">
