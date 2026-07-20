@@ -395,6 +395,8 @@
     })();
     </script>
 
+    <script src="/webflow-assets/js/dw-gallery-pan.js"></script>
+
     <script>
       (function () {
         /* UTM capture */

@@ -402,6 +402,8 @@
     })();
     </script>
 
+    <script src="/webflow-assets/js/dw-gallery-pan.js"></script>
+
     <script>
       (function () {
         const TRACK_PARAMS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "gclid", "fbclid", "msclkid"];

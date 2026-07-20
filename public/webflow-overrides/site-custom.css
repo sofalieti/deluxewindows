@@ -2287,3 +2287,32 @@ h1 .h1-subline {
   font-weight: 400;
 }
 
+/* Gallery: tall images pan vertically, easing slows near the edges */
+.dw-gallery__main img.dw-gallery-pan-y,
+.dw-gallery__thumb img.dw-gallery-pan-y {
+  object-position: center 0%;
+  animation-name: dw-gallery-pan-y;
+  animation-duration: var(--dw-gallery-pan-duration, 14s);
+  animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  will-change: object-position;
+}
+
+@keyframes dw-gallery-pan-y {
+  from {
+    object-position: center 0%;
+  }
+  to {
+    object-position: center 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dw-gallery__main img.dw-gallery-pan-y,
+  .dw-gallery__thumb img.dw-gallery-pan-y {
+    animation: none !important;
+    object-position: center center !important;
+  }
+}
+
