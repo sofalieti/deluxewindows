@@ -78,6 +78,21 @@
             </div>
           </div>
 
+          {{-- Brands for this material — directly above gallery --}}
+          @if($brandTypes->count() > 0)
+          <div class="window-brands-section window-brands-section--above-gallery">
+            @include('partials.brand-strip', [
+              'title' => $brandsTitle,
+              'items' => collect($brandTypes)->map(fn ($bt) => [
+                'href' => '/window-type/'.$bt['slug'],
+                'image' => (string) ($bt['image'] ?? ''),
+                'alt' => (string) ($bt['name'] ?? ''),
+              ])->values()->all(),
+              'wrapperClass' => 'mg-top-large window-brands-section__list',
+            ])
+          </div>
+          @endif
+
           {{-- Custom gallery (replaces Webflow lightbox grid) --}}
           @php
             // Do not inject hero image into the bottom gallery.
@@ -136,23 +151,6 @@
       </section>
 
       @include('partials.guarantee')
-
-      {{-- Top Window Brands (brands-types) --}}
-      @if($brandTypes->count() > 0)
-      <section class="section top-none window-brands-section">
-        <div class="w-layout-blockcontainer container-default w-container">
-          @include('partials.brand-strip', [
-            'title' => $brandsTitle,
-            'items' => collect($brandTypes)->map(fn ($bt) => [
-              'href' => '/window-type/'.$bt['slug'],
-              'image' => (string) ($bt['image'] ?? ''),
-              'alt' => (string) ($bt['name'] ?? ''),
-            ])->values()->all(),
-            'wrapperClass' => 'mg-top-large window-brands-section__list',
-          ])
-        </div>
-      </section>
-      @endif
 
       {{-- Learn More about Different Window Types --}}
       @if($learnMoreWindows->count() > 0)

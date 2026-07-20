@@ -18,15 +18,15 @@
               </div>
             </div>
             <div class="div-block-65">
-              <div class="text-block-46">✔</div>
+              <div class="text-block-46" aria-hidden="true">&#10003;</div>
               <div class="text-block-47">AAMA Certified Installers<br /></div>
             </div>
             <div class="div-block-65">
-              <div class="text-block-46">✔</div>
+              <div class="text-block-46" aria-hidden="true">&#10003;</div>
               <div class="text-block-47">Financing Available<br /></div>
             </div>
             <div class="div-block-65">
-              <div class="text-block-46">✔</div>
+              <div class="text-block-46" aria-hidden="true">&#10003;</div>
               <div class="text-block-47">40% Off — Limited Time</div>
             </div>
           </div>

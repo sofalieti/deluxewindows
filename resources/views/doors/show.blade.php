@@ -66,6 +66,21 @@
             </div>
           </div>
 
+          {{-- Brands for this material — directly above gallery --}}
+          @if($doorBrands->count() > 0)
+          <div class="door-brands-section door-brands-section--above-gallery">
+            @include('partials.brand-strip', [
+              'title' => $brandsTitle,
+              'items' => collect($doorBrands)->map(fn ($brand) => [
+                'href' => '/brands/'.($brand['slug'] ?? ''),
+                'image' => (string) ($brand['image'] ?? ''),
+                'alt' => (string) ($brand['name'] ?? ''),
+              ])->values()->all(),
+              'wrapperClass' => 'mg-top-large door-brands-section__list',
+            ])
+          </div>
+          @endif
+
           @php
             $allGalleryImages = collect();
             if ($mainImage) {
@@ -128,35 +143,6 @@
           </div>
         </div>
       </section>
-
-      @if($doorBrands->count() > 0)
-      <section class="section top-none">
-        <div class="w-layout-blockcontainer container-default w-container">
-          <div class="title-left---content-right">
-            <h2 class="heading-35">{{ $brandsTitle }}</h2>
-          </div>
-          <div class="mg-top-large">
-            <div class="collection-list-wrapper-5 w-dyn-list">
-              <div role="list" class="collection-list-2 door-brands-grid w-dyn-items">
-                @foreach($doorBrands as $brand)
-                <div role="listitem" class="w-dyn-item">
-                  <a href="/brands/{{ $brand['slug'] }}" class="property-wrapper-v1 w-inline-block">
-                    <div class="property-card-top-content-v1">
-                      <div class="image-wrapper border-radius-image-default property-card-top-content-v1---image">
-                        @if($brand['image'])
-                        <x-img :src="$brand['image']" preset="brand_grid" :alt="$brand['name']" loading="eager" class="image cover-image" />
-                        @endif
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                @endforeach
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      @endif
 
       @if($learnMoreDoors->count() > 0)
       <section class="section pd-120px">

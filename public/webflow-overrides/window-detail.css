@@ -118,6 +118,16 @@
   display: block;
 }
 
+/* Brands sit above gallery inside the product section */
+.window-detail-page .window-brands-section--above-gallery {
+  padding: 40px 0 28px !important;
+  margin: 0;
+}
+
+.window-detail-page .window-brands-section--above-gallery .window-brands-section__list {
+  margin-top: 20px !important;
+}
+
 /* Top brands block: static four-column cards */
 .window-detail-page .window-brands-section__list.brand-strip {
   overflow: visible;
@@ -162,6 +172,11 @@
 }
 
 @media (max-width: 767px) {
+  .window-detail-page .window-brands-section--above-gallery .brand-strip__title,
+  .window-detail-page .window-brands-section--above-gallery .brand-strip__title .heading-23 {
+    text-align: center;
+  }
+
   .window-detail-page .dw-gallery__main {
     display: none;
   }

@@ -118,43 +118,64 @@
   display: block;
 }
 
-.door-detail-page .door-brands-grid.collection-list-2.w-dyn-items {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
+/* Brands sit above gallery inside the product section */
+.door-detail-page .door-brands-section--above-gallery {
+  padding: 40px 0 28px;
+  margin: 0;
 }
 
-.door-detail-page .door-brands-grid.collection-list-2.w-dyn-items > .w-dyn-item {
+.door-detail-page .door-brands-section--above-gallery .door-brands-section__list {
+  margin-top: 20px !important;
+}
+
+.door-detail-page .door-brands-section__list.brand-strip {
+  overflow: visible;
+}
+
+.door-detail-page .door-brands-section__list .brand-strip__list {
+  width: 100% !important;
+  min-width: 0 !important;
+  flex-wrap: wrap !important;
+  justify-content: flex-start !important;
+  gap: 18px !important;
+  animation: none !important;
+}
+
+.door-detail-page .door-brands-section__list .brand-strip__item--dup {
+  display: none !important;
+}
+
+.door-detail-page .door-brands-section__list .brand-strip__item {
   flex: 0 0 calc((100% - 3 * 18px) / 4);
   max-width: calc((100% - 3 * 18px) / 4);
   min-width: 0;
 }
 
-.door-detail-page .door-brands-grid .property-wrapper-v1 {
-  display: block;
-}
-
-.door-detail-page .door-brands-grid .property-card-top-content-v1---image {
+.door-detail-page .door-brands-section__list .brand-strip__link {
   min-height: 84px;
+  padding: 14px 18px;
   border-radius: 12px;
   background: #f1f5f9;
-  padding: 14px 18px;
 }
 
-.door-detail-page .door-brands-grid .property-card-top-content-v1---image .image.cover-image {
-  object-fit: contain;
+.door-detail-page .door-brands-section__list .brand-strip__image {
   max-height: 30px;
-  mix-blend-mode: darken;
+  mix-blend-mode: darken !important;
 }
 
 @media (max-width: 991px) {
-  .door-detail-page .door-brands-grid.collection-list-2.w-dyn-items > .w-dyn-item {
+  .door-detail-page .door-brands-section__list .brand-strip__item {
     flex: 0 0 calc((100% - 2 * 14px) / 3);
     max-width: calc((100% - 2 * 14px) / 3);
   }
 }
 
 @media (max-width: 767px) {
+  .door-detail-page .door-brands-section--above-gallery .brand-strip__title,
+  .door-detail-page .door-brands-section--above-gallery .brand-strip__title .heading-23 {
+    text-align: center;
+  }
+
   .door-detail-page .dw-gallery__main {
     display: none;
   }
@@ -184,16 +205,16 @@
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);
   }
 
-  .door-detail-page .door-brands-grid.collection-list-2.w-dyn-items {
-    gap: 12px;
+  .door-detail-page .door-brands-section__list .brand-strip__list {
+    gap: 12px !important;
   }
 
-  .door-detail-page .door-brands-grid.collection-list-2.w-dyn-items > .w-dyn-item {
+  .door-detail-page .door-brands-section__list .brand-strip__item {
     flex: 0 0 calc((100% - 12px) / 2);
     max-width: calc((100% - 12px) / 2);
   }
 
-  .door-detail-page .door-brands-grid .property-card-top-content-v1---image {
+  .door-detail-page .door-brands-section__list .brand-strip__link {
     min-height: 64px;
     padding: 10px 12px;
   }
