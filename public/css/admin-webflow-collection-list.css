@@ -81,13 +81,13 @@
   white-space: nowrap;
 }
 
-.wf-save-order-btn:disabled {
-  opacity: 0.55;
-  cursor: not-allowed;
+.wf-save-order-btn.is-dirty {
+  box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.25);
 }
 
-.wf-save-order-btn.is-dirty:not(:disabled) {
-  box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.25);
+.wf-collection-row.sortable-ghost {
+  opacity: 0.45;
+  background: #f8fafc;
 }
 
 .wf-collection-row.sortable-chosen {

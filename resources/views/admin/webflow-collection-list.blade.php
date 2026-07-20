@@ -32,7 +32,6 @@
                 type="submit"
                 id="wf-save-order-btn"
                 class="btn btn-primary btn-sm wf-save-order-btn"
-                disabled
             >
                 Save order
             </button>

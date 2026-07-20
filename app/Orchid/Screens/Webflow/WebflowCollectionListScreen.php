@@ -182,21 +182,19 @@ class WebflowCollectionListScreen extends Screen
             $itemIds = array_map(static fn ($row) => (int) ($row['id'] ?? 0), $itemIds);
         }
 
+        if ($itemIds === []) {
+            Toast::warning('Nothing to save.');
+
+            return redirect()->route('platform.webflow.collection', ['collection' => $collection]);
+        }
+
         $updated = WebflowItemOrder::saveOrder((string) $meta['table'], $itemIds);
 
         if ($collection === 'coupons') {
             app(PromotionSettingsService::class)->forgetCache();
         }
 
-        if ($request->expectsJson() || $request->ajax()) {
-            return response()->json([
-                'ok' => true,
-                'updated' => $updated,
-                'message' => 'Order saved.',
-            ]);
-        }
-
-        Toast::info('Order saved.');
+        Toast::info($updated > 0 ? 'Order saved.' : 'Nothing to save.');
 
         return redirect()->route('platform.webflow.collection', ['collection' => $collection]);
     }
