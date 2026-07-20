@@ -275,6 +275,7 @@
 /* ─── 13. WINDOWS CARDS — fixed card image height ───────────────── */
 
 .image-wrapper.border-radius-image-default.height-100.wrapperimage2 {
+  width: auto;
   height: 190px;
   min-height: 180px;
 }
