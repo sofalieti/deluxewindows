@@ -394,10 +394,15 @@ class PromotionControlService
 
     public function homePriceHtml(string $category = 'general'): string
     {
-        $headline = e($this->globalDiscountPercent().'% off for limited time');
+        $promoName = rtrim(trim($this->globalPromotionName()), '.');
+        $percent = e($this->globalDiscountPercent().'%');
+        $suffix = match ($category) {
+            'windows' => 'Windows',
+            'doors' => 'Doors',
+            default => 'Windows',
+        };
 
-        return '<h3><strong>'.$headline.'</strong></h3>'
-            .'<p><strong>Special pricing available upon request!</strong>‍</p>';
+        return '<h2 class="display-4">'.e($promoName).'. <br>'.$percent.'&nbsp;OFF* '.$suffix.'</h2>';
     }
 
     /**

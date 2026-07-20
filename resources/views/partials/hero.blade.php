@@ -309,9 +309,7 @@
                     </div>
                     @else
                     <div data-estimate-form-promo data-page-promotion="global" class="estimate-form-promo promo-offer-context--form hero-mobile-promo-slot hero-mobile-promo-slot--form">
-                      <div class="rich-text-block-4 w-richtext">
-                        {!! promotion_home_html() !!}
-                      </div>
+                      {!! promotion_home_html() !!}
                     </div>
                     <label for="email-banner" class="body-14"></label>
                     @endif
