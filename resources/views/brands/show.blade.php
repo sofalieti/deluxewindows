@@ -7,6 +7,8 @@
 @section('content')
       @include('partials.hero', [
         'brandHero' => true,
+        'windowBrandHero' => true,
+        'brandName' => $name,
         'brandLogo' => $logo,
         'heroBackgroundImage' => $featuredImage,
         'windowHeroImage' => null,

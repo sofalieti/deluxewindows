@@ -164,14 +164,18 @@
         ? (($heroMaterialCopy['headline'] ?? null) ?: 'Upgrade to Energy Efficient Doors for Less')
         : ((!empty($doorBrandHero) && trim((string) ($brandName ?? '')) !== '')
           ? 'Upgrade to Energy Efficient '.trim((string) $brandName).' Doors for Less'
-          : 'Upgrade to Energy Efficient Windows and Doors for Less')));
+          : ((!empty($windowBrandHero) && trim((string) ($brandName ?? '')) !== '')
+            ? 'Upgrade to Energy Efficient '.trim((string) $brandName).' Windows for Less'
+            : 'Upgrade to Energy Efficient Windows and Doors for Less'))));
   $heroMiniDescription = $isWindowsMaterialHero || $isDoorsMaterialHero
     ? (($heroMaterialCopy['description'] ?? null) ?: ($isDoorsMaterialHero
       ? 'Get secure, stylish door solutions with better comfort and pricing for your home.'
       : 'Get high-performance window solutions with better comfort and pricing for your home.'))
     : ((!empty($doorBrandHero) && trim((string) ($brandName ?? '')) !== '')
       ? 'Authorized '.trim((string) $brandName).' door installation across the Bay Area — entry, patio, and sliding.'
-      : '');
+      : ((!empty($windowBrandHero) && trim((string) ($brandName ?? '')) !== '')
+        ? 'Authorized '.trim((string) $brandName).' window installation across the Bay Area — vinyl, fiberglass, wood & more.'
+        : ''));
 @endphp
 
       <div class="div-block-59">
@@ -246,6 +250,7 @@
                         'variant' => $hasSpecificPagePromotion ? 'price' : 'percent',
                         'badgeHtml' => $heroMobilePriceTagHtml,
                         'buttonLabel' => 'Get Free Quote',
+                        'showPhoneCta' => !empty($brandHero),
                       ])
                     </div>
                     @if($brandLikeHero || !empty($doorHero))
