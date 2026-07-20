@@ -59,7 +59,7 @@
                   <x-img :src="$logo" preset="logo" :alt="$brandName" loading="lazy" class="image-27 brand-mob" />
                   @endif
                 </div>
-                <h1 class="display-8 mid types">{{ $name }}</h1>
+                <h1 class="display-8 mid types">{{ $name }}<span class="h1-subline">Installation &amp; Replacement</span></h1>
                 <div class="mg-top-default"><div class="property-details"></div></div>
                 <div class="mg-top-default"><div class="property-details"></div></div>
               </div>

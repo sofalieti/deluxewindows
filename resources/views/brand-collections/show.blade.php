@@ -51,7 +51,7 @@
                   @if($brandLogoSvg ?? $brandLogo)
                   <x-img :src="$brandLogoSvg ?? $brandLogo" preset="logo" :alt="$brandName" loading="lazy" class="svg50 hidden-desktop" />
                   @endif
-                  <h1 class="heading-48">{{ $name }}</h1>
+                  <h1 class="heading-48">{{ $name }}<span class="h1-subline">Installation &amp; Replacement</span></h1>
                   @if($longDescription)
                   <p class="collection-paragraph big-p">{{ $longDescription }}</p>
                   @endif

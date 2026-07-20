@@ -239,7 +239,7 @@ STATIC_SEO = {
         ["replacement windows", "windows replacement", "house windows", "new windows"],
     ),
     "/doors": (
-        "Entry & Patio Door Installation Bay Area | Cost",
+        "Entry & Patio Door Replacement & Installation | Cost",
         "Entry, Patio and Sliding Doors for Bay Area Homes",
         "Explore entry, patio and sliding doors for Bay Area homes. Compare fiberglass, wood, steel and vinyl options with installed pricing and a free estimate.",
         "patio doors",
@@ -267,7 +267,7 @@ STATIC_SEO = {
         ["window replacement cost", "how much is a window replacement", "window replacement faq", "window installation questions"],
     ),
     "/about": (
-        "About Us | Bay Area Window & Door Installation Experts",
+        "About Us | Bay Area Window & Door Replacement & Installation Experts",
         "About Deluxe Windows",
         "Learn about Deluxe Windows, a Bay Area window and door company with a Burlingame showroom, factory-trained installers and free in-home estimates.",
         "deluxe windows inc",
@@ -295,7 +295,7 @@ STATIC_SEO = {
         ["window advice blog", "window replacement guides", "door buying advice"],
     ),
     "/gallery": (
-        "Window & Door Installation Gallery | Bay Area Projects",
+        "Window & Door Replacement & Installation Gallery | Bay Area Projects",
         "Completed Window and Door Projects",
         "Browse completed window and door installations by Deluxe Windows across the Bay Area. See real projects, products and finishes to plan your own upgrade.",
         "window installation gallery",
@@ -875,7 +875,7 @@ def build_seo(ctx: PageContext, titles: UniquePool, descriptions: UniquePool,
         title = pick_title([
             f"{brand} Window Replacement & Installation | Bay Area",
             f"{brand} Windows Bay Area | Replacement & Installation",
-            f"{brand} Window Installation Bay Area",
+            f"{brand} Window Replacement & Installation Bay Area",
         ], titles, path)
         h1 = f"{entity} Windows — Bay Area Dealer & Installer"
         description = fit_description(
@@ -889,9 +889,9 @@ def build_seo(ctx: PageContext, titles: UniquePool, descriptions: UniquePool,
     elif family == "door-brands":
         brand = SHORT_BRAND.get(entity, entity)
         title = pick_title([
-            f"{brand} Door Installation Bay Area | Patio & Entry",
+            f"{brand} Door Replacement & Installation | Patio & Entry",
             f"{brand} Doors Bay Area | Replacement & Installation",
-            f"{brand} Door Installation Bay Area",
+            f"{brand} Door Replacement & Installation Bay Area",
         ], titles, path)
         h1 = f"{entity} Doors — Patio, Sliding & Entry"
         description = fit_description(
@@ -919,9 +919,9 @@ def build_seo(ctx: PageContext, titles: UniquePool, descriptions: UniquePool,
     elif family == "doors":
         facts = ctx.material_facts
         title = pick_title([
-            f"{entity} Door Installation Bay Area | Entry & Patio",
-            f"{entity} Door Installation Bay Area | Cost",
-            f"{entity} Doors Bay Area | Installation Cost",
+            f"{entity} Door Replacement & Installation | Entry & Patio",
+            f"{entity} Door Replacement & Installation | Cost",
+            f"{entity} Doors Bay Area | Replacement & Installation",
         ], titles, path)
         h1 = f"{entity} Doors for Bay Area Homes"
         description = fit_description(
@@ -933,8 +933,8 @@ def build_seo(ctx: PageContext, titles: UniquePool, descriptions: UniquePool,
         keywords = queries or [primary, f"{entity.casefold()} entry doors", f"{entity.casefold()} patio doors"]
     elif family == "window-type":
         title = pick_title([
-            f"{entity} | Installation Cost & Series",
-            f"{entity} | Installation Cost",
+            f"{entity} | Replacement & Installation",
+            f"{entity} | Replacement & Installation",
             f"{entity} Installation",
             entity,
         ], titles, path)
@@ -948,8 +948,8 @@ def build_seo(ctx: PageContext, titles: UniquePool, descriptions: UniquePool,
         keywords = queries or [primary, f"{primary} prices"]
     elif family == "door-types":
         title = pick_title([
-            f"{entity} | Installation Cost & Options",
-            f"{entity} | Installation Cost",
+            f"{entity} | Replacement & Installation",
+            f"{entity} | Replacement & Installation",
             f"{entity} Installation",
             entity,
         ], titles, path)
@@ -972,8 +972,8 @@ def build_seo(ctx: PageContext, titles: UniquePool, descriptions: UniquePool,
         for full, short in SHORT_BRAND.items():
             compact = compact.replace(full, short)
         title = pick_title([
-            f"{entity} | Prices & Installation",
-            f"{compact} | Prices & Installation",
+            f"{entity} | Replacement & Installation",
+            f"{compact} | Replacement & Installation",
             f"{entity} | Installation",
             f"{compact} | Installation",
             compact,
