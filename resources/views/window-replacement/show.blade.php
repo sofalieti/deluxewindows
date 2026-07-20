@@ -9,6 +9,7 @@
     @include('partials.service-area-hero', [
       'cityName' => $cityName,
       'cityLabel' => $cityLabel,
+      'countyName' => $countyName,
       'heroImage' => $heroImage,
     ])
 

@@ -3,16 +3,16 @@
   "key": "county-hub-pages/san-mateo-county",
   "path": "/county-hub-pages/san-mateo-county",
   "seo": {
-    "title": "Window Replacement San Mateo County | Installation & Cost",
+    "title": "Windows & Doors in San Mateo County",
     "description": "Window and door replacement across San Mateo County: leading brands, energy-efficient products and professional installation for every city we serve.",
     "canonical": "https://www.deluxewindows.com/county-hub-pages/san-mateo-county",
     "og": {
-      "title": "Window Replacement San Mateo County | Installation & Cost",
+      "title": "Windows & Doors in San Mateo County",
       "description": "Window and door replacement across San Mateo County: leading brands, energy-efficient products and professional installation for every city we serve.",
       "image": "/webflow-assets/images/69fc954e7b9bf04407ae45b8_generated-2026-05-07t13-33-40-522z-mtceq0.jpeg",
       "type": "website"
     },
-    "h1": "Window & Door Replacement in San Mateo County",
+    "h1": "Windows & Doors in San Mateo County",
     "primary_keyword": "window replacement san mateo county",
     "target_keywords": [
       "window replacement san mateo county",
@@ -22,7 +22,7 @@
     "priority": "P2",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Window Replacement San Mateo County | Installation & Cost",
+      "title": "Windows & Doors in San Mateo County",
       "description": "Window and door replacement across San Mateo County: leading brands, energy-efficient products and professional installation for every city we serve.",
       "image": "/webflow-assets/images/69fc954e7b9bf04407ae45b8_generated-2026-05-07t13-33-40-522z-mtceq0.jpeg",
       "card": "summary_large_image"
@@ -53,7 +53,7 @@
   "schema": {
     "primary_type": "CollectionPage",
     "data": {
-      "name": "San Mateo County"
+      "name": "Windows & Doors in San Mateo County"
     },
     "extra": [],
     "replace": []

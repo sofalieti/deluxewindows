@@ -3,16 +3,16 @@
   "key": "county-hub-pages/san-francisco-county",
   "path": "/county-hub-pages/san-francisco-county",
   "seo": {
-    "title": "San Francisco County Window Replacement & Installation",
+    "title": "Windows & Doors in San Francisco County",
     "description": "Window and door replacement across San Francisco County: leading brands, energy-efficient products and professional installation for every city we serve.",
     "canonical": "https://www.deluxewindows.com/county-hub-pages/san-francisco-county",
     "og": {
-      "title": "San Francisco County Window Replacement & Installation",
+      "title": "Windows & Doors in San Francisco County",
       "description": "Window and door replacement across San Francisco County: leading brands, energy-efficient products and professional installation for every city we serve.",
       "image": "/webflow-assets/images/69fc954e7b9bf04407ae45c7_generated-2026-05-07t13-34-34-997z-6m6ghv.jpeg",
       "type": "website"
     },
-    "h1": "Window & Door Replacement in San Francisco County",
+    "h1": "Windows & Doors in San Francisco County",
     "primary_keyword": "window replacement san francisco county",
     "target_keywords": [
       "window replacement san francisco county",
@@ -22,7 +22,7 @@
     "priority": "P2",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "San Francisco County Window Replacement & Installation",
+      "title": "Windows & Doors in San Francisco County",
       "description": "Window and door replacement across San Francisco County: leading brands, energy-efficient products and professional installation for every city we serve.",
       "image": "/webflow-assets/images/69fc954e7b9bf04407ae45c7_generated-2026-05-07t13-34-34-997z-6m6ghv.jpeg",
       "card": "summary_large_image"
@@ -53,7 +53,7 @@
   "schema": {
     "primary_type": "CollectionPage",
     "data": {
-      "name": "San Francisco County"
+      "name": "Windows & Doors in San Francisco County"
     },
     "extra": [],
     "replace": []

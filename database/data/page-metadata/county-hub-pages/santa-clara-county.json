@@ -3,16 +3,16 @@
   "key": "county-hub-pages/santa-clara-county",
   "path": "/county-hub-pages/santa-clara-county",
   "seo": {
-    "title": "Window Replacement Santa Clara County | Installation & Cost",
+    "title": "Windows & Doors in Santa Clara County",
     "description": "Window and door replacement across Santa Clara County: leading brands, energy-efficient products and professional installation for every city we serve.",
     "canonical": "https://www.deluxewindows.com/county-hub-pages/santa-clara-county",
     "og": {
-      "title": "Window Replacement Santa Clara County | Installation & Cost",
+      "title": "Windows & Doors in Santa Clara County",
       "description": "Window and door replacement across Santa Clara County: leading brands, energy-efficient products and professional installation for every city we serve.",
       "image": "/webflow-assets/images/69fc954e7b9bf04407ae45bb_generated-2026-05-07t13-32-48-294z-ubgign.jpeg",
       "type": "website"
     },
-    "h1": "Window & Door Replacement in Santa Clara County",
+    "h1": "Windows & Doors in Santa Clara County",
     "primary_keyword": "window replacement santa clara county",
     "target_keywords": [
       "window replacement santa clara county",
@@ -22,7 +22,7 @@
     "priority": "P2",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Window Replacement Santa Clara County | Installation & Cost",
+      "title": "Windows & Doors in Santa Clara County",
       "description": "Window and door replacement across Santa Clara County: leading brands, energy-efficient products and professional installation for every city we serve.",
       "image": "/webflow-assets/images/69fc954e7b9bf04407ae45bb_generated-2026-05-07t13-32-48-294z-ubgign.jpeg",
       "card": "summary_large_image"
@@ -53,7 +53,7 @@
   "schema": {
     "primary_type": "CollectionPage",
     "data": {
-      "name": "Santa Clara County"
+      "name": "Windows & Doors in Santa Clara County"
     },
     "extra": [],
     "replace": []

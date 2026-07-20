@@ -3,16 +3,16 @@
   "key": "county-hub-pages/solano-county",
   "path": "/county-hub-pages/solano-county",
   "seo": {
-    "title": "Window Replacement Solano County | Installation & Cost",
+    "title": "Windows & Doors in Solano County",
     "description": "Window and door replacement across Solano County: leading brands, energy-efficient products and professional installation for every city we serve.",
     "canonical": "https://www.deluxewindows.com/county-hub-pages/solano-county",
     "og": {
-      "title": "Window Replacement Solano County | Installation & Cost",
+      "title": "Windows & Doors in Solano County",
       "description": "Window and door replacement across Solano County: leading brands, energy-efficient products and professional installation for every city we serve.",
       "image": "/webflow-assets/images/69fc954e7b9bf04407ae45b5_generated-2026-05-07t13-33-45-690z-ebgt9t.jpeg",
       "type": "website"
     },
-    "h1": "Window & Door Replacement in Solano County",
+    "h1": "Windows & Doors in Solano County",
     "primary_keyword": "window replacement solano county",
     "target_keywords": [
       "window replacement solano county",
@@ -22,7 +22,7 @@
     "priority": "P2",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Window Replacement Solano County | Installation & Cost",
+      "title": "Windows & Doors in Solano County",
       "description": "Window and door replacement across Solano County: leading brands, energy-efficient products and professional installation for every city we serve.",
       "image": "/webflow-assets/images/69fc954e7b9bf04407ae45b5_generated-2026-05-07t13-33-45-690z-ebgt9t.jpeg",
       "card": "summary_large_image"
@@ -53,7 +53,7 @@
   "schema": {
     "primary_type": "CollectionPage",
     "data": {
-      "name": "Solano County"
+      "name": "Windows & Doors in Solano County"
     },
     "extra": [],
     "replace": []

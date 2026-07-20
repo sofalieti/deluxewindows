@@ -36,7 +36,13 @@
         <div class="mg-top-extra-large brands">
           <div class="inner-container _860px">
             <div class="div-block-52 brandmob">
-              <h1 class="display-8 mid types">{{ $name }} Doors<span class="h1-subline">Installation &amp; Replacement</span></h1>
+              @php
+                $brandH1 = $name;
+                if (! str_contains(mb_strtolower($brandH1), 'door')) {
+                    $brandH1 .= ' Doors';
+                }
+              @endphp
+              <h1 class="display-8 mid types">{{ $brandH1 }}<span class="h1-subline">Installation &amp; Replacement</span></h1>
             </div>
             @if($description)
             <div class="rich-text-v2 mg-bottom--16px w-richtext">

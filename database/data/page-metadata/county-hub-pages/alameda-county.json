@@ -3,16 +3,16 @@
   "key": "county-hub-pages/alameda-county",
   "path": "/county-hub-pages/alameda-county",
   "seo": {
-    "title": "Window Replacement Alameda County | Installation & Cost",
+    "title": "Windows & Doors in Alameda County",
     "description": "Window and door replacement across Alameda County: leading brands, energy-efficient products and professional installation for every city we serve.",
     "canonical": "https://www.deluxewindows.com/county-hub-pages/alameda-county",
     "og": {
-      "title": "Window Replacement Alameda County | Installation & Cost",
+      "title": "Windows & Doors in Alameda County",
       "description": "Window and door replacement across Alameda County: leading brands, energy-efficient products and professional installation for every city we serve.",
       "image": "/webflow-assets/images/69fc954e7b9bf04407ae45cb_generated-2026-05-07t13-32-41-766z-mnytix.jpeg",
       "type": "website"
     },
-    "h1": "Window & Door Replacement in Alameda County",
+    "h1": "Windows & Doors in Alameda County",
     "primary_keyword": "window replacement alameda county",
     "target_keywords": [
       "window replacement alameda county",
@@ -22,7 +22,7 @@
     "priority": "P2",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Window Replacement Alameda County | Installation & Cost",
+      "title": "Windows & Doors in Alameda County",
       "description": "Window and door replacement across Alameda County: leading brands, energy-efficient products and professional installation for every city we serve.",
       "image": "/webflow-assets/images/69fc954e7b9bf04407ae45cb_generated-2026-05-07t13-32-41-766z-mnytix.jpeg",
       "card": "summary_large_image"
@@ -53,7 +53,7 @@
   "schema": {
     "primary_type": "CollectionPage",
     "data": {
-      "name": "Alameda County"
+      "name": "Windows & Doors in Alameda County"
     },
     "extra": [],
     "replace": []

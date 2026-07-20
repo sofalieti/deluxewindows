@@ -3,16 +3,16 @@
   "key": "county-hub-pages/marin-county",
   "path": "/county-hub-pages/marin-county",
   "seo": {
-    "title": "Window Replacement Marin County | Installation & Cost",
+    "title": "Windows & Doors in Marin County",
     "description": "Window and door replacement across Marin County: leading brands, energy-efficient products and professional installation for every city we serve.",
     "canonical": "https://www.deluxewindows.com/county-hub-pages/marin-county",
     "og": {
-      "title": "Window Replacement Marin County | Installation & Cost",
+      "title": "Windows & Doors in Marin County",
       "description": "Window and door replacement across Marin County: leading brands, energy-efficient products and professional installation for every city we serve.",
       "image": "/webflow-assets/images/69fc954e7b9bf04407ae45d3_generated-2026-05-07t13-33-51-925z-zhxd10.jpeg",
       "type": "website"
     },
-    "h1": "Window & Door Replacement in Marin County",
+    "h1": "Windows & Doors in Marin County",
     "primary_keyword": "window replacement marin county",
     "target_keywords": [
       "window replacement marin county",
@@ -26,7 +26,7 @@
     "priority": "P2",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Window Replacement Marin County | Installation & Cost",
+      "title": "Windows & Doors in Marin County",
       "description": "Window and door replacement across Marin County: leading brands, energy-efficient products and professional installation for every city we serve.",
       "image": "/webflow-assets/images/69fc954e7b9bf04407ae45d3_generated-2026-05-07t13-33-51-925z-zhxd10.jpeg",
       "card": "summary_large_image"
@@ -57,7 +57,7 @@
   "schema": {
     "primary_type": "CollectionPage",
     "data": {
-      "name": "Marin County"
+      "name": "Windows & Doors in Marin County"
     },
     "extra": [],
     "replace": []

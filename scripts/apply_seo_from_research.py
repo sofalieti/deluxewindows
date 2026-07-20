@@ -873,9 +873,9 @@ def build_seo(ctx: PageContext, titles: UniquePool, descriptions: UniquePool,
     elif family == "brands":
         brand = SHORT_BRAND.get(entity, entity)
         title = pick_title([
-            f"{brand} Window Replacement & Installation | Bay Area",
-            f"{brand} Windows Bay Area | Replacement & Installation",
-            f"{brand} Window Replacement & Installation Bay Area",
+            f"{brand} Windows | Bay Area",
+            f"{brand} Windows Bay Area",
+            f"{brand} Windows | Deluxe",
         ], titles, path)
         h1 = f"{entity} Windows — Bay Area Dealer & Installer"
         description = fit_description(
@@ -889,9 +889,9 @@ def build_seo(ctx: PageContext, titles: UniquePool, descriptions: UniquePool,
     elif family == "door-brands":
         brand = SHORT_BRAND.get(entity, entity)
         title = pick_title([
-            f"{brand} Door Replacement & Installation | Patio & Entry",
-            f"{brand} Doors Bay Area | Replacement & Installation",
-            f"{brand} Door Replacement & Installation Bay Area",
+            f"{brand} Doors | Bay Area",
+            f"{brand} Doors Bay Area",
+            f"{brand} Doors | Patio & Entry",
         ], titles, path)
         h1 = f"{entity} Doors — Patio, Sliding & Entry"
         description = fit_description(
@@ -988,12 +988,14 @@ def build_seo(ctx: PageContext, titles: UniquePool, descriptions: UniquePool,
         keywords = queries or [primary, f"{primary} prices"]
     elif family == "window-replacement":
         city = entity
+        county = getattr(ctx, "county_name", "") or ""
+        location = f"{city}, {county}" if county else city
         title = pick_title([
-            f"Window Replacement {city}, CA | Cost & Installation",
-            f"Window Replacement {city} CA | Installation",
-            f"Window Replacement {city}, CA",
+            f"Windows & Doors in {location}",
+            f"Windows & Doors in {city}",
+            f"Windows & Doors | {city}, CA",
         ], titles, path)
-        h1 = f"Window Replacement in {city}, California"
+        h1 = f"Windows & Doors in {location}"
         permit = PERMIT_CITIES.get(ctx.slug)
         local_note = permit.split(";")[0] if permit else f"Local crews measure, install and warranty every {city} project"
         description = fit_description(
@@ -1006,11 +1008,11 @@ def build_seo(ctx: PageContext, titles: UniquePool, descriptions: UniquePool,
     elif family == "county-hub-pages":
         county = entity
         title = pick_title([
-            f"Window Replacement {county} | Installation & Cost",
-            f"{county} Window Replacement & Installation",
-            f"Window Replacement {county}",
+            f"Windows & Doors in {county}",
+            f"Windows & Doors | {county}",
+            f"Windows & Doors {county}",
         ], titles, path)
-        h1 = f"Window & Door Replacement in {county}"
+        h1 = f"Windows & Doors in {county}"
         description = fit_description(
             f"Window and door replacement across {county}: leading brands, energy-efficient "
             f"products and professional installation for every city we serve.",

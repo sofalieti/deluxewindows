@@ -2229,14 +2229,29 @@
   }
 }
 
-/* Brand / material / series H1 — secondary line inside the same heading */
+/* Brand / material / series H1 — secondary line inside the same heading.
+   .display-8.mid is display:flex in Webflow, so the subline needs a full flex row. */
+h1.display-8.mid {
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+
 h1 .h1-subline {
   display: block;
-  margin-top: 0.15em;
+  flex: 0 0 100%;
+  width: 100%;
+  max-width: 100%;
+  margin-top: 0.2em;
   font-size: 0.48em;
   font-weight: 500;
   letter-spacing: 0.01em;
   line-height: 1.3;
   color: #5a6a7c;
+}
+
+/* City / county hero H1 sits on a dark photo — keep the subline softer, not muted gray */
+.service-area-hero h1 .h1-subline {
+  color: rgba(255, 255, 255, 0.72);
+  font-weight: 400;
 }
 

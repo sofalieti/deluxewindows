@@ -3,16 +3,16 @@
   "key": "county-hub-pages/contra-costa-county",
   "path": "/county-hub-pages/contra-costa-county",
   "seo": {
-    "title": "Window Replacement Contra Costa County | Installation & Cost",
+    "title": "Windows & Doors in Contra Costa County",
     "description": "Window and door replacement across Contra Costa County: leading brands, energy-efficient products and professional installation for every city we serve.",
     "canonical": "https://www.deluxewindows.com/county-hub-pages/contra-costa-county",
     "og": {
-      "title": "Window Replacement Contra Costa County | Installation & Cost",
+      "title": "Windows & Doors in Contra Costa County",
       "description": "Window and door replacement across Contra Costa County: leading brands, energy-efficient products and professional installation for every city we serve.",
       "image": "/webflow-assets/images/69fc954e7b9bf04407ae45cf_generated-2026-05-07t13-32-48-881z-s3gv8b.jpeg",
       "type": "website"
     },
-    "h1": "Window & Door Replacement in Contra Costa County",
+    "h1": "Windows & Doors in Contra Costa County",
     "primary_keyword": "window replacement contra costa county",
     "target_keywords": [
       "window replacement contra costa county",
@@ -22,7 +22,7 @@
     "priority": "P2",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Window Replacement Contra Costa County | Installation & Cost",
+      "title": "Windows & Doors in Contra Costa County",
       "description": "Window and door replacement across Contra Costa County: leading brands, energy-efficient products and professional installation for every city we serve.",
       "image": "/webflow-assets/images/69fc954e7b9bf04407ae45cf_generated-2026-05-07t13-32-48-881z-s3gv8b.jpeg",
       "card": "summary_large_image"
@@ -53,7 +53,7 @@
   "schema": {
     "primary_type": "CollectionPage",
     "data": {
-      "name": "Contra Costa County"
+      "name": "Windows & Doors in Contra Costa County"
     },
     "extra": [],
     "replace": []

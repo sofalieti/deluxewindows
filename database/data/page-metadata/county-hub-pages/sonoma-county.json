@@ -3,16 +3,16 @@
   "key": "county-hub-pages/sonoma-county",
   "path": "/county-hub-pages/sonoma-county",
   "seo": {
-    "title": "Window Replacement Sonoma County | Installation & Cost",
+    "title": "Windows & Doors in Sonoma County",
     "description": "Window and door replacement across Sonoma County: leading brands, energy-efficient products and professional installation for every city we serve.",
     "canonical": "https://www.deluxewindows.com/county-hub-pages/sonoma-county",
     "og": {
-      "title": "Window Replacement Sonoma County | Installation & Cost",
+      "title": "Windows & Doors in Sonoma County",
       "description": "Window and door replacement across Sonoma County: leading brands, energy-efficient products and professional installation for every city we serve.",
       "image": "/webflow-assets/images/69fc954e7b9bf04407ae45c4_generated-2026-05-07t13-34-39-783z-nhdblc.jpeg",
       "type": "website"
     },
-    "h1": "Window & Door Replacement in Sonoma County",
+    "h1": "Windows & Doors in Sonoma County",
     "primary_keyword": "window replacement sonoma county",
     "target_keywords": [
       "window replacement sonoma county",
@@ -22,7 +22,7 @@
     "priority": "P2",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Window Replacement Sonoma County | Installation & Cost",
+      "title": "Windows & Doors in Sonoma County",
       "description": "Window and door replacement across Sonoma County: leading brands, energy-efficient products and professional installation for every city we serve.",
       "image": "/webflow-assets/images/69fc954e7b9bf04407ae45c4_generated-2026-05-07t13-34-39-783z-nhdblc.jpeg",
       "card": "summary_large_image"
@@ -53,7 +53,7 @@
   "schema": {
     "primary_type": "CollectionPage",
     "data": {
-      "name": "Sonoma County"
+      "name": "Windows & Doors in Sonoma County"
     },
     "extra": [],
     "replace": []
