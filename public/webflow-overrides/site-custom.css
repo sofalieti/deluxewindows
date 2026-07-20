@@ -2236,6 +2236,24 @@ h1.display-8.mid {
   align-items: baseline;
 }
 
+/* City / county hero: keep the main phrase together; only the subline breaks. */
+.service-area-hero h1.heading-4 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+
+@media (max-width: 991px) {
+  .service-area-hero h1.heading-4 {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .service-area-hero h1 .h1-subline {
+    text-align: center;
+  }
+}
+
 h1 .h1-subline {
   display: block;
   flex: 0 0 100%;

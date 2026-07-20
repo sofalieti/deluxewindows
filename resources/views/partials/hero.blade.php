@@ -250,7 +250,6 @@
                         'variant' => $hasSpecificPagePromotion ? 'price' : 'percent',
                         'badgeHtml' => $heroMobilePriceTagHtml,
                         'buttonLabel' => 'Get Free Quote',
-                        'showPhoneCta' => !empty($brandHero),
                       ])
                     </div>
                     @if($brandLikeHero || !empty($doorHero))
