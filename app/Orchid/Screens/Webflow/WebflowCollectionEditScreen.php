@@ -639,29 +639,31 @@ class WebflowCollectionEditScreen extends Screen
     private function buildSingleImageFields(string $inputName, string $title, string $fieldKey, array $value): array
     {
         $imageUrl = is_string($value['url'] ?? null) ? $value['url'] : '';
-        $safeKey  = preg_replace('/[^a-zA-Z0-9]/', '_', $fieldKey);
-        $escUrl   = htmlspecialchars($imageUrl, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+        $safeKey = preg_replace('/[^a-zA-Z0-9]/', '_', $fieldKey) ?: 'image';
+        $escUrl = htmlspecialchars($imageUrl, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+        $escField = htmlspecialchars($fieldKey, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+        $escSafe = htmlspecialchars($safeKey, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
         $hasImage = $imageUrl !== '';
 
-        $previewHtml = '<div id="wf-preview-wrapper-'.$safeKey.'" style="margin-bottom:10px'.($hasImage ? '' : ';display:none').'">'
-            .'<img id="wf-preview-'.$safeKey.'" src="'.$escUrl.'" '
+        $previewHtml = '<div id="wf-preview-wrapper-'.$escSafe.'" style="margin-bottom:10px'.($hasImage ? '' : ';display:none').'">'
+            .'<img id="wf-preview-'.$escSafe.'" src="'.$escUrl.'" '
             .'style="max-width:300px;max-height:180px;object-fit:contain;border:1px solid #dee2e6;'
             .'border-radius:6px;padding:4px;background:#f8f9fa;display:'.($hasImage ? 'block' : 'none').'" '
             .'onerror="this.style.display=\'none\'">'
             .'</div>';
 
         $uploadHtml = '<div style="margin-top:6px;display:flex;flex-wrap:wrap;gap:8px;align-items:center">'
-            .'<input type="file" id="wf-file-'.$safeKey.'" accept="image/jpeg,image/png,image/gif,image/webp,image/avif" '
-            .'style="display:none" '
-            .'onchange="webflowHandleImageUpload(this,'.json_encode($fieldKey).','.json_encode($safeKey).')">'
-            .'<button type="button" id="wf-btn-'.$safeKey.'" '
-            .'onclick="webflowSelectImage('.json_encode($safeKey).')" '
-            .'class="btn btn-sm btn-outline-secondary">'
+            .'<input type="file" id="wf-file-'.$escSafe.'" accept="image/jpeg,image/png,image/gif,image/webp,image/avif" '
+            .'style="display:none" class="wf-image-action" data-wf-action="upload" '
+            .'data-field-key="'.$escField.'" data-safe-key="'.$escSafe.'">'
+            .'<button type="button" id="wf-btn-'.$escSafe.'" '
+            .'class="btn btn-sm btn-outline-secondary wf-image-action" data-wf-action="select" '
+            .'data-safe-key="'.$escSafe.'">'
             .'📁 Upload image'
             .'</button>'
-            .'<button type="button" id="wf-del-'.$safeKey.'" '
-            .'onclick="webflowClearImage('.json_encode($fieldKey).','.json_encode($safeKey).')" '
-            .'class="btn btn-sm btn-outline-danger"'
+            .'<button type="button" id="wf-del-'.$escSafe.'" '
+            .'class="btn btn-sm btn-outline-danger wf-image-action" data-wf-action="clear" '
+            .'data-field-key="'.$escField.'" data-safe-key="'.$escSafe.'"'
             .($hasImage ? '' : ' style="display:none"').'>'
             .'🗑 Delete image'
             .'</button>'
@@ -680,8 +682,10 @@ class WebflowCollectionEditScreen extends Screen
      */
     private function buildMultiImageFields(string $inputName, string $title, string $fieldKey, array $value): array
     {
-        $safeKey = preg_replace('/[^a-zA-Z0-9]/', '_', $fieldKey);
-        $previewHtml = '<div id="wf-multi-preview-'.$safeKey.'" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px;">';
+        $safeKey = preg_replace('/[^a-zA-Z0-9]/', '_', $fieldKey) ?: 'gallery';
+        $escField = htmlspecialchars($fieldKey, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+        $escSafe = htmlspecialchars($safeKey, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+        $previewHtml = '<div id="wf-multi-preview-'.$escSafe.'" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px;">';
 
         foreach (array_values($value) as $index => $img) {
             if (! is_array($img) || ! is_string($img['url'] ?? null) || $img['url'] === '') {
@@ -692,11 +696,11 @@ class WebflowCollectionEditScreen extends Screen
                 .'<img src="'.$esc.'" '
                 .'style="width:90px;height:68px;object-fit:cover;border-radius:4px;border:1px solid #dee2e6;display:block;" '
                 .'onerror="this.parentElement.style.display=\'none\'">'
-                .'<button type="button" title="Delete image" '
-                .'onclick="webflowRemoveMultiImage('.json_encode($fieldKey).','.json_encode($safeKey).','.$index.')" '
+                .'<button type="button" title="Delete image" class="wf-image-action" '
+                .'data-wf-action="remove-multi" data-field-key="'.$escField.'" data-safe-key="'.$escSafe.'" data-index="'.$index.'" '
                 .'style="position:absolute;top:2px;right:2px;width:22px;height:22px;padding:0;border:none;'
                 .'border-radius:50%;background:rgba(185,28,28,.92);color:#fff;font-size:14px;line-height:22px;'
-                .'cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.25)">×</button>'
+                .'cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.25);z-index:2">×</button>'
                 .'</div>';
         }
 

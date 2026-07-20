@@ -54,15 +54,16 @@ def rewrite_title(title: str, page: str, titles: dict[str, str]) -> str | None:
         candidates.extend(
             [
                 f"{base} {SUFFIX_NEW}".replace("  ", " "),
-                f"{base} {SUFFIX_SHORT}".replace("  ", " "),
-                f"{base} | Bay Area",
+                f"{base} Bay Area | Installation & Replacement".replace("  ", " "),
+                f"{base} | Installation & Replacement".replace("  ", " "),
             ]
         )
-        # Progressive shortening of left side
-        while " " in base and len(base) > 12:
+        # Progressive shortening of left side — keep Replacement & Installation
+        while " " in base and len(base) > 8:
             base = base.rsplit(" ", 1)[0]
-            candidates.append(f"{base} {SUFFIX_SHORT}".replace("  ", " "))
-            candidates.append(f"{base} | Bay Area")
+            candidates.append(f"{base} {SUFFIX_NEW}".replace("  ", " "))
+            candidates.append(f"{base} Bay Area | Installation & Replacement".replace("  ", " "))
+            candidates.append(f"{base} | Installation & Replacement".replace("  ", " "))
     elif page == "/about":
         candidates = [
             "About Us | Bay Area Replacement & Installation",
