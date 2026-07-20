@@ -6,6 +6,7 @@ namespace App\Services;
 
 use App\Models\Webflow\CouponsWebflowItem;
 use App\Models\Webflow\GlobalSettingsWebflowItem;
+use App\Support\WebflowItemOrder;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Cache;
 
@@ -134,11 +135,12 @@ class PromotionSettingsService
     public function publishedCoupons()
     {
         return Cache::remember('promotion.coupons', now()->addHour(), function () {
-            return CouponsWebflowItem::query()
-                ->where('is_archived', false)
-                ->where('is_draft', false)
-                ->orderBy('id')
-                ->get();
+            return WebflowItemOrder::sort(
+                CouponsWebflowItem::query()
+                    ->where('is_archived', false)
+                    ->where('is_draft', false)
+                    ->get()
+            );
         });
     }
 

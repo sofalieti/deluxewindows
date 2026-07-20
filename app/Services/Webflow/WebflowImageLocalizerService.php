@@ -160,6 +160,17 @@ class WebflowImageLocalizerService
                 continue;
             }
 
+            // Prefer rewriting to an existing local webflow-assets file without re-download.
+            if (\App\Support\WebflowCdnUrlRewriter::isCdnHost($url)) {
+                [$mapped] = \App\Support\WebflowCdnUrlRewriter::rewriteString($url);
+                if ($mapped !== $url && str_starts_with($mapped, '/webflow-assets/')) {
+                    $urlCache[$url] = $mapped;
+                    $updated = str_replace($url, $mapped, $updated);
+                    $changed = true;
+                    continue;
+                }
+            }
+
             if (isset($urlCache[$url])) {
                 $localUrl = $urlCache[$url];
                 $updated = str_replace($url, $localUrl, $updated);

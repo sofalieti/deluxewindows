@@ -189,11 +189,17 @@ class WebflowDownloadCdnImagesCommand extends Command
      */
     private function replaceInString(string $value, bool $dryRun): array
     {
-        if (! preg_match_all('~https?://[^\s"\'<>(),\\\\]+~i', $value, $matches)) {
-            return [$value, false];
+        // Fast path: reuse shared rewriter when local files already exist.
+        [$mapped, $mappedChanged] = \App\Support\WebflowCdnUrlRewriter::rewriteString($value);
+        if ($mappedChanged) {
+            $value = $mapped;
         }
 
-        $changed = false;
+        if (! preg_match_all('~https?://[^\s"\'<>(),\\\\]+~i', $value, $matches)) {
+            return [$value, $mappedChanged];
+        }
+
+        $changed = $mappedChanged;
         $updated = $value;
 
         foreach (array_unique($matches[0]) as $url) {

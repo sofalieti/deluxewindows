@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace App\Orchid\Screens\Webflow;
 
 use App\Orchid\Layouts\Webflow\WebflowCollectionSearchLayout;
+use App\Services\PromotionSettingsService;
 use App\Support\WebflowCollectionRegistry;
+use App\Support\WebflowItemOrder;
 use App\Support\WebflowReferenceRegistry;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -16,7 +18,6 @@ use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Repository;
 use Orchid\Screen\Screen;
-use Orchid\Screen\TD;
 use Orchid\Support\Facades\Layout;
 use Orchid\Support\Facades\Toast;
 
@@ -41,7 +42,7 @@ class WebflowCollectionListScreen extends Screen
             abort(404, 'Collection table not found: '.$meta['table']);
         }
 
-        $query = DB::table((string) $meta['table'])->orderByDesc('id');
+        $query = DB::table((string) $meta['table']);
 
         $search = Str::of((string) request()->query('search', ''))->trim()->toString();
         if ($search !== '') {
@@ -49,26 +50,36 @@ class WebflowCollectionListScreen extends Screen
             $query->where('field_data->name', 'like', $like);
         }
 
-        $items = $query
-            ->paginate(30)
-            ->withQueryString()
-            ->through(function ($row) {
-                $item = (array) $row;
-                $fieldData = $item['field_data'] ?? null;
+        $rows = $query->get()->map(function ($row) {
+            $item = (array) $row;
+            $fieldData = $item['field_data'] ?? null;
 
-                if (is_string($fieldData) && $fieldData !== '') {
-                    $decoded = json_decode($fieldData, true);
-                    $item['field_data'] = is_array($decoded) ? $decoded : [];
-                } elseif (! is_array($fieldData)) {
-                    $item['field_data'] = [];
-                }
+            if (is_string($fieldData) && $fieldData !== '') {
+                $decoded = json_decode($fieldData, true);
+                $item['field_data'] = is_array($decoded) ? $decoded : [];
+            } elseif (! is_array($fieldData)) {
+                $item['field_data'] = [];
+            }
 
-                return new Repository($item);
-            });
+            return new Repository($item);
+        });
+
+        $items = WebflowItemOrder::sort($rows)->map(function (Repository $item) {
+            $item['order'] = WebflowItemOrder::key($item);
+            $item['relation_summary'] = $this->relationSummary($item);
+
+            return $item;
+        });
 
         return [
             'collection' => $meta,
             'items' => $items,
+            'collectionSlug' => $this->collectionSlug,
+            'reorderEnabled' => $search === '',
+            'reorderUrl' => route('platform.webflow.collection', [
+                'collection' => $this->collectionSlug,
+                'method' => 'reorder',
+            ]),
         ];
     }
 
@@ -79,7 +90,7 @@ class WebflowCollectionListScreen extends Screen
 
     public function description(): ?string
     {
-        return 'Edit imported Webflow collection entries.';
+        return 'Drag rows to change the order shown on the website. Edit imported Webflow collection entries.';
     }
 
     public function permission(): ?iterable
@@ -89,7 +100,7 @@ class WebflowCollectionListScreen extends Screen
 
     public function commandBar(): iterable
     {
-        $actions = [
+        return [
             Button::make('Search')
                 ->icon('bs.search')
                 ->method('applySearch'),
@@ -99,71 +110,14 @@ class WebflowCollectionListScreen extends Screen
                 ->route('platform.webflow.collection', ['collection' => $this->collectionSlug])
                 ->canSee(request()->filled('search')),
         ];
-
-        return $actions;
     }
 
     public function layout(): iterable
     {
         return [
+            Layout::view('admin.webflow-collection-reorder-assets'),
             WebflowCollectionSearchLayout::class,
-
-            Layout::table('items', [
-                TD::make('id')
-                    ->render(fn ($item) => (string) $this->value($item, 'id', '')),
-
-                TD::make('name', 'Name')
-                    ->render(fn ($item) => $this->safeText($this->value($item, 'field_data.name', '-'))),
-
-                TD::make('slug', 'Slug')
-                    ->render(fn ($item) => $this->safeText($this->value($item, 'field_data.slug', '-'))),
-
-                TD::make('webflow_item_id', 'Webflow ID')
-                    ->render(fn ($item) => $this->safeText($this->value($item, 'webflow_item_id', '-'))),
-
-                TD::make('updated_at', 'Updated')
-                    ->render(fn ($item) => $this->safeText($this->value($item, 'updated_at', '-'))),
-
-                TD::make('relations', 'Relations')
-                    ->render(fn ($item) => $this->safeText($this->relationSummary($item))),
-
-                TD::make('status', 'Status')
-                    ->render(function ($item) {
-                        $isDraft = (bool) $this->value($item, 'is_draft', false);
-                        return $isDraft
-                            ? '<span class="badge bg-secondary">Disabled</span>'
-                            : '<span class="badge bg-success">Enabled</span>';
-                    }),
-
-                TD::make('Actions')
-                    ->render(function ($item) {
-                        $id      = $this->value($item, 'id');
-                        $isDraft = (bool) $this->value($item, 'is_draft', false);
-
-                        $edit = Link::make('Edit')
-                            ->icon('bs.pencil')
-                            ->route('platform.webflow.collection.edit', [
-                                'collection' => $this->collectionSlug,
-                                'item'       => $id,
-                            ])
-                            ->render();
-
-                        $toggle = Button::make($isDraft ? 'Enable' : 'Disable')
-                            ->icon($isDraft ? 'bs.eye' : 'bs.eye-slash')
-                            ->method('toggleDraft')
-                            ->parameters(['item_id' => $id])
-                            ->render();
-
-                        $delete = Button::make('Delete')
-                            ->icon('bs.trash')
-                            ->confirm('Delete this item? This action cannot be undone.')
-                            ->method('delete')
-                            ->parameters(['item_id' => $id])
-                            ->render();
-
-                        return $edit.' '.$toggle.' '.$delete;
-                    }),
-            ]),
+            Layout::view('admin.webflow-collection-list'),
         ];
     }
 
@@ -171,6 +125,7 @@ class WebflowCollectionListScreen extends Screen
     {
         if (is_object($item) && method_exists($item, 'getContent')) {
             $value = $item->getContent($key);
+
             return $value === null ? $default : $value;
         }
 
@@ -184,8 +139,6 @@ class WebflowCollectionListScreen extends Screen
         }
 
         $string = (string) $value;
-
-        // Prevent malformed byte sequences from breaking Orchid table rendering.
         $clean = @mb_convert_encoding($string, 'UTF-8', 'UTF-8');
         $clean = is_string($clean) ? $clean : $string;
 
@@ -200,6 +153,45 @@ class WebflowCollectionListScreen extends Screen
             'collection' => $collection,
             'search' => $search !== '' ? $search : null,
         ]));
+    }
+
+    public function reorder(string $collection, Request $request)
+    {
+        $meta = WebflowCollectionRegistry::find($collection);
+        abort_if($meta === null, 404);
+
+        if (! Schema::hasTable((string) $meta['table'])) {
+            abort(404);
+        }
+
+        $itemIds = $request->input('item_ids', $request->input('items', []));
+        if (! is_array($itemIds)) {
+            $itemIds = [];
+        }
+
+        // Support Orchid-style [{id, sortOrder}, ...] payloads as well.
+        if ($itemIds !== [] && is_array($itemIds[0] ?? null)) {
+            usort($itemIds, static fn ($a, $b) => ((int) ($a['sortOrder'] ?? 0)) <=> ((int) ($b['sortOrder'] ?? 0)));
+            $itemIds = array_map(static fn ($row) => (int) ($row['id'] ?? 0), $itemIds);
+        }
+
+        $updated = WebflowItemOrder::saveOrder((string) $meta['table'], $itemIds);
+
+        if ($collection === 'coupons') {
+            app(PromotionSettingsService::class)->forgetCache();
+        }
+
+        if ($request->expectsJson() || $request->ajax()) {
+            return response()->json([
+                'ok' => true,
+                'updated' => $updated,
+                'message' => 'Order saved.',
+            ]);
+        }
+
+        Toast::info('Order saved.');
+
+        return redirect()->route('platform.webflow.collection', ['collection' => $collection]);
     }
 
     public function toggleDraft(string $collection, Request $request): void
@@ -273,4 +265,3 @@ class WebflowCollectionListScreen extends Screen
         return implode(', ', array_slice($parts, 0, 4)).(count($parts) > 4 ? ', ...' : '');
     }
 }
-

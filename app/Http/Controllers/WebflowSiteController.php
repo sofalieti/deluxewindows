@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Support\WebflowItemOrder;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -68,10 +69,11 @@ class WebflowSiteController extends Controller
             abort(404);
         }
 
-        $items = $modelClass::query()
-            ->orderByDesc('id')
-            ->limit(120)
-            ->get();
+        $items = WebflowItemOrder::sort(
+            $modelClass::query()
+                ->limit(500)
+                ->get()
+        )->take(120);
 
         $itemsData = $items->map(function ($item) {
             $data = $item->toArray();

@@ -17,6 +17,7 @@ use App\Models\Webflow\WindowTypeWebflowItem;
 use App\Models\Webflow\WindowsWebflowItem;
 use App\Services\PromotionControlService;
 use App\Services\PromotionSettingsService;
+use App\Support\WebflowItemOrder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\File;
@@ -26,43 +27,27 @@ use Illuminate\Support\Facades\Mail;
 
 class ClassicSiteController extends Controller
 {
-    /** @var list<string> */
-    private const WINDOWS_INDEX_SLUG_ORDER = [
-        'aluminum-clad-windows',
-        'vinyl-windows',
-        'wood-clad-windows',
-        'fiberglass-windows',
-        'wood-windows',
-        'aluminum-windows',
-        'steel-windows',
-    ];
-
     public function home()
     {
-        $homeWindows = WindowsWebflowItem::query()
-            ->where('is_archived', false)
-            ->where('is_draft', false)
-            ->get()
-            ->filter(function ($item) {
-                $fd = is_array($item->field_data) ? $item->field_data : [];
+        $homeWindows = WebflowItemOrder::sort(
+            WindowsWebflowItem::query()
+                ->where('is_archived', false)
+                ->where('is_draft', false)
+                ->get()
+                ->filter(function ($item) {
+                    $fd = is_array($item->field_data) ? $item->field_data : [];
 
-                if (($fd['hide'] ?? false) === true) {
-                    return false;
-                }
+                    if (($fd['hide'] ?? false) === true) {
+                        return false;
+                    }
 
-                if (($fd['parent-collection'] ?? '') !== 'Windows') {
-                    return false;
-                }
+                    if (($fd['parent-collection'] ?? '') !== 'Windows') {
+                        return false;
+                    }
 
-                return ($fd['slug'] ?? '') !== '';
-            })
-            ->sortBy(function ($item) {
-                $slug = (string) data_get($item->field_data, 'slug', '');
-                $pos = array_search($slug, self::WINDOWS_INDEX_SLUG_ORDER, true);
-
-                return $pos === false ? 999 : $pos;
-            })
-            ->values()
+                    return ($fd['slug'] ?? '') !== '';
+                })
+        )
             ->take(4)
             ->map(function ($w) {
                 $fd = is_array($w->field_data) ? $w->field_data : [];
@@ -338,12 +323,15 @@ class ClassicSiteController extends Controller
         $images = $staticImages;
 
         try {
-            $dbImages = GalleryWebflowItem::query()
-                ->where('is_archived', false)
-                ->where('is_draft', false)
-                ->get()
+            $dbImages = WebflowItemOrder::sort(
+                GalleryWebflowItem::query()
+                    ->where('is_archived', false)
+                    ->where('is_draft', false)
+                    ->get()
+            )
                 ->map(function ($item) {
                     $fd = is_array($item->field_data) ? $item->field_data : [];
+
                     return $this->extractImageUrl($fd, ['image', 'photo', 'picture', 'gallery-image', 'featured-image']);
                 })
                 ->filter()
@@ -658,21 +646,17 @@ class ClassicSiteController extends Controller
 
     private function learnMoreMaterialWindows(string $excludeSlug): \Illuminate\Support\Collection
     {
-        return WindowsWebflowItem::query()
-            ->where('is_archived', false)
-            ->where('is_draft', false)
-            ->get()
-            ->filter(function ($item) use ($excludeSlug) {
-                $fd = is_array($item->field_data) ? $item->field_data : [];
+        return WebflowItemOrder::sort(
+            WindowsWebflowItem::query()
+                ->where('is_archived', false)
+                ->where('is_draft', false)
+                ->get()
+                ->filter(function ($item) use ($excludeSlug) {
+                    $fd = is_array($item->field_data) ? $item->field_data : [];
 
-                return $this->isVisibleWindowsMaterialPage($fd, $excludeSlug);
-            })
-            ->sortBy(function ($item) {
-                $slug = (string) data_get($item->field_data, 'slug', '');
-                $pos = array_search($slug, self::WINDOWS_INDEX_SLUG_ORDER, true);
-
-                return $pos === false ? 999 : $pos;
-            })
+                    return $this->isVisibleWindowsMaterialPage($fd, $excludeSlug);
+                })
+        )
             ->take(6)
             ->map(fn ($item) => $this->mapLearnMoreWindowCard($item))
             ->values();
@@ -723,11 +707,12 @@ class ClassicSiteController extends Controller
 
     private function resolveLearnMoreDoors(DoorsWebflowItem $door): \Illuminate\Support\Collection
     {
-        return DoorsWebflowItem::query()
-            ->where('is_archived', false)
-            ->where('is_draft', false)
-            ->orderBy('id')
-            ->get()
+        return WebflowItemOrder::sort(
+            DoorsWebflowItem::query()
+                ->where('is_archived', false)
+                ->where('is_draft', false)
+                ->get()
+        )
             ->map(function ($item) {
                 $fd = is_array($item->field_data) ? $item->field_data : [];
                 $itemSlug = $fd['slug'] ?? '';
@@ -746,25 +731,25 @@ class ClassicSiteController extends Controller
 
     public function windowsIndex()
     {
-        $windows = WindowsWebflowItem::query()
-            ->where('is_archived', false)
-            ->where('is_draft', false)
-            ->get()
-            ->filter(function ($item) {
-                $fd = is_array($item->field_data) ? $item->field_data : [];
+        $windows = WebflowItemOrder::sort(
+            WindowsWebflowItem::query()
+                ->where('is_archived', false)
+                ->where('is_draft', false)
+                ->get()
+                ->filter(function ($item) {
+                    $fd = is_array($item->field_data) ? $item->field_data : [];
 
-                if (($fd['hide'] ?? false) === true) {
-                    return false;
-                }
+                    if (($fd['hide'] ?? false) === true) {
+                        return false;
+                    }
 
-                if (($fd['parent-collection'] ?? '') !== 'Windows') {
-                    return false;
-                }
+                    if (($fd['parent-collection'] ?? '') !== 'Windows') {
+                        return false;
+                    }
 
-                return ($fd['slug'] ?? '') !== '';
-            })
-            ->sortBy(fn ($item) => (int) data_get($item->field_data, 'order', 999))
-            ->values()
+                    return ($fd['slug'] ?? '') !== '';
+                })
+        )
             ->map(fn ($item) => $this->mapWindowsIndexCard($item))
             ->filter(fn ($card) => ($card['slug'] ?? '') !== '')
             ->values();
@@ -774,21 +759,21 @@ class ClassicSiteController extends Controller
 
     public function doorsIndex()
     {
-        $doors = DoorsWebflowItem::query()
-            ->where('is_archived', false)
-            ->where('is_draft', false)
-            ->get()
-            ->filter(function ($item) {
-                $fd = is_array($item->field_data) ? $item->field_data : [];
+        $doors = WebflowItemOrder::sort(
+            DoorsWebflowItem::query()
+                ->where('is_archived', false)
+                ->where('is_draft', false)
+                ->get()
+                ->filter(function ($item) {
+                    $fd = is_array($item->field_data) ? $item->field_data : [];
 
-                if (($fd['hide'] ?? false) === true) {
-                    return false;
-                }
+                    if (($fd['hide'] ?? false) === true) {
+                        return false;
+                    }
 
-                return ($fd['slug'] ?? '') !== '';
-            })
-            ->sortBy(fn ($item) => (int) data_get($item->field_data, 'order', 999))
-            ->values()
+                    return ($fd['slug'] ?? '') !== '';
+                })
+        )
             ->map(function ($item) {
                 $fd = is_array($item->field_data) ? $item->field_data : [];
                 $slug = (string) ($fd['slug'] ?? '');
@@ -816,12 +801,12 @@ class ClassicSiteController extends Controller
 
     public function brandIndex()
     {
-        $brands = BrandsWebflowItem::query()
-            ->where('is_archived', false)
-            ->where('is_draft', false)
-            ->get()
-            ->sortBy(fn ($brand) => (int) data_get($brand->field_data, 'order', 999))
-            ->values()
+        $brands = WebflowItemOrder::sort(
+            BrandsWebflowItem::query()
+                ->where('is_archived', false)
+                ->where('is_draft', false)
+                ->get()
+        )
             ->map(fn ($brand) => $this->mapBrandIndexCard($brand))
             ->filter(fn ($card) => ($card['slug'] ?? '') !== '')
             ->values();
@@ -1702,24 +1687,19 @@ class ClassicSiteController extends Controller
      */
     private function loadServiceAreaWindowTypes(): \Illuminate\Support\Collection
     {
-        $slugs = array_slice(self::WINDOWS_INDEX_SLUG_ORDER, 0, 6);
-
         try {
-            return WindowsWebflowItem::query()
-                ->where('is_archived', false)
-                ->where('is_draft', false)
-                ->get()
-                ->filter(function ($item) use ($slugs) {
-                    $itemSlug = (string) data_get($item->field_data, 'slug', '');
+            return WebflowItemOrder::sort(
+                WindowsWebflowItem::query()
+                    ->where('is_archived', false)
+                    ->where('is_draft', false)
+                    ->get()
+                    ->filter(function ($item) {
+                        $fd = is_array($item->field_data) ? $item->field_data : [];
 
-                    return in_array($itemSlug, $slugs, true);
-                })
-                ->sortBy(function ($item) use ($slugs) {
-                    $itemSlug = (string) data_get($item->field_data, 'slug', '');
-                    $pos = array_search($itemSlug, $slugs, true);
-
-                    return $pos === false ? 999 : $pos;
-                })
+                        return $this->isVisibleWindowsMaterialPage($fd);
+                    })
+            )
+                ->take(6)
                 ->map(fn ($item) => $this->mapWindowsIndexCard($item))
                 ->filter(fn ($card) => ($card['slug'] ?? '') !== '')
                 ->values();
@@ -2161,15 +2141,17 @@ class ClassicSiteController extends Controller
             ->values();
 
         $brandId = (string) ($brand->webflow_item_id ?? '');
-        $brandCollections = BrandCollectionsWebflowItem::query()
-            ->where('is_archived', false)
-            ->where('is_draft', false)
-            ->where(function ($query) use ($brandId) {
-                $query->where('field_data->parent-brand', $brandId)
-                    // Tolerate double-encoded Reference IDs until DB is re-imported.
-                    ->orWhere('field_data->parent-brand', '"'.$brandId.'"');
-            })
-            ->get()
+        $brandCollections = WebflowItemOrder::sort(
+            BrandCollectionsWebflowItem::query()
+                ->where('is_archived', false)
+                ->where('is_draft', false)
+                ->where(function ($query) use ($brandId) {
+                    $query->where('field_data->parent-brand', $brandId)
+                        // Tolerate double-encoded Reference IDs until DB is re-imported.
+                        ->orWhere('field_data->parent-brand', '"'.$brandId.'"');
+                })
+                ->get()
+        )
             ->map(function ($collection) {
                 $fd = is_array($collection->field_data) ? $collection->field_data : [];
                 $mainMaterial = $fd['mainmaterial'] ?? null;

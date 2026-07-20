@@ -6,6 +6,7 @@ namespace App\Orchid\Screens\DoorBrands;
 
 use App\Models\DoorBrand;
 use App\Models\Webflow\BrandsWebflowItem;
+use App\Support\WebflowItemOrder;
 use Orchid\Screen\Screen;
 use Orchid\Screen\TD;
 use Orchid\Support\Facades\Layout;
@@ -16,10 +17,12 @@ class DoorBrandListScreen extends Screen
     {
         $content = DoorBrand::query()->get()->keyBy('slug');
 
-        $rows = BrandsWebflowItem::query()
-            ->where('is_archived', false)
-            ->where('is_draft', false)
-            ->get()
+        $rows = WebflowItemOrder::sort(
+            BrandsWebflowItem::query()
+                ->where('is_archived', false)
+                ->where('is_draft', false)
+                ->get()
+        )
             ->map(function (BrandsWebflowItem $brand) use ($content): ?array {
                 $fd = is_array($brand->field_data) ? $brand->field_data : [];
                 $slug = trim((string) ($fd['slug'] ?? ''));
@@ -34,12 +37,12 @@ class DoorBrandListScreen extends Screen
                 return [
                     'slug' => $slug,
                     'name' => $name,
+                    'order' => WebflowItemOrder::key($brand),
                     'has_content' => $doorBrand && trim((string) $doorBrand->description) !== '',
                     'updated_at' => $doorBrand?->updated_at,
                 ];
             })
             ->filter()
-            ->sortBy('name')
             ->values();
 
         return [
@@ -54,13 +57,16 @@ class DoorBrandListScreen extends Screen
 
     public function description(): ?string
     {
-        return 'Door-specific descriptions for /door-brands/{slug}. SEO and FAQs are managed in page metadata files.';
+        return 'Door-specific descriptions for /door-brands/{slug}. List order follows Brands collection order. SEO and FAQs are managed in page metadata files.';
     }
 
     public function layout(): iterable
     {
         return [
             Layout::table('brands', [
+                TD::make('order', '#')
+                    ->render(fn (array $row) => e((string) ($row['order'] ?? ''))),
+
                 TD::make('name', 'Brand')
                     ->render(fn (array $row) => e($row['name'])),
 
@@ -78,10 +84,8 @@ class DoorBrandListScreen extends Screen
                     ->align(TD::ALIGN_RIGHT)
                     ->render(function (array $row): string {
                         $editUrl = route('platform.door-brands.edit', ['slug' => $row['slug']]);
-                        $viewUrl = url('/door-brands/'.$row['slug']);
 
-                        return '<a href="'.e($editUrl).'" class="btn btn-sm btn-link">Edit</a>'
-                            .'<a href="'.e($viewUrl).'" target="_blank" rel="noopener" class="btn btn-sm btn-link">View page</a>';
+                        return '<a href="'.e($editUrl).'" class="btn btn-link">Edit</a>';
                     }),
             ]),
         ];

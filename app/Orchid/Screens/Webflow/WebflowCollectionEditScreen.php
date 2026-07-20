@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orchid\Screens\Webflow;
 
+use App\Support\WebflowCdnUrlRewriter;
 use App\Support\WebflowCollectionRegistry;
 use App\Support\WebflowReferenceRegistry;
 use App\Services\PromotionSettingsService;
@@ -59,6 +60,14 @@ class WebflowCollectionEditScreen extends Screen
         $entity = $model::query()->findOrFail($item);
         $fieldData = is_array($entity->field_data) ? $entity->field_data : [];
         $fieldData = $this->ensureMaterialCustomHeroField($fieldData);
+
+        [$fieldData, $fieldChanged] = WebflowCdnUrlRewriter::rewrite($fieldData);
+        $columnChanged = $this->rewriteEntityCdnColumns($entity);
+        if ($fieldChanged || $columnChanged) {
+            $entity->field_data = $fieldData;
+            $entity->saveQuietly();
+        }
+
         $this->fieldData = $fieldData;
         $this->referenceFields = WebflowReferenceRegistry::forModel($meta['model']);
         $this->relationOptions = $this->buildRelationOptions($this->referenceFields);
@@ -75,6 +84,57 @@ class WebflowCollectionEditScreen extends Screen
             ],
             'referencePreview' => $this->referencePreview,
         ];
+    }
+
+    /**
+     * Rewrite CDN URLs in dedicated wf_* image / JSON columns (not field_data).
+     */
+    private function rewriteEntityCdnColumns(Model $entity): bool
+    {
+        $changed = false;
+        $casts = $entity->getCasts();
+        $skip = ['id', 'field_data', 'created_at', 'updated_at', 'webflow_item_id', 'webflow_cms_locale_id'];
+
+        foreach ($entity->getAttributes() as $column => $raw) {
+            if (! is_string($column) || in_array($column, $skip, true)) {
+                continue;
+            }
+            if (! is_string($raw) || $raw === '') {
+                continue;
+            }
+            if (! str_contains($raw, 'website-files.com') && ! str_contains($raw, 'webflow.com')) {
+                continue;
+            }
+
+            $trimmed = ltrim($raw);
+            if ($trimmed !== '' && in_array($trimmed[0], ['{', '['], true)) {
+                $decoded = json_decode($raw, true);
+                if (json_last_error() === JSON_ERROR_NONE) {
+                    [$newDecoded, $columnChanged] = WebflowCdnUrlRewriter::rewrite($decoded);
+                    if ($columnChanged) {
+                        if (($casts[$column] ?? null) === 'array') {
+                            $entity->setAttribute($column, $newDecoded);
+                        } else {
+                            $encoded = json_encode($newDecoded, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+                            if (is_string($encoded)) {
+                                $entity->setAttribute($column, $encoded);
+                            }
+                        }
+                        $changed = true;
+                    }
+
+                    continue;
+                }
+            }
+
+            [$newRaw, $columnChanged] = WebflowCdnUrlRewriter::rewriteString($raw);
+            if ($columnChanged) {
+                $entity->setAttribute($column, $newRaw);
+                $changed = true;
+            }
+        }
+
+        return $changed;
     }
 
     /**
@@ -193,11 +253,13 @@ class WebflowCollectionEditScreen extends Screen
             }
         }
         $fieldData = $this->applyRelationInputs($request, $fieldData, $meta['model']);
+        [$fieldData] = WebflowCdnUrlRewriter::rewrite($fieldData);
 
         $entity->webflow_cms_locale_id = $request->input('entity.webflow_cms_locale_id');
         $entity->is_archived = (bool) $request->boolean('entity.is_archived');
         $entity->is_draft = (bool) $request->boolean('entity.is_draft');
         $entity->field_data = $fieldData;
+        $this->rewriteEntityCdnColumns($entity);
 
         if ($collection === 'global-settings') {
             $this->syncGlobalSettingsColumns($entity, $fieldData);
@@ -639,6 +701,17 @@ class WebflowCollectionEditScreen extends Screen
     private function buildSingleImageFields(string $inputName, string $title, string $fieldKey, array $value): array
     {
         $imageUrl = is_string($value['url'] ?? null) ? $value['url'] : '';
+        if ($imageUrl !== '') {
+            $resolved = webflow_image_url($imageUrl);
+            if ($resolved !== '' && $resolved !== $imageUrl) {
+                $imageUrl = $resolved;
+            } elseif (WebflowCdnUrlRewriter::isCdnHost($imageUrl)) {
+                $candidate = \App\Support\WebflowAssetName::localUrl($imageUrl);
+                if ($candidate !== '' && is_file(public_path(ltrim(parse_url($candidate, PHP_URL_PATH) ?: '', '/')))) {
+                    $imageUrl = $candidate;
+                }
+            }
+        }
         $safeKey = preg_replace('/[^a-zA-Z0-9]/', '_', $fieldKey) ?: 'image';
         $escUrl = htmlspecialchars($imageUrl, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
         $escField = htmlspecialchars($fieldKey, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
@@ -691,7 +764,11 @@ class WebflowCollectionEditScreen extends Screen
             if (! is_array($img) || ! is_string($img['url'] ?? null) || $img['url'] === '') {
                 continue;
             }
-            $esc = htmlspecialchars($img['url'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+            $imgUrl = webflow_image_url($img['url']);
+            if ($imgUrl === '' || $imgUrl === $img['url']) {
+                $imgUrl = $img['url'];
+            }
+            $esc = htmlspecialchars($imgUrl, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
             $previewHtml .= '<div class="wf-multi-thumb" data-index="'.$index.'" style="position:relative;width:90px;height:68px;">'
                 .'<img src="'.$esc.'" '
                 .'style="width:90px;height:68px;object-fit:cover;border-radius:4px;border:1px solid #dee2e6;display:block;" '
@@ -706,7 +783,8 @@ class WebflowCollectionEditScreen extends Screen
 
         $previewHtml .= '</div>';
 
-        $encoded = json_encode(array_values($value), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+        [$rewrittenGallery] = WebflowCdnUrlRewriter::rewrite(array_values($value));
+        $encoded = json_encode($rewrittenGallery, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 
         return [
             TextArea::make($inputName)

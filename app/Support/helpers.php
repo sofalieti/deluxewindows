@@ -72,6 +72,15 @@ if (! function_exists('webflow_image_url')) {
             }
         }
 
+        // Last resort: sanitized WebflowAssetName path even if basename variants failed above.
+        $sanitized = \App\Support\WebflowAssetName::localUrl($source);
+        if ($sanitized !== '') {
+            $path = ltrim((string) parse_url($sanitized, PHP_URL_PATH), '/');
+            if ($path !== '' && is_file(public_path($path))) {
+                return $sanitized;
+            }
+        }
+
         return $source;
     }
 }
