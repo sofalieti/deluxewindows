@@ -12,7 +12,7 @@
       "image": "/webflow-assets/images/window-type-hero/wood-clad-windows.avif",
       "type": "website"
     },
-    "h1": "Wood Clad Windows for Bay Area Homes",
+    "h1": "Upgrade to Energy Efficient Wood-Clad Windows for Less",
     "primary_keyword": "wood clad windows",
     "target_keywords": [
       "wood clad windows",
@@ -30,7 +30,8 @@
       "description": "Wood Clad windows compared for Bay Area homes: typical lifespan 30-50 years when the cladding and seals are maintained, a premium over bare wood, offset by.",
       "image": "/webflow-assets/images/window-type-hero/wood-clad-windows.avif",
       "card": "summary_large_image"
-    }
+    },
+    "h1_subline": "Installation & Replacement"
   },
   "faq": [
     {

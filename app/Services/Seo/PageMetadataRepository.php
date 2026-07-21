@@ -204,6 +204,7 @@ class PageMetadataRepository
         }
 
         $h1 = trim((string) ($seo['h1'] ?? ''));
+        $h1Subline = trim((string) ($seo['h1_subline'] ?? ''));
         $primaryKeyword = trim((string) ($seo['primary_keyword'] ?? ''));
         $targetKeywords = $seo['target_keywords'] ?? null;
         if ($h1 === '' || $primaryKeyword === '' || ! is_array($targetKeywords) || $targetKeywords === []) {
@@ -306,6 +307,8 @@ class PageMetadataRepository
                 : ($ogImage !== '' ? $this->absoluteUrl($ogImage, $baseUrl) : null),
             twitterCard: trim((string) ($twitter['card'] ?? $seo['twitter_card'] ?? ''))
                 ?: 'summary_large_image',
+            h1: $h1,
+            h1Subline: $h1Subline,
             faq: $faq,
             schema: $schema,
         );

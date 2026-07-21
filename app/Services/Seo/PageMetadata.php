@@ -25,6 +25,8 @@ final readonly class PageMetadata
         public string $twitterDescription,
         public ?string $twitterImage,
         public string $twitterCard,
+        public string $h1,
+        public string $h1Subline,
         public array $faq,
         public array $schema,
     ) {
@@ -51,8 +53,20 @@ final readonly class PageMetadata
             twitterDescription: $description,
             twitterImage: null,
             twitterCard: 'summary_large_image',
+            h1: $title,
+            h1Subline: '',
             faq: [],
             schema: ['primary_type' => 'WebPage'],
         );
+    }
+
+    /** Full visible H1 text (main + optional subline). */
+    public function h1Full(): string
+    {
+        if ($this->h1Subline === '') {
+            return $this->h1;
+        }
+
+        return trim($this->h1.' '.$this->h1Subline);
     }
 }

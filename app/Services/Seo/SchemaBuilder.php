@@ -81,7 +81,7 @@ class SchemaBuilder
             '@type' => $type,
             '@id' => $metadata->canonical.'#webpage',
             'url' => $metadata->canonical,
-            'name' => $metadata->title,
+            'name' => $metadata->h1 !== '' ? $metadata->h1 : $metadata->title,
             'description' => $metadata->description,
             'isPartOf' => ['@id' => $this->baseUrl().'/#website'],
             'publisher' => ['@id' => $organizationId],

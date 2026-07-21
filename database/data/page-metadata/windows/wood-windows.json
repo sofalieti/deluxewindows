@@ -12,7 +12,7 @@
       "image": "/webflow-assets/images/window-type-hero/wood-windows.avif",
       "type": "website"
     },
-    "h1": "Wood Windows for Bay Area Homes",
+    "h1": "Upgrade to Energy Efficient Wood Windows for Less",
     "primary_keyword": "wood windows",
     "target_keywords": [
       "wood windows",
@@ -30,7 +30,8 @@
       "description": "Wood windows compared for Bay Area homes: typical lifespan 30 or more years with proper maintenance, roughly $700-$1,200 per window before installation, plus.",
       "image": "/webflow-assets/images/window-type-hero/wood-windows.avif",
       "card": "summary_large_image"
-    }
+    },
+    "h1_subline": "Installation & Replacement"
   },
   "faq": [
     {
