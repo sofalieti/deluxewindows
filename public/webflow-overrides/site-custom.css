@@ -2354,9 +2354,35 @@
 
 /* Brand / material / series H1 — secondary line inside the same heading.
    .display-8.mid is display:flex in Webflow, so the subline needs a full flex row. */
-h1.display-8.mid {
-  flex-wrap: wrap;
+h1.display-8.mid,
+h1.display-38.mid {
+  display: flex !important;
+  flex-wrap: wrap !important;
   align-items: baseline;
+  gap: 0;
+}
+
+h1.display-8.mid .h1-main,
+h1.display-38.mid .h1-main {
+  display: inline;
+  flex: 0 1 auto;
+  max-width: 100%;
+}
+
+h1.display-8.mid .h1-subline,
+h1.display-38.mid .h1-subline,
+.window-detail-page h1 .h1-subline,
+.door-detail-page h1 .h1-subline {
+  display: block !important;
+  flex: 0 0 100% !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-top: 0.2em;
+  font-size: 0.48em;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+  color: #5a6a7c;
 }
 
 /* Material pages (windows/doors): H1 on dark hero — subline as a quieter kicker */

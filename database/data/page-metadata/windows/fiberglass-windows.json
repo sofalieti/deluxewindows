@@ -12,7 +12,8 @@
       "image": "/webflow-assets/images/window-type-hero/fiberglass-windows.avif",
       "type": "website"
     },
-    "h1": "Upgrade to Energy Efficient Fiberglass Windows for Less",
+    "h1": "Fiberglass Windows",
+    "h1_subline": "Installation & Replacement",
     "primary_keyword": "fiberglass windows",
     "target_keywords": [
       "fiberglass windows",
@@ -30,8 +31,7 @@
       "description": "Fiberglass windows compared for Bay Area homes: typical lifespan 30-50 years, the longest of common frame materials, about $800-$1,500+ per window, above.",
       "image": "/webflow-assets/images/window-type-hero/fiberglass-windows.avif",
       "card": "summary_large_image"
-    },
-    "h1_subline": "Installation & Replacement"
+    }
   },
   "faq": [
     {

@@ -12,7 +12,8 @@
       "image": "/webflow-assets/images/window-type-hero/steel-windows.avif",
       "type": "website"
     },
-    "h1": "Upgrade to Energy Efficient Steel Windows for Less",
+    "h1": "Steel Windows",
+    "h1_subline": "Installation & Replacement",
     "primary_keyword": "steel windows",
     "target_keywords": [
       "steel windows",
@@ -30,8 +31,7 @@
       "description": "Steel windows compared for Bay Area homes: typical lifespan 50+ years when finishes are maintained, custom units typically starting around $1,440 each, plus.",
       "image": "/webflow-assets/images/window-type-hero/steel-windows.avif",
       "card": "summary_large_image"
-    },
-    "h1_subline": "Installation & Replacement"
+    }
   },
   "faq": [
     {

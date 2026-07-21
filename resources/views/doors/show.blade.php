@@ -45,7 +45,10 @@
             <div class="w-layout-grid grid-2-columns-4 listing-grid">
               <div class="inner-container _690px _100-tablet">
                 <div>
-                  <h1 class="display-38 mid">{{ $title }}</h1>
+                  @include('partials.seo-h1', [
+                    'h1Class' => 'display-38 mid',
+                    'fallbackH1' => $title,
+                  ])
                   @if($summary)
                   <div class="mg-top-small-3">
                     <div class="text-block-43">{{ $summary }}</div>

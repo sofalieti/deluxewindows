@@ -156,12 +156,7 @@
   $heroMaterialCopy = $isDoorsMaterialHero
     ? ($doorTypeHeroCopy[$materialTypeSlug] ?? null)
     : ($windowTypeHeroCopy[$materialTypeSlug] ?? null);
-  $pageH1 = trim((string) ($pageMetadata->h1 ?? ''));
-  $pageH1Subline = trim((string) ($pageMetadata->h1Subline ?? ''));
-  $useSeoMaterialH1 = ($isWindowsMaterialHero || $isDoorsMaterialHero) && $pageH1 !== '';
-  $heroHeadlineText = $useSeoMaterialH1
-    ? $pageH1
-    : ($isWindowsMaterialHero
+  $heroHeadlineText = $isWindowsMaterialHero
     ? (($heroMaterialCopy['headline'] ?? null) ?: 'Upgrade to Energy Efficient Windows for Less')
     : (!empty($doorTypeHero)
       ? (($heroMaterialCopy['headline'] ?? null) ?: 'Upgrade to Energy Efficient Doors for Less')
@@ -171,7 +166,7 @@
           ? 'Upgrade to Energy Efficient '.trim((string) $brandName).' Doors for Less'
           : ((!empty($windowBrandHero) && trim((string) ($brandName ?? '')) !== '')
             ? 'Upgrade to Energy Efficient '.trim((string) $brandName).' Windows for Less'
-            : 'Upgrade to Energy Efficient Windows and Doors for Less')))));
+            : 'Upgrade to Energy Efficient Windows and Doors for Less'))));
   $heroMiniDescription = $isWindowsMaterialHero || $isDoorsMaterialHero
     ? (($heroMaterialCopy['description'] ?? null) ?: ($isDoorsMaterialHero
       ? 'Get secure, stylish door solutions with better comfort and pricing for your home.'
@@ -241,13 +236,8 @@
                     <div class="div-block-60">
                     @endif
                     <div class="rich-text-block-2 w-richtext">
-                      @if($useSeoMaterialH1)
-                      <h1 class="heading-49">
-                        {{ $heroHeadlineText }}@if($pageH1Subline !== '')<span class="h1-subline">{{ $pageH1Subline }}</span>@endif
-                      </h1>
-                      @else
+                      {{-- Promo line in hero; canonical H1 lives in the product content section from SEO --}}
                       <h2 class="heading-49">{{ $heroHeadlineText }}</h2>
-                      @endif
                       @if($heroMiniDescription !== '')
                         <p class="hero-mini-description">{{ $heroMiniDescription }}</p>
                       @endif

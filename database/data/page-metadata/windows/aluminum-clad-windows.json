@@ -12,7 +12,8 @@
       "image": "/webflow-assets/images/window-type-hero/aluminum-clad-windows.avif",
       "type": "website"
     },
-    "h1": "Upgrade to Energy Efficient Aluminum-Clad Windows for Less",
+    "h1": "Aluminum Clad Windows",
+    "h1_subline": "Installation & Replacement",
     "primary_keyword": "aluminum clad windows",
     "target_keywords": [
       "aluminum clad windows",
@@ -30,8 +31,7 @@
       "description": "Aluminum Clad windows compared for Bay Area homes: typical lifespan 30-50 years thanks to the protected wood core, premium pricing similar to other clad-wood.",
       "image": "/webflow-assets/images/window-type-hero/aluminum-clad-windows.avif",
       "card": "summary_large_image"
-    },
-    "h1_subline": "Installation & Replacement"
+    }
   },
   "faq": [
     {

@@ -12,7 +12,8 @@
       "image": "/webflow-assets/images/window-type-hero/vinyl-windows-hero-bg-v1.avif",
       "type": "website"
     },
-    "h1": "Upgrade to Energy Efficient Vinyl Windows for Less",
+    "h1": "Vinyl Windows",
+    "h1_subline": "Installation & Replacement",
     "primary_keyword": "vinyl windows",
     "target_keywords": [
       "vinyl windows",
@@ -30,8 +31,7 @@
       "description": "Vinyl windows compared for Bay Area homes: typical lifespan 20-40 years, about $300-$800 per window plus installation, plus leading brands and installation.",
       "image": "/webflow-assets/images/window-type-hero/vinyl-windows-hero-bg-v1.avif",
       "card": "summary_large_image"
-    },
-    "h1_subline": "Installation & Replacement"
+    }
   },
   "faq": [
     {
