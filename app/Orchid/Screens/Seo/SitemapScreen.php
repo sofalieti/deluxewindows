@@ -40,7 +40,7 @@ class SitemapScreen extends Screen
 
     public function description(): ?string
     {
-        return 'Build the sitemap from live public pages and published CMS records.';
+        return 'Build the sitemap from live public pages and published CMS records. lastmod is never older than today; real update dates are used when newer.';
     }
 
     public function commandBar(): iterable

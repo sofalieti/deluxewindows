@@ -2026,11 +2026,6 @@
     box-sizing: border-box;
     padding: 16px !important;
   }
-
-  .section_sidebar .scroll-block {
-    max-height: none !important;
-    overflow: visible !important;
-  }
 }
 
 /* Shared guarantee section layout (kept out of Blade markup). */
@@ -2153,20 +2148,34 @@
   }
 
   /* Our Guarantee — center header + cards on mobile;
-     white cards stay compact (not full container width). */
+     white cards stay compact (not full container width).
+     .newww keeps desktop 3-col otherwise and must be overridden. */
+  .classic-public-page .guarantee-section {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
+
   .classic-public-page .guarantee-section .f-header-grid-asymmetrical,
   .classic-public-page .guarantee-section .f-max-width-large,
-  .classic-public-page .guarantee-section .f-grid-three-column-2 {
+  .classic-public-page .guarantee-section .f-grid-three-column-2,
+  .classic-public-page .guarantee-section .f-grid-three-column-2.newww {
     justify-items: center !important;
     justify-content: center !important;
     text-align: center !important;
   }
 
-  .classic-public-page .guarantee-section .f-grid-three-column-2 {
-    width: 100%;
-    max-width: 360px;
-    margin-left: auto;
-    margin-right: auto;
+  .classic-public-page .guarantee-section .f-grid-three-column-2,
+  .classic-public-page .guarantee-section .f-grid-three-column-2.newww {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    grid-column-gap: 16px !important;
+    grid-row-gap: 16px !important;
+    width: 100% !important;
+    max-width: 360px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 
   .classic-public-page .guarantee-section h3,
@@ -2185,9 +2194,9 @@
   }
 
   .classic-public-page .guarantee-section .f-feature-card-filled {
-    width: 100%;
-    max-width: 360px;
-    justify-self: center;
+    width: 100% !important;
+    max-width: 360px !important;
+    justify-self: center !important;
     align-items: center !important;
     box-sizing: border-box;
   }

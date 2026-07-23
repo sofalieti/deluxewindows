@@ -507,7 +507,7 @@
               </div>
             </div>
           </div>
-          <div class="w-layout-grid f-grid-three-column-2 newww">
+          <div class="w-layout-grid f-grid-three-column-2">
             <div class="f-feature-card-filled">
               <div class="f-margin-bottom-129">
                 <h5 class="f-h5-heading">{{ $material ?: 'Windows' }}</h5>

@@ -495,6 +495,31 @@ class ClassicSiteController extends Controller
             'form_id' => 'nullable|string|max:255',
         ])->validate();
 
+        $spam = app(\App\Services\LeadSpamGuard::class)->inspect([
+            'full_name' => $validated['full_name'],
+            'email' => $validated['email'],
+            'phone' => $validated['phone'],
+            'city' => $validated['city'],
+            'message' => $validated['message'],
+        ]);
+
+        if ($spam['spam']) {
+            Log::info('Lead rejected as spam', [
+                'reason' => $spam['reason'],
+                'email' => $validated['email'],
+                'ip' => $request->ip(),
+            ]);
+
+            // Silent success: no DB, no email, no Google bridge, no conversion hook on client.
+            if ($request->expectsJson() || $request->ajax()) {
+                return response()->json(['ok' => true, 'spam' => true]);
+            }
+
+            session()->flash('contact_success', true);
+
+            return redirect()->back()->with('contact_success', true);
+        }
+
         $formId = $validated['form_id'] !== ''
             ? $validated['form_id']
             : \App\Services\LeadFormId::fromUrl($validated['page_url'] !== '' ? $validated['page_url'] : $request->headers->get('referer'));
@@ -612,7 +637,7 @@ class ClassicSiteController extends Controller
         session()->flash('contact_success', true);
 
         if ($request->expectsJson() || $request->ajax()) {
-            return response()->json(['ok' => true]);
+            return response()->json(['ok' => true, 'spam' => false]);
         }
 
         return redirect()->back()->with('contact_success', true);

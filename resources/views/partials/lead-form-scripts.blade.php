@@ -314,8 +314,7 @@
       setSubmitLoading(submitBtn, true);
       try {
         const payload = toPayload(form, await getGeoLocation());
-        // Google sheet first (browser URLSearchParams), then Laravel lead store.
-        postToGoogleBridges(payload);
+        // Laravel first (spam gate). Google sheet + conversion only for clean leads.
         const res = await fetch(endpoint, {
           method: 'POST',
           headers: {
@@ -329,10 +328,15 @@
         if (!res.ok) {
           throw new Error('Lead submit failed');
         }
-        showState(form, true);
-        if (typeof window.gtag_report_conversion === 'function') {
-          window.gtag_report_conversion();
+        const data = await res.json().catch(function () { return { ok: true }; });
+        const isSpam = !!(data && data.spam);
+        if (!isSpam) {
+          postToGoogleBridges(payload);
+          if (typeof window.gtag_report_conversion === 'function') {
+            window.gtag_report_conversion();
+          }
         }
+        showState(form, true);
       } catch (_) {
         showState(form, false);
         setSubmitLoading(submitBtn, false);

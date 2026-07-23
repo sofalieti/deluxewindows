@@ -1,3 +1,16 @@
+@php
+  $sidebarMaterialGroups = $sidebarMaterialGroups ?? collect();
+  $hasSidebarSeries = collect($sidebarMaterialGroups)->contains(function ($group) {
+      if (empty($group['visible'])) {
+          return false;
+      }
+      $collections = $group['collections'] ?? [];
+
+      return (is_countable($collections) ? count($collections) : 0) > 0;
+  });
+@endphp
+
+@if($hasSidebarSeries)
 <div class="dropdown-tab tabs-mob sidebar-dropdown">
   <div class="toggle-tab tabs-mob sidebar is-first brands" aria-hidden="true">
     <div class="toggle-text-tab-2 sidebar-txt">{{ $sidebarLabel ?? 'All collections' }}</div>
@@ -49,3 +62,4 @@
     @endif
   </nav>
 </div>
+@endif

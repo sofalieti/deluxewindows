@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\File;
 
 class SitemapGeneratorService
 {
-    /** @var array<string, array{loc: string, lastmod: string|null}> */
+    /** @var array<string, array{loc: string, lastmod: string}> */
     private array $urls = [];
 
     /**
@@ -201,24 +201,54 @@ class SitemapGeneratorService
             return;
         }
 
-        $lastModified = $item?->getAttribute('webflow_updated_on');
-        if (is_string($lastModified) && $lastModified !== '') {
-            try {
-                $lastModified = Carbon::parse($lastModified);
-            } catch (\Throwable) {
-                $lastModified = null;
-            }
-        }
-        if (! $lastModified instanceof \DateTimeInterface) {
-            $lastModified = $item?->getAttribute('updated_at');
-        }
-
         $this->urls[$normalizedPath] = [
             'loc' => $this->baseUrl().($normalizedPath === '/' ? '' : $normalizedPath),
-            'lastmod' => $lastModified instanceof \DateTimeInterface
-                ? $lastModified->format('Y-m-d')
-                : null,
+            'lastmod' => $this->resolveLastmod($item),
         ];
+    }
+
+    /**
+     * lastmod is never older than “today” (America/Los_Angeles).
+     * When a CMS record exists, use the latest of webflow_updated_on / updated_at.
+     */
+    private function resolveLastmod(?Model $item = null): string
+    {
+        $today = Carbon::now('America/Los_Angeles')->startOfDay();
+        $candidates = [];
+
+        foreach (['webflow_updated_on', 'updated_at'] as $attribute) {
+            $value = $item?->getAttribute($attribute);
+            $parsed = $this->parseDate($value);
+            if ($parsed !== null) {
+                $candidates[] = $parsed->timezone('America/Los_Angeles')->startOfDay();
+            }
+        }
+
+        $resolved = $today;
+        foreach ($candidates as $candidate) {
+            if ($candidate->gt($resolved)) {
+                $resolved = $candidate;
+            }
+        }
+
+        return $resolved->format('Y-m-d');
+    }
+
+    private function parseDate(mixed $value): ?Carbon
+    {
+        if ($value instanceof \DateTimeInterface) {
+            return Carbon::instance(\DateTimeImmutable::createFromInterface($value));
+        }
+
+        if (! is_string($value) || trim($value) === '') {
+            return null;
+        }
+
+        try {
+            return Carbon::parse($value);
+        } catch (\Throwable) {
+            return null;
+        }
     }
 
     private function baseUrl(): string
@@ -239,9 +269,7 @@ class SitemapGeneratorService
         foreach ($this->urls as $url) {
             $lines[] = '    <url>';
             $lines[] = '        <loc>'.$this->escape($url['loc']).'</loc>';
-            if ($url['lastmod'] !== null) {
-                $lines[] = '        <lastmod>'.$url['lastmod'].'</lastmod>';
-            }
+            $lines[] = '        <lastmod>'.$url['lastmod'].'</lastmod>';
             $lines[] = '    </url>';
         }
 

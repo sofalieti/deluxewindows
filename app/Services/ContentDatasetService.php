@@ -6,6 +6,8 @@ namespace App\Services;
 
 use App\Models\DoorBrand;
 use App\Models\PromotionControl;
+use App\Models\Webflow\DoorsWebflowItem;
+use App\Models\Webflow\WindowsWebflowItem;
 use App\Services\Seo\PageMetadataRepository;
 use App\Services\Webflow\WebflowCodegenService;
 use Illuminate\Support\Facades\DB;
@@ -96,6 +98,7 @@ class ContentDatasetService
 
         $result = DB::transaction(function () use ($validated): array {
             $webflow = $this->webflow->importIntoDatabase($this->webflowRoot());
+            $this->touchMaterialUpdateDates();
             $doorBrandCount = $this->importDoorBrands($validated['door_brands']);
             $promotionCount = $this->importPromotionControls($validated['promotion_controls']);
 
@@ -114,6 +117,30 @@ class ContentDatasetService
         $this->pageMetadata->clearCache();
 
         return $result;
+    }
+
+    /**
+     * Dataset import refreshes material (windows/doors) sitemap dates even when
+     * CMS lastUpdated in the JSON is older than today.
+     */
+    private function touchMaterialUpdateDates(): void
+    {
+        $now = now();
+
+        foreach ([WindowsWebflowItem::class, DoorsWebflowItem::class] as $modelClass) {
+            /** @var class-string<\Illuminate\Database\Eloquent\Model> $modelClass */
+            $table = (new $modelClass)->getTable();
+            if (! Schema::hasTable($table)) {
+                continue;
+            }
+
+            $payload = ['updated_at' => $now];
+            if (Schema::hasColumn($table, 'webflow_updated_on')) {
+                $payload['webflow_updated_on'] = $now;
+            }
+
+            $modelClass::query()->update($payload);
+        }
     }
 
     /**
