@@ -48,6 +48,11 @@
     let applyingPin = false;
 
     function setPinnedState(bar, pinned) {
+      // While the menu is open the bar must stay fixed in the viewport.
+      if (isOpen()) {
+        pinned = true;
+      }
+
       applyingPin = true;
       bar.classList.toggle("navbar-3--pinned", pinned);
       bar.dataset.dwPinned = pinned ? "1" : "0";
@@ -67,7 +72,7 @@
       if (!bar) return;
       ensureSpacer();
       measureBar();
-      setPinnedState(bar, shouldPinBar());
+      setPinnedState(bar, shouldPinBar() || isOpen());
 
       if (isOpen()) syncMenuPosition();
     }
@@ -84,13 +89,37 @@
     function syncMenuPosition() {
       const bar = $(NAVBAR);
       if (!bar) return;
-      const bottom = Math.round(bar.getBoundingClientRect().bottom);
+      // Use bar height so top stays correct even if layout settles a frame later.
+      const rect = bar.getBoundingClientRect();
+      const bottom = Math.max(0, Math.round(rect.bottom));
       document.documentElement.style.setProperty("--mobile-nav-bottom", `${bottom}px`);
+    }
+
+    let scrollLockY = 0;
+
+    function lockBodyScroll(lock) {
+      if (lock) {
+        scrollLockY = window.scrollY || window.pageYOffset || 0;
+        document.body.style.position = "fixed";
+        document.body.style.top = `-${scrollLockY}px`;
+        document.body.style.left = "0";
+        document.body.style.right = "0";
+        document.body.style.width = "100%";
+        return;
+      }
+
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
+      document.body.style.width = "";
+      window.scrollTo(0, scrollLockY);
     }
 
     function setOpenState(shouldOpen) {
       const button = $(BTN);
       const menu = $(MENU);
+      const bar = $(NAVBAR);
 
       document.body.classList.toggle("mobile-menu-open", shouldOpen);
 
@@ -104,11 +133,22 @@
       }
 
       if (shouldOpen) {
-        syncMenuPosition();
+        // Pin bar to viewport first, then place the panel under it.
+        if (bar) {
+          ensureSpacer();
+          measureBar();
+          setPinnedState(bar, true);
+        }
+        lockBodyScroll(true);
+        requestAnimationFrame(() => {
+          syncMenuPosition();
+          requestAnimationFrame(syncMenuPosition);
+        });
       } else {
         document.documentElement.style.removeProperty("--mobile-nav-bottom");
+        lockBodyScroll(false);
+        updatePinnedBar();
       }
-      updatePinnedBar();
     }
 
     function closeMenu() {

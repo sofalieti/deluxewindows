@@ -612,15 +612,10 @@
 
   body.mobile-menu-open .mobile-header-shell > .navbar-3.navbar-3--pinned,
   body.mobile-menu-open .mobile-header-shell > .navbar-3[data-dw-pinned="1"] {
-    /* Slightly denser while menu is open so text stays readable */
-    background: linear-gradient(
-      180deg,
-      rgba(42, 126, 184, 0.88) 0%,
-      rgba(15, 77, 137, 0.92) 55%,
-      rgba(10, 59, 105, 0.94) 100%
-    ) !important;
-    -webkit-backdrop-filter: saturate(160%) blur(12px);
-    backdrop-filter: saturate(160%) blur(12px);
+    /* Opaque bar while menu is open — no backdrop-filter (it breaks position:fixed children). */
+    background: linear-gradient(180deg, #1f6fa8 0%, #0f4d89 55%, #0a3b69 100%) !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
   }
 
   @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
@@ -643,6 +638,24 @@
     right: 0 !important;
     width: 100% !important;
     z-index: 1200 !important;
+  }
+
+  /* Keep the open menu attached to the viewport under the bar (not the page top). */
+  body.mobile-menu-open .navbar-3 .nav-menu-wrapper-4.w-nav-menu {
+    display: block !important;
+    position: fixed !important;
+    top: var(--mobile-nav-bottom, 88px) !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: auto !important;
+    max-height: none !important;
+    z-index: 1300 !important;
+  }
+
+  body.mobile-menu-open {
+    overflow: hidden !important;
+    overscroll-behavior: none;
   }
 
   body.mobile-menu-open .navbar-3 {
@@ -827,13 +840,6 @@
     box-shadow: none !important;
     outline: none !important;
     transform: none !important;
-  }
-
-  body.mobile-menu-open .navbar-3 .nav-menu-wrapper-4.w-nav-menu {
-    display: block !important;
-    bottom: 0 !important;
-    max-height: none !important;
-    z-index: 1300 !important;
   }
 
   .navbar-3 .nav-menu-2 {
@@ -2511,5 +2517,41 @@ h1 .h1-subline {
 
 .grid-3-columns.pricing-grid {
   padding: 6px 4px 10px;
+}
+
+/* Mobile: Webflow token for horizontal padding collapses — keep text off the card edges */
+@media (max-width: 991px) {
+  .card.plan-card {
+    padding: 28px 20px !important;
+  }
+
+  .card.plan-card .product-card---top-content,
+  .card.plan-card .product-card---bottom-content,
+  .card.plan-card .center-content {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .card.plan-card .center-content,
+  .card.plan-card .center-content p,
+  .card.plan-card .display-5.mid {
+    text-align: left;
+  }
+
+  .card.plan-card .feature-wrapper.dark.v1 {
+    padding-right: 4px;
+  }
+}
+
+@media (max-width: 479px) {
+  .card.plan-card {
+    padding: 24px 18px !important;
+  }
+
+  .grid-3-columns.pricing-grid {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
