@@ -29,13 +29,50 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
 
-        View::composer(['layouts.classic', 'faq'], function (BladeView $view): void {
-            $metadata = app(PageMetadataRepository::class)->current();
+        // Must run for every view: @section content renders before layouts.classic,
+        // so a layout-only composer never reaches seo-h1 / FAQ-in-content includes.
+        View::composer('*', function (BladeView $view): void {
+            if ($view->offsetExists('pageMetadata')) {
+                return;
+            }
+
+            $name = (string) ($view->name() ?? '');
+            if ($name !== '' && $this->shouldSkipPageMetadataComposer($name)) {
+                return;
+            }
+
+            static $metadata = null;
+            static $schemas = null;
+
+            if ($metadata === null) {
+                $metadata = app(PageMetadataRepository::class)->current();
+                $schemas = app(SchemaBuilder::class)->build($metadata);
+            }
 
             $view->with([
                 'pageMetadata' => $metadata,
-                'pageSchemas' => app(SchemaBuilder::class)->build($metadata),
+                'pageSchemas' => $schemas,
             ]);
         });
+    }
+
+    private function shouldSkipPageMetadataComposer(string $viewName): bool
+    {
+        foreach ([
+            'orchid::',
+            'platform::',
+            'mail.',
+            'notifications.',
+            'vendor.',
+            'errors::',
+            'pagination::',
+            'components.',
+        ] as $prefix) {
+            if (str_starts_with($viewName, $prefix)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

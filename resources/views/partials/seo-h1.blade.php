@@ -1,6 +1,6 @@
 @php
-    $seoH1 = trim((string) ($pageMetadata->h1 ?? ''));
-    $seoH1Subline = trim((string) ($pageMetadata->h1Subline ?? ''));
+    $seoH1 = trim((string) ($pageMetadata?->h1 ?? ''));
+    $seoH1Subline = trim((string) ($pageMetadata?->h1Subline ?? ''));
     $fallbackH1 = trim((string) ($fallbackH1 ?? ''));
     $main = $seoH1 !== '' ? $seoH1 : $fallbackH1;
     $h1Class = trim((string) ($h1Class ?? 'display-8 mid'));
