@@ -1232,8 +1232,8 @@
   .div-block-59 > .w-layout-blockcontainer.container-default {
     padding-left: 0px !important;
     padding-right: 0px !important;
-    justify-content: flex-start !important;
-    align-items: center !important;
+    justify-content: center;
+    /* align-items: center !important; */
     column-gap: 0;
   }
 
