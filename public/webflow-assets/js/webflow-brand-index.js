@@ -5,11 +5,13 @@
   const form = document.querySelector('[fs-list-element="filters"]');
   if (!form) return;
 
+  const list = document.querySelector('[fs-list-element="list"]');
   const dropdowns = $$(".brand-filters_dropdown", form);
   const OPEN_CLASS = "is-open";
   const PRICE_FIELDS = ["price1", "price2", "price3", "price4", "price5"];
 
   form.setAttribute("autocomplete", "off");
+  form.addEventListener("submit", (e) => e.preventDefault());
   if (location.search) history.replaceState(null, "", location.pathname + location.hash);
 
   const syncWebflowUI = () => {
@@ -31,7 +33,7 @@
     $$('input[type="checkbox"][fs-list-field]', form).forEach((inp) => {
       inp.checked = false;
       inp.removeAttribute("checked");
-    });п
+    });
     syncWebflowUI();
   };
 
@@ -39,31 +41,33 @@
     dropdowns.forEach((dd) => {
       if (except && dd === except) return;
       dd.classList.remove(OPEN_CLASS);
-      const list = $(".brand_dropdown-list", dd);
-      if (list) list.style.display = "none";
+      const listEl = $(".brand_dropdown-list", dd);
+      if (listEl) listEl.style.display = "none";
     });
   };
 
   const toggleDropdown = (dd) => {
-    const list = $(".brand_dropdown-list", dd);
-    if (!list) return;
+    const listEl = $(".brand_dropdown-list", dd);
+    if (!listEl) return;
 
     const isOpen = dd.classList.contains(OPEN_CLASS);
 
     if (isOpen) {
       dd.classList.remove(OPEN_CLASS);
-      list.style.display = "none";
+      listEl.style.display = "none";
     } else {
       closeAll(dd);
       dd.classList.add(OPEN_CLASS);
-      list.style.display = "block";
+      listEl.style.display = "block";
       syncOnOpen();
     }
   };
 
   dropdowns.forEach((dd) => {
-    const list = $(".brand_dropdown-list", dd);
-    if (list) list.style.display = "none";
+    const listEl = $(".brand_dropdown-list", dd);
+    if (listEl) listEl.style.display = "none";
+
+    dd.addEventListener("click", (e) => e.stopPropagation());
 
     const toggle = $(".brand_dropdown-toggle", dd);
     if (!toggle) return;
@@ -86,11 +90,16 @@
       const input = $('input[type="checkbox"][fs-list-field]', lbl);
       if (!input) return;
 
-      const txt = ($(".checkbox-label", lbl)?.textContent || "").trim();
+      const fromAttr = (input.getAttribute("fs-list-value") || "").trim();
+      const fromLabel = ($(".checkbox-label", lbl)?.textContent || "").trim();
+      const txt = fromAttr || fromLabel;
       if (!txt) return;
 
       input.value = txt;
       input.setAttribute("value", txt);
+      if (!input.getAttribute("fs-list-value")) {
+        input.setAttribute("fs-list-value", txt);
+      }
     });
   };
 
@@ -140,12 +149,59 @@
     });
   };
 
+  const checkedValuesFor = (field) =>
+    $$(`input[type="checkbox"][fs-list-field="${field}"]`, form)
+      .filter((i) => i.checked)
+      .map((i) => (i.value || i.getAttribute("fs-list-value") || "").trim())
+      .filter(Boolean);
+
+  const itemFieldValues = (item, field) =>
+    $$(`[fs-list-field="${field}"]`, item)
+      .map((el) => {
+        const explicit = (el.getAttribute("fs-list-value") || "").trim();
+        if (explicit) return explicit;
+        return (el.textContent || "").trim();
+      })
+      .filter(Boolean);
+
+  const itemMatchesGroup = (item, field, selected) => {
+    if (!selected.length) return true;
+    const values = itemFieldValues(item, field);
+    return selected.some((sel) => values.includes(sel));
+  };
+
+  const applyFilters = () => {
+    if (!list) return;
+
+    const materialSelected = checkedValuesFor("materials");
+    const priceSelected = PRICE_FIELDS.flatMap((field) =>
+      checkedValuesFor(field).map((value) => ({ field, value }))
+    );
+
+    $$(":scope > .w-dyn-item", list).forEach((item) => {
+      const matchesMaterials = itemMatchesGroup(item, "materials", materialSelected);
+
+      let matchesPrice = true;
+      if (priceSelected.length) {
+        matchesPrice = priceSelected.some(({ field, value }) => {
+          const values = itemFieldValues(item, field);
+          return values.includes(value);
+        });
+      }
+
+      item.style.display = matchesMaterials && matchesPrice ? "" : "none";
+    });
+
+    document.dispatchEvent(new CustomEvent("brand-filters:updated"));
+  };
+
   form.addEventListener("change", (e) => {
     const t = e.target;
     if (!(t instanceof HTMLInputElement)) return;
     if (t.type !== "checkbox") return;
 
     syncWebflowUI();
+    applyFilters();
 
     const dd = t.closest(".brand-filters_dropdown");
     if (!dd) return;
@@ -161,20 +217,34 @@
     }
   });
 
+  // Capture phase so this runs before dropdown stopPropagation
+  form.addEventListener(
+    "click",
+    (e) => {
+      const label = e.target.closest("label.w-checkbox");
+      if (!label || !form.contains(label)) return;
+      if (e.target instanceof HTMLInputElement) return;
+
+      const inp = $('input[type="checkbox"][fs-list-field]', label);
+      if (!inp) return;
+
+      e.preventDefault();
+      e.stopPropagation();
+      inp.checked = !inp.checked;
+      inp.dispatchEvent(new Event("change", { bubbles: true }));
+    },
+    true
+  );
+
   const clearBtn = document.querySelector('[fs-list-element="clear"]');
 
   if (clearBtn) {
-    clearBtn.addEventListener("click", () => {
-      setTimeout(() => {
-        forceAllUnchecked();
-        closeAll();
-        refreshAllToggles();
-      }, 0);
-
-      setTimeout(() => {
-        forceAllUnchecked();
-        refreshAllToggles();
-      }, 60);
+    clearBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      forceAllUnchecked();
+      closeAll();
+      refreshAllToggles();
+      applyFilters();
     });
   }
 
@@ -182,18 +252,19 @@
   forceAllUnchecked();
   refreshAllToggles();
   syncWebflowUI();
+  applyFilters();
 
   setTimeout(() => {
     ensureCheckboxValues();
     forceAllUnchecked();
     refreshAllToggles();
     syncWebflowUI();
+    applyFilters();
   }, 200);
 })();
 
 (() => {
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
-  const $ = (s, r = document) => r.querySelector(s);
 
   const list = document.querySelector('[fs-list-element="list"]');
   if (!list) return;
@@ -209,37 +280,28 @@
     dynList.appendChild(empty);
   }
 
-  const ensureEmptyVisibleStyles = () => {
-    empty.style.display = "none";
-    empty.style.opacity = "1";
-    empty.style.visibility = "visible";
-    empty.style.position = "relative";
-    empty.style.padding = "24px 0";
-    empty.style.textAlign = "center";
-    empty.style.color = "black";
-  };
-  ensureEmptyVisibleStyles();
+  empty.style.display = "none";
+  empty.style.opacity = "1";
+  empty.style.visibility = "visible";
+  empty.style.position = "relative";
+  empty.style.padding = "24px 0";
+  empty.style.textAlign = "center";
+  empty.style.color = "black";
 
   const hasVisibleItems = () => {
-    const items = $$(".w-dyn-item", dynList);
-    return items.some((el) => el.offsetParent !== null);
+    const items = $$(":scope > .w-dyn-item", list);
+    return items.some((el) => el.style.display !== "none");
   };
 
   const update = () => {
     empty.style.display = hasVisibleItems() ? "none" : "block";
   };
 
-  const mo = new MutationObserver(() => update());
-  mo.observe(dynList, {
-    subtree: true,
-    childList: true,
-    attributes: true,
-    attributeFilter: ["style", "class"],
-  });
-
+  document.addEventListener("brand-filters:updated", update);
   const form = document.querySelector('[fs-list-element="filters"]');
   if (form) form.addEventListener("change", () => setTimeout(update, 0));
 
   setTimeout(update, 0);
   setTimeout(update, 200);
 })();
+

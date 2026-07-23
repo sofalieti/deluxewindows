@@ -52,8 +52,8 @@
                       @foreach(['Aluminum', 'Aluminum Clad', 'Fiberglass', 'Steel', 'Vinyl', 'Wood', 'Wood Clad'] as $materialLabel)
                       <label class="w-checkbox checkbox-field">
                         <div class="w-checkbox-input w-checkbox-input--inputType-custom brand-checkbox"></div>
-                        <input type="checkbox" fs-list-field="materials" name="checkbox" data-name="Checkbox" style="opacity:0;position:absolute;z-index:-1" />
-                        <span class="checkbox-label w-form-label" for="checkbox">{{ $materialLabel }}</span>
+                        <input type="checkbox" fs-list-field="materials" fs-list-value="{{ $materialLabel }}" value="{{ $materialLabel }}" name="checkbox" data-name="Checkbox" style="opacity:0;position:absolute;z-index:-1" />
+                        <span class="checkbox-label w-form-label">{{ $materialLabel }}</span>
                       </label>
                       @endforeach
                     </div>
@@ -68,8 +68,8 @@
                       @foreach(['price1' => '$', 'price2' => '$$', 'price3' => '$$$', 'price4' => '$$$$', 'price5' => '$$$$$'] as $priceField => $priceLabel)
                       <label class="w-checkbox checkbox-field">
                         <div class="w-checkbox-input w-checkbox-input--inputType-custom brand-checkbox"></div>
-                        <input type="checkbox" fs-list-field="{{ $priceField }}" name="checkbox" data-name="Checkbox" style="opacity:0;position:absolute;z-index:-1" />
-                        <span class="checkbox-label w-form-label" for="checkbox">{{ $priceLabel }}</span>
+                        <input type="checkbox" fs-list-field="{{ $priceField }}" fs-list-value="{{ $priceLabel }}" value="{{ $priceLabel }}" name="checkbox" data-name="Checkbox" style="opacity:0;position:absolute;z-index:-1" />
+                        <span class="checkbox-label w-form-label">{{ $priceLabel }}</span>
                       </label>
                       @endforeach
                     </div>

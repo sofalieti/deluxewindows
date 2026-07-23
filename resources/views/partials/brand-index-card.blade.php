@@ -56,7 +56,7 @@
           @foreach($brand['price_slots'] as $slot)
           <div>
             @if($slot['active'])
-            <div fs-list-field="{{ $slot['field'] }}">{{ $slot['label'] }}</div>
+            <div fs-list-field="{{ $slot['field'] }}" fs-list-value="{{ $slot['label'] }}">{{ $slot['label'] }}</div>
             @endif
           </div>
           @endforeach

@@ -2023,8 +2023,8 @@
 
   .section_sidebar .sidebar_content-wrapper-2.bottom.brands {
     max-width: 100% !important;
-    padding-left: 0;
-    padding-right: 0;
+    box-sizing: border-box;
+    padding: 16px !important;
   }
 
   .section_sidebar .scroll-block {
@@ -2552,6 +2552,55 @@ h1 .h1-subline {
   .grid-3-columns.pricing-grid {
     padding-left: 0;
     padding-right: 0;
+  }
+}
+
+/* Brand detail pages (/brands/*) — mobile: left-align description + section titles */
+@media screen and (max-width: 767px) {
+  .mg-top-extra-large.brands .div-block-52.brandmob,
+  .mg-top-extra-large.brands .div-block-52.brandmob .display-8.mid,
+  .mg-top-extra-large.brands .div-block-52.brandmob .display-8.mid.types,
+  .mg-top-extra-large.brands h1.display-8.mid,
+  .mg-top-extra-large.brands h1.display-8.mid.types {
+    text-align: left !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+  }
+
+  .mg-top-extra-large.brands .rich-text-v2,
+  .mg-top-extra-large.brands .rich-text-v2 h1,
+  .mg-top-extra-large.brands .rich-text-v2 h2,
+  .mg-top-extra-large.brands .rich-text-v2 h3,
+  .mg-top-extra-large.brands .rich-text-v2 h4,
+  .mg-top-extra-large.brands .rich-text-v2 h5,
+  .mg-top-extra-large.brands .rich-text-v2 h6,
+  .mg-top-extra-large.brands .rich-text-v2 p,
+  .mg-top-extra-large.brands .rich-text-v2 li {
+    text-align: left !important;
+  }
+
+  /* "Explore {Brand}'s Window/Door Types" — often outside .section */
+  .classic-public-page .title-left---content-right:not(.paragraph-content) {
+    text-align: left !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    width: 100%;
+  }
+
+  .classic-public-page .title-left---content-right:not(.paragraph-content) .heading-20,
+  .classic-public-page .title-left---content-right:not(.paragraph-content) .heading-21,
+  .classic-public-page .heading-20,
+  .classic-public-page .heading-21 {
+    text-align: left !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .section_sidebar.brands .sidebar_content-wrapper-2.bottom.brands,
+  .sticky-top.brands .sidebar_content-wrapper-2.bottom.brands {
+    padding: 16px !important;
   }
 }
 
