@@ -38,7 +38,9 @@
     <section class="section hero-v4 padding0types wtypespadding">
       <div class="w-layout-blockcontainer container-default w-container">
         <div class="mg-top-extra-large brands">
-          <div class="w-layout-grid grid-2-columns listing-grid sidebar-left">
+          @php $hasSidebarSeries = brand_sidebar_has_series($sidebarMaterialGroups ?? null); @endphp
+          <div class="w-layout-grid grid-2-columns listing-grid sidebar-left{{ $hasSidebarSeries ? '' : ' is-full-main' }}">
+            @if($hasSidebarSeries)
             <div id="w-node-_6804bfc1-2fcb-3b18-3dd1-06afc16ea028-ba0e091a" class="inner-container _408px _100-mbl">
               <div class="sticky-top types">
                 <section class="section_sidebar brands types">
@@ -51,6 +53,7 @@
                 </section>
               </div>
             </div>
+            @endif
 
             <div id="w-node-_6804bfc1-2fcb-3b18-3dd1-06afc16e9fed-ba0e091a" class="inner-container _690px _100-tablet left-sidebar">
               <div class="windows-types-header">

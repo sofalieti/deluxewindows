@@ -212,6 +212,24 @@ if (! function_exists('site_css_bundle_url')) {
     }
 }
 
+if (! function_exists('brand_sidebar_has_series')) {
+    /**
+     * @param  iterable<int, array{visible?: bool, collections?: iterable<mixed>}>|null  $groups
+     */
+    function brand_sidebar_has_series(mixed $groups = null): bool
+    {
+        return collect($groups ?? [])->contains(function ($group): bool {
+            if (! is_array($group) || empty($group['visible'])) {
+                return false;
+            }
+
+            $collections = $group['collections'] ?? [];
+
+            return (is_countable($collections) ? count($collections) : 0) > 0;
+        });
+    }
+}
+
 if (! function_exists('promotion_home_html')) {
     function promotion_home_html(?string $category = null): string
     {

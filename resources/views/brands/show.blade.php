@@ -32,7 +32,9 @@
 
       <div class="w-layout-blockcontainer container-default w-container">
         <div class="mg-top-extra-large brands">
-          <div class="w-layout-grid grid-2-columns listing-grid sidebar-left">
+          @php $hasSidebarSeries = brand_sidebar_has_series($sidebarMaterialGroups ?? null); @endphp
+          <div class="w-layout-grid grid-2-columns listing-grid sidebar-left{{ $hasSidebarSeries ? '' : ' is-full-main' }}">
+            @if($hasSidebarSeries)
             <div id="w-node-_399819b6-70a2-6968-e585-c5e3fab5d7ee-facb1583" class="inner-container _408px _100-mbl">
               <div class="sticky-top brands">
                 <section class="section_sidebar brands">
@@ -40,6 +42,7 @@
                 </section>
               </div>
             </div>
+            @endif
 
             <div id="w-node-_399819b6-70a2-6968-e585-c5e3fab5d7b3-facb1583" class="inner-container _690px _100-tablet">
               <div class="div-block-52 brandmob">

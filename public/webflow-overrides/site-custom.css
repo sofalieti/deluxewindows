@@ -1940,6 +1940,16 @@
   overflow-y: auto;
 }
 
+/* When brand sidebar has no series, main content uses the full grid width */
+.listing-grid.sidebar-left.is-full-main {
+  grid-template-columns: 1fr !important;
+}
+
+.listing-grid.sidebar-left.is-full-main > .inner-container {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
 /* Brand sidebar — on mobile show collections inline below the main content */
 @media (max-width: 991px) {
   /* Stack the two-column layout and move the sidebar column below main */

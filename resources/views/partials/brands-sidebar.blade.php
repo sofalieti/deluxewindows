@@ -1,13 +1,5 @@
 @php
-  $sidebarMaterialGroups = $sidebarMaterialGroups ?? collect();
-  $hasSidebarSeries = collect($sidebarMaterialGroups)->contains(function ($group) {
-      if (empty($group['visible'])) {
-          return false;
-      }
-      $collections = $group['collections'] ?? [];
-
-      return (is_countable($collections) ? count($collections) : 0) > 0;
-  });
+  $hasSidebarSeries = brand_sidebar_has_series($sidebarMaterialGroups ?? null);
 @endphp
 
 @if($hasSidebarSeries)
