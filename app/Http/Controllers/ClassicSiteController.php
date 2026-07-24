@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\LeadNotificationMail;
 use App\Models\DoorBrand;
 use App\Models\Lead;
 use App\Models\Webflow\BlogWebflowItem;
@@ -529,7 +530,7 @@ class ClassicSiteController extends Controller
             $pageUrl = trim((string) $request->headers->get('referer', ''));
         }
 
-        Lead::query()->create([
+        $lead = Lead::query()->create([
             'full_name' => $validated['full_name'],
             'email' => $validated['email'],
             'phone' => $validated['phone'],
@@ -559,31 +560,17 @@ class ClassicSiteController extends Controller
             ],
         ]);
 
-        $subject = 'New Deluxe Windows lead: '.$validated['full_name'];
-        $bodyLines = [
-            'Name: '.$validated['full_name'],
-            'Email: '.$validated['email'],
-            'Phone: '.$validated['phone'],
-            'City: '.($validated['city'] !== '' ? $validated['city'] : '-'),
-            'Message: '.($validated['message'] !== '' ? $validated['message'] : '-'),
-            'Form ID: '.$formId,
-            'Page: '.($pageUrl !== '' ? $pageUrl : '-'),
-            'UTM Source: '.($validated['utm_source'] !== '' ? $validated['utm_source'] : '-'),
-            'UTM Medium: '.($validated['utm_medium'] !== '' ? $validated['utm_medium'] : '-'),
-            'UTM Campaign: '.($validated['utm_campaign'] !== '' ? $validated['utm_campaign'] : '-'),
-        ];
-
-        try {
-            Mail::raw(implode("\n", $bodyLines), function ($message) use ($subject, $validated): void {
-                $message->to('sofalieti@gmail.com')
-                    ->replyTo($validated['email'], $validated['full_name'])
-                    ->subject($subject);
-            });
-        } catch (\Throwable $e) {
-            Log::warning('Lead notification email failed', [
-                'email' => $validated['email'],
-                'error' => $e->getMessage(),
-            ]);
+        $notifyRecipients = (array) config('services.lead_notifications.to', []);
+        if ($notifyRecipients !== []) {
+            try {
+                Mail::to($notifyRecipients)->send(new LeadNotificationMail($lead));
+            } catch (\Throwable $e) {
+                Log::warning('Lead notification email failed', [
+                    'lead_id' => $lead->id,
+                    'email' => $validated['email'],
+                    'error' => $e->getMessage(),
+                ]);
+            }
         }
 
         $bridgeUrls = (array) config('services.lead_bridge.urls', []);

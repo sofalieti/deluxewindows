@@ -54,6 +54,14 @@ return [
         ])),
     ],
 
+    'lead_notifications' => [
+        // Comma-separated list of recipients for the "new lead" email.
+        'to' => array_values(array_filter(array_map(
+            'trim',
+            explode(',', (string) env('LEAD_NOTIFICATION_EMAIL', 'info@deluxewindows.com'))
+        ))),
+    ],
+
     'sitemap' => [
         'base_url' => env('SITEMAP_BASE_URL', 'https://www.deluxewindows.com'),
         'excluded_paths' => [

@@ -15,8 +15,8 @@ class LeadListScreen extends Screen
     public function query(): iterable
     {
         return [
-            'leads' => Lead::query()
-                ->orderByDesc('id')
+            'leads' => Lead::filters()
+                ->defaultSort('id', 'desc')
                 ->paginate(50),
         ];
     }
@@ -40,6 +40,9 @@ class LeadListScreen extends Screen
     {
         return [
             Layout::table('leads', [
+                TD::make('id', 'ID')
+                    ->render(fn (Lead $lead) => e((string) $lead->id)),
+
                 TD::make('created_at', 'Date')
                     ->render(fn (Lead $lead) => optional($lead->created_at)->format('Y-m-d H:i')),
 
