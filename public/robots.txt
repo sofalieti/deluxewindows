@@ -1,0 +1,22 @@
+# https://www.deluxewindows.com/robots.txt
+# Public marketing site — allow indexing of pages; block admin and internal paths.
+
+User-agent: *
+Allow: /
+
+# Orchid admin
+Disallow: /admin
+Disallow: /admin/
+
+# Internal / non-public
+Disallow: /seo-reports/
+Disallow: /storage/
+
+# Form POST endpoint (no indexable content)
+Disallow: /contact-form
+
+# Sitemaps
+Sitemap: https://www.deluxewindows.com/sitemap.xml
+
+# Optional LLM-oriented site summary (not a robots directive):
+# https://www.deluxewindows.com/llms.txt
