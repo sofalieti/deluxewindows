@@ -2,7 +2,7 @@
 <script>
   (function () {
     const endpoint = @json(route('contact.submit'));
-    const csrf = @json(csrf_token());
+    const csrfFallback = @json(csrf_token());
     const googleBridges = @json(array_values(array_filter((array) config('services.lead_bridge.urls', []))));
     const trackingParams = [
       'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term',
@@ -24,6 +24,77 @@
       } catch (_) {
         // Tracking storage can be unavailable in privacy mode.
       }
+    }
+
+    function getCookie(name) {
+      const match = document.cookie.match(
+        new RegExp('(?:^|; )' + name.replace(/([.$?*|{}()[\]\\/+^])/g, '\\$1') + '=([^;]*)')
+      );
+      return match ? decodeURIComponent(match[1]) : '';
+    }
+
+    function csrfToken() {
+      const meta = document.querySelector('meta[name="csrf-token"]');
+      const fromMeta = meta && meta.getAttribute('content');
+      return fromMeta || csrfFallback || '';
+    }
+
+    function csrfHeaders() {
+      const headers = {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
+      };
+      const xsrf = getCookie('XSRF-TOKEN');
+      if (xsrf) {
+        // Prefer live cookie — stays valid as long as the session cookie does.
+        headers['X-XSRF-TOKEN'] = xsrf;
+      }
+      const token = csrfToken();
+      if (token) {
+        headers['X-CSRF-TOKEN'] = token;
+      }
+      return headers;
+    }
+
+    async function refreshCsrfSession() {
+      try {
+        const res = await fetch(window.location.pathname + window.location.search, {
+          method: 'GET',
+          credentials: 'same-origin',
+          headers: {
+            Accept: 'text/html',
+            'X-Requested-With': 'XMLHttpRequest',
+          },
+          cache: 'no-store',
+        });
+        const html = await res.text();
+        const match = html.match(/<meta\s+name=["']csrf-token["']\s+content=["']([^"']+)["']/i);
+        if (match && match[1]) {
+          const meta = document.querySelector('meta[name="csrf-token"]');
+          if (meta) {
+            meta.setAttribute('content', match[1]);
+          }
+        }
+      } catch (_) {
+        // Retry will still attempt with whatever cookie/token is available.
+      }
+    }
+
+    async function postLead(payload, allowRetry) {
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: csrfHeaders(),
+        body: JSON.stringify(payload),
+      });
+
+      if (res.status === 419 && allowRetry) {
+        await refreshCsrfSession();
+        return postLead(payload, false);
+      }
+
+      return res;
     }
 
     function captureTracking() {
@@ -319,16 +390,8 @@
       try {
         const payload = toPayload(form, await getGeoLocation());
         // Laravel first (spam gate). Google sheet only for clean leads.
-        const res = await fetch(endpoint, {
-          method: 'POST',
-          headers: {
-            'X-CSRF-TOKEN': csrf,
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'X-Requested-With': 'XMLHttpRequest',
-          },
-          body: JSON.stringify(payload),
-        });
+        // Fresh CSRF from cookie/meta; auto-retry once on 419 (expired tab/session).
+        const res = await postLead(payload, true);
         if (!res.ok) {
           throw new Error('Lead submit failed');
         }

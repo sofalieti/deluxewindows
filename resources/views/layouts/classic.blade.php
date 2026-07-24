@@ -10,6 +10,7 @@
 >
   <head>
     <meta charset="utf-8" />
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JHYBB0THJM"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
