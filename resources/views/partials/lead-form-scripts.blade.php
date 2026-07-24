@@ -383,13 +383,9 @@
     async function submitLead(form) {
       const submitBtn = form.querySelector('input[type="submit"], button[type="submit"]');
       setSubmitLoading(submitBtn, true);
-      // Fire Ads conversion immediately on submit (before spam gate / server response).
-      if (typeof window.gtag_report_conversion === 'function') {
-        window.gtag_report_conversion();
-      }
       try {
         const payload = toPayload(form, await getGeoLocation());
-        // Laravel first (spam gate). Google sheet only for clean leads.
+        // Laravel first (spam gate). Google sheet + Ads conversion only for clean leads.
         // Fresh CSRF from cookie/meta; auto-retry once on 419 (expired tab/session).
         const res = await postLead(payload, true);
         if (!res.ok) {
@@ -399,6 +395,9 @@
         const isSpam = !!(data && data.spam);
         if (!isSpam) {
           postToGoogleBridges(payload);
+          if (typeof window.gtag_report_conversion === 'function') {
+            window.gtag_report_conversion();
+          }
         }
         showState(form, true);
       } catch (_) {
