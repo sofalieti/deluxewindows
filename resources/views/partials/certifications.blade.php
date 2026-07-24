@@ -47,9 +47,14 @@
           </div>
         </div>
       </div>
-      <div class="title-left---content-right dva"><h2 class="heading-23">Our Previous Jobs</h2></div>
-      <div class="w-embed w-script">
-        <!-- Elfsight Google Maps | Deluxe Windows -->
-        <script src="https://elfsightcdn.com/platform.js" async=""></script>
-        <div class="elfsight-app-52cd283b-2339-4964-ade7-7ada818548f7" data-elfsight-app-lazy=""></div>
+      {{-- Temporarily hidden: Google Maps billing not enabled (BillingNotEnabledMapError). Re-enable when billing/key is fixed or custom clustered map is ready. --}}
+      <div class="previous-jobs-map is-temporarily-hidden" hidden>
+        <div class="title-left---content-right dva"><h2 class="heading-23">Our Previous Jobs</h2></div>
+        <div class="w-embed w-script">
+          <!-- Elfsight Google Maps | Deluxe Windows -->
+          {{-- Script disabled while map is hidden to avoid Maps API console errors.
+          <script src="https://elfsightcdn.com/platform.js" async=""></script>
+          <div class="elfsight-app-52cd283b-2339-4964-ade7-7ada818548f7" data-elfsight-app-lazy=""></div>
+          --}}
+        </div>
       </div>

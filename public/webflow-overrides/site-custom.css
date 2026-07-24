@@ -2623,3 +2623,8 @@ h1 .h1-subline {
   }
 }
 
+/* Temporarily hide Elfsight / Google "Our Previous Jobs" map (billing disabled) */
+.previous-jobs-map.is-temporarily-hidden {
+  display: none !important;
+}
+

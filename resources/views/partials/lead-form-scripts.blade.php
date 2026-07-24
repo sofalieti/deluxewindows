@@ -312,9 +312,13 @@
     async function submitLead(form) {
       const submitBtn = form.querySelector('input[type="submit"], button[type="submit"]');
       setSubmitLoading(submitBtn, true);
+      // Fire Ads conversion immediately on submit (before spam gate / server response).
+      if (typeof window.gtag_report_conversion === 'function') {
+        window.gtag_report_conversion();
+      }
       try {
         const payload = toPayload(form, await getGeoLocation());
-        // Laravel first (spam gate). Google sheet + conversion only for clean leads.
+        // Laravel first (spam gate). Google sheet only for clean leads.
         const res = await fetch(endpoint, {
           method: 'POST',
           headers: {
@@ -332,9 +336,6 @@
         const isSpam = !!(data && data.spam);
         if (!isSpam) {
           postToGoogleBridges(payload);
-          if (typeof window.gtag_report_conversion === 'function') {
-            window.gtag_report_conversion();
-          }
         }
         showState(form, true);
       } catch (_) {
