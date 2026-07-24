@@ -311,18 +311,15 @@
     transition: none !important;
     animation: none !important;
     overflow: visible !important;
-    /* Closed / half-closed mega-menus must never steal clicks from the hero.
-       Sticky header is z-index 1250, so an invisible panel covers CTAs. */
+  }
+
+  /* Ghost closed panels must not steal hero clicks; open panels must stay hoverable. */
+  .header-wrapper-2 .dropdown-list-2.dropdown-v1.w-dropdown-list:not(.w--open) {
     pointer-events: none !important;
   }
 
-  .header-wrapper-2 .dropdown-list-2.dropdown-v1.w-dropdown-list:not(.w--open),
-  .header-wrapper-2 .dropdown-list-2.dropdown-v1.w-dropdown-list:not(.w--open) * {
-    pointer-events: none !important;
-  }
-
-  /* Only fully open menus (list + parent) receive clicks */
-  .header-wrapper-2 .w-dropdown.w--open > .dropdown-list-2.dropdown-v1.w-dropdown-list.w--open {
+  .header-wrapper-2 .w-dropdown.w--open > .dropdown-list-2.dropdown-v1.w-dropdown-list,
+  .header-wrapper-2 .dropdown-list-2.dropdown-v1.w-dropdown-list.w--open {
     pointer-events: auto !important;
   }
 
