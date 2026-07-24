@@ -37,3 +37,39 @@ test('lead spam guard blocks cyrillic and casino stopwords but allows normal eng
         'message' => 'Looking for better energy efficient windows',
     ])['spam'])->toBeFalse();
 });
+
+test('lead spam guard blocks random gibberish names and emails', function () {
+    $guard = app(LeadSpamGuard::class);
+
+    expect($guard->inspect([
+        'full_name' => 'kpPkLqFYbTtRsOzMZRHWmfm',
+        'email' => 'bot@example.com',
+        'phone' => '6504614446',
+        'city' => 'San Francisco',
+        'message' => 'Hello',
+    ])['reason'])->toBe('gibberish:full_name');
+
+    expect($guard->inspect([
+        'full_name' => 'John Smith',
+        'email' => 'xKqPmRwTnVbLzYcHdFsJa@example.com',
+        'phone' => '6504614446',
+        'city' => 'San Jose',
+        'message' => 'Need a quote',
+    ])['reason'])->toBe('gibberish:email');
+
+    expect($guard->inspect([
+        'full_name' => 'Christopher Anderson',
+        'email' => 'chris.anderson@example.com',
+        'phone' => '6504614446',
+        'city' => 'Burlingame',
+        'message' => 'Window replacement for my house',
+    ])['spam'])->toBeFalse();
+
+    expect($guard->inspect([
+        'full_name' => 'Nguyen',
+        'email' => 'nguyen@example.com',
+        'phone' => '6504614446',
+        'city' => 'San Jose',
+        'message' => 'Quote please',
+    ])['spam'])->toBeFalse();
+});

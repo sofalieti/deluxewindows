@@ -103,6 +103,22 @@ class Lead extends Model
         return self::STATUSES[$this->status] ?? (string) $this->status;
     }
 
+    /**
+     * CSS modifier for status badges (new, contacted, …).
+     */
+    public function statusColor(): string
+    {
+        return match ($this->status) {
+            self::STATUS_NEW => 'new',
+            self::STATUS_CONTACTED => 'contacted',
+            self::STATUS_QUOTED => 'quoted',
+            self::STATUS_WON => 'won',
+            self::STATUS_LOST => 'lost',
+            self::STATUS_SPAM => 'spam',
+            default => 'new',
+        };
+    }
+
     public function isSpam(): bool
     {
         return $this->status === self::STATUS_SPAM;

@@ -6,11 +6,16 @@ namespace App\Orchid\Screens\Leads;
 
 use App\Models\Lead;
 use App\Orchid\Layouts\Leads\LeadFiltersLayout;
+use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
+use Orchid\Screen\Actions\Button;
+use Orchid\Screen\Actions\DropDown;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
 use Orchid\Screen\TD;
 use Orchid\Support\Facades\Layout;
+use Orchid\Support\Facades\Toast;
 
 class LeadListScreen extends Screen
 {
@@ -56,6 +61,7 @@ class LeadListScreen extends Screen
     public function layout(): iterable
     {
         return [
+            Layout::view('admin.leads.assets'),
             LeadFiltersLayout::class,
 
             Layout::table('leads', [
@@ -70,7 +76,26 @@ class LeadListScreen extends Screen
 
                 TD::make('status', 'Status')
                     ->sort()
-                    ->render(fn (Lead $lead) => e($lead->statusLabel())),
+                    ->cantHide()
+                    ->width('170px')
+                    ->render(function (Lead $lead) {
+                        $items = [];
+                        foreach (Lead::STATUSES as $value => $label) {
+                            $items[] = Button::make($label)
+                                ->icon($value === $lead->status ? 'bs.check-lg' : 'bs.circle')
+                                ->method('changeStatus', [
+                                    'lead' => $lead->id,
+                                    'status' => $value,
+                                ]);
+                        }
+
+                        return view('admin.leads.status-cell', [
+                            'lead' => $lead,
+                            'dropdown' => DropDown::make()
+                                ->icon('bs.pencil')
+                                ->list($items),
+                        ]);
+                    }),
 
                 TD::make('full_name', 'Name')
                     ->render(fn (Lead $lead) => Link::make($lead->full_name)
@@ -126,5 +151,19 @@ class LeadListScreen extends Screen
                     ->render(fn (Lead $lead) => e(Str::limit((string) ($lead->message ?? ''), 80, '...'))),
             ]),
         ];
+    }
+
+    public function changeStatus(Request $request): void
+    {
+        $validated = $request->validate([
+            'lead' => ['required', 'integer', 'exists:leads,id'],
+            'status' => ['required', 'string', Rule::in(array_keys(Lead::STATUSES))],
+        ]);
+
+        $lead = Lead::query()->findOrFail((int) $validated['lead']);
+        $lead->status = $validated['status'];
+        $lead->save();
+
+        Toast::info('Status updated: '.$lead->statusLabel());
     }
 }

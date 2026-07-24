@@ -73,6 +73,8 @@ class LeadEditScreen extends Screen
     public function layout(): iterable
     {
         return [
+            Layout::view('admin.leads.assets'),
+
             Layout::columns([
                 Layout::legend('lead', [
                     Sight::make('id', 'ID'),
@@ -122,7 +124,7 @@ class LeadEditScreen extends Screen
                     Sight::make('ip_address', 'IP')
                         ->render(fn (Lead $lead) => e((string) ($lead->ip_address ?? '-'))),
                     Sight::make('status', 'Current status')
-                        ->render(fn (Lead $lead) => e($lead->statusLabel())),
+                        ->render(fn (Lead $lead) => '<span class="lead-status-badge lead-status-badge--'.e($lead->statusColor()).'">'.e($lead->statusLabel()).'</span>'),
                 ]),
             ]),
 

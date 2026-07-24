@@ -1,0 +1,36 @@
+.financing-intro {
+    max-width: 40rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.financing-intro .paragraph-50 {
+    color: #4a5568;
+    line-height: 1.65;
+}
+
+.financing-process {
+    padding-top: 2rem;
+}
+
+.financing-note {
+    max-width: 52rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.financing-note a {
+    color: #0f4d89;
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 767px) {
+    .financing-intro {
+        text-align: left;
+    }
+
+    .section.hero-v8 .financing-intro + *,
+    .section.hero-v8 .text-center {
+        text-align: left;
+    }
+}

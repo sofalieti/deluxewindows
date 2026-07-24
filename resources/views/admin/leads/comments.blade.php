@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="{{ asset('css/admin-leads.css') }}">
-
 @php
     /** @var \Illuminate\Support\Collection<int, \App\Models\LeadComment>|\App\Models\LeadComment[] $comments */
     $comments = $comments ?? collect();
