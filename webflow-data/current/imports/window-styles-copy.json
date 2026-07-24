@@ -1,13 +1,13 @@
 {
-  "table": "wf_window_styles_copy",
-  "collectionId": "68d41e19b22b310290f0458b",
-  "collectionSlug": "window-styles-copy",
-  "items": [],
-  "flattenedFieldMap": {
-    "property---description": "wf_property_description",
-    "featured-image": "wf_featured_image",
-    "main-information": "wf_main_information",
-    "explore-other-styles-text": "wf_explore_other_styles_text",
-    "other-styles": "wf_other_styles"
-  }
+    "table": "wf_window_styles_copy",
+    "collectionId": "68d41e19b22b310290f0458b",
+    "collectionSlug": "window-styles-copy",
+    "items": [],
+    "flattenedFieldMap": {
+        "property---description": "wf_property_description",
+        "featured-image": "wf_featured_image",
+        "main-information": "wf_main_information",
+        "explore-other-styles-text": "wf_explore_other_styles_text",
+        "other-styles": "wf_other_styles"
+    }
 }

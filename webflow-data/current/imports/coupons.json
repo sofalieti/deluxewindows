@@ -1,137 +1,109 @@
 {
-  "table": "wf_coupons",
-  "collectionId": "6841ddf8ace3d9d9facb168b",
-  "collectionSlug": "coupons",
-  "items": [
-    {
-      "id": "6882307f92c96aa6074023a4",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2025-07-24T13:09:19.811Z",
-      "lastUpdated": "2026-03-23T18:48:31.589Z",
-      "lastPublished": "2026-03-24T05:43:04.253Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "blog-post-category---description": "*30% national window discount requires minimum purchase of 3 Comfort 365 Windows®. Earn up to an additional 10% off with participation in the YES! Program (up to $2,000), making your window discount a total of up to 40% off. ‍",
-        "blog-post-category---icon": null,
-        "offer-expires": "2025-11-30T00:00:00.000Z",
-        "featured-image": {
-          "fileId": "688236fed9cc28b78fb10d04",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688236fed9cc28b78fb10d04_IMG_2963%201.avif",
-          "alt": null
+    "table": "wf_coupons",
+    "collectionId": "6841ddf8ace3d9d9facb168b",
+    "collectionSlug": "coupons",
+    "items": [
+        {
+            "id": "6882307f92c96aa6074023a4",
+            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+            "createdOn": "2025-07-24T13:09:19+00:00",
+            "lastUpdated": "2026-03-23T18:48:31+00:00",
+            "lastPublished": "2026-03-24T05:43:04+00:00",
+            "isArchived": false,
+            "isDraft": false,
+            "fieldData": {
+                "name": "40% OFF Windows",
+                "slug": "40-off-windows",
+                "button": "dfdfdfdfdfd",
+                "seo-title": "40% Off Windows | Limited-Time Offer – Deluxe Windows Bay Area",
+                "twitter-card": "summary_large_image",
+                "offer-expires": "2025-11-30 00:00:00",
+                "opengraph-title": "40% Off Windows | Limited-Time Offer – Deluxe Windows Bay Area",
+                "seo-description": "Save 40% on window replacement at Deluxe Windows in San Francisco. Discount requires minimum 3-window purchase. Limited-time Bay Area offer. Request a free estimate.",
+                "offer-expires-text": "Offer Expires 7/31/25.",
+                "opengraph-description": "Save 40% on window replacement at Deluxe Windows in San Francisco. Discount requires minimum 3-window purchase. Limited-time Bay Area offer. Request a free estimate.",
+                "blog-post-category---description": "*30% national window discount requires minimum purchase of 3 Comfort 365 Windows®. Earn up to an additional 10% off with participation in the YES! Program (up to $2,000), making your window discount a total of up to 40% off. ‍"
+            }
         },
-        "button": "dfdfdfdfdfd",
-        "offer-expires-text": "Offer Expires 7/31/25.",
-        "seo-title": "40% Off Windows | Limited-Time Offer – Deluxe Windows Bay Area",
-        "seo-description": "Save 40% on window replacement at Deluxe Windows in San Francisco. Discount requires minimum 3-window purchase. Limited-time Bay Area offer. Request a free estimate.",
-        "opengraph-title": "40% Off Windows | Limited-Time Offer – Deluxe Windows Bay Area",
-        "opengraph-description": "Save 40% on window replacement at Deluxe Windows in San Francisco. Discount requires minimum 3-window purchase. Limited-time Bay Area offer. Request a free estimate.",
-        "opengraph-image": null,
-        "twitter-card": "summary_large_image",
-        "name": "40% OFF Windows",
-        "slug": "40-off-windows"
-      }
-    },
-    {
-      "id": "6882307f92c96aa6074023a2",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2025-07-24T13:09:19.811Z",
-      "lastUpdated": "2026-03-23T18:48:31.586Z",
-      "lastPublished": "2026-03-24T05:43:04.253Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "blog-post-category---description": "*30% national door discount requires minimum purchase of 3 Comfort 365 Windows®. Earn up to an additional 10% off with participation in the YES! Program (up to $2,000), making your window discount a total of up to 40% off.",
-        "blog-post-category---icon": null,
-        "offer-expires": "2025-11-30T00:00:00.000Z",
-        "featured-image": {
-          "fileId": "688129a7fdac73f612686f21",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
-          "alt": null
+        {
+            "id": "6882307f92c96aa6074023a2",
+            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+            "createdOn": "2025-07-24T13:09:19+00:00",
+            "lastUpdated": "2026-03-23T18:48:31+00:00",
+            "lastPublished": "2026-03-24T05:43:04+00:00",
+            "isArchived": false,
+            "isDraft": false,
+            "fieldData": {
+                "name": "40% OFF Doors",
+                "slug": "40-off-doors",
+                "button": null,
+                "seo-title": "40% Off Doors | Limited-Time Offer – Deluxe Windows Bay Area",
+                "twitter-card": "summary_large_image",
+                "offer-expires": "2025-11-30 00:00:00",
+                "opengraph-title": "40% Off Doors | Limited-Time Offer – Deluxe Windows Bay Area",
+                "seo-description": "Save 40% on door replacement at Deluxe Windows in San Francisco. Discount requires minimum 3-window purchase. Limited-time offer for Bay Area homeowners. Get a free quote.",
+                "offer-expires-text": "Offer expires 7/31/25.",
+                "opengraph-description": "Save 40% on door replacement at Deluxe Windows in San Francisco. Discount requires minimum 3-window purchase. Limited-time offer for Bay Area homeowners. Get a free quote.",
+                "blog-post-category---description": "*30% national door discount requires minimum purchase of 3 Comfort 365 Windows®. Earn up to an additional 10% off with participation in the YES! Program (up to $2,000), making your window discount a total of up to 40% off."
+            }
         },
-        "button": null,
-        "offer-expires-text": "Offer expires 7/31/25.",
-        "seo-title": "40% Off Doors | Limited-Time Offer – Deluxe Windows Bay Area",
-        "seo-description": "Save 40% on door replacement at Deluxe Windows in San Francisco. Discount requires minimum 3-window purchase. Limited-time offer for Bay Area homeowners. Get a free quote.",
-        "opengraph-title": "40% Off Doors | Limited-Time Offer – Deluxe Windows Bay Area",
-        "opengraph-description": "Save 40% on door replacement at Deluxe Windows in San Francisco. Discount requires minimum 3-window purchase. Limited-time offer for Bay Area homeowners. Get a free quote.",
-        "opengraph-image": null,
-        "twitter-card": "summary_large_image",
-        "name": "40% OFF Doors",
-        "slug": "40-off-doors"
-      }
-    },
-    {
-      "id": "6882307f92c96aa6074023a0",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2025-07-24T13:09:19.811Z",
-      "lastUpdated": "2026-03-23T18:48:31.592Z",
-      "lastPublished": "2026-03-24T05:43:04.253Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "blog-post-category---description": "Receive an additional 5% off your entire project. Eligible parties must be 55 years of age or older. Proof of eligibility include a state-issued photo ID for proof of age at the time of appointment. Certain restrictions may apply.‍",
-        "blog-post-category---icon": null,
-        "offer-expires": "2025-11-30T00:00:00.000Z",
-        "featured-image": {
-          "fileId": "688238f1c9cdbcae6e14caea",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688238f1c9cdbcae6e14caea_a-c-cmYXzX-r3mY-unsplash.avif",
-          "alt": null
+        {
+            "id": "6882307f92c96aa6074023a0",
+            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+            "createdOn": "2025-07-24T13:09:19+00:00",
+            "lastUpdated": "2026-03-23T18:48:31+00:00",
+            "lastPublished": "2026-03-24T05:43:04+00:00",
+            "isArchived": false,
+            "isDraft": false,
+            "fieldData": {
+                "name": "Senior Citizen Discount",
+                "slug": "senior-citizen-discount",
+                "button": null,
+                "seo-title": "Senior Citizen Discount | Deluxe Windows – Bay Area",
+                "twitter-card": "summary_large_image",
+                "offer-expires": "2025-11-30 00:00:00",
+                "opengraph-title": "Senior Citizen Discount | Deluxe Windows – Bay Area",
+                "seo-description": "Homeowners 55+ save an additional 5% on window and door replacement at Deluxe Windows in San Francisco. Proof of eligibility required. Request your free Bay Area estimate.",
+                "offer-expires-text": "All time deal",
+                "opengraph-description": "Homeowners 55+ save an additional 5% on window and door replacement at Deluxe Windows in San Francisco. Proof of eligibility required. Request your free Bay Area estimate.",
+                "blog-post-category---description": "Receive an additional 5% off your entire project. Eligible parties must be 55 years of age or older. Proof of eligibility include a state-issued photo ID for proof of age at the time of appointment. Certain restrictions may apply.‍"
+            }
         },
-        "button": null,
-        "offer-expires-text": "All time deal",
-        "seo-title": "Senior Citizen Discount | Deluxe Windows – Bay Area",
-        "seo-description": "Homeowners 55+ save an additional 5% on window and door replacement at Deluxe Windows in San Francisco. Proof of eligibility required. Request your free Bay Area estimate.",
-        "opengraph-title": "Senior Citizen Discount | Deluxe Windows – Bay Area",
-        "opengraph-description": "Homeowners 55+ save an additional 5% on window and door replacement at Deluxe Windows in San Francisco. Proof of eligibility required. Request your free Bay Area estimate.",
-        "opengraph-image": null,
-        "twitter-card": "summary_large_image",
-        "name": "Senior Citizen Discount",
-        "slug": "senior-citizen-discount"
-      }
-    },
-    {
-      "id": "6882307f92c96aa60740239e",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2025-07-24T13:09:19.811Z",
-      "lastUpdated": "2026-03-23T18:48:31.583Z",
-      "lastPublished": "2026-03-24T05:43:04.253Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "blog-post-category---description": "Eligible parties include active duty members, reserves and veterans/retirees within 2 years of separation or retirement of the U.S. Air Force, Army, Navy, Marines, National Guard, Space Force or Coast Guard. Proof of eligibility required copy of Leave and Earnings Statement, Delayed Entry/Enlistment (DEP) form, or Veteran/Retiree (DD-214) form and copy of current driver's license. Certain restrictions may apply.",
-        "blog-post-category---icon": null,
-        "offer-expires": "2025-12-31T00:00:00.000Z",
-        "featured-image": {
-          "fileId": "6882394edeeffd727ef123a8",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6882394edeeffd727ef123a8_aaron-burden-9C8r4QUwZRQ-unsplash.avif",
-          "alt": null
-        },
-        "button": null,
-        "offer-expires-text": "All time deal",
-        "seo-title": "Military Discount on Windows & Doors | Deluxe Windows Bay Area",
-        "seo-description": "Active duty, reserves, and veterans within 2 years of separation receive an exclusive discount at Deluxe Windows. Thank you for your service. Free quote in San Francisco.",
-        "opengraph-title": "Military Discount on Windows & Doors | Deluxe Windows Bay Area",
-        "opengraph-description": "Active duty, reserves, and veterans within 2 years of separation receive an exclusive discount at Deluxe Windows. Thank you for your service. Free quote in San Francisco.",
-        "opengraph-image": null,
-        "twitter-card": "summary_large_image",
-        "name": "Military Discount",
-        "slug": "military-discount"
-      }
+        {
+            "id": "6882307f92c96aa60740239e",
+            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+            "createdOn": "2025-07-24T13:09:19+00:00",
+            "lastUpdated": "2026-03-23T18:48:31+00:00",
+            "lastPublished": "2026-03-24T05:43:04+00:00",
+            "isArchived": false,
+            "isDraft": false,
+            "fieldData": {
+                "name": "Military Discount",
+                "slug": "military-discount",
+                "button": null,
+                "seo-title": "Military Discount on Windows & Doors | Deluxe Windows Bay Area",
+                "twitter-card": "summary_large_image",
+                "offer-expires": "2025-12-31 00:00:00",
+                "opengraph-title": "Military Discount on Windows & Doors | Deluxe Windows Bay Area",
+                "seo-description": "Active duty, reserves, and veterans within 2 years of separation receive an exclusive discount at Deluxe Windows. Thank you for your service. Free quote in San Francisco.",
+                "offer-expires-text": "All time deal",
+                "opengraph-description": "Active duty, reserves, and veterans within 2 years of separation receive an exclusive discount at Deluxe Windows. Thank you for your service. Free quote in San Francisco.",
+                "blog-post-category---description": "Eligible parties include active duty members, reserves and veterans/retirees within 2 years of separation or retirement of the U.S. Air Force, Army, Navy, Marines, National Guard, Space Force or Coast Guard. Proof of eligibility required copy of Leave and Earnings Statement, Delayed Entry/Enlistment (DEP) form, or Veteran/Retiree (DD-214) form and copy of current driver's license. Certain restrictions may apply."
+            }
+        }
+    ],
+    "flattenedFieldMap": {
+        "blog-post-category---description": "wf_blog_post_category_description",
+        "blog-post-category---icon": "wf_blog_post_category_icon",
+        "offer-expires": "wf_offer_expires",
+        "featured-image": "wf_featured_image",
+        "button": "wf_button",
+        "offer-expires-text": "wf_offer_expires_text",
+        "seo-title": "wf_seo_title",
+        "seo-description": "wf_seo_description",
+        "opengraph-title": "wf_opengraph_title",
+        "opengraph-description": "wf_opengraph_description",
+        "opengraph-image": "wf_opengraph_image",
+        "twitter-card": "wf_twitter_card"
     }
-  ],
-  "flattenedFieldMap": {
-    "blog-post-category---description": "wf_blog_post_category_description",
-    "blog-post-category---icon": "wf_blog_post_category_icon",
-    "offer-expires": "wf_offer_expires",
-    "featured-image": "wf_featured_image",
-    "button": "wf_button",
-    "offer-expires-text": "wf_offer_expires_text",
-    "seo-title": "wf_seo_title",
-    "seo-description": "wf_seo_description",
-    "opengraph-title": "wf_opengraph_title",
-    "opengraph-description": "wf_opengraph_description",
-    "opengraph-image": "wf_opengraph_image",
-    "twitter-card": "wf_twitter_card"
-  }
 }

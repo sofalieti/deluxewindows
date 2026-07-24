@@ -1,518 +1,200 @@
 {
-  "items": [
-    {
-      "id": "687e3925f1181a91058edb1d",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2025-07-21T12:57:09.151Z",
-      "lastUpdated": "2026-03-23T18:46:52.865Z",
-      "lastPublished": "2026-03-24T05:43:04.253Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "door-discount": "<h3><strong>40% off for limited time</strong></h3><div data-rt-embed-type='true'>Starting from <s>2165</s> $1299</div><p>per door</p>",
-        "blog-post---featured-image": {
-          "fileId": "6841ddf8ace3d9d9facb19c5",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6841ddf8ace3d9d9facb19c5_how-to-negotiate-a-house-price-effectively-featured-image-property-x-webflow-template.avif",
-          "alt": null
+    "items": [
+        {
+            "id": "687e3925f1181a91058edb1d",
+            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+            "createdOn": "2025-07-21T12:57:09+00:00",
+            "lastUpdated": "2026-03-23T18:46:52+00:00",
+            "lastPublished": "2026-03-24T05:43:04+00:00",
+            "isArchived": false,
+            "isDraft": false,
+            "fieldData": {
+                "name": "Vinyl Doors",
+                "slug": "vinyl-doors",
+                "featured": 1,
+                "seo-title": "Vinyl Doors | Affordable Replacement – Deluxe Windows Berkeley",
+                "description": "Cost-effective vinyl doors with excellent energy performance for Bay Area homes. Deluxe Windows offers expert vinyl door installation in San Francisco and surrounding areas.",
+                "brands-title": "Top Vinyl Doors Brands",
+                "doors-brands": [
+                    "6841ddf8ace3d9d9facb169f",
+                    "6851144119c25a3a1af52024",
+                    "6841ddf8ace3d9d9facb168f",
+                    "6841ddf8ace3d9d9facb1690",
+                    "685114315a60cc8b388e5af2",
+                    "685114794ffee91485b78137"
+                ],
+                "twitter-card": "summary_large_image",
+                "door-discount": "<h3><strong>40% off for limited time</strong></h3><div data-rt-embed-type='true'>Starting from <s>2165</s> $1299</div><p>per door</p>",
+                "opengraph-title": "Vinyl Doors | Affordable Replacement – Deluxe Windows Berkeley",
+                "seo-description": "Cost-effective vinyl doors with excellent energy performance for Bay Area homes. Deluxe Windows offers expert vinyl door installation in San Francisco and surrounding areas.",
+                "blog-post---author": "6841ddf8ace3d9d9facb1690",
+                "blog-post---excerpt": "Vinyl frame doors, crafted from high-quality polyvinyl chloride (PVC). ",
+                "blog-post---summary": "Our vinyl frame doors, crafted from high-quality polyvinyl chloride (PVC), are the perfect solution for homeowners.",
+                "blog-post---category": null,
+                "blog-post---rich-text": "<h3 id=\"\">Why Choose Vinyl Doors?</h3><p id=\"\">‍</p><h5 id=\"\">Budget-Friendly Quality</h5><p id=\"\">‍<br>Vinyl is an economical option that still delivers great insulation and style. It’s perfect for families or landlords looking for value and long-term reliability.</p><p id=\"\">‍</p><h5 id=\"\">No Painting. No Rot. No Rust.<strong id=\"\">‍<br>‍</strong>‍</h5><p id=\"\">Vinyl never needs painting and resists moisture, warping, fading, and insect damage. Just rinse occasionally to keep it clean—no sanding or staining required.</p><p id=\"\">‍</p><h5 id=\"\">Energy Efficiency Built-In</h5><p id=\"\">‍<strong id=\"\">‍</strong></p><p id=\"\">Most vinyl doors are foam-filled and built with energy-saving seals that reduce drafts and prevent temperature swings inside your home.</p><p id=\"\">‍</p><h5 id=\"\">UV-Resistant Finish<strong id=\"\">‍<br>‍</strong>‍</h5><p id=\"\">Today’s vinyl doors are made to withstand the sun. The color is baked into the material, so it won’t peel or chip like painted surfaces.</p><p id=\"\">‍</p><h5 id=\"\">Long-Lasting Durability</h5><p id=\"\">‍<strong id=\"\">‍</strong></p><p id=\"\">These doors won’t crack or dent easily and are built to perform for years—especially in moderate climates.</p>",
+                "opengraph-description": "Cost-effective vinyl doors with excellent energy performance for Bay Area homes. Deluxe Windows offers expert vinyl door installation in San Francisco and surrounding areas."
+            }
         },
-        "blog-post---thumbnail-image-v1": {
-          "fileId": "6862d4e603255742b1319d0f",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6862d4e603255742b1319d0f_Frame%2048.avif",
-          "alt": null
+        {
+            "id": "687e39117aff7b16078f9be0",
+            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+            "createdOn": "2025-07-21T12:56:49+00:00",
+            "lastUpdated": "2026-03-23T18:46:52+00:00",
+            "lastPublished": "2026-03-24T05:43:04+00:00",
+            "isArchived": false,
+            "isDraft": false,
+            "fieldData": {
+                "name": "Wood Clad Doors",
+                "slug": "wood-clad-doors",
+                "featured": 1,
+                "seo-title": "Wood Clad Doors | Natural + Durable – Deluxe Windows Concord",
+                "description": "Combine the warmth of wood interiors with durable exterior cladding. Deluxe Windows installs premium wood clad doors for Bay Area homeowners. Get a free estimate.",
+                "brands-title": "Top Wood Clad Doors Brands",
+                "doors-brands": [
+                    "6851144119c25a3a1af52024"
+                ],
+                "twitter-card": "summary_large_image",
+                "door-discount": "<h3><strong>40% off for limited time</strong></h3><div data-rt-embed-type='true'>Starting from <s>2665</s> $1599</div><p>per door</p>",
+                "opengraph-title": "Wood Clad Doors | Natural + Durable – Deluxe Windows Concord",
+                "seo-description": "Combine the warmth of wood interiors with durable exterior cladding. Deluxe Windows installs premium wood clad doors for Bay Area homeowners. Get a free estimate.",
+                "blog-post---author": "6841ddf8ace3d9d9facb16a0",
+                "blog-post---excerpt": "Crafted from premium, sustainable wood, our doors bring warmth, character, and durability.",
+                "blog-post---summary": "Crafted from premium, sustainable wood, our doors bring warmth, character, and durability to your home. ",
+                "blog-post---category": null,
+                "blog-post---rich-text": "<h3 id=\"\">Why Choose Wood Clad Doors?</h3><p id=\"\">‍</p><h5 id=\"\">Elegant Interior Wood Finish</h5><p id=\"\"><sup>‍<br></sup>Inside your home, enjoy the richness of real wood: oak, cherry, walnut, or fir. These doors can be stained or painted to suit your exact design taste.</p><p id=\"\">‍</p><h5 id=\"\">Durable Exterior Cladding<strong id=\"\">‍<br>‍</strong>‍</h5><p id=\"\">The exterior is protected by a low-maintenance layer that guards against rain, snow, UV rays, and temperature swings. No painting or refinishing needed outside.</p><p id=\"\">‍</p><h5 id=\"\">Long-Lasting Energy Efficiency</h5><p id=\"\">‍<strong id=\"\">‍</strong></p><p id=\"\">With advanced insulation in the core and tight seals at the frame, wood-clad doors prevent air leaks and energy loss year-round.</p><p id=\"\">‍</p><h5 id=\"\">All-Weather Performance<strong id=\"\">‍<br>‍</strong>‍</h5><p id=\"\">You get the charm of a traditional wood door without the drawbacks. These doors resist rot, rust, and warping—even in harsh climates.</p><p id=\"\">‍</p><h5 id=\"\">Premium Value &amp; Customization</h5><p id=\"\">‍<strong id=\"\">‍</strong></p><p id=\"\">Wood-clad entry doors elevate curb appeal and resale value. Available with decorative glass, custom panels, and sidelight options.</p>",
+                "opengraph-description": "Combine the warmth of wood interiors with durable exterior cladding. Deluxe Windows installs premium wood clad doors for Bay Area homeowners. Get a free estimate."
+            }
         },
-        "blog-post---thumbnail-image-v2": {
-          "fileId": "6841ddf8ace3d9d9facb1985",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6841ddf8ace3d9d9facb1985_how-to-negotiate-a-house-price-effectively-thumbnail-v2-property-x-webflow-template.avif",
-          "alt": null
+        {
+            "id": "687e38e2f2d030bccf80489a",
+            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+            "createdOn": "2025-07-21T12:56:02+00:00",
+            "lastUpdated": "2026-03-23T18:46:52+00:00",
+            "lastPublished": "2026-03-24T05:43:04+00:00",
+            "isArchived": false,
+            "isDraft": false,
+            "fieldData": {
+                "name": "Fiberglass Doors ",
+                "slug": "fiberglass-doors",
+                "featured": 1,
+                "seo-title": "Fiberglass Doors | Energy-Efficient – Deluxe Windows Oakland",
+                "description": "Upgrade to fiberglass doors that resist dents, warping, and extreme weather. Deluxe Windows installs premium fiberglass doors across the San Francisco Bay Area.",
+                "brands-title": "Top Fiberglass Doors Brands",
+                "doors-brands": [
+                    "6841ddf8ace3d9d9facb16a0",
+                    "6841ddf8ace3d9d9facb169f",
+                    "685113b74203b28e29c1e7fb"
+                ],
+                "twitter-card": "summary_large_image",
+                "door-discount": "<h3><strong>40% off for limited time</strong></h3><div data-rt-embed-type='true'>Starting from <s>2665</s> $1599</div><p>per door</p>",
+                "opengraph-title": "Fiberglass Doors | Energy-Efficient – Deluxe Windows Oakland",
+                "seo-description": "Upgrade to fiberglass doors that resist dents, warping, and extreme weather. Deluxe Windows installs premium fiberglass doors across the San Francisco Bay Area.",
+                "blog-post---author": "6841ddf8ace3d9d9facb169f",
+                "blog-post---excerpt": "Fiberglass doors are designed to offer superior insulation, security, and long-lasting beauty.",
+                "blog-post---summary": "Our fiberglass doors are designed to offer superior insulation, security, and long-lasting beauty.",
+                "blog-post---category": null,
+                "blog-post---rich-text": "<h3 id=\"\">Why Choose Fiberglass Doors?</h3><p id=\"\">‍</p><h5 id=\"\">Superior Strength &amp; Weather Resistance<br>‍</h5><p id=\"\">Fiberglass doors hold up in all conditions—heat, cold, moisture, and direct sun. They won’t crack, rot, swell, or warp like wood, and unlike steel, they won’t rust or dent. That makes them ideal for both harsh winters and humid summers.</p><p id=\"\">‍</p><h5 id=\"\">Energy Efficiency That Saves You Money</h5><p id=\"\"><strong id=\"\">‍</strong><br>With an insulated core and tight weather seals, fiberglass doors minimize heat loss and help regulate indoor temperatures. You’ll enjoy greater comfort year-round and lower energy bills, especially when paired with Energy Star® glass inserts.<br>‍</p><h5 id=\"\">Wood Look Without the Maintenance</h5><p id=\"\"><strong id=\"\">‍</strong><br>Fiberglass can be molded to mimic wood grain so precisely, it’s hard to tell the difference. Choose from smooth or textured finishes, then stain or paint to match your home’s aesthetic—without worrying about peeling, fading, or refinishing.</p><p id=\"\">‍</p><h5 id=\"\">Long-Term Durability &amp; Low Maintenance</h5><p id=\"\"><strong id=\"\">‍</strong><br>Unlike wood, fiberglass doors don’t require seasonal upkeep. A simple wipe-down with soap and water keeps them looking fresh. Plus, their reinforced structure means they last for decades with minimal care.</p><p id=\"\">‍</p><h5 id=\"\">Increased Home Security</h5><p id=\"\"><strong id=\"\">‍</strong><br>Thanks to their solid core and tough exterior, fiberglass doors offer excellent impact resistance. Many models also support multipoint locking systems for added protection against forced entry.</p>",
+                "opengraph-description": "Upgrade to fiberglass doors that resist dents, warping, and extreme weather. Deluxe Windows installs premium fiberglass doors across the San Francisco Bay Area."
+            }
         },
-        "blog-post---thumbnail-image-v3": {
-          "fileId": "6841ddf8ace3d9d9facb19a5",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6841ddf8ace3d9d9facb19a5_how-to-negotiate-a-house-price-effectively-thumbnail-v3-property-x-webflow-template.avif",
-          "alt": null
+        {
+            "id": "687e38d2166866b26d32c672",
+            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+            "createdOn": "2025-07-21T12:55:46+00:00",
+            "lastUpdated": "2026-03-23T18:46:52+00:00",
+            "lastPublished": "2026-03-24T05:43:04+00:00",
+            "isArchived": false,
+            "isDraft": false,
+            "fieldData": {
+                "name": "Wood Doors ",
+                "slug": "wood-doors",
+                "featured": 1,
+                "seo-title": "Wood Doors | Classic Entry Doors – Deluxe Windows Hayward",
+                "description": "Add timeless character to your home with custom wood doors from Deluxe Windows. Expert wood door installation for San Francisco and Bay Area properties. Free quotes.",
+                "brands-title": "Top Wood Doors Brands",
+                "doors-brands": [
+                    "6841ddf8ace3d9d9facb16a0",
+                    "6851144119c25a3a1af52024",
+                    "687b75dd3a0830c27e29d5fa",
+                    "685113b74203b28e29c1e7fb"
+                ],
+                "twitter-card": "summary_large_image",
+                "door-discount": "<h3><strong>40% off for limited time</strong></h3><div data-rt-embed-type='true'>Starting from <s>3333</s> $1999</div><p>per door</p>",
+                "opengraph-title": "Wood Doors | Classic Entry Doors – Deluxe Windows Hayward",
+                "seo-description": "Add timeless character to your home with custom wood doors from Deluxe Windows. Expert wood door installation for San Francisco and Bay Area properties. Free quotes.",
+                "blog-post---author": "6841ddf8ace3d9d9facb16a0",
+                "blog-post---excerpt": "Crafted from premium, sustainable wood, our doors bring warmth, character, and durability.",
+                "blog-post---summary": "Crafted from premium, sustainable wood, our doors bring warmth, character, and durability to your home. ",
+                "blog-post---category": null,
+                "blog-post---rich-text": "<h3 id=\"\">Why Choose Wood Doors?</h3><p id=\"\">‍</p><h5 id=\"\">Rich, Natural Aesthetic</h5><p id=\"\">‍<br>Nothing compares to the organic beauty of a real wood door. Whether it’s mahogany, oak, or fir, wood provides natural grain patterns that add depth and character.</p><p id=\"\">‍</p><h5 id=\"\">Full Customization Options<br>‍</h5><p id=\"\">Choose from a wide range of styles, stains, panel configurations, and glass inserts. Wood doors can be easily sanded, repainted, or refinished over time to match evolving design trends.</p><p id=\"\">‍</p><h5 id=\"\">Great Insulation Performance<br>‍</h5><p id=\"\">Thick solid wood offers natural thermal insulation, keeping indoor temperatures more stable and reducing outside noise.<br>‍</p><h5 id=\"\">Durable With Proper Care<br>‍</h5><p id=\"\">With the right finish and seasonal maintenance, wood doors can last decades. They’re ideal for covered entryways or porches that offer protection from direct exposure.</p><p id=\"\">‍</p><h5 id=\"\">Boosts Curb Appeal &amp; Resale Value<br>‍</h5><p id=\"\">A wood front door instantly elevates a home’s exterior and adds lasting value, especially for luxury or heritage-style properties.</p>",
+                "opengraph-description": "Add timeless character to your home with custom wood doors from Deluxe Windows. Expert wood door installation for San Francisco and Bay Area properties. Free quotes."
+            }
         },
-        "gallery": [
-          {
-            "fileId": "688b0b0f338dd8577f3b4e27",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688b0b0f338dd8577f3b4e27_Frame%2042.png",
-            "alt": null
-          },
-          {
-            "fileId": "688b0b0f85c43f264cf1a764",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688b0b0f85c43f264cf1a764_Frame%2043.png",
-            "alt": null
-          },
-          {
-            "fileId": "688b0b0fc25c527be7f303b4",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688b0b0fc25c527be7f303b4_Frame%2046.png",
-            "alt": null
-          },
-          {
-            "fileId": "688b0b0fbe12aaf7a5c577dc",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688b0b0fbe12aaf7a5c577dc_Frame%2048.png",
-            "alt": null
-          },
-          {
-            "fileId": "688b0b0f25219da527862c31",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688b0b0f25219da527862c31_Frame%2050.png",
-            "alt": null
-          },
-          {
-            "fileId": "688b0b0ff56902ad4a471b8b",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688b0b0ff56902ad4a471b8b_Frame%2061.png",
-            "alt": null
-          }
-        ],
-        "blog-post---rich-text": "<h3 id=\"\">Why Choose Vinyl Doors?</h3><p id=\"\">‍</p><h5 id=\"\">Budget-Friendly Quality</h5><p id=\"\">‍<br>Vinyl is an economical option that still delivers great insulation and style. It’s perfect for families or landlords looking for value and long-term reliability.</p><p id=\"\">‍</p><h5 id=\"\">No Painting. No Rot. No Rust.<strong id=\"\">‍<br>‍</strong>‍</h5><p id=\"\">Vinyl never needs painting and resists moisture, warping, fading, and insect damage. Just rinse occasionally to keep it clean—no sanding or staining required.</p><p id=\"\">‍</p><h5 id=\"\">Energy Efficiency Built-In</h5><p id=\"\">‍<strong id=\"\">‍</strong></p><p id=\"\">Most vinyl doors are foam-filled and built with energy-saving seals that reduce drafts and prevent temperature swings inside your home.</p><p id=\"\">‍</p><h5 id=\"\">UV-Resistant Finish<strong id=\"\">‍<br>‍</strong>‍</h5><p id=\"\">Today’s vinyl doors are made to withstand the sun. The color is baked into the material, so it won’t peel or chip like painted surfaces.</p><p id=\"\">‍</p><h5 id=\"\">Long-Lasting Durability</h5><p id=\"\">‍<strong id=\"\">‍</strong></p><p id=\"\">These doors won’t crack or dent easily and are built to perform for years—especially in moderate climates.</p>",
-        "blog-post---summary": "Our vinyl frame doors, crafted from high-quality polyvinyl chloride (PVC), are the perfect solution for homeowners.",
-        "blog-post---excerpt": "Vinyl frame doors, crafted from high-quality polyvinyl chloride (PVC). ",
-        "featured": true,
-        "blog-post---category": null,
-        "blog-post---author": "6841ddf8ace3d9d9facb1690",
-        "description": "Cost-effective vinyl doors with excellent energy performance for Bay Area homes. Deluxe Windows offers expert vinyl door installation in San Francisco and surrounding areas.",
-        "doors-brands": [
-          "6841ddf8ace3d9d9facb169f",
-          "6851144119c25a3a1af52024",
-          "6841ddf8ace3d9d9facb168f",
-          "6841ddf8ace3d9d9facb1690",
-          "685114315a60cc8b388e5af2",
-          "685114794ffee91485b78137"
-        ],
-        "brands-title": "Top Vinyl Doors Brands",
-        "seo-title": "Vinyl Doors | Affordable Replacement – Deluxe Windows Berkeley",
-        "seo-description": "Cost-effective vinyl doors with excellent energy performance for Bay Area homes. Deluxe Windows offers expert vinyl door installation in San Francisco and surrounding areas.",
-        "opengraph-title": "Vinyl Doors | Affordable Replacement – Deluxe Windows Berkeley",
-        "opengraph-description": "Cost-effective vinyl doors with excellent energy performance for Bay Area homes. Deluxe Windows offers expert vinyl door installation in San Francisco and surrounding areas.",
-        "opengraph-image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6841ddf8ace3d9d9facb19a5_how-to-negotiate-a-house-price-effectively-thumbnail-v3-property-x-webflow-template.avif",
-        "twitter-card": "summary_large_image",
-        "name": "Vinyl Doors",
-        "slug": "vinyl-doors"
-      }
-    },
-    {
-      "id": "687e39117aff7b16078f9be0",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2025-07-21T12:56:49.448Z",
-      "lastUpdated": "2026-03-23T18:46:52.817Z",
-      "lastPublished": "2026-03-24T05:43:04.253Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "door-discount": "<h3><strong>40% off for limited time</strong></h3><div data-rt-embed-type='true'>Starting from <s>2665</s> $1599</div><p>per door</p>",
-        "blog-post---featured-image": {
-          "fileId": "6841ddf8ace3d9d9facb1a88",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6841ddf8ace3d9d9facb1a88_heres-how-decorate-your-new-home-featured-image-property-x-webflow-template.avif",
-          "alt": null
+        {
+            "id": "687e38c0a76b8874be163cf5",
+            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+            "createdOn": "2025-07-21T12:55:28+00:00",
+            "lastUpdated": "2026-03-23T18:46:52+00:00",
+            "lastPublished": "2026-03-24T05:43:04+00:00",
+            "isArchived": false,
+            "isDraft": false,
+            "fieldData": {
+                "name": "Aluminum Doors",
+                "slug": "aluminum-doors",
+                "featured": 1,
+                "seo-title": "Aluminum Doors | Replacement Doors – Deluxe Windows San Jose",
+                "description": "Durable, low-maintenance aluminum doors for Bay Area homes. Deluxe Windows installs premium aluminum entry and exterior doors in San Francisco. Free quotes available.",
+                "brands-title": "Top Aluminum Doors Brands",
+                "doors-brands": [
+                    "6841ddf8ace3d9d9facb16a0",
+                    "6841ddf8ace3d9d9facb169f",
+                    "687b75dd3a0830c27e29d5fa",
+                    "685113b74203b28e29c1e7fb",
+                    "685114315a60cc8b388e5af2",
+                    "6841ddf8ace3d9d9facb169d",
+                    "687b77229d351e28dc2a5141"
+                ],
+                "twitter-card": "summary_large_image",
+                "door-discount": "<h3><strong>40% off for limited time</strong></h3><div data-rt-embed-type='true'>Starting from <s>2665</s> $1599</div><p>per door</p>",
+                "opengraph-title": "Aluminum Doors | Replacement Doors – Deluxe Windows San Jose",
+                "seo-description": "Durable, low-maintenance aluminum doors for Bay Area homes. Deluxe Windows installs premium aluminum entry and exterior doors in San Francisco. Free quotes available.",
+                "blog-post---author": "6841ddf8ace3d9d9facb16a0",
+                "blog-post---excerpt": "Lorem ipsum dolor sit amet consectetur. Id eu mi ac ac aliquam etiam ultrices augue convallis.",
+                "blog-post---summary": "Lorem ipsum dolor sit amet consectetur. Sit ut gravida aenean potenti. Metus in eu vel morbi dui nunc tellus. Non a massa maecenas massa.",
+                "blog-post---category": null,
+                "blog-post---rich-text": "<h3 id=\"\">Why Choose Aluminum Doors?</h3><p id=\"\">‍</p><h5 id=\"\">Strong Yet Lightweight</h5><p id=\"\"><strong id=\"\">‍</strong><br>Aluminum’s high strength-to-weight ratio makes it perfect for large-format doors or areas with wide glass panels. It’s sturdy without being bulky.<br>‍</p><h5 id=\"\">Modern Aesthetic Appeal</h5><p id=\"\"><strong id=\"\">‍</strong><br>With slim profiles and smooth finishes, aluminum doors enhance minimalist and contemporary designs. Available in anodized or powder-coated colors.</p><p id=\"\">‍</p><h5 id=\"\">Resists Rust, Rot &amp; Insectsnce</h5><p id=\"\"><strong id=\"\">‍</strong><br>Unlike wood, aluminum won’t decay, attract pests, or absorb moisture. It holds up beautifully in humid or rainy environments.</p><p id=\"\">‍</p><h5 id=\"\">Low Maintenance Needs</h5><p id=\"\"><strong id=\"\">‍</strong><br>A quick clean with soap and water keeps aluminum doors looking brand new. Their baked-on finishes resist scratches and fading.</p><p id=\"\">‍</p><h5 id=\"\">Environmentally Friendly</h5><p id=\"\"><strong id=\"\">‍</strong><br>Aluminum is recyclable and often made from post-consumer materials—making it a greener choice for eco-conscious homeowners.</p>",
+                "opengraph-description": "Durable, low-maintenance aluminum doors for Bay Area homes. Deluxe Windows installs premium aluminum entry and exterior doors in San Francisco. Free quotes available."
+            }
         },
-        "blog-post---thumbnail-image-v1": {
-          "fileId": "687e2bbbcf84c63258838bc4",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/687e2bbbcf84c63258838bc4_homeguide-marvin-signature-windows-and-doors.avif",
-          "alt": null
-        },
-        "blog-post---thumbnail-image-v2": {
-          "fileId": "6841ddf8ace3d9d9facb1a8a",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6841ddf8ace3d9d9facb1a8a_heres-how-decorate-your-new-home-thumbnail-v2-property-x-webflow-template.avif",
-          "alt": null
-        },
-        "blog-post---thumbnail-image-v3": {
-          "fileId": "6841ddf8ace3d9d9facb1a8b",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6841ddf8ace3d9d9facb1a8b_heres-how-decorate-your-new-home-thumbnail-v3-property-x-webflow-template.avif",
-          "alt": null
-        },
-        "gallery": [
-          {
-            "fileId": "688b0b0f338dd8577f3b4e27",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688b0b0f338dd8577f3b4e27_Frame%2042.png",
-            "alt": null
-          },
-          {
-            "fileId": "688b0b0f85c43f264cf1a764",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688b0b0f85c43f264cf1a764_Frame%2043.png",
-            "alt": null
-          },
-          {
-            "fileId": "688b0b0fc25c527be7f303b4",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688b0b0fc25c527be7f303b4_Frame%2046.png",
-            "alt": null
-          },
-          {
-            "fileId": "688b0b0fbe12aaf7a5c577dc",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688b0b0fbe12aaf7a5c577dc_Frame%2048.png",
-            "alt": null
-          },
-          {
-            "fileId": "688b0b0f25219da527862c31",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688b0b0f25219da527862c31_Frame%2050.png",
-            "alt": null
-          },
-          {
-            "fileId": "688b0b0ff56902ad4a471b8b",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688b0b0ff56902ad4a471b8b_Frame%2061.png",
-            "alt": null
-          }
-        ],
-        "blog-post---rich-text": "<h3 id=\"\">Why Choose Wood Clad Doors?</h3><p id=\"\">‍</p><h5 id=\"\">Elegant Interior Wood Finish</h5><p id=\"\"><sup>‍<br></sup>Inside your home, enjoy the richness of real wood: oak, cherry, walnut, or fir. These doors can be stained or painted to suit your exact design taste.</p><p id=\"\">‍</p><h5 id=\"\">Durable Exterior Cladding<strong id=\"\">‍<br>‍</strong>‍</h5><p id=\"\">The exterior is protected by a low-maintenance layer that guards against rain, snow, UV rays, and temperature swings. No painting or refinishing needed outside.</p><p id=\"\">‍</p><h5 id=\"\">Long-Lasting Energy Efficiency</h5><p id=\"\">‍<strong id=\"\">‍</strong></p><p id=\"\">With advanced insulation in the core and tight seals at the frame, wood-clad doors prevent air leaks and energy loss year-round.</p><p id=\"\">‍</p><h5 id=\"\">All-Weather Performance<strong id=\"\">‍<br>‍</strong>‍</h5><p id=\"\">You get the charm of a traditional wood door without the drawbacks. These doors resist rot, rust, and warping—even in harsh climates.</p><p id=\"\">‍</p><h5 id=\"\">Premium Value &amp; Customization</h5><p id=\"\">‍<strong id=\"\">‍</strong></p><p id=\"\">Wood-clad entry doors elevate curb appeal and resale value. Available with decorative glass, custom panels, and sidelight options.</p>",
-        "blog-post---summary": "Crafted from premium, sustainable wood, our doors bring warmth, character, and durability to your home. ",
-        "blog-post---excerpt": "Crafted from premium, sustainable wood, our doors bring warmth, character, and durability.",
-        "featured": true,
-        "blog-post---category": null,
-        "blog-post---author": "6841ddf8ace3d9d9facb16a0",
-        "description": "Combine the warmth of wood interiors with durable exterior cladding. Deluxe Windows installs premium wood clad doors for Bay Area homeowners. Get a free estimate.",
-        "doors-brands": [
-          "6851144119c25a3a1af52024"
-        ],
-        "brands-title": "Top Wood Clad Doors Brands",
-        "seo-title": "Wood Clad Doors | Natural + Durable – Deluxe Windows Concord",
-        "seo-description": "Combine the warmth of wood interiors with durable exterior cladding. Deluxe Windows installs premium wood clad doors for Bay Area homeowners. Get a free estimate.",
-        "opengraph-title": "Wood Clad Doors | Natural + Durable – Deluxe Windows Concord",
-        "opengraph-description": "Combine the warmth of wood interiors with durable exterior cladding. Deluxe Windows installs premium wood clad doors for Bay Area homeowners. Get a free estimate.",
-        "opengraph-image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6841ddf8ace3d9d9facb1a8b_heres-how-decorate-your-new-home-thumbnail-v3-property-x-webflow-template.avif",
-        "twitter-card": "summary_large_image",
-        "name": "Wood Clad Doors",
-        "slug": "wood-clad-doors"
-      }
-    },
-    {
-      "id": "687e38e2f2d030bccf80489a",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2025-07-21T12:56:02.219Z",
-      "lastUpdated": "2026-03-23T18:46:52.751Z",
-      "lastPublished": "2026-03-24T05:43:04.253Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "door-discount": "<h3><strong>40% off for limited time</strong></h3><div data-rt-embed-type='true'>Starting from <s>2665</s> $1599</div><p>per door</p>",
-        "blog-post---featured-image": {
-          "fileId": "6841ddf8ace3d9d9facb1a57",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6841ddf8ace3d9d9facb1a57_home-buying-basics-featured-image-property-x-webflow-template.avif",
-          "alt": "Deluxe-windows-fiberglass-doors"
-        },
-        "blog-post---thumbnail-image-v1": {
-          "fileId": "684e94a86602a96b9775c003",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684e94a86602a96b9775c003_Frame%2048.avif",
-          "alt": null
-        },
-        "blog-post---thumbnail-image-v2": {
-          "fileId": "6841ddf8ace3d9d9facb1a86",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6841ddf8ace3d9d9facb1a86_home-buying-basics-thumbnail-v2-property-x-webflow-template.avif",
-          "alt": "Deluxe-windows-fiberglass-doors"
-        },
-        "blog-post---thumbnail-image-v3": {
-          "fileId": "6841ddf8ace3d9d9facb1a87",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6841ddf8ace3d9d9facb1a87_home-buying-basics-thumbnail-v3-property-x-webflow-template.avif",
-          "alt": null
-        },
-        "gallery": [
-          {
-            "fileId": "688b0b0f338dd8577f3b4e27",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688b0b0f338dd8577f3b4e27_Frame%2042.png",
-            "alt": null
-          },
-          {
-            "fileId": "688b0b0f85c43f264cf1a764",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688b0b0f85c43f264cf1a764_Frame%2043.png",
-            "alt": null
-          },
-          {
-            "fileId": "688b0b0fc25c527be7f303b4",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688b0b0fc25c527be7f303b4_Frame%2046.png",
-            "alt": null
-          },
-          {
-            "fileId": "688b0b0fbe12aaf7a5c577dc",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688b0b0fbe12aaf7a5c577dc_Frame%2048.png",
-            "alt": null
-          },
-          {
-            "fileId": "688b0b0f25219da527862c31",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688b0b0f25219da527862c31_Frame%2050.png",
-            "alt": null
-          },
-          {
-            "fileId": "688b0b0ff56902ad4a471b8b",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688b0b0ff56902ad4a471b8b_Frame%2061.png",
-            "alt": null
-          }
-        ],
-        "blog-post---rich-text": "<h3 id=\"\">Why Choose Fiberglass Doors?</h3><p id=\"\">‍</p><h5 id=\"\">Superior Strength &amp; Weather Resistance<br>‍</h5><p id=\"\">Fiberglass doors hold up in all conditions—heat, cold, moisture, and direct sun. They won’t crack, rot, swell, or warp like wood, and unlike steel, they won’t rust or dent. That makes them ideal for both harsh winters and humid summers.</p><p id=\"\">‍</p><h5 id=\"\">Energy Efficiency That Saves You Money</h5><p id=\"\"><strong id=\"\">‍</strong><br>With an insulated core and tight weather seals, fiberglass doors minimize heat loss and help regulate indoor temperatures. You’ll enjoy greater comfort year-round and lower energy bills, especially when paired with Energy Star® glass inserts.<br>‍</p><h5 id=\"\">Wood Look Without the Maintenance</h5><p id=\"\"><strong id=\"\">‍</strong><br>Fiberglass can be molded to mimic wood grain so precisely, it’s hard to tell the difference. Choose from smooth or textured finishes, then stain or paint to match your home’s aesthetic—without worrying about peeling, fading, or refinishing.</p><p id=\"\">‍</p><h5 id=\"\">Long-Term Durability &amp; Low Maintenance</h5><p id=\"\"><strong id=\"\">‍</strong><br>Unlike wood, fiberglass doors don’t require seasonal upkeep. A simple wipe-down with soap and water keeps them looking fresh. Plus, their reinforced structure means they last for decades with minimal care.</p><p id=\"\">‍</p><h5 id=\"\">Increased Home Security</h5><p id=\"\"><strong id=\"\">‍</strong><br>Thanks to their solid core and tough exterior, fiberglass doors offer excellent impact resistance. Many models also support multipoint locking systems for added protection against forced entry.</p>",
-        "blog-post---summary": "Our fiberglass doors are designed to offer superior insulation, security, and long-lasting beauty.",
-        "blog-post---excerpt": "Fiberglass doors are designed to offer superior insulation, security, and long-lasting beauty.",
-        "featured": true,
-        "blog-post---category": null,
-        "blog-post---author": "6841ddf8ace3d9d9facb169f",
-        "description": "Upgrade to fiberglass doors that resist dents, warping, and extreme weather. Deluxe Windows installs premium fiberglass doors across the San Francisco Bay Area.",
-        "doors-brands": [
-          "6841ddf8ace3d9d9facb16a0",
-          "6841ddf8ace3d9d9facb169f",
-          "685113b74203b28e29c1e7fb"
-        ],
-        "brands-title": "Top Fiberglass Doors Brands",
-        "seo-title": "Fiberglass Doors | Energy-Efficient – Deluxe Windows Oakland",
-        "seo-description": "Upgrade to fiberglass doors that resist dents, warping, and extreme weather. Deluxe Windows installs premium fiberglass doors across the San Francisco Bay Area.",
-        "opengraph-title": "Fiberglass Doors | Energy-Efficient – Deluxe Windows Oakland",
-        "opengraph-description": "Upgrade to fiberglass doors that resist dents, warping, and extreme weather. Deluxe Windows installs premium fiberglass doors across the San Francisco Bay Area.",
-        "opengraph-image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6841ddf8ace3d9d9facb1a87_home-buying-basics-thumbnail-v3-property-x-webflow-template.avif",
-        "twitter-card": "summary_large_image",
-        "name": "Fiberglass Doors ",
-        "slug": "fiberglass-doors"
-      }
-    },
-    {
-      "id": "687e38d2166866b26d32c672",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2025-07-21T12:55:46.799Z",
-      "lastUpdated": "2026-03-23T18:46:52.840Z",
-      "lastPublished": "2026-03-24T05:43:04.253Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "door-discount": "<h3><strong>40% off for limited time</strong></h3><div data-rt-embed-type='true'>Starting from <s>3333</s> $1999</div><p>per door</p>",
-        "blog-post---featured-image": {
-          "fileId": "6841ddf8ace3d9d9facb1a88",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6841ddf8ace3d9d9facb1a88_heres-how-decorate-your-new-home-featured-image-property-x-webflow-template.avif",
-          "alt": null
-        },
-        "blog-post---thumbnail-image-v1": {
-          "fileId": "687561f0500c1200a82e09b2",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/687561f0500c1200a82e09b2_4.avif",
-          "alt": null
-        },
-        "blog-post---thumbnail-image-v2": {
-          "fileId": "6841ddf8ace3d9d9facb1a8a",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6841ddf8ace3d9d9facb1a8a_heres-how-decorate-your-new-home-thumbnail-v2-property-x-webflow-template.avif",
-          "alt": null
-        },
-        "blog-post---thumbnail-image-v3": {
-          "fileId": "6841ddf8ace3d9d9facb1a8b",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6841ddf8ace3d9d9facb1a8b_heres-how-decorate-your-new-home-thumbnail-v3-property-x-webflow-template.avif",
-          "alt": null
-        },
-        "gallery": [
-          {
-            "fileId": "688b0b0f338dd8577f3b4e27",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688b0b0f338dd8577f3b4e27_Frame%2042.png",
-            "alt": null
-          },
-          {
-            "fileId": "688b0b0f85c43f264cf1a764",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688b0b0f85c43f264cf1a764_Frame%2043.png",
-            "alt": null
-          },
-          {
-            "fileId": "688b0b0fc25c527be7f303b4",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688b0b0fc25c527be7f303b4_Frame%2046.png",
-            "alt": null
-          },
-          {
-            "fileId": "688b0b0fbe12aaf7a5c577dc",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688b0b0fbe12aaf7a5c577dc_Frame%2048.png",
-            "alt": null
-          },
-          {
-            "fileId": "688b0b0f25219da527862c31",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688b0b0f25219da527862c31_Frame%2050.png",
-            "alt": null
-          },
-          {
-            "fileId": "688b0b0ff56902ad4a471b8b",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688b0b0ff56902ad4a471b8b_Frame%2061.png",
-            "alt": null
-          }
-        ],
-        "blog-post---rich-text": "<h3 id=\"\">Why Choose Wood Doors?</h3><p id=\"\">‍</p><h5 id=\"\">Rich, Natural Aesthetic</h5><p id=\"\">‍<br>Nothing compares to the organic beauty of a real wood door. Whether it’s mahogany, oak, or fir, wood provides natural grain patterns that add depth and character.</p><p id=\"\">‍</p><h5 id=\"\">Full Customization Options<br>‍</h5><p id=\"\">Choose from a wide range of styles, stains, panel configurations, and glass inserts. Wood doors can be easily sanded, repainted, or refinished over time to match evolving design trends.</p><p id=\"\">‍</p><h5 id=\"\">Great Insulation Performance<br>‍</h5><p id=\"\">Thick solid wood offers natural thermal insulation, keeping indoor temperatures more stable and reducing outside noise.<br>‍</p><h5 id=\"\">Durable With Proper Care<br>‍</h5><p id=\"\">With the right finish and seasonal maintenance, wood doors can last decades. They’re ideal for covered entryways or porches that offer protection from direct exposure.</p><p id=\"\">‍</p><h5 id=\"\">Boosts Curb Appeal &amp; Resale Value<br>‍</h5><p id=\"\">A wood front door instantly elevates a home’s exterior and adds lasting value, especially for luxury or heritage-style properties.</p>",
-        "blog-post---summary": "Crafted from premium, sustainable wood, our doors bring warmth, character, and durability to your home. ",
-        "blog-post---excerpt": "Crafted from premium, sustainable wood, our doors bring warmth, character, and durability.",
-        "featured": true,
-        "blog-post---category": null,
-        "blog-post---author": "6841ddf8ace3d9d9facb16a0",
-        "description": "Add timeless character to your home with custom wood doors from Deluxe Windows. Expert wood door installation for San Francisco and Bay Area properties. Free quotes.",
-        "doors-brands": [
-          "6841ddf8ace3d9d9facb16a0",
-          "6851144119c25a3a1af52024",
-          "687b75dd3a0830c27e29d5fa",
-          "685113b74203b28e29c1e7fb"
-        ],
-        "brands-title": "Top Wood Doors Brands",
-        "seo-title": "Wood Doors | Classic Entry Doors – Deluxe Windows Hayward",
-        "seo-description": "Add timeless character to your home with custom wood doors from Deluxe Windows. Expert wood door installation for San Francisco and Bay Area properties. Free quotes.",
-        "opengraph-title": "Wood Doors | Classic Entry Doors – Deluxe Windows Hayward",
-        "opengraph-description": "Add timeless character to your home with custom wood doors from Deluxe Windows. Expert wood door installation for San Francisco and Bay Area properties. Free quotes.",
-        "opengraph-image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6841ddf8ace3d9d9facb1a8b_heres-how-decorate-your-new-home-thumbnail-v3-property-x-webflow-template.avif",
-        "twitter-card": "summary_large_image",
-        "name": "Wood Doors ",
-        "slug": "wood-doors"
-      }
-    },
-    {
-      "id": "687e38c0a76b8874be163cf5",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2025-07-21T12:55:28.895Z",
-      "lastUpdated": "2026-03-23T18:46:52.778Z",
-      "lastPublished": "2026-03-24T05:43:04.253Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "door-discount": "<h3><strong>40% off for limited time</strong></h3><div data-rt-embed-type='true'>Starting from <s>2665</s> $1599</div><p>per door</p>",
-        "blog-post---featured-image": {
-          "fileId": "684e85c47711b95088070492",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684e85c47711b95088070492_filters_quality(100)_fill(transparent)%20(12).avif",
-          "alt": null
-        },
-        "blog-post---thumbnail-image-v1": {
-          "fileId": "684e946a697389305bf19fb0",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684e946a697389305bf19fb0_Frame%2047.avif",
-          "alt": null
-        },
-        "blog-post---thumbnail-image-v2": {
-          "fileId": "6841ddf8ace3d9d9facb1a26",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6841ddf8ace3d9d9facb1a26_firs-time-homebuyers-guide-thumbnail-v2-property-x-webflow-template.avif",
-          "alt": null
-        },
-        "blog-post---thumbnail-image-v3": {
-          "fileId": "6841ddf8ace3d9d9facb1a44",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6841ddf8ace3d9d9facb1a44_firs-time-homebuyers-guide-thumbnail-v3-property-x-webflow-template.avif",
-          "alt": null
-        },
-        "gallery": [
-          {
-            "fileId": "688b0b0f338dd8577f3b4e27",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688b0b0f338dd8577f3b4e27_Frame%2042.png",
-            "alt": null
-          },
-          {
-            "fileId": "688b0b0f85c43f264cf1a764",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688b0b0f85c43f264cf1a764_Frame%2043.png",
-            "alt": null
-          },
-          {
-            "fileId": "688b0b0fc25c527be7f303b4",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688b0b0fc25c527be7f303b4_Frame%2046.png",
-            "alt": null
-          },
-          {
-            "fileId": "688b0b0fbe12aaf7a5c577dc",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688b0b0fbe12aaf7a5c577dc_Frame%2048.png",
-            "alt": null
-          },
-          {
-            "fileId": "688b0b0f25219da527862c31",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688b0b0f25219da527862c31_Frame%2050.png",
-            "alt": null
-          },
-          {
-            "fileId": "688b0b0ff56902ad4a471b8b",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688b0b0ff56902ad4a471b8b_Frame%2061.png",
-            "alt": null
-          }
-        ],
-        "blog-post---rich-text": "<h3 id=\"\">Why Choose Aluminum Doors?</h3><p id=\"\">‍</p><h5 id=\"\">Strong Yet Lightweight</h5><p id=\"\"><strong id=\"\">‍</strong><br>Aluminum’s high strength-to-weight ratio makes it perfect for large-format doors or areas with wide glass panels. It’s sturdy without being bulky.<br>‍</p><h5 id=\"\">Modern Aesthetic Appeal</h5><p id=\"\"><strong id=\"\">‍</strong><br>With slim profiles and smooth finishes, aluminum doors enhance minimalist and contemporary designs. Available in anodized or powder-coated colors.</p><p id=\"\">‍</p><h5 id=\"\">Resists Rust, Rot &amp; Insectsnce</h5><p id=\"\"><strong id=\"\">‍</strong><br>Unlike wood, aluminum won’t decay, attract pests, or absorb moisture. It holds up beautifully in humid or rainy environments.</p><p id=\"\">‍</p><h5 id=\"\">Low Maintenance Needs</h5><p id=\"\"><strong id=\"\">‍</strong><br>A quick clean with soap and water keeps aluminum doors looking brand new. Their baked-on finishes resist scratches and fading.</p><p id=\"\">‍</p><h5 id=\"\">Environmentally Friendly</h5><p id=\"\"><strong id=\"\">‍</strong><br>Aluminum is recyclable and often made from post-consumer materials—making it a greener choice for eco-conscious homeowners.</p>",
-        "blog-post---summary": "Lorem ipsum dolor sit amet consectetur. Sit ut gravida aenean potenti. Metus in eu vel morbi dui nunc tellus. Non a massa maecenas massa.",
-        "blog-post---excerpt": "Lorem ipsum dolor sit amet consectetur. Id eu mi ac ac aliquam etiam ultrices augue convallis.",
-        "featured": true,
-        "blog-post---category": null,
-        "blog-post---author": "6841ddf8ace3d9d9facb16a0",
-        "description": "Durable, low-maintenance aluminum doors for Bay Area homes. Deluxe Windows installs premium aluminum entry and exterior doors in San Francisco. Free quotes available.",
-        "doors-brands": [
-          "6841ddf8ace3d9d9facb16a0",
-          "6841ddf8ace3d9d9facb169f",
-          "687b75dd3a0830c27e29d5fa",
-          "685113b74203b28e29c1e7fb",
-          "685114315a60cc8b388e5af2",
-          "6841ddf8ace3d9d9facb169d",
-          "687b77229d351e28dc2a5141"
-        ],
-        "brands-title": "Top Aluminum Doors Brands",
-        "seo-title": "Aluminum Doors | Replacement Doors – Deluxe Windows San Jose",
-        "seo-description": "Durable, low-maintenance aluminum doors for Bay Area homes. Deluxe Windows installs premium aluminum entry and exterior doors in San Francisco. Free quotes available.",
-        "opengraph-title": "Aluminum Doors | Replacement Doors – Deluxe Windows San Jose",
-        "opengraph-description": "Durable, low-maintenance aluminum doors for Bay Area homes. Deluxe Windows installs premium aluminum entry and exterior doors in San Francisco. Free quotes available.",
-        "opengraph-image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6841ddf8ace3d9d9facb1a44_firs-time-homebuyers-guide-thumbnail-v3-property-x-webflow-template.avif",
-        "twitter-card": "summary_large_image",
-        "name": "Aluminum Doors",
-        "slug": "aluminum-doors"
-      }
-    },
-    {
-      "id": "687e38b0fda383513ed155b2",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2025-07-21T12:55:12.779Z",
-      "lastUpdated": "2026-03-23T18:46:52.791Z",
-      "lastPublished": "2026-03-24T05:43:04.253Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "door-discount": null,
-        "blog-post---featured-image": {
-          "fileId": "6841ddf8ace3d9d9facb1a88",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6841ddf8ace3d9d9facb1a88_heres-how-decorate-your-new-home-featured-image-property-x-webflow-template.avif",
-          "alt": null
-        },
-        "blog-post---thumbnail-image-v1": {
-          "fileId": "687561b70e68543d377c1a1b",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/687561b70e68543d377c1a1b_3.avif",
-          "alt": null
-        },
-        "blog-post---thumbnail-image-v2": {
-          "fileId": "6841ddf8ace3d9d9facb1a8a",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6841ddf8ace3d9d9facb1a8a_heres-how-decorate-your-new-home-thumbnail-v2-property-x-webflow-template.avif",
-          "alt": null
-        },
-        "blog-post---thumbnail-image-v3": {
-          "fileId": "6841ddf8ace3d9d9facb1a8b",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6841ddf8ace3d9d9facb1a8b_heres-how-decorate-your-new-home-thumbnail-v3-property-x-webflow-template.avif",
-          "alt": null
-        },
-        "gallery": [
-          {
-            "fileId": "688b0b0f338dd8577f3b4e27",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688b0b0f338dd8577f3b4e27_Frame%2042.png",
-            "alt": null
-          },
-          {
-            "fileId": "688b0b0f85c43f264cf1a764",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688b0b0f85c43f264cf1a764_Frame%2043.png",
-            "alt": null
-          },
-          {
-            "fileId": "688b0b0fc25c527be7f303b4",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688b0b0fc25c527be7f303b4_Frame%2046.png",
-            "alt": null
-          },
-          {
-            "fileId": "688b0b0fbe12aaf7a5c577dc",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688b0b0fbe12aaf7a5c577dc_Frame%2048.png",
-            "alt": null
-          },
-          {
-            "fileId": "688b0b0f25219da527862c31",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688b0b0f25219da527862c31_Frame%2050.png",
-            "alt": null
-          },
-          {
-            "fileId": "688b0b0ff56902ad4a471b8b",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688b0b0ff56902ad4a471b8b_Frame%2061.png",
-            "alt": null
-          }
-        ],
-        "blog-post---rich-text": "<h3 id=\"\">Why Choose Steel Doors?</h3><p id=\"\">‍</p><h5 id=\"\">Unmatched Security</h5><p id=\"\">‍</p><p id=\"\">Steel doors are incredibly strong and resistant to forced entry. Reinforced cores and lock systems create a protective barrier that’s ideal for front, side, or back entrances.</p><p id=\"\">‍</p><h5 id=\"\">Weather-Resistant Performance</h5><p id=\"\"><strong id=\"\">‍</strong><br>Galvanized steel resists rust, warping, and swelling, making it a durable choice for all climates. Whether facing harsh winters or blazing summers, your door stays secure and functional.</p><p id=\"\">‍</p><h5 id=\"\">Energy Efficiency with a Solid Core</h5><p id=\"\"><strong id=\"\">‍</strong><br>Steel entry doors typically feature an insulated foam core that helps block heat transfer and reduce energy loss—keeping your home comfortable and your utility bills low.</p><p id=\"\">‍</p><h5 id=\"\">Sleek Design Options</h5><p id=\"\"><strong id=\"\">‍</strong><br>Available in smooth or wood-grain textures, steel doors can be painted to fit any color scheme. Add decorative glass, sidelights, or panel designs for a custom look.</p><p id=\"\">‍</p><h5 id=\"\">Affordability + Longevity</h5><p id=\"\"><strong id=\"\">‍</strong><br>Steel doors are one of the most cost-effective solutions available. They last for decades with minimal maintenance and provide excellent ROI through energy savings and durability.</p>",
-        "blog-post---summary": "Crafted from premium, sustainable wood, our doors bring warmth, character, and durability to your home. ",
-        "blog-post---excerpt": "Crafted from premium, sustainable wood, our doors bring warmth, character, and durability.",
-        "featured": true,
-        "blog-post---category": null,
-        "blog-post---author": "6841ddf8ace3d9d9facb16a0",
-        "description": "Boost your home's security with insulated steel doors from Deluxe Windows. Expert installation of durable steel entry doors throughout San Francisco and the Bay Area.",
-        "doors-brands": [
-          "687b75dd3a0830c27e29d5fa"
-        ],
-        "brands-title": "Top Steel Doors Brands",
-        "seo-title": "Steel Doors | Secure Entry Doors – Deluxe Windows Fremont",
-        "seo-description": "Boost your home's security with insulated steel doors from Deluxe Windows. Expert installation of durable steel entry doors throughout San Francisco and the Bay Area.",
-        "opengraph-title": "Steel Doors | Secure Entry Doors – Deluxe Windows Fremont",
-        "opengraph-description": "Boost your home's security with insulated steel doors from Deluxe Windows. Expert installation of durable steel entry doors throughout San Francisco and the Bay Area.",
-        "opengraph-image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/6841ddf8ace3d9d9facb1a8b_heres-how-decorate-your-new-home-thumbnail-v3-property-x-webflow-template.avif",
-        "twitter-card": "summary_large_image",
-        "name": "Steel Doors",
-        "slug": "steel-doors"
-      }
-    }
-  ]
+        {
+            "id": "687e38b0fda383513ed155b2",
+            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+            "createdOn": "2025-07-21T12:55:12+00:00",
+            "lastUpdated": "2026-03-23T18:46:52+00:00",
+            "lastPublished": "2026-03-24T05:43:04+00:00",
+            "isArchived": false,
+            "isDraft": false,
+            "fieldData": {
+                "name": "Steel Doors",
+                "slug": "steel-doors",
+                "featured": 1,
+                "seo-title": "Steel Doors | Secure Entry Doors – Deluxe Windows Fremont",
+                "description": "Boost your home's security with insulated steel doors from Deluxe Windows. Expert installation of durable steel entry doors throughout San Francisco and the Bay Area.",
+                "brands-title": "Top Steel Doors Brands",
+                "doors-brands": [
+                    "687b75dd3a0830c27e29d5fa"
+                ],
+                "twitter-card": "summary_large_image",
+                "door-discount": null,
+                "opengraph-title": "Steel Doors | Secure Entry Doors – Deluxe Windows Fremont",
+                "seo-description": "Boost your home's security with insulated steel doors from Deluxe Windows. Expert installation of durable steel entry doors throughout San Francisco and the Bay Area.",
+                "blog-post---author": "6841ddf8ace3d9d9facb16a0",
+                "blog-post---excerpt": "Crafted from premium, sustainable wood, our doors bring warmth, character, and durability.",
+                "blog-post---summary": "Crafted from premium, sustainable wood, our doors bring warmth, character, and durability to your home. ",
+                "blog-post---category": null,
+                "blog-post---rich-text": "<h3 id=\"\">Why Choose Steel Doors?</h3><p id=\"\">‍</p><h5 id=\"\">Unmatched Security</h5><p id=\"\">‍</p><p id=\"\">Steel doors are incredibly strong and resistant to forced entry. Reinforced cores and lock systems create a protective barrier that’s ideal for front, side, or back entrances.</p><p id=\"\">‍</p><h5 id=\"\">Weather-Resistant Performance</h5><p id=\"\"><strong id=\"\">‍</strong><br>Galvanized steel resists rust, warping, and swelling, making it a durable choice for all climates. Whether facing harsh winters or blazing summers, your door stays secure and functional.</p><p id=\"\">‍</p><h5 id=\"\">Energy Efficiency with a Solid Core</h5><p id=\"\"><strong id=\"\">‍</strong><br>Steel entry doors typically feature an insulated foam core that helps block heat transfer and reduce energy loss—keeping your home comfortable and your utility bills low.</p><p id=\"\">‍</p><h5 id=\"\">Sleek Design Options</h5><p id=\"\"><strong id=\"\">‍</strong><br>Available in smooth or wood-grain textures, steel doors can be painted to fit any color scheme. Add decorative glass, sidelights, or panel designs for a custom look.</p><p id=\"\">‍</p><h5 id=\"\">Affordability + Longevity</h5><p id=\"\"><strong id=\"\">‍</strong><br>Steel doors are one of the most cost-effective solutions available. They last for decades with minimal maintenance and provide excellent ROI through energy savings and durability.</p>",
+                "opengraph-description": "Boost your home's security with insulated steel doors from Deluxe Windows. Expert installation of durable steel entry doors throughout San Francisco and the Bay Area."
+            }
+        }
+    ]
 }

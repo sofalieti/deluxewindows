@@ -1,1067 +1,399 @@
 {
-  "table": "wf_windows",
-  "collectionId": "6841ddf8ace3d9d9facb1689",
-  "collectionSlug": "windows",
-  "items": [
-    {
-      "id": "6a0b4d73e466da579544b3dc",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2026-05-18T17:33:39.338Z",
-      "lastUpdated": "2026-05-23T11:15:19.719Z",
-      "lastPublished": "2026-05-23T11:16:23.728Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "discounttext": "<p>Starting from $1599 per window installed.</p><p>‍<strong>Special pricing available upon request!</strong>‍</p>",
-        "property-listing---featured-image": null,
-        "property-listing---featured-images": null,
-        "property-listing---thumbnail-image-v1": null,
-        "property-listing---thumbnail-image-v2": null,
-        "property-listing---thumbnail-image-v3": null,
-        "property-listing---about": null,
-        "property-listing---summary": null,
-        "property-listing---excerpt": null,
-        "property-listing---property-featured": false,
-        "property-listing---address": null,
-        "property-listing---sqf": null,
-        "property-listing---number-of-bathrooms": null,
-        "property-listing---number-of-bedrooms": null,
-        "property-listing---number-of-parking-spots": null,
-        "property-listing---display-price": null,
-        "property-listing---type": null,
-        "property-listing---agent": null,
-        "brands": null,
-        "title-for-brands": null,
-        "brands-types": null,
-        "parent-collection": null,
-        "collections": null,
-        "category-name": null,
-        "short-title": null,
-        "warrantytext": null,
-        "warrantyline": null,
-        "seo-title": null,
-        "seo-description": null,
-        "opengraph-title": null,
-        "opengraph-description": null,
-        "opengraph-image": null,
-        "twitter-card": null,
-        "hide": true,
-        "name": "Marvin Modern",
-        "slug": "marvin-modern"
-      }
-    },
-    {
-      "id": "6a0b4d607defb61396e08fc2",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2026-05-18T17:33:20.106Z",
-      "lastUpdated": "2026-05-23T11:15:27.346Z",
-      "lastPublished": "2026-05-23T11:16:23.728Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "discounttext": "<p>Starting from $1199 per window installed.</p><p><strong>Special pricing available upon request! </strong>‍</p>",
-        "property-listing---featured-image": null,
-        "property-listing---featured-images": null,
-        "property-listing---thumbnail-image-v1": null,
-        "property-listing---thumbnail-image-v2": null,
-        "property-listing---thumbnail-image-v3": null,
-        "property-listing---about": null,
-        "property-listing---summary": null,
-        "property-listing---excerpt": null,
-        "property-listing---property-featured": false,
-        "property-listing---address": null,
-        "property-listing---sqf": null,
-        "property-listing---number-of-bathrooms": null,
-        "property-listing---number-of-bedrooms": null,
-        "property-listing---number-of-parking-spots": null,
-        "property-listing---display-price": null,
-        "property-listing---type": null,
-        "property-listing---agent": null,
-        "brands": null,
-        "title-for-brands": null,
-        "brands-types": null,
-        "parent-collection": null,
-        "collections": null,
-        "category-name": null,
-        "short-title": null,
-        "warrantytext": null,
-        "warrantyline": null,
-        "seo-title": null,
-        "seo-description": null,
-        "opengraph-title": null,
-        "opengraph-description": null,
-        "opengraph-image": null,
-        "twitter-card": null,
-        "hide": true,
-        "name": "Marvin Ultimate",
-        "slug": "marvin-ultimate"
-      }
-    },
-    {
-      "id": "6a0b4d3da0301853f13c161c",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2026-05-18T17:32:45.488Z",
-      "lastUpdated": "2026-05-23T11:15:34.897Z",
-      "lastPublished": "2026-05-23T11:16:23.728Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "discounttext": "<p>Starting from $1099 per window installed.</p><p><strong>Special pricing available upon request!</strong>‍</p><p>‍</p>",
-        "property-listing---featured-image": null,
-        "property-listing---featured-images": null,
-        "property-listing---thumbnail-image-v1": null,
-        "property-listing---thumbnail-image-v2": null,
-        "property-listing---thumbnail-image-v3": null,
-        "property-listing---about": null,
-        "property-listing---summary": null,
-        "property-listing---excerpt": null,
-        "property-listing---property-featured": false,
-        "property-listing---address": null,
-        "property-listing---sqf": null,
-        "property-listing---number-of-bathrooms": null,
-        "property-listing---number-of-bedrooms": null,
-        "property-listing---number-of-parking-spots": null,
-        "property-listing---display-price": null,
-        "property-listing---type": null,
-        "property-listing---agent": null,
-        "brands": null,
-        "title-for-brands": null,
-        "brands-types": null,
-        "parent-collection": null,
-        "collections": null,
-        "category-name": null,
-        "short-title": null,
-        "warrantytext": null,
-        "warrantyline": null,
-        "seo-title": null,
-        "seo-description": null,
-        "opengraph-title": null,
-        "opengraph-description": null,
-        "opengraph-image": null,
-        "twitter-card": null,
-        "hide": true,
-        "name": "Marvin Elevate",
-        "slug": "martin-elevate"
-      }
-    },
-    {
-      "id": "6a0b4d27d9506153d66d79ee",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2026-05-18T17:32:23.390Z",
-      "lastUpdated": "2026-05-23T11:15:41.201Z",
-      "lastPublished": "2026-05-23T11:16:23.728Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "discounttext": "<p>Starting from $1050 per window installed.</p><p><strong>Special pricing available upon request!</strong>‍</p><p>‍</p>",
-        "property-listing---featured-image": null,
-        "property-listing---featured-images": null,
-        "property-listing---thumbnail-image-v1": null,
-        "property-listing---thumbnail-image-v2": null,
-        "property-listing---thumbnail-image-v3": null,
-        "property-listing---about": null,
-        "property-listing---summary": null,
-        "property-listing---excerpt": null,
-        "property-listing---property-featured": false,
-        "property-listing---address": null,
-        "property-listing---sqf": null,
-        "property-listing---number-of-bathrooms": null,
-        "property-listing---number-of-bedrooms": null,
-        "property-listing---number-of-parking-spots": null,
-        "property-listing---display-price": null,
-        "property-listing---type": null,
-        "property-listing---agent": null,
-        "brands": null,
-        "title-for-brands": null,
-        "brands-types": null,
-        "parent-collection": null,
-        "collections": null,
-        "category-name": null,
-        "short-title": null,
-        "warrantytext": null,
-        "warrantyline": null,
-        "seo-title": null,
-        "seo-description": null,
-        "opengraph-title": null,
-        "opengraph-description": null,
-        "opengraph-image": null,
-        "twitter-card": null,
-        "hide": true,
-        "name": "Marvin Vivid",
-        "slug": "martin-vivid"
-      }
-    },
-    {
-      "id": "6a0b4cde2b3b01da8d276540",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2026-05-18T17:31:10.110Z",
-      "lastUpdated": "2026-05-23T11:15:47.461Z",
-      "lastPublished": "2026-05-23T11:16:23.728Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "discounttext": null,
-        "property-listing---featured-image": null,
-        "property-listing---featured-images": null,
-        "property-listing---thumbnail-image-v1": null,
-        "property-listing---thumbnail-image-v2": null,
-        "property-listing---thumbnail-image-v3": null,
-        "property-listing---about": null,
-        "property-listing---summary": null,
-        "property-listing---excerpt": null,
-        "property-listing---property-featured": false,
-        "property-listing---address": null,
-        "property-listing---sqf": null,
-        "property-listing---number-of-bathrooms": null,
-        "property-listing---number-of-bedrooms": null,
-        "property-listing---number-of-parking-spots": null,
-        "property-listing---display-price": null,
-        "property-listing---type": null,
-        "property-listing---agent": null,
-        "brands": null,
-        "title-for-brands": null,
-        "brands-types": null,
-        "parent-collection": null,
-        "collections": null,
-        "category-name": null,
-        "short-title": null,
-        "warrantytext": null,
-        "warrantyline": null,
-        "seo-title": null,
-        "seo-description": null,
-        "opengraph-title": null,
-        "opengraph-description": null,
-        "opengraph-image": null,
-        "twitter-card": null,
-        "hide": true,
-        "name": "Marvin Essne",
-        "slug": "marvin-essne"
-      }
-    },
-    {
-      "id": "6a0b48ebc4591403cdd004db",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2026-05-18T17:14:19.572Z",
-      "lastUpdated": "2026-05-23T11:15:56.347Z",
-      "lastPublished": "2026-05-23T11:16:23.728Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "discounttext": "<p>Starting from $999 per window installed.</p><p><strong>Special pricing available upon request!</strong>‍</p>",
-        "property-listing---featured-image": null,
-        "property-listing---featured-images": null,
-        "property-listing---thumbnail-image-v1": null,
-        "property-listing---thumbnail-image-v2": null,
-        "property-listing---thumbnail-image-v3": null,
-        "property-listing---about": null,
-        "property-listing---summary": null,
-        "property-listing---excerpt": null,
-        "property-listing---property-featured": false,
-        "property-listing---address": null,
-        "property-listing---sqf": null,
-        "property-listing---number-of-bathrooms": null,
-        "property-listing---number-of-bedrooms": null,
-        "property-listing---number-of-parking-spots": null,
-        "property-listing---display-price": null,
-        "property-listing---type": null,
-        "property-listing---agent": null,
-        "brands": [
-          "6841ddf8ace3d9d9facb16a0"
-        ],
-        "title-for-brands": null,
-        "brands-types": null,
-        "parent-collection": null,
-        "collections": null,
-        "category-name": null,
-        "short-title": null,
-        "warrantytext": null,
-        "warrantyline": null,
-        "seo-title": null,
-        "seo-description": null,
-        "opengraph-title": null,
-        "opengraph-description": null,
-        "opengraph-image": null,
-        "twitter-card": null,
-        "hide": true,
-        "name": "Marvin Essential",
-        "slug": "marvin-windows"
-      }
-    },
-    {
-      "id": "695d3f04cb2a2d98b5648361",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2026-01-06T16:57:40.527Z",
-      "lastUpdated": "2026-03-23T18:47:11.962Z",
-      "lastPublished": "2026-03-24T05:43:04.253Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "discounttext": "<h3><strong>40% off for limited time</strong></h3><div data-rt-embed-type='true'>Starting from <s>915</s> $549<sup>*</sup></div><p>per window</p><p>‍</p>",
-        "property-listing---featured-image": {
-          "fileId": "695e00a375e654f6496bc79b",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695e00a375e654f6496bc79b_imgi_78_PGW_Interior_LivingRoom_MIRA_AwningWindow_Black_InspirationGallery_Module_6_1696x610_p32.avif",
-          "alt": null
+    "table": "wf_windows",
+    "collectionId": "6841ddf8ace3d9d9facb1689",
+    "collectionSlug": "windows",
+    "items": [
+        {
+            "id": "695d3f04cb2a2d98b5648361",
+            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+            "createdOn": "2026-01-06T16:57:40+00:00",
+            "lastUpdated": "2026-03-23T18:47:11+00:00",
+            "lastPublished": "2026-03-24T05:43:04+00:00",
+            "isArchived": false,
+            "isDraft": false,
+            "fieldData": {
+                "hide": 0,
+                "name": "Aluminum Clad Windows",
+                "slug": "aluminum-clad-windows",
+                "order": 12,
+                "brands": [
+                    "685114315a60cc8b388e5af2"
+                ],
+                "seo-title": "Aluminum Clad Windows | Bay Area – Deluxe Windows San Jose",
+                "collections": [],
+                "short-title": "Aluminum Clad Windows",
+                "brands-types": [
+                    "695d405d2c1f62bdda7b0535"
+                ],
+                "discounttext": "<h3><strong>40% off for limited time</strong></h3><div data-rt-embed-type='true'>Starting from <s>915</s> $549<sup>*</sup></div><p>per window</p><p>‍</p>",
+                "twitter-card": "summary_large_image",
+                "warrantyline": null,
+                "warrantytext": "<p>Offer <strong>20 year</strong> on glass.</p>",
+                "category-name": null,
+                "opengraph-title": "Aluminum Clad Windows | Bay Area – Deluxe Windows San Jose",
+                "seo-description": "Aluminum clad windows offer wood interiors with durable exterior cladding for Bay Area homes. Low-maintenance and beautiful — expertly installed by Deluxe Windows in SF.",
+                "title-for-brands": "Top Wood Clad Window Brands",
+                "parent-collection": "Windows",
+                "opengraph-description": "Aluminum clad windows offer wood interiors with durable exterior cladding for Bay Area homes. Low-maintenance and beautiful — expertly installed by Deluxe Windows in SF.",
+                "property-listing---sqf": null,
+                "property-listing---type": null,
+                "property-listing---about": "<h3>Why Choose Aluminum Clad Windows?</h3><h5>‍<strong>Classic to Bold Color Options</strong></h5><p><strong>‍</strong>From natural shades to vibrant colors, an extensive portfolio of 46 exterior colors allows you to truly set your project apart.<strong>‍</strong></p><h5><strong>Maximize Daylighting</strong> </h5><p>Experience more natural light and wide open views with a large glass area.</p><h5><strong>Design Flexibility</strong></h5><p>Solid wood interiors can be stained or painted to match other finishes inside the home. Choose matching hardware or decorative metallic finishes to beautifully complement a home’s drawer pulls, faucets and lighting.</p><h5><strong>Built to Last</strong></h5><p><strong>‍</strong>Durable extruded aluminum exterior protects wood from the elements while offering low maintenance and long-lasting beauty.</p><h5><strong>Reduced Energy Costs</strong></h5><p><strong>‍</strong>Enjoy reduced energy costs and year-round comfort with advanced glass packages that provide up to four times the energy efficiency of clear, single-glazed glass.</p><h5><strong>Insect and Moisture-resistance</strong></h5><p><strong>‍</strong>Solid wood is vacuum-treated to resist rotting and water damage for years of dependable beauty and performance.</p><h5><strong>Charming Curb Appeal</strong></h5><p><strong>‍</strong>Architecturally inspired grille profiles and patterns allow you to accentuate a home’s design.</p><p>‍</p>",
+                "property-listing---agent": null,
+                "property-listing---address": null,
+                "property-listing---excerpt": "Aluminium clad windows are durable. All aluminum clad windows are listed below.",
+                "property-listing---summary": "The durability and weather resistance of aluminum-clad windows are designed with superior craftsmanship and one-of-a kind details.",
+                "property-listing---display-price": null,
+                "property-listing---property-featured": 1,
+                "property-listing---number-of-bedrooms": null,
+                "property-listing---number-of-bathrooms": null,
+                "property-listing---number-of-parking-spots": null
+            }
         },
-        "property-listing---featured-images": [
-          {
-            "fileId": "695d3d1edd81d2862982375d",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695d3d1edd81d2862982375d_pgw_mira_hero_3-1-400x400-1-300x300.avif",
-            "alt": null
-          },
-          {
-            "fileId": "695e00b30cb2a159c666f249",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695e00b30cb2a159c666f249_imgi_71_PGW_Exterior_FrontAngle_MIRA_SingleHungWindow_InspirationGallery_Module_7_1696x610_p32.avif",
-            "alt": null
-          },
-          {
-            "fileId": "695e00a375e654f6496bc79b",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695e00a375e654f6496bc79b_imgi_78_PGW_Interior_LivingRoom_MIRA_AwningWindow_Black_InspirationGallery_Module_6_1696x610_p32.avif",
-            "alt": null
-          }
-        ],
-        "property-listing---thumbnail-image-v1": {
-          "fileId": "695e00a375e654f6496bc79b",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695e00a375e654f6496bc79b_imgi_78_PGW_Interior_LivingRoom_MIRA_AwningWindow_Black_InspirationGallery_Module_6_1696x610_p32.avif",
-          "alt": null
+        {
+            "id": "687e2e7430776dc4c9516a7d",
+            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+            "createdOn": "2025-07-21T12:11:32+00:00",
+            "lastUpdated": "2026-03-23T18:47:11+00:00",
+            "lastPublished": "2026-03-24T05:43:04+00:00",
+            "isArchived": false,
+            "isDraft": false,
+            "fieldData": {
+                "hide": 0,
+                "name": "Vinyl Windows",
+                "slug": "vinyl-windows",
+                "order": 13,
+                "brands": [
+                    "6841ddf8ace3d9d9facb169f",
+                    "6851144119c25a3a1af52024",
+                    "6841ddf8ace3d9d9facb168f",
+                    "6841ddf8ace3d9d9facb1690",
+                    "685114315a60cc8b388e5af2",
+                    "685114794ffee91485b78137"
+                ],
+                "seo-title": "Vinyl Windows | Affordable Bay Area – Deluxe Windows Concord",
+                "collections": [],
+                "short-title": "Vinyl Windows",
+                "brands-types": [
+                    "688f2ecbd67e1da9f77cde4f",
+                    "688f4528093a5e635afef8f1",
+                    "688f4e5fb4f740bb5a80cfdf",
+                    "688f75a456238a41af7d6895",
+                    "688f6a37a2c26923a1f7044d",
+                    "688f73cc7ee8cd948782bc6b",
+                    "688f65197b5142ce52811ce2"
+                ],
+                "discounttext": "<h3><strong>40% off for limited time</strong></h3><div data-rt-embed-type='true'>Starting from <s>832</s> $499<sup>*</sup></div><p>per window</p><p>‍</p>",
+                "twitter-card": "summary_large_image",
+                "warrantyline": null,
+                "warrantytext": "<p><strong>Full lifetime</strong><strong> </strong>transferable warranty on parts and labor</p>",
+                "category-name": null,
+                "opengraph-title": "Vinyl Windows | Affordable Bay Area – Deluxe Windows Concord",
+                "seo-description": "Vinyl windows are the most popular choice for Bay Area homeowners — low maintenance and energy-efficient. Deluxe Windows installs premium vinyl windows in San Francisco.",
+                "title-for-brands": "Top Vinyl Window Brands",
+                "parent-collection": "Windows",
+                "opengraph-description": "Vinyl windows are the most popular choice for Bay Area homeowners — low maintenance and energy-efficient. Deluxe Windows installs premium vinyl windows in San Francisco.",
+                "property-listing---sqf": null,
+                "property-listing---type": null,
+                "property-listing---about": "<h2 id=\"\">Why Choose Vinyl Windows?</h2><h5 id=\"\">Energy Efficient</h5><p id=\"\"><strong id=\"\">‍</strong>Vinyl windows offer top thermal performance, keeping your home comfortable year-round. Unlike aluminum, vinyl doesn’t transfer heat or cold, helping lower your energy bills and carbon footprint.</p><h5 id=\"\">Durable &amp; Long-Lasting</h5><p id=\"\"><strong id=\"\">‍</strong>Built to last, vinyl windows resist wear and weather without frequent repairs or replacements. Their long lifespan means less waste and fewer resources used.</p><h5 id=\"\">Low Maintenance &amp; Eco-Friendly</h5><p id=\"\"><strong id=\"\">‍</strong>No painting or sealing needed—just clean with soap and water. Vinyl is made from recyclable PVC, a material derived from salt, making it more sustainable than wood, which requires tree harvesting and chemical processing.</p><h5 id=\"\">Smart for You &amp; the Planet</h5><p id=\"\">Vinyl windows are energy-saving, low-maintenance, and better for the environment. If you're looking for eco-friendly windows tailored to your climate, Earthwise Windows has you covered. Contact an Earthwise specialist today to learn more.</p>",
+                "property-listing---agent": null,
+                "property-listing---address": null,
+                "property-listing---excerpt": "Vinyl frames are made from PVC, a low-maintenance and durable material. ",
+                "property-listing---summary": "Vinyl windows are built for efficiency, affordability, and ease. Made from durable PVC, these windows deliver long-term performance with virtually no upkeep. They're perfect for families, rentals, and modern homes looking for reliable value.",
+                "property-listing---display-price": null,
+                "property-listing---property-featured": 1,
+                "property-listing---number-of-bedrooms": null,
+                "property-listing---number-of-bathrooms": null,
+                "property-listing---number-of-parking-spots": null
+            }
         },
-        "property-listing---thumbnail-image-v2": {
-          "fileId": "695e00a375e654f6496bc79b",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695e00a375e654f6496bc79b_imgi_78_PGW_Interior_LivingRoom_MIRA_AwningWindow_Black_InspirationGallery_Module_6_1696x610_p32.avif",
-          "alt": null
+        {
+            "id": "687e2e6794d6def819453d2c",
+            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+            "createdOn": "2025-07-21T12:11:19+00:00",
+            "lastUpdated": "2026-03-23T18:47:11+00:00",
+            "lastPublished": "2026-03-24T05:43:04+00:00",
+            "isArchived": false,
+            "isDraft": false,
+            "fieldData": {
+                "hide": 0,
+                "name": "Wood Clad Windows",
+                "slug": "wood-clad-windows",
+                "order": 11,
+                "brands": [
+                    "6851144119c25a3a1af52024"
+                ],
+                "seo-title": "Wood Clad Windows | Bay Area – Deluxe Windows Hayward",
+                "collections": [],
+                "short-title": "Wood Clad Windows",
+                "brands-types": [
+                    "688f48f88c03f7dbc7af37cd"
+                ],
+                "discounttext": "<h3><strong>40% off for limited time</strong></h3><div data-rt-embed-type='true'>Starting from <s>915</s> $549<sup>*</sup></div><p>per window</p><p>‍</p>",
+                "twitter-card": "summary_large_image",
+                "warrantyline": null,
+                "warrantytext": "<p>Offer <strong>20 year</strong> on glass.</p><p>‍</p>",
+                "category-name": null,
+                "opengraph-title": "Wood Clad Windows | Bay Area – Deluxe Windows Hayward",
+                "seo-description": "Wood clad windows combine natural wood interiors with protective exterior cladding for Bay Area homes. Installed by Deluxe Windows in San Francisco. Get a free estimate.",
+                "title-for-brands": "Top Wood Clad Window Brands",
+                "parent-collection": "Windows",
+                "opengraph-description": "Wood clad windows combine natural wood interiors with protective exterior cladding for Bay Area homes. Installed by Deluxe Windows in San Francisco. Get a free estimate.",
+                "property-listing---sqf": null,
+                "property-listing---type": null,
+                "property-listing---about": "<h2 id=\"\">Why Choose Wood Clad Windows?</h2><h5 id=\"\">Interior Elegance</h5><p id=\"\">Enjoy real wood finishes—painted or stained to your preference—for a refined look inside. They elevate any room with texture, warmth, and timeless appeal.</p><h5 id=\"\">Exterior Durability</h5><p id=\"\">The cladding resists rain, UV rays, wind, and snow, meaning less upkeep and a longer lifespan. You won’t need to repaint or repair the outside—ever.</p><h5 id=\"\">Energy Efficiency + Performance</h5><p id=\"\">Wood-clad windows combine excellent insulation with long-term durability. They're a smart solution for high-performance homes that want both comfort and character.</p>",
+                "property-listing---agent": null,
+                "property-listing---address": null,
+                "property-listing---excerpt": "The warmth of natural wood inside with durable, low-maintenance exteriors.",
+                "property-listing---summary": "Wood-clad windows offer the best of both worlds. On the interior, you get the warmth and elegance of natural wood. On the exterior, a protective cladding (vinyl, aluminum, or fiberglass) shields your windows from the weather.",
+                "property-listing---display-price": null,
+                "property-listing---property-featured": 1,
+                "property-listing---number-of-bedrooms": null,
+                "property-listing---number-of-bathrooms": null,
+                "property-listing---number-of-parking-spots": null
+            }
         },
-        "property-listing---thumbnail-image-v3": {
-          "fileId": "695e00a375e654f6496bc79b",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695e00a375e654f6496bc79b_imgi_78_PGW_Interior_LivingRoom_MIRA_AwningWindow_Black_InspirationGallery_Module_6_1696x610_p32.avif",
-          "alt": null
+        {
+            "id": "687e2e4dca4f25a7f5db9fa8",
+            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+            "createdOn": "2025-07-21T12:10:53+00:00",
+            "lastUpdated": "2026-03-23T18:47:11+00:00",
+            "lastPublished": "2026-03-24T05:43:04+00:00",
+            "isArchived": false,
+            "isDraft": false,
+            "fieldData": {
+                "hide": 0,
+                "name": "Fiberglass Windows",
+                "slug": "fiberglass-windows",
+                "order": 10,
+                "brands": [
+                    "6841ddf8ace3d9d9facb16a0",
+                    "6841ddf8ace3d9d9facb169f",
+                    "685113b74203b28e29c1e7fb"
+                ],
+                "seo-title": "Fiberglass Windows | Bay Area – Deluxe Windows Fremont",
+                "collections": [],
+                "short-title": "Fiberglass Windows",
+                "brands-types": [
+                    "688e507f216ead3a8b3d05fa",
+                    "688f30c0157b70cefca86383",
+                    "688f65eb4367c4fcf97310bc"
+                ],
+                "discounttext": "<h3><strong>40% off for limited time</strong></h3><div data-rt-embed-type='true'>Starting from <s>915</s> $549<sup>*</sup></div><p>per window</p><p>‍</p>",
+                "twitter-card": "summary_large_image",
+                "warrantyline": null,
+                "warrantytext": "<p>Offer <strong>20 year</strong> on glass.</p><p>‍</p>",
+                "category-name": null,
+                "opengraph-title": "Fiberglass Windows | Bay Area – Deluxe Windows Fremont",
+                "seo-description": "Fiberglass windows resist warping and extreme temperatures — ideal for Bay Area climates. Premium brands and expert installation by Deluxe Windows in San Francisco.",
+                "title-for-brands": "Top Fiberglass Window Brands",
+                "parent-collection": "Windows",
+                "opengraph-description": "Fiberglass windows resist warping and extreme temperatures — ideal for Bay Area climates. Premium brands and expert installation by Deluxe Windows in San Francisco.",
+                "property-listing---sqf": null,
+                "property-listing---type": null,
+                "property-listing---about": "<h3 id=\"\">Why Choose Fiberglass Windows?</h3><h5 id=\"\">Superior Strength &amp; Longevity</h5><p id=\"\">Fiberglass frames are 8x stronger than vinyl and won’t flex or sag over time. They’re built to endure harsh weather, extreme temperatures, and years of everyday use.</p><h5 id=\"\">Energy-Saving Performance</h5><p id=\"\">These windows seal tight, keeping out drafts and reducing energy loss. Combined with Low-E glass, they help stabilize indoor temps and lower your monthly bills.</p><h5 id=\"\">Custom Wood Look — Without the Maintenance</h5><p id=\"\">Fiberglass can be painted and even textured to resemble real wood, giving you the design you want with none of the upkeep.</p>",
+                "property-listing---agent": null,
+                "property-listing---address": null,
+                "property-listing---excerpt": "Fiberglass is durable, low-maintenance, and pairs well with wood interiors. All fiberglass win",
+                "property-listing---summary": "Fiberglass windows excel in durability, resisting swelling, cracking, and warping in any climate. Their sleek design suits both traditional and modern homes.",
+                "property-listing---display-price": null,
+                "property-listing---property-featured": 1,
+                "property-listing---number-of-bedrooms": null,
+                "property-listing---number-of-bathrooms": null,
+                "property-listing---number-of-parking-spots": null
+            }
         },
-        "property-listing---about": "<h3>Why Choose Aluminum Clad Windows?</h3><h5>‍<strong>Classic to Bold Color Options</strong></h5><p><strong>‍</strong>From natural shades to vibrant colors, an extensive portfolio of 46 exterior colors allows you to truly set your project apart.<strong>‍</strong></p><h5><strong>Maximize Daylighting</strong> </h5><p>Experience more natural light and wide open views with a large glass area.</p><h5><strong>Design Flexibility</strong></h5><p>Solid wood interiors can be stained or painted to match other finishes inside the home. Choose matching hardware or decorative metallic finishes to beautifully complement a home’s drawer pulls, faucets and lighting.</p><h5><strong>Built to Last</strong></h5><p><strong>‍</strong>Durable extruded aluminum exterior protects wood from the elements while offering low maintenance and long-lasting beauty.</p><h5><strong>Reduced Energy Costs</strong></h5><p><strong>‍</strong>Enjoy reduced energy costs and year-round comfort with advanced glass packages that provide up to four times the energy efficiency of clear, single-glazed glass.</p><h5><strong>Insect and Moisture-resistance</strong></h5><p><strong>‍</strong>Solid wood is vacuum-treated to resist rotting and water damage for years of dependable beauty and performance.</p><h5><strong>Charming Curb Appeal</strong></h5><p><strong>‍</strong>Architecturally inspired grille profiles and patterns allow you to accentuate a home’s design.</p><p>‍</p>",
-        "property-listing---summary": "The durability and weather resistance of aluminum-clad windows are designed with superior craftsmanship and one-of-a kind details.",
-        "property-listing---excerpt": "Aluminium clad windows are durable. All aluminum clad windows are listed below.",
-        "property-listing---property-featured": true,
-        "property-listing---address": null,
-        "property-listing---sqf": null,
-        "property-listing---number-of-bathrooms": null,
-        "property-listing---number-of-bedrooms": null,
-        "property-listing---number-of-parking-spots": null,
-        "property-listing---display-price": null,
-        "property-listing---type": null,
-        "property-listing---agent": null,
-        "brands": [
-          "685114315a60cc8b388e5af2"
-        ],
-        "title-for-brands": "Top Wood Clad Window Brands",
-        "brands-types": [
-          "695d405d2c1f62bdda7b0535"
-        ],
-        "parent-collection": "Windows",
-        "collections": [],
-        "category-name": null,
-        "short-title": "Aluminum Clad Windows",
-        "warrantytext": "<p>Offer <strong>20 year</strong> on glass.</p>",
-        "warrantyline": null,
-        "seo-title": "Aluminum Clad Windows | Bay Area – Deluxe Windows San Jose",
-        "seo-description": "Aluminum clad windows offer wood interiors with durable exterior cladding for Bay Area homes. Low-maintenance and beautiful — expertly installed by Deluxe Windows in SF.",
-        "opengraph-title": "Aluminum Clad Windows | Bay Area – Deluxe Windows San Jose",
-        "opengraph-description": "Aluminum clad windows offer wood interiors with durable exterior cladding for Bay Area homes. Low-maintenance and beautiful — expertly installed by Deluxe Windows in SF.",
-        "opengraph-image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/695e00a375e654f6496bc79b_imgi_78_PGW_Interior_LivingRoom_MIRA_AwningWindow_Black_InspirationGallery_Module_6_1696x610_p32.jpg",
-        "twitter-card": "summary_large_image",
-        "hide": false,
-        "name": "Aluminum Clad Windows",
-        "slug": "aluminum-clad-windows"
-      }
-    },
-    {
-      "id": "687e2e7430776dc4c9516a7d",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2025-07-21T12:11:32.358Z",
-      "lastUpdated": "2026-03-23T18:47:11.939Z",
-      "lastPublished": "2026-03-24T05:43:04.253Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "discounttext": "<h3><strong>40% off for limited time</strong></h3><div data-rt-embed-type='true'>Starting from <s>832</s> $499<sup>*</sup></div><p>per window</p><p>‍</p>",
-        "property-listing---featured-image": {
-          "fileId": "684d89095fe85b113c1b5224",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d89095fe85b113c1b5224_Frame%208.avif",
-          "alt": null
+        {
+            "id": "687e2e02aec6e5ed0f12e444",
+            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+            "createdOn": "2025-07-21T12:09:38+00:00",
+            "lastUpdated": "2026-03-23T18:47:11+00:00",
+            "lastPublished": "2026-03-24T05:43:04+00:00",
+            "isArchived": false,
+            "isDraft": false,
+            "fieldData": {
+                "hide": 0,
+                "name": "Wood Windows",
+                "slug": "wood-windows",
+                "order": 9,
+                "brands": [
+                    "6841ddf8ace3d9d9facb16a0",
+                    "6851144119c25a3a1af52024",
+                    "687b75dd3a0830c27e29d5fa",
+                    "685113b74203b28e29c1e7fb"
+                ],
+                "seo-title": "Wood Windows | Natural Beauty – Deluxe Windows San Mateo",
+                "collections": [],
+                "short-title": "Wood Windows",
+                "brands-types": [
+                    "688e535ccafb9a935e538050",
+                    "688f47735b754890a2c02110",
+                    "688f5e2330da98598b5006df",
+                    "688f63aaf86eae615646c1d8"
+                ],
+                "discounttext": "<h3><strong>40% off for limited time</strong></h3><div data-rt-embed-type='true'>Starting from <s>982</s> $589<sup>*</sup></div><p>per window</p><p>‍</p>",
+                "twitter-card": "summary_large_image",
+                "warrantyline": null,
+                "warrantytext": "<p>Offer <strong>20 year</strong> on glass.</p><p>‍</p>",
+                "category-name": null,
+                "opengraph-title": "Wood Windows | Natural Beauty – Deluxe Windows San Mateo",
+                "seo-description": "Classic wood windows bring warmth and character to Bay Area homes. Multiple wood species available — expertly installed by Deluxe Windows in San Francisco. Free quotes.",
+                "title-for-brands": "Top Wood Window Brands",
+                "parent-collection": "Windows",
+                "opengraph-description": "Classic wood windows bring warmth and character to Bay Area homes. Multiple wood species available — expertly installed by Deluxe Windows in San Francisco. Free quotes.",
+                "property-listing---sqf": null,
+                "property-listing---type": null,
+                "property-listing---about": "<h2 id=\"\">Why Choose Wood Windows?</h2><h5 id=\"\">Interior Elegance</h5><p id=\"\">Enjoy real wood finishes—painted or stained to your preference—for a refined look inside. They elevate any room with texture, warmth, and timeless appeal.</p><h5 id=\"\">Exterior Durability</h5><p id=\"\">The cladding resists rain, UV rays, wind, and snow, meaning less upkeep and a longer lifespan. You won’t need to repaint or repair the outside—ever.</p><h5 id=\"\">Energy Efficiency + Performance</h5><p id=\"\">Wood-clad windows combine excellent insulation with long-term durability. They're a smart solution for high-performance homes that want both comfort and character.</p>",
+                "property-listing---agent": null,
+                "property-listing---address": null,
+                "property-listing---excerpt": "Wood has long been a popular, customizable window choice. All wood windows are listed below.",
+                "property-listing---summary": "Wood windows offer unmatched warmth and elegance, crafted from premium hardwoods. Ideal for traditional homes and historical renovations, they are cherished for their classic appeal and craftsmanship.",
+                "property-listing---display-price": null,
+                "property-listing---property-featured": 1,
+                "property-listing---number-of-bedrooms": null,
+                "property-listing---number-of-bathrooms": null,
+                "property-listing---number-of-parking-spots": null
+            }
         },
-        "property-listing---featured-images": [
-          {
-            "fileId": "684d82de149b8ff5ccc7e4c0",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d82de149b8ff5ccc7e4c0_Frame%205.avif",
-            "alt": null
-          },
-          {
-            "fileId": "684d82ddf30d7f609a8883f2",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d82ddf30d7f609a8883f2_Frame%204.avif",
-            "alt": null
-          },
-          {
-            "fileId": "684d82defbd877468954c7ed",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d82defbd877468954c7ed_Frame%203.avif",
-            "alt": null
-          },
-          {
-            "fileId": "684d82de005f082c65d173fc",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d82de005f082c65d173fc_Frame%207.avif",
-            "alt": null
-          },
-          {
-            "fileId": "684d82dd91da0fc0e069fc95",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d82dd91da0fc0e069fc95_Frame%206.avif",
-            "alt": null
-          },
-          {
-            "fileId": "684d83bba78aa3ada9c91c7c",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d83bba78aa3ada9c91c7c_Frame%209.avif",
-            "alt": null
-          },
-          {
-            "fileId": "684d83d3c66c28e9efa25e82",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d83d3c66c28e9efa25e82_Frame%207.avif",
-            "alt": null
-          }
-        ],
-        "property-listing---thumbnail-image-v1": {
-          "fileId": "684d89095fe85b113c1b5224",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d89095fe85b113c1b5224_Frame%208.avif",
-          "alt": null
+        {
+            "id": "687e2df1becb2cac84f31e6c",
+            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+            "createdOn": "2025-07-21T12:09:21+00:00",
+            "lastUpdated": "2026-05-18T17:30:07+00:00",
+            "lastPublished": "2026-05-18T17:30:07+00:00",
+            "isArchived": false,
+            "isDraft": false,
+            "fieldData": {
+                "hide": 0,
+                "name": "Aluminum Windows",
+                "slug": "aluminum-windows",
+                "order": 7,
+                "brands": [
+                    "6841ddf8ace3d9d9facb16a0",
+                    "6841ddf8ace3d9d9facb169f",
+                    "687b75dd3a0830c27e29d5fa",
+                    "685113b74203b28e29c1e7fb",
+                    "685114315a60cc8b388e5af2",
+                    "6841ddf8ace3d9d9facb169d",
+                    "687b77229d351e28dc2a5141"
+                ],
+                "seo-title": "Aluminum Windows | Energy-Efficient – Deluxe Windows Oakland",
+                "collections": [],
+                "short-title": "Aluminum Windows",
+                "brands-types": [
+                    "688e543574f51bd2d0555713",
+                    "688f3164095ccc71f0076129",
+                    "688f55d9ca0a2c012d972ce5",
+                    "688f657a5e769be614ba0e05",
+                    "688f6b001b753e55d69f8c62",
+                    "688f7766e5f7ea510616eddd",
+                    "688f7a083cdbaadbf3351375"
+                ],
+                "discounttext": "<h3><strong><code>40% off for limited time</code></strong></h3><div data-rt-embed-type='true'>Starting from <s>915</s> $549<sup>*</sup></div><p><code>per window</code></p>",
+                "twitter-card": "summary_large_image",
+                "warrantyline": null,
+                "warrantytext": "<p>Offer <strong>20 year</strong> on glass.</p><p>‍</p>",
+                "category-name": null,
+                "opengraph-title": "Aluminum Windows | Energy-Efficient – Deluxe Windows Oakland",
+                "seo-description": "Lightweight, strong aluminum windows for Bay Area homes. Slim frames, wide views, and corrosion resistance — installed by Deluxe Windows in San Francisco. Free estimates.",
+                "title-for-brands": "Top Aluminum Window Brands",
+                "parent-collection": "Windows",
+                "opengraph-description": "Lightweight, strong aluminum windows for Bay Area homes. Slim frames, wide views, and corrosion resistance — installed by Deluxe Windows in San Francisco. Free estimates.",
+                "property-listing---sqf": null,
+                "property-listing---type": null,
+                "property-listing---about": "<h3 id=\"\">Why Choose Aluminum Windows?</h3><h5 id=\"\">Ultra-Narrow Sightlines</h5><p id=\"\">Steel's strength allows for the slimmest window frames on the market. This creates a sleek, open look with more glass, more light, and more elegance.</p><h5 id=\"\">Built Like a Fortress</h5><p id=\"\">If safety and longevity matter most, steel is unbeatable. It’s virtually impossible to warp, rot, or break, offering the highest level of protection for your home.</p><h5 id=\"\">Distinctive Style</h5><p id=\"\">Steel windows bring a timeless, industrial-chic aesthetic to any space. They complement both vintage and modern interiors with bold lines and unmatched presence.</p>",
+                "property-listing---agent": null,
+                "property-listing---address": null,
+                "property-listing---excerpt": "Aluminium windows are strong, slim, and versatile. All aluminum windows are listed below.",
+                "property-listing---summary": "Aluminum windows offer a clean, contemporary look with outstanding durability. These frames are ultra-strong but lightweight, perfect for expansive glass panels and wide-open views.",
+                "property-listing---display-price": null,
+                "property-listing---property-featured": 1,
+                "property-listing---number-of-bedrooms": null,
+                "property-listing---number-of-bathrooms": null,
+                "property-listing---number-of-parking-spots": null
+            }
         },
-        "property-listing---thumbnail-image-v2": {
-          "fileId": "684d89095fe85b113c1b5224",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d89095fe85b113c1b5224_Frame%208.avif",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v3": {
-          "fileId": "684d89095fe85b113c1b5224",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d89095fe85b113c1b5224_Frame%208.avif",
-          "alt": null
-        },
-        "property-listing---about": "<h2 id=\"\">Why Choose Vinyl Windows?</h2><h5 id=\"\">Energy Efficient</h5><p id=\"\"><strong id=\"\">‍</strong>Vinyl windows offer top thermal performance, keeping your home comfortable year-round. Unlike aluminum, vinyl doesn’t transfer heat or cold, helping lower your energy bills and carbon footprint.</p><h5 id=\"\">Durable &amp; Long-Lasting</h5><p id=\"\"><strong id=\"\">‍</strong>Built to last, vinyl windows resist wear and weather without frequent repairs or replacements. Their long lifespan means less waste and fewer resources used.</p><h5 id=\"\">Low Maintenance &amp; Eco-Friendly</h5><p id=\"\"><strong id=\"\">‍</strong>No painting or sealing needed—just clean with soap and water. Vinyl is made from recyclable PVC, a material derived from salt, making it more sustainable than wood, which requires tree harvesting and chemical processing.</p><h5 id=\"\">Smart for You &amp; the Planet</h5><p id=\"\">Vinyl windows are energy-saving, low-maintenance, and better for the environment. If you're looking for eco-friendly windows tailored to your climate, Earthwise Windows has you covered. Contact an Earthwise specialist today to learn more.</p>",
-        "property-listing---summary": "Vinyl windows are built for efficiency, affordability, and ease. Made from durable PVC, these windows deliver long-term performance with virtually no upkeep. They're perfect for families, rentals, and modern homes looking for reliable value.",
-        "property-listing---excerpt": "Vinyl frames are made from PVC, a low-maintenance and durable material. ",
-        "property-listing---property-featured": true,
-        "property-listing---address": null,
-        "property-listing---sqf": null,
-        "property-listing---number-of-bathrooms": null,
-        "property-listing---number-of-bedrooms": null,
-        "property-listing---number-of-parking-spots": null,
-        "property-listing---display-price": null,
-        "property-listing---type": null,
-        "property-listing---agent": null,
-        "brands": [
-          "6841ddf8ace3d9d9facb169f",
-          "6851144119c25a3a1af52024",
-          "6841ddf8ace3d9d9facb168f",
-          "6841ddf8ace3d9d9facb1690",
-          "685114315a60cc8b388e5af2",
-          "685114794ffee91485b78137"
-        ],
-        "title-for-brands": "Top Vinyl Window Brands",
-        "brands-types": [
-          "688f2ecbd67e1da9f77cde4f",
-          "688f4528093a5e635afef8f1",
-          "688f4e5fb4f740bb5a80cfdf",
-          "688f75a456238a41af7d6895",
-          "688f6a37a2c26923a1f7044d",
-          "688f73cc7ee8cd948782bc6b",
-          "688f65197b5142ce52811ce2"
-        ],
-        "parent-collection": "Windows",
-        "collections": [],
-        "category-name": null,
-        "short-title": "Vinyl Windows",
-        "warrantytext": "<p><strong>Full lifetime</strong><strong> </strong>transferable warranty on parts and labor</p>",
-        "warrantyline": null,
-        "seo-title": "Vinyl Windows | Affordable Bay Area – Deluxe Windows Concord",
-        "seo-description": "Vinyl windows are the most popular choice for Bay Area homeowners — low maintenance and energy-efficient. Deluxe Windows installs premium vinyl windows in San Francisco.",
-        "opengraph-title": "Vinyl Windows | Affordable Bay Area – Deluxe Windows Concord",
-        "opengraph-description": "Vinyl windows are the most popular choice for Bay Area homeowners — low maintenance and energy-efficient. Deluxe Windows installs premium vinyl windows in San Francisco.",
-        "opengraph-image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d89095fe85b113c1b5224_Frame%208.avif",
-        "twitter-card": "summary_large_image",
-        "hide": false,
-        "name": "Vinyl Windows",
-        "slug": "vinyl-windows",
-        "custom-hero-image": {
-          "fileId": null,
-          "url": "/webflow-assets/images/window-type-hero/vinyl-windows-hero-bg-v1.avif",
-          "alt": "Vinyl Windows hero background"
+        {
+            "id": "687e2dcffd2a7768f1e926e1",
+            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+            "createdOn": "2025-07-21T12:08:47+00:00",
+            "lastUpdated": "2026-03-23T18:47:11+00:00",
+            "lastPublished": "2026-03-24T05:43:04+00:00",
+            "isArchived": false,
+            "isDraft": false,
+            "fieldData": {
+                "hide": 0,
+                "name": "Steel Windows",
+                "slug": "steel-windows",
+                "order": 8,
+                "brands": [
+                    "687b75dd3a0830c27e29d5fa"
+                ],
+                "seo-title": "Steel Windows | Industrial & Modern – Deluxe Windows Berkeley",
+                "collections": [],
+                "short-title": "Steel Windows",
+                "brands-types": [
+                    "688f5d3977516719c3c6dc22"
+                ],
+                "discounttext": "<h3><strong>40% off for limited time</strong></h3><div data-rt-embed-type='true'>Starting from <s>982</s> $589<sup>*</sup></div><p>per window</p>",
+                "twitter-card": "summary_large_image",
+                "warrantyline": null,
+                "warrantytext": "<p>Offer <strong>20 year</strong> on glass.</p><p>‍</p>",
+                "category-name": null,
+                "opengraph-title": "Steel Windows | Industrial & Modern – Deluxe Windows Berkeley",
+                "seo-description": "Steel windows add a bold architectural statement to Bay Area homes. Slim sightlines and superior strength — installed by Deluxe Windows in San Francisco. Free quotes.",
+                "title-for-brands": "Top Steel Window Brands",
+                "parent-collection": "Windows",
+                "opengraph-description": "Steel windows add a bold architectural statement to Bay Area homes. Slim sightlines and superior strength — installed by Deluxe Windows in San Francisco. Free quotes.",
+                "property-listing---sqf": null,
+                "property-listing---type": null,
+                "property-listing---about": "<h3 id=\"\">Why Choose Steel Windows?</h3><h5 id=\"\">Ultra-Narrow Sightlines</h5><p id=\"\">Steel's strength allows for the slimmest window frames on the market. This creates a sleek, open look with more glass, more light, and more elegance.</p><h5 id=\"\">Built Like a Fortress</h5><p id=\"\">If safety and longevity matter most, steel is unbeatable. It’s virtually impossible to warp, rot, or break, offering the highest level of protection for your home.</p><h5 id=\"\">Distinctive Style</h5><p id=\"\">Steel windows bring a timeless, industrial-chic aesthetic to any space. They complement both vintage and modern interiors with bold lines and unmatched presence.</p>",
+                "property-listing---agent": null,
+                "property-listing---address": null,
+                "property-listing---excerpt": "Stainless steel profiles stand out with polished, weather-resistant finishes.",
+                "property-listing---summary": "Steel windows make a bold architectural statement while offering top-tier strength and security. They’re often featured in upscale homes, loft conversions, and luxury remodels where design and durability are non-negotiable.",
+                "property-listing---display-price": null,
+                "property-listing---property-featured": 1,
+                "property-listing---number-of-bedrooms": null,
+                "property-listing---number-of-bathrooms": null,
+                "property-listing---number-of-parking-spots": null
+            }
         }
-      }
-    },
-    {
-      "id": "687e2e6794d6def819453d2c",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2025-07-21T12:11:19.934Z",
-      "lastUpdated": "2026-03-23T18:47:11.906Z",
-      "lastPublished": "2026-03-24T05:43:04.253Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "discounttext": "<h3><strong>40% off for limited time</strong></h3><div data-rt-embed-type='true'>Starting from <s>915</s> $549<sup>*</sup></div><p>per window</p><p>‍</p>",
-        "property-listing---featured-image": {
-          "fileId": "687e2bbbcf84c63258838bc4",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/687e2bbbcf84c63258838bc4_homeguide-marvin-signature-windows-and-doors.avif",
-          "alt": null
-        },
-        "property-listing---featured-images": [
-          {
-            "fileId": "684d82de149b8ff5ccc7e4c0",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d82de149b8ff5ccc7e4c0_Frame%205.avif",
-            "alt": null
-          },
-          {
-            "fileId": "684d82ddf30d7f609a8883f2",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d82ddf30d7f609a8883f2_Frame%204.avif",
-            "alt": null
-          },
-          {
-            "fileId": "684d82defbd877468954c7ed",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d82defbd877468954c7ed_Frame%203.avif",
-            "alt": null
-          },
-          {
-            "fileId": "684d82de005f082c65d173fc",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d82de005f082c65d173fc_Frame%207.avif",
-            "alt": null
-          },
-          {
-            "fileId": "684d82dd91da0fc0e069fc95",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d82dd91da0fc0e069fc95_Frame%206.avif",
-            "alt": null
-          },
-          {
-            "fileId": "684d83bba78aa3ada9c91c7c",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d83bba78aa3ada9c91c7c_Frame%209.avif",
-            "alt": null
-          },
-          {
-            "fileId": "684d83d3c66c28e9efa25e82",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d83d3c66c28e9efa25e82_Frame%207.avif",
-            "alt": null
-          }
-        ],
-        "property-listing---thumbnail-image-v1": {
-          "fileId": "687e2bbbcf84c63258838bc4",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/687e2bbbcf84c63258838bc4_homeguide-marvin-signature-windows-and-doors.avif",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v2": {
-          "fileId": "687e2bbbcf84c63258838bc4",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/687e2bbbcf84c63258838bc4_homeguide-marvin-signature-windows-and-doors.avif",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v3": {
-          "fileId": "687e2bbbcf84c63258838bc4",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/687e2bbbcf84c63258838bc4_homeguide-marvin-signature-windows-and-doors.avif",
-          "alt": null
-        },
-        "property-listing---about": "<h2 id=\"\">Why Choose Wood Clad Windows?</h2><h5 id=\"\">Interior Elegance</h5><p id=\"\">Enjoy real wood finishes—painted or stained to your preference—for a refined look inside. They elevate any room with texture, warmth, and timeless appeal.</p><h5 id=\"\">Exterior Durability</h5><p id=\"\">The cladding resists rain, UV rays, wind, and snow, meaning less upkeep and a longer lifespan. You won’t need to repaint or repair the outside—ever.</p><h5 id=\"\">Energy Efficiency + Performance</h5><p id=\"\">Wood-clad windows combine excellent insulation with long-term durability. They're a smart solution for high-performance homes that want both comfort and character.</p>",
-        "property-listing---summary": "Wood-clad windows offer the best of both worlds. On the interior, you get the warmth and elegance of natural wood. On the exterior, a protective cladding (vinyl, aluminum, or fiberglass) shields your windows from the weather.",
-        "property-listing---excerpt": "The warmth of natural wood inside with durable, low-maintenance exteriors.",
-        "property-listing---property-featured": true,
-        "property-listing---address": null,
-        "property-listing---sqf": null,
-        "property-listing---number-of-bathrooms": null,
-        "property-listing---number-of-bedrooms": null,
-        "property-listing---number-of-parking-spots": null,
-        "property-listing---display-price": null,
-        "property-listing---type": null,
-        "property-listing---agent": null,
-        "brands": [
-          "6851144119c25a3a1af52024"
-        ],
-        "title-for-brands": "Top Wood Clad Window Brands",
-        "brands-types": [
-          "688f48f88c03f7dbc7af37cd"
-        ],
-        "parent-collection": "Windows",
-        "collections": [],
-        "category-name": null,
-        "short-title": "Wood Clad Windows",
-        "warrantytext": "<p>Offer <strong>20 year</strong> on glass.</p><p>‍</p>",
-        "warrantyline": null,
-        "seo-title": "Wood Clad Windows | Bay Area – Deluxe Windows Hayward",
-        "seo-description": "Wood clad windows combine natural wood interiors with protective exterior cladding for Bay Area homes. Installed by Deluxe Windows in San Francisco. Get a free estimate.",
-        "opengraph-title": "Wood Clad Windows | Bay Area – Deluxe Windows Hayward",
-        "opengraph-description": "Wood clad windows combine natural wood interiors with protective exterior cladding for Bay Area homes. Installed by Deluxe Windows in San Francisco. Get a free estimate.",
-        "opengraph-image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/687e2bbbcf84c63258838bc4_homeguide-marvin-signature-windows-and-doors.avif",
-        "twitter-card": "summary_large_image",
-        "hide": false,
-        "name": "Wood Clad Windows",
-        "slug": "wood-clad-windows"
-      }
-    },
-    {
-      "id": "687e2e4dca4f25a7f5db9fa8",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2025-07-21T12:10:53.386Z",
-      "lastUpdated": "2026-03-23T18:47:11.874Z",
-      "lastPublished": "2026-03-24T05:43:04.253Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "discounttext": "<h3><strong>40% off for limited time</strong></h3><div data-rt-embed-type='true'>Starting from <s>915</s> $549<sup>*</sup></div><p>per window</p><p>‍</p>",
-        "property-listing---featured-image": {
-          "fileId": "684d8fd91fff20336f9a857c",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d8fd91fff20336f9a857c_Frame%2029.avif",
-          "alt": null
-        },
-        "property-listing---featured-images": [
-          {
-            "fileId": "684d900b75255925db7f15af",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d900b75255925db7f15af_Frame%2028.avif",
-            "alt": null
-          },
-          {
-            "fileId": "684d9011c5d14426658775b0",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d9011c5d14426658775b0_Frame%2027.avif",
-            "alt": null
-          },
-          {
-            "fileId": "684d9016813ffc6a40e50cd5",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d9016813ffc6a40e50cd5_Frame%2026.avif",
-            "alt": null
-          },
-          {
-            "fileId": "684d901d1c52bdf38ccf5294",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d901d1c52bdf38ccf5294_Frame%2025.avif",
-            "alt": null
-          },
-          {
-            "fileId": "684d9024f7519f8e4719812e",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d9024f7519f8e4719812e_Frame%2024.avif",
-            "alt": null
-          },
-          {
-            "fileId": "684d90352d344f16ce7237bc",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d90352d344f16ce7237bc_Frame%2023.avif",
-            "alt": null
-          },
-          {
-            "fileId": "684d903b9a0f5b6bc57cc3c7",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d903b9a0f5b6bc57cc3c7_Frame%2022.avif",
-            "alt": null
-          }
-        ],
-        "property-listing---thumbnail-image-v1": {
-          "fileId": "684d8fd91fff20336f9a857c",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d8fd91fff20336f9a857c_Frame%2029.avif",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v2": {
-          "fileId": "684d8fd91fff20336f9a857c",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d8fd91fff20336f9a857c_Frame%2029.avif",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v3": {
-          "fileId": "684d8fd91fff20336f9a857c",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d8fd91fff20336f9a857c_Frame%2029.avif",
-          "alt": null
-        },
-        "property-listing---about": "<h3 id=\"\">Why Choose Fiberglass Windows?</h3><h5 id=\"\">Superior Strength &amp; Longevity</h5><p id=\"\">Fiberglass frames are 8x stronger than vinyl and won’t flex or sag over time. They’re built to endure harsh weather, extreme temperatures, and years of everyday use.</p><h5 id=\"\">Energy-Saving Performance</h5><p id=\"\">These windows seal tight, keeping out drafts and reducing energy loss. Combined with Low-E glass, they help stabilize indoor temps and lower your monthly bills.</p><h5 id=\"\">Custom Wood Look — Without the Maintenance</h5><p id=\"\">Fiberglass can be painted and even textured to resemble real wood, giving you the design you want with none of the upkeep.</p>",
-        "property-listing---summary": "Fiberglass windows excel in durability, resisting swelling, cracking, and warping in any climate. Their sleek design suits both traditional and modern homes.",
-        "property-listing---excerpt": "Fiberglass is durable, low-maintenance, and pairs well with wood interiors. All fiberglass win",
-        "property-listing---property-featured": true,
-        "property-listing---address": null,
-        "property-listing---sqf": null,
-        "property-listing---number-of-bathrooms": null,
-        "property-listing---number-of-bedrooms": null,
-        "property-listing---number-of-parking-spots": null,
-        "property-listing---display-price": null,
-        "property-listing---type": null,
-        "property-listing---agent": null,
-        "brands": [
-          "6841ddf8ace3d9d9facb16a0",
-          "6841ddf8ace3d9d9facb169f",
-          "685113b74203b28e29c1e7fb"
-        ],
-        "title-for-brands": "Top Fiberglass Window Brands",
-        "brands-types": [
-          "688e507f216ead3a8b3d05fa",
-          "688f30c0157b70cefca86383",
-          "688f65eb4367c4fcf97310bc"
-        ],
-        "parent-collection": "Windows",
-        "collections": [],
-        "category-name": null,
-        "short-title": "Fiberglass Windows",
-        "warrantytext": "<p>Offer <strong>20 year</strong> on glass.</p><p>‍</p>",
-        "warrantyline": null,
-        "seo-title": "Fiberglass Windows | Bay Area – Deluxe Windows Fremont",
-        "seo-description": "Fiberglass windows resist warping and extreme temperatures — ideal for Bay Area climates. Premium brands and expert installation by Deluxe Windows in San Francisco.",
-        "opengraph-title": "Fiberglass Windows | Bay Area – Deluxe Windows Fremont",
-        "opengraph-description": "Fiberglass windows resist warping and extreme temperatures — ideal for Bay Area climates. Premium brands and expert installation by Deluxe Windows in San Francisco.",
-        "opengraph-image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d8fd91fff20336f9a857c_Frame%2029.avif",
-        "twitter-card": "summary_large_image",
-        "hide": false,
-        "name": "Fiberglass Windows",
-        "slug": "fiberglass-windows"
-      }
-    },
-    {
-      "id": "687e2e02aec6e5ed0f12e444",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2025-07-21T12:09:38.549Z",
-      "lastUpdated": "2026-03-23T18:47:11.895Z",
-      "lastPublished": "2026-03-24T05:43:04.253Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "discounttext": "<h3><strong>40% off for limited time</strong></h3><div data-rt-embed-type='true'>Starting from <s>982</s> $589<sup>*</sup></div><p>per window</p><p>‍</p>",
-        "property-listing---featured-image": {
-          "fileId": "684d9286149b8ff5cccdddbc",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d9286149b8ff5cccdddbc_Frame%2039.avif",
-          "alt": null
-        },
-        "property-listing---featured-images": [
-          {
-            "fileId": "684d92a6698b1ec714391e9c",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d92a6698b1ec714391e9c_Frame%2032.avif",
-            "alt": null
-          },
-          {
-            "fileId": "684d92ac085576df2a795253",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d92ac085576df2a795253_Frame%2031.avif",
-            "alt": null
-          },
-          {
-            "fileId": "684d92b422bad9559d06b656",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d92b422bad9559d06b656_Frame%2033.avif",
-            "alt": null
-          },
-          {
-            "fileId": "684d92bc2d344f16ce731fd1",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d92bc2d344f16ce731fd1_Frame%2037.avif",
-            "alt": null
-          },
-          {
-            "fileId": "684d92c5afa40de85e688954",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d92c5afa40de85e688954_Frame%2035.avif",
-            "alt": null
-          },
-          {
-            "fileId": "684d92cc097b260596c176c8",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d92cc097b260596c176c8_Frame%2034.avif",
-            "alt": null
-          },
-          {
-            "fileId": "684d92b422bad9559d06b656",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d92b422bad9559d06b656_Frame%2033.avif",
-            "alt": null
-          }
-        ],
-        "property-listing---thumbnail-image-v1": {
-          "fileId": "684d9286149b8ff5cccdddbc",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d9286149b8ff5cccdddbc_Frame%2039.avif",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v2": {
-          "fileId": "684d9286149b8ff5cccdddbc",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d9286149b8ff5cccdddbc_Frame%2039.avif",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v3": {
-          "fileId": "684d9286149b8ff5cccdddbc",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d9286149b8ff5cccdddbc_Frame%2039.avif",
-          "alt": null
-        },
-        "property-listing---about": "<h2 id=\"\">Why Choose Wood Windows?</h2><h5 id=\"\">Interior Elegance</h5><p id=\"\">Enjoy real wood finishes—painted or stained to your preference—for a refined look inside. They elevate any room with texture, warmth, and timeless appeal.</p><h5 id=\"\">Exterior Durability</h5><p id=\"\">The cladding resists rain, UV rays, wind, and snow, meaning less upkeep and a longer lifespan. You won’t need to repaint or repair the outside—ever.</p><h5 id=\"\">Energy Efficiency + Performance</h5><p id=\"\">Wood-clad windows combine excellent insulation with long-term durability. They're a smart solution for high-performance homes that want both comfort and character.</p>",
-        "property-listing---summary": "Wood windows offer unmatched warmth and elegance, crafted from premium hardwoods. Ideal for traditional homes and historical renovations, they are cherished for their classic appeal and craftsmanship.",
-        "property-listing---excerpt": "Wood has long been a popular, customizable window choice. All wood windows are listed below.",
-        "property-listing---property-featured": true,
-        "property-listing---address": null,
-        "property-listing---sqf": null,
-        "property-listing---number-of-bathrooms": null,
-        "property-listing---number-of-bedrooms": null,
-        "property-listing---number-of-parking-spots": null,
-        "property-listing---display-price": null,
-        "property-listing---type": null,
-        "property-listing---agent": null,
-        "brands": [
-          "6841ddf8ace3d9d9facb16a0",
-          "6851144119c25a3a1af52024",
-          "687b75dd3a0830c27e29d5fa",
-          "685113b74203b28e29c1e7fb"
-        ],
-        "title-for-brands": "Top Wood Window Brands",
-        "brands-types": [
-          "688e535ccafb9a935e538050",
-          "688f47735b754890a2c02110",
-          "688f5e2330da98598b5006df",
-          "688f63aaf86eae615646c1d8"
-        ],
-        "parent-collection": "Windows",
-        "collections": [],
-        "category-name": null,
-        "short-title": "Wood Windows",
-        "warrantytext": "<p>Offer <strong>20 year</strong> on glass.</p><p>‍</p>",
-        "warrantyline": null,
-        "seo-title": "Wood Windows | Natural Beauty – Deluxe Windows San Mateo",
-        "seo-description": "Classic wood windows bring warmth and character to Bay Area homes. Multiple wood species available — expertly installed by Deluxe Windows in San Francisco. Free quotes.",
-        "opengraph-title": "Wood Windows | Natural Beauty – Deluxe Windows San Mateo",
-        "opengraph-description": "Classic wood windows bring warmth and character to Bay Area homes. Multiple wood species available — expertly installed by Deluxe Windows in San Francisco. Free quotes.",
-        "opengraph-image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d9286149b8ff5cccdddbc_Frame%2039.avif",
-        "twitter-card": "summary_large_image",
-        "hide": false,
-        "name": "Wood Windows",
-        "slug": "wood-windows"
-      }
-    },
-    {
-      "id": "687e2df1becb2cac84f31e6c",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2025-07-21T12:09:21.435Z",
-      "lastUpdated": "2026-05-18T17:30:07.169Z",
-      "lastPublished": "2026-05-18T17:30:07.169Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "discounttext": "<h3><strong><code>40% off for limited time</code></strong></h3><div data-rt-embed-type='true'>Starting from <s>915</s> $549<sup>*</sup></div><p><code>per window</code></p>",
-        "property-listing---featured-image": {
-          "fileId": "684d8c0f6326c95b90a2816b",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d8c0f6326c95b90a2816b_Frame%2019.avif",
-          "alt": null
-        },
-        "property-listing---featured-images": [
-          {
-            "fileId": "684d8c43d893b1531185ab3e",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d8c43d893b1531185ab3e_Frame%2011.avif",
-            "alt": null
-          },
-          {
-            "fileId": "684d8c4cc94ba92d1b1ae62d",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d8c4cc94ba92d1b1ae62d_Frame%2014.avif",
-            "alt": null
-          },
-          {
-            "fileId": "684d8c521f36cc7652eca591",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d8c521f36cc7652eca591_Frame%2015.avif",
-            "alt": null
-          },
-          {
-            "fileId": "684d8c59dc4619699b6daace",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d8c59dc4619699b6daace_Frame%2016.avif",
-            "alt": null
-          },
-          {
-            "fileId": "684d8c5fdec657e07f14c424",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d8c5fdec657e07f14c424_Frame%2017.avif",
-            "alt": null
-          },
-          {
-            "fileId": "684d8c640f1c84f5fbcf800b",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d8c640f1c84f5fbcf800b_Frame%2021.avif",
-            "alt": null
-          },
-          {
-            "fileId": "684d8c6f86d0f0f7ba4f5be8",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d8c6f86d0f0f7ba4f5be8_Frame%2012.avif",
-            "alt": null
-          }
-        ],
-        "property-listing---thumbnail-image-v1": {
-          "fileId": "684d8c0f6326c95b90a2816b",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d8c0f6326c95b90a2816b_Frame%2019.avif",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v2": {
-          "fileId": "684d8c0f6326c95b90a2816b",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d8c0f6326c95b90a2816b_Frame%2019.avif",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v3": {
-          "fileId": "684d8c0f6326c95b90a2816b",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d8c0f6326c95b90a2816b_Frame%2019.avif",
-          "alt": null
-        },
-        "property-listing---about": "<h3 id=\"\">Why Choose Aluminum Windows?</h3><h5 id=\"\">Ultra-Narrow Sightlines</h5><p id=\"\">Steel's strength allows for the slimmest window frames on the market. This creates a sleek, open look with more glass, more light, and more elegance.</p><h5 id=\"\">Built Like a Fortress</h5><p id=\"\">If safety and longevity matter most, steel is unbeatable. It’s virtually impossible to warp, rot, or break, offering the highest level of protection for your home.</p><h5 id=\"\">Distinctive Style</h5><p id=\"\">Steel windows bring a timeless, industrial-chic aesthetic to any space. They complement both vintage and modern interiors with bold lines and unmatched presence.</p>",
-        "property-listing---summary": "Aluminum windows offer a clean, contemporary look with outstanding durability. These frames are ultra-strong but lightweight, perfect for expansive glass panels and wide-open views.",
-        "property-listing---excerpt": "Aluminium windows are strong, slim, and versatile. All aluminum windows are listed below.",
-        "property-listing---property-featured": true,
-        "property-listing---address": null,
-        "property-listing---sqf": null,
-        "property-listing---number-of-bathrooms": null,
-        "property-listing---number-of-bedrooms": null,
-        "property-listing---number-of-parking-spots": null,
-        "property-listing---display-price": null,
-        "property-listing---type": null,
-        "property-listing---agent": null,
-        "brands": [
-          "6841ddf8ace3d9d9facb16a0",
-          "6841ddf8ace3d9d9facb169f",
-          "687b75dd3a0830c27e29d5fa",
-          "685113b74203b28e29c1e7fb",
-          "685114315a60cc8b388e5af2",
-          "6841ddf8ace3d9d9facb169d",
-          "687b77229d351e28dc2a5141"
-        ],
-        "title-for-brands": "Top Aluminum Window Brands",
-        "brands-types": [
-          "688e543574f51bd2d0555713",
-          "688f3164095ccc71f0076129",
-          "688f55d9ca0a2c012d972ce5",
-          "688f657a5e769be614ba0e05",
-          "688f6b001b753e55d69f8c62",
-          "688f7766e5f7ea510616eddd",
-          "688f7a083cdbaadbf3351375"
-        ],
-        "parent-collection": "Windows",
-        "collections": [],
-        "category-name": null,
-        "short-title": "Aluminum Windows",
-        "warrantytext": "<p>Offer <strong>20 year</strong> on glass.</p><p>‍</p>",
-        "warrantyline": null,
-        "seo-title": "Aluminum Windows | Energy-Efficient – Deluxe Windows Oakland",
-        "seo-description": "Lightweight, strong aluminum windows for Bay Area homes. Slim frames, wide views, and corrosion resistance — installed by Deluxe Windows in San Francisco. Free estimates.",
-        "opengraph-title": "Aluminum Windows | Energy-Efficient – Deluxe Windows Oakland",
-        "opengraph-description": "Lightweight, strong aluminum windows for Bay Area homes. Slim frames, wide views, and corrosion resistance — installed by Deluxe Windows in San Francisco. Free estimates.",
-        "opengraph-image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d8c0f6326c95b90a2816b_Frame%2019.avif",
-        "twitter-card": "summary_large_image",
-        "hide": false,
-        "name": "Aluminum Windows",
-        "slug": "aluminum-windows"
-      }
-    },
-    {
-      "id": "687e2dcffd2a7768f1e926e1",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2025-07-21T12:08:47.166Z",
-      "lastUpdated": "2026-03-23T18:47:11.976Z",
-      "lastPublished": "2026-03-24T05:43:04.253Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "discounttext": "<h3><strong>40% off for limited time</strong></h3><div data-rt-embed-type='true'>Starting from <s>982</s> $589<sup>*</sup></div><p>per window</p>",
-        "property-listing---featured-image": {
-          "fileId": "68755fbd78e6bf0cc4107a42",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68755fbd78e6bf0cc4107a42_1.avif",
-          "alt": null
-        },
-        "property-listing---featured-images": [
-          {
-            "fileId": "684d82de149b8ff5ccc7e4c0",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d82de149b8ff5ccc7e4c0_Frame%205.avif",
-            "alt": null
-          },
-          {
-            "fileId": "684d82ddf30d7f609a8883f2",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d82ddf30d7f609a8883f2_Frame%204.avif",
-            "alt": null
-          },
-          {
-            "fileId": "684d82defbd877468954c7ed",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d82defbd877468954c7ed_Frame%203.avif",
-            "alt": null
-          },
-          {
-            "fileId": "684d82de005f082c65d173fc",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d82de005f082c65d173fc_Frame%207.avif",
-            "alt": null
-          },
-          {
-            "fileId": "684d82dd91da0fc0e069fc95",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d82dd91da0fc0e069fc95_Frame%206.avif",
-            "alt": null
-          },
-          {
-            "fileId": "684d83bba78aa3ada9c91c7c",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d83bba78aa3ada9c91c7c_Frame%209.avif",
-            "alt": null
-          },
-          {
-            "fileId": "684d83d3c66c28e9efa25e82",
-            "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/684d83d3c66c28e9efa25e82_Frame%207.avif",
-            "alt": null
-          }
-        ],
-        "property-listing---thumbnail-image-v1": {
-          "fileId": "68755fbd78e6bf0cc4107a42",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68755fbd78e6bf0cc4107a42_1.avif",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v2": {
-          "fileId": "68755fbd78e6bf0cc4107a42",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68755fbd78e6bf0cc4107a42_1.avif",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v3": {
-          "fileId": "68755fbd78e6bf0cc4107a42",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68755fbd78e6bf0cc4107a42_1.avif",
-          "alt": null
-        },
-        "property-listing---about": "<h3 id=\"\">Why Choose Steel Windows?</h3><h5 id=\"\">Ultra-Narrow Sightlines</h5><p id=\"\">Steel's strength allows for the slimmest window frames on the market. This creates a sleek, open look with more glass, more light, and more elegance.</p><h5 id=\"\">Built Like a Fortress</h5><p id=\"\">If safety and longevity matter most, steel is unbeatable. It’s virtually impossible to warp, rot, or break, offering the highest level of protection for your home.</p><h5 id=\"\">Distinctive Style</h5><p id=\"\">Steel windows bring a timeless, industrial-chic aesthetic to any space. They complement both vintage and modern interiors with bold lines and unmatched presence.</p>",
-        "property-listing---summary": "Steel windows make a bold architectural statement while offering top-tier strength and security. They’re often featured in upscale homes, loft conversions, and luxury remodels where design and durability are non-negotiable.",
-        "property-listing---excerpt": "Stainless steel profiles stand out with polished, weather-resistant finishes.",
-        "property-listing---property-featured": true,
-        "property-listing---address": null,
-        "property-listing---sqf": null,
-        "property-listing---number-of-bathrooms": null,
-        "property-listing---number-of-bedrooms": null,
-        "property-listing---number-of-parking-spots": null,
-        "property-listing---display-price": null,
-        "property-listing---type": null,
-        "property-listing---agent": null,
-        "brands": [
-          "687b75dd3a0830c27e29d5fa"
-        ],
-        "title-for-brands": "Top Steel Window Brands",
-        "brands-types": [
-          "688f5d3977516719c3c6dc22"
-        ],
-        "parent-collection": "Windows",
-        "collections": [],
-        "category-name": null,
-        "short-title": "Steel Windows",
-        "warrantytext": "<p>Offer <strong>20 year</strong> on glass.</p><p>‍</p>",
-        "warrantyline": null,
-        "seo-title": "Steel Windows | Industrial & Modern – Deluxe Windows Berkeley",
-        "seo-description": "Steel windows add a bold architectural statement to Bay Area homes. Slim sightlines and superior strength — installed by Deluxe Windows in San Francisco. Free quotes.",
-        "opengraph-title": "Steel Windows | Industrial & Modern – Deluxe Windows Berkeley",
-        "opengraph-description": "Steel windows add a bold architectural statement to Bay Area homes. Slim sightlines and superior strength — installed by Deluxe Windows in San Francisco. Free quotes.",
-        "opengraph-image": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/68755fbd78e6bf0cc4107a42_1.avif",
-        "twitter-card": "summary_large_image",
-        "hide": false,
-        "name": "Steel Windows",
-        "slug": "steel-windows"
-      }
+    ],
+    "flattenedFieldMap": {
+        "discounttext": "wf_discounttext",
+        "custom-hero-image": "wf_custom_hero_image",
+        "property-listing---featured-image": "wf_property_listing_featured_image",
+        "property-listing---featured-images": "wf_property_listing_featured_images",
+        "property-listing---thumbnail-image-v1": "wf_property_listing_thumbnail_image_v1",
+        "property-listing---thumbnail-image-v2": "wf_property_listing_thumbnail_image_v2",
+        "property-listing---thumbnail-image-v3": "wf_property_listing_thumbnail_image_v3",
+        "property-listing---about": "wf_property_listing_about",
+        "property-listing---summary": "wf_property_listing_summary",
+        "property-listing---excerpt": "wf_property_listing_excerpt",
+        "property-listing---property-featured": "wf_property_listing_property_featured",
+        "property-listing---address": "wf_property_listing_address",
+        "property-listing---sqf": "wf_property_listing_sqf",
+        "property-listing---number-of-bathrooms": "wf_property_listing_number_of_bathrooms",
+        "property-listing---number-of-bedrooms": "wf_property_listing_number_of_bedrooms",
+        "property-listing---number-of-parking-spots": "wf_property_listing_number_of_parking_spots",
+        "property-listing---display-price": "wf_property_listing_display_price",
+        "property-listing---type": "wf_property_listing_type",
+        "property-listing---agent": "wf_property_listing_agent",
+        "brands": "wf_brands",
+        "title-for-brands": "wf_title_for_brands",
+        "brands-types": "wf_brands_types",
+        "parent-collection": "wf_parent_collection",
+        "collections": "wf_collections",
+        "category-name": "wf_category_name",
+        "short-title": "wf_short_title",
+        "warrantytext": "wf_warrantytext",
+        "warrantyline": "wf_warrantyline",
+        "seo-title": "wf_seo_title",
+        "seo-description": "wf_seo_description",
+        "opengraph-title": "wf_opengraph_title",
+        "opengraph-description": "wf_opengraph_description",
+        "opengraph-image": "wf_opengraph_image",
+        "twitter-card": "wf_twitter_card",
+        "hide": "wf_hide"
     }
-  ],
-  "flattenedFieldMap": {
-    "discounttext": "wf_discounttext",
-    "custom-hero-image": "wf_custom_hero_image",
-    "property-listing---featured-image": "wf_property_listing_featured_image",
-    "property-listing---featured-images": "wf_property_listing_featured_images",
-    "property-listing---thumbnail-image-v1": "wf_property_listing_thumbnail_image_v1",
-    "property-listing---thumbnail-image-v2": "wf_property_listing_thumbnail_image_v2",
-    "property-listing---thumbnail-image-v3": "wf_property_listing_thumbnail_image_v3",
-    "property-listing---about": "wf_property_listing_about",
-    "property-listing---summary": "wf_property_listing_summary",
-    "property-listing---excerpt": "wf_property_listing_excerpt",
-    "property-listing---property-featured": "wf_property_listing_property_featured",
-    "property-listing---address": "wf_property_listing_address",
-    "property-listing---sqf": "wf_property_listing_sqf",
-    "property-listing---number-of-bathrooms": "wf_property_listing_number_of_bathrooms",
-    "property-listing---number-of-bedrooms": "wf_property_listing_number_of_bedrooms",
-    "property-listing---number-of-parking-spots": "wf_property_listing_number_of_parking_spots",
-    "property-listing---display-price": "wf_property_listing_display_price",
-    "property-listing---type": "wf_property_listing_type",
-    "property-listing---agent": "wf_property_listing_agent",
-    "brands": "wf_brands",
-    "title-for-brands": "wf_title_for_brands",
-    "brands-types": "wf_brands_types",
-    "parent-collection": "wf_parent_collection",
-    "collections": "wf_collections",
-    "category-name": "wf_category_name",
-    "short-title": "wf_short_title",
-    "warrantytext": "wf_warrantytext",
-    "warrantyline": "wf_warrantyline",
-    "seo-title": "wf_seo_title",
-    "seo-description": "wf_seo_description",
-    "opengraph-title": "wf_opengraph_title",
-    "opengraph-description": "wf_opengraph_description",
-    "opengraph-image": "wf_opengraph_image",
-    "twitter-card": "wf_twitter_card",
-    "hide": "wf_hide"
-  }
 }

@@ -1,1365 +1,859 @@
 {
-  "table": "wf_door_types",
-  "collectionId": "688ef97f56238a41af6cffd2",
-  "collectionSlug": "door-types",
-  "items": [
-    {
-      "id": "688f7a808386df55b72bc982",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2025-08-03T15:04:32.727Z",
-      "lastUpdated": "2026-03-23T18:48:20.762Z",
-      "lastPublished": "2026-03-24T05:43:04.253Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "property-listing---featured-image": {
-          "fileId": "688f7ab8722ec3a7e62845c5",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f7ab8722ec3a7e62845c5_Shipyard-Condos-Project-03-scaled.webp",
-          "alt": null
-        },
-        "property-listing---featured-images": [],
-        "property-listing---thumbnail-image-v1": {
-          "fileId": "688f7ab8722ec3a7e62845c5",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f7ab8722ec3a7e62845c5_Shipyard-Condos-Project-03-scaled.webp",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v2": {
-          "fileId": "688f7ab8722ec3a7e62845c5",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f7ab8722ec3a7e62845c5_Shipyard-Condos-Project-03-scaled.webp",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v3": {
-          "fileId": "688f7ab8722ec3a7e62845c5",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f7ab8722ec3a7e62845c5_Shipyard-Condos-Project-03-scaled.webp",
-          "alt": null
-        },
-        "property-listing---about": "<h2 id=\"\">Why Choose All Weather Architectural Aluminum Doors</h2><p id=\"\">All Weather Architectural Aluminum doors are built for bold design, structural performance, and architectural flexibility—making them the preferred choice for custom homes, luxury builds, and modern commercial projects.</p><p id=\"\">Constructed from premium aluminum, these doors feature clean lines, narrow sightlines, and large-scale glass openings, allowing for uninterrupted views and seamless transitions between indoor and outdoor spaces.</p><p id=\"\">Available in a wide range of configurations—including sliding, multi-slide, bi-fold, and pivot systems—each door is custom fabricated to meet your exact design and performance requirements.</p><p id=\"\">With thermally broken frame options, All Weather doors offer enhanced insulation, energy efficiency, and climate control—engineered to meet demanding standards like California Title 24.</p><p id=\"\">Durable, corrosion-resistant finishes and high-performance glazing ensure long-lasting beauty and functionality, even in coastal or extreme weather environments.</p><p id=\"\">Made in California and trusted by architects across the Western U.S., All Weather aluminum doors deliver the perfect blend of modern aesthetics, engineering precision, and custom craftsmanship.</p>",
-        "property-listing---summary": null,
-        "property-listing---excerpt": null,
-        "property-listing---property-featured": false,
-        "property-listing---address": null,
-        "property-listing---sqf": null,
-        "property-listing---number-of-bathrooms": null,
-        "property-listing---number-of-bedrooms": null,
-        "property-listing---number-of-parking-spots": null,
-        "property-listing---display-price": null,
-        "property-listing---type": null,
-        "property-listing---agent": "687b77229d351e28dc2a5141",
-        "door-type-collections-2": [
-          "697f88836886bbc7633ffdd5",
-          "697f888388b96bd79af04be5",
-          "697f88839e70d793c0d4d4f5",
-          "697f8884667a50a281d15577",
-          "697f8884d0d133ec13202243",
-          "697f8884950159fbac14030e"
-        ],
-        "explore-collection-text": "Explore All Weather Architectural Aluminum Collections",
-        "seo-title": "All Weather Aluminum Doors | Deluxe Windows San Jose",
-        "seo-description": "All Weather Architectural Aluminum doors offer commercial-grade performance for Bay Area homes and businesses. Installed by Deluxe Windows in San Francisco. Free estimates.",
-        "opengraph-title": "All Weather Aluminum Doors | Deluxe Windows San Jose",
-        "opengraph-description": "All Weather Architectural Aluminum doors offer commercial-grade performance for Bay Area homes and businesses. Installed by Deluxe Windows in San Francisco. Free estimates.",
-        "opengraph-image": null,
-        "twitter-card": null,
-        "name": "All Weather Architectural Aluminum Doors",
-        "slug": "all-weather-architectural-aluminum-doors"
-      }
-    },
-    {
-      "id": "688f77cdda098b599dffca19",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2025-08-03T14:53:01.702Z",
-      "lastUpdated": "2026-03-23T18:48:20.839Z",
-      "lastPublished": "2026-03-24T05:43:04.253Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "property-listing---featured-image": {
-          "fileId": "688f7811579ab2c38f4d724a",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f7811579ab2c38f4d724a_03-900-AZ-Arcadia-Farmhouse.jpg",
-          "alt": null
-        },
-        "property-listing---featured-images": [],
-        "property-listing---thumbnail-image-v1": {
-          "fileId": "688f7811579ab2c38f4d724a",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f7811579ab2c38f4d724a_03-900-AZ-Arcadia-Farmhouse.jpg",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v2": {
-          "fileId": "688f7811579ab2c38f4d724a",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f7811579ab2c38f4d724a_03-900-AZ-Arcadia-Farmhouse.jpg",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v3": {
-          "fileId": "688f7811579ab2c38f4d724a",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f7811579ab2c38f4d724a_03-900-AZ-Arcadia-Farmhouse.jpg",
-          "alt": null
-        },
-        "property-listing---about": "<h2 id=\"\">Why Choose Western Window Systems Aluminum Doors</h2><p id=\"\">Western Window Systems aluminum doors are engineered to redefine indoor-outdoor living, offering expansive openings, clean aesthetics, and commercial-grade performance. Designed for modern architecture and built in the American Southwest, these doors combine minimalist design with structural strength and lasting durability.</p><p id=\"\">Made from high-quality aluminum, these doors feature narrow sightlines, large glass panels, and smooth operation, creating seamless transitions between interior and exterior spaces. Whether you choose sliding, folding, pivot, or multi-slide systems, each door is tailored to maximize light, views, and spatial flow.</p><p id=\"\">Available in both classic and thermally broken aluminum, Western Window Systems doors are built to perform in harsh climates—maintaining energy efficiency, weather resistance, and year-round comfort.</p><p id=\"\">With extensive customization options—including custom sizes, finishes, hardware, and high-performance glass—you can design a solution that aligns perfectly with your vision.</p><p id=\"\">Trusted by architects, builders, and luxury homeowners, Western Window Systems aluminum doors deliver bold style, flexible functionality, and long-lasting value for contemporary homes and commercial spaces alike.</p>",
-        "property-listing---summary": null,
-        "property-listing---excerpt": null,
-        "property-listing---property-featured": false,
-        "property-listing---address": null,
-        "property-listing---sqf": null,
-        "property-listing---number-of-bathrooms": null,
-        "property-listing---number-of-bedrooms": null,
-        "property-listing---number-of-parking-spots": null,
-        "property-listing---display-price": null,
-        "property-listing---type": null,
-        "property-listing---agent": "6841ddf8ace3d9d9facb169d",
-        "door-type-collections-2": [
-          "697f88836886bbc7633ffdd5",
-          "697f888388b96bd79af04be5",
-          "697f88839e70d793c0d4d4f5",
-          "697f8884667a50a281d15577",
-          "697f8884d0d133ec13202243",
-          "697f8884950159fbac14030e"
-        ],
-        "explore-collection-text": "Explore Western Window Systems Aluminum Collections",
-        "seo-title": "Western Window Systems Aluminum Doors | Deluxe Windows Santa Rosa",
-        "seo-description": "Western Window Systems aluminum doors bring modern, high-performance design to Bay Area homes. Installed by Deluxe Windows in San Francisco. Request a free estimate.",
-        "opengraph-title": "Western Window Systems Aluminum Doors | Deluxe Windows Santa Rosa",
-        "opengraph-description": "Western Window Systems aluminum doors bring modern, high-performance design to Bay Area homes. Installed by Deluxe Windows in San Francisco. Request a free estimate.",
-        "opengraph-image": null,
-        "twitter-card": null,
-        "name": "Western Window Systems Aluminum Doors",
-        "slug": "western-window-systems-aluminum-doors"
-      }
-    },
-    {
-      "id": "688f7631db6ff6c6f381b788",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2025-08-03T14:46:09.563Z",
-      "lastUpdated": "2026-03-23T18:48:20.912Z",
-      "lastPublished": "2026-03-24T05:43:04.253Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "property-listing---featured-image": {
-          "fileId": "688f766b6ea560ac8d80a85d",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f766b6ea560ac8d80a85d_Patio-Doors-Alside-Woodgrain-Interior.webp",
-          "alt": null
-        },
-        "property-listing---featured-images": [],
-        "property-listing---thumbnail-image-v1": {
-          "fileId": "688f766b6ea560ac8d80a85d",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f766b6ea560ac8d80a85d_Patio-Doors-Alside-Woodgrain-Interior.webp",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v2": {
-          "fileId": "688f766b6ea560ac8d80a85d",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f766b6ea560ac8d80a85d_Patio-Doors-Alside-Woodgrain-Interior.webp",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v3": {
-          "fileId": "688f766b6ea560ac8d80a85d",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f766b6ea560ac8d80a85d_Patio-Doors-Alside-Woodgrain-Interior.webp",
-          "alt": null
-        },
-        "property-listing---about": "<h2 id=\"\">Why Choose Alside Vinyl Doors</h2><p id=\"\">Alside vinyl patio doors offer a perfect balance of durability, energy efficiency, and sleek design—making them a reliable choice for enhancing indoor-outdoor living with minimal maintenance.</p><p id=\"\">Crafted from high-performance, weather-resistant vinyl, these doors are built to withstand harsh elements without warping, cracking, or fading. Their multi-chambered construction provides added insulation and strength, helping to improve thermal efficiency and reduce energy costs.</p><p id=\"\">Available in sliding and hinged configurations, Alside vinyl doors feature smooth, quiet operation and a variety of customization options—including frame colors, decorative glass, hardware finishes, and grille styles—to match your home's aesthetic.</p><p id=\"\">With advanced Low-E glass, Argon gas fills, and strong weather sealing, Alside doors help keep your home comfortable year-round while maximizing natural light and outdoor views.</p><p id=\"\">Backed by over 75 years of manufacturing experience and industry-leading limited lifetime warranties, Alside vinyl doors offer dependable performance, everyday convenience, and long-lasting value.</p>",
-        "property-listing---summary": null,
-        "property-listing---excerpt": null,
-        "property-listing---property-featured": false,
-        "property-listing---address": null,
-        "property-listing---sqf": null,
-        "property-listing---number-of-bathrooms": null,
-        "property-listing---number-of-bedrooms": null,
-        "property-listing---number-of-parking-spots": null,
-        "property-listing---display-price": null,
-        "property-listing---type": null,
-        "property-listing---agent": "6841ddf8ace3d9d9facb1690",
-        "door-type-collections-2": [
-          "696dce5265e9e5168744bae6",
-          "696dce53e96aa303dc19539e",
-          "696dce5216c84c4cf495e37d"
-        ],
-        "explore-collection-text": "Explore Alside Collections",
-        "seo-title": "Alside Vinyl Doors | Deluxe Windows Oakland",
-        "seo-description": "Alside vinyl doors provide durable, low-maintenance entry solutions for Bay Area homes. Installed by Deluxe Windows in San Francisco and surrounding areas. Free estimates.",
-        "opengraph-title": "Alside Vinyl Doors | Deluxe Windows Oakland",
-        "opengraph-description": "Alside vinyl doors provide durable, low-maintenance entry solutions for Bay Area homes. Installed by Deluxe Windows in San Francisco and surrounding areas. Free estimates.",
-        "opengraph-image": null,
-        "twitter-card": null,
-        "name": "Alside Vinyl Doors",
-        "slug": "alside-vinyl-doors"
-      }
-    },
-    {
-      "id": "688f747b77aae2a0fdee2b43",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2025-08-03T14:38:51.730Z",
-      "lastUpdated": "2026-03-23T18:48:20.881Z",
-      "lastPublished": "2026-03-24T05:43:04.253Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "property-listing---featured-image": {
-          "fileId": "688f74b15b754890a2c6960a",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f74b15b754890a2c6960a_sim_interior_inovo_kitchen_2_lite_sliding_patio_door_5050_module_p211-1.webp",
-          "alt": null
-        },
-        "property-listing---featured-images": [],
-        "property-listing---thumbnail-image-v1": {
-          "fileId": "688f74b15b754890a2c6960a",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f74b15b754890a2c6960a_sim_interior_inovo_kitchen_2_lite_sliding_patio_door_5050_module_p211-1.webp",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v2": {
-          "fileId": "688f74b15b754890a2c6960a",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f74b15b754890a2c6960a_sim_interior_inovo_kitchen_2_lite_sliding_patio_door_5050_module_p211-1.webp",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v3": {
-          "fileId": "688f74b15b754890a2c6960a",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f74b15b754890a2c6960a_sim_interior_inovo_kitchen_2_lite_sliding_patio_door_5050_module_p211-1.webp",
-          "alt": null
-        },
-        "property-listing---about": "<h2 id=\"\">Why Choose Simonton Vinyl Doors</h2><p id=\"\">Simonton vinyl patio doors are built for smooth performance, energy efficiency, and everyday durability—designed to enhance your home with natural light, easy access, and long-lasting value.</p><p id=\"\">Constructed from premium vinyl, these doors resist warping, cracking, and fading—ensuring reliable operation and a clean, modern look with minimal maintenance. They're ideal for high-traffic areas and harsh weather conditions alike.</p><p id=\"\">Available in sliding and hinged configurations, Simonton vinyl doors can be fully customized with glass options, grid patterns, hardware finishes, and frame colors to complement your home's style.</p><p id=\"\">With advanced features like Low-E glass, Argon gas fills, and multi-point locking systems, Simonton doors deliver energy savings, thermal comfort, and added security—all backed by ENERGY STAR® certification on select models.</p><p id=\"\">Supported by industry-leading warranties and more than 75 years of manufacturing experience, Simonton vinyl doors offer trusted performance, timeless design, and peace of mind that lasts.</p>",
-        "property-listing---summary": null,
-        "property-listing---excerpt": null,
-        "property-listing---property-featured": false,
-        "property-listing---address": null,
-        "property-listing---sqf": null,
-        "property-listing---number-of-bathrooms": null,
-        "property-listing---number-of-bedrooms": null,
-        "property-listing---number-of-parking-spots": null,
-        "property-listing---display-price": null,
-        "property-listing---type": null,
-        "property-listing---agent": "685114794ffee91485b78137",
-        "door-type-collections-2": [
-          "6964b7b638210e099afff5ef",
-          "6964b7b65d639efc1967331b",
-          "6964b7b679cf74d51ec92582",
-          "6964b7b666f7d5b7104cf5a6",
-          "6964b7b6dfa44f1ebf10cb92",
-          "6964b7b6625f6fd9903558f6",
-          "6964b7b87e331b216d405854",
-          "6964b7b7642e2f07b0f5fe09",
-          "6964b7b8f3facc40f0705aa9",
-          "6964b7b8363b1b11cd674645",
-          "6964b7b88df14c13e44d2460",
-          "6964b7b87634ab0c3a252edf",
-          "6964b7b91d6e62047ee1b30f"
-        ],
-        "explore-collection-text": "Explore Simonton Collections",
-        "seo-title": "Simonton Vinyl Doors | Deluxe Windows Petaluma",
-        "seo-description": "Simonton vinyl doors combine energy efficiency and durable construction for Bay Area homeowners. Installed by Deluxe Windows in San Francisco and the Bay Area. Free quotes.",
-        "opengraph-title": "Simonton Vinyl Doors | Deluxe Windows Petaluma",
-        "opengraph-description": "Simonton vinyl doors combine energy efficiency and durable construction for Bay Area homeowners. Installed by Deluxe Windows in San Francisco and the Bay Area. Free quotes.",
-        "opengraph-image": null,
-        "twitter-card": null,
-        "name": "Simonton Vinyl Doors",
-        "slug": "simonton-vinyl-doors"
-      }
-    },
-    {
-      "id": "688f6bf4095ccc71f010754a",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2025-08-03T14:02:28.231Z",
-      "lastUpdated": "2026-03-23T18:48:20.889Z",
-      "lastPublished": "2026-03-24T05:43:04.253Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "property-listing---featured-image": {
-          "fileId": "688f6c6c13351d8f49991d72",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f6c6c13351d8f49991d72_simonton-maxview-multi-slide-vinyl-patio-door.webp",
-          "alt": null
-        },
-        "property-listing---featured-images": [],
-        "property-listing---thumbnail-image-v1": {
-          "fileId": "688f6c6c13351d8f49991d72",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f6c6c13351d8f49991d72_simonton-maxview-multi-slide-vinyl-patio-door.webp",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v2": {
-          "fileId": "688f6c6c13351d8f49991d72",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f6c6c13351d8f49991d72_simonton-maxview-multi-slide-vinyl-patio-door.webp",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v3": {
-          "fileId": "688f6c6c13351d8f49991d72",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f6c6c13351d8f49991d72_simonton-maxview-multi-slide-vinyl-patio-door.webp",
-          "alt": null
-        },
-        "property-listing---about": "<h2 id=\"\">Why Choose Ply Gem Vinyl Doors</h2><p id=\"\">Ply Gem vinyl doors offer a durable, energy-efficient, and low-maintenance solution for patios, backyards, and outdoor living spaces. Designed to perform in real-world conditions, they combine lasting quality with clean, modern style.</p><p id=\"\">Constructed with premium multi-chambered vinyl frames, these doors resist warping, cracking, and fading—even under intense sun or changing weather conditions. They’re easy to maintain and never need painting or refinishing.</p><p id=\"\">Available in a variety of configurations, including sliding and swinging patio doors, Ply Gem vinyl doors can be customized with frame colors, hardware finishes, decorative glass, and grid options to match your home’s design.</p><p id=\"\">Engineered for energy efficiency, Ply Gem doors feature Low-E glass, Argon gas fills, and weather-tight sealing to help reduce energy costs and maintain indoor comfort year-round.</p><p id=\"\">With smooth operation, long-term durability, and strong warranty support, Ply Gem vinyl doors are a smart investment for everyday living and lasting performance.</p>",
-        "property-listing---summary": null,
-        "property-listing---excerpt": null,
-        "property-listing---property-featured": false,
-        "property-listing---address": null,
-        "property-listing---sqf": null,
-        "property-listing---number-of-bathrooms": null,
-        "property-listing---number-of-bedrooms": null,
-        "property-listing---number-of-parking-spots": null,
-        "property-listing---display-price": null,
-        "property-listing---type": null,
-        "property-listing---agent": "685114315a60cc8b388e5af2",
-        "door-type-collections-2": [
-          "695b81391382c75a489084c9",
-          "695b813a8af41cce38649add",
-          "695b813a1a2c431424c0fe4c",
-          "695b83ae1ea6ab8336fd2e0d"
-        ],
-        "explore-collection-text": "Explore Ply Gem Collections",
-        "seo-title": "Ply Gem Vinyl Doors | Deluxe Windows Vacaville",
-        "seo-description": "Ply Gem vinyl doors offer a wide range of styles for every Bay Area budget and design preference. Installed by Deluxe Windows in San Francisco. Request a free estimate.",
-        "opengraph-title": "Ply Gem Vinyl Doors | Deluxe Windows Vacaville",
-        "opengraph-description": "Ply Gem vinyl doors offer a wide range of styles for every Bay Area budget and design preference. Installed by Deluxe Windows in San Francisco. Request a free estimate.",
-        "opengraph-image": null,
-        "twitter-card": null,
-        "name": "Ply Gem Vinyl Doors",
-        "slug": "ply-gem-vinyl-doors"
-      }
-    },
-    {
-      "id": "688f6baa95c8dca30a915e1e",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2025-08-03T14:01:14.718Z",
-      "lastUpdated": "2026-03-23T18:48:20.957Z",
-      "lastPublished": "2026-03-24T05:43:04.253Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "property-listing---featured-image": {
-          "fileId": "688f6bbb5c42389784f143b7",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f6bbb5c42389784f143b7_Sliding-doors-patio-four-panels-AdobeStock.webp",
-          "alt": null
-        },
-        "property-listing---featured-images": [],
-        "property-listing---thumbnail-image-v1": {
-          "fileId": "688f6bbb5c42389784f143b7",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f6bbb5c42389784f143b7_Sliding-doors-patio-four-panels-AdobeStock.webp",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v2": {
-          "fileId": "688f6bbb5c42389784f143b7",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f6bbb5c42389784f143b7_Sliding-doors-patio-four-panels-AdobeStock.webp",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v3": {
-          "fileId": "688f6bbb5c42389784f143b7",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f6bbb5c42389784f143b7_Sliding-doors-patio-four-panels-AdobeStock.webp",
-          "alt": null
-        },
-        "property-listing---about": "<h2 id=\"\">Why Choose Ply Gem Aluminum Doors</h2><p id=\"\">Ply Gem aluminum doors deliver the perfect combination of modern aesthetics, lasting durability, and smooth operation—making them a top choice for contemporary homes and commercial-grade projects alike.</p><p id=\"\">Crafted with strong, lightweight aluminum frames, these doors support expansive glass panels and narrow sightlines—bringing in more natural light and offering unobstructed views of the outdoors.</p><p id=\"\">Built to withstand harsh environments, Ply Gem aluminum doors are resistant to corrosion, warping, and fading—ideal for high-heat, coastal, or high-wind zones. Optional thermal breaks and energy-efficient glass packages help improve insulation and year-round comfort.</p><p id=\"\">Available in a variety of styles—including sliding, multi-slide, and hinged patio doors—Ply Gem aluminum doors can be customized with multiple finishes, hardware options, and configurations to match your design goals.</p><p id=\"\">Backed by Ply Gem’s reputation for quality and performance, these aluminum doors offer long-lasting value with minimal maintenance and maximum visual impact.</p>",
-        "property-listing---summary": null,
-        "property-listing---excerpt": null,
-        "property-listing---property-featured": false,
-        "property-listing---address": null,
-        "property-listing---sqf": null,
-        "property-listing---number-of-bathrooms": null,
-        "property-listing---number-of-bedrooms": null,
-        "property-listing---number-of-parking-spots": null,
-        "property-listing---display-price": null,
-        "property-listing---type": null,
-        "property-listing---agent": "685114315a60cc8b388e5af2",
-        "door-type-collections-2": [
-          "695b8139b48a893c5bc18e61",
-          "695b81391ea6ab8336fc96eb",
-          "695b81391451ea9b962a221c",
-          "695b813aad9fd6775bd11f59"
-        ],
-        "explore-collection-text": "Explore Ply Gem Collections",
-        "seo-title": "Ply Gem Aluminum Doors | Deluxe Windows Fairfield",
-        "seo-description": "Ply Gem aluminum doors deliver commercial-strength performance and slim profiles for Bay Area homes. Installed by Deluxe Windows in San Francisco. Request a free estimate.",
-        "opengraph-title": "Ply Gem Aluminum Doors | Deluxe Windows Fairfield",
-        "opengraph-description": "Ply Gem aluminum doors deliver commercial-strength performance and slim profiles for Bay Area homes. Installed by Deluxe Windows in San Francisco. Request a free estimate.",
-        "opengraph-image": null,
-        "twitter-card": null,
-        "name": "Ply Gem Aluminum Doors",
-        "slug": "ply-gem-aluminum-doors"
-      }
-    },
-    {
-      "id": "688f690b17fc2f0bbe10f5fb",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2025-08-03T13:50:03.958Z",
-      "lastUpdated": "2026-03-23T18:48:20.769Z",
-      "lastPublished": "2026-03-24T05:43:04.253Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "property-listing---featured-image": {
-          "fileId": "688f694d095ccc71f0101809",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f694d095ccc71f0101809_16204_MultiGlide%2BAluminum-Clad%2BWood%2BDoor.webp",
-          "alt": null
-        },
-        "property-listing---featured-images": [],
-        "property-listing---thumbnail-image-v1": {
-          "fileId": "688f694d095ccc71f0101809",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f694d095ccc71f0101809_16204_MultiGlide%2BAluminum-Clad%2BWood%2BDoor.webp",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v2": {
-          "fileId": "688f694d095ccc71f0101809",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f694d095ccc71f0101809_16204_MultiGlide%2BAluminum-Clad%2BWood%2BDoor.webp",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v3": {
-          "fileId": "688f694d095ccc71f0101809",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f694d095ccc71f0101809_16204_MultiGlide%2BAluminum-Clad%2BWood%2BDoor.webp",
-          "alt": null
-        },
-        "property-listing---about": "<h2 id=\"\">Why Choose Andersen Aluminum Doors</h2><p id=\"\">Andersen aluminum doors combine sleek design with exceptional strength—offering a premium solution for expansive openings, modern architecture, and commercial-grade performance.</p><p id=\"\">Available in the E-Series, these doors feature a durable aluminum exterior that resists the elements, maintains its finish, and offers clean, contemporary sightlines. Inside, a wood core adds warmth, structural integrity, and design flexibility.</p><p id=\"\">Perfect for large patio doors, multi-slide systems, and custom configurations, Andersen aluminum-clad doors allow for wide openings with minimal frame obstruction—maximizing natural light and creating seamless indoor-outdoor transitions.</p><p id=\"\">Engineered with thermally broken frames, high-performance glazing, and advanced weather sealing, Andersen aluminum doors deliver strong energy efficiency and all-season comfort.</p><p id=\"\">With a wide selection of colors, finishes, hardware, and glass options, each door is fully customizable—backed by Andersen’s proven craftsmanship and industry-leading warranty support.</p>",
-        "property-listing---summary": null,
-        "property-listing---excerpt": null,
-        "property-listing---property-featured": false,
-        "property-listing---address": null,
-        "property-listing---sqf": null,
-        "property-listing---number-of-bathrooms": null,
-        "property-listing---number-of-bedrooms": null,
-        "property-listing---number-of-parking-spots": null,
-        "property-listing---display-price": null,
-        "property-listing---type": null,
-        "property-listing---agent": "685113b74203b28e29c1e7fb",
-        "door-type-collections-2": [
-          "6952354cdf826ad244ff1172"
-        ],
-        "explore-collection-text": "Explore Andersen Collections",
-        "seo-title": "Andersen Aluminum Doors | Deluxe Windows Fremont",
-        "seo-description": "Andersen aluminum doors deliver modern aesthetics and lasting strength for Bay Area homes. Installed by Deluxe Windows in San Francisco. Request a free estimate today.",
-        "opengraph-title": "Andersen Aluminum Doors | Deluxe Windows Fremont",
-        "opengraph-description": "Andersen aluminum doors deliver modern aesthetics and lasting strength for Bay Area homes. Installed by Deluxe Windows in San Francisco. Request a free estimate today.",
-        "opengraph-image": null,
-        "twitter-card": null,
-        "name": "Andersen Aluminum Doors",
-        "slug": "andersen-aluminum-doors"
-      }
-    },
-    {
-      "id": "688f67a4cc4164bdc33ec99d",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2025-08-03T13:44:04.958Z",
-      "lastUpdated": "2026-03-23T18:48:20.919Z",
-      "lastPublished": "2026-03-24T05:43:04.253Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "property-listing---featured-image": {
-          "fileId": "688f68cc4b6503e7891260f6",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f68cc4b6503e7891260f6_hq720.jpg",
-          "alt": null
-        },
-        "property-listing---featured-images": [],
-        "property-listing---thumbnail-image-v1": {
-          "fileId": "688f68cc4b6503e7891260f6",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f68cc4b6503e7891260f6_hq720.jpg",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v2": {
-          "fileId": "688f68cc4b6503e7891260f6",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f68cc4b6503e7891260f6_hq720.jpg",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v3": {
-          "fileId": "688f68cc4b6503e7891260f6",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f68cc4b6503e7891260f6_hq720.jpg",
-          "alt": null
-        },
-        "property-listing---about": "<h2 id=\"\">Why Choose Andersen Vinyl Doors</h2><p id=\"\">Andersen vinyl doors offer a smart combination of durability, energy efficiency, and low-maintenance convenience—perfect for everyday living in a wide range of home styles.</p><p id=\"\">Available in the 100 Series, these doors are made with Fibrex® composite material, which blends the strength and stability of wood with the low-maintenance benefits of vinyl. Unlike ordinary vinyl, Fibrex® won’t fade, flake, blister, or peel—even in extreme climates.</p><p id=\"\">Designed with clean lines and modern profiles, Andersen vinyl doors provide smooth operation, excellent weather resistance, and a sleek look that complements both contemporary and traditional homes.</p><p id=\"\">Energy-efficient glass, advanced weatherstripping, and thermally stable frames help reduce energy use and increase indoor comfort all year long.</p><p id=\"\">Backed by Andersen’s reputation for quality and a strong warranty, these doors offer long-lasting performance with minimal upkeep—making them a smart and stylish choice for patios, decks, and more.</p>",
-        "property-listing---summary": null,
-        "property-listing---excerpt": null,
-        "property-listing---property-featured": false,
-        "property-listing---address": null,
-        "property-listing---sqf": null,
-        "property-listing---number-of-bathrooms": null,
-        "property-listing---number-of-bedrooms": null,
-        "property-listing---number-of-parking-spots": null,
-        "property-listing---display-price": null,
-        "property-listing---type": null,
-        "property-listing---agent": "685113b74203b28e29c1e7fb",
-        "door-type-collections-2": [
-          "6952354c9163bef77600baba",
-          "6952354c101e496079bd0862"
-        ],
-        "explore-collection-text": "Explore Andersen Collections",
-        "seo-title": "Andersen Vinyl Doors | Deluxe Windows Redwood City",
-        "seo-description": "Andersen vinyl doors offer trusted energy performance and design variety for Bay Area homeowners. Installed by Deluxe Windows in San Francisco. Request a free quote.",
-        "opengraph-title": "Andersen Vinyl Doors | Deluxe Windows Redwood City",
-        "opengraph-description": "Andersen vinyl doors offer trusted energy performance and design variety for Bay Area homeowners. Installed by Deluxe Windows in San Francisco. Request a free quote.",
-        "opengraph-image": null,
-        "twitter-card": null,
-        "name": "Andersen Vinyl Doors",
-        "slug": "andersen-vinyl-doors"
-      }
-    },
-    {
-      "id": "688f6742bd0ae55140eaa0dc",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2025-08-03T13:42:26.883Z",
-      "lastUpdated": "2026-03-23T18:48:20.622Z",
-      "lastPublished": "2026-03-24T05:43:04.253Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "property-listing---featured-image": {
-          "fileId": "688f6776cafbb046ff6d5b8a",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f6776cafbb046ff6d5b8a_storm-screen.webp",
-          "alt": null
-        },
-        "property-listing---featured-images": [],
-        "property-listing---thumbnail-image-v1": {
-          "fileId": "688f6776cafbb046ff6d5b8a",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f6776cafbb046ff6d5b8a_storm-screen.webp",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v2": {
-          "fileId": "688f6776cafbb046ff6d5b8a",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f6776cafbb046ff6d5b8a_storm-screen.webp",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v3": {
-          "fileId": "688f6776cafbb046ff6d5b8a",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f6776cafbb046ff6d5b8a_storm-screen.webp",
-          "alt": null
-        },
-        "property-listing---about": "<h2 id=\"\">Why Choose Andersen Fiberglass Doors</h2><p id=\"\">Andersen fiberglass doors deliver the perfect blend of strength, energy efficiency, and low-maintenance performance—ideal for homeowners seeking durability with a sleek, modern appearance.</p><p id=\"\">Available in the A-Series, these doors feature a fiberglass exterior that's built to withstand extreme weather, resist dents and corrosion, and maintain their finish with minimal upkeep. They're ideal for coastal, humid, and high-traffic environments.</p><p id=\"\">Inside, you’ll find the warmth of real wood, offering design flexibility with customizable stains and paint finishes—bringing together the durability of fiberglass and the beauty of natural materials.</p><p id=\"\">Engineered with advanced weather sealing, energy-efficient glass, and robust hardware, Andersen fiberglass doors help reduce drafts, increase thermal comfort, and stand the test of time.</p><p id=\"\">Backed by Andersen’s long-standing reputation for quality and craftsmanship, these doors offer peace of mind and performance without compromise.</p>",
-        "property-listing---summary": null,
-        "property-listing---excerpt": null,
-        "property-listing---property-featured": false,
-        "property-listing---address": null,
-        "property-listing---sqf": null,
-        "property-listing---number-of-bathrooms": null,
-        "property-listing---number-of-bedrooms": null,
-        "property-listing---number-of-parking-spots": null,
-        "property-listing---display-price": null,
-        "property-listing---type": null,
-        "property-listing---agent": "685113b74203b28e29c1e7fb",
-        "door-type-collections-2": [
-          "6952354cc6384b38a61e0691"
-        ],
-        "explore-collection-text": "Explore Andersen Collections",
-        "seo-title": "Andersen Fiberglass Doors | Deluxe Windows San Mateo",
-        "seo-description": "Andersen fiberglass doors resist dents, warping, and extreme weather for Bay Area homes. Expert installation by Deluxe Windows in San Francisco. Get a free estimate.",
-        "opengraph-title": "Andersen Fiberglass Doors | Deluxe Windows San Mateo",
-        "opengraph-description": "Andersen fiberglass doors resist dents, warping, and extreme weather for Bay Area homes. Expert installation by Deluxe Windows in San Francisco. Get a free estimate.",
-        "opengraph-image": null,
-        "twitter-card": null,
-        "name": "Andersen Fiberglass Doors",
-        "slug": "andersen-fiberglass-doors"
-      }
-    },
-    {
-      "id": "688f66d3f24d1d187562ec0b",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2025-08-03T13:40:35.339Z",
-      "lastUpdated": "2026-03-23T18:48:20.550Z",
-      "lastPublished": "2026-03-24T05:43:04.253Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "property-listing---featured-image": {
-          "fileId": "688f670fe11564cdcf07b8c8",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f670fe11564cdcf07b8c8_craftsman-912x513-1.webp",
-          "alt": null
-        },
-        "property-listing---featured-images": [],
-        "property-listing---thumbnail-image-v1": {
-          "fileId": "688f670fe11564cdcf07b8c8",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f670fe11564cdcf07b8c8_craftsman-912x513-1.webp",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v2": {
-          "fileId": "688f670fe11564cdcf07b8c8",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f670fe11564cdcf07b8c8_craftsman-912x513-1.webp",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v3": {
-          "fileId": "688f670fe11564cdcf07b8c8",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f670fe11564cdcf07b8c8_craftsman-912x513-1.webp",
-          "alt": null
-        },
-        "property-listing---about": "<h2 id=\"\">Why Choose Andersen Wood Doors</h2><p id=\"\">Andersen wood doors bring timeless elegance, warmth, and craftsmanship to any entryway or patio. Made from carefully selected wood species and built with precision, these doors offer natural beauty that enhances both traditional and contemporary homes.</p><p id=\"\">Whether used as front entry doors or expansive patio systems, Andersen wood doors can be customized with rich stains, paint finishes, decorative glass, and hardware to reflect your personal style.</p><p id=\"\">Available in the A-Series and E-Series, Andersen wood doors feature solid wood interiors with protective aluminum or fiberglass exteriors—combining the charm of wood with low-maintenance durability.</p><p id=\"\">Engineered for energy efficiency, structural integrity, and weather resistance, Andersen wood doors are built to perform in all climates while maintaining their visual appeal year after year.</p><p id=\"\">Backed by over a century of trusted quality and robust warranty coverage, Andersen wood doors offer a premium solution for homeowners who value design, function, and enduring beauty.</p>",
-        "property-listing---summary": null,
-        "property-listing---excerpt": null,
-        "property-listing---property-featured": false,
-        "property-listing---address": null,
-        "property-listing---sqf": null,
-        "property-listing---number-of-bathrooms": null,
-        "property-listing---number-of-bedrooms": null,
-        "property-listing---number-of-parking-spots": null,
-        "property-listing---display-price": null,
-        "property-listing---type": null,
-        "property-listing---agent": "685113b74203b28e29c1e7fb",
-        "door-type-collections-2": [
-          "6952354c9163bef77600baba",
-          "6952354c6f565ced4944cede"
-        ],
-        "explore-collection-text": "Explore Andersen Collections",
-        "seo-title": "Andersen Wood Doors | Deluxe Windows Palo Alto",
-        "seo-description": "Andersen wood doors bring natural warmth and premium craftsmanship to Bay Area homes. Expert wood door installation by Deluxe Windows in San Francisco. Free estimates.",
-        "opengraph-title": "Andersen Wood Doors | Deluxe Windows Palo Alto",
-        "opengraph-description": "Andersen wood doors bring natural warmth and premium craftsmanship to Bay Area homes. Expert wood door installation by Deluxe Windows in San Francisco. Free estimates.",
-        "opengraph-image": null,
-        "twitter-card": null,
-        "name": "Andersen Wood Doors",
-        "slug": "andersen-wood-doors"
-      }
-    },
-    {
-      "id": "688f6283183ff7b96a9fd3bb",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2025-08-03T13:22:11.678Z",
-      "lastUpdated": "2026-03-23T18:48:20.995Z",
-      "lastPublished": "2026-03-24T05:43:04.253Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "property-listing---featured-image": {
-          "fileId": "688f62d55b562db6bb533c0b",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f62d55b562db6bb533c0b_Parma-%C2%A9Albo-29-1140x580.jpg",
-          "alt": null
-        },
-        "property-listing---featured-images": [],
-        "property-listing---thumbnail-image-v1": {
-          "fileId": "688f62d55b562db6bb533c0b",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f62d55b562db6bb533c0b_Parma-%C2%A9Albo-29-1140x580.jpg",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v2": {
-          "fileId": "688f62d55b562db6bb533c0b",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f62d55b562db6bb533c0b_Parma-%C2%A9Albo-29-1140x580.jpg",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v3": {
-          "fileId": "688f62d55b562db6bb533c0b",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f62d55b562db6bb533c0b_Parma-%C2%A9Albo-29-1140x580.jpg",
-          "alt": null
-        },
-        "property-listing---about": "<h2 id=\"\">Why Choose Italwindows Wood Doors</h2><p id=\"\">Italwindows wood doors embody the warmth, character, and craftsmanship of timeless Italian design. Made from carefully selected, sustainably sourced wood species, these doors offer natural beauty with modern performance.</p><p id=\"\">Each door is precision-crafted to highlight the rich grain, texture, and depth of the wood—creating a sense of warmth and authenticity that enhances any architectural style, from traditional to contemporary.</p><p id=\"\">Engineered with advanced sealing systems, high-performance glazing, and optional aluminum or bronze cladding, Italwindows wood doors offer excellent thermal insulation, sound reduction, and long-term durability—without compromising aesthetics.</p><p id=\"\">Whether you're designing a welcoming entryway or a serene interior passage, Italwindows wood doors can be fully customized with a variety of finishes, panel configurations, and hardware options to fit your vision.</p><p id=\"\">For those who appreciate design rooted in nature and craftsmanship guided by precision, Italwindows wood doors are a statement of elegance built to last.</p>",
-        "property-listing---summary": null,
-        "property-listing---excerpt": null,
-        "property-listing---property-featured": false,
-        "property-listing---address": null,
-        "property-listing---sqf": null,
-        "property-listing---number-of-bathrooms": null,
-        "property-listing---number-of-bedrooms": null,
-        "property-listing---number-of-parking-spots": null,
-        "property-listing---display-price": null,
-        "property-listing---type": null,
-        "property-listing---agent": "687b75dd3a0830c27e29d5fa",
-        "door-type-collections-2": [],
-        "explore-collection-text": null,
-        "seo-title": "Italwindows Wood Doors | Deluxe Windows Walnut Creek",
-        "seo-description": "Italwindows wood doors combine European craftsmanship with natural beauty for Bay Area homes. Installed by Deluxe Windows in San Francisco. Get a free estimate today.",
-        "opengraph-title": "Italwindows Wood Doors | Deluxe Windows Walnut Creek",
-        "opengraph-description": "Italwindows wood doors combine European craftsmanship with natural beauty for Bay Area homes. Installed by Deluxe Windows in San Francisco. Get a free estimate today.",
-        "opengraph-image": null,
-        "twitter-card": null,
-        "name": "Italwindows Wood Doors",
-        "slug": "italwindows-wood-doors"
-      }
-    },
-    {
-      "id": "688f6230012cc181527b8e99",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2025-08-03T13:20:48.946Z",
-      "lastUpdated": "2026-03-23T18:48:20.810Z",
-      "lastPublished": "2026-03-24T05:43:04.253Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "property-listing---featured-image": {
-          "fileId": "688f625acafbb046ff6cb3d3",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f625acafbb046ff6cb3d3_unnamed%20(1).jpg",
-          "alt": null
-        },
-        "property-listing---featured-images": [],
-        "property-listing---thumbnail-image-v1": {
-          "fileId": "688f625acafbb046ff6cb3d3",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f625acafbb046ff6cb3d3_unnamed%20(1).jpg",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v2": {
-          "fileId": "688f625acafbb046ff6cb3d3",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f625acafbb046ff6cb3d3_unnamed%20(1).jpg",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v3": {
-          "fileId": "688f625acafbb046ff6cb3d3",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f625acafbb046ff6cb3d3_unnamed%20(1).jpg",
-          "alt": null
-        },
-        "property-listing---about": "<h2 id=\"\">Why Choose Italwindows Steel Doors</h2><p id=\"\">Italwindows steel doors are a statement of refined strength and minimalist beauty. Designed for bold architectural impact, these doors feature ultra-slim profiles, expansive glass panels, and unmatched structural integrity.</p><p id=\"\">Made from high-performance, thermally broken steel, these doors offer exceptional durability, energy efficiency, and resistance to warping, corrosion, or extreme weather conditions—making them ideal for both interior and exterior applications.</p><p id=\"\">Whether used as striking entryways, elegant patio transitions, or dramatic room dividers, Italwindows steel doors bring light, clarity, and a sense of modern sophistication to any space.</p><p id=\"\">Each door is custom-crafted in Italy, with a range of finishes, glazing styles, and hardware options—allowing you to achieve the exact aesthetic your project demands.</p><p id=\"\">For timeless design and uncompromising performance, Italwindows steel doors offer the perfect balance of strength, elegance, and precision.</p>",
-        "property-listing---summary": null,
-        "property-listing---excerpt": null,
-        "property-listing---property-featured": false,
-        "property-listing---address": null,
-        "property-listing---sqf": null,
-        "property-listing---number-of-bathrooms": null,
-        "property-listing---number-of-bedrooms": null,
-        "property-listing---number-of-parking-spots": null,
-        "property-listing---display-price": null,
-        "property-listing---type": null,
-        "property-listing---agent": "687b75dd3a0830c27e29d5fa",
-        "door-type-collections-2": [],
-        "explore-collection-text": null,
-        "seo-title": "Italwindows Steel Doors | Deluxe Windows Concord",
-        "seo-description": "Italwindows steel doors offer ultra-slim sightlines and industrial elegance for Bay Area homes. Installed by Deluxe Windows in San Francisco. Request a free estimate.",
-        "opengraph-title": "Italwindows Steel Doors | Deluxe Windows Concord",
-        "opengraph-description": "Italwindows steel doors offer ultra-slim sightlines and industrial elegance for Bay Area homes. Installed by Deluxe Windows in San Francisco. Request a free estimate.",
-        "opengraph-image": null,
-        "twitter-card": null,
-        "name": "Italwindows Steel Doors",
-        "slug": "italwindows-steel-doors-j3z67"
-      }
-    },
-    {
-      "id": "688f5f0e1802e9cd2412ab2d",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2025-08-03T13:07:26.276Z",
-      "lastUpdated": "2026-03-23T18:48:20.719Z",
-      "lastPublished": "2026-03-24T05:43:04.253Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "property-listing---featured-image": {
-          "fileId": "688f5f683da1f79ad7d2168b",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f5f683da1f79ad7d2168b_Picture2.png",
-          "alt": null
-        },
-        "property-listing---featured-images": [],
-        "property-listing---thumbnail-image-v1": {
-          "fileId": "688f5f683da1f79ad7d2168b",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f5f683da1f79ad7d2168b_Picture2.png",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v2": {
-          "fileId": "688f5f683da1f79ad7d2168b",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f5f683da1f79ad7d2168b_Picture2.png",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v3": {
-          "fileId": "688f5f683da1f79ad7d2168b",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f5f683da1f79ad7d2168b_Picture2.png",
-          "alt": null
-        },
-        "property-listing---about": "<h2 id=\"\">Why Choose Italwindows Aluminium Doors</h2><p id=\"\">Italwindows aluminum doors offer the ideal combination of strength, style, and modern performance. Designed with clean lines and minimal profiles, they bring a contemporary elegance to both residential and commercial spaces.</p><p id=\"\">Built from thermally broken, high-performance aluminum, these doors provide excellent insulation, weather resistance, and long-term durability—even in harsh environments. They are engineered for smooth operation, structural stability, and energy efficiency.</p><p id=\"\">Whether you choose sliding, folding, or hinged configurations, Italwindows aluminum doors create seamless transitions between indoor and outdoor spaces while maximizing natural light and views.</p><p id=\"\">Available in a wide range of custom finishes, hardware, and glazing options, each door is made to order—allowing complete design freedom without sacrificing performance.</p><p id=\"\">For those seeking a sleek, low-maintenance solution with exceptional aesthetic and functional value, Italwindows aluminum doors are the perfect choice.</p>",
-        "property-listing---summary": null,
-        "property-listing---excerpt": null,
-        "property-listing---property-featured": false,
-        "property-listing---address": null,
-        "property-listing---sqf": null,
-        "property-listing---number-of-bathrooms": null,
-        "property-listing---number-of-bedrooms": null,
-        "property-listing---number-of-parking-spots": null,
-        "property-listing---display-price": null,
-        "property-listing---type": null,
-        "property-listing---agent": "687b75dd3a0830c27e29d5fa",
-        "door-type-collections-2": [],
-        "explore-collection-text": null,
-        "seo-title": "Italwindows Aluminium Doors | Deluxe Windows Berkeley",
-        "seo-description": "Italwindows aluminium doors bring European precision and modern design to Bay Area homes. Installed by Deluxe Windows in San Francisco and surrounding areas. Free quotes.",
-        "opengraph-title": "Italwindows Aluminium Doors | Deluxe Windows Berkeley",
-        "opengraph-description": "Italwindows aluminium doors bring European precision and modern design to Bay Area homes. Installed by Deluxe Windows in San Francisco and surrounding areas. Free quotes.",
-        "opengraph-image": null,
-        "twitter-card": null,
-        "name": "Italwindows Aluminium Doors",
-        "slug": "italwindows-aluminium-doors"
-      }
-    },
-    {
-      "id": "688f4fcb2dc3f0cdb3083c62",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2025-08-03T12:02:19.009Z",
-      "lastUpdated": "2026-03-23T18:48:20.630Z",
-      "lastPublished": "2026-03-24T05:43:04.253Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "property-listing---featured-image": {
-          "fileId": "688f505c64a04d1c55a920a3",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f505c64a04d1c55a920a3_Anlin-Malibu-Patio-Doors.webp",
-          "alt": null
-        },
-        "property-listing---featured-images": [],
-        "property-listing---thumbnail-image-v1": {
-          "fileId": "688f505c64a04d1c55a920a3",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f505c64a04d1c55a920a3_Anlin-Malibu-Patio-Doors.webp",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v2": {
-          "fileId": "688f505c64a04d1c55a920a3",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f505c64a04d1c55a920a3_Anlin-Malibu-Patio-Doors.webp",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v3": {
-          "fileId": "688f505c64a04d1c55a920a3",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f505c64a04d1c55a920a3_Anlin-Malibu-Patio-Doors.webp",
-          "alt": null
-        },
-        "property-listing---about": "<h2 id=\"\">Why Choose Anlin Vinyl Door</h2><p id=\"\">Anlin vinyl patio doors are designed for durability, energy efficiency, and effortless operation—crafted specifically for homes in the Western U.S.</p><p id=\"\">Made from high-performance, multi-chambered vinyl, Anlin doors resist warping, cracking, and fading, even in extreme heat and sun exposure. They’re built to last with minimal maintenance and maximum comfort.</p><p id=\"\">Each door is custom-built in California with premium features like smooth-glide rollers, reinforced frames, advanced Low-E glass, and optional sound-suppressing upgrades—ideal for busy households and energy-conscious homeowners.</p><p id=\"\">With customizable configurations, frame colors, decorative glass, and hardware options, Anlin vinyl doors are designed to complement your home’s aesthetic inside and out.</p><p id=\"\">Protected by Anlin’s True Double Lifetime Warranty—including coverage for parts, labor, and accidental glass breakage—these doors offer long-term peace of mind with every opening and closing.</p>",
-        "property-listing---summary": null,
-        "property-listing---excerpt": null,
-        "property-listing---property-featured": false,
-        "property-listing---address": null,
-        "property-listing---sqf": null,
-        "property-listing---number-of-bathrooms": null,
-        "property-listing---number-of-bedrooms": null,
-        "property-listing---number-of-parking-spots": null,
-        "property-listing---display-price": null,
-        "property-listing---type": null,
-        "property-listing---agent": "6841ddf8ace3d9d9facb168f",
-        "door-type-collections-2": [
-          "694cd62f6fa1a60e42e440ba",
-          "694cd62fadf4460085a3e2bb",
-          "694cd62f3692ee32b559f621",
-          "694cd62f7d17f86e6cbe97af"
-        ],
-        "explore-collection-text": "Explore Anlin Collections",
-        "seo-title": "Anlin Vinyl Doors | Deluxe Windows Hayward",
-        "seo-description": "Anlin vinyl doors are California-built for Bay Area climates with exceptional energy efficiency. Installed by Deluxe Windows in San Francisco. Request a free estimate.",
-        "opengraph-title": "Anlin Vinyl Doors | Deluxe Windows Hayward",
-        "opengraph-description": "Anlin vinyl doors are California-built for Bay Area climates with exceptional energy efficiency. Installed by Deluxe Windows in San Francisco. Request a free estimate.",
-        "opengraph-image": null,
-        "twitter-card": null,
-        "name": "Anlin Vinyl Doors",
-        "slug": "anlin-vinyl-door"
-      }
-    },
-    {
-      "id": "688f4c6e1a0ed5d49e12a143",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2025-08-03T11:47:58.136Z",
-      "lastUpdated": "2026-03-23T18:48:20.655Z",
-      "lastPublished": "2026-03-24T05:43:04.253Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "property-listing---featured-image": {
-          "fileId": "688f4d48a82abb168b1df879",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f4d48a82abb168b1df879_72418123.webp",
-          "alt": null
-        },
-        "property-listing---featured-images": [],
-        "property-listing---thumbnail-image-v1": {
-          "fileId": "688f4d48a82abb168b1df879",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f4d48a82abb168b1df879_72418123.webp",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v2": {
-          "fileId": "688f4d48a82abb168b1df879",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f4d48a82abb168b1df879_72418123.webp",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v3": {
-          "fileId": "688f4d48a82abb168b1df879",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f4d48a82abb168b1df879_72418123.webp",
-          "alt": null
-        },
-        "property-listing---about": "<h2 id=\"\">Why Choose Jeld-Wen Wood Clad Doors</h2><p id=\"\">JELD-WEN wood-clad doors combine the timeless appeal of natural wood interiors with the strength and durability of a protective exterior cladding. They offer the best of both worlds—elegant design and weather-resistant performance.</p><p id=\"\">Crafted with premium wood species on the interior and a tough aluminum or fiberglass exterior, these doors are built to withstand the elements while maintaining a warm, refined look inside your home.</p><p id=\"\">Each door is made to order in North America, with extensive options for panel styles, finishes, hardware, and energy-efficient glass—giving you full control over design and function.</p><p id=\"\">Perfect for entryways, patios, and scenic openings, JELD-WEN wood-clad doors are trusted by architects and homeowners for their versatility, long-term durability, and architectural detail.</p><p id=\"\">With innovations like AuraLast® wood protection and Low-E glass, JELD-WEN ensures your door resists rot, moisture, and UV damage—keeping it beautiful and functional for years to come.</p>",
-        "property-listing---summary": null,
-        "property-listing---excerpt": null,
-        "property-listing---property-featured": false,
-        "property-listing---address": null,
-        "property-listing---sqf": null,
-        "property-listing---number-of-bathrooms": null,
-        "property-listing---number-of-bedrooms": null,
-        "property-listing---number-of-parking-spots": null,
-        "property-listing---display-price": null,
-        "property-listing---type": null,
-        "property-listing---agent": "6851144119c25a3a1af52024",
-        "door-type-collections-2": [
-          "6948d7a29357f7da70473e6e",
-          "6948d7a2b88c2622cdb24c84",
-          "6948d7a30e1defa1055ea24f"
-        ],
-        "explore-collection-text": "Explore Jeld-Wen Collections",
-        "seo-title": "Jeld-Wen Wood Clad Doors | Deluxe Windows Livermore",
-        "seo-description": "Jeld-Wen wood clad doors feature natural wood interiors with protective exterior cladding for Bay Area homes. Installed by Deluxe Windows in San Francisco. Free estimates.",
-        "opengraph-title": "Jeld-Wen Wood Clad Doors | Deluxe Windows Livermore",
-        "opengraph-description": "Jeld-Wen wood clad doors feature natural wood interiors with protective exterior cladding for Bay Area homes. Installed by Deluxe Windows in San Francisco. Free estimates.",
-        "opengraph-image": null,
-        "twitter-card": null,
-        "name": "Jeld-Wen Wood Clad Doors",
-        "slug": "jeld-wen-wood-clad-doors"
-      }
-    },
-    {
-      "id": "688f4b897b8a5a98daca335d",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2025-08-03T11:44:09.552Z",
-      "lastUpdated": "2026-03-23T18:48:20.803Z",
-      "lastPublished": "2026-03-24T05:43:04.253Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "property-listing---featured-image": {
-          "fileId": "688f4bcb4dc52340eeb1b81f",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f4bcb4dc52340eeb1b81f_JeldWen-Entry-Doors-1-1536x864.jpg",
-          "alt": null
-        },
-        "property-listing---featured-images": [],
-        "property-listing---thumbnail-image-v1": {
-          "fileId": "688f4bcb4dc52340eeb1b81f",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f4bcb4dc52340eeb1b81f_JeldWen-Entry-Doors-1-1536x864.jpg",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v2": {
-          "fileId": "688f4bcb4dc52340eeb1b81f",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f4bcb4dc52340eeb1b81f_JeldWen-Entry-Doors-1-1536x864.jpg",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v3": {
-          "fileId": "688f4bcb4dc52340eeb1b81f",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f4bcb4dc52340eeb1b81f_JeldWen-Entry-Doors-1-1536x864.jpg",
-          "alt": null
-        },
-        "property-listing---about": "<h2 id=\"\">Why Choose Jeld-Wen Wood Doors</h2><p id=\"\">JELD-WEN wood doors offer timeless beauty, natural warmth, and exceptional craftsmanship. Made from premium wood species, they bring character and elegance to both traditional and modern homes.</p><p id=\"\">Each door is carefully engineered for long-lasting performance, with options available for both interior and exterior use. With proper care, JELD-WEN wood doors can last for generations.</p><p id=\"\">Built in North America, every door is crafted to order—allowing for a wide range of panel designs, glass inserts, finishes, and decorative accents to match your personal style.</p><p id=\"\">Choose from a variety of rich wood types like mahogany, oak, pine, and fir—ready to stain, paint, or finish to enhance your home’s natural aesthetic.</p><p id=\"\">Advanced treatments like AuraLast® wood protection are available to help resist rot, moisture, and termites—making JELD-WEN wood doors as durable as they are beautiful.</p>",
-        "property-listing---summary": null,
-        "property-listing---excerpt": null,
-        "property-listing---property-featured": false,
-        "property-listing---address": null,
-        "property-listing---sqf": null,
-        "property-listing---number-of-bathrooms": null,
-        "property-listing---number-of-bedrooms": null,
-        "property-listing---number-of-parking-spots": null,
-        "property-listing---display-price": null,
-        "property-listing---type": null,
-        "property-listing---agent": "6851144119c25a3a1af52024",
-        "door-type-collections-2": [
-          "6948d7a4f36ce8dce4db130f"
-        ],
-        "explore-collection-text": "Explore Jeld-Wen Collections",
-        "seo-title": "Jeld-Wen Wood Doors | Deluxe Windows Antioch",
-        "seo-description": "Jeld-Wen wood doors deliver classic beauty and custom finishes for Bay Area entry doors. Expert installation by Deluxe Windows in San Francisco. Request a free estimate.",
-        "opengraph-title": "Jeld-Wen Wood Doors | Deluxe Windows Antioch",
-        "opengraph-description": "Jeld-Wen wood doors deliver classic beauty and custom finishes for Bay Area entry doors. Expert installation by Deluxe Windows in San Francisco. Request a free estimate.",
-        "opengraph-image": null,
-        "twitter-card": null,
-        "name": "Jeld-Wen Wood Doors",
-        "slug": "jeld-wen-wood-doors"
-      }
-    },
-    {
-      "id": "688f49addb6ff6c6f37a9070",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2025-08-03T11:36:13.423Z",
-      "lastUpdated": "2026-03-23T18:48:20.697Z",
-      "lastPublished": "2026-03-24T05:43:04.253Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "property-listing---featured-image": {
-          "fileId": "688f4b3d77516719c3c3f855",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f4b3d77516719c3c3f855_Screenshot%202025-08-03%20at%2014.42.34%201.jpg",
-          "alt": null
-        },
-        "property-listing---featured-images": [],
-        "property-listing---thumbnail-image-v1": {
-          "fileId": "688f4b3d77516719c3c3f855",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f4b3d77516719c3c3f855_Screenshot%202025-08-03%20at%2014.42.34%201.jpg",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v2": {
-          "fileId": "688f4b3d77516719c3c3f855",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f4b3d77516719c3c3f855_Screenshot%202025-08-03%20at%2014.42.34%201.jpg",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v3": {
-          "fileId": "688f4b3d77516719c3c3f855",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f4b3d77516719c3c3f855_Screenshot%202025-08-03%20at%2014.42.34%201.jpg",
-          "alt": null
-        },
-        "property-listing---about": "<h2 id=\"\">Why Choose Jeld-Wen Vinyl Doors</h2><p id=\"\">JELD-WEN vinyl patio doors are designed for smooth performance, lasting durability, and low-maintenance living. Built to resist dents, fading, and corrosion, they offer dependable operation in any climate.</p><p id=\"\">Trusted by homeowners and builders alike, JELD-WEN vinyl doors combine clean, modern aesthetics with advanced energy-efficient features. They’re backed by strong warranties that give you peace of mind for years to come.</p><p id=\"\">Manufactured in North America, each vinyl door is custom-built with precision and quality control, ensuring a perfect fit and long-lasting value for new builds or replacement projects.</p><p id=\"\">Available in sliding and folding configurations, JELD-WEN vinyl doors offer a variety of glass, grid, and color options—including heat-reflective FiniShield® exterior finishes—to match your design vision.</p><p id=\"\">Energy-saving innovations like multi-chamber frames and Low-E glass help maintain indoor comfort while reducing heating and cooling costs year-round.</p>",
-        "property-listing---summary": null,
-        "property-listing---excerpt": null,
-        "property-listing---property-featured": false,
-        "property-listing---address": null,
-        "property-listing---sqf": null,
-        "property-listing---number-of-bathrooms": null,
-        "property-listing---number-of-bedrooms": null,
-        "property-listing---number-of-parking-spots": null,
-        "property-listing---display-price": null,
-        "property-listing---type": null,
-        "property-listing---agent": "6851144119c25a3a1af52024",
-        "door-type-collections-2": [
-          "6948d7a37585b67be74b4f5d",
-          "6948d7a23103771b42e6f572",
-          "6948d7a204b3821b0810b601",
-          "6948d7a21e9c234098d2699e",
-          "6948d7a2982190a0a07e3280",
-          "6948d7a4853f3cc837c2ae0e"
-        ],
-        "explore-collection-text": "Explore Jeld-Wen Collections",
-        "seo-title": "Jeld-Wen Vinyl Doors | Deluxe Windows Pleasanton",
-        "seo-description": "Jeld-Wen vinyl doors offer reliable performance and wide design options for Bay Area homeowners. Installed by Deluxe Windows in San Francisco. Request a free quote.",
-        "opengraph-title": "Jeld-Wen Vinyl Doors | Deluxe Windows Pleasanton",
-        "opengraph-description": "Jeld-Wen vinyl doors offer reliable performance and wide design options for Bay Area homeowners. Installed by Deluxe Windows in San Francisco. Request a free quote.",
-        "opengraph-image": null,
-        "twitter-card": null,
-        "name": "Jeld-Wen Vinyl Doors",
-        "slug": "jeld-wen-vinyl-doors"
-      }
-    },
-    {
-      "id": "688f338b14a2a015105ce709",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2025-08-03T10:01:47.544Z",
-      "lastUpdated": "2026-03-23T18:48:20.662Z",
-      "lastPublished": "2026-03-24T05:43:04.253Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "property-listing---featured-image": {
-          "fileId": "688f33f2c13418f046cb7983",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f33f2c13418f046cb7983_milgard-aluminum-patio-doors.png",
-          "alt": null
-        },
-        "property-listing---featured-images": [],
-        "property-listing---thumbnail-image-v1": {
-          "fileId": "688f335768b6787dbc584c7b",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f335768b6787dbc584c7b_E1XUtiLXIAAnJQl.jpg",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v2": {
-          "fileId": "688f335768b6787dbc584c7b",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f335768b6787dbc584c7b_E1XUtiLXIAAnJQl.jpg",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v3": {
-          "fileId": "688f335768b6787dbc584c7b",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f335768b6787dbc584c7b_E1XUtiLXIAAnJQl.jpg",
-          "alt": null
-        },
-        "property-listing---about": "<h2 id=\"\">Why Choose Milgard Aluminum Doors </h2><p id=\"\">Light yet strong, aluminum-clad doors resist weathering and corrosion, ensuring long-lasting performance and maintaining their appearance over time. Aluminum frames also require minimal upkeep, saving you maintenance time and effort.</p><p id=\"\">Architects and homeowners alike are drawn to the timeless appeal of aluminum doors’ slim profile. It allows for larger panes of glass and maximizes natural light and views while offering a sleek, modern aesthetic.</p><p id=\"\">The versatility of aluminum door means they can be configured into a wide variety of combinations. From aluminum sliding windows to casement styles and more, they can be customized to fit any size or style.</p><p id=\"\">With advancements in technology, aluminum windows now feature thermal breaks that significantly improve insulation, reducing energy costs. Milgard aluminum windows have a polyurethane channel to reduce heat transfer and improve energy efficiency.</p>",
-        "property-listing---summary": null,
-        "property-listing---excerpt": null,
-        "property-listing---property-featured": false,
-        "property-listing---address": null,
-        "property-listing---sqf": null,
-        "property-listing---number-of-bathrooms": null,
-        "property-listing---number-of-bedrooms": null,
-        "property-listing---number-of-parking-spots": null,
-        "property-listing---display-price": null,
-        "property-listing---type": null,
-        "property-listing---agent": "6841ddf8ace3d9d9facb169f",
-        "door-type-collections-2": [
-          "693661d965a229545a694b1f"
-        ],
-        "explore-collection-text": "Explore Milgard Collections",
-        "seo-title": "Milgard Aluminum Doors | Deluxe Windows Pinole",
-        "seo-description": "Milgard aluminum doors are engineered for coastal Bay Area performance with slim modern profiles. Installed by Deluxe Windows in San Francisco. Request a free quote.",
-        "opengraph-title": "Milgard Aluminum Doors | Deluxe Windows Pinole",
-        "opengraph-description": "Milgard aluminum doors are engineered for coastal Bay Area performance with slim modern profiles. Installed by Deluxe Windows in San Francisco. Request a free quote.",
-        "opengraph-image": null,
-        "twitter-card": null,
-        "name": "Milgard Aluminum Doors",
-        "slug": "milgard-aluminum-doors"
-      }
-    },
-    {
-      "id": "688f32d43dce1d45ad637326",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2025-08-03T09:58:44.374Z",
-      "lastUpdated": "2026-03-23T18:48:20.641Z",
-      "lastPublished": "2026-03-24T05:43:04.253Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "property-listing---featured-image": {
-          "fileId": "688f335768b6787dbc584c7b",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f335768b6787dbc584c7b_E1XUtiLXIAAnJQl.jpg",
-          "alt": null
-        },
-        "property-listing---featured-images": [],
-        "property-listing---thumbnail-image-v1": {
-          "fileId": "688f335768b6787dbc584c7b",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f335768b6787dbc584c7b_E1XUtiLXIAAnJQl.jpg",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v2": {
-          "fileId": "688f335768b6787dbc584c7b",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f335768b6787dbc584c7b_E1XUtiLXIAAnJQl.jpg",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v3": {
-          "fileId": "688f335768b6787dbc584c7b",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f335768b6787dbc584c7b_E1XUtiLXIAAnJQl.jpg",
-          "alt": null
-        },
-        "property-listing---about": "<h2 id=\"\">Why Choose Milgard Vinyl Doors </h2><p id=\"\">Milgard vinyl frames are virtually maintenance-free. They include PVC, high quality titanium dioxide, and stabilizers to ensure high performance and energy efficiency.</p><p id=\"\">Milgard vinyl exceed AAMA’s stringent requirements for weather and impact resistance.</p><p id=\"\">Milgard's vinyl compound is produced in controlled environments to exacting standards for high-quality windows and doors you’ll enjoy for years.</p>",
-        "property-listing---summary": null,
-        "property-listing---excerpt": null,
-        "property-listing---property-featured": false,
-        "property-listing---address": null,
-        "property-listing---sqf": null,
-        "property-listing---number-of-bathrooms": null,
-        "property-listing---number-of-bedrooms": null,
-        "property-listing---number-of-parking-spots": null,
-        "property-listing---display-price": null,
-        "property-listing---type": null,
-        "property-listing---agent": "6841ddf8ace3d9d9facb169f",
-        "door-type-collections-2": [
-          "693661d9882df952b82168e6",
-          "693661d811cc1f36f62bfb54",
-          "693661d88bf6a11d6c57ba91",
-          "693661d99ea967ebbac6877c"
-        ],
-        "explore-collection-text": "Explore Milgard Collections",
-        "seo-title": "Milgard Vinyl Doors | Deluxe Windows Vallejo",
-        "seo-description": "Milgard vinyl doors deliver energy efficiency and design flexibility for Bay Area homeowners. Installed by Deluxe Windows in San Francisco and surrounding areas. Free quotes.",
-        "opengraph-title": "Milgard Vinyl Doors | Deluxe Windows Vallejo",
-        "opengraph-description": "Milgard vinyl doors deliver energy efficiency and design flexibility for Bay Area homeowners. Installed by Deluxe Windows in San Francisco and surrounding areas. Free quotes.",
-        "opengraph-image": null,
-        "twitter-card": null,
-        "name": "Milgard Vinyl Doors",
-        "slug": "milgard-vinyl-doors"
-      }
-    },
-    {
-      "id": "688f320cf077e8f6387edf9d",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2025-08-03T09:55:24.498Z",
-      "lastUpdated": "2026-03-23T18:48:20.590Z",
-      "lastPublished": "2026-03-24T05:43:04.253Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "property-listing---featured-image": {
-          "fileId": "688f329f6a17214fbe1acb42",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f329f6a17214fbe1acb42_Essence_0637-1024x817.jpg",
-          "alt": null
-        },
-        "property-listing---featured-images": [],
-        "property-listing---thumbnail-image-v1": {
-          "fileId": "688f329f6a17214fbe1acb42",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f329f6a17214fbe1acb42_Essence_0637-1024x817.jpg",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v2": {
-          "fileId": "688f329f6a17214fbe1acb42",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f329f6a17214fbe1acb42_Essence_0637-1024x817.jpg",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v3": {
-          "fileId": "688f329f6a17214fbe1acb42",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688f329f6a17214fbe1acb42_Essence_0637-1024x817.jpg",
-          "alt": null
-        },
-        "property-listing---about": "<h2 id=\"\">Why Choose Milgard Fiberglass Doors </h2><p id=\"\">If you are planning a project with large windows in mind, fiberglass is extremely strong and can hold expansive pieces of glass. Milgard regularly tests its fiberglass frame lineals for quality and long-lasting performance.</p><p id=\"\">Fiberglass windows and doors are low-maintenance and resist swelling, rotting, warping and corrosion. They do not require repainting like wood, but the material is paintable if you prefer to change colors down the road.</p><p id=\"\">Fiberglass windows are doors are very energy efficient with low thermal conductivity in your home, for year-round comfort you can rely on.​</p>",
-        "property-listing---summary": null,
-        "property-listing---excerpt": null,
-        "property-listing---property-featured": false,
-        "property-listing---address": null,
-        "property-listing---sqf": null,
-        "property-listing---number-of-bathrooms": null,
-        "property-listing---number-of-bedrooms": null,
-        "property-listing---number-of-parking-spots": null,
-        "property-listing---display-price": null,
-        "property-listing---type": null,
-        "property-listing---agent": "6841ddf8ace3d9d9facb169f",
-        "door-type-collections-2": [
-          "693661da1cd7ca00407b6b29"
-        ],
-        "explore-collection-text": "Explore Milgard Collections",
-        "seo-title": "Milgard Fiberglass Doors | Deluxe Windows Napa",
-        "seo-description": "Milgard fiberglass doors offer exceptional durability and energy performance for Bay Area homes. Installed by Deluxe Windows in San Francisco. Get a free estimate today.",
-        "opengraph-title": "Milgard Fiberglass Doors | Deluxe Windows Napa",
-        "opengraph-description": "Milgard fiberglass doors offer exceptional durability and energy performance for Bay Area homes. Installed by Deluxe Windows in San Francisco. Get a free estimate today.",
-        "opengraph-image": null,
-        "twitter-card": null,
-        "name": "Milgard Fiberglass Doors",
-        "slug": "milgard-fiberglass-doors"
-      }
-    },
-    {
-      "id": "688efd40508cf8d87a1fd1a5",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2025-08-03T06:10:08.234Z",
-      "lastUpdated": "2026-03-23T18:48:20.598Z",
-      "lastPublished": "2026-03-24T05:43:04.253Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "property-listing---featured-image": {
-          "fileId": "688efd96309fed3347c95d0b",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688efd96309fed3347c95d0b_trustile-traditional-style-black-front-door%201.jpg",
-          "alt": null
-        },
-        "property-listing---featured-images": [],
-        "property-listing---thumbnail-image-v1": {
-          "fileId": "688efd96309fed3347c95d0b",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688efd96309fed3347c95d0b_trustile-traditional-style-black-front-door%201.jpg",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v2": {
-          "fileId": "688efd96309fed3347c95d0b",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688efd96309fed3347c95d0b_trustile-traditional-style-black-front-door%201.jpg",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v3": {
-          "fileId": "688efd96309fed3347c95d0b",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688efd96309fed3347c95d0b_trustile-traditional-style-black-front-door%201.jpg",
-          "alt": null
-        },
-        "property-listing---about": "<h2 id=\"\">Why Choose Marvin Fiberglass Doors </h2><p id=\"\">Endures harsh weather conditions and climates with minimal wear and tear over time</p><p id=\"\">Virtually maintenance free</p><p id=\"\">Provides exceptional structural strength, ensuring windows and doors open and close easily for years to come</p><p id=\"\">Does not expand and contract with dramatic changes in temperature, making the product resistant to leaks, seal failures, and stress cracks</p><p id=\"\">When combined with energy-efficient glass options, fiberglass keeps the indoors comfortable regardless of what’s happening outdoors</p>",
-        "property-listing---summary": null,
-        "property-listing---excerpt": null,
-        "property-listing---property-featured": false,
-        "property-listing---address": null,
-        "property-listing---sqf": null,
-        "property-listing---number-of-bathrooms": null,
-        "property-listing---number-of-bedrooms": null,
-        "property-listing---number-of-parking-spots": null,
-        "property-listing---display-price": null,
-        "property-listing---type": null,
-        "property-listing---agent": "6841ddf8ace3d9d9facb16a0",
-        "door-type-collections-2": [
-          "693ecf21cb5cd79fff4259fd",
-          "693ecf21867626a15bd95495",
-          "693ecf21cacd62668cf07175"
-        ],
-        "explore-collection-text": "Explore Marvin Collections",
-        "seo-title": "Marvin Fiberglass Doors | Deluxe Windows El Cerrito",
-        "seo-description": "Marvin fiberglass doors resist warping and coastal weather — ideal for Bay Area homes. Elevate and Essential collections available at Deluxe Windows in San Francisco.",
-        "opengraph-title": "Marvin Fiberglass Doors | Deluxe Windows El Cerrito",
-        "opengraph-description": "Marvin fiberglass doors resist warping and coastal weather — ideal for Bay Area homes. Elevate and Essential collections available at Deluxe Windows in San Francisco.",
-        "opengraph-image": null,
-        "twitter-card": null,
-        "name": "Marvin Fiberglass Doors",
-        "slug": "marvin-fiberglass-doors"
-      }
-    },
-    {
-      "id": "688efca068bfe5b6f25c45fa",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2025-08-03T06:07:28.866Z",
-      "lastUpdated": "2026-03-23T18:48:20.488Z",
-      "lastPublished": "2026-03-24T05:43:04.253Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "property-listing---featured-image": {
-          "fileId": "688efcfce7d12a8517249a7f",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688efcfce7d12a8517249a7f_front-door-craftsman-hazelnut%201.jpg",
-          "alt": null
-        },
-        "property-listing---featured-images": [],
-        "property-listing---thumbnail-image-v1": {
-          "fileId": "688efcfce7d12a8517249a7f",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688efcfce7d12a8517249a7f_front-door-craftsman-hazelnut%201.jpg",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v2": {
-          "fileId": "688efcfce7d12a8517249a7f",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688efcfce7d12a8517249a7f_front-door-craftsman-hazelnut%201.jpg",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v3": {
-          "fileId": "688efcfce7d12a8517249a7f",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688efcfce7d12a8517249a7f_front-door-craftsman-hazelnut%201.jpg",
-          "alt": null
-        },
-        "property-listing---about": "<h2 id=\"\">Why Choose Marvin Wood Doors </h2><p id=\"\">Wood is a natural material that offers a sense of warmth and richness in your windows and doors. Choosing wood windows and doors also brings a unique and distinctive quality to any space since no two pieces of wood are exactly alike.</p><p id=\"\">For wood windows and doors, there are two main application types: wood interiors with wood exteriors (typically historic projects with a goal to replicate original wood windows) or, more commonly, wood interiors with aluminum-clad or fiberglass exteriors.</p><p id=\"\">Wood is resilient and can resist warping when faced with extreme temperature changes. Adding coating and treatment to wood can help protect it for an even longer period of time</p><p id=\"\">Bringing your exact vision to life is possible because wood can be made custom to fit virtually any size or shape, with the most intricate of details</p><p id=\"\">Wood windows and doors provide great insulation</p><p id=\"\">Treatments such as stains and paints work well when applied to wood</p><p id=\"\">For a more sustainable option, wood is a renewable resource</p><p id=\"\">Wood is often perceived as a material that will rot or deteriorate, but that is only the case if it is exposed to moisture for a prolonged period of time</p>",
-        "property-listing---summary": null,
-        "property-listing---excerpt": null,
-        "property-listing---property-featured": false,
-        "property-listing---address": null,
-        "property-listing---sqf": null,
-        "property-listing---number-of-bathrooms": null,
-        "property-listing---number-of-bedrooms": null,
-        "property-listing---number-of-parking-spots": null,
-        "property-listing---display-price": null,
-        "property-listing---type": null,
-        "property-listing---agent": "6841ddf8ace3d9d9facb16a0",
-        "door-type-collections-2": [
-          "693ecf2170217d5958ca7ff1",
-          "693ecf21867626a15bd95495"
-        ],
-        "explore-collection-text": "Explore Marvin Collections",
-        "seo-title": "Marvin Wood Doors | Deluxe Windows Hercules",
-        "seo-description": "Marvin wood doors add timeless character and premium craftsmanship to Bay Area homes. Installed by Deluxe Windows in San Francisco. Request a free estimate today.",
-        "opengraph-title": "Marvin Wood Doors | Deluxe Windows Hercules",
-        "opengraph-description": "Marvin wood doors add timeless character and premium craftsmanship to Bay Area homes. Installed by Deluxe Windows in San Francisco. Request a free estimate today.",
-        "opengraph-image": null,
-        "twitter-card": null,
-        "name": "Marvin Wood Doors",
-        "slug": "marvin-wood-doors"
-      }
-    },
-    {
-      "id": "688efa4b6351ef2cf4a1ebb6",
-      "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
-      "createdOn": "2025-08-03T05:57:31.283Z",
-      "lastUpdated": "2026-03-23T18:48:20.713Z",
-      "lastPublished": "2026-03-24T05:43:04.253Z",
-      "isArchived": false,
-      "isDraft": false,
-      "fieldData": {
-        "property-listing---featured-image": {
-          "fileId": "688efa92ca0a2c012d8ba438",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688efa92ca0a2c012d8ba438_Screenshot%202025-08-03%20at%2008.58.37.png",
-          "alt": null
-        },
-        "property-listing---featured-images": [],
-        "property-listing---thumbnail-image-v1": {
-          "fileId": "688efb054dc52340eea6955f",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688efb054dc52340eea6955f_Screenshot%202025-08-03%20at%2009.00.20%201.jpg",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v2": {
-          "fileId": "688efb054dc52340eea6955f",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688efb054dc52340eea6955f_Screenshot%202025-08-03%20at%2009.00.20%201.jpg",
-          "alt": null
-        },
-        "property-listing---thumbnail-image-v3": {
-          "fileId": "688efb054dc52340eea6955f",
-          "url": "https://cdn.prod.website-files.com/6841ddf8ace3d9d9facb1586/688efb054dc52340eea6955f_Screenshot%202025-08-03%20at%2009.00.20%201.jpg",
-          "alt": null
-        },
-        "property-listing---about": "<h2 id=\"\">Why Choose Marvin Aluminum Doors </h2><h3 id=\"\">Durability</h3><p id=\"\">Aluminum is strong and helps maintain the structural integrity of the product even in extreme weather.</p><h3 id=\"\">Smooth, consistent finish</h3><p id=\"\">The process and finish Marvin uses for its aluminum windows and doors allows for a smooth, premium finish.</p><h3 id=\"\">Design aesthetics</h3><p id=\"\">Extruded aluminum offers a high degree of design flexibility and can be made into precise shapes.</p><p id=\"\">‍</p><p id=\"\">Extruded aluminum is thicker and more durable than roll form. Thinner aluminum, such as roll form, can dent more easily, and does not offer the structural performance of extruded aluminum.</p><p id=\"\">Marvin extruded aluminum parts are formed first, then painted. This eliminates paint cracks and imperfections and allows for a smooth, uniform finish that evenly covers the curves and angles of the product. The 70% PVDF fluoropolymer acrylic enamel finish is smooth to the touch which distinguishes it from the rough, textured finish on competitive aluminum products.</p><p id=\"\">The PVDF finish meets the highest American Architectural Manufacturers Association (AAMA) 2605 requirements. During the manufacturing process, the PVDF finish is chemically bonded to the aluminum. The PVDF finish is standard for all Ultimate and select Coastline finishes.</p><p id=\"\">To provide uniform durability over time, Marvin Ultimate uses extruded aluminum on all major window components. Some manufacturers choose to cut costs by using lower-quality materials on certain parts. This can lead to quicker chalking and fading and inconsistent weatherability.</p><p id=\"\">Because of its design flexibility, extruded aluminum can be shaped to closely match existing windows or doors in a way that can’t be done with other materials. Extruded aluminum is created by heating aluminum and pushing it through a die which creates a clean, and precise shape. The aluminum is then cut and fabricated into different shapes, sizes, and widths. Roll form aluminum comes on a large roll and is pressed down over a form to create the product components.</p>",
-        "property-listing---summary": null,
-        "property-listing---excerpt": null,
-        "property-listing---property-featured": false,
-        "property-listing---address": null,
-        "property-listing---sqf": null,
-        "property-listing---number-of-bathrooms": null,
-        "property-listing---number-of-bedrooms": null,
-        "property-listing---number-of-parking-spots": null,
-        "property-listing---display-price": null,
-        "property-listing---type": null,
-        "property-listing---agent": "6841ddf8ace3d9d9facb16a0",
-        "door-type-collections-2": [
-          "693ecf2170217d5958ca7ff1",
-          "693ecf21cb5cd79fff4259fd"
-        ],
-        "explore-collection-text": "Explore Marvin Collections",
-        "seo-title": "Marvin Aluminum Doors | Deluxe Windows Richmond",
-        "seo-description": "Marvin aluminum doors offer sleek, durable frames and modern design for Bay Area homes. Installed by Deluxe Windows in San Francisco and the Bay Area. Free estimates.",
-        "opengraph-title": "Marvin Aluminum Doors | Deluxe Windows Richmond",
-        "opengraph-description": "Marvin aluminum doors offer sleek, durable frames and modern design for Bay Area homes. Installed by Deluxe Windows in San Francisco and the Bay Area. Free estimates.",
-        "opengraph-image": null,
-        "twitter-card": null,
-        "name": "Marvin Aluminum Doors",
-        "slug": "marvin-aluminum-doors"
-      }
+    "table": "wf_door_types",
+    "collectionId": "688ef97f56238a41af6cffd2",
+    "collectionSlug": "door-types",
+    "items": [
+        {
+            "id": "688f7a808386df55b72bc982",
+            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+            "createdOn": "2025-08-03T15:04:32+00:00",
+            "lastUpdated": "2026-03-23T18:48:20+00:00",
+            "lastPublished": "2026-03-24T05:43:04+00:00",
+            "isArchived": false,
+            "isDraft": false,
+            "fieldData": {
+                "name": "All Weather Architectural Aluminum Doors",
+                "slug": "all-weather-architectural-aluminum-doors",
+                "seo-title": "All Weather Aluminum Doors | Deluxe Windows San Jose",
+                "twitter-card": null,
+                "opengraph-title": "All Weather Aluminum Doors | Deluxe Windows San Jose",
+                "seo-description": "All Weather Architectural Aluminum doors offer commercial-grade performance for Bay Area homes and businesses. Installed by Deluxe Windows in San Francisco. Free estimates.",
+                "opengraph-description": "All Weather Architectural Aluminum doors offer commercial-grade performance for Bay Area homes and businesses. Installed by Deluxe Windows in San Francisco. Free estimates.",
+                "property-listing---sqf": null,
+                "door-type-collections-2": [
+                    "697f88836886bbc7633ffdd5",
+                    "697f888388b96bd79af04be5",
+                    "697f88839e70d793c0d4d4f5",
+                    "697f8884667a50a281d15577",
+                    "697f8884d0d133ec13202243",
+                    "697f8884950159fbac14030e"
+                ],
+                "explore-collection-text": "Explore All Weather Architectural Aluminum Collections",
+                "property-listing---type": null,
+                "property-listing---about": "<h2 id=\"\">Why Choose All Weather Architectural Aluminum Doors</h2><p id=\"\">All Weather Architectural Aluminum doors are built for bold design, structural performance, and architectural flexibility—making them the preferred choice for custom homes, luxury builds, and modern commercial projects.</p><p id=\"\">Constructed from premium aluminum, these doors feature clean lines, narrow sightlines, and large-scale glass openings, allowing for uninterrupted views and seamless transitions between indoor and outdoor spaces.</p><p id=\"\">Available in a wide range of configurations—including sliding, multi-slide, bi-fold, and pivot systems—each door is custom fabricated to meet your exact design and performance requirements.</p><p id=\"\">With thermally broken frame options, All Weather doors offer enhanced insulation, energy efficiency, and climate control—engineered to meet demanding standards like California Title 24.</p><p id=\"\">Durable, corrosion-resistant finishes and high-performance glazing ensure long-lasting beauty and functionality, even in coastal or extreme weather environments.</p><p id=\"\">Made in California and trusted by architects across the Western U.S., All Weather aluminum doors deliver the perfect blend of modern aesthetics, engineering precision, and custom craftsmanship.</p>",
+                "property-listing---agent": "687b77229d351e28dc2a5141",
+                "property-listing---address": null,
+                "property-listing---excerpt": null,
+                "property-listing---summary": null,
+                "property-listing---display-price": null,
+                "property-listing---property-featured": 0,
+                "property-listing---number-of-bedrooms": null,
+                "property-listing---number-of-bathrooms": null,
+                "property-listing---number-of-parking-spots": null
+            }
+        },
+        {
+            "id": "688f77cdda098b599dffca19",
+            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+            "createdOn": "2025-08-03T14:53:01+00:00",
+            "lastUpdated": "2026-03-23T18:48:20+00:00",
+            "lastPublished": "2026-03-24T05:43:04+00:00",
+            "isArchived": false,
+            "isDraft": false,
+            "fieldData": {
+                "name": "Western Window Systems Aluminum Doors",
+                "slug": "western-window-systems-aluminum-doors",
+                "seo-title": "Western Window Systems Aluminum Doors | Deluxe Windows Santa Rosa",
+                "twitter-card": null,
+                "opengraph-title": "Western Window Systems Aluminum Doors | Deluxe Windows Santa Rosa",
+                "seo-description": "Western Window Systems aluminum doors bring modern, high-performance design to Bay Area homes. Installed by Deluxe Windows in San Francisco. Request a free estimate.",
+                "opengraph-description": "Western Window Systems aluminum doors bring modern, high-performance design to Bay Area homes. Installed by Deluxe Windows in San Francisco. Request a free estimate.",
+                "property-listing---sqf": null,
+                "door-type-collections-2": [
+                    "697f88836886bbc7633ffdd5",
+                    "697f888388b96bd79af04be5",
+                    "697f88839e70d793c0d4d4f5",
+                    "697f8884667a50a281d15577",
+                    "697f8884d0d133ec13202243",
+                    "697f8884950159fbac14030e"
+                ],
+                "explore-collection-text": "Explore Western Window Systems Aluminum Collections",
+                "property-listing---type": null,
+                "property-listing---about": "<h2 id=\"\">Why Choose Western Window Systems Aluminum Doors</h2><p id=\"\">Western Window Systems aluminum doors are engineered to redefine indoor-outdoor living, offering expansive openings, clean aesthetics, and commercial-grade performance. Designed for modern architecture and built in the American Southwest, these doors combine minimalist design with structural strength and lasting durability.</p><p id=\"\">Made from high-quality aluminum, these doors feature narrow sightlines, large glass panels, and smooth operation, creating seamless transitions between interior and exterior spaces. Whether you choose sliding, folding, pivot, or multi-slide systems, each door is tailored to maximize light, views, and spatial flow.</p><p id=\"\">Available in both classic and thermally broken aluminum, Western Window Systems doors are built to perform in harsh climates—maintaining energy efficiency, weather resistance, and year-round comfort.</p><p id=\"\">With extensive customization options—including custom sizes, finishes, hardware, and high-performance glass—you can design a solution that aligns perfectly with your vision.</p><p id=\"\">Trusted by architects, builders, and luxury homeowners, Western Window Systems aluminum doors deliver bold style, flexible functionality, and long-lasting value for contemporary homes and commercial spaces alike.</p>",
+                "property-listing---agent": "6841ddf8ace3d9d9facb169d",
+                "property-listing---address": null,
+                "property-listing---excerpt": null,
+                "property-listing---summary": null,
+                "property-listing---display-price": null,
+                "property-listing---property-featured": 0,
+                "property-listing---number-of-bedrooms": null,
+                "property-listing---number-of-bathrooms": null,
+                "property-listing---number-of-parking-spots": null
+            }
+        },
+        {
+            "id": "688f7631db6ff6c6f381b788",
+            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+            "createdOn": "2025-08-03T14:46:09+00:00",
+            "lastUpdated": "2026-03-23T18:48:20+00:00",
+            "lastPublished": "2026-03-24T05:43:04+00:00",
+            "isArchived": false,
+            "isDraft": false,
+            "fieldData": {
+                "name": "Alside Vinyl Doors",
+                "slug": "alside-vinyl-doors",
+                "seo-title": "Alside Vinyl Doors | Deluxe Windows Oakland",
+                "twitter-card": null,
+                "opengraph-title": "Alside Vinyl Doors | Deluxe Windows Oakland",
+                "seo-description": "Alside vinyl doors provide durable, low-maintenance entry solutions for Bay Area homes. Installed by Deluxe Windows in San Francisco and surrounding areas. Free estimates.",
+                "opengraph-description": "Alside vinyl doors provide durable, low-maintenance entry solutions for Bay Area homes. Installed by Deluxe Windows in San Francisco and surrounding areas. Free estimates.",
+                "property-listing---sqf": null,
+                "door-type-collections-2": [
+                    "696dce5265e9e5168744bae6",
+                    "696dce53e96aa303dc19539e",
+                    "696dce5216c84c4cf495e37d"
+                ],
+                "explore-collection-text": "Explore Alside Collections",
+                "property-listing---type": null,
+                "property-listing---about": "<h2 id=\"\">Why Choose Alside Vinyl Doors</h2><p id=\"\">Alside vinyl patio doors offer a perfect balance of durability, energy efficiency, and sleek design—making them a reliable choice for enhancing indoor-outdoor living with minimal maintenance.</p><p id=\"\">Crafted from high-performance, weather-resistant vinyl, these doors are built to withstand harsh elements without warping, cracking, or fading. Their multi-chambered construction provides added insulation and strength, helping to improve thermal efficiency and reduce energy costs.</p><p id=\"\">Available in sliding and hinged configurations, Alside vinyl doors feature smooth, quiet operation and a variety of customization options—including frame colors, decorative glass, hardware finishes, and grille styles—to match your home's aesthetic.</p><p id=\"\">With advanced Low-E glass, Argon gas fills, and strong weather sealing, Alside doors help keep your home comfortable year-round while maximizing natural light and outdoor views.</p><p id=\"\">Backed by over 75 years of manufacturing experience and industry-leading limited lifetime warranties, Alside vinyl doors offer dependable performance, everyday convenience, and long-lasting value.</p>",
+                "property-listing---agent": "6841ddf8ace3d9d9facb1690",
+                "property-listing---address": null,
+                "property-listing---excerpt": null,
+                "property-listing---summary": null,
+                "property-listing---display-price": null,
+                "property-listing---property-featured": 0,
+                "property-listing---number-of-bedrooms": null,
+                "property-listing---number-of-bathrooms": null,
+                "property-listing---number-of-parking-spots": null
+            }
+        },
+        {
+            "id": "688f747b77aae2a0fdee2b43",
+            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+            "createdOn": "2025-08-03T14:38:51+00:00",
+            "lastUpdated": "2026-03-23T18:48:20+00:00",
+            "lastPublished": "2026-03-24T05:43:04+00:00",
+            "isArchived": false,
+            "isDraft": false,
+            "fieldData": {
+                "name": "Simonton Vinyl Doors",
+                "slug": "simonton-vinyl-doors",
+                "seo-title": "Simonton Vinyl Doors | Deluxe Windows Petaluma",
+                "twitter-card": null,
+                "opengraph-title": "Simonton Vinyl Doors | Deluxe Windows Petaluma",
+                "seo-description": "Simonton vinyl doors combine energy efficiency and durable construction for Bay Area homeowners. Installed by Deluxe Windows in San Francisco and the Bay Area. Free quotes.",
+                "opengraph-description": "Simonton vinyl doors combine energy efficiency and durable construction for Bay Area homeowners. Installed by Deluxe Windows in San Francisco and the Bay Area. Free quotes.",
+                "property-listing---sqf": null,
+                "door-type-collections-2": [
+                    "6964b7b638210e099afff5ef",
+                    "6964b7b65d639efc1967331b",
+                    "6964b7b679cf74d51ec92582",
+                    "6964b7b666f7d5b7104cf5a6",
+                    "6964b7b6dfa44f1ebf10cb92",
+                    "6964b7b6625f6fd9903558f6",
+                    "6964b7b87e331b216d405854",
+                    "6964b7b7642e2f07b0f5fe09",
+                    "6964b7b8f3facc40f0705aa9",
+                    "6964b7b8363b1b11cd674645",
+                    "6964b7b88df14c13e44d2460",
+                    "6964b7b87634ab0c3a252edf",
+                    "6964b7b91d6e62047ee1b30f"
+                ],
+                "explore-collection-text": "Explore Simonton Collections",
+                "property-listing---type": null,
+                "property-listing---about": "<h2 id=\"\">Why Choose Simonton Vinyl Doors</h2><p id=\"\">Simonton vinyl patio doors are built for smooth performance, energy efficiency, and everyday durability—designed to enhance your home with natural light, easy access, and long-lasting value.</p><p id=\"\">Constructed from premium vinyl, these doors resist warping, cracking, and fading—ensuring reliable operation and a clean, modern look with minimal maintenance. They're ideal for high-traffic areas and harsh weather conditions alike.</p><p id=\"\">Available in sliding and hinged configurations, Simonton vinyl doors can be fully customized with glass options, grid patterns, hardware finishes, and frame colors to complement your home's style.</p><p id=\"\">With advanced features like Low-E glass, Argon gas fills, and multi-point locking systems, Simonton doors deliver energy savings, thermal comfort, and added security—all backed by ENERGY STAR® certification on select models.</p><p id=\"\">Supported by industry-leading warranties and more than 75 years of manufacturing experience, Simonton vinyl doors offer trusted performance, timeless design, and peace of mind that lasts.</p>",
+                "property-listing---agent": "685114794ffee91485b78137",
+                "property-listing---address": null,
+                "property-listing---excerpt": null,
+                "property-listing---summary": null,
+                "property-listing---display-price": null,
+                "property-listing---property-featured": 0,
+                "property-listing---number-of-bedrooms": null,
+                "property-listing---number-of-bathrooms": null,
+                "property-listing---number-of-parking-spots": null
+            }
+        },
+        {
+            "id": "688f6bf4095ccc71f010754a",
+            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+            "createdOn": "2025-08-03T14:02:28+00:00",
+            "lastUpdated": "2026-03-23T18:48:20+00:00",
+            "lastPublished": "2026-03-24T05:43:04+00:00",
+            "isArchived": false,
+            "isDraft": false,
+            "fieldData": {
+                "name": "Ply Gem Vinyl Doors",
+                "slug": "ply-gem-vinyl-doors",
+                "seo-title": "Ply Gem Vinyl Doors | Deluxe Windows Vacaville",
+                "twitter-card": null,
+                "opengraph-title": "Ply Gem Vinyl Doors | Deluxe Windows Vacaville",
+                "seo-description": "Ply Gem vinyl doors offer a wide range of styles for every Bay Area budget and design preference. Installed by Deluxe Windows in San Francisco. Request a free estimate.",
+                "opengraph-description": "Ply Gem vinyl doors offer a wide range of styles for every Bay Area budget and design preference. Installed by Deluxe Windows in San Francisco. Request a free estimate.",
+                "property-listing---sqf": null,
+                "door-type-collections-2": [
+                    "695b81391382c75a489084c9",
+                    "695b813a8af41cce38649add",
+                    "695b813a1a2c431424c0fe4c",
+                    "695b83ae1ea6ab8336fd2e0d"
+                ],
+                "explore-collection-text": "Explore Ply Gem Collections",
+                "property-listing---type": null,
+                "property-listing---about": "<h2 id=\"\">Why Choose Ply Gem Vinyl Doors</h2><p id=\"\">Ply Gem vinyl doors offer a durable, energy-efficient, and low-maintenance solution for patios, backyards, and outdoor living spaces. Designed to perform in real-world conditions, they combine lasting quality with clean, modern style.</p><p id=\"\">Constructed with premium multi-chambered vinyl frames, these doors resist warping, cracking, and fading—even under intense sun or changing weather conditions. They’re easy to maintain and never need painting or refinishing.</p><p id=\"\">Available in a variety of configurations, including sliding and swinging patio doors, Ply Gem vinyl doors can be customized with frame colors, hardware finishes, decorative glass, and grid options to match your home’s design.</p><p id=\"\">Engineered for energy efficiency, Ply Gem doors feature Low-E glass, Argon gas fills, and weather-tight sealing to help reduce energy costs and maintain indoor comfort year-round.</p><p id=\"\">With smooth operation, long-term durability, and strong warranty support, Ply Gem vinyl doors are a smart investment for everyday living and lasting performance.</p>",
+                "property-listing---agent": "685114315a60cc8b388e5af2",
+                "property-listing---address": null,
+                "property-listing---excerpt": null,
+                "property-listing---summary": null,
+                "property-listing---display-price": null,
+                "property-listing---property-featured": 0,
+                "property-listing---number-of-bedrooms": null,
+                "property-listing---number-of-bathrooms": null,
+                "property-listing---number-of-parking-spots": null
+            }
+        },
+        {
+            "id": "688f6baa95c8dca30a915e1e",
+            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+            "createdOn": "2025-08-03T14:01:14+00:00",
+            "lastUpdated": "2026-03-23T18:48:20+00:00",
+            "lastPublished": "2026-03-24T05:43:04+00:00",
+            "isArchived": false,
+            "isDraft": false,
+            "fieldData": {
+                "name": "Ply Gem Aluminum Doors",
+                "slug": "ply-gem-aluminum-doors",
+                "seo-title": "Ply Gem Aluminum Doors | Deluxe Windows Fairfield",
+                "twitter-card": null,
+                "opengraph-title": "Ply Gem Aluminum Doors | Deluxe Windows Fairfield",
+                "seo-description": "Ply Gem aluminum doors deliver commercial-strength performance and slim profiles for Bay Area homes. Installed by Deluxe Windows in San Francisco. Request a free estimate.",
+                "opengraph-description": "Ply Gem aluminum doors deliver commercial-strength performance and slim profiles for Bay Area homes. Installed by Deluxe Windows in San Francisco. Request a free estimate.",
+                "property-listing---sqf": null,
+                "door-type-collections-2": [
+                    "695b8139b48a893c5bc18e61",
+                    "695b81391ea6ab8336fc96eb",
+                    "695b81391451ea9b962a221c",
+                    "695b813aad9fd6775bd11f59"
+                ],
+                "explore-collection-text": "Explore Ply Gem Collections",
+                "property-listing---type": null,
+                "property-listing---about": "<h2 id=\"\">Why Choose Ply Gem Aluminum Doors</h2><p id=\"\">Ply Gem aluminum doors deliver the perfect combination of modern aesthetics, lasting durability, and smooth operation—making them a top choice for contemporary homes and commercial-grade projects alike.</p><p id=\"\">Crafted with strong, lightweight aluminum frames, these doors support expansive glass panels and narrow sightlines—bringing in more natural light and offering unobstructed views of the outdoors.</p><p id=\"\">Built to withstand harsh environments, Ply Gem aluminum doors are resistant to corrosion, warping, and fading—ideal for high-heat, coastal, or high-wind zones. Optional thermal breaks and energy-efficient glass packages help improve insulation and year-round comfort.</p><p id=\"\">Available in a variety of styles—including sliding, multi-slide, and hinged patio doors—Ply Gem aluminum doors can be customized with multiple finishes, hardware options, and configurations to match your design goals.</p><p id=\"\">Backed by Ply Gem’s reputation for quality and performance, these aluminum doors offer long-lasting value with minimal maintenance and maximum visual impact.</p>",
+                "property-listing---agent": "685114315a60cc8b388e5af2",
+                "property-listing---address": null,
+                "property-listing---excerpt": null,
+                "property-listing---summary": null,
+                "property-listing---display-price": null,
+                "property-listing---property-featured": 0,
+                "property-listing---number-of-bedrooms": null,
+                "property-listing---number-of-bathrooms": null,
+                "property-listing---number-of-parking-spots": null
+            }
+        },
+        {
+            "id": "688f690b17fc2f0bbe10f5fb",
+            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+            "createdOn": "2025-08-03T13:50:03+00:00",
+            "lastUpdated": "2026-03-23T18:48:20+00:00",
+            "lastPublished": "2026-03-24T05:43:04+00:00",
+            "isArchived": false,
+            "isDraft": false,
+            "fieldData": {
+                "name": "Andersen Aluminum Doors",
+                "slug": "andersen-aluminum-doors",
+                "seo-title": "Andersen Aluminum Doors | Deluxe Windows Fremont",
+                "twitter-card": null,
+                "opengraph-title": "Andersen Aluminum Doors | Deluxe Windows Fremont",
+                "seo-description": "Andersen aluminum doors deliver modern aesthetics and lasting strength for Bay Area homes. Installed by Deluxe Windows in San Francisco. Request a free estimate today.",
+                "opengraph-description": "Andersen aluminum doors deliver modern aesthetics and lasting strength for Bay Area homes. Installed by Deluxe Windows in San Francisco. Request a free estimate today.",
+                "property-listing---sqf": null,
+                "door-type-collections-2": [
+                    "6952354cdf826ad244ff1172"
+                ],
+                "explore-collection-text": "Explore Andersen Collections",
+                "property-listing---type": null,
+                "property-listing---about": "<h2 id=\"\">Why Choose Andersen Aluminum Doors</h2><p id=\"\">Andersen aluminum doors combine sleek design with exceptional strength—offering a premium solution for expansive openings, modern architecture, and commercial-grade performance.</p><p id=\"\">Available in the E-Series, these doors feature a durable aluminum exterior that resists the elements, maintains its finish, and offers clean, contemporary sightlines. Inside, a wood core adds warmth, structural integrity, and design flexibility.</p><p id=\"\">Perfect for large patio doors, multi-slide systems, and custom configurations, Andersen aluminum-clad doors allow for wide openings with minimal frame obstruction—maximizing natural light and creating seamless indoor-outdoor transitions.</p><p id=\"\">Engineered with thermally broken frames, high-performance glazing, and advanced weather sealing, Andersen aluminum doors deliver strong energy efficiency and all-season comfort.</p><p id=\"\">With a wide selection of colors, finishes, hardware, and glass options, each door is fully customizable—backed by Andersen’s proven craftsmanship and industry-leading warranty support.</p>",
+                "property-listing---agent": "685113b74203b28e29c1e7fb",
+                "property-listing---address": null,
+                "property-listing---excerpt": null,
+                "property-listing---summary": null,
+                "property-listing---display-price": null,
+                "property-listing---property-featured": 0,
+                "property-listing---number-of-bedrooms": null,
+                "property-listing---number-of-bathrooms": null,
+                "property-listing---number-of-parking-spots": null
+            }
+        },
+        {
+            "id": "688f67a4cc4164bdc33ec99d",
+            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+            "createdOn": "2025-08-03T13:44:04+00:00",
+            "lastUpdated": "2026-03-23T18:48:20+00:00",
+            "lastPublished": "2026-03-24T05:43:04+00:00",
+            "isArchived": false,
+            "isDraft": false,
+            "fieldData": {
+                "name": "Andersen Vinyl Doors",
+                "slug": "andersen-vinyl-doors",
+                "seo-title": "Andersen Vinyl Doors | Deluxe Windows Redwood City",
+                "twitter-card": null,
+                "opengraph-title": "Andersen Vinyl Doors | Deluxe Windows Redwood City",
+                "seo-description": "Andersen vinyl doors offer trusted energy performance and design variety for Bay Area homeowners. Installed by Deluxe Windows in San Francisco. Request a free quote.",
+                "opengraph-description": "Andersen vinyl doors offer trusted energy performance and design variety for Bay Area homeowners. Installed by Deluxe Windows in San Francisco. Request a free quote.",
+                "property-listing---sqf": null,
+                "door-type-collections-2": [
+                    "6952354c9163bef77600baba",
+                    "6952354c101e496079bd0862"
+                ],
+                "explore-collection-text": "Explore Andersen Collections",
+                "property-listing---type": null,
+                "property-listing---about": "<h2 id=\"\">Why Choose Andersen Vinyl Doors</h2><p id=\"\">Andersen vinyl doors offer a smart combination of durability, energy efficiency, and low-maintenance convenience—perfect for everyday living in a wide range of home styles.</p><p id=\"\">Available in the 100 Series, these doors are made with Fibrex® composite material, which blends the strength and stability of wood with the low-maintenance benefits of vinyl. Unlike ordinary vinyl, Fibrex® won’t fade, flake, blister, or peel—even in extreme climates.</p><p id=\"\">Designed with clean lines and modern profiles, Andersen vinyl doors provide smooth operation, excellent weather resistance, and a sleek look that complements both contemporary and traditional homes.</p><p id=\"\">Energy-efficient glass, advanced weatherstripping, and thermally stable frames help reduce energy use and increase indoor comfort all year long.</p><p id=\"\">Backed by Andersen’s reputation for quality and a strong warranty, these doors offer long-lasting performance with minimal upkeep—making them a smart and stylish choice for patios, decks, and more.</p>",
+                "property-listing---agent": "685113b74203b28e29c1e7fb",
+                "property-listing---address": null,
+                "property-listing---excerpt": null,
+                "property-listing---summary": null,
+                "property-listing---display-price": null,
+                "property-listing---property-featured": 0,
+                "property-listing---number-of-bedrooms": null,
+                "property-listing---number-of-bathrooms": null,
+                "property-listing---number-of-parking-spots": null
+            }
+        },
+        {
+            "id": "688f6742bd0ae55140eaa0dc",
+            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+            "createdOn": "2025-08-03T13:42:26+00:00",
+            "lastUpdated": "2026-03-23T18:48:20+00:00",
+            "lastPublished": "2026-03-24T05:43:04+00:00",
+            "isArchived": false,
+            "isDraft": false,
+            "fieldData": {
+                "name": "Andersen Fiberglass Doors",
+                "slug": "andersen-fiberglass-doors",
+                "seo-title": "Andersen Fiberglass Doors | Deluxe Windows San Mateo",
+                "twitter-card": null,
+                "opengraph-title": "Andersen Fiberglass Doors | Deluxe Windows San Mateo",
+                "seo-description": "Andersen fiberglass doors resist dents, warping, and extreme weather for Bay Area homes. Expert installation by Deluxe Windows in San Francisco. Get a free estimate.",
+                "opengraph-description": "Andersen fiberglass doors resist dents, warping, and extreme weather for Bay Area homes. Expert installation by Deluxe Windows in San Francisco. Get a free estimate.",
+                "property-listing---sqf": null,
+                "door-type-collections-2": [
+                    "6952354cc6384b38a61e0691"
+                ],
+                "explore-collection-text": "Explore Andersen Collections",
+                "property-listing---type": null,
+                "property-listing---about": "<h2 id=\"\">Why Choose Andersen Fiberglass Doors</h2><p id=\"\">Andersen fiberglass doors deliver the perfect blend of strength, energy efficiency, and low-maintenance performance—ideal for homeowners seeking durability with a sleek, modern appearance.</p><p id=\"\">Available in the A-Series, these doors feature a fiberglass exterior that's built to withstand extreme weather, resist dents and corrosion, and maintain their finish with minimal upkeep. They're ideal for coastal, humid, and high-traffic environments.</p><p id=\"\">Inside, you’ll find the warmth of real wood, offering design flexibility with customizable stains and paint finishes—bringing together the durability of fiberglass and the beauty of natural materials.</p><p id=\"\">Engineered with advanced weather sealing, energy-efficient glass, and robust hardware, Andersen fiberglass doors help reduce drafts, increase thermal comfort, and stand the test of time.</p><p id=\"\">Backed by Andersen’s long-standing reputation for quality and craftsmanship, these doors offer peace of mind and performance without compromise.</p>",
+                "property-listing---agent": "685113b74203b28e29c1e7fb",
+                "property-listing---address": null,
+                "property-listing---excerpt": null,
+                "property-listing---summary": null,
+                "property-listing---display-price": null,
+                "property-listing---property-featured": 0,
+                "property-listing---number-of-bedrooms": null,
+                "property-listing---number-of-bathrooms": null,
+                "property-listing---number-of-parking-spots": null
+            }
+        },
+        {
+            "id": "688f66d3f24d1d187562ec0b",
+            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+            "createdOn": "2025-08-03T13:40:35+00:00",
+            "lastUpdated": "2026-03-23T18:48:20+00:00",
+            "lastPublished": "2026-03-24T05:43:04+00:00",
+            "isArchived": false,
+            "isDraft": false,
+            "fieldData": {
+                "name": "Andersen Wood Doors",
+                "slug": "andersen-wood-doors",
+                "seo-title": "Andersen Wood Doors | Deluxe Windows Palo Alto",
+                "twitter-card": null,
+                "opengraph-title": "Andersen Wood Doors | Deluxe Windows Palo Alto",
+                "seo-description": "Andersen wood doors bring natural warmth and premium craftsmanship to Bay Area homes. Expert wood door installation by Deluxe Windows in San Francisco. Free estimates.",
+                "opengraph-description": "Andersen wood doors bring natural warmth and premium craftsmanship to Bay Area homes. Expert wood door installation by Deluxe Windows in San Francisco. Free estimates.",
+                "property-listing---sqf": null,
+                "door-type-collections-2": [
+                    "6952354c9163bef77600baba",
+                    "6952354c6f565ced4944cede"
+                ],
+                "explore-collection-text": "Explore Andersen Collections",
+                "property-listing---type": null,
+                "property-listing---about": "<h2 id=\"\">Why Choose Andersen Wood Doors</h2><p id=\"\">Andersen wood doors bring timeless elegance, warmth, and craftsmanship to any entryway or patio. Made from carefully selected wood species and built with precision, these doors offer natural beauty that enhances both traditional and contemporary homes.</p><p id=\"\">Whether used as front entry doors or expansive patio systems, Andersen wood doors can be customized with rich stains, paint finishes, decorative glass, and hardware to reflect your personal style.</p><p id=\"\">Available in the A-Series and E-Series, Andersen wood doors feature solid wood interiors with protective aluminum or fiberglass exteriors—combining the charm of wood with low-maintenance durability.</p><p id=\"\">Engineered for energy efficiency, structural integrity, and weather resistance, Andersen wood doors are built to perform in all climates while maintaining their visual appeal year after year.</p><p id=\"\">Backed by over a century of trusted quality and robust warranty coverage, Andersen wood doors offer a premium solution for homeowners who value design, function, and enduring beauty.</p>",
+                "property-listing---agent": "685113b74203b28e29c1e7fb",
+                "property-listing---address": null,
+                "property-listing---excerpt": null,
+                "property-listing---summary": null,
+                "property-listing---display-price": null,
+                "property-listing---property-featured": 0,
+                "property-listing---number-of-bedrooms": null,
+                "property-listing---number-of-bathrooms": null,
+                "property-listing---number-of-parking-spots": null
+            }
+        },
+        {
+            "id": "688f6283183ff7b96a9fd3bb",
+            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+            "createdOn": "2025-08-03T13:22:11+00:00",
+            "lastUpdated": "2026-03-23T18:48:20+00:00",
+            "lastPublished": "2026-03-24T05:43:04+00:00",
+            "isArchived": false,
+            "isDraft": false,
+            "fieldData": {
+                "name": "Italwindows Wood Doors",
+                "slug": "italwindows-wood-doors",
+                "seo-title": "Italwindows Wood Doors | Deluxe Windows Walnut Creek",
+                "twitter-card": null,
+                "opengraph-title": "Italwindows Wood Doors | Deluxe Windows Walnut Creek",
+                "seo-description": "Italwindows wood doors combine European craftsmanship with natural beauty for Bay Area homes. Installed by Deluxe Windows in San Francisco. Get a free estimate today.",
+                "opengraph-description": "Italwindows wood doors combine European craftsmanship with natural beauty for Bay Area homes. Installed by Deluxe Windows in San Francisco. Get a free estimate today.",
+                "property-listing---sqf": null,
+                "door-type-collections-2": [],
+                "explore-collection-text": null,
+                "property-listing---type": null,
+                "property-listing---about": "<h2 id=\"\">Why Choose Italwindows Wood Doors</h2><p id=\"\">Italwindows wood doors embody the warmth, character, and craftsmanship of timeless Italian design. Made from carefully selected, sustainably sourced wood species, these doors offer natural beauty with modern performance.</p><p id=\"\">Each door is precision-crafted to highlight the rich grain, texture, and depth of the wood—creating a sense of warmth and authenticity that enhances any architectural style, from traditional to contemporary.</p><p id=\"\">Engineered with advanced sealing systems, high-performance glazing, and optional aluminum or bronze cladding, Italwindows wood doors offer excellent thermal insulation, sound reduction, and long-term durability—without compromising aesthetics.</p><p id=\"\">Whether you're designing a welcoming entryway or a serene interior passage, Italwindows wood doors can be fully customized with a variety of finishes, panel configurations, and hardware options to fit your vision.</p><p id=\"\">For those who appreciate design rooted in nature and craftsmanship guided by precision, Italwindows wood doors are a statement of elegance built to last.</p>",
+                "property-listing---agent": "687b75dd3a0830c27e29d5fa",
+                "property-listing---address": null,
+                "property-listing---excerpt": null,
+                "property-listing---summary": null,
+                "property-listing---display-price": null,
+                "property-listing---property-featured": 0,
+                "property-listing---number-of-bedrooms": null,
+                "property-listing---number-of-bathrooms": null,
+                "property-listing---number-of-parking-spots": null
+            }
+        },
+        {
+            "id": "688f6230012cc181527b8e99",
+            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+            "createdOn": "2025-08-03T13:20:48+00:00",
+            "lastUpdated": "2026-03-23T18:48:20+00:00",
+            "lastPublished": "2026-03-24T05:43:04+00:00",
+            "isArchived": false,
+            "isDraft": false,
+            "fieldData": {
+                "name": "Italwindows Steel Doors",
+                "slug": "italwindows-steel-doors-j3z67",
+                "seo-title": "Italwindows Steel Doors | Deluxe Windows Concord",
+                "twitter-card": null,
+                "opengraph-title": "Italwindows Steel Doors | Deluxe Windows Concord",
+                "seo-description": "Italwindows steel doors offer ultra-slim sightlines and industrial elegance for Bay Area homes. Installed by Deluxe Windows in San Francisco. Request a free estimate.",
+                "opengraph-description": "Italwindows steel doors offer ultra-slim sightlines and industrial elegance for Bay Area homes. Installed by Deluxe Windows in San Francisco. Request a free estimate.",
+                "property-listing---sqf": null,
+                "door-type-collections-2": [],
+                "explore-collection-text": null,
+                "property-listing---type": null,
+                "property-listing---about": "<h2 id=\"\">Why Choose Italwindows Steel Doors</h2><p id=\"\">Italwindows steel doors are a statement of refined strength and minimalist beauty. Designed for bold architectural impact, these doors feature ultra-slim profiles, expansive glass panels, and unmatched structural integrity.</p><p id=\"\">Made from high-performance, thermally broken steel, these doors offer exceptional durability, energy efficiency, and resistance to warping, corrosion, or extreme weather conditions—making them ideal for both interior and exterior applications.</p><p id=\"\">Whether used as striking entryways, elegant patio transitions, or dramatic room dividers, Italwindows steel doors bring light, clarity, and a sense of modern sophistication to any space.</p><p id=\"\">Each door is custom-crafted in Italy, with a range of finishes, glazing styles, and hardware options—allowing you to achieve the exact aesthetic your project demands.</p><p id=\"\">For timeless design and uncompromising performance, Italwindows steel doors offer the perfect balance of strength, elegance, and precision.</p>",
+                "property-listing---agent": "687b75dd3a0830c27e29d5fa",
+                "property-listing---address": null,
+                "property-listing---excerpt": null,
+                "property-listing---summary": null,
+                "property-listing---display-price": null,
+                "property-listing---property-featured": 0,
+                "property-listing---number-of-bedrooms": null,
+                "property-listing---number-of-bathrooms": null,
+                "property-listing---number-of-parking-spots": null
+            }
+        },
+        {
+            "id": "688f5f0e1802e9cd2412ab2d",
+            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+            "createdOn": "2025-08-03T13:07:26+00:00",
+            "lastUpdated": "2026-03-23T18:48:20+00:00",
+            "lastPublished": "2026-03-24T05:43:04+00:00",
+            "isArchived": false,
+            "isDraft": false,
+            "fieldData": {
+                "name": "Italwindows Aluminium Doors",
+                "slug": "italwindows-aluminium-doors",
+                "seo-title": "Italwindows Aluminium Doors | Deluxe Windows Berkeley",
+                "twitter-card": null,
+                "opengraph-title": "Italwindows Aluminium Doors | Deluxe Windows Berkeley",
+                "seo-description": "Italwindows aluminium doors bring European precision and modern design to Bay Area homes. Installed by Deluxe Windows in San Francisco and surrounding areas. Free quotes.",
+                "opengraph-description": "Italwindows aluminium doors bring European precision and modern design to Bay Area homes. Installed by Deluxe Windows in San Francisco and surrounding areas. Free quotes.",
+                "property-listing---sqf": null,
+                "door-type-collections-2": [],
+                "explore-collection-text": null,
+                "property-listing---type": null,
+                "property-listing---about": "<h2 id=\"\">Why Choose Italwindows Aluminium Doors</h2><p id=\"\">Italwindows aluminum doors offer the ideal combination of strength, style, and modern performance. Designed with clean lines and minimal profiles, they bring a contemporary elegance to both residential and commercial spaces.</p><p id=\"\">Built from thermally broken, high-performance aluminum, these doors provide excellent insulation, weather resistance, and long-term durability—even in harsh environments. They are engineered for smooth operation, structural stability, and energy efficiency.</p><p id=\"\">Whether you choose sliding, folding, or hinged configurations, Italwindows aluminum doors create seamless transitions between indoor and outdoor spaces while maximizing natural light and views.</p><p id=\"\">Available in a wide range of custom finishes, hardware, and glazing options, each door is made to order—allowing complete design freedom without sacrificing performance.</p><p id=\"\">For those seeking a sleek, low-maintenance solution with exceptional aesthetic and functional value, Italwindows aluminum doors are the perfect choice.</p>",
+                "property-listing---agent": "687b75dd3a0830c27e29d5fa",
+                "property-listing---address": null,
+                "property-listing---excerpt": null,
+                "property-listing---summary": null,
+                "property-listing---display-price": null,
+                "property-listing---property-featured": 0,
+                "property-listing---number-of-bedrooms": null,
+                "property-listing---number-of-bathrooms": null,
+                "property-listing---number-of-parking-spots": null
+            }
+        },
+        {
+            "id": "688f4fcb2dc3f0cdb3083c62",
+            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+            "createdOn": "2025-08-03T12:02:19+00:00",
+            "lastUpdated": "2026-03-23T18:48:20+00:00",
+            "lastPublished": "2026-03-24T05:43:04+00:00",
+            "isArchived": false,
+            "isDraft": false,
+            "fieldData": {
+                "name": "Anlin Vinyl Doors",
+                "slug": "anlin-vinyl-door",
+                "seo-title": "Anlin Vinyl Doors | Deluxe Windows Hayward",
+                "twitter-card": null,
+                "opengraph-title": "Anlin Vinyl Doors | Deluxe Windows Hayward",
+                "seo-description": "Anlin vinyl doors are California-built for Bay Area climates with exceptional energy efficiency. Installed by Deluxe Windows in San Francisco. Request a free estimate.",
+                "opengraph-description": "Anlin vinyl doors are California-built for Bay Area climates with exceptional energy efficiency. Installed by Deluxe Windows in San Francisco. Request a free estimate.",
+                "property-listing---sqf": null,
+                "door-type-collections-2": [
+                    "694cd62f6fa1a60e42e440ba",
+                    "694cd62fadf4460085a3e2bb",
+                    "694cd62f3692ee32b559f621",
+                    "694cd62f7d17f86e6cbe97af"
+                ],
+                "explore-collection-text": "Explore Anlin Collections",
+                "property-listing---type": null,
+                "property-listing---about": "<h2 id=\"\">Why Choose Anlin Vinyl Door</h2><p id=\"\">Anlin vinyl patio doors are designed for durability, energy efficiency, and effortless operation—crafted specifically for homes in the Western U.S.</p><p id=\"\">Made from high-performance, multi-chambered vinyl, Anlin doors resist warping, cracking, and fading, even in extreme heat and sun exposure. They’re built to last with minimal maintenance and maximum comfort.</p><p id=\"\">Each door is custom-built in California with premium features like smooth-glide rollers, reinforced frames, advanced Low-E glass, and optional sound-suppressing upgrades—ideal for busy households and energy-conscious homeowners.</p><p id=\"\">With customizable configurations, frame colors, decorative glass, and hardware options, Anlin vinyl doors are designed to complement your home’s aesthetic inside and out.</p><p id=\"\">Protected by Anlin’s True Double Lifetime Warranty—including coverage for parts, labor, and accidental glass breakage—these doors offer long-term peace of mind with every opening and closing.</p>",
+                "property-listing---agent": "6841ddf8ace3d9d9facb168f",
+                "property-listing---address": null,
+                "property-listing---excerpt": null,
+                "property-listing---summary": null,
+                "property-listing---display-price": null,
+                "property-listing---property-featured": 0,
+                "property-listing---number-of-bedrooms": null,
+                "property-listing---number-of-bathrooms": null,
+                "property-listing---number-of-parking-spots": null
+            }
+        },
+        {
+            "id": "688f4c6e1a0ed5d49e12a143",
+            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+            "createdOn": "2025-08-03T11:47:58+00:00",
+            "lastUpdated": "2026-03-23T18:48:20+00:00",
+            "lastPublished": "2026-03-24T05:43:04+00:00",
+            "isArchived": false,
+            "isDraft": false,
+            "fieldData": {
+                "name": "Jeld-Wen Wood Clad Doors",
+                "slug": "jeld-wen-wood-clad-doors",
+                "seo-title": "Jeld-Wen Wood Clad Doors | Deluxe Windows Livermore",
+                "twitter-card": null,
+                "opengraph-title": "Jeld-Wen Wood Clad Doors | Deluxe Windows Livermore",
+                "seo-description": "Jeld-Wen wood clad doors feature natural wood interiors with protective exterior cladding for Bay Area homes. Installed by Deluxe Windows in San Francisco. Free estimates.",
+                "opengraph-description": "Jeld-Wen wood clad doors feature natural wood interiors with protective exterior cladding for Bay Area homes. Installed by Deluxe Windows in San Francisco. Free estimates.",
+                "property-listing---sqf": null,
+                "door-type-collections-2": [
+                    "6948d7a29357f7da70473e6e",
+                    "6948d7a2b88c2622cdb24c84",
+                    "6948d7a30e1defa1055ea24f"
+                ],
+                "explore-collection-text": "Explore Jeld-Wen Collections",
+                "property-listing---type": null,
+                "property-listing---about": "<h2 id=\"\">Why Choose Jeld-Wen Wood Clad Doors</h2><p id=\"\">JELD-WEN wood-clad doors combine the timeless appeal of natural wood interiors with the strength and durability of a protective exterior cladding. They offer the best of both worlds—elegant design and weather-resistant performance.</p><p id=\"\">Crafted with premium wood species on the interior and a tough aluminum or fiberglass exterior, these doors are built to withstand the elements while maintaining a warm, refined look inside your home.</p><p id=\"\">Each door is made to order in North America, with extensive options for panel styles, finishes, hardware, and energy-efficient glass—giving you full control over design and function.</p><p id=\"\">Perfect for entryways, patios, and scenic openings, JELD-WEN wood-clad doors are trusted by architects and homeowners for their versatility, long-term durability, and architectural detail.</p><p id=\"\">With innovations like AuraLast® wood protection and Low-E glass, JELD-WEN ensures your door resists rot, moisture, and UV damage—keeping it beautiful and functional for years to come.</p>",
+                "property-listing---agent": "6851144119c25a3a1af52024",
+                "property-listing---address": null,
+                "property-listing---excerpt": null,
+                "property-listing---summary": null,
+                "property-listing---display-price": null,
+                "property-listing---property-featured": 0,
+                "property-listing---number-of-bedrooms": null,
+                "property-listing---number-of-bathrooms": null,
+                "property-listing---number-of-parking-spots": null
+            }
+        },
+        {
+            "id": "688f4b897b8a5a98daca335d",
+            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+            "createdOn": "2025-08-03T11:44:09+00:00",
+            "lastUpdated": "2026-03-23T18:48:20+00:00",
+            "lastPublished": "2026-03-24T05:43:04+00:00",
+            "isArchived": false,
+            "isDraft": false,
+            "fieldData": {
+                "name": "Jeld-Wen Wood Doors",
+                "slug": "jeld-wen-wood-doors",
+                "seo-title": "Jeld-Wen Wood Doors | Deluxe Windows Antioch",
+                "twitter-card": null,
+                "opengraph-title": "Jeld-Wen Wood Doors | Deluxe Windows Antioch",
+                "seo-description": "Jeld-Wen wood doors deliver classic beauty and custom finishes for Bay Area entry doors. Expert installation by Deluxe Windows in San Francisco. Request a free estimate.",
+                "opengraph-description": "Jeld-Wen wood doors deliver classic beauty and custom finishes for Bay Area entry doors. Expert installation by Deluxe Windows in San Francisco. Request a free estimate.",
+                "property-listing---sqf": null,
+                "door-type-collections-2": [
+                    "6948d7a4f36ce8dce4db130f"
+                ],
+                "explore-collection-text": "Explore Jeld-Wen Collections",
+                "property-listing---type": null,
+                "property-listing---about": "<h2 id=\"\">Why Choose Jeld-Wen Wood Doors</h2><p id=\"\">JELD-WEN wood doors offer timeless beauty, natural warmth, and exceptional craftsmanship. Made from premium wood species, they bring character and elegance to both traditional and modern homes.</p><p id=\"\">Each door is carefully engineered for long-lasting performance, with options available for both interior and exterior use. With proper care, JELD-WEN wood doors can last for generations.</p><p id=\"\">Built in North America, every door is crafted to order—allowing for a wide range of panel designs, glass inserts, finishes, and decorative accents to match your personal style.</p><p id=\"\">Choose from a variety of rich wood types like mahogany, oak, pine, and fir—ready to stain, paint, or finish to enhance your home’s natural aesthetic.</p><p id=\"\">Advanced treatments like AuraLast® wood protection are available to help resist rot, moisture, and termites—making JELD-WEN wood doors as durable as they are beautiful.</p>",
+                "property-listing---agent": "6851144119c25a3a1af52024",
+                "property-listing---address": null,
+                "property-listing---excerpt": null,
+                "property-listing---summary": null,
+                "property-listing---display-price": null,
+                "property-listing---property-featured": 0,
+                "property-listing---number-of-bedrooms": null,
+                "property-listing---number-of-bathrooms": null,
+                "property-listing---number-of-parking-spots": null
+            }
+        },
+        {
+            "id": "688f49addb6ff6c6f37a9070",
+            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+            "createdOn": "2025-08-03T11:36:13+00:00",
+            "lastUpdated": "2026-03-23T18:48:20+00:00",
+            "lastPublished": "2026-03-24T05:43:04+00:00",
+            "isArchived": false,
+            "isDraft": false,
+            "fieldData": {
+                "name": "Jeld-Wen Vinyl Doors",
+                "slug": "jeld-wen-vinyl-doors",
+                "seo-title": "Jeld-Wen Vinyl Doors | Deluxe Windows Pleasanton",
+                "twitter-card": null,
+                "opengraph-title": "Jeld-Wen Vinyl Doors | Deluxe Windows Pleasanton",
+                "seo-description": "Jeld-Wen vinyl doors offer reliable performance and wide design options for Bay Area homeowners. Installed by Deluxe Windows in San Francisco. Request a free quote.",
+                "opengraph-description": "Jeld-Wen vinyl doors offer reliable performance and wide design options for Bay Area homeowners. Installed by Deluxe Windows in San Francisco. Request a free quote.",
+                "property-listing---sqf": null,
+                "door-type-collections-2": [
+                    "6948d7a37585b67be74b4f5d",
+                    "6948d7a23103771b42e6f572",
+                    "6948d7a204b3821b0810b601",
+                    "6948d7a21e9c234098d2699e",
+                    "6948d7a2982190a0a07e3280",
+                    "6948d7a4853f3cc837c2ae0e"
+                ],
+                "explore-collection-text": "Explore Jeld-Wen Collections",
+                "property-listing---type": null,
+                "property-listing---about": "<h2 id=\"\">Why Choose Jeld-Wen Vinyl Doors</h2><p id=\"\">JELD-WEN vinyl patio doors are designed for smooth performance, lasting durability, and low-maintenance living. Built to resist dents, fading, and corrosion, they offer dependable operation in any climate.</p><p id=\"\">Trusted by homeowners and builders alike, JELD-WEN vinyl doors combine clean, modern aesthetics with advanced energy-efficient features. They’re backed by strong warranties that give you peace of mind for years to come.</p><p id=\"\">Manufactured in North America, each vinyl door is custom-built with precision and quality control, ensuring a perfect fit and long-lasting value for new builds or replacement projects.</p><p id=\"\">Available in sliding and folding configurations, JELD-WEN vinyl doors offer a variety of glass, grid, and color options—including heat-reflective FiniShield® exterior finishes—to match your design vision.</p><p id=\"\">Energy-saving innovations like multi-chamber frames and Low-E glass help maintain indoor comfort while reducing heating and cooling costs year-round.</p>",
+                "property-listing---agent": "6851144119c25a3a1af52024",
+                "property-listing---address": null,
+                "property-listing---excerpt": null,
+                "property-listing---summary": null,
+                "property-listing---display-price": null,
+                "property-listing---property-featured": 0,
+                "property-listing---number-of-bedrooms": null,
+                "property-listing---number-of-bathrooms": null,
+                "property-listing---number-of-parking-spots": null
+            }
+        },
+        {
+            "id": "688f338b14a2a015105ce709",
+            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+            "createdOn": "2025-08-03T10:01:47+00:00",
+            "lastUpdated": "2026-03-23T18:48:20+00:00",
+            "lastPublished": "2026-03-24T05:43:04+00:00",
+            "isArchived": false,
+            "isDraft": false,
+            "fieldData": {
+                "name": "Milgard Aluminum Doors",
+                "slug": "milgard-aluminum-doors",
+                "seo-title": "Milgard Aluminum Doors | Deluxe Windows Pinole",
+                "twitter-card": null,
+                "opengraph-title": "Milgard Aluminum Doors | Deluxe Windows Pinole",
+                "seo-description": "Milgard aluminum doors are engineered for coastal Bay Area performance with slim modern profiles. Installed by Deluxe Windows in San Francisco. Request a free quote.",
+                "opengraph-description": "Milgard aluminum doors are engineered for coastal Bay Area performance with slim modern profiles. Installed by Deluxe Windows in San Francisco. Request a free quote.",
+                "property-listing---sqf": null,
+                "door-type-collections-2": [
+                    "693661d965a229545a694b1f"
+                ],
+                "explore-collection-text": "Explore Milgard Collections",
+                "property-listing---type": null,
+                "property-listing---about": "<h2 id=\"\">Why Choose Milgard Aluminum Doors </h2><p id=\"\">Light yet strong, aluminum-clad doors resist weathering and corrosion, ensuring long-lasting performance and maintaining their appearance over time. Aluminum frames also require minimal upkeep, saving you maintenance time and effort.</p><p id=\"\">Architects and homeowners alike are drawn to the timeless appeal of aluminum doors’ slim profile. It allows for larger panes of glass and maximizes natural light and views while offering a sleek, modern aesthetic.</p><p id=\"\">The versatility of aluminum door means they can be configured into a wide variety of combinations. From aluminum sliding windows to casement styles and more, they can be customized to fit any size or style.</p><p id=\"\">With advancements in technology, aluminum windows now feature thermal breaks that significantly improve insulation, reducing energy costs. Milgard aluminum windows have a polyurethane channel to reduce heat transfer and improve energy efficiency.</p>",
+                "property-listing---agent": "6841ddf8ace3d9d9facb169f",
+                "property-listing---address": null,
+                "property-listing---excerpt": null,
+                "property-listing---summary": null,
+                "property-listing---display-price": null,
+                "property-listing---property-featured": 0,
+                "property-listing---number-of-bedrooms": null,
+                "property-listing---number-of-bathrooms": null,
+                "property-listing---number-of-parking-spots": null
+            }
+        },
+        {
+            "id": "688f32d43dce1d45ad637326",
+            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+            "createdOn": "2025-08-03T09:58:44+00:00",
+            "lastUpdated": "2026-03-23T18:48:20+00:00",
+            "lastPublished": "2026-03-24T05:43:04+00:00",
+            "isArchived": false,
+            "isDraft": false,
+            "fieldData": {
+                "name": "Milgard Vinyl Doors",
+                "slug": "milgard-vinyl-doors",
+                "seo-title": "Milgard Vinyl Doors | Deluxe Windows Vallejo",
+                "twitter-card": null,
+                "opengraph-title": "Milgard Vinyl Doors | Deluxe Windows Vallejo",
+                "seo-description": "Milgard vinyl doors deliver energy efficiency and design flexibility for Bay Area homeowners. Installed by Deluxe Windows in San Francisco and surrounding areas. Free quotes.",
+                "opengraph-description": "Milgard vinyl doors deliver energy efficiency and design flexibility for Bay Area homeowners. Installed by Deluxe Windows in San Francisco and surrounding areas. Free quotes.",
+                "property-listing---sqf": null,
+                "door-type-collections-2": [
+                    "693661d9882df952b82168e6",
+                    "693661d811cc1f36f62bfb54",
+                    "693661d88bf6a11d6c57ba91",
+                    "693661d99ea967ebbac6877c"
+                ],
+                "explore-collection-text": "Explore Milgard Collections",
+                "property-listing---type": null,
+                "property-listing---about": "<h2 id=\"\">Why Choose Milgard Vinyl Doors </h2><p id=\"\">Milgard vinyl frames are virtually maintenance-free. They include PVC, high quality titanium dioxide, and stabilizers to ensure high performance and energy efficiency.</p><p id=\"\">Milgard vinyl exceed AAMA’s stringent requirements for weather and impact resistance.</p><p id=\"\">Milgard's vinyl compound is produced in controlled environments to exacting standards for high-quality windows and doors you’ll enjoy for years.</p>",
+                "property-listing---agent": "6841ddf8ace3d9d9facb169f",
+                "property-listing---address": null,
+                "property-listing---excerpt": null,
+                "property-listing---summary": null,
+                "property-listing---display-price": null,
+                "property-listing---property-featured": 0,
+                "property-listing---number-of-bedrooms": null,
+                "property-listing---number-of-bathrooms": null,
+                "property-listing---number-of-parking-spots": null
+            }
+        },
+        {
+            "id": "688f320cf077e8f6387edf9d",
+            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+            "createdOn": "2025-08-03T09:55:24+00:00",
+            "lastUpdated": "2026-03-23T18:48:20+00:00",
+            "lastPublished": "2026-03-24T05:43:04+00:00",
+            "isArchived": false,
+            "isDraft": false,
+            "fieldData": {
+                "name": "Milgard Fiberglass Doors",
+                "slug": "milgard-fiberglass-doors",
+                "seo-title": "Milgard Fiberglass Doors | Deluxe Windows Napa",
+                "twitter-card": null,
+                "opengraph-title": "Milgard Fiberglass Doors | Deluxe Windows Napa",
+                "seo-description": "Milgard fiberglass doors offer exceptional durability and energy performance for Bay Area homes. Installed by Deluxe Windows in San Francisco. Get a free estimate today.",
+                "opengraph-description": "Milgard fiberglass doors offer exceptional durability and energy performance for Bay Area homes. Installed by Deluxe Windows in San Francisco. Get a free estimate today.",
+                "property-listing---sqf": null,
+                "door-type-collections-2": [
+                    "693661da1cd7ca00407b6b29"
+                ],
+                "explore-collection-text": "Explore Milgard Collections",
+                "property-listing---type": null,
+                "property-listing---about": "<h2 id=\"\">Why Choose Milgard Fiberglass Doors </h2><p id=\"\">If you are planning a project with large windows in mind, fiberglass is extremely strong and can hold expansive pieces of glass. Milgard regularly tests its fiberglass frame lineals for quality and long-lasting performance.</p><p id=\"\">Fiberglass windows and doors are low-maintenance and resist swelling, rotting, warping and corrosion. They do not require repainting like wood, but the material is paintable if you prefer to change colors down the road.</p><p id=\"\">Fiberglass windows are doors are very energy efficient with low thermal conductivity in your home, for year-round comfort you can rely on.​</p>",
+                "property-listing---agent": "6841ddf8ace3d9d9facb169f",
+                "property-listing---address": null,
+                "property-listing---excerpt": null,
+                "property-listing---summary": null,
+                "property-listing---display-price": null,
+                "property-listing---property-featured": 0,
+                "property-listing---number-of-bedrooms": null,
+                "property-listing---number-of-bathrooms": null,
+                "property-listing---number-of-parking-spots": null
+            }
+        },
+        {
+            "id": "688efd40508cf8d87a1fd1a5",
+            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+            "createdOn": "2025-08-03T06:10:08+00:00",
+            "lastUpdated": "2026-03-23T18:48:20+00:00",
+            "lastPublished": "2026-03-24T05:43:04+00:00",
+            "isArchived": false,
+            "isDraft": false,
+            "fieldData": {
+                "name": "Marvin Fiberglass Doors",
+                "slug": "marvin-fiberglass-doors",
+                "seo-title": "Marvin Fiberglass Doors | Deluxe Windows El Cerrito",
+                "twitter-card": null,
+                "opengraph-title": "Marvin Fiberglass Doors | Deluxe Windows El Cerrito",
+                "seo-description": "Marvin fiberglass doors resist warping and coastal weather — ideal for Bay Area homes. Elevate and Essential collections available at Deluxe Windows in San Francisco.",
+                "opengraph-description": "Marvin fiberglass doors resist warping and coastal weather — ideal for Bay Area homes. Elevate and Essential collections available at Deluxe Windows in San Francisco.",
+                "property-listing---sqf": null,
+                "door-type-collections-2": [
+                    "693ecf21cb5cd79fff4259fd",
+                    "693ecf21867626a15bd95495",
+                    "693ecf21cacd62668cf07175"
+                ],
+                "explore-collection-text": "Explore Marvin Collections",
+                "property-listing---type": null,
+                "property-listing---about": "<h2 id=\"\">Why Choose Marvin Fiberglass Doors </h2><p id=\"\">Endures harsh weather conditions and climates with minimal wear and tear over time</p><p id=\"\">Virtually maintenance free</p><p id=\"\">Provides exceptional structural strength, ensuring windows and doors open and close easily for years to come</p><p id=\"\">Does not expand and contract with dramatic changes in temperature, making the product resistant to leaks, seal failures, and stress cracks</p><p id=\"\">When combined with energy-efficient glass options, fiberglass keeps the indoors comfortable regardless of what’s happening outdoors</p>",
+                "property-listing---agent": "6841ddf8ace3d9d9facb16a0",
+                "property-listing---address": null,
+                "property-listing---excerpt": null,
+                "property-listing---summary": null,
+                "property-listing---display-price": null,
+                "property-listing---property-featured": 0,
+                "property-listing---number-of-bedrooms": null,
+                "property-listing---number-of-bathrooms": null,
+                "property-listing---number-of-parking-spots": null
+            }
+        },
+        {
+            "id": "688efca068bfe5b6f25c45fa",
+            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+            "createdOn": "2025-08-03T06:07:28+00:00",
+            "lastUpdated": "2026-03-23T18:48:20+00:00",
+            "lastPublished": "2026-03-24T05:43:04+00:00",
+            "isArchived": false,
+            "isDraft": false,
+            "fieldData": {
+                "name": "Marvin Wood Doors",
+                "slug": "marvin-wood-doors",
+                "seo-title": "Marvin Wood Doors | Deluxe Windows Hercules",
+                "twitter-card": null,
+                "opengraph-title": "Marvin Wood Doors | Deluxe Windows Hercules",
+                "seo-description": "Marvin wood doors add timeless character and premium craftsmanship to Bay Area homes. Installed by Deluxe Windows in San Francisco. Request a free estimate today.",
+                "opengraph-description": "Marvin wood doors add timeless character and premium craftsmanship to Bay Area homes. Installed by Deluxe Windows in San Francisco. Request a free estimate today.",
+                "property-listing---sqf": null,
+                "door-type-collections-2": [
+                    "693ecf2170217d5958ca7ff1",
+                    "693ecf21867626a15bd95495"
+                ],
+                "explore-collection-text": "Explore Marvin Collections",
+                "property-listing---type": null,
+                "property-listing---about": "<h2 id=\"\">Why Choose Marvin Wood Doors </h2><p id=\"\">Wood is a natural material that offers a sense of warmth and richness in your windows and doors. Choosing wood windows and doors also brings a unique and distinctive quality to any space since no two pieces of wood are exactly alike.</p><p id=\"\">For wood windows and doors, there are two main application types: wood interiors with wood exteriors (typically historic projects with a goal to replicate original wood windows) or, more commonly, wood interiors with aluminum-clad or fiberglass exteriors.</p><p id=\"\">Wood is resilient and can resist warping when faced with extreme temperature changes. Adding coating and treatment to wood can help protect it for an even longer period of time</p><p id=\"\">Bringing your exact vision to life is possible because wood can be made custom to fit virtually any size or shape, with the most intricate of details</p><p id=\"\">Wood windows and doors provide great insulation</p><p id=\"\">Treatments such as stains and paints work well when applied to wood</p><p id=\"\">For a more sustainable option, wood is a renewable resource</p><p id=\"\">Wood is often perceived as a material that will rot or deteriorate, but that is only the case if it is exposed to moisture for a prolonged period of time</p>",
+                "property-listing---agent": "6841ddf8ace3d9d9facb16a0",
+                "property-listing---address": null,
+                "property-listing---excerpt": null,
+                "property-listing---summary": null,
+                "property-listing---display-price": null,
+                "property-listing---property-featured": 0,
+                "property-listing---number-of-bedrooms": null,
+                "property-listing---number-of-bathrooms": null,
+                "property-listing---number-of-parking-spots": null
+            }
+        },
+        {
+            "id": "688efa4b6351ef2cf4a1ebb6",
+            "cmsLocaleId": "6841ddf8ace3d9d9facb1565",
+            "createdOn": "2025-08-03T05:57:31+00:00",
+            "lastUpdated": "2026-03-23T18:48:20+00:00",
+            "lastPublished": "2026-03-24T05:43:04+00:00",
+            "isArchived": false,
+            "isDraft": false,
+            "fieldData": {
+                "name": "Marvin Aluminum Doors",
+                "slug": "marvin-aluminum-doors",
+                "seo-title": "Marvin Aluminum Doors | Deluxe Windows Richmond",
+                "twitter-card": null,
+                "opengraph-title": "Marvin Aluminum Doors | Deluxe Windows Richmond",
+                "seo-description": "Marvin aluminum doors offer sleek, durable frames and modern design for Bay Area homes. Installed by Deluxe Windows in San Francisco and the Bay Area. Free estimates.",
+                "opengraph-description": "Marvin aluminum doors offer sleek, durable frames and modern design for Bay Area homes. Installed by Deluxe Windows in San Francisco and the Bay Area. Free estimates.",
+                "property-listing---sqf": null,
+                "door-type-collections-2": [
+                    "693ecf2170217d5958ca7ff1",
+                    "693ecf21cb5cd79fff4259fd"
+                ],
+                "explore-collection-text": "Explore Marvin Collections",
+                "property-listing---type": null,
+                "property-listing---about": "<h2 id=\"\">Why Choose Marvin Aluminum Doors </h2><h3 id=\"\">Durability</h3><p id=\"\">Aluminum is strong and helps maintain the structural integrity of the product even in extreme weather.</p><h3 id=\"\">Smooth, consistent finish</h3><p id=\"\">The process and finish Marvin uses for its aluminum windows and doors allows for a smooth, premium finish.</p><h3 id=\"\">Design aesthetics</h3><p id=\"\">Extruded aluminum offers a high degree of design flexibility and can be made into precise shapes.</p><p id=\"\">‍</p><p id=\"\">Extruded aluminum is thicker and more durable than roll form. Thinner aluminum, such as roll form, can dent more easily, and does not offer the structural performance of extruded aluminum.</p><p id=\"\">Marvin extruded aluminum parts are formed first, then painted. This eliminates paint cracks and imperfections and allows for a smooth, uniform finish that evenly covers the curves and angles of the product. The 70% PVDF fluoropolymer acrylic enamel finish is smooth to the touch which distinguishes it from the rough, textured finish on competitive aluminum products.</p><p id=\"\">The PVDF finish meets the highest American Architectural Manufacturers Association (AAMA) 2605 requirements. During the manufacturing process, the PVDF finish is chemically bonded to the aluminum. The PVDF finish is standard for all Ultimate and select Coastline finishes.</p><p id=\"\">To provide uniform durability over time, Marvin Ultimate uses extruded aluminum on all major window components. Some manufacturers choose to cut costs by using lower-quality materials on certain parts. This can lead to quicker chalking and fading and inconsistent weatherability.</p><p id=\"\">Because of its design flexibility, extruded aluminum can be shaped to closely match existing windows or doors in a way that can’t be done with other materials. Extruded aluminum is created by heating aluminum and pushing it through a die which creates a clean, and precise shape. The aluminum is then cut and fabricated into different shapes, sizes, and widths. Roll form aluminum comes on a large roll and is pressed down over a form to create the product components.</p>",
+                "property-listing---agent": "6841ddf8ace3d9d9facb16a0",
+                "property-listing---address": null,
+                "property-listing---excerpt": null,
+                "property-listing---summary": null,
+                "property-listing---display-price": null,
+                "property-listing---property-featured": 0,
+                "property-listing---number-of-bedrooms": null,
+                "property-listing---number-of-bathrooms": null,
+                "property-listing---number-of-parking-spots": null
+            }
+        }
+    ],
+    "flattenedFieldMap": {
+        "property-listing---featured-image": "wf_property_listing_featured_image",
+        "property-listing---featured-images": "wf_property_listing_featured_images",
+        "property-listing---thumbnail-image-v1": "wf_property_listing_thumbnail_image_v1",
+        "property-listing---thumbnail-image-v2": "wf_property_listing_thumbnail_image_v2",
+        "property-listing---thumbnail-image-v3": "wf_property_listing_thumbnail_image_v3",
+        "property-listing---about": "wf_property_listing_about",
+        "property-listing---summary": "wf_property_listing_summary",
+        "property-listing---excerpt": "wf_property_listing_excerpt",
+        "property-listing---property-featured": "wf_property_listing_property_featured",
+        "property-listing---address": "wf_property_listing_address",
+        "property-listing---sqf": "wf_property_listing_sqf",
+        "property-listing---number-of-bathrooms": "wf_property_listing_number_of_bathrooms",
+        "property-listing---number-of-bedrooms": "wf_property_listing_number_of_bedrooms",
+        "property-listing---number-of-parking-spots": "wf_property_listing_number_of_parking_spots",
+        "property-listing---display-price": "wf_property_listing_display_price",
+        "property-listing---type": "wf_property_listing_type",
+        "property-listing---agent": "wf_property_listing_agent",
+        "door-type-collections-2": "wf_door_type_collections_2",
+        "explore-collection-text": "wf_explore_collection_text",
+        "seo-title": "wf_seo_title",
+        "seo-description": "wf_seo_description",
+        "opengraph-title": "wf_opengraph_title",
+        "opengraph-description": "wf_opengraph_description",
+        "opengraph-image": "wf_opengraph_image",
+        "twitter-card": "wf_twitter_card"
     }
-  ],
-  "flattenedFieldMap": {
-    "property-listing---featured-image": "wf_property_listing_featured_image",
-    "property-listing---featured-images": "wf_property_listing_featured_images",
-    "property-listing---thumbnail-image-v1": "wf_property_listing_thumbnail_image_v1",
-    "property-listing---thumbnail-image-v2": "wf_property_listing_thumbnail_image_v2",
-    "property-listing---thumbnail-image-v3": "wf_property_listing_thumbnail_image_v3",
-    "property-listing---about": "wf_property_listing_about",
-    "property-listing---summary": "wf_property_listing_summary",
-    "property-listing---excerpt": "wf_property_listing_excerpt",
-    "property-listing---property-featured": "wf_property_listing_property_featured",
-    "property-listing---address": "wf_property_listing_address",
-    "property-listing---sqf": "wf_property_listing_sqf",
-    "property-listing---number-of-bathrooms": "wf_property_listing_number_of_bathrooms",
-    "property-listing---number-of-bedrooms": "wf_property_listing_number_of_bedrooms",
-    "property-listing---number-of-parking-spots": "wf_property_listing_number_of_parking_spots",
-    "property-listing---display-price": "wf_property_listing_display_price",
-    "property-listing---type": "wf_property_listing_type",
-    "property-listing---agent": "wf_property_listing_agent",
-    "door-type-collections-2": "wf_door_type_collections_2",
-    "explore-collection-text": "wf_explore_collection_text",
-    "seo-title": "wf_seo_title",
-    "seo-description": "wf_seo_description",
-    "opengraph-title": "wf_opengraph_title",
-    "opengraph-description": "wf_opengraph_description",
-    "opengraph-image": "wf_opengraph_image",
-    "twitter-card": "wf_twitter_card"
-  }
 }
