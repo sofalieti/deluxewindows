@@ -12,23 +12,6 @@
                     <div class="text-neutral-light"><p class="paragraph-15"><a href="tel:{{ site_phone_tel() }}" class="footer-item-link footer-phone-link w-inline-block"><span>{{ site_phone_display() }}</span></a></p></div>
                   </div>
                 </div>
-                <div class="mg-top-small mg-top-16px---mbl">
-                  <div class="social-media-grid">
-                    <a
-                      href="https://www.facebook.com/"
-                      target="_blank"
-                      aria-label="Deluxe Windows on Facebook"
-                      class="social-media-icon-wrapper-dark light w-inline-block"
-                      ><div class="icon-font-social-media"></div></a
-                    ><a
-                      href="https://www.instagram.com/"
-                      target="_blank"
-                      aria-label="Deluxe Windows on Instagram"
-                      class="social-media-icon-wrapper-dark light w-inline-block"
-                      ><div class="icon-font-social-media"></div></a
-                    >
-                  </div>
-                </div>
               </div>
               <div
                 id="w-node-_080cd6ed-2ec3-ab0f-3fec-cc4bec09a642-ec09a603"
@@ -53,7 +36,7 @@
                         >
                       </li>
                       <li class="footer-column-item">
-                        <a href="/brand" class="footer-item-link w-inline-block"
+                        <a href="/brands" class="footer-item-link w-inline-block"
                           ><div>Brands</div></a
                         >
                       </li>

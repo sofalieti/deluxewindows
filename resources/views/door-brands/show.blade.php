@@ -24,7 +24,7 @@
           <div class="breadcrumbs-wrapper">
             <a href="/" class="breadcrumb-link">Home</a>
             <div class="breadcrumb-div">/</div>
-            <a href="/brand" class="breadcrumb-link hidden-link">Door Brands</a>
+            <a href="/brands" class="breadcrumb-link hidden-link">Door Brands</a>
             <div class="breadcrumb-div hidden-txt">/</div>
             <div class="breadcrumb-text">{{ $name }} Doors</div>
           </div>

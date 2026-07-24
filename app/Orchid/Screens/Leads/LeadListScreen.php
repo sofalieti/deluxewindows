@@ -5,19 +5,29 @@ declare(strict_types=1);
 namespace App\Orchid\Screens\Leads;
 
 use App\Models\Lead;
+use App\Orchid\Layouts\Leads\LeadFiltersLayout;
+use Illuminate\Support\Str;
+use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
 use Orchid\Screen\TD;
 use Orchid\Support\Facades\Layout;
-use Illuminate\Support\Str;
 
 class LeadListScreen extends Screen
 {
     public function query(): iterable
     {
+        $statusFilter = trim((string) request()->input('filter.status', ''));
+
+        $leads = Lead::filters(LeadFiltersLayout::class)
+            ->defaultSort('id', 'desc');
+
+        // Hide spam unless the status filter explicitly selects Spam (or another status).
+        if ($statusFilter === '') {
+            $leads->where('status', '!=', Lead::STATUS_SPAM);
+        }
+
         return [
-            'leads' => Lead::filters()
-                ->defaultSort('id', 'desc')
-                ->paginate(50),
+            'leads' => $leads->paginate(50),
         ];
     }
 
@@ -28,7 +38,14 @@ class LeadListScreen extends Screen
 
     public function description(): ?string
     {
-        return 'All form submissions saved from the website.';
+        return 'Form submissions from the website. Spam is hidden by default — choose Status → Spam to review it.';
+    }
+
+    public function permission(): ?iterable
+    {
+        return [
+            'platform.leads',
+        ];
     }
 
     public function commandBar(): iterable
@@ -39,21 +56,45 @@ class LeadListScreen extends Screen
     public function layout(): iterable
     {
         return [
+            LeadFiltersLayout::class,
+
             Layout::table('leads', [
                 TD::make('id', 'ID')
-                    ->render(fn (Lead $lead) => e((string) $lead->id)),
+                    ->sort()
+                    ->render(fn (Lead $lead) => Link::make((string) $lead->id)
+                        ->route('platform.leads.edit', $lead)),
 
                 TD::make('created_at', 'Date')
+                    ->sort()
                     ->render(fn (Lead $lead) => optional($lead->created_at)->format('Y-m-d H:i')),
 
+                TD::make('status', 'Status')
+                    ->sort()
+                    ->render(fn (Lead $lead) => e($lead->statusLabel())),
+
                 TD::make('full_name', 'Name')
-                    ->render(fn (Lead $lead) => e($lead->full_name)),
+                    ->render(fn (Lead $lead) => Link::make($lead->full_name)
+                        ->route('platform.leads.edit', $lead)),
 
                 TD::make('phone', 'Phone')
-                    ->render(fn (Lead $lead) => e($lead->phone)),
+                    ->render(function (Lead $lead): string {
+                        $phone = trim((string) $lead->phone);
+                        if ($phone === '') {
+                            return '-';
+                        }
+
+                        return '<a href="tel:'.e(preg_replace('/\s+/', '', $phone) ?? $phone).'">'.e($phone).'</a>';
+                    }),
 
                 TD::make('email', 'Email')
-                    ->render(fn (Lead $lead) => e($lead->email)),
+                    ->render(function (Lead $lead): string {
+                        $email = trim((string) $lead->email);
+                        if ($email === '') {
+                            return '-';
+                        }
+
+                        return '<a href="mailto:'.e($email).'">'.e($email).'</a>';
+                    }),
 
                 TD::make('city', 'City')
                     ->render(fn (Lead $lead) => e((string) ($lead->city ?? '-'))),
@@ -76,13 +117,13 @@ class LeadListScreen extends Screen
                             return '-';
                         }
 
-                        $label = Str::limit($url, 80);
+                        $label = Str::limit($url, 60);
 
                         return '<a href="'.e($url).'" target="_blank" rel="noopener">'.e($label).'</a>';
                     }),
 
                 TD::make('message', 'Message')
-                    ->render(fn (Lead $lead) => e(Str::limit((string) ($lead->message ?? ''), 120, '...'))),
+                    ->render(fn (Lead $lead) => e(Str::limit((string) ($lead->message ?? ''), 80, '...'))),
             ]),
         ];
     }

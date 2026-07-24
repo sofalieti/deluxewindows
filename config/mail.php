@@ -40,11 +40,31 @@ return [
         'smtp' => [
             'transport' => 'smtp',
             'scheme' => env('MAIL_SCHEME'),
+            // Prefer MAIL_URL when set — supports ?verify_peer=0 for local/self-signed Exim certs.
             'url' => env('MAIL_URL'),
             'host' => env('MAIL_HOST', '127.0.0.1'),
             'port' => env('MAIL_PORT', 2525),
             'username' => env('MAIL_USERNAME'),
             'password' => env('MAIL_PASSWORD'),
+            'timeout' => null,
+            'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url(env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
+        ],
+
+        /*
+         * Local ISPmanager/Exim with a cert that does not match 127.0.0.1.
+         * Use MAIL_MAILER=smtp_local and the usual MAIL_HOST/PORT/USERNAME/PASSWORD.
+         */
+        'smtp_local' => [
+            'transport' => 'smtp',
+            'scheme' => env('MAIL_SCHEME', 'smtps'),
+            'url' => sprintf(
+                '%s://%s:%s@%s:%s?verify_peer=0&verify_peer_name=0',
+                env('MAIL_SCHEME', 'smtps'),
+                rawurlencode((string) env('MAIL_USERNAME', '')),
+                rawurlencode((string) env('MAIL_PASSWORD', '')),
+                env('MAIL_HOST', '127.0.0.1'),
+                env('MAIL_PORT', 465),
+            ),
             'timeout' => null,
             'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url(env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
         ],

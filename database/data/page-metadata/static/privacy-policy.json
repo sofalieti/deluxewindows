@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "key": "static/privacy-policy",
+  "path": "/privacy-policy",
+  "seo": {
+    "title": "Privacy Policy | Deluxe Windows",
+    "description": "Read how Deluxe Windows collects, uses, and protects personal information under U.S. and California privacy laws, including CCPA/CPRA rights.",
+    "canonical": "https://www.deluxewindows.com/privacy-policy",
+    "og": {
+      "title": "Privacy Policy | Deluxe Windows",
+      "description": "Read how Deluxe Windows collects, uses, and protects personal information under U.S. and California privacy laws, including CCPA/CPRA rights.",
+      "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
+      "type": "website"
+    },
+    "h1": "Privacy Policy",
+    "primary_keyword": "deluxe windows privacy policy",
+    "target_keywords": [
+      "privacy policy",
+      "ccpa",
+      "california privacy"
+    ],
+    "search_intent": "informational",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Privacy Policy | Deluxe Windows",
+      "description": "Read how Deluxe Windows collects, uses, and protects personal information under U.S. and California privacy laws, including CCPA/CPRA rights.",
+      "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
+      "card": "summary_large_image"
+    }
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "WebPage",
+    "data": {},
+    "extra": [],
+    "replace": []
+  }
+}

@@ -118,7 +118,7 @@ test('all public faq content is unique and file backed', function () {
     $excludedPaths = [
         '/about',
         '/blog',
-        '/brand',
+        '/brands',
         '/gallery',
         '/glossary',
         '/testimonials',

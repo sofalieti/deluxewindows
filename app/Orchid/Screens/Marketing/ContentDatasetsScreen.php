@@ -29,6 +29,13 @@ class ContentDatasetsScreen extends Screen
         return 'Export or import site content (text/data only — image fields in the database are never changed).';
     }
 
+    public function permission(): ?iterable
+    {
+        return [
+            'platform.marketing',
+        ];
+    }
+
     public function commandBar(): iterable
     {
         return [

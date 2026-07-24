@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "key": "static/terms",
+  "path": "/terms",
+  "seo": {
+    "title": "Terms of Use | Deluxe Windows",
+    "description": "Terms of Use for deluxewindows.com: site access, estimates, disclaimers, liability limits, and California governing law for Deluxe Windows, Inc.",
+    "canonical": "https://www.deluxewindows.com/terms",
+    "og": {
+      "title": "Terms of Use | Deluxe Windows",
+      "description": "Terms of Use for deluxewindows.com: site access, estimates, disclaimers, liability limits, and California governing law for Deluxe Windows, Inc.",
+      "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
+      "type": "website"
+    },
+    "h1": "Terms of Use",
+    "primary_keyword": "deluxe windows terms of use",
+    "target_keywords": [
+      "terms of use",
+      "website terms",
+      "legal"
+    ],
+    "search_intent": "informational",
+    "priority": "P3",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Terms of Use | Deluxe Windows",
+      "description": "Terms of Use for deluxewindows.com: site access, estimates, disclaimers, liability limits, and California governing law for Deluxe Windows, Inc.",
+      "image": "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
+      "card": "summary_large_image"
+    }
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "WebPage",
+    "data": {},
+    "extra": [],
+    "replace": []
+  }
+}

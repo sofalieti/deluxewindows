@@ -45,7 +45,7 @@ class LeadNotificationMail extends Mailable
             with: [
                 'lead' => $this->lead,
                 'meta' => $meta,
-                'adminUrl' => route('platform.leads', ['filter' => ['id' => $this->lead->id]]),
+                'adminUrl' => route('platform.leads.edit', $this->lead),
             ],
         );
     }

@@ -171,7 +171,7 @@
                               </div>
                               <div id="w-node-_632206d9-3c73-e5be-be34-15992c2e8355-2c2e830e">
                                 <a
-                                  href="/brand"
+                                  href="/brands"
                                   class="dropdown-link-2 dropdown-link-title"
                                   tabindex="0"
                                   >Brands</a
@@ -179,7 +179,7 @@
                                 <div class="w-layout-grid main-pages-2">
                                   <div class="w-layout-grid grid-1-column-2 dropdown-link-column small">
                                     <a
-                                      href="/brand"
+                                      href="/brands"
                                       id="w-node-_632206d9-3c73-e5be-be34-15992c2e835a-2c2e830e"
                                       class="dropdown-link-2"
                                       tabindex="0"
@@ -389,7 +389,7 @@
                               </div>
                               <div id="w-node-_632206d9-3c73-e5be-be34-15992c2e839a-2c2e830e">
                                 <a
-                                  href="/brand"
+                                  href="/brands"
                                   class="dropdown-link-2 dropdown-link-title"
                                   tabindex="0"
                                   >Door Brands</a
@@ -397,7 +397,7 @@
                                 <div class="w-layout-grid main-pages-2">
                                   <div class="w-layout-grid grid-1-column-2 dropdown-link-column small">
                                     <a
-                                      href="/brand"
+                                      href="/brands"
                                       id="w-node-_632206d9-3c73-e5be-be34-15992c2e839f-2c2e830e"
                                       class="dropdown-link-2"
                                       tabindex="0"
@@ -731,7 +731,7 @@
                               </div>
                               <div id="w-node-_632206d9-3c73-e5be-be34-15992c2e8406-2c2e830e">
                                 <a
-                                  href="/brand"
+                                  href="/brands"
                                   class="dropdown-link-2 dropdown-link-title"
                                   tabindex="0"
                                   >Premium Service Areas</a
@@ -1010,7 +1010,7 @@
                               id="w-dropdown-list-6"
                               aria-labelledby="w-dropdown-toggle-6"
                             >
-                              <a href="/brand" class="nav-dropdown-link-5 w-dropdown-link"
+                              <a href="/brands" class="nav-dropdown-link-5 w-dropdown-link"
                                 >All</a
                               ><a
                                 href="/brands/marvin"
@@ -1146,7 +1146,7 @@
                               id="w-dropdown-list-9"
                               aria-labelledby="w-dropdown-toggle-9"
                             >
-                              <a href="/brand" class="nav-dropdown-link-5 w-dropdown-link"
+                              <a href="/brands" class="nav-dropdown-link-5 w-dropdown-link"
                                 >All</a
                               ><a
                                 href="/door-brands/marvin"

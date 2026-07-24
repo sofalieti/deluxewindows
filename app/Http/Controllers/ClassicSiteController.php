@@ -423,6 +423,16 @@ class ClassicSiteController extends Controller
         return view('contacts');
     }
 
+    public function privacyPolicy()
+    {
+        return view('privacy-policy');
+    }
+
+    public function terms()
+    {
+        return view('terms');
+    }
+
     public function specialOffers(PromotionSettingsService $promotions)
     {
         $coupons = $promotions->publishedCoupons()->map(function ($coupon) use ($promotions) {

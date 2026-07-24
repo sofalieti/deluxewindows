@@ -211,11 +211,11 @@
                                 </div>
                               </div>
                               <div id="w-node-_632206d9-3c73-e5be-be34-15992c2e8355-2c2e830e">
-                                <a href="/brand" class="dropdown-link-2 dropdown-link-title">Brands</a>
+                                <a href="/brands" class="dropdown-link-2 dropdown-link-title">Brands</a>
                                 <div class="w-layout-grid main-pages-2">
                                   <div class="w-layout-grid grid-1-column-2 dropdown-link-column small">
                                     <a
-                                      href="/brand"
+                                      href="/brands"
                                       id="w-node-_632206d9-3c73-e5be-be34-15992c2e835a-2c2e830e"
                                       class="dropdown-link-2"
                                       >All</a
@@ -364,11 +364,11 @@
                                 </div>
                               </div>
                               <div id="w-node-_632206d9-3c73-e5be-be34-15992c2e839a-2c2e830e">
-                                <a href="/brand" class="dropdown-link-2 dropdown-link-title">Brands</a>
+                                <a href="/brands" class="dropdown-link-2 dropdown-link-title">Brands</a>
                                 <div class="w-layout-grid main-pages-2">
                                   <div class="w-layout-grid grid-1-column-2 dropdown-link-column small">
                                     <a
-                                      href="/brand"
+                                      href="/brands"
                                       id="w-node-_632206d9-3c73-e5be-be34-15992c2e839f-2c2e830e"
                                       class="dropdown-link-2"
                                       >All</a
@@ -600,7 +600,7 @@
                                 </div>
                               </div>
                               <div id="w-node-_632206d9-3c73-e5be-be34-15992c2e8406-2c2e830e">
-                                <a href="/brand" class="dropdown-link-2 dropdown-link-title">Premium Service Areas</a>
+                                <a href="/brands" class="dropdown-link-2 dropdown-link-title">Premium Service Areas</a>
                                 <div class="w-layout-grid main-pages-2">
                                   <div class="w-dyn-list">
                                     <div role="list" class="w-dyn-items">
@@ -751,7 +751,7 @@
                               <div>Brands</div>
                             </div>
                             <nav class="nav-dropdown-list-2 shadow-three mobile-shadow-hide w-dropdown-list">
-                              <a href="/brand" class="nav-dropdown-link-5 w-dropdown-link">All</a
+                              <a href="/brands" class="nav-dropdown-link-5 w-dropdown-link">All</a
                               ><a href="/brands/marvin" class="nav-dropdown-link-5 w-dropdown-link">Marvin</a
                               ><a href="/brands/milgard" class="nav-dropdown-link-5 w-dropdown-link">Milgard</a
                               ><a href="/brands/jeld-wen" class="nav-dropdown-link-5 w-dropdown-link">Jeld-Wen</a
@@ -802,7 +802,7 @@
                               <div>Brands</div>
                             </div>
                             <nav class="nav-dropdown-list-2 shadow-three mobile-shadow-hide w-dropdown-list">
-                              <a href="/brand" class="nav-dropdown-link-5 w-dropdown-link">All</a
+                              <a href="/brands" class="nav-dropdown-link-5 w-dropdown-link">All</a
                               ><a href="/brands/marvin" class="nav-dropdown-link-5 w-dropdown-link">Marvin</a
                               ><a href="/brands/milgard" class="nav-dropdown-link-5 w-dropdown-link">Milgard</a
                               ><a href="/brands/jeld-wen" class="nav-dropdown-link-5 w-dropdown-link">Jeld-Wen</a
@@ -2356,21 +2356,6 @@
                     <div class="text-neutral-light"><p class="paragraph-15">(650) 461-4446</p></div>
                   </div>
                 </div>
-                <div class="mg-top-small mg-top-16px---mbl">
-                  <div class="social-media-grid">
-                    <a
-                      href="https://www.facebook.com/"
-                      target="_blank"
-                      class="social-media-icon-wrapper-dark light w-inline-block"
-                      ><div class="icon-font-social-media"></div></a
-                    ><a
-                      href="https://www.instagram.com/"
-                      target="_blank"
-                      class="social-media-icon-wrapper-dark light w-inline-block"
-                      ><div class="icon-font-social-media"></div></a
-                    >
-                  </div>
-                </div>
               </div>
               <div
                 id="w-node-_080cd6ed-2ec3-ab0f-3fec-cc4bec09a642-ec09a603"
@@ -2390,7 +2375,7 @@
                         <a href="#" class="footer-item-link w-inline-block"><div>Doors</div></a>
                       </li>
                       <li class="footer-column-item">
-                        <a href="/brand" class="footer-item-link w-inline-block"><div>Brands</div></a>
+                        <a href="/brands" class="footer-item-link w-inline-block"><div>Brands</div></a>
                       </li>
                     </ul>
                     <ul role="list" class="footer-column-links">

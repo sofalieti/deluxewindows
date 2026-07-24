@@ -64,6 +64,7 @@ class PlatformProvider extends OrchidServiceProvider
             $webflowMenus[] = Menu::make($collection['title'])
                 ->icon('bs.database')
                 ->route('platform.webflow.collection', ['collection' => $collection['slug']])
+                ->permission('platform.webflow.manage')
                 ->title($index === 0 ? 'Webflow CMS' : null);
         }
 
@@ -76,6 +77,7 @@ class PlatformProvider extends OrchidServiceProvider
             $windowsMenu[] = Menu::make($collection['title'])
                 ->icon('bs.window')
                 ->route('platform.webflow.collection', ['collection' => $collection['slug']])
+                ->permission('platform.webflow.manage')
                 ->title($windowsMenu === [] ? 'Windows' : null);
         }
 
@@ -88,12 +90,14 @@ class PlatformProvider extends OrchidServiceProvider
             $doorsMenu[] = Menu::make($collection['title'])
                 ->icon('bs.door-open')
                 ->route('platform.webflow.collection', ['collection' => $collection['slug']])
+                ->permission('platform.webflow.manage')
                 ->title($doorsMenu === [] ? 'Doors' : null);
         }
 
         $doorsMenu[] = Menu::make('Door Brands')
             ->icon('bs.door-open')
             ->route('platform.door-brands')
+            ->permission('platform.webflow.manage')
             ->title($doorsMenu === [] ? 'Doors' : null);
 
         $townsMenu = [];
@@ -105,6 +109,7 @@ class PlatformProvider extends OrchidServiceProvider
             $townsMenu[] = Menu::make($collection['title'])
                 ->icon('bs.geo-alt')
                 ->route('platform.webflow.collection', ['collection' => $collection['slug']])
+                ->permission('platform.webflow.manage')
                 ->title($townsMenu === [] ? 'Towns And County' : null);
         }
 
@@ -112,19 +117,23 @@ class PlatformProvider extends OrchidServiceProvider
             Menu::make('Promotions')
                 ->icon('bs.megaphone')
                 ->route('platform.promotions')
+                ->permission('platform.marketing')
                 ->title('Marketing'),
 
             Menu::make('Leads')
                 ->icon('bs.inbox')
-                ->route('platform.leads'),
+                ->route('platform.leads')
+                ->permission('platform.leads'),
 
             Menu::make('Content datasets')
                 ->icon('bs.database')
-                ->route('platform.content-datasets'),
+                ->route('platform.content-datasets')
+                ->permission('platform.marketing'),
 
             Menu::make('Sitemap.xml')
                 ->icon('bs.file-earmark-code')
-                ->route('platform.sitemap'),
+                ->route('platform.sitemap')
+                ->permission('platform.marketing'),
         ];
 
         $accessMenu = [
@@ -154,6 +163,12 @@ class PlatformProvider extends OrchidServiceProvider
             ItemPermission::group(__('System'))
                 ->addPermission('platform.systems.roles', __('Roles'))
                 ->addPermission('platform.systems.users', __('Users')),
+
+            ItemPermission::group('Leads')
+                ->addPermission('platform.leads', 'Manage Leads'),
+
+            ItemPermission::group('Marketing')
+                ->addPermission('platform.marketing', 'Promotions, datasets & sitemap'),
 
             ItemPermission::group('Webflow')
                 ->addPermission('platform.webflow.manage', 'Manage Webflow Collections'),

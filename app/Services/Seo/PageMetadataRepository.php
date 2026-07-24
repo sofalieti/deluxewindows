@@ -159,7 +159,8 @@ class PageMetadataRepository
             '/' => 'static/home',
             '/windows' => 'static/windows-index',
             '/doors' => 'static/doors-index',
-            '/brand' => 'static/brand-index',
+            '/brands' => 'static/brand-index',
+
             '/blog' => 'static/blog-index',
             '/gallery' => 'static/gallery',
             '/glossary' => 'static/glossary',
@@ -168,6 +169,8 @@ class PageMetadataRepository
             '/financing' => 'static/financing',
             '/about' => 'static/about',
             '/contacts' => 'static/contacts',
+            '/privacy-policy' => 'static/privacy-policy',
+            '/terms' => 'static/terms',
             '/special-offers' => 'static/special-offers',
             default => trim($path, '/'),
         };

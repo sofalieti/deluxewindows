@@ -65,6 +65,13 @@ class DoorBrandListScreen extends Screen
         return 'Door-specific descriptions for /door-brands/{slug}. List order follows Brands collection order. SEO and FAQs are managed in page metadata files.';
     }
 
+    public function permission(): ?iterable
+    {
+        return [
+            'platform.webflow.manage',
+        ];
+    }
+
     public function layout(): iterable
     {
         return [

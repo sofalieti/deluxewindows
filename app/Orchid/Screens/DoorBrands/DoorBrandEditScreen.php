@@ -59,6 +59,13 @@ class DoorBrandEditScreen extends Screen
         return 'This content is shown on /door-brands/'.$this->slug.'. Leave the description empty to fall back to an auto-generated one.';
     }
 
+    public function permission(): ?iterable
+    {
+        return [
+            'platform.webflow.manage',
+        ];
+    }
+
     public function commandBar(): iterable
     {
         return [

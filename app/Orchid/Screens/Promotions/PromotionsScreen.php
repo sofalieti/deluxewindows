@@ -152,6 +152,13 @@ class PromotionsScreen extends Screen
         return 'Manage global discount, holiday calendar, end date, and per-page pricing in one place.';
     }
 
+    public function permission(): ?iterable
+    {
+        return [
+            'platform.marketing',
+        ];
+    }
+
     public function commandBar(): iterable
     {
         return [

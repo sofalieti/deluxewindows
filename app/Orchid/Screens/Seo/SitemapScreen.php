@@ -43,6 +43,13 @@ class SitemapScreen extends Screen
         return 'Build the sitemap from live public pages and published CMS records. lastmod is never older than today; real update dates are used when newer.';
     }
 
+    public function permission(): ?iterable
+    {
+        return [
+            'platform.marketing',
+        ];
+    }
+
     public function commandBar(): iterable
     {
         return [

@@ -11,6 +11,7 @@ use App\Orchid\Screens\Examples\ExampleGridScreen;
 use App\Orchid\Screens\Examples\ExampleLayoutsScreen;
 use App\Orchid\Screens\Examples\ExampleScreen;
 use App\Orchid\Screens\Examples\ExampleTextEditorsScreen;
+use App\Orchid\Screens\Leads\LeadEditScreen;
 use App\Orchid\Screens\Leads\LeadListScreen;
 use App\Orchid\Screens\Marketing\ContentDatasetsScreen;
 use App\Orchid\Screens\PlatformScreen;
@@ -49,6 +50,9 @@ Route::screen('promotions', PromotionsScreen::class)
 
 Route::screen('leads', LeadListScreen::class)
     ->name('platform.leads');
+
+Route::screen('leads/{lead}/edit', LeadEditScreen::class)
+    ->name('platform.leads.edit');
 
 Route::screen('content-datasets', ContentDatasetsScreen::class)
     ->name('platform.content-datasets');

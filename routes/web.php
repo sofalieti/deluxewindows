@@ -20,7 +20,9 @@ Route::get('/windows/{slug}', [ClassicSiteController::class, 'windowBySlug'])
 Route::get('/doors/{slug}', [ClassicSiteController::class, 'doorBySlug'])
     ->where('slug', '[A-Za-z0-9\-]+');
 
-Route::get('/brand', [ClassicSiteController::class, 'brandIndex']);
+Route::permanentRedirect('/brand', '/brands');
+
+Route::get('/brands', [ClassicSiteController::class, 'brandIndex']);
 
 Route::get('/brands/{slug}', [ClassicSiteController::class, 'brandBySlug'])
     ->where('slug', '[A-Za-z0-9\-]+');
@@ -58,6 +60,8 @@ Route::get('/testimonials', [ClassicSiteController::class, 'testimonials']);
 Route::get('/financing', [ClassicSiteController::class, 'financing']);
 Route::get('/about', [ClassicSiteController::class, 'about']);
 Route::get('/contacts', [ClassicSiteController::class, 'contacts']);
+Route::get('/privacy-policy', [ClassicSiteController::class, 'privacyPolicy']);
+Route::get('/terms', [ClassicSiteController::class, 'terms']);
 Route::get('/special-offers', [ClassicSiteController::class, 'specialOffers']);
 Route::post('/contact-form', [ClassicSiteController::class, 'submitContactForm'])->name('contact.submit');
 

@@ -1,11 +1,11 @@
 {
   "version": 1,
   "key": "static/brand-index",
-  "path": "/brand",
+  "path": "/brands",
   "seo": {
     "title": "Best Window & Door Brands Installed | Bay Area",
     "description": "Compare the window and door brands installed by Deluxe Windows, including Milgard, Marvin, Andersen, Simonton, Anlin and JELD-WEN. Get a free estimate.",
-    "canonical": "https://www.deluxewindows.com/brand",
+    "canonical": "https://www.deluxewindows.com/brands",
     "og": {
       "title": "Best Window & Door Brands Installed | Bay Area",
       "description": "Compare the window and door brands installed by Deluxe Windows, including Milgard, Marvin, Andersen, Simonton, Anlin and JELD-WEN. Get a free estimate.",

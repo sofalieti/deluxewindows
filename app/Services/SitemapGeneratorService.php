@@ -58,7 +58,8 @@ class SitemapGeneratorService
             '/',
             '/windows',
             '/doors',
-            '/brand',
+            '/brands',
+
             '/blog',
             '/gallery',
             '/glossary',
@@ -67,6 +68,8 @@ class SitemapGeneratorService
             '/financing',
             '/about',
             '/contacts',
+            '/privacy-policy',
+            '/terms',
             '/special-offers',
         ] as $path) {
             $this->add($path);
