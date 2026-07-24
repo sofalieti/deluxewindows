@@ -2,8 +2,30 @@
 <script>
   (function () {
     const endpoint = @json(route('contact.submit'));
-    const csrf = @json(csrf_token());
+    const csrfFallback = @json(csrf_token());
     const googleBridges = @json(array_values(array_filter((array) config('services.lead_bridge.urls', []))));
+
+    function cookieValue(name) {
+      const match = document.cookie.match(new RegExp('(?:^|; )' + name.replace(/([.$?*|{}()[\]\\/+^])/g, '\\$1') + '=([^;]*)'));
+      return match ? decodeURIComponent(match[1]) : '';
+    }
+
+    // Prefer live session cookie so long-lived tabs / Tag Assistant don't send a stale page token.
+    function resolveCsrfToken() {
+      const fromCookie = cookieValue('XSRF-TOKEN');
+      if (fromCookie) return fromCookie;
+      const meta = document.querySelector('meta[name="csrf-token"]');
+      if (meta && meta.getAttribute('content')) return meta.getAttribute('content');
+      return csrfFallback;
+    }
+
+    function csrfHeaders() {
+      const token = resolveCsrfToken();
+      return {
+        'X-CSRF-TOKEN': token,
+        'X-XSRF-TOKEN': token,
+      };
+    }
     const trackingParams = [
       'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term',
       'matchtype', 'device', 'creative', 'gclid', 'fbclid', 'msclkid'
@@ -319,16 +341,24 @@
       try {
         const payload = toPayload(form, await getGeoLocation());
         // Laravel first (spam gate). Google sheet only for clean leads.
-        const res = await fetch(endpoint, {
-          method: 'POST',
-          headers: {
-            'X-CSRF-TOKEN': csrf,
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'X-Requested-With': 'XMLHttpRequest',
-          },
-          body: JSON.stringify(payload),
-        });
+        const postLead = function () {
+          return fetch(endpoint, {
+            method: 'POST',
+            headers: Object.assign({
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+              'X-Requested-With': 'XMLHttpRequest',
+            }, csrfHeaders()),
+            credentials: 'same-origin',
+            body: JSON.stringify(payload),
+          });
+        };
+
+        let res = await postLead();
+        // Session rotated / stale page token → one retry with fresh XSRF cookie.
+        if (res.status === 419) {
+          res = await postLead();
+        }
         if (!res.ok) {
           throw new Error('Lead submit failed');
         }
