@@ -213,6 +213,36 @@
     }, { passive: true });
   })();
 
+  // Desktop mega-menu: never leave an invisible hit-layer over the hero.
+  // Webflow hover dropdowns can stick with opacity:0 while still receiving clicks
+  // (sticky header z-index 1250 sits above hero CTAs).
+  (function () {
+    const DESKTOP = "(min-width: 992px)";
+    const HEADER = ".header-wrapper-2";
+
+    function closeDesktopDropdowns() {
+      if (!window.matchMedia(DESKTOP).matches) return;
+      document.querySelectorAll(`${HEADER} .w-dropdown.w--open, ${HEADER} .w-dropdown-list.w--open`).forEach((el) => {
+        el.classList.remove("w--open");
+        if (el.classList.contains("w-dropdown-list")) {
+          el.style.removeProperty("display");
+          el.style.removeProperty("opacity");
+        }
+      });
+      document.querySelectorAll(`${HEADER} .w-dropdown-toggle`).forEach((toggle) => {
+        toggle.setAttribute("aria-expanded", "false");
+      });
+    }
+
+    document.addEventListener("click", (e) => {
+      if (!window.matchMedia(DESKTOP).matches) return;
+      if (e.target.closest(`${HEADER} .w-dropdown`)) return;
+      closeDesktopDropdowns();
+    }, true);
+
+    window.addEventListener("scroll", closeDesktopDropdowns, { passive: true });
+  })();
+
   // Estimate modal open/close behavior.
   (function () {
     onReady(() => {

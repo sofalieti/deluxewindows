@@ -25,7 +25,12 @@
 
   function buildPopup(p) {
     const title = p.label || [p.street, p.city].filter(Boolean).join(", ");
-    return '<div class="jobs-map-popup"><strong>' + escapeHtml(title) + "</strong></div>";
+    let html = '<div class="jobs-map-popup"><strong>' + escapeHtml(title) + "</strong>";
+    if (p.count && p.count > 1) {
+      html += "<br>" + p.count + " projects at this address";
+    }
+    html += "</div>";
+    return html;
   }
 
   function escapeHtml(s) {
@@ -101,11 +106,6 @@
     map.on("mouseout", function () {
       map.scrollWheelZoom.disable();
     });
-
-    const countEl = document.querySelector("[data-jobs-map-count]");
-    if (countEl) {
-      countEl.textContent = String(points.length);
-    }
   }
 
   function boot() {

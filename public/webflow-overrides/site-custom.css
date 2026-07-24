@@ -311,6 +311,19 @@
     transition: none !important;
     animation: none !important;
     overflow: visible !important;
+    /* Closed / half-closed mega-menus must never steal clicks from the hero.
+       Sticky header is z-index 1250, so an invisible panel covers CTAs. */
+    pointer-events: none !important;
+  }
+
+  .header-wrapper-2 .dropdown-list-2.dropdown-v1.w-dropdown-list:not(.w--open),
+  .header-wrapper-2 .dropdown-list-2.dropdown-v1.w-dropdown-list:not(.w--open) * {
+    pointer-events: none !important;
+  }
+
+  /* Only fully open menus (list + parent) receive clicks */
+  .header-wrapper-2 .w-dropdown.w--open > .dropdown-list-2.dropdown-v1.w-dropdown-list.w--open {
+    pointer-events: auto !important;
   }
 
   .header-wrapper-2 .dropdown-pd-2.dropdown-v4 {
@@ -449,36 +462,39 @@
   display: none;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 0;
   width: 100%;
   min-height: 44px;
-  padding: 0 16px;
-  border: 1px solid #c96a00;
+  padding: 0 14px 0 16px;
+  border: 1px solid #0d4578;
   border-radius: 10px;
-  background: linear-gradient(180deg, #e08a00 0%, #c45f00 100%);
+  /* Slightly deeper navy than the discount badge (#297bb5 / #2872a7) */
+  background: linear-gradient(180deg, #1a5f8f 0%, #0f4d89 100%);
   color: #ffffff;
   font-size: 14px;
   font-weight: 700;
   line-height: 1;
   letter-spacing: 0.01em;
   text-decoration: none;
-  box-shadow: 0 8px 20px rgba(196, 95, 0, 0.28);
+  box-shadow: 0 8px 20px rgba(15, 77, 137, 0.32);
   -webkit-tap-highlight-color: transparent;
 }
 
 .hero-mobile-promo__phone:active {
   transform: translateY(1px);
-  box-shadow: 0 4px 12px rgba(196, 95, 0, 0.24);
+  box-shadow: 0 4px 12px rgba(15, 77, 137, 0.28);
 }
 
 .hero-mobile-promo__phone-number {
   display: flex;
   align-items: center;
-  flex: 0 0 auto;
+  flex: 1 1 auto;
+  justify-content: center;
   text-align: center;
   white-space: nowrap;
   color: #ffffff;
   line-height: 1;
+  padding-right: 12px;
 }
 
 .hero-mobile-promo__phone-icon {
@@ -486,10 +502,12 @@
   align-items: center;
   justify-content: center;
   flex: 0 0 auto;
-  width: 28px;
-  height: 28px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.16);
+  width: auto;
+  height: auto;
+  padding-left: 12px;
+  border-radius: 0;
+  border-left: 1px solid rgba(255, 255, 255, 0.45);
+  background: none;
   color: #ffffff;
 }
 
@@ -2623,8 +2641,103 @@ h1 .h1-subline {
   }
 }
 
-/* Temporarily hide Elfsight / Google "Our Previous Jobs" map (billing disabled) */
-.previous-jobs-map.is-temporarily-hidden {
-  display: none !important;
+/* ============================================================
+   Our Previous Jobs — clustered Leaflet map
+   ============================================================ */
+.previous-jobs-map-section {
+  margin-top: 24px;
+}
+
+.previous-jobs-map-section .heading-23 {
+  margin-bottom: 16px;
+}
+
+#previous-jobs-map {
+  width: 100%;
+  height: 540px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e3e8ef;
+  background: #f4f6f9;
+  z-index: 0;
+}
+
+@media (max-width: 767px) {
+  #previous-jobs-map {
+    height: 420px;
+  }
+}
+
+/* Cluster bubbles */
+.jobs-map-cluster {
+  background: none;
+  border: none;
+}
+
+.jobs-map-cluster > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(15, 77, 137, 0.88);
+  border: 3px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 8px rgba(15, 77, 137, 0.35);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.jobs-map-cluster--medium > div {
+  background: rgba(11, 61, 110, 0.9);
+  font-size: 15px;
+}
+
+.jobs-map-cluster--large > div {
+  background: rgba(8, 46, 84, 0.92);
+  font-size: 16px;
+}
+
+/* Individual pin */
+.jobs-map-pin {
+  background: none;
+  border: none;
+}
+
+.jobs-map-pin__dot {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #0f4d89;
+  border: 3px solid #fff;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);
+}
+
+/* Popup */
+.jobs-map-popup {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.jobs-map-popup strong {
+  color: #0f4d89;
+}
+
+/* Empty / error state */
+.jobs-map--empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jobs-map-empty {
+  color: #6b7a8c;
+  font-size: 15px;
+  padding: 24px;
+  text-align: center;
+  margin: 0;
 }
 
