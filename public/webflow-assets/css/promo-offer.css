@@ -57,6 +57,78 @@
   top: 50%;
 }
 
+/* Hero left sale callout — promo name + % OFF above headline */
+.hero-sale-callout {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .hero-sale-callout {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    margin: 0 0 20px;
+    padding: 14px 20px 16px;
+    max-width: min(100%, 340px);
+    border-radius: 16px;
+    background: linear-gradient(145deg, rgba(15, 77, 137, 0.94) 0%, rgba(8, 48, 88, 0.9) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow:
+      0 14px 32px rgba(0, 0, 0, 0.28),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .hero-sale-callout__name {
+    display: block;
+    color: rgba(255, 255, 255, 0.95);
+    font-size: clamp(15px, 1.15vw, 18px);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    line-height: 1.25;
+    text-transform: none;
+  }
+
+  .hero-sale-callout__off {
+    display: block;
+    color: #f0b429;
+    font-size: clamp(30px, 2.6vw, 42px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+
+  .hero-sale-callout__off-label {
+    font-size: 0.55em;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    vertical-align: 0.12em;
+  }
+
+  .hero-sale-callout__expires {
+    display: block;
+    margin-top: 4px;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    line-height: 1.3;
+    text-transform: uppercase;
+  }
+}
+
+/* When sale callout shows the expiry, hide the form footnote duplicate */
+.div-block-59:has(.hero-sale-callout) .form-block-2 form > label.body-14 {
+  display: none !important;
+}
+
+/* Sale moved to left hero — keep markup for modal sync, hide in form */
+.form-block-2 .estimate-form-promo--sale-moved {
+  display: none !important;
+}
+
 /* Hero estimate form: center promo name + discount */
 .estimate-form-promo.promo-offer-context--form,
 .estimate-form-promo .display-4,
@@ -73,8 +145,27 @@
 .estimate-form-promo .w-richtext p,
 .estimate-form-promo .hero-promo-priced {
   text-align: center;
+}
+
+.estimate-form-promo .hero-promo-priced {
   white-space: nowrap;
   margin-top: 6px;
+  font-size: 14px;
+  line-height: 1.35;
+  color: #374151;
+}
+
+.estimate-form-promo .hero-promo-priced__old,
+.estimate-form-promo .hero-promo-priced s {
+  font-size: 1.15em;
+  font-weight: 600;
+  color: #9ca3af;
+}
+
+.estimate-form-promo .hero-promo-priced__new {
+  font-size: 1.35em;
+  font-weight: 700;
+  color: #111827;
 }
 
 .mobile-estimate-modal__promo .hero-promo-priced {
@@ -85,6 +176,14 @@
 .div-block-22:has(> .svg50) .sale-headline-lead,
 .div-block-22:has(> .sidebar-svg) .sale-headline-lead {
   display: none;
+}
+
+/* Hero form brand logo — center like promo copy */
+.form-block-2 .div-block-22 > .svg50,
+.form-block-2 .div-block-22 > .sidebar-svg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Red price badge is mobile-only (hero-mobile-promo). Never show it in desktop hero forms. */

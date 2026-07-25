@@ -14,6 +14,7 @@
               <div class="inner-container _640px _100-tablet">
                 <div class="inner-container _450px---tablet">
                   <div class="inner-container _400px---mbl">
+                    @include('partials.hero-sale-callout')
                     <div class="div-block-60">
                       <div class="code-embed-7 w-embed">⚲ Serving {{ $countyName }}</div>
                       <div class="code-embed-6 w-embed">
@@ -53,8 +54,8 @@
                   aria-label="Main Form"
                 >
                   <div class="div-block-22">
-                    <div data-estimate-form-promo class="estimate-form-promo promo-offer-context--form">
-                      <h2 class="display-4">Get Deluxe Windows for Less. <br />{{ promotion_percent_label() }}* Windows</h2>
+                    <div data-estimate-form-promo class="estimate-form-promo promo-offer-context--form estimate-form-promo--sale-moved">
+                      <h2 class="display-4">Get Deluxe Windows for Less. <br />{{ promotion_percent_label() }}*</h2>
                     </div>
                     <label for="email-banner" class="body-14"></label>
                   </div>
@@ -103,7 +104,7 @@
                     <input type="submit" data-wait="Please wait..." class="inside-input-button text-light w-button" value="Request a Free Estimate" />
                   </div>
                   <label for="email-banner" class="body-14">
-                    <em class="italic-text">*Windows Replacement. Offer Expires </em>
+                    <em class="italic-text">Offer Expires </em>
                     <span class="date-span italic-span"><em class="italic-text">{{ promotion_date('us-short') }}</em></span>
                   </label>
                 </form>

@@ -317,7 +317,7 @@ class PromotionControlService
 
         // Classic desktop richtext: Starting from <s>832</s> $549* per window installed
         if (preg_match(
-            '/Starting from\s*<s>\s*\$?\s*([0-9][0-9,]*(?:\.[0-9]{1,2})?)\s*<\/s>\s*(\$?\s*[0-9][0-9,]*(?:\.[0-9]{1,2})?)/i',
+            '/Starting from\s*<s(?:\s[^>]*)?>\s*\$?\s*([0-9][0-9,]*(?:\.[0-9]{1,2})?)\s*<\/s>\s*(?:<span[^>]*>)?\s*(\$?\s*[0-9][0-9,]*(?:\.[0-9]{1,2})?)\s*(?:<\/span>)?/i',
             $html,
             $match
         ) === 1) {
@@ -392,6 +392,7 @@ class PromotionControlService
 
     /**
      * Desktop hero pricing (no red badge). Dual price → strikethrough richtext.
+     * Sale name / % OFF live in the left hero callout, not in the form.
      * Mobile red badge is built separately via priceTagHtml().
      */
     public function priceHtml(string $base, string $final, string $suffix = 'per window'): string
@@ -400,12 +401,14 @@ class PromotionControlService
         $final = e($this->normalizeMoney($final));
         $suffixSafe = e($suffix);
 
-        return $this->saleHeadlineHtml()
-            .'<div class="w-embed hero-promo-priced">Starting from <s>'.$baseAmount.'</s> '.$final.'<sup>*</sup>&nbsp;'.$suffixSafe.'</div>';
+        return '<div class="w-embed hero-promo-priced">Starting from '
+            .'<s class="hero-promo-priced__old">'.$baseAmount.'</s> '
+            .'<span class="hero-promo-priced__new">'.$final.'</span><sup>*</sup>&nbsp;'.$suffixSafe.'</div>';
     }
 
     public function homePriceHtml(string $category = 'general'): string
     {
+        // Used by mobile estimate modal default promo; desktop hero shows the left callout.
         return $this->saleHeadlineHtml($category);
     }
 
@@ -418,7 +421,8 @@ class PromotionControlService
         $final = e($this->normalizeMoney($final));
         $suffixSafe = e($suffix);
 
-        return '<div class="w-embed hero-promo-priced">Starting from '.$final.'&nbsp;'.$suffixSafe.'.</div>'
+        return '<div class="w-embed hero-promo-priced">Starting from '
+            .'<span class="hero-promo-priced__new">'.$final.'</span>&nbsp;'.$suffixSafe.'.</div>'
             .'<p><strong>Special pricing available upon request!</strong></p>';
     }
 

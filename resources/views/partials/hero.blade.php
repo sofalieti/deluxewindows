@@ -176,6 +176,10 @@
       : ((!empty($windowBrandHero) && trim((string) ($brandName ?? '')) !== '')
         ? 'Authorized '.trim((string) $brandName).' window installation across the Bay Area — vinyl, fiberglass, wood & more.'
         : ''));
+  $isHomeHero = ! $brandLikeHero && empty($windowHeroImage) && empty($doorHero);
+  $hasDualPricePromo = str_contains((string) $heroPromoSourceHtml, '<s>')
+    || str_contains((string) $heroPromoSourceHtml, 'hero-promo-priced__old');
+  $showHeroSaleCallout = empty($hideHeroPricing) && ($isHomeHero || $hasDualPricePromo);
 @endphp
 
       <div class="div-block-59">
@@ -231,6 +235,9 @@
               <div class="inner-container _640px _100-tablet">
                 <div class="inner-container _450px---tablet">
                   <div class="inner-container _400px---mbl">
+                    @if($showHeroSaleCallout)
+                      @include('partials.hero-sale-callout')
+                    @endif
                     @if($brandLikeHero || !empty($windowHeroImage) || !empty($doorHero))
                     @if($brandLikeHero || !empty($doorHero))
                     <div class="div-block-60">
@@ -308,7 +315,8 @@
                       </div>
                     </div>
                     @else
-                    <div data-estimate-form-promo data-page-promotion="global" class="estimate-form-promo promo-offer-context--form hero-mobile-promo-slot hero-mobile-promo-slot--form">
+                    {{-- Home: sale lives in left hero callout; keep slot for modal sync fallback --}}
+                    <div data-estimate-form-promo data-page-promotion="global" class="estimate-form-promo promo-offer-context--form hero-mobile-promo-slot hero-mobile-promo-slot--form estimate-form-promo--sale-moved">
                       {!! promotion_home_html() !!}
                     </div>
                     <label for="email-banner" class="body-14"></label>
@@ -418,7 +426,7 @@
                     />
                   </div>
                   <label for="email-banner" class="body-14"
-                    ><em class="italic-text">*Windows Replacement. Offer Expires </em
+                    ><em class="italic-text">Offer Expires </em
                     ><span class="date-span italic-span"
                       ><em class="italic-text">{{ promotion_date('us-short') }}</em></span
                     ></label
