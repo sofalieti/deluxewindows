@@ -108,9 +108,12 @@
   if (! $isHomeHero && is_array($pagePromoPricing) && trim((string) ($pagePromoPricing['final'] ?? '')) !== '') {
       $hasPagePrice = true;
   }
-  $saleHeadlineHtml = $hasPagePrice
-      ? ''
-      : app(\App\Services\PromotionControlService::class)->saleHeadlineHtml();
+  $hasBrandLogo = trim((string) ($brandLogo ?? '')) !== '';
+  // No brand logo → "Get Deluxe…" + promo name. % OFF only when there is no page price.
+  $saleHeadlineHtml = app(\App\Services\PromotionControlService::class)->saleHeadlineHtml(
+      includeLead: ! $hasBrandLogo,
+      includePercent: ! $hasPagePrice,
+  );
   // Hide the hero promo/price block entirely when a page opts in and has no price
   // (e.g. door-brand pages where no linked door has a Promotions price).
   $hideHeroPricing = !empty($hideHeroPromoWhenEmpty) && empty($brandHeroFormHtml ?? null);

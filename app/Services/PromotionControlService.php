@@ -378,17 +378,33 @@ class PromotionControlService
     }
 
     /**
-     * Homepage-style sale headline used in hero estimate forms.
-     * Simple promo name + discount; expiry stays under the form.
+     * Hero estimate-form sale headline.
+     *
+     * @param  bool  $includeLead  "Get Deluxe Windows for Less." (omit when brand logo is shown)
+     * @param  bool  $includePercent  "% OFF*" (omit when the page already shows a price)
      */
-    public function saleHeadlineHtml(string $category = 'general'): string
+    public function saleHeadlineHtml(bool $includeLead = true, bool $includePercent = true): string
     {
         $promoName = rtrim(trim($this->globalPromotionName()), '.');
-        $percent = e($this->globalDiscountPercent().'%');
+        $parts = [];
 
-        return '<h2 class="display-4"><span class="sale-headline-lead">Get Deluxe Windows for Less. <br></span>'
-            .e($promoName).'. <br>'
-            .$percent.'&nbsp;OFF*</h2>';
+        if ($includeLead) {
+            $parts[] = 'Get Deluxe Windows for Less.';
+        }
+
+        if ($promoName !== '') {
+            $parts[] = e($promoName).'.';
+        }
+
+        if ($includePercent) {
+            $parts[] = e($this->globalDiscountPercent().'%').'&nbsp;OFF*';
+        }
+
+        if ($parts === []) {
+            return '';
+        }
+
+        return '<h2 class="display-4">'.implode(' <br>', $parts).'</h2>';
     }
 
     /**
@@ -408,7 +424,7 @@ class PromotionControlService
 
     public function homePriceHtml(string $category = 'general'): string
     {
-        return $this->saleHeadlineHtml($category);
+        return $this->saleHeadlineHtml(true, true);
     }
 
     /**
