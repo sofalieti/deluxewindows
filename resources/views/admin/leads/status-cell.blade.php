@@ -12,7 +12,7 @@
         name="status"
         class="lead-status-select lead-status-select--{{ $color }}"
         aria-label="Lead status"
-        onchange="this.form.requestSubmit()"
+        onchange="this.className='lead-status-select lead-status-select--'+this.value; this.form.requestSubmit()"
     >
         @foreach ($statuses as $value => $label)
             <option value="{{ $value }}" @selected($lead->status === $value)>{{ $label }}</option>

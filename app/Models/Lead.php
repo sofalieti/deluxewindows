@@ -20,9 +20,13 @@ class Lead extends Model
 
     public const STATUS_CONTACTED = 'contacted';
 
+    public const STATUS_APPOINTMENT = 'appointment';
+
     public const STATUS_QUOTED = 'quoted';
 
     public const STATUS_WON = 'won';
+
+    public const STATUS_SOLD = 'sold';
 
     public const STATUS_LOST = 'lost';
 
@@ -34,8 +38,10 @@ class Lead extends Model
     public const STATUSES = [
         self::STATUS_NEW => 'New',
         self::STATUS_CONTACTED => 'Contacted',
+        self::STATUS_APPOINTMENT => 'Appointment',
         self::STATUS_QUOTED => 'Quoted',
         self::STATUS_WON => 'Won',
+        self::STATUS_SOLD => 'Sold',
         self::STATUS_LOST => 'Lost',
         self::STATUS_SPAM => 'Spam',
     ];
@@ -111,8 +117,10 @@ class Lead extends Model
         return match ($this->status) {
             self::STATUS_NEW => 'new',
             self::STATUS_CONTACTED => 'contacted',
+            self::STATUS_APPOINTMENT => 'appointment',
             self::STATUS_QUOTED => 'quoted',
             self::STATUS_WON => 'won',
+            self::STATUS_SOLD => 'sold',
             self::STATUS_LOST => 'lost',
             self::STATUS_SPAM => 'spam',
             default => 'new',
