@@ -380,11 +380,15 @@ class PromotionControlService
     /**
      * Hero estimate-form sale headline.
      *
-     * @param  bool  $includeLead  "Get Deluxe Windows for Less." (omit when brand logo is shown)
+     * @param  bool  $includeLead  "Get Deluxe Windows for Less." (when there is no brand logo)
+     * @param  bool  $includePromoName  Global promotion title
      * @param  bool  $includePercent  "% OFF*" (omit when the page already shows a price)
      */
-    public function saleHeadlineHtml(bool $includeLead = true, bool $includePercent = true): string
-    {
+    public function saleHeadlineHtml(
+        bool $includeLead = true,
+        bool $includePromoName = true,
+        bool $includePercent = true,
+    ): string {
         $promoName = rtrim(trim($this->globalPromotionName()), '.');
         $parts = [];
 
@@ -392,7 +396,7 @@ class PromotionControlService
             $parts[] = 'Get Deluxe Windows for Less.';
         }
 
-        if ($promoName !== '') {
+        if ($includePromoName && $promoName !== '') {
             $parts[] = e($promoName).'.';
         }
 
@@ -424,7 +428,7 @@ class PromotionControlService
 
     public function homePriceHtml(string $category = 'general'): string
     {
-        return $this->saleHeadlineHtml(true, true);
+        return $this->saleHeadlineHtml(true, true, true);
     }
 
     /**
