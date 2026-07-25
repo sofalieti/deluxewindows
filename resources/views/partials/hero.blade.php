@@ -249,10 +249,10 @@
                       <div class="w-embed">
                         <h2 data-city="">Bay Area Installers</h2>
                       </div>
+                      @if($showHeroSaleCallout)
+                        @include('partials.hero-sale-callout')
+                      @endif
                     </div>
-                    @if($showHeroSaleCallout)
-                      @include('partials.hero-sale-callout')
-                    @endif
                     <div class="hero-mobile-promo-slot hero-mobile-promo-slot--mobile">
                       @include('partials.hero-mobile-promo', [
                         'variant' => $hasSpecificPagePromotion ? 'price' : 'percent',
