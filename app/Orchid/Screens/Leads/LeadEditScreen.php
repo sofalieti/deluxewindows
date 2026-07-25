@@ -115,16 +115,40 @@ class LeadEditScreen extends Screen
                 ]),
 
                 Layout::legend('lead', [
-                    Sight::make('utm_source', 'UTM source')
-                        ->render(fn (Lead $lead) => e((string) ($lead->utm_source ?? '-'))),
-                    Sight::make('utm_medium', 'UTM medium')
-                        ->render(fn (Lead $lead) => e((string) ($lead->utm_medium ?? '-'))),
-                    Sight::make('utm_campaign', 'UTM campaign')
-                        ->render(fn (Lead $lead) => e((string) ($lead->utm_campaign ?? '-'))),
-                    Sight::make('ip_address', 'IP')
-                        ->render(fn (Lead $lead) => e((string) ($lead->ip_address ?? '-'))),
                     Sight::make('status', 'Current status')
                         ->render(fn (Lead $lead) => '<span class="lead-status-badge lead-status-badge--'.e($lead->statusColor()).'">'.e($lead->statusLabel()).'</span>'),
+                    Sight::make('ip_address', 'IP')
+                        ->render(fn (Lead $lead) => e((string) ($lead->ip_address ?? '-'))),
+                    Sight::make('form_id', 'Form ID')
+                        ->render(fn (Lead $lead) => e($lead->metaValue('form_id', '-'))),
+                    Sight::make('landing_page', 'Landing page')
+                        ->render(fn (Lead $lead) => e($lead->metaValue('landing_page', '-'))),
+                    Sight::make('referrer', 'Referrer')
+                        ->render(fn (Lead $lead) => e($lead->metaValue('referrer', '-'))),
+                    Sight::make('geo_location', 'Geo')
+                        ->render(fn (Lead $lead) => e($lead->metaValue('geo_location', '-'))),
+                    Sight::make('utm_source', 'UTM source')
+                        ->render(fn (Lead $lead) => e(trim((string) ($lead->utm_source ?? '')) !== '' ? (string) $lead->utm_source : '-')),
+                    Sight::make('utm_medium', 'UTM medium')
+                        ->render(fn (Lead $lead) => e(trim((string) ($lead->utm_medium ?? '')) !== '' ? (string) $lead->utm_medium : '-')),
+                    Sight::make('utm_campaign', 'UTM campaign')
+                        ->render(fn (Lead $lead) => e(trim((string) ($lead->utm_campaign ?? '')) !== '' ? (string) $lead->utm_campaign : '-')),
+                    Sight::make('utm_content', 'UTM content')
+                        ->render(fn (Lead $lead) => e($lead->metaValue('utm_content', '-'))),
+                    Sight::make('utm_term', 'UTM term')
+                        ->render(fn (Lead $lead) => e($lead->metaValue('utm_term', '-'))),
+                    Sight::make('matchtype', 'Match type')
+                        ->render(fn (Lead $lead) => e($lead->metaValue('matchtype', '-'))),
+                    Sight::make('device', 'Device')
+                        ->render(fn (Lead $lead) => e($lead->metaValue('device', '-'))),
+                    Sight::make('creative', 'Creative')
+                        ->render(fn (Lead $lead) => e($lead->metaValue('creative', '-'))),
+                    Sight::make('gclid', 'GCLID')
+                        ->render(fn (Lead $lead) => e($lead->metaValue('gclid', '-'))),
+                    Sight::make('fbclid', 'FBCLID')
+                        ->render(fn (Lead $lead) => e($lead->metaValue('fbclid', '-'))),
+                    Sight::make('msclkid', 'MSCLKID')
+                        ->render(fn (Lead $lead) => e($lead->metaValue('msclkid', '-'))),
                 ]),
             ]),
 

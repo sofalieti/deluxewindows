@@ -97,12 +97,29 @@
       return res;
     }
 
+    function gclidFromGoogleCookies() {
+      // Google click ID cookie format: GCL.<timestamp>.<gclid>
+      const raw = getCookie('_gcl_aw') || getCookie('_gcl_dc') || '';
+      if (!raw) return '';
+      const parts = raw.split('.');
+      return parts.length >= 3 ? parts.slice(2).join('.') : '';
+    }
+
     function captureTracking() {
       const params = new URLSearchParams(window.location.search);
       trackingParams.forEach(function (param) {
         const value = params.get(param);
         if (value) storageSet('lead_param_' + param, value);
       });
+      // Some Ads templates send utm_creative instead of creative.
+      if (!storageGet('lead_param_creative')) {
+        const utmCreative = params.get('utm_creative');
+        if (utmCreative) storageSet('lead_param_creative', utmCreative);
+      }
+      if (!storageGet('lead_param_gclid')) {
+        const fromCookie = gclidFromGoogleCookies();
+        if (fromCookie) storageSet('lead_param_gclid', fromCookie);
+      }
       if (!storageGet('lead_param_utm_source')) {
         storageSet('lead_param_utm_source', '(direct)');
         storageSet('lead_param_utm_medium', '(none)');

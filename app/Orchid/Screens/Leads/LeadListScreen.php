@@ -125,12 +125,9 @@ class LeadListScreen extends Screen
                     ->render(fn (Lead $lead) => e((string) ($lead->city ?? '-'))),
 
                 TD::make('utm', 'UTM')
+                    ->width('280px')
                     ->render(function (Lead $lead): string {
-                        $parts = array_filter([
-                            $lead->utm_source ? 'src: '.$lead->utm_source : null,
-                            $lead->utm_medium ? 'med: '.$lead->utm_medium : null,
-                            $lead->utm_campaign ? 'cmp: '.$lead->utm_campaign : null,
-                        ]);
+                        $parts = $lead->utmSummaryParts();
 
                         return e($parts !== [] ? implode(' | ', $parts) : '-');
                     }),

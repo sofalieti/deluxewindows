@@ -123,4 +123,77 @@ class Lead extends Model
     {
         return $this->status === self::STATUS_SPAM;
     }
+
+    /**
+     * Read a scalar value from the JSON meta column.
+     */
+    public function metaValue(string $key, string $default = ''): string
+    {
+        $value = data_get($this->meta, $key);
+        if ($value === null || is_array($value)) {
+            return $default;
+        }
+
+        $trimmed = trim((string) $value);
+
+        return $trimmed !== '' ? $trimmed : $default;
+    }
+
+    /**
+     * All campaign / click-id attribution fields for admin display.
+     *
+     * @return array<string, string>
+     */
+    public function utmFields(): array
+    {
+        return [
+            'utm_source' => trim((string) ($this->utm_source ?? '')),
+            'utm_medium' => trim((string) ($this->utm_medium ?? '')),
+            'utm_campaign' => trim((string) ($this->utm_campaign ?? '')),
+            'utm_content' => $this->metaValue('utm_content'),
+            'utm_term' => $this->metaValue('utm_term'),
+            'matchtype' => $this->metaValue('matchtype'),
+            'device' => $this->metaValue('device'),
+            'creative' => $this->metaValue('creative'),
+            'gclid' => $this->metaValue('gclid'),
+            'fbclid' => $this->metaValue('fbclid'),
+            'msclkid' => $this->metaValue('msclkid'),
+            'landing_page' => $this->metaValue('landing_page'),
+            'referrer' => $this->metaValue('referrer'),
+            'form_id' => $this->metaValue('form_id'),
+            'geo_location' => $this->metaValue('geo_location'),
+        ];
+    }
+
+    /**
+     * Non-empty UTM / attribution fields as "label: value" lines.
+     *
+     * @return list<string>
+     */
+    public function utmSummaryParts(): array
+    {
+        $labels = [
+            'utm_source' => 'src',
+            'utm_medium' => 'med',
+            'utm_campaign' => 'cmp',
+            'utm_content' => 'content',
+            'utm_term' => 'term',
+            'matchtype' => 'match',
+            'device' => 'device',
+            'creative' => 'creative',
+            'gclid' => 'gclid',
+            'fbclid' => 'fbclid',
+            'msclkid' => 'msclkid',
+        ];
+
+        $parts = [];
+        foreach ($labels as $key => $label) {
+            $value = $this->utmFields()[$key] ?? '';
+            if ($value !== '') {
+                $parts[] = $label.': '.$value;
+            }
+        }
+
+        return $parts;
+    }
 }

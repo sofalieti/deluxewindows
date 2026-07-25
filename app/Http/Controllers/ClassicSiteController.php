@@ -475,7 +475,7 @@ class ClassicSiteController extends Controller
             'utm_term' => trim((string) $request->input('utm_term')),
             'matchtype' => trim((string) $request->input('matchtype')),
             'device' => trim((string) $request->input('device')),
-            'creative' => trim((string) $request->input('creative')),
+            'creative' => trim((string) ($request->input('creative') ?: $request->input('utm_creative'))),
             'gclid' => trim((string) $request->input('gclid')),
             'fbclid' => trim((string) $request->input('fbclid')),
             'msclkid' => trim((string) $request->input('msclkid')),
