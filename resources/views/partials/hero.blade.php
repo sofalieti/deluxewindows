@@ -76,18 +76,39 @@
     || !empty($heroPromotionPricing ?? null)
     || str_contains((string) $heroPromoSourceHtml, 'hero-promo-priced')
     || str_contains((string) $heroPromoSourceHtml, '<s>');
-  // % OFF headline only when the page has no dual-price / strikethrough discount.
-  $hasPagePriceDiscount = str_contains((string) $heroPromoSourceHtml, '<s>')
-    || str_contains((string) $heroPromoSourceHtml, 'hero-promo-priced__old');
-  $pagePromoPricing = $brandPromotionPricing ?? $heroPromotionPricing ?? $doorPromotionPricing ?? null;
-  if (is_array($pagePromoPricing)) {
-      $promoBase = trim((string) ($pagePromoPricing['base'] ?? ''));
-      $promoFinal = trim((string) ($pagePromoPricing['final'] ?? ''));
-      if ($promoBase !== '' && $promoFinal !== '') {
-          $hasPagePriceDiscount = true;
+  // Home form has no page price block — always show promo name + % OFF there.
+  $isHomeHero = ! $brandLikeHero && empty($windowHeroImage) && empty($doorHero);
+  // On other pages: hide promo name + % OFF when a final/starting-from/dual price is shown.
+  $formPricingHtml = '';
+  if (! $isHomeHero) {
+      if (! empty($windowDiscountHtml)) {
+          $formPricingHtml = (string) $windowDiscountHtml;
+      } elseif (! empty($doorDiscountHtml)) {
+          $formPricingHtml = (string) $doorDiscountHtml;
+      } elseif (! empty($brandHeroFormHtml)) {
+          $formPricingHtml = (string) $brandHeroFormHtml;
+      } elseif (! empty($heroFormHtml)) {
+          $formPricingHtml = (string) $heroFormHtml;
+      } else {
+          $formPricingHtml = (string) $heroPricingHtml;
       }
   }
-  $saleHeadlineHtml = $hasPagePriceDiscount
+  $hasPagePrice = ! $isHomeHero && (
+      ! empty($pagePromotionAvailable)
+      || (trim(strip_tags($formPricingHtml)) !== ''
+          && (
+              str_contains($formPricingHtml, 'hero-promo-priced')
+              || str_contains($formPricingHtml, 'hero-promo-priced__new')
+              || str_contains($formPricingHtml, '<s>')
+              || str_contains($formPricingHtml, 'Starting from')
+              || preg_match('/\$\s*\d/', $formPricingHtml) === 1
+          ))
+  );
+  $pagePromoPricing = $brandPromotionPricing ?? $heroPromotionPricing ?? $doorPromotionPricing ?? null;
+  if (! $isHomeHero && is_array($pagePromoPricing) && trim((string) ($pagePromoPricing['final'] ?? '')) !== '') {
+      $hasPagePrice = true;
+  }
+  $saleHeadlineHtml = $hasPagePrice
       ? ''
       : app(\App\Services\PromotionControlService::class)->saleHeadlineHtml();
   // Hide the hero promo/price block entirely when a page opts in and has no price

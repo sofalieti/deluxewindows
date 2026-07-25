@@ -386,7 +386,9 @@ class PromotionControlService
         $promoName = rtrim(trim($this->globalPromotionName()), '.');
         $percent = e($this->globalDiscountPercent().'%');
 
-        return '<h2 class="display-4">'.e($promoName).'. <br>'.$percent.'&nbsp;OFF*</h2>';
+        return '<h2 class="display-4"><span class="sale-headline-lead">Get Deluxe Windows for Less. <br></span>'
+            .e($promoName).'. <br>'
+            .$percent.'&nbsp;OFF*</h2>';
     }
 
     /**
