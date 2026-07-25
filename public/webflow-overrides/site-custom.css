@@ -2659,6 +2659,11 @@ h1 .h1-subline {
   z-index: 0;
 }
 
+#previous-jobs-map .leaflet-bottom {
+  bottom: 0;
+  display: none;
+}
+
 @media (max-width: 767px) {
   #previous-jobs-map {
     height: 420px;
