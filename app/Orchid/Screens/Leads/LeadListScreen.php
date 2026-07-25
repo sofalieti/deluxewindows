@@ -72,7 +72,7 @@ class LeadListScreen extends Screen
                 TD::make('status', 'Status')
                     ->sort()
                     ->cantHide()
-                    ->width('180px')
+                    ->width('200px')
                     ->render(fn (Lead $lead) => view('admin.leads.status-cell', [
                         'lead' => $lead,
                     ])),
