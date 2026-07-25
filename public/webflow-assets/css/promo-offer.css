@@ -57,6 +57,30 @@
   top: 50%;
 }
 
+/* Hero estimate form: center promo name + discount */
+.estimate-form-promo.promo-offer-context--form,
+.estimate-form-promo .display-4,
+.estimate-form-promo .promo-offer-card,
+.estimate-form-promo .promo-offer-headline,
+.estimate-form-promo .promo-offer-title,
+.estimate-form-promo .promo-offer-subtitle,
+.estimate-form-promo .promo-offer-note,
+.estimate-form-promo .w-richtext,
+.estimate-form-promo .w-richtext h1,
+.estimate-form-promo .w-richtext h2,
+.estimate-form-promo .w-richtext h3,
+.estimate-form-promo .w-richtext h4,
+.estimate-form-promo .w-richtext p,
+.estimate-form-promo .hero-promo-priced {
+  text-align: center;
+  white-space: nowrap;
+  margin-top: 6px;
+}
+
+.mobile-estimate-modal__promo .hero-promo-priced {
+  white-space: normal;
+}
+
 /* Red price badge is mobile-only (hero-mobile-promo). Never show it in desktop hero forms. */
 @media screen and (min-width: 992px) {
   .form-block-2 .estimate-form-promo .promo-price-tag,

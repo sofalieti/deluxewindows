@@ -315,14 +315,16 @@ class PromotionControlService
             return null;
         }
 
-        // Classic desktop richtext: Starting from <s>832</s> $499
+        // Classic desktop richtext: Starting from <s>832</s> $549* per window installed
         if (preg_match(
             '/Starting from\s*<s>\s*\$?\s*([0-9][0-9,]*(?:\.[0-9]{1,2})?)\s*<\/s>\s*(\$?\s*[0-9][0-9,]*(?:\.[0-9]{1,2})?)/i',
             $html,
             $match
         ) === 1) {
             $suffix = 'per window';
-            if (preg_match('/<\/div>\s*<p>\s*([^<]+?)\s*<\/p>/i', $html, $suffixMatch) === 1) {
+            if (preg_match('/<\/sup>\s*(?:&nbsp;|\s)+([^<]+?)\s*<\/div>/i', $html, $suffixMatch) === 1) {
+                $suffix = trim(html_entity_decode($suffixMatch[1], ENT_QUOTES | ENT_HTML5, 'UTF-8'));
+            } elseif (preg_match('/<\/div>\s*<p>\s*([^<]+?)\s*<\/p>/i', $html, $suffixMatch) === 1) {
                 $suffix = trim(html_entity_decode($suffixMatch[1], ENT_QUOTES | ENT_HTML5, 'UTF-8'));
             }
 
@@ -376,27 +378,13 @@ class PromotionControlService
     }
 
     /**
-     * Desktop hero pricing (no red badge). Dual price → strikethrough richtext.
-     * Mobile red badge is built separately via priceTagHtml().
+     * Homepage-style sale headline used in hero estimate forms.
      */
-    public function priceHtml(string $base, string $final, string $suffix = 'per window'): string
-    {
-        $baseAmount = e($this->moneyAmount($base));
-        $final = e($this->normalizeMoney($final));
-        $suffix = e($suffix);
-        $headline = e($this->globalDiscountPercent().'% off for limited time');
-
-        return '<h3><strong>'.$headline.'</strong></h3>'
-            .'<div class="w-embed hero-promo-priced">Starting from <s>'.$baseAmount.'</s> '.$final.'<sup>*</sup></div>'
-            .'<p>'.$suffix.'</p>'
-            .'<p>‍</p>';
-    }
-
-    public function homePriceHtml(string $category = 'general'): string
+    public function saleHeadlineHtml(string $category = 'general'): string
     {
         $promoName = rtrim(trim($this->globalPromotionName()), '.');
         $percent = e($this->globalDiscountPercent().'%');
-        $suffix = match ($category) {
+        $label = match ($category) {
             'windows' => 'Windows',
             'doors' => 'Doors',
             default => 'Windows',
@@ -404,7 +392,31 @@ class PromotionControlService
 
         return '<h2 class="display-4">Get Deluxe Windows for Less. <br>'
             .e($promoName).'. <br>'
-            .$percent.'&nbsp;OFF* '.$suffix.'</h2>';
+            .$percent.'&nbsp;OFF* '.$label.'</h2>';
+    }
+
+    private function saleCategoryFromSuffix(string $suffix): string
+    {
+        return str_contains(strtolower($suffix), 'door') ? 'doors' : 'windows';
+    }
+
+    /**
+     * Desktop hero pricing (no red badge). Dual price → strikethrough richtext.
+     * Mobile red badge is built separately via priceTagHtml().
+     */
+    public function priceHtml(string $base, string $final, string $suffix = 'per window'): string
+    {
+        $baseAmount = e($this->moneyAmount($base));
+        $final = e($this->normalizeMoney($final));
+        $suffixSafe = e($suffix);
+
+        return $this->saleHeadlineHtml($this->saleCategoryFromSuffix($suffix))
+            .'<div class="w-embed hero-promo-priced">Starting from <s>'.$baseAmount.'</s> '.$final.'<sup>*</sup>&nbsp;'.$suffixSafe.'</div>';
+    }
+
+    public function homePriceHtml(string $category = 'general'): string
+    {
+        return $this->saleHeadlineHtml($category);
     }
 
     /**
@@ -413,10 +425,11 @@ class PromotionControlService
     public function priceHtmlStartingFrom(string $final, string $suffix = 'per window installed'): string
     {
         $final = e($this->normalizeMoney($final));
-        $suffix = e($suffix);
+        $suffixSafe = e($suffix);
 
-        return '<p class="hero-promo-priced">Starting from '.$final.' '.$suffix.'.</p>'
-            .'<p><strong>Special pricing available upon request!</strong>‍</p>';
+        return $this->saleHeadlineHtml($this->saleCategoryFromSuffix($suffix))
+            .'<div class="w-embed hero-promo-priced">Starting from '.$final.'&nbsp;'.$suffixSafe.'.</div>'
+            .'<p><strong>Special pricing available upon request!</strong></p>';
     }
 
     private function moneyAmount(string $value): string
