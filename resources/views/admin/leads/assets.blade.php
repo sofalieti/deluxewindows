@@ -1,1 +1,1 @@
-<link rel="stylesheet" href="{{ asset('css/admin-leads.css') }}?v=2">
+<link rel="stylesheet" href="{{ asset('css/admin-leads.css') }}?v=3">
