@@ -65,11 +65,6 @@ class LeadListScreen extends Screen
             LeadFiltersLayout::class,
 
             Layout::table('leads', [
-                TD::make('id', 'ID')
-                    ->sort()
-                    ->render(fn (Lead $lead) => Link::make((string) $lead->id)
-                        ->route('platform.leads.edit', $lead)),
-
                 TD::make('created_at', 'Date')
                     ->sort()
                     ->render(fn (Lead $lead) => optional($lead->created_at)->format('Y-m-d H:i')),
@@ -124,28 +119,15 @@ class LeadListScreen extends Screen
                 TD::make('city', 'City')
                     ->render(fn (Lead $lead) => e((string) ($lead->city ?? '-'))),
 
-                TD::make('utm', 'UTM')
-                    ->width('280px')
+                TD::make('message', 'Message')
                     ->render(function (Lead $lead): string {
-                        $parts = $lead->utmSummaryParts();
-
-                        return e($parts !== [] ? implode(' | ', $parts) : '-');
-                    }),
-
-                TD::make('page_url', 'Page')
-                    ->render(function (Lead $lead): string {
-                        $url = trim((string) ($lead->page_url ?? ''));
-                        if ($url === '') {
+                        $message = trim((string) ($lead->message ?? ''));
+                        if ($message === '') {
                             return '-';
                         }
 
-                        $label = Str::limit($url, 60);
-
-                        return '<a href="'.e($url).'" target="_blank" rel="noopener">'.e($label).'</a>';
+                        return e(Str::words($message, 5, '…'));
                     }),
-
-                TD::make('message', 'Message')
-                    ->render(fn (Lead $lead) => e(Str::limit((string) ($lead->message ?? ''), 80, '...'))),
             ]),
         ];
     }
