@@ -235,9 +235,6 @@
               <div class="inner-container _640px _100-tablet">
                 <div class="inner-container _450px---tablet">
                   <div class="inner-container _400px---mbl">
-                    @if($showHeroSaleCallout)
-                      @include('partials.hero-sale-callout')
-                    @endif
                     @if($brandLikeHero || !empty($windowHeroImage) || !empty($doorHero))
                     @if($brandLikeHero || !empty($doorHero))
                     <div class="div-block-60">
@@ -253,6 +250,9 @@
                         <h2 data-city="">Bay Area Installers</h2>
                       </div>
                     </div>
+                    @if($showHeroSaleCallout)
+                      @include('partials.hero-sale-callout')
+                    @endif
                     <div class="hero-mobile-promo-slot hero-mobile-promo-slot--mobile">
                       @include('partials.hero-mobile-promo', [
                         'variant' => $hasSpecificPagePromotion ? 'price' : 'percent',
@@ -265,6 +265,9 @@
                     @endif
                     @else
                     <h1 class="heading-4">Looking to Replace Your Windows in the Bay Area?</h1>
+                    @if($showHeroSaleCallout)
+                      @include('partials.hero-sale-callout')
+                    @endif
                     <div class="hero-mobile-promo-slot hero-mobile-promo-slot--mobile">
                       @include('partials.hero-mobile-promo', [
                         'buttonLabel' => 'Request a Free Estimate',
