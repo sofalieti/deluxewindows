@@ -176,10 +176,7 @@
       : ((!empty($windowBrandHero) && trim((string) ($brandName ?? '')) !== '')
         ? 'Authorized '.trim((string) $brandName).' window installation across the Bay Area — vinyl, fiberglass, wood & more.'
         : ''));
-  $isHomeHero = ! $brandLikeHero && empty($windowHeroImage) && empty($doorHero);
-  $hasDualPricePromo = str_contains((string) $heroPromoSourceHtml, '<s>')
-    || str_contains((string) $heroPromoSourceHtml, 'hero-promo-priced__old');
-  $showHeroSaleCallout = empty($hideHeroPricing) && ($isHomeHero || $hasDualPricePromo);
+  $saleHeadlineHtml = app(\App\Services\PromotionControlService::class)->saleHeadlineHtml();
 @endphp
 
       <div class="div-block-59">
@@ -249,9 +246,6 @@
                       <div class="w-embed">
                         <h2 data-city="">Bay Area Installers</h2>
                       </div>
-                      @if($showHeroSaleCallout)
-                        @include('partials.hero-sale-callout')
-                      @endif
                     </div>
                     <div class="hero-mobile-promo-slot hero-mobile-promo-slot--mobile">
                       @include('partials.hero-mobile-promo', [
@@ -265,9 +259,6 @@
                     @endif
                     @else
                     <h1 class="heading-4">Looking to Replace Your Windows in the Bay Area?</h1>
-                    @if($showHeroSaleCallout)
-                      @include('partials.hero-sale-callout')
-                    @endif
                     <div class="hero-mobile-promo-slot hero-mobile-promo-slot--mobile">
                       @include('partials.hero-mobile-promo', [
                         'buttonLabel' => 'Request a Free Estimate',
@@ -298,6 +289,7 @@
                     @if(!$hideHeroPricing)
                     <label for="email-banner" class="body-14"></label>
                     <div data-estimate-form-promo data-page-promotion="{{ $hasSpecificPagePromotion ? 'specific' : 'global' }}" class="estimate-form-promo promo-offer-context--form">
+                      {!! $saleHeadlineHtml !!}
                       <div class="{{ $heroPricingBlockClass }} w-richtext">
                         {!! $heroPricingHtml !!}
                       </div>
@@ -306,6 +298,7 @@
                     @elseif(!empty($doorHero) && !empty($doorDiscountHtml))
                     <label for="email-banner" class="body-14"></label>
                     <div data-estimate-form-promo data-page-promotion="{{ $hasSpecificPagePromotion ? 'specific' : 'global' }}" class="estimate-form-promo promo-offer-context--form">
+                      {!! $saleHeadlineHtml !!}
                       <div class="rich-text-block-6 w-richtext">
                         {!! $doorDiscountHtml !!}
                       </div>
@@ -313,14 +306,14 @@
                     @elseif(!empty($windowHeroImage) && !empty($windowDiscountHtml))
                     <label for="email-banner" class="body-14"></label>
                     <div data-estimate-form-promo data-page-promotion="{{ $hasSpecificPagePromotion ? 'specific' : 'global' }}" class="estimate-form-promo promo-offer-context--form">
+                      {!! $saleHeadlineHtml !!}
                       <div class="rich-text-block-4 w-richtext">
                         {!! $windowDiscountHtml !!}
                       </div>
                     </div>
                     @else
-                    {{-- Home form: keep the lead line here; Sale/% OFF live in left callout --}}
                     <div data-estimate-form-promo data-page-promotion="global" class="estimate-form-promo promo-offer-context--form hero-mobile-promo-slot hero-mobile-promo-slot--form">
-                      <h2 class="display-4">Get Deluxe Windows for Less.</h2>
+                      {!! $saleHeadlineHtml !!}
                     </div>
                     <label for="email-banner" class="body-14"></label>
                     @endif

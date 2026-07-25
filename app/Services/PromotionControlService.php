@@ -379,20 +379,18 @@ class PromotionControlService
 
     /**
      * Homepage-style sale headline used in hero estimate forms.
+     * Simple promo name + discount; expiry stays under the form.
      */
     public function saleHeadlineHtml(string $category = 'general'): string
     {
         $promoName = rtrim(trim($this->globalPromotionName()), '.');
         $percent = e($this->globalDiscountPercent().'%');
 
-        return '<h2 class="display-4"><span class="sale-headline-lead">Get Deluxe Windows for Less. <br></span>'
-            .e($promoName).'. <br>'
-            .$percent.'&nbsp;OFF*</h2>';
+        return '<h2 class="display-4">'.e($promoName).'. <br>'.$percent.'&nbsp;OFF*</h2>';
     }
 
     /**
      * Desktop hero pricing (no red badge). Dual price → strikethrough richtext.
-     * Sale name / % OFF live in the left hero callout, not in the form.
      * Mobile red badge is built separately via priceTagHtml().
      */
     public function priceHtml(string $base, string $final, string $suffix = 'per window'): string
@@ -408,7 +406,6 @@ class PromotionControlService
 
     public function homePriceHtml(string $category = 'general'): string
     {
-        // Used by mobile estimate modal default promo; desktop hero shows the left callout.
         return $this->saleHeadlineHtml($category);
     }
 

@@ -14,7 +14,6 @@
               <div class="inner-container _640px _100-tablet">
                 <div class="inner-container _450px---tablet">
                   <div class="inner-container _400px---mbl">
-                    @include('partials.hero-sale-callout')
                     <div class="div-block-60">
                       <div class="code-embed-7 w-embed">⚲ Serving {{ $countyName }}</div>
                       <div class="code-embed-6 w-embed">
@@ -54,8 +53,8 @@
                   aria-label="Main Form"
                 >
                   <div class="div-block-22">
-                    <div data-estimate-form-promo class="estimate-form-promo promo-offer-context--form estimate-form-promo--sale-moved">
-                      <h2 class="display-4">Get Deluxe Windows for Less. <br />{{ promotion_percent_label() }}*</h2>
+                    <div data-estimate-form-promo class="estimate-form-promo promo-offer-context--form">
+                      {!! promotion_home_html() !!}
                     </div>
                     <label for="email-banner" class="body-14"></label>
                   </div>
