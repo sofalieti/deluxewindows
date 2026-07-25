@@ -4,6 +4,7 @@
   $saleExpires = promotion_date('us-short');
 @endphp
 <div class="hero-sale-callout" aria-label="Current promotion">
+  <span class="hero-sale-callout__lead">Get Deluxe Windows for Less.</span>
   <span class="hero-sale-callout__name">{{ $saleName }}</span>
   <span class="hero-sale-callout__off">{{ $salePercent }} <span class="hero-sale-callout__off-label">OFF*</span></span>
   <span class="hero-sale-callout__expires">Offer Expires {{ $saleExpires }}</span>
