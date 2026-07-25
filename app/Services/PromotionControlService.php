@@ -390,7 +390,7 @@ class PromotionControlService
             default => 'Windows',
         };
 
-        return '<h2 class="display-4">Get Deluxe Windows for Less. <br>'
+        return '<h2 class="display-4"><span class="sale-headline-lead">Get Deluxe Windows for Less. <br></span>'
             .e($promoName).'. <br>'
             .$percent.'&nbsp;OFF* '.$label.'</h2>';
     }
