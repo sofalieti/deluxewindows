@@ -384,20 +384,10 @@ class PromotionControlService
     {
         $promoName = rtrim(trim($this->globalPromotionName()), '.');
         $percent = e($this->globalDiscountPercent().'%');
-        $label = match ($category) {
-            'windows' => 'Windows',
-            'doors' => 'Doors',
-            default => 'Windows',
-        };
 
         return '<h2 class="display-4"><span class="sale-headline-lead">Get Deluxe Windows for Less. <br></span>'
             .e($promoName).'. <br>'
-            .$percent.'&nbsp;OFF* '.$label.'</h2>';
-    }
-
-    private function saleCategoryFromSuffix(string $suffix): string
-    {
-        return str_contains(strtolower($suffix), 'door') ? 'doors' : 'windows';
+            .$percent.'&nbsp;OFF*</h2>';
     }
 
     /**
@@ -410,7 +400,7 @@ class PromotionControlService
         $final = e($this->normalizeMoney($final));
         $suffixSafe = e($suffix);
 
-        return $this->saleHeadlineHtml($this->saleCategoryFromSuffix($suffix))
+        return $this->saleHeadlineHtml()
             .'<div class="w-embed hero-promo-priced">Starting from <s>'.$baseAmount.'</s> '.$final.'<sup>*</sup>&nbsp;'.$suffixSafe.'</div>';
     }
 
@@ -421,14 +411,14 @@ class PromotionControlService
 
     /**
      * Desktop hero pricing when only a final/"from" price exists (no red badge).
+     * No sale headline — only a from-price, not a dual-price promo.
      */
     public function priceHtmlStartingFrom(string $final, string $suffix = 'per window installed'): string
     {
         $final = e($this->normalizeMoney($final));
         $suffixSafe = e($suffix);
 
-        return $this->saleHeadlineHtml($this->saleCategoryFromSuffix($suffix))
-            .'<div class="w-embed hero-promo-priced">Starting from '.$final.'&nbsp;'.$suffixSafe.'.</div>'
+        return '<div class="w-embed hero-promo-priced">Starting from '.$final.'&nbsp;'.$suffixSafe.'.</div>'
             .'<p><strong>Special pricing available upon request!</strong></p>';
     }
 
