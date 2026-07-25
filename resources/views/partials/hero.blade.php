@@ -76,6 +76,20 @@
     || !empty($heroPromotionPricing ?? null)
     || str_contains((string) $heroPromoSourceHtml, 'hero-promo-priced')
     || str_contains((string) $heroPromoSourceHtml, '<s>');
+  // % OFF headline only when the page has no dual-price / strikethrough discount.
+  $hasPagePriceDiscount = str_contains((string) $heroPromoSourceHtml, '<s>')
+    || str_contains((string) $heroPromoSourceHtml, 'hero-promo-priced__old');
+  $pagePromoPricing = $brandPromotionPricing ?? $heroPromotionPricing ?? $doorPromotionPricing ?? null;
+  if (is_array($pagePromoPricing)) {
+      $promoBase = trim((string) ($pagePromoPricing['base'] ?? ''));
+      $promoFinal = trim((string) ($pagePromoPricing['final'] ?? ''));
+      if ($promoBase !== '' && $promoFinal !== '') {
+          $hasPagePriceDiscount = true;
+      }
+  }
+  $saleHeadlineHtml = $hasPagePriceDiscount
+      ? ''
+      : app(\App\Services\PromotionControlService::class)->saleHeadlineHtml();
   // Hide the hero promo/price block entirely when a page opts in and has no price
   // (e.g. door-brand pages where no linked door has a Promotions price).
   $hideHeroPricing = !empty($hideHeroPromoWhenEmpty) && empty($brandHeroFormHtml ?? null);
@@ -176,7 +190,6 @@
       : ((!empty($windowBrandHero) && trim((string) ($brandName ?? '')) !== '')
         ? 'Authorized '.trim((string) $brandName).' window installation across the Bay Area — vinyl, fiberglass, wood & more.'
         : ''));
-  $saleHeadlineHtml = app(\App\Services\PromotionControlService::class)->saleHeadlineHtml();
 @endphp
 
       <div class="div-block-59">
@@ -289,7 +302,9 @@
                     @if(!$hideHeroPricing)
                     <label for="email-banner" class="body-14"></label>
                     <div data-estimate-form-promo data-page-promotion="{{ $hasSpecificPagePromotion ? 'specific' : 'global' }}" class="estimate-form-promo promo-offer-context--form">
-                      {!! $saleHeadlineHtml !!}
+                      @if($saleHeadlineHtml !== '')
+                        {!! $saleHeadlineHtml !!}
+                      @endif
                       <div class="{{ $heroPricingBlockClass }} w-richtext">
                         {!! $heroPricingHtml !!}
                       </div>
@@ -298,7 +313,9 @@
                     @elseif(!empty($doorHero) && !empty($doorDiscountHtml))
                     <label for="email-banner" class="body-14"></label>
                     <div data-estimate-form-promo data-page-promotion="{{ $hasSpecificPagePromotion ? 'specific' : 'global' }}" class="estimate-form-promo promo-offer-context--form">
-                      {!! $saleHeadlineHtml !!}
+                      @if($saleHeadlineHtml !== '')
+                        {!! $saleHeadlineHtml !!}
+                      @endif
                       <div class="rich-text-block-6 w-richtext">
                         {!! $doorDiscountHtml !!}
                       </div>
@@ -306,7 +323,9 @@
                     @elseif(!empty($windowHeroImage) && !empty($windowDiscountHtml))
                     <label for="email-banner" class="body-14"></label>
                     <div data-estimate-form-promo data-page-promotion="{{ $hasSpecificPagePromotion ? 'specific' : 'global' }}" class="estimate-form-promo promo-offer-context--form">
-                      {!! $saleHeadlineHtml !!}
+                      @if($saleHeadlineHtml !== '')
+                        {!! $saleHeadlineHtml !!}
+                      @endif
                       <div class="rich-text-block-4 w-richtext">
                         {!! $windowDiscountHtml !!}
                       </div>
