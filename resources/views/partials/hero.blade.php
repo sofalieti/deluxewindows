@@ -318,9 +318,9 @@
                       </div>
                     </div>
                     @else
-                    {{-- Home: sale lives in left hero callout; keep slot for modal sync fallback --}}
-                    <div data-estimate-form-promo data-page-promotion="global" class="estimate-form-promo promo-offer-context--form hero-mobile-promo-slot hero-mobile-promo-slot--form estimate-form-promo--sale-moved">
-                      {!! promotion_home_html() !!}
+                    {{-- Home form: keep the lead line here; Sale/% OFF live in left callout --}}
+                    <div data-estimate-form-promo data-page-promotion="global" class="estimate-form-promo promo-offer-context--form hero-mobile-promo-slot hero-mobile-promo-slot--form">
+                      <h2 class="display-4">Get Deluxe Windows for Less.</h2>
                     </div>
                     <label for="email-banner" class="body-14"></label>
                     @endif
