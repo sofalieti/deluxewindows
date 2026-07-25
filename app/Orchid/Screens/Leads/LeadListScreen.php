@@ -9,8 +9,6 @@ use App\Orchid\Layouts\Leads\LeadFiltersLayout;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
-use Orchid\Screen\Actions\Button;
-use Orchid\Screen\Actions\DropDown;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
 use Orchid\Screen\TD;
@@ -72,25 +70,10 @@ class LeadListScreen extends Screen
                 TD::make('status', 'Status')
                     ->sort()
                     ->cantHide()
-                    ->width('170px')
-                    ->render(function (Lead $lead) {
-                        $items = [];
-                        foreach (Lead::STATUSES as $value => $label) {
-                            $items[] = Button::make($label)
-                                ->icon($value === $lead->status ? 'bs.check-lg' : 'bs.circle')
-                                ->method('changeStatus', [
-                                    'lead' => $lead->id,
-                                    'status' => $value,
-                                ]);
-                        }
-
-                        return view('admin.leads.status-cell', [
-                            'lead' => $lead,
-                            'dropdown' => DropDown::make()
-                                ->icon('bs.pencil')
-                                ->list($items),
-                        ]);
-                    }),
+                    ->width('150px')
+                    ->render(fn (Lead $lead) => view('admin.leads.status-cell', [
+                        'lead' => $lead,
+                    ])),
 
                 TD::make('full_name', 'Name')
                     ->render(fn (Lead $lead) => Link::make($lead->full_name)
