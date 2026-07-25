@@ -45,6 +45,11 @@ return [
         'ga4_id' => env('GOOGLE_GA4_ID', 'G-JHYBB0THJM'),
         'ads_id' => env('GOOGLE_ADS_ID', 'AW-1030787786'),
         'conversion_send_to' => env('GOOGLE_ADS_CONVERSION_SEND_TO', 'AW-1030787786/Hs9eCP7MwngQyqXC6wM'),
+        // Mailbox OAuth — values are normally stored in admin Mailbox settings;
+        // env can still override for local/dev if needed.
+        'client_id' => env('GOOGLE_MAILBOX_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_MAILBOX_CLIENT_SECRET'),
+        'redirect' => env('GOOGLE_MAILBOX_REDIRECT_URI'),
     ],
 
     'lead_bridge' => [

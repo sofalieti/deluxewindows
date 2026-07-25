@@ -24,6 +24,11 @@ use App\Orchid\Screens\User\UserProfileScreen;
 use App\Orchid\Screens\Promotions\PromotionsScreen;
 use App\Orchid\Screens\DoorBrands\DoorBrandListScreen;
 use App\Orchid\Screens\DoorBrands\DoorBrandEditScreen;
+use App\Orchid\Screens\Mailbox\MailboxComposeScreen;
+use App\Orchid\Screens\Mailbox\MailboxListScreen;
+use App\Orchid\Screens\Mailbox\MailboxSettingsScreen;
+use App\Orchid\Screens\Mailbox\MailboxViewScreen;
+use App\Http\Controllers\Admin\GoogleMailboxOAuthController;
 use App\Http\Controllers\Admin\WebflowImageUploadController;
 use App\Orchid\Screens\Webflow\WebflowCollectionEditScreen;
 use App\Orchid\Screens\Webflow\WebflowCollectionListScreen;
@@ -53,6 +58,24 @@ Route::screen('leads', LeadListScreen::class)
 
 Route::screen('leads/{lead}/edit', LeadEditScreen::class)
     ->name('platform.leads.edit');
+
+Route::screen('mailbox', MailboxListScreen::class)
+    ->name('platform.mailbox');
+
+Route::screen('mailbox/settings', MailboxSettingsScreen::class)
+    ->name('platform.mailbox.settings');
+
+Route::get('mailbox/google/redirect', [GoogleMailboxOAuthController::class, 'redirect'])
+    ->name('platform.mailbox.google.redirect');
+
+Route::get('mailbox/google/callback', [GoogleMailboxOAuthController::class, 'callback'])
+    ->name('platform.mailbox.google.callback');
+
+Route::screen('mailbox/compose', MailboxComposeScreen::class)
+    ->name('platform.mailbox.compose');
+
+Route::screen('mailbox/{message}', MailboxViewScreen::class)
+    ->name('platform.mailbox.view');
 
 Route::screen('content-datasets', ContentDatasetsScreen::class)
     ->name('platform.content-datasets');

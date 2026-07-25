@@ -125,6 +125,11 @@ class PlatformProvider extends OrchidServiceProvider
                 ->route('platform.leads')
                 ->permission('platform.leads'),
 
+            Menu::make('Mailbox')
+                ->icon('bs.envelope')
+                ->route('platform.mailbox')
+                ->permission('platform.mailbox'),
+
             Menu::make('Content datasets')
                 ->icon('bs.database')
                 ->route('platform.content-datasets')
@@ -166,6 +171,9 @@ class PlatformProvider extends OrchidServiceProvider
 
             ItemPermission::group('Leads')
                 ->addPermission('platform.leads', 'Manage Leads'),
+
+            ItemPermission::group('Mailbox')
+                ->addPermission('platform.mailbox', 'View and sync mailbox'),
 
             ItemPermission::group('Marketing')
                 ->addPermission('platform.marketing', 'Promotions, datasets & sitemap'),

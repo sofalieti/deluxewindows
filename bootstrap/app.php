@@ -24,5 +24,11 @@ return Application::configure(basePath: dirname(__DIR__))
             ->everyThreeHours()
             ->timezone('America/Los_Angeles')
             ->withoutOverlapping();
+
+        $schedule->command('mailbox:sync')
+            ->everyTenMinutes()
+            ->withoutOverlapping()
+            ->when(fn () => \Illuminate\Support\Facades\Schema::hasTable('mailbox_settings')
+                && \App\Models\MailboxSetting::query()->where('scope', 'default')->where('enabled', true)->exists());
     })
     ->create();
