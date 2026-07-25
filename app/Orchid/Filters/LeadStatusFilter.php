@@ -37,8 +37,12 @@ class LeadStatusFilter extends Filter
         return [
             Select::make('filter[status]')
                 ->title('Status')
-                ->empty('All (hide spam)', '')
-                ->options(Lead::STATUSES)
+                ->empty('All (excl. spam)', '')
+                ->options(array_filter(
+                    Lead::STATUSES,
+                    fn (string $key) => $key !== Lead::STATUS_SPAM,
+                    ARRAY_FILTER_USE_KEY
+                ))
                 ->value($this->request->input('filter.status')),
         ];
     }

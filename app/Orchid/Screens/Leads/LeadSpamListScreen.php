@@ -6,7 +6,6 @@ namespace App\Orchid\Screens\Leads;
 
 use App\Models\Lead;
 use App\Models\LeadChange;
-use App\Orchid\Layouts\Leads\LeadFiltersLayout;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -17,33 +16,26 @@ use Orchid\Screen\TD;
 use Orchid\Support\Facades\Layout;
 use Orchid\Support\Facades\Toast;
 
-class LeadListScreen extends Screen
+class LeadSpamListScreen extends Screen
 {
     public function query(): iterable
     {
-        $statusFilter = trim((string) request()->input('filter.status', ''));
-
-        $leads = Lead::filters(LeadFiltersLayout::class)
-            ->defaultSort('id', 'desc');
-
-        // Hide spam unless the status filter explicitly selects Spam (or another status).
-        if ($statusFilter === '') {
-            $leads->where('status', '!=', Lead::STATUS_SPAM);
-        }
-
         return [
-            'leads' => $leads->paginate(50),
+            'leads' => Lead::query()
+                ->where('status', Lead::STATUS_SPAM)
+                ->defaultSort('id', 'desc')
+                ->paginate(50),
         ];
     }
 
     public function name(): ?string
     {
-        return 'Leads';
+        return 'Spam leads';
     }
 
     public function description(): ?string
     {
-        return 'Form submissions from the website. Spam is listed under Spam in the menu.';
+        return 'Submissions blocked by anti-spam. Stored in admin only — not emailed and not sent to Google.';
     }
 
     public function permission(): ?iterable
@@ -55,22 +47,27 @@ class LeadListScreen extends Screen
 
     public function commandBar(): iterable
     {
-        return [];
+        return [
+            Link::make('Back to Leads')
+                ->icon('bs.arrow-left')
+                ->route('platform.leads'),
+        ];
     }
 
     public function layout(): iterable
     {
         return [
             Layout::view('admin.leads.assets'),
-            LeadFiltersLayout::class,
 
             Layout::table('leads', [
                 TD::make('created_at', 'Date')
                     ->sort()
                     ->render(fn (Lead $lead) => optional($lead->created_at)->format('Y-m-d H:i')),
 
+                TD::make('spam_reason', 'Reason')
+                    ->render(fn (Lead $lead) => e($lead->metaValue('spam_reason', '-'))),
+
                 TD::make('status', 'Status')
-                    ->sort()
                     ->cantHide()
                     ->width('200px')
                     ->render(fn (Lead $lead) => view('admin.leads.status-cell', [

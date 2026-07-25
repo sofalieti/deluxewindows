@@ -514,23 +514,6 @@ class ClassicSiteController extends Controller
             'message' => $validated['message'],
         ]);
 
-        if ($spam['spam']) {
-            Log::info('Lead rejected as spam', [
-                'reason' => $spam['reason'],
-                'email' => $validated['email'],
-                'ip' => $request->ip(),
-            ]);
-
-            // Silent success: no DB, no email, no Google bridge, no conversion hook on client.
-            if ($request->expectsJson() || $request->ajax()) {
-                return response()->json(['ok' => true, 'spam' => true]);
-            }
-
-            session()->flash('contact_success', true);
-
-            return redirect()->back()->with('contact_success', true);
-        }
-
         $formId = $validated['form_id'] !== ''
             ? $validated['form_id']
             : \App\Services\LeadFormId::fromUrl($validated['page_url'] !== '' ? $validated['page_url'] : $request->headers->get('referer'));
@@ -538,6 +521,60 @@ class ClassicSiteController extends Controller
         $pageUrl = $validated['page_url'];
         if ($pageUrl === '') {
             $pageUrl = trim((string) $request->headers->get('referer', ''));
+        }
+
+        $meta = [
+            'request_id' => (string) $request->headers->get('x-request-id', ''),
+            'via' => 'classic-site-contact-form',
+            'geo_location' => $validated['geo_location'],
+            'landing_page' => $validated['landing_page'],
+            'referrer' => $validated['referrer'],
+            'utm_content' => $validated['utm_content'],
+            'utm_term' => $validated['utm_term'],
+            'matchtype' => $validated['matchtype'],
+            'device' => $validated['device'],
+            'creative' => $validated['creative'],
+            'gclid' => $validated['gclid'],
+            'fbclid' => $validated['fbclid'],
+            'msclkid' => $validated['msclkid'],
+            'form_id' => $formId,
+        ];
+
+        if ($spam['spam']) {
+            $meta['spam_reason'] = (string) ($spam['reason'] ?? 'unknown');
+            $meta['spam_flagged_at'] = now()->toIso8601String();
+
+            $spamLead = Lead::query()->create([
+                'full_name' => $validated['full_name'],
+                'email' => $validated['email'],
+                'phone' => $validated['phone'],
+                'city' => $validated['city'],
+                'message' => $validated['message'],
+                'page_url' => $pageUrl,
+                'utm_source' => $validated['utm_source'],
+                'utm_medium' => $validated['utm_medium'],
+                'utm_campaign' => $validated['utm_campaign'],
+                'ip_address' => $request->ip(),
+                'user_agent' => (string) $request->userAgent(),
+                'status' => Lead::STATUS_SPAM,
+                'meta' => $meta,
+            ]);
+
+            Log::info('Lead saved as spam', [
+                'lead_id' => $spamLead->id,
+                'reason' => $spam['reason'],
+                'email' => $validated['email'],
+                'ip' => $request->ip(),
+            ]);
+
+            // Admin-only: no email, no Google bridge, no Ads conversion on client.
+            if ($request->expectsJson() || $request->ajax()) {
+                return response()->json(['ok' => true, 'spam' => true]);
+            }
+
+            session()->flash('contact_success', true);
+
+            return redirect()->back()->with('contact_success', true);
         }
 
         $lead = Lead::query()->create([
@@ -552,22 +589,7 @@ class ClassicSiteController extends Controller
             'utm_campaign' => $validated['utm_campaign'],
             'ip_address' => $request->ip(),
             'user_agent' => (string) $request->userAgent(),
-            'meta' => [
-                'request_id' => (string) $request->headers->get('x-request-id', ''),
-                'via' => 'classic-site-contact-form',
-                'geo_location' => $validated['geo_location'],
-                'landing_page' => $validated['landing_page'],
-                'referrer' => $validated['referrer'],
-                'utm_content' => $validated['utm_content'],
-                'utm_term' => $validated['utm_term'],
-                'matchtype' => $validated['matchtype'],
-                'device' => $validated['device'],
-                'creative' => $validated['creative'],
-                'gclid' => $validated['gclid'],
-                'fbclid' => $validated['fbclid'],
-                'msclkid' => $validated['msclkid'],
-                'form_id' => $formId,
-            ],
+            'meta' => $meta,
         ]);
 
         $notifyRecipients = (array) config('services.lead_notifications.to', []);

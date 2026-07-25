@@ -13,6 +13,7 @@ use App\Orchid\Screens\Examples\ExampleScreen;
 use App\Orchid\Screens\Examples\ExampleTextEditorsScreen;
 use App\Orchid\Screens\Leads\LeadEditScreen;
 use App\Orchid\Screens\Leads\LeadListScreen;
+use App\Orchid\Screens\Leads\LeadSpamListScreen;
 use App\Orchid\Screens\Marketing\ContentDatasetsScreen;
 use App\Orchid\Screens\PlatformScreen;
 use App\Orchid\Screens\Seo\SitemapScreen;
@@ -55,6 +56,9 @@ Route::screen('promotions', PromotionsScreen::class)
 
 Route::screen('leads', LeadListScreen::class)
     ->name('platform.leads');
+
+Route::screen('leads/spam', LeadSpamListScreen::class)
+    ->name('platform.leads.spam');
 
 Route::screen('leads/{lead}/edit', LeadEditScreen::class)
     ->name('platform.leads.edit');

@@ -58,10 +58,14 @@ class LeadEditScreen extends Screen
 
     public function commandBar(): iterable
     {
+        $backRoute = ($this->lead?->isSpam() ?? false)
+            ? 'platform.leads.spam'
+            : 'platform.leads';
+
         return [
             Link::make('Back to list')
                 ->icon('bs.arrow-left')
-                ->route('platform.leads'),
+                ->route($backRoute),
 
             Button::make('Save status')
                 ->icon('bs.check-circle')
@@ -122,6 +126,8 @@ class LeadEditScreen extends Screen
                         Layout::legend('lead', [
                             Sight::make('status', 'Current status')
                                 ->render(fn (Lead $lead) => '<span class="lead-status-badge lead-status-badge--'.e($lead->statusColor()).'">'.e($lead->statusLabel()).'</span>'),
+                            Sight::make('spam_reason', 'Spam reason')
+                                ->render(fn (Lead $lead) => e($lead->metaValue('spam_reason', '-'))),
                             Sight::make('ip_address', 'IP')
                                 ->render(fn (Lead $lead) => e((string) ($lead->ip_address ?? '-'))),
                             Sight::make('form_id', 'Form ID')
