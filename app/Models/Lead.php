@@ -104,6 +104,11 @@ class Lead extends Model
         return $this->hasMany(LeadComment::class)->latest();
     }
 
+    public function changes(): HasMany
+    {
+        return $this->hasMany(LeadChange::class)->latest('created_at');
+    }
+
     public function statusLabel(): string
     {
         return self::STATUSES[$this->status] ?? (string) $this->status;

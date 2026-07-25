@@ -5,8 +5,32 @@
 
 .lead-status-form {
     margin: 0;
-    display: inline-block;
+    display: inline-flex;
+    align-items: stretch;
+    gap: 0.35rem;
     min-width: 9.5rem;
+}
+
+.lead-status-save {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    min-width: 2rem;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: #16a34a;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.lead-status-save[hidden] {
+    display: none !important;
+}
+
+.lead-status-save:hover {
+    background: #15803d;
 }
 
 .lead-status-badge {

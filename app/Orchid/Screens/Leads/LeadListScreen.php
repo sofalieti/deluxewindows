@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace App\Orchid\Screens\Leads;
 
 use App\Models\Lead;
+use App\Models\LeadChange;
 use App\Orchid\Layouts\Leads\LeadFiltersLayout;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Orchid\Screen\Actions\Link;
@@ -70,7 +72,7 @@ class LeadListScreen extends Screen
                 TD::make('status', 'Status')
                     ->sort()
                     ->cantHide()
-                    ->width('150px')
+                    ->width('180px')
                     ->render(fn (Lead $lead) => view('admin.leads.status-cell', [
                         'lead' => $lead,
                     ])),
@@ -122,9 +124,23 @@ class LeadListScreen extends Screen
             'status' => ['required', 'string', Rule::in(array_keys(Lead::STATUSES))],
         ]);
 
+        $user = Auth::user();
+        abort_unless($user !== null, 403);
+
         $lead = Lead::query()->findOrFail((int) $validated['lead']);
-        $lead->status = $validated['status'];
+        $from = (string) $lead->status;
+        $to = $validated['status'];
+
+        if ($from === $to) {
+            Toast::info('Status unchanged.');
+
+            return;
+        }
+
+        $lead->status = $to;
         $lead->save();
+
+        LeadChange::recordStatusChange($lead, $from, $to, (int) $user->id);
 
         Toast::info('Status updated: '.$lead->statusLabel());
     }
