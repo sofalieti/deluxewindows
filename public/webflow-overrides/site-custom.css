@@ -184,6 +184,16 @@
 }
 
 /* Make the form card always visible when placed outside of hero/sidebar context */
+.card-2.sidebar-v1---card.new-design {
+  text-align: center;
+  border: 1px solid #e5e7eb;
+  max-width: 290px;
+  min-height: 543px;
+  margin-top: 50px;
+  margin-bottom: auto;
+  padding: 40px 16px !important;
+}
+
 .card-2.sidebar-v1---card.new-design.hero-section {
   display: block !important;
 }
