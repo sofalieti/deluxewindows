@@ -115,3 +115,5 @@
         </div>
       </footer>
       @include('partials.lead-form-scripts')
+      @include('partials.phone-click-scripts')
+

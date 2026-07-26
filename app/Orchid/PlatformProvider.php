@@ -130,6 +130,11 @@ class PlatformProvider extends OrchidServiceProvider
                 ->route('platform.leads.spam')
                 ->permission('platform.leads'),
 
+            Menu::make('Phone clicks')
+                ->icon('bs.telephone')
+                ->route('platform.phone-clicks')
+                ->permission('platform.leads'),
+
             Menu::make('Mailbox')
                 ->icon('bs.envelope')
                 ->route('platform.mailbox')

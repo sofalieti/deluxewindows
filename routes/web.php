@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ClassicSiteController;
+use App\Http\Controllers\PhoneClickController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ClassicSiteController::class, 'home']);
@@ -64,4 +65,5 @@ Route::get('/privacy-policy', [ClassicSiteController::class, 'privacyPolicy']);
 Route::get('/terms', [ClassicSiteController::class, 'terms']);
 Route::get('/special-offers', [ClassicSiteController::class, 'specialOffers']);
 Route::post('/contact-form', [ClassicSiteController::class, 'submitContactForm'])->name('contact.submit');
+Route::post('/phone-click', [PhoneClickController::class, 'store'])->name('phone-click.store');
 
