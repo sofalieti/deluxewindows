@@ -198,6 +198,12 @@
   display: block !important;
 }
 
+@media (max-width: 1400px) {
+  .card-2.sidebar-v1---card.new-design {
+    min-height: 580px;
+  }
+}
+
 .container-default-7 .sidebar-v1---card,
 .container-default-7 .card-2.new-design,
 .section_sidebar .sidebar-v1---card,

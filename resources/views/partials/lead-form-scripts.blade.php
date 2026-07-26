@@ -190,6 +190,27 @@
       return payload;
     }
 
+    function sendGa4LeadConversion(payload) {
+      if (typeof window.gtag !== 'function') return;
+
+      window.gtag('event', 'generate_lead', {
+        send_to: 'G-JHYBB0THJM',
+        currency: 'USD',
+        value: 1,
+        form_id: String(payload.form_id || payload['Form ID'] || ''),
+        page_location: String(payload.page_url || payload.Page || window.location.href),
+        landing_page: String(payload.landing_page || ''),
+        utm_source: String(payload.utm_source || ''),
+        utm_medium: String(payload.utm_medium || ''),
+        utm_campaign: String(payload.utm_campaign || ''),
+        utm_content: String(payload.utm_content || ''),
+        utm_term: String(payload.utm_term || ''),
+        creative: String(payload.creative || ''),
+        gclid: String(payload.gclid || ''),
+        transport_type: 'beacon',
+      });
+    }
+
     /**
      * Direct browser → Google Apps Script (same path that historically filled the sheet).
      * URLSearchParams keeps keys like "Form ID" intact (unlike PHP http_build_query).
@@ -412,6 +433,7 @@
         const isSpam = !!(data && data.spam);
         if (!isSpam) {
           postToGoogleBridges(payload);
+          sendGa4LeadConversion(payload);
           if (typeof window.gtag_report_conversion === 'function') {
             window.gtag_report_conversion();
           }

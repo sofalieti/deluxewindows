@@ -67,6 +67,25 @@
       return payload;
     }
 
+    function sendGa4PhoneConversion(payload) {
+      if (typeof window.gtag !== 'function') return;
+
+      window.gtag('event', 'phone_click', {
+        send_to: 'G-JHYBB0THJM',
+        source_label: String(payload.source_label || ''),
+        page_location: String(payload.page_url || window.location.href),
+        landing_page: String(payload.landing_page || ''),
+        utm_source: String(payload.utm_source || ''),
+        utm_medium: String(payload.utm_medium || ''),
+        utm_campaign: String(payload.utm_campaign || ''),
+        utm_content: String(payload.utm_content || ''),
+        utm_term: String(payload.utm_term || ''),
+        creative: String(payload.creative || ''),
+        gclid: String(payload.gclid || ''),
+        transport_type: 'beacon',
+      });
+    }
+
     function trackPhoneClick(anchor) {
       if (!anchor || anchor.dataset.phoneClickTracked === '1') return;
       anchor.dataset.phoneClickTracked = '1';
@@ -75,6 +94,7 @@
       }, 1500);
 
       const payload = buildPayload(anchor);
+      sendGa4PhoneConversion(payload);
       try {
         fetch(endpoint, {
           method: 'POST',
