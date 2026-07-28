@@ -20,7 +20,7 @@
                         <x-img
                           src="/webflow-assets/images/6862d4e603255742b1319d0f_Frame%2048.avif"
                           preset="card"
-                          loading="eager"
+                          loading="lazy"
                           alt="Vinyl Doors"
                           class="image cover-image auto-height"
                         />
@@ -41,7 +41,7 @@
                         <x-img
                           src="/webflow-assets/images/687e2bbbcf84c63258838bc4_homeguide-marvin-signature-windows-and-doors.avif"
                           preset="card"
-                          loading="eager"
+                          loading="lazy"
                           alt="Wood Clad Doors"
                           class="image cover-image auto-height"
                         />
@@ -64,7 +64,7 @@
                         <x-img
                           src="/webflow-assets/images/684e94a86602a96b9775c003_Frame%2048.avif"
                           preset="card"
-                          loading="eager"
+                          loading="lazy"
                           alt="Fiberglass Doors "
                           class="image cover-image auto-height"
                         />

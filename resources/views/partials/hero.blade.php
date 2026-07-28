@@ -233,8 +233,8 @@
           {{-- Fallback for hero-based templates without image: solid blue background only --}}
           <div class="div-block-61"></div>
         @else
-          {{-- Homepage: static image first (LCP), the 25 MB video is appended
-               on desktop only and covers the image once it starts playing. --}}
+          {{-- Homepage: solid blue placeholder on desktop; mobile image.
+               Video loads immediately on desktop (not lazy). --}}
         <div class="code-embed-5 w-embed w-script">
           <div id="hero-bg-wrapper" class="video-bg-container">
             <img
@@ -252,10 +252,12 @@
             (function () {
               if (window.innerWidth <= 767) return;
               var wrapper = document.getElementById("hero-bg-wrapper");
+              if (!wrapper) return;
               var video = document.createElement("video");
               video.autoplay = true;
               video.loop = true;
               video.muted = true;
+              video.playsInline = true;
               video.setAttribute("playsinline", "");
               var source = document.createElement("source");
               source.src = "/webflow-assets/videos/687ca10e41cc245f5cdacfd5_0719_2-copy.mp4";

@@ -49,14 +49,10 @@
       </div>
       <div class="previous-jobs-map-section">
         <div class="title-left---content-right dva"><h2 class="heading-23">Our Previous Jobs</h2></div>
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
-        <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" crossorigin="" />
         <div id="previous-jobs-map" class="jobs-map" aria-label="Map of our previous installation jobs"></div>
       </div>
       @push('scripts')
         @once
-          <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
-          <script defer src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js" crossorigin=""></script>
           <script defer src="/webflow-overrides/previous-jobs-map.js"></script>
         @endonce
       @endpush

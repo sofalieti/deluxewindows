@@ -23,7 +23,7 @@
                         <x-img
                           :src="$hw['image']"
                           preset="card"
-                          loading="eager"
+                          loading="lazy"
                           :alt="$hw['name']"
                           class="image cover-image property-wrapper-v3---image"
                         />

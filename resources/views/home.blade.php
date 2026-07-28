@@ -9,8 +9,9 @@
       rel="preload"
       as="image"
       href="{{ thumbnail_url('/webflow-assets/images/69ce36fd76a6aaff9c68df7e_01.webp', 'hero_mobile') }}"
-      imagesrcset="{{ thumbnail_url('/webflow-assets/images/69ce36fd76a6aaff9c68df7e_01.webp', 'hero_mobile') }} 768w, {{ thumbnail_url('/webflow-assets/images/69ce36fd76a6aaff9c68df7e_01.webp', 'hero_bg') }} 1920w"
+      imagesrcset="{{ thumbnail_url('/webflow-assets/images/69ce36fd76a6aaff9c68df7e_01.webp', 'hero_mobile') }} 768w"
       imagesizes="100vw"
+      media="(max-width: 767px)"
       fetchpriority="high"
     />
     <style rel="stylesheet" type="text/css">
@@ -997,6 +998,7 @@
         z-index: 0;
         pointer-events: none;
         overflow: hidden;
+        background-color: #1a5f9c;
         background-size: cover;
         background-position: center center;
       }

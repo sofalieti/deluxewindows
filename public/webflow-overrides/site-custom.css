@@ -164,16 +164,31 @@
 .scroll-block::-webkit-scrollbar { width: 6px; }
 .scroll-block::-webkit-scrollbar-thumb { background: #E79800; border-radius: 999px; }
 
-/* Homepage hero: static image behind the desktop background video */
+/* Homepage hero: lighter blue placeholder until desktop video loads.
+   Mobile keeps the photo (lazy); desktop hides the photo. */
+.video-bg-container {
+  background-color: #1a5f9c; /* slightly lighter than .div-block-61 #123f72 */
+}
+
 .video-bg-container .hero-bg-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
 .video-bg-container video {
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .video-bg-container .hero-bg-image {
+    display: none;
+  }
 }
 
 /* Current item in the brand sidebar (window-type / door-type pages) */
@@ -2732,6 +2747,18 @@ h1 .h1-subline {
   background: #0f4d89;
   border: 3px solid #fff;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);
+}
+
+.jobs-map-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* Popup */
