@@ -28,18 +28,18 @@
       $landingDoors = $fallbackDoors;
   }
 
-  $doorBrandStripItems = [
-    ['href' => '/door-brands/marvin', 'image' => '/webflow-assets/images/6915aaca08003de3e1e57018_marvin-logo-black.svg', 'alt' => 'Marvin doors'],
-    ['href' => '/door-brands/milgard', 'image' => '/webflow-assets/images/6915aaea85f921adbca8a4e7_milgard.svg', 'alt' => 'Milgard doors'],
-    ['href' => '/door-brands/jeld-wen', 'image' => '/webflow-assets/images/6915aa60264a3c99f69524c6_jv.svg', 'alt' => 'JELD-WEN doors'],
-    ['href' => '/door-brands/anlin', 'image' => '/webflow-assets/images/6915c80af96503367881f15f_anlin2.svg', 'alt' => 'Anlin doors'],
-    ['href' => '/door-brands/andersen', 'image' => '/webflow-assets/images/6915aaaa3027924fb18fb47c_andersen_logo_tm_rectangle_rgb.svg', 'alt' => 'Andersen doors'],
-    ['href' => '/door-brands/ply-gem', 'image' => '/webflow-assets/images/6915aa80238022f9197f6973_pl.svg', 'alt' => 'Ply Gem doors'],
-    ['href' => '/door-brands/simonton', 'image' => '/webflow-assets/images/6915aa3a24afaaa0a93dd455_Simonton_PrimaryLogo_Inline_RGB_Gradient_0822-1-2048x427.avif', 'alt' => 'Simonton doors'],
-    ['href' => '/door-brands/alside', 'image' => '/webflow-assets/images/6915b29da8bcdcb16ec593b6_alside-logo.svg', 'alt' => 'Alside doors'],
-    ['href' => '/door-brands/italwindows', 'image' => '/webflow-assets/images/6915bd3fcaf3c1f1ff04d9dd_italwindows.svg', 'alt' => 'Italwindows doors'],
-    ['href' => '/door-brands/western-window-systems', 'image' => '/webflow-assets/images/6915b390bad100b6e6176ea7_westerngroup.svg', 'alt' => 'Western Window Systems doors'],
-    ['href' => '/door-brands/all-weather-architectural-aluminum', 'image' => '/webflow-assets/images/6915bedcc5e0152198130ace_footer-logo__1__2-removebg-preview.avif', 'alt' => 'All Weather doors'],
+  $doorBrands = [
+    ['name' => 'Marvin', 'href' => '/door-brands/marvin', 'image' => '/webflow-assets/images/6915aaca08003de3e1e57018_marvin-logo-black.svg', 'alt' => 'Marvin doors', 'description' => 'Premium entry, patio, and scenic doors with refined details and architectural flexibility.'],
+    ['name' => 'Milgard', 'href' => '/door-brands/milgard', 'image' => '/webflow-assets/images/6915aaea85f921adbca8a4e7_milgard.svg', 'alt' => 'Milgard doors', 'description' => 'Dependable patio door systems designed for smooth operation, comfort, and everyday use.'],
+    ['name' => 'JELD-WEN', 'href' => '/door-brands/jeld-wen', 'image' => '/webflow-assets/images/6915aa60264a3c99f69524c6_jv.svg', 'alt' => 'JELD-WEN doors', 'description' => 'A broad selection of entry and patio doors across multiple materials, styles, and budgets.'],
+    ['name' => 'Anlin', 'href' => '/door-brands/anlin', 'image' => '/webflow-assets/images/6915c80af96503367881f15f_anlin2.svg', 'alt' => 'Anlin doors', 'description' => 'Energy-efficient vinyl patio doors made for California homes and comfortable indoor living.'],
+    ['name' => 'Andersen', 'href' => '/door-brands/andersen', 'image' => '/webflow-assets/images/6915aaaa3027924fb18fb47c_andersen_logo_tm_rectangle_rgb.svg', 'alt' => 'Andersen doors', 'description' => 'Classic hinged, sliding, and contemporary patio doors with extensive design options.'],
+    ['name' => 'Ply Gem', 'href' => '/door-brands/ply-gem', 'image' => '/webflow-assets/images/6915aa80238022f9197f6973_pl.svg', 'alt' => 'Ply Gem doors', 'description' => 'Practical patio door solutions balancing low maintenance, efficiency, and lasting value.'],
+    ['name' => 'Simonton', 'href' => '/door-brands/simonton', 'image' => '/webflow-assets/images/6915aa3a24afaaa0a93dd455_Simonton_PrimaryLogo_Inline_RGB_Gradient_0822-1-2048x427.avif', 'alt' => 'Simonton doors', 'description' => 'Vinyl patio doors focused on energy performance, reliable operation, and easy care.'],
+    ['name' => 'Alside', 'href' => '/door-brands/alside', 'image' => '/webflow-assets/images/6915b29da8bcdcb16ec593b6_alside-logo.svg', 'alt' => 'Alside doors', 'description' => 'Low-maintenance sliding patio doors with versatile finishes and energy-saving glass options.'],
+    ['name' => 'Italwindows', 'href' => '/door-brands/italwindows', 'image' => '/webflow-assets/images/6915bd3fcaf3c1f1ff04d9dd_italwindows.svg', 'alt' => 'Italwindows doors', 'description' => 'Modern aluminum door systems for clean sightlines, generous glass, and contemporary homes.'],
+    ['name' => 'Western Window Systems', 'href' => '/door-brands/western-window-systems', 'image' => '/webflow-assets/images/6915b390bad100b6e6176ea7_westerngroup.svg', 'alt' => 'Western Window Systems doors', 'description' => 'Large moving-glass walls, multi-slide, and bi-fold systems for indoor-outdoor living.'],
+    ['name' => 'All Weather', 'href' => '/door-brands/all-weather-architectural-aluminum', 'image' => '/webflow-assets/images/6915bedcc5e0152198130ace_footer-logo__1__2-removebg-preview.avif', 'alt' => 'All Weather doors', 'description' => 'Architectural aluminum door systems built for expansive openings and custom applications.'],
   ];
 
   $doorFaq = [
@@ -198,12 +198,32 @@
   </div>
 </section>
 
-<section class="section top-none">
+<section class="section top-none door-brands-section" aria-labelledby="door-brands-heading">
   <div class="w-layout-blockcontainer container-default w-container">
-    @include('partials.brand-strip', [
-      'items' => $doorBrandStripItems,
-      'title' => 'Explore Leading Door Brands',
-    ])
+    <div class="door-brands-heading">
+      <div>
+        <span class="door-brands-kicker">Brands we install</span>
+        <h2 id="door-brands-heading" class="display-8 mid">Explore Leading Door Brands</h2>
+      </div>
+      <p>Compare trusted manufacturers in one place. We help narrow the options to the products that fit your opening, priorities, and budget.</p>
+    </div>
+    <div class="door-brands-grid">
+      @foreach($doorBrands as $brand)
+        <article class="door-brand-card">
+          <div class="door-brand-logo">
+            <img src="{{ $brand['image'] }}" loading="lazy" alt="{{ $brand['alt'] }}" />
+          </div>
+          <div class="door-brand-content">
+            <h3>{{ $brand['name'] }}</h3>
+            <p>{{ $brand['description'] }}</p>
+            <a href="{{ $brand['href'] }}" class="door-brand-button" aria-label="Explore {{ $brand['name'] }} doors">
+              Explore Brand
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+      @endforeach
+    </div>
   </div>
 </section>
 

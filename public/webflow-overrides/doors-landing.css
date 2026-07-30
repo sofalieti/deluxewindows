@@ -156,6 +156,138 @@
   margin-top: 30px;
 }
 
+.door-landing-page .door-brands-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.72fr);
+  gap: 48px;
+  align-items: end;
+  margin-bottom: 38px;
+}
+
+.door-landing-page .door-brands-heading h2 {
+  max-width: 13ch;
+  margin: 10px 0 0;
+}
+
+.door-landing-page .door-brands-heading > p {
+  max-width: 56ch;
+  margin: 0 0 5px;
+  color: oklch(0.45 0.025 246);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.door-landing-page .door-brands-kicker {
+  color: oklch(0.51 0.14 246);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.door-landing-page .door-brands-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.door-landing-page .door-brand-card {
+  grid-column: span 2;
+  display: flex;
+  min-width: 0;
+  min-height: 360px;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid oklch(0.84 0.025 246);
+  border-radius: 16px;
+  background: oklch(0.985 0.004 246);
+  box-shadow: 0 12px 34px oklch(0.31 0.05 246 / 7%);
+  transition:
+    transform 240ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 240ms ease,
+    box-shadow 240ms ease;
+}
+
+.door-landing-page .door-brand-card:nth-last-child(2) {
+  grid-column: 2 / span 2;
+}
+
+.door-landing-page .door-brand-card:hover {
+  transform: translateY(-5px);
+  border-color: oklch(0.66 0.09 246);
+  box-shadow: 0 24px 54px oklch(0.31 0.06 246 / 14%);
+}
+
+.door-landing-page .door-brand-logo {
+  display: flex;
+  min-height: 130px;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  background: oklch(0.955 0.018 246);
+}
+
+.door-landing-page .door-brand-logo img {
+  width: auto;
+  max-width: 190px;
+  height: auto;
+  max-height: 48px;
+  object-fit: contain;
+}
+
+.door-landing-page .door-brand-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 26px;
+}
+
+.door-landing-page .door-brand-content h3 {
+  margin: 0 0 10px;
+  color: oklch(0.28 0.06 246);
+  font-size: 23px;
+  line-height: 1.2;
+}
+
+.door-landing-page .door-brand-content p {
+  max-width: 42ch;
+  margin: 0 0 24px;
+  color: oklch(0.47 0.025 246);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.door-landing-page .door-brand-button {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  gap: 16px;
+  justify-content: space-between;
+  margin-top: auto;
+  padding: 10px 15px;
+  color: oklch(0.98 0.005 246);
+  border-radius: 7px;
+  background: oklch(0.32 0.095 246);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  transition: background-color 200ms ease, gap 200ms ease;
+}
+
+.door-landing-page .door-brand-button:hover {
+  gap: 22px;
+  color: oklch(0.98 0.005 246);
+  background: oklch(0.41 0.12 246);
+}
+
+.door-landing-page .door-brand-button span {
+  color: oklch(0.84 0.16 66);
+  font-size: 18px;
+  line-height: 0.8;
+}
+
 .door-landing-page #door-contact .cta-v3-image .cover-image {
   width: 100%;
   height: 100%;
@@ -164,6 +296,20 @@
 }
 
 @media (max-width: 991px) {
+  .door-landing-page .door-brands-heading {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .door-landing-page .door-brands-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .door-landing-page .door-brand-card,
+  .door-landing-page .door-brand-card:nth-last-child(2) {
+    grid-column: auto;
+  }
+
   .door-landing-page .door-solutions-shell {
     grid-template-columns: 1fr;
   }
@@ -223,6 +369,27 @@
   }
 
   .door-landing-page .door-solution-item:hover {
+    transform: none;
+  }
+
+  .door-landing-page .door-brands-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .door-landing-page .door-brand-card {
+    min-height: 0;
+  }
+
+  .door-landing-page .door-brand-logo {
+    min-height: 110px;
+    padding: 24px;
+  }
+
+  .door-landing-page .door-brand-content {
+    padding: 22px;
+  }
+
+  .door-landing-page .door-brand-card:hover {
     transform: none;
   }
 }
