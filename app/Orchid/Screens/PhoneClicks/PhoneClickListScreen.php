@@ -68,6 +68,38 @@ class PhoneClickListScreen extends Screen
                         return '<a href="tel:'.e($phone).'">'.e($phone).'</a>';
                     }),
 
+                TD::make('ringcentral_status', 'RingCentral')
+                    ->sort()
+                    ->cantHide()
+                    ->width('220px')
+                    ->render(function (PhoneClick $click): string {
+                        $status = (string) ($click->ringcentral_status ?: PhoneClick::RINGCENTRAL_NOT_CHECKED);
+
+                        if ($status === PhoneClick::RINGCENTRAL_FOUND) {
+                            $result = trim((string) ($click->ringcentral_result ?: 'Call found'));
+
+                            return '<span class="badge bg-success text-white">✓ '.e($result).'</span>'
+                                .'<div class="small text-muted mt-1">'
+                                .e($click->ringCentralDurationLabel())
+                                .' · '.e((string) ($click->ringcentral_from_phone ?: 'Unknown caller'))
+                                .'</div>';
+                        }
+
+                        if ($status === PhoneClick::RINGCENTRAL_NO_CALL) {
+                            return '<span class="badge bg-secondary text-white">No call found</span>';
+                        }
+
+                        if ($status === PhoneClick::RINGCENTRAL_ERROR) {
+                            return '<span class="badge bg-danger text-white">Check failed</span>';
+                        }
+
+                        if ($status === PhoneClick::RINGCENTRAL_PENDING) {
+                            return '<span class="badge bg-info text-dark">Checking…</span>';
+                        }
+
+                        return '<span class="badge bg-light text-dark">Not checked</span>';
+                    }),
+
                 TD::make('source_label', 'Source')
                     ->render(fn (PhoneClick $click) => e((string) ($click->source_label ?: '-'))),
 

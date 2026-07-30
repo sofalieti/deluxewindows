@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Jobs\MatchPhoneClickToRingCentral;
 use App\Models\PhoneClick;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -57,10 +58,11 @@ class PhoneClickController extends Controller
         ])->validate();
 
         try {
-            PhoneClick::query()->create([
+            $click = PhoneClick::query()->create([
                 ...$validated,
                 'ip_address' => $request->ip(),
                 'user_agent' => (string) $request->userAgent(),
+                'ringcentral_status' => PhoneClick::RINGCENTRAL_PENDING,
                 'meta' => [
                     'via' => 'site-tel-click',
                     'request_id' => (string) $request->headers->get('x-request-id', ''),
@@ -73,6 +75,17 @@ class PhoneClickController extends Controller
             ]);
 
             return response()->json(['ok' => false], 500);
+        }
+
+        try {
+            MatchPhoneClickToRingCentral::dispatch($click->id)
+                ->delay(now()->addMinutes(3))
+                ->afterCommit();
+        } catch (\Throwable $e) {
+            Log::warning('RingCentral phone click job dispatch failed', [
+                'phone_click_id' => $click->id,
+                'error' => $e->getMessage(),
+            ]);
         }
 
         return response()->json(['ok' => true]);

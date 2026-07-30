@@ -76,6 +76,51 @@ class PhoneClickViewScreen extends Screen
                     Sight::make('id', 'ID'),
                     Sight::make('created_at', 'Clicked')
                         ->render(fn (PhoneClick $click) => optional($click->created_at)->format('Y-m-d H:i:s')),
+                    Sight::make('ringcentral_status', 'RingCentral status')
+                        ->render(function (PhoneClick $click): string {
+                            return match ($click->ringcentral_status) {
+                                PhoneClick::RINGCENTRAL_FOUND => '<span class="badge bg-success text-white">✓ Call found</span>',
+                                PhoneClick::RINGCENTRAL_NO_CALL => '<span class="badge bg-secondary text-white">No call found</span>',
+                                PhoneClick::RINGCENTRAL_ERROR => '<span class="badge bg-danger text-white">Check failed</span>',
+                                PhoneClick::RINGCENTRAL_PENDING => '<span class="badge bg-info text-dark">Checking…</span>',
+                                default => '<span class="badge bg-light text-dark">Not checked</span>',
+                            };
+                        }),
+                    Sight::make('ringcentral_checked_at', 'RingCentral checked')
+                        ->render(fn (PhoneClick $click) => $click->ringcentral_checked_at
+                            ? $click->ringcentral_checked_at
+                                ->copy()
+                                ->setTimezone('America/Los_Angeles')
+                                ->format('Y-m-d H:i:s T')
+                            : '-'),
+                    Sight::make('ringcentral_call_started_at', 'Call started')
+                        ->render(fn (PhoneClick $click) => $click->ringcentral_call_started_at
+                            ? $click->ringcentral_call_started_at
+                                ->copy()
+                                ->setTimezone('America/Los_Angeles')
+                                ->format('Y-m-d H:i:s T')
+                            : '-'),
+                    Sight::make('ringcentral_result', 'Call result')
+                        ->render(fn (PhoneClick $click) => e((string) ($click->ringcentral_result ?: '-'))),
+                    Sight::make('ringcentral_duration', 'Call duration')
+                        ->render(fn (PhoneClick $click) => $click->ringcentral_call_id
+                            ? e($click->ringCentralDurationLabel())
+                            : '-'),
+                    Sight::make('ringcentral_from_phone', 'Caller')
+                        ->render(function (PhoneClick $click): string {
+                            $phone = trim((string) $click->ringcentral_from_phone);
+
+                            return $phone !== ''
+                                ? '<a href="tel:'.e($phone).'">'.e($phone).'</a>'
+                                : '-';
+                        }),
+                    Sight::make('ringcentral_to_phone', 'Called number')
+                        ->render(fn (PhoneClick $click) => e((string) ($click->ringcentral_to_phone ?: '-'))),
+                    Sight::make('ringcentral_attempts', 'RingCentral attempts'),
+                    Sight::make('ringcentral_call_id', 'RingCentral call ID')
+                        ->render(fn (PhoneClick $click) => e((string) ($click->ringcentral_call_id ?: '-'))),
+                    Sight::make('ringcentral_error', 'RingCentral error')
+                        ->render(fn (PhoneClick $click) => e((string) ($click->ringcentral_error ?: '-'))),
                     Sight::make('google_sheet_sent_at', 'Google Sheet')
                         ->render(function (PhoneClick $click): string {
                             if (! $click->wasSentToGoogleSheet()) {

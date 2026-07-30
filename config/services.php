@@ -67,6 +67,17 @@ return [
         ))),
     ],
 
+    'ringcentral' => [
+        'base_url' => rtrim((string) env('RINGCENTRAL_BASE_URL', 'https://platform.ringcentral.com'), '/'),
+        'client_id' => env('RINGCENTRAL_CLIENT_ID'),
+        'client_secret' => env('RINGCENTRAL_CLIENT_SECRET'),
+        'jwt' => env('RINGCENTRAL_JWT'),
+        'account_id' => env('RINGCENTRAL_ACCOUNT_ID', '~'),
+        'match_window_minutes' => (int) env('RINGCENTRAL_MATCH_WINDOW_MINUTES', 10),
+        'clock_tolerance_seconds' => (int) env('RINGCENTRAL_CLOCK_TOLERANCE_SECONDS', 30),
+        'retry_delay_seconds' => (int) env('RINGCENTRAL_RETRY_DELAY_SECONDS', 120),
+    ],
+
     'sitemap' => [
         'base_url' => env('SITEMAP_BASE_URL', 'https://www.deluxewindows.com'),
         'excluded_paths' => [
