@@ -1,5 +1,12 @@
 @php
   $ctaHref = $ctaHref ?? '/contacts';
+  $ctaTitleLine1 = $ctaTitleLine1 ?? 'Your Dream Home';
+  $ctaTitleLine2 = $ctaTitleLine2 ?? 'Starts Here';
+  $ctaText = $ctaText ?? 'Tell us about your project — we’ll take care of the rest.';
+  $ctaButtonLabel = $ctaButtonLabel ?? 'Free Consultation';
+  $ctaImage = $ctaImage ?? '/webflow-assets/images/687ca4b70b8583ef4890bad4_iPad.avif';
+  $ctaImageAlt = $ctaImageAlt ?? 'Deluxe Windows consultation';
+  $ctaImageClass = trim((string) ($ctaImageClass ?? ''));
 @endphp
       <section class="section-card-wrapper">
         <div class="section-card cta-v3">
@@ -11,13 +18,13 @@
                     <div class="inner-container _450px">
                       <div class="inner-container _300px---mbp">
                         <div>
-                          <h2 class="heading-24">Your Dream Home <br />Starts Here</h2>
+                          <h2 class="heading-24">{{ $ctaTitleLine1 }} <br />{{ $ctaTitleLine2 }}</h2>
                         </div>
                       </div>
                     </div>
                     <div class="mg-top-small">
                       <div class="text-neutral-light">
-                        <p class="paragraph-20">Tell us about your project — we’ll take care of the rest.</p>
+                        <p class="paragraph-20">{{ $ctaText }}</p>
                       </div>
                     </div>
                     <div class="mg-top-default">
@@ -26,7 +33,7 @@
                           id="w-node-_6024598d-eaa2-3e85-ac05-fde8b7e66609-b7e66609"
                           href="{{ $ctaHref }}"
                           class="primary-button w-inline-block"
-                          ><div class="text-block">Free Consultation</div></a
+                          ><div class="text-block">{{ $ctaButtonLabel }}</div></a
                         >
                       </div>
                     </div>
@@ -35,11 +42,11 @@
               </div>
               <div class="image-wrapper cta-v3-image">
                 <x-img
-                  src="/webflow-assets/images/687ca4b70b8583ef4890bad4_iPad.avif"
+                  :src="$ctaImage"
                   preset="cta"
                   loading="eager"
-                  alt="Deluxe-windows"
-                  class="image"
+                  :alt="$ctaImageAlt"
+                  class="image {{ $ctaImageClass }}"
                 />
               </div>
             </div>

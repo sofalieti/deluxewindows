@@ -1,3 +1,6 @@
+@php
+  $isDoorProfessionals = ($professionalsContext ?? '') === 'doors';
+@endphp
       <section class="section top-none home-professionals">
         <div class="w-layout-blockcontainer container-default w-container">
           <div class="w-layout-grid grid-2-columns values-wrapper-grid">
@@ -5,12 +8,21 @@
               <div class="inner-container _500px _100-tablet">
                 <div class="inner-container _600px---tablet">
                   <div class="mg-top-default">
-                    <h2 class="heading-2">Your Trusted Partner in Professional Window Solutions</h2>
+                    <h2 class="heading-2">
+                      {{ $isDoorProfessionals
+                        ? 'Your Trusted Partner in Professional Door Solutions'
+                        : 'Your Trusted Partner in Professional Window Solutions' }}
+                    </h2>
                   </div>
                   <div class="mg-top-small">
                     <p class="paragraph-17">
-                      Serving Contractors, Property Managers, and Architects with Turnkey Services, Quality Products,
-                      and Peace of Mind from Start to Finish
+                      @if($isDoorProfessionals)
+                        Coordinated door selection, ordering, scheduling, and installation for architects,
+                        contractors, and property managers.
+                      @else
+                        Serving Contractors, Property Managers, and Architects with Turnkey Services, Quality Products,
+                        and Peace of Mind from Start to Finish
+                      @endif
                     </p>
                   </div>
                   <div class="div-block-48">
@@ -33,8 +45,9 @@
                   <div class="mg-top-small"><h3 class="display-5 mid">For Architects</h3></div>
                   <div class="mg-top-extra-small">
                     <p class="paragraph-5">
-                      As a trusted turnkey provider, we manage every stage in-house—delivering consistent, efficient
-                      results across multiple large-scale projects.
+                      {{ $isDoorProfessionals
+                        ? 'We help specify entry, patio, and large-opening door systems while coordinating details from selection through installation.'
+                        : 'As a trusted turnkey provider, we manage every stage in-house—delivering consistent, efficient results across multiple large-scale projects.' }}
                     </p>
                   </div>
                 </div>
@@ -45,9 +58,9 @@
                   <div class="mg-top-small"><h3 class="display-5 mid">For Contractors</h3></div>
                   <div class="mg-top-extra-small">
                     <p class="paragraph-6">
-                      We deliver turnkey window and glazing solutions with proven expertise in replacements for
-                      remodeling projects—backed by long-term guarantees and the capacity to efficiently manage multiple
-                      jobs at once.
+                      {{ $isDoorProfessionals
+                        ? 'A single team for measurements, product coordination, delivery, and professional door installation on remodeling projects.'
+                        : 'We deliver turnkey window and glazing solutions with proven expertise in replacements for remodeling projects—backed by long-term guarantees and the capacity to efficiently manage multiple jobs at once.' }}
                     </p>
                   </div>
                 </div>
@@ -60,8 +73,9 @@
                   </div>
                   <div class="mg-top-extra-small">
                     <p class="paragraph-7">
-                      A stress-free, all-in-one service that fits your schedule and budget—efficiently managing multiple
-                      jobs to simplify your toughest tasks.
+                      {{ $isDoorProfessionals
+                        ? 'Plan replacements across occupied properties with clear scopes, scheduling, and one accountable installation partner.'
+                        : 'A stress-free, all-in-one service that fits your schedule and budget—efficiently managing multiple jobs to simplify your toughest tasks.' }}
                     </p>
                   </div>
                 </div>

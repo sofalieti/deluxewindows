@@ -1,3 +1,6 @@
+@php
+  $isDoorGuarantee = ($guaranteeContext ?? '') === 'doors';
+@endphp
       <div class="f-section-large-3 guarantee-section">
         <div class="f-container-regular-3 guarantee-container">
           <div class="f-margin-bottom-64">
@@ -16,27 +19,45 @@
           <div class="w-layout-grid f-grid-three-column-2">
             <div class="f-feature-card-filled">
               <div class="f-margin-bottom-129">
-                <h5 class="f-h5-heading">Vinyl windows<br />‍</h5>
+                <h5 class="f-h5-heading">{{ $isDoorGuarantee ? 'Entry & Fiberglass Doors' : 'Vinyl windows' }}<br />‍</h5>
               </div>
               <p class="f-paragraph-large-2">
-                <strong><br />Full lifetime</strong> transferable warranty on parts and labor
+                @if($isDoorGuarantee)
+                  Manufacturer-backed coverage for the selected door, glass, and components.
+                @else
+                  <strong><br />Full lifetime</strong> transferable warranty on parts and labor
+                @endif
               </p>
             </div>
             <div class="f-feature-card-filled">
               <div class="f-margin-bottom-129">
-                <h5 class="f-h5-heading">Aluminum Wood clad, fiberglass, fiberglass clad</h5>
+                <h5 class="f-h5-heading">{{ $isDoorGuarantee ? 'Patio & Multi-Panel Doors' : 'Aluminum Wood clad, fiberglass, fiberglass clad' }}</h5>
               </div>
-              <p class="f-paragraph-large-2"><br />Offer <strong>20 year</strong> on glass.</p>
+              <p class="f-paragraph-large-2">
+                @if($isDoorGuarantee)
+                  Coverage options for glass, frames, hardware, and operating components.
+                @else
+                  <br />Offer <strong>20 year</strong> on glass.
+                @endif
+              </p>
             </div>
             <div class="f-feature-card-filled">
               <div class="f-margin-bottom-129">
-                <h5 class="f-h5-heading">All Other Parts<br />‍</h5>
+                <h5 class="f-h5-heading">{{ $isDoorGuarantee ? 'Installation & Service' : 'All Other Parts' }}<br />‍</h5>
               </div>
               <p class="f-paragraph-large-2">
-                <strong><br />10&nbsp;Years</strong> Warranty
+                @if($isDoorGuarantee)
+                  Clear installation scope and a final operation check before completion.
+                @else
+                  <strong><br />10&nbsp;Years</strong> Warranty
+                @endif
               </p>
             </div>
           </div>
-          <p class="f-paragraph-large-2 dsaf">Manufacturer's warranty on glass and frame - lifetime**</p>
+          <p class="f-paragraph-large-2 dsaf">
+            {{ $isDoorGuarantee
+              ? 'We explain the manufacturer warranty included with your selected door before ordering.'
+              : "Manufacturer's warranty on glass and frame - lifetime**" }}
+          </p>
         </div>
       </div>

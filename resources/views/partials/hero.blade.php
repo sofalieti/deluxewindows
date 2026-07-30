@@ -117,6 +117,9 @@
       includePromoName: ! $hasBrandLogo || ! $hasPagePrice,
       includePercent: ! $hasPagePrice,
   );
+  if (isset($saleHeadlineHtmlOverride)) {
+      $saleHeadlineHtml = (string) $saleHeadlineHtmlOverride;
+  }
   // Hide the hero promo/price block entirely when a page opts in and has no price
   // (e.g. door-brand pages where no linked door has a Promotions price).
   $hideHeroPricing = !empty($hideHeroPromoWhenEmpty) && empty($brandHeroFormHtml ?? null);
@@ -220,7 +223,10 @@
 @endphp
 
       <div class="div-block-59">
-        @if(!empty($heroBackgroundImage))
+        @if(!empty($doorLandingHero))
+          {{-- Doors campaign landing uses the standard site hero with a local CSS background. --}}
+          <div data-parallax="1" class="div-block-61 door-landing-hero-bg"></div>
+        @elseif(!empty($heroBackgroundImage))
           {{-- Static hero background (brand pages etc.) --}}
           <div data-parallax="1" style="background-image:url('{{ thumbnail_url($heroBackgroundImage, 'hero_bg') }}');background-position:center center;background-size:cover;background-repeat:no-repeat;" class="div-block-61"></div>
         @elseif(!empty($doorHeroImage))

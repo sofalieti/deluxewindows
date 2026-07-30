@@ -1,9 +1,26 @@
 @extends('layouts.classic')
 
 @section('wfPage', '6841ddf8ace3d9d9facb15cd')
-@section('bodyClass', 'body-18 height-auto')
+@php
+  $isDoorLanding = request()->boolean('landing');
+@endphp
+@section('bodyClass', $isDoorLanding ? 'body-18 height-auto door-landing-page' : 'body-18 height-auto')
+
+@if($isDoorLanding)
+  @section('metadataFaqRendered', '1')
+  @section('head')
+    @php
+      $doorLandingCss = public_path('webflow-overrides/doors-landing.css');
+      $doorLandingCssVersion = is_file($doorLandingCss) ? (string) filemtime($doorLandingCss) : '1';
+    @endphp
+    <link href="/webflow-overrides/doors-landing.css?v={{ $doorLandingCssVersion }}" rel="stylesheet" type="text/css" />
+  @endsection
+@endif
 
 @section('content')
+  @if($isDoorLanding)
+    @include('doors.landing', ['doors' => $doors])
+  @else
       <section class="section_breadcrumbs section-121">
         <div class="w-layout-blockcontainer container-default breadcrumbs-container w-container">
           <div class="breadcrumbs-wrapper">
@@ -42,4 +59,5 @@
           </div>
         </div>
       </section>
+  @endif
 @endsection

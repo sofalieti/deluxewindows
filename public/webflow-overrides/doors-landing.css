@@ -1,0 +1,47 @@
+.div-block-59 > .door-landing-hero-bg {
+  background-image: url("/webflow-assets/images/688efd96309fed3347c95d0b_trustile-traditional-style-black-front-door-1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.door-landing-page .door-landing-site-image {
+  min-height: 560px;
+}
+
+.door-landing-page .door-landing-site-image > img {
+  width: 100%;
+  height: 100%;
+  min-height: 560px;
+  object-fit: cover;
+}
+
+.door-landing-page .door-landing-site-copy {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.door-landing-page #door-contact .cta-v3-image .cover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 991px) {
+  .door-landing-page .door-landing-site-image,
+  .door-landing-page .door-landing-site-image > img {
+    min-height: 440px;
+  }
+}
+
+@media (max-width: 767px) {
+  .div-block-59 > .door-landing-hero-bg {
+    background-position: 56% center;
+  }
+
+  .door-landing-page .door-landing-site-image,
+  .door-landing-page .door-landing-site-image > img {
+    min-height: 340px;
+  }
+}

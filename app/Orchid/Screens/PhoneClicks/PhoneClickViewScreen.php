@@ -5,10 +5,16 @@ declare(strict_types=1);
 namespace App\Orchid\Screens\PhoneClicks;
 
 use App\Models\PhoneClick;
+use App\Services\PhoneClickGoogleBridge;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
 use Orchid\Screen\Sight;
+use Orchid\Support\Color;
 use Orchid\Support\Facades\Layout;
+use Orchid\Support\Facades\Toast;
 
 class PhoneClickViewScreen extends Screen
 {
@@ -16,6 +22,7 @@ class PhoneClickViewScreen extends Screen
 
     public function query(PhoneClick $click): iterable
     {
+        $click->load('googleSheetSender');
         $this->click = $click;
 
         return [
@@ -44,11 +51,21 @@ class PhoneClickViewScreen extends Screen
 
     public function commandBar(): iterable
     {
-        return [
+        $actions = [
             Link::make('Back to list')
                 ->icon('bs.arrow-left')
                 ->route('platform.phone-clicks'),
         ];
+
+        if ($this->click && ! $this->click->wasSentToGoogleSheet()) {
+            $actions[] = Button::make('Send to Google')
+                ->icon('bs.google')
+                ->type(Color::PRIMARY)
+                ->method('sendToGoogle', ['click' => $this->click->id])
+                ->confirm('Send this phone click to the Google Sheet? This can only be done once.');
+        }
+
+        return $actions;
     }
 
     public function layout(): iterable
@@ -59,6 +76,18 @@ class PhoneClickViewScreen extends Screen
                     Sight::make('id', 'ID'),
                     Sight::make('created_at', 'Clicked')
                         ->render(fn (PhoneClick $click) => optional($click->created_at)->format('Y-m-d H:i:s')),
+                    Sight::make('google_sheet_sent_at', 'Google Sheet')
+                        ->render(function (PhoneClick $click): string {
+                            if (! $click->wasSentToGoogleSheet()) {
+                                return '<span class="badge bg-secondary text-white">Not sent</span>';
+                            }
+
+                            $sentAt = optional($click->google_sheet_sent_at)->format('Y-m-d H:i:s');
+                            $sender = $click->googleSheetSender?->name;
+                            $suffix = $sender ? ' by '.e($sender) : '';
+
+                            return '<span class="badge bg-success text-white">✓ Sent '.e((string) $sentAt).$suffix.'</span>';
+                        }),
                     Sight::make('phone', 'Phone')
                         ->render(function (PhoneClick $click): string {
                             $phone = trim((string) ($click->phone ?? ''));
@@ -117,5 +146,32 @@ class PhoneClickViewScreen extends Screen
                 ]),
             ]),
         ];
+    }
+
+    public function sendToGoogle(Request $request, PhoneClickGoogleBridge $bridge): void
+    {
+        $validated = $request->validate([
+            'click' => ['required', 'integer', 'exists:phone_clicks,id'],
+        ]);
+
+        $user = Auth::user();
+        abort_unless($user !== null, 403);
+
+        $click = PhoneClick::query()->findOrFail((int) $validated['click']);
+        $result = $bridge->sendOnce($click, (int) $user->id);
+
+        if (! $result['ok']) {
+            Toast::error($result['message']);
+
+            return;
+        }
+
+        if ($result['already_sent']) {
+            Toast::warning($result['message']);
+
+            return;
+        }
+
+        Toast::success($result['message']);
     }
 }

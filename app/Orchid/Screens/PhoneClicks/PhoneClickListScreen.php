@@ -5,11 +5,17 @@ declare(strict_types=1);
 namespace App\Orchid\Screens\PhoneClicks;
 
 use App\Models\PhoneClick;
+use App\Services\PhoneClickGoogleBridge;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
 use Orchid\Screen\TD;
+use Orchid\Support\Color;
 use Orchid\Support\Facades\Layout;
+use Orchid\Support\Facades\Toast;
 
 class PhoneClickListScreen extends Screen
 {
@@ -86,11 +92,56 @@ class PhoneClickListScreen extends Screen
                         return '<a href="'.e($url).'" target="_blank" rel="noopener">'.e(Str::limit($url, 50)).'</a>';
                     }),
 
+                TD::make('google_sheet_sent_at', 'Google Sheet')
+                    ->sort()
+                    ->cantHide()
+                    ->width('190px')
+                    ->render(function (PhoneClick $click) {
+                        if ($click->wasSentToGoogleSheet()) {
+                            $sentAt = optional($click->google_sheet_sent_at)->format('Y-m-d H:i');
+
+                            return '<span class="badge bg-success text-white">✓ Sent '.e((string) $sentAt).'</span>';
+                        }
+
+                        return Button::make('Send to Google')
+                            ->icon('bs.google')
+                            ->type(Color::PRIMARY)
+                            ->method('sendToGoogle', ['click' => $click->id])
+                            ->confirm('Send this phone click to the Google Sheet? This can only be done once.');
+                    }),
+
                 TD::make('id', 'Details')
                     ->render(fn (PhoneClick $click) => Link::make('Open')
                         ->icon('bs.eye')
                         ->route('platform.phone-clicks.view', $click)),
             ]),
         ];
+    }
+
+    public function sendToGoogle(Request $request, PhoneClickGoogleBridge $bridge): void
+    {
+        $validated = $request->validate([
+            'click' => ['required', 'integer', 'exists:phone_clicks,id'],
+        ]);
+
+        $user = Auth::user();
+        abort_unless($user !== null, 403);
+
+        $click = PhoneClick::query()->findOrFail((int) $validated['click']);
+        $result = $bridge->sendOnce($click, (int) $user->id);
+
+        if (! $result['ok']) {
+            Toast::error($result['message']);
+
+            return;
+        }
+
+        if ($result['already_sent']) {
+            Toast::warning($result['message']);
+
+            return;
+        }
+
+        Toast::success($result['message']);
     }
 }

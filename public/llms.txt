@@ -11,7 +11,7 @@ Sitemap: https://www.deluxewindows.com/sitemap.xml
 - [Home](https://www.deluxewindows.com/): Bay Area window and door replacement — brands, materials, financing, and free estimates
 - [Windows](https://www.deluxewindows.com/windows): Window materials and product options
 - [Doors](https://www.deluxewindows.com/doors): Exterior and patio door options
-- [Window brands](https://www.deluxewindows.com/brand): All window brands we install
+- [Window brands](https://www.deluxewindows.com/brands): All window brands we install
 - [Special offers](https://www.deluxewindows.com/special-offers): Current promotions and limited-time pricing
 - [Financing](https://www.deluxewindows.com/financing): Financing options for window and door projects
 - [Gallery](https://www.deluxewindows.com/gallery): Project photos from Bay Area installations
@@ -85,4 +85,4 @@ Deluxe Windows works directly in each of these Bay Area cities. We can typically
 - [Blog](https://www.deluxewindows.com/blog): Articles and guides on window replacement
 - [Glossary](https://www.deluxewindows.com/glossary): Window and door terminology
 - [Privacy Policy](https://www.deluxewindows.com/privacy-policy): Privacy policy
-- [Terms of Use](https://www.deluxewindows.com/terms-of-use): Terms of use
+- [Terms of Use](https://www.deluxewindows.com/terms): Terms of use

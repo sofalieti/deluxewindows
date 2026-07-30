@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Orchid\Filters\Filterable;
 use Orchid\Filters\Types\Like;
 use Orchid\Filters\Types\Where;
@@ -36,6 +37,8 @@ class PhoneClick extends Model
         'ip_address',
         'user_agent',
         'meta',
+        'google_sheet_sent_at',
+        'google_sheet_sent_by',
     ];
 
     /**
@@ -53,13 +56,25 @@ class PhoneClick extends Model
         'created_at',
         'utm_source',
         'utm_campaign',
+        'google_sheet_sent_at',
     ];
 
     protected function casts(): array
     {
         return [
             'meta' => 'array',
+            'google_sheet_sent_at' => 'datetime',
         ];
+    }
+
+    public function googleSheetSender(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'google_sheet_sent_by');
+    }
+
+    public function wasSentToGoogleSheet(): bool
+    {
+        return $this->google_sheet_sent_at !== null;
     }
 
     public function metaValue(string $key, string $default = ''): string
