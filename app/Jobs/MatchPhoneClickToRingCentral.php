@@ -35,17 +35,22 @@ class MatchPhoneClickToRingCentral implements ShouldQueue
                     return;
                 }
 
-                $now = CarbonImmutable::now('UTC');
+                $appTimezone = (string) config('app.timezone', 'America/Los_Angeles');
+                $now = CarbonImmutable::now($appTimezone);
+                $checkedAt = $click->ringcentral_checked_at
+                    ? CarbonImmutable::parse($click->ringcentral_checked_at)
+                    : null;
                 if (
-                    $click->ringcentral_checked_at
+                    $checkedAt
                     && $click->ringcentral_attempts > 0
-                    && CarbonImmutable::parse($click->ringcentral_checked_at)->utc()->greaterThan($now->subSeconds(30))
+                    && $checkedAt->greaterThan($now->subSeconds(30))
+                    && $checkedAt->lessThanOrEqualTo($now->addSeconds(5))
                 ) {
                     return;
                 }
 
                 $windowMinutes = max(3, (int) config('services.ringcentral.match_window_minutes', 10));
-                $deadline = CarbonImmutable::parse($click->created_at)->utc()->addMinutes($windowMinutes);
+                $deadline = CarbonImmutable::parse($click->created_at)->addMinutes($windowMinutes);
 
                 $click->forceFill([
                     'ringcentral_status' => PhoneClick::RINGCENTRAL_PENDING,
@@ -71,7 +76,7 @@ class MatchPhoneClickToRingCentral implements ShouldQueue
                             'ringcentral_session_id' => $match['session_id'],
                             'ringcentral_result' => $match['result'],
                             'ringcentral_direction' => $match['direction'],
-                            'ringcentral_call_started_at' => $match['start_time'],
+                            'ringcentral_call_started_at' => $match['start_time']->setTimezone($appTimezone),
                             'ringcentral_duration' => $match['duration'],
                             'ringcentral_from_phone' => $match['from_phone'],
                             'ringcentral_to_phone' => $match['to_phone'],

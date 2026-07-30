@@ -171,6 +171,33 @@ test('a missing call is retried and becomes no call at the end of the window', f
     Queue::assertNothingPushed();
 });
 
+test('a legacy future checked timestamp does not stop RingCentral retries', function () {
+    Queue::fake();
+    config()->set('app.timezone', 'America/Los_Angeles');
+    CarbonImmutable::setTestNow('2026-07-30 01:18:59 America/Los_Angeles');
+    $click = PhoneClick::query()->create([
+        'phone' => '+16504614446',
+        'ringcentral_status' => PhoneClick::RINGCENTRAL_PENDING,
+        'ringcentral_attempts' => 1,
+    ]);
+    $click->forceFill([
+        'created_at' => CarbonImmutable::parse('2026-07-30 01:13:57 America/Los_Angeles'),
+        'updated_at' => CarbonImmutable::parse('2026-07-30 01:13:57 America/Los_Angeles'),
+        // Reproduces timestamps written as UTC and then interpreted as app time.
+        'ringcentral_checked_at' => CarbonImmutable::parse('2026-07-30 08:16:58 America/Los_Angeles'),
+    ])->saveQuietly();
+
+    fakeRingCentralCallLog([]);
+
+    (new MatchPhoneClickToRingCentral($click->id))
+        ->handle(app(RingCentralCallLogService::class));
+
+    $click->refresh();
+    expect($click->ringcentral_status)->toBe(PhoneClick::RINGCENTRAL_PENDING)
+        ->and($click->ringcentral_attempts)->toBe(2);
+    Queue::assertPushed(MatchPhoneClickToRingCentral::class);
+});
+
 test('a RingCentral API failure is retried and ends with an error status', function () {
     Queue::fake();
     CarbonImmutable::setTestNow('2026-07-30 16:03:00 UTC');

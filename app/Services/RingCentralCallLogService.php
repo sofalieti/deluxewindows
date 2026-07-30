@@ -37,7 +37,10 @@ class RingCentralCallLogService
         $startedAt = CarbonImmutable::parse($click->created_at)->utc();
         $tolerance = max(0, (int) config('services.ringcentral.clock_tolerance_seconds', 30));
         $dateFrom = $startedAt->subSeconds($tolerance);
-        $dateTo = CarbonImmutable::now('UTC');
+        $windowMinutes = max(3, (int) config('services.ringcentral.match_window_minutes', 10));
+        $deadline = $startedAt->addMinutes($windowMinutes);
+        $currentTime = CarbonImmutable::now('UTC');
+        $dateTo = $currentTime->lessThan($deadline) ? $currentTime : $deadline;
 
         $response = $this->getCallLog($targetPhone, $dateFrom, $dateTo);
         $records = $response->json('records', []);
