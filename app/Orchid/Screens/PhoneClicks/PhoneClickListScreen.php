@@ -35,7 +35,7 @@ class PhoneClickListScreen extends Screen
 
     public function description(): ?string
     {
-        return 'Click-to-call events from tel: links on the website, with UTM and landing data.';
+        return 'Website phone clicks with RingCentral validation, GCLID attribution, and Google Sheet status.';
     }
 
     public function permission(): ?iterable
@@ -56,16 +56,61 @@ class PhoneClickListScreen extends Screen
             Layout::table('clicks', [
                 TD::make('created_at', 'Date')
                     ->sort()
-                    ->render(fn (PhoneClick $click) => optional($click->created_at)->format('Y-m-d H:i')),
-
-                TD::make('phone', 'Phone')
+                    ->width('125px')
                     ->render(function (PhoneClick $click): string {
-                        $phone = trim((string) ($click->phone ?? ''));
-                        if ($phone === '') {
+                        if (! $click->created_at) {
                             return '-';
                         }
 
-                        return '<a href="tel:'.e($phone).'">'.e($phone).'</a>';
+                        return '<div class="fw-semibold">'.e($click->created_at->format('M d, Y')).'</div>'
+                            .'<div class="small text-muted">'.e($click->created_at->format('h:i A')).'</div>';
+                    }),
+
+                TD::make('phone', 'Click')
+                    ->width('175px')
+                    ->render(function (PhoneClick $click): string {
+                        $phone = trim((string) ($click->phone ?? ''));
+                        $source = trim((string) ($click->source_label ?? ''));
+                        $phoneHtml = $phone !== ''
+                            ? '<a class="fw-semibold" href="tel:'.e($phone).'">'.e($phone).'</a>'
+                            : '<span class="text-muted">No number</span>';
+
+                        return $phoneHtml
+                            .'<div class="small text-muted mt-1">'.e($source !== '' ? $source : 'Unknown source').'</div>';
+                    }),
+
+                TD::make('page_url', 'Page')
+                    ->width('190px')
+                    ->render(function (PhoneClick $click): string {
+                        $url = trim((string) ($click->page_url ?? ''));
+                        $landing = trim((string) ($click->landing_page ?? ''));
+
+                        if ($url === '' && $landing === '') {
+                            return '-';
+                        }
+
+                        $label = $url !== ''
+                            ? ((string) parse_url($url, PHP_URL_PATH) ?: $url)
+                            : $landing;
+                        $page = $url !== ''
+                            ? '<a href="'.e($url).'" target="_blank" rel="noopener">'.e(Str::limit($label, 30)).'</a>'
+                            : e(Str::limit($label, 30));
+
+                        if ($landing !== '' && $landing !== $label) {
+                            $page .= '<div class="small text-muted mt-1">'.e(Str::limit($landing, 30)).'</div>';
+                        }
+
+                        return $page;
+                    }),
+
+                TD::make('gclid', 'GCLID')
+                    ->width('145px')
+                    ->render(function (PhoneClick $click): string {
+                        $gclid = trim((string) ($click->gclid ?? ''));
+
+                        return $gclid !== ''
+                            ? '<code>'.e(Str::limit($gclid, 16, '…')).'</code>'
+                            : '<span class="text-muted">—</span>';
                     }),
 
                 TD::make('ringcentral_status', 'RingCentral')
@@ -100,30 +145,6 @@ class PhoneClickListScreen extends Screen
                         return '<span class="badge bg-light text-dark">Not checked</span>';
                     }),
 
-                TD::make('source_label', 'Source')
-                    ->render(fn (PhoneClick $click) => e((string) ($click->source_label ?: '-'))),
-
-                TD::make('utm', 'UTM')
-                    ->width('280px')
-                    ->render(function (PhoneClick $click): string {
-                        $parts = $click->utmSummaryParts();
-
-                        return e($parts !== [] ? implode(' | ', $parts) : '-');
-                    }),
-
-                TD::make('landing_page', 'Landing')
-                    ->render(fn (PhoneClick $click) => e(Str::limit((string) ($click->landing_page ?: '-'), 40))),
-
-                TD::make('page_url', 'Page')
-                    ->render(function (PhoneClick $click): string {
-                        $url = trim((string) ($click->page_url ?? ''));
-                        if ($url === '') {
-                            return '-';
-                        }
-
-                        return '<a href="'.e($url).'" target="_blank" rel="noopener">'.e(Str::limit($url, 50)).'</a>';
-                    }),
-
                 TD::make('google_sheet_sent_at', 'Google Sheet')
                     ->sort()
                     ->cantHide()
@@ -142,8 +163,10 @@ class PhoneClickListScreen extends Screen
                             ->confirm('Send this phone click to the Google Sheet? This can only be done once.');
                     }),
 
-                TD::make('id', 'Details')
-                    ->render(fn (PhoneClick $click) => Link::make('Open')
+                TD::make('id', '')
+                    ->align(TD::ALIGN_CENTER)
+                    ->width('80px')
+                    ->render(fn (PhoneClick $click) => Link::make('View')
                         ->icon('bs.eye')
                         ->route('platform.phone-clicks.view', $click)),
             ]),
