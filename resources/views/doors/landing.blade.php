@@ -138,9 +138,9 @@
   </div>
 </section>
 
-<section class="section top-none">
+<section class="section top-none door-solutions-section">
   <div class="w-layout-blockcontainer container-default w-container">
-    <div class="w-layout-grid grid-2-columns values-wrapper-grid">
+    <div class="w-layout-grid grid-2-columns values-wrapper-grid door-solutions-shell">
       <div class="image-wrapper border-radius-image-default door-landing-site-image">
         <x-img
           src="/webflow-assets/images/6979dd17e1e8dbc951d9753e_Interior-Kitchen-Hero-Doors-MR-scaled.webp"
@@ -149,26 +149,46 @@
           alt="Black patio doors connecting a kitchen with the outdoors"
           class="image cover-image"
         />
+        <div class="door-solutions-image-note">
+          <strong>Fit first.</strong>
+          <span>Every recommendation starts with your opening, your home, and how you use it.</span>
+        </div>
       </div>
       <div class="inner-container _500px _100-tablet door-landing-site-copy">
-        <div class="mg-top-default">
+        <div class="door-solutions-kicker">One installer. Every door type.</div>
+        <div class="door-solutions-heading">
           <h2 class="heading-8">One Team for Every Door Opening</h2>
         </div>
-        <div class="mg-top-small">
+        <div class="door-solutions-intro">
           <p class="paragraph-17">
             A front entry and a multi-slide patio system solve different problems. We compare security,
             weather exposure, daily operation, glass, hardware, and style before recommending a product.
           </p>
         </div>
-        <div class="mg-top-default w-richtext">
-          <h3>Entry doors</h3>
-          <p>Secure hardware, weather protection, and a stronger first impression.</p>
-          <h3>Sliding and French doors</h3>
-          <p>Comfortable access, efficient glass, and dependable daily operation.</p>
-          <h3>Multi-slide and bi-fold systems</h3>
-          <p>Large openings planned around the home, structure, and the way you entertain.</p>
+        <div class="door-solutions-list" role="list">
+          <article class="door-solution-item" role="listitem">
+            <span class="door-solution-number" aria-hidden="true">01</span>
+            <div>
+              <h3>Entry doors</h3>
+              <p>Secure hardware, weather protection, and a stronger first impression.</p>
+            </div>
+          </article>
+          <article class="door-solution-item" role="listitem">
+            <span class="door-solution-number" aria-hidden="true">02</span>
+            <div>
+              <h3>Sliding and French doors</h3>
+              <p>Comfortable access, efficient glass, and dependable daily operation.</p>
+            </div>
+          </article>
+          <article class="door-solution-item" role="listitem">
+            <span class="door-solution-number" aria-hidden="true">03</span>
+            <div>
+              <h3>Multi-slide and bi-fold systems</h3>
+              <p>Large openings planned around the home, structure, and the way you entertain.</p>
+            </div>
+          </article>
         </div>
-        <div class="mg-top-default">
+        <div class="door-solutions-action">
           <a href="#wf-form-Main-Form" class="primary-button w-inline-block">
             <div class="text-block-22">Discuss Your Door Project</div>
           </a>
@@ -183,7 +203,6 @@
     @include('partials.brand-strip', [
       'items' => $doorBrandStripItems,
       'title' => 'Explore Leading Door Brands',
-      'variant' => 'static',
     ])
   </div>
 </section>

@@ -4,10 +4,22 @@
 (function () {
   const MAP_ID = "previous-jobs-map";
   const DATA_URL = "/data/previous-jobs.json";
-  const LEAFLET_CSS = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
-  const CLUSTER_CSS = "https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css";
-  const LEAFLET_JS = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js";
-  const CLUSTER_JS = "https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js";
+  const LEAFLET_CSS = [
+    "https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css",
+    "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css",
+  ];
+  const CLUSTER_CSS = [
+    "https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.css",
+    "https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css",
+  ];
+  const LEAFLET_JS = [
+    "https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js",
+    "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js",
+  ];
+  const CLUSTER_JS = [
+    "https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js",
+    "https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js",
+  ];
 
   let loading = false;
   let loaded = false;
@@ -42,6 +54,18 @@
       script.onerror = function () { reject(new Error("JS failed: " + src)); };
       document.body.appendChild(script);
     });
+  }
+
+  function loadFirstAvailable(sources, loader) {
+    let attempt = Promise.reject();
+
+    sources.forEach(function (source) {
+      attempt = attempt.catch(function () {
+        return loader(source);
+      });
+    });
+
+    return attempt;
   }
 
   function waitForLibs(cb) {
@@ -83,6 +107,8 @@
   function initMap(points) {
     const el = document.getElementById(MAP_ID);
     if (!el || !points.length) return;
+    el.innerHTML = "";
+    el.classList.remove("jobs-map--empty");
 
     const map = L.map(MAP_ID, {
       scrollWheelZoom: false,
@@ -203,9 +229,10 @@
     loading = true;
 
     Promise.all([
-      loadCss(LEAFLET_CSS),
-      loadCss(CLUSTER_CSS),
-      loadScript(LEAFLET_JS).then(function () { return loadScript(CLUSTER_JS); }),
+      loadFirstAvailable(LEAFLET_CSS, loadCss),
+      loadFirstAvailable(CLUSTER_CSS, loadCss),
+      loadFirstAvailable(LEAFLET_JS, loadScript)
+        .then(function () { return loadFirstAvailable(CLUSTER_JS, loadScript); }),
     ])
       .then(function () {
         loaded = true;

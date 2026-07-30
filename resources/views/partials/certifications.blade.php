@@ -49,10 +49,16 @@
       </div>
       <div class="previous-jobs-map-section">
         <div class="title-left---content-right dva"><h2 class="heading-23">Our Previous Jobs</h2></div>
-        <div id="previous-jobs-map" class="jobs-map" aria-label="Map of our previous installation jobs"></div>
+        <div id="previous-jobs-map" class="jobs-map jobs-map--empty" aria-label="Map of our previous installation jobs">
+          <p class="jobs-map-empty">Loading completed projects…</p>
+        </div>
       </div>
       @push('scripts')
         @once
-          <script defer src="/webflow-overrides/previous-jobs-map.js"></script>
+          @php
+            $previousJobsMapScript = public_path('webflow-overrides/previous-jobs-map.js');
+            $previousJobsMapVersion = is_file($previousJobsMapScript) ? filemtime($previousJobsMapScript) : 1;
+          @endphp
+          <script defer src="/webflow-overrides/previous-jobs-map.js?v={{ $previousJobsMapVersion }}"></script>
         @endonce
       @endpush
