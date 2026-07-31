@@ -11,7 +11,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
-use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
 use Orchid\Screen\TD;
 use Orchid\Support\Facades\Layout;
@@ -78,17 +77,22 @@ class LeadListScreen extends Screen
                     ])),
 
                 TD::make('full_name', 'Name')
-                    ->render(fn (Lead $lead) => Link::make($lead->full_name)
-                        ->route('platform.leads.edit', $lead)),
-
-                TD::make('phone', 'Phone')
+                    ->width('190px')
                     ->render(function (Lead $lead): string {
                         $phone = trim((string) $lead->phone);
-                        if ($phone === '') {
-                            return '-';
-                        }
+                        $name = trim((string) $lead->full_name);
+                        $nameLink = '<a class="fw-semibold" href="'
+                            .e(route('platform.leads.edit', $lead)).'">'
+                            .e($name !== '' ? $name : 'Open lead')
+                            .'</a>';
 
-                        return '<a href="tel:'.e(preg_replace('/\s+/', '', $phone) ?? $phone).'">'.e($phone).'</a>';
+                        return $nameLink
+                            .($phone !== ''
+                                ? '<div class="small mt-1"><a href="tel:'
+                                    .e(preg_replace('/\s+/', '', $phone) ?? $phone).'">'
+                                    .e($phone)
+                                    .'</a></div>'
+                                : '');
                     }),
 
                 TD::make('email', 'Email')
@@ -102,7 +106,15 @@ class LeadListScreen extends Screen
                     }),
 
                 TD::make('city', 'City')
-                    ->render(fn (Lead $lead) => e((string) ($lead->city ?? '-'))),
+                    ->width('165px')
+                    ->render(function (Lead $lead): string {
+                        $city = trim((string) ($lead->city ?? ''));
+
+                        return e($city !== '' ? $city : '-')
+                            .'<div class="small text-muted mt-1">('
+                            .e($lead->trafficSourceLabel())
+                            .')</div>';
+                    }),
 
                 TD::make('message', 'Message')
                     ->render(function (Lead $lead): string {

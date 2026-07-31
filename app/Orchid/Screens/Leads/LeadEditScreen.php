@@ -126,6 +126,15 @@ class LeadEditScreen extends Screen
                         Layout::legend('lead', [
                             Sight::make('status', 'Current status')
                                 ->render(fn (Lead $lead) => '<span class="lead-status-badge lead-status-badge--'.e($lead->statusColor()).'">'.e($lead->statusLabel()).'</span>'),
+                            Sight::make('traffic_source', 'Traffic source')
+                                ->render(function (Lead $lead): string {
+                                    $detail = $lead->trafficSourceDetail();
+
+                                    return '<span class="badge bg-'.e($lead->trafficSourceColor()).' text-white">'
+                                        .e($lead->trafficSourceLabel())
+                                        .'</span>'
+                                        .($detail !== '' ? ' <span class="text-muted">'.e($detail).'</span>' : '');
+                                }),
                             Sight::make('spam_reason', 'Spam reason')
                                 ->render(fn (Lead $lead) => e($lead->metaValue('spam_reason', '-'))),
                             Sight::make('ip_address', 'IP')

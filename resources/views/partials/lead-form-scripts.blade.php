@@ -127,6 +127,16 @@
       if (!storageGet('lead_param_landing_page')) {
         storageSet('lead_param_landing_page', window.location.pathname);
       }
+      if (!storageGet('lead_param_referrer') && document.referrer) {
+        try {
+          const referrerUrl = new URL(document.referrer);
+          if (referrerUrl.hostname !== window.location.hostname) {
+            storageSet('lead_param_referrer', document.referrer);
+          }
+        } catch (error) {
+          // Ignore malformed referrer values.
+        }
+      }
     }
 
     function getGeoLocation() {
@@ -181,7 +191,7 @@
         page_url: pageUrl,
         URL: pageUrl,
         landing_page: firstValue(['landing_page']) || storageGet('lead_param_landing_page') || pagePath,
-        referrer: document.referrer,
+        referrer: firstValue(['referrer']) || storageGet('lead_param_referrer') || document.referrer,
         geo_location: geoLocation,
       };
       trackingParams.forEach(function (param) {
