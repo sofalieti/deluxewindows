@@ -279,6 +279,105 @@ test('one RingCentral call cannot be assigned to two phone clicks', function () 
         ->and(PhoneClick::query()->where('ringcentral_call_id', 'one-call-only')->count())->toBe(1);
 });
 
+test('phone click matching also checks additional RingCentral numbers from promotions', function () {
+    Queue::fake();
+    CarbonImmutable::setTestNow('2026-07-30 16:03:00 UTC');
+
+    \App\Models\PromotionControl::query()->updateOrCreate(
+        ['scope' => 'default'],
+        [
+            'phone_display' => '(650) 461-4446',
+            'phone_tel' => '+16504614446',
+            'ringcentral_extra_phones' => ['+14155550199'],
+        ],
+    );
+    app(\App\Services\PromotionControlService::class)->forgetCache();
+
+    $click = PhoneClick::query()->create([
+        'phone' => '+16504614446',
+        'ringcentral_status' => PhoneClick::RINGCENTRAL_PENDING,
+    ]);
+    $click->forceFill([
+        'created_at' => CarbonImmutable::parse('2026-07-30 16:00:00 UTC'),
+        'updated_at' => CarbonImmutable::parse('2026-07-30 16:00:00 UTC'),
+    ])->saveQuietly();
+
+    Http::fake(function (Request $request) {
+        if (str_contains($request->url(), '/oauth/token')) {
+            return Http::response([
+                'access_token' => 'test-access-token',
+                'expires_in' => 3600,
+            ]);
+        }
+
+        $phone = $request['phoneNumber'] ?? '';
+        if ($phone === '+14155550199') {
+            return Http::response([
+                'records' => [[
+                    'id' => 'extra-did-call',
+                    'sessionId' => 'extra-session',
+                    'startTime' => '2026-07-30T16:00:20.000Z',
+                    'duration' => 33,
+                    'type' => 'Voice',
+                    'direction' => 'Inbound',
+                    'result' => 'Accepted',
+                    'from' => ['phoneNumber' => '+14155550888'],
+                    'to' => ['phoneNumber' => '+14155550199'],
+                ]],
+            ]);
+        }
+
+        return Http::response(['records' => []]);
+    });
+
+    (new MatchPhoneClickToRingCentral($click->id))
+        ->handle(app(RingCentralCallLogService::class));
+
+    $click->refresh();
+
+    expect($click->ringcentral_status)->toBe(PhoneClick::RINGCENTRAL_FOUND)
+        ->and($click->ringcentral_call_id)->toBe('extra-did-call')
+        ->and($click->ringcentral_to_phone)->toBe('+14155550199')
+        ->and($click->ringcentral_from_phone)->toBe('+14155550888');
+});
+
+test('phone clicks screen can trigger an immediate RingCentral re-check', function () {
+    CarbonImmutable::setTestNow('2026-07-30 16:03:00 UTC');
+    $user = \App\Models\User::factory()->create();
+    $user->forceFill([
+        'permissions' => ['platform.leads' => true],
+    ])->save();
+
+    $click = PhoneClick::query()->create([
+        'phone' => '+16504614446',
+        'ringcentral_status' => PhoneClick::RINGCENTRAL_PENDING,
+    ]);
+    $click->forceFill([
+        'created_at' => CarbonImmutable::parse('2026-07-30 16:00:00 UTC'),
+        'updated_at' => CarbonImmutable::parse('2026-07-30 16:00:00 UTC'),
+    ])->saveQuietly();
+
+    fakeRingCentralCallLog([[
+        'id' => 'admin-check-call',
+        'sessionId' => 'admin-check-session',
+        'startTime' => '2026-07-30T16:00:15.000Z',
+        'duration' => 10,
+        'type' => 'Voice',
+        'direction' => 'Inbound',
+        'result' => 'Accepted',
+        'from' => ['phoneNumber' => '+14155550777'],
+        'to' => ['phoneNumber' => '+16504614446'],
+    ]]);
+
+    $this->withoutMiddleware(\Orchid\Platform\Http\Middleware\Access::class)
+        ->actingAs($user)
+        ->post(route('platform.phone-clicks', ['method' => 'checkRingCentralNow']))
+        ->assertRedirect();
+
+    expect($click->refresh()->ringcentral_status)->toBe(PhoneClick::RINGCENTRAL_FOUND)
+        ->and($click->ringcentral_call_id)->toBe('admin-check-call');
+});
+
 function fakeRingCentralCallLog(array $records): void
 {
     Http::fake([

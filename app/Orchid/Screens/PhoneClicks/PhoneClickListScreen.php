@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace App\Orchid\Screens\PhoneClicks;
 
+use App\Jobs\MatchPhoneClickToRingCentral;
 use App\Models\PhoneClick;
 use App\Services\PhoneClickGoogleBridge;
+use App\Services\RingCentralCallLogService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -16,6 +18,7 @@ use Orchid\Screen\TD;
 use Orchid\Support\Color;
 use Orchid\Support\Facades\Layout;
 use Orchid\Support\Facades\Toast;
+use Throwable;
 
 class PhoneClickListScreen extends Screen
 {
@@ -35,7 +38,7 @@ class PhoneClickListScreen extends Screen
 
     public function description(): ?string
     {
-        return 'Website phone clicks with RingCentral validation, GCLID attribution, and Google Sheet status.';
+        return 'Website phone clicks with RingCentral validation (main + extra numbers), GCLID attribution, and Google Sheet status.';
     }
 
     public function permission(): ?iterable
@@ -47,7 +50,12 @@ class PhoneClickListScreen extends Screen
 
     public function commandBar(): iterable
     {
-        return [];
+        return [
+            Button::make('Check RingCentral now')
+                ->icon('bs.arrow-repeat')
+                ->method('checkRingCentralNow')
+                ->confirm('Re-check pending phone clicks against RingCentral (main and extra numbers)?'),
+        ];
     }
 
     public function layout(): iterable
@@ -198,5 +206,52 @@ class PhoneClickListScreen extends Screen
         }
 
         Toast::success($result['message']);
+    }
+
+    public function checkRingCentralNow(RingCentralCallLogService $ringCentral): void
+    {
+        $clicks = PhoneClick::query()
+            ->whereNotIn('ringcentral_status', [
+                PhoneClick::RINGCENTRAL_FOUND,
+                PhoneClick::RINGCENTRAL_NO_CALL,
+            ])
+            ->orderByDesc('id')
+            ->limit(50)
+            ->get();
+
+        if ($clicks->isEmpty()) {
+            Toast::info('No pending phone clicks need a RingCentral check.');
+
+            return;
+        }
+
+        $found = 0;
+        $errors = 0;
+
+        foreach ($clicks as $click) {
+            // Allow an immediate admin re-check even if a job ran moments ago.
+            $click->forceFill([
+                'ringcentral_checked_at' => null,
+            ])->saveQuietly();
+
+            try {
+                (new MatchPhoneClickToRingCentral($click->id))->handle($ringCentral);
+            } catch (Throwable $exception) {
+                report($exception);
+                $errors++;
+                continue;
+            }
+
+            if ($click->refresh()->ringcentral_status === PhoneClick::RINGCENTRAL_FOUND) {
+                $found++;
+            }
+        }
+
+        Toast::success(sprintf(
+            'Checked %d phone click(s): %d matched, %d errors.',
+            $clicks->count(),
+            $found,
+            $errors,
+        ));
     }
 }

@@ -24,7 +24,8 @@ use Throwable;
 
 class RingCentralCallListScreen extends Screen
 {
-    private string $businessPhone = '';
+    /** @var list<string> */
+    private array $monitoredPhones = [];
 
     private string $lastSyncedLabel = 'never';
 
@@ -32,7 +33,13 @@ class RingCentralCallListScreen extends Screen
         PromotionControlService $promotions,
         RingCentralCallLogService $callLog
     ): iterable {
-        $this->businessPhone = $callLog->normalizePhone($promotions->phoneTel());
+        $this->monitoredPhones = array_values(array_filter(
+            array_map(
+                fn (string $phone): string => $callLog->normalizePhone($phone),
+                $promotions->ringCentralPhones(),
+            ),
+            fn (string $phone): bool => $phone !== '',
+        ));
         $this->lastSyncedLabel = $this->resolveLastSyncedLabel();
 
         if (! Schema::hasTable('ringcentral_calls') || ! Schema::hasTable('ringcentral_excluded_numbers')) {
@@ -65,9 +72,11 @@ class RingCentralCallListScreen extends Screen
 
     public function description(): ?string
     {
-        $phone = $this->businessPhone !== '' ? $this->businessPhone : 'the business number';
+        $phones = $this->monitoredPhones !== []
+            ? implode(', ', $this->monitoredPhones)
+            : 'configured numbers';
 
-        return 'Inbound and outbound company calls for '.$phone
+        return 'Inbound and outbound company calls for '.$phones
             .'. Auto-sync hourly; last sync: '.$this->lastSyncedLabel.'.';
     }
 
@@ -174,11 +183,13 @@ class RingCentralCallListScreen extends Screen
         }
 
         Toast::success(sprintf(
-            'Synced %s: %d new, %d updated (%d fetched).',
+            'Synced %s: %d new, %d updated (%d fetched). Window %s → %s PT.',
             $result['business_phone'],
             $result['created'],
             $result['updated'],
             $result['fetched'],
+            CarbonImmutable::parse($result['from'])->setTimezone('America/Los_Angeles')->format('M d, h:i A'),
+            CarbonImmutable::parse($result['to'])->setTimezone('America/Los_Angeles')->format('M d, h:i A'),
         ));
     }
 
@@ -195,10 +206,13 @@ class RingCentralCallListScreen extends Screen
 
         $call = RingCentralCall::query()->findOrFail((int) $validated['call']);
         $phone = $callLog->normalizePhone((string) $call->external_phone);
-        $businessPhone = $callLog->normalizePhone($promotions->phoneTel());
+        $monitored = array_map(
+            fn (string $value): string => $callLog->normalizePhone($value),
+            $promotions->ringCentralPhones(),
+        );
 
-        if ($phone === '' || $phone === $businessPhone) {
-            Toast::error('The current business number cannot be excluded.');
+        if ($phone === '' || in_array($phone, $monitored, true)) {
+            Toast::error('Monitored business numbers cannot be excluded.');
 
             return;
         }
@@ -231,19 +245,21 @@ class RingCentralCallListScreen extends Screen
 
     private function resolveLastSyncedLabel(): string
     {
-        if ($this->businessPhone === '' || ! Schema::hasTable('ringcentral_call_sync_states')) {
+        if ($this->monitoredPhones === [] || ! Schema::hasTable('ringcentral_call_sync_states')) {
             return 'never';
         }
 
-        $state = RingCentralCallSyncState::query()
-            ->where('business_phone', $this->businessPhone)
-            ->first();
+        $latest = RingCentralCallSyncState::query()
+            ->whereIn('business_phone', $this->monitoredPhones)
+            ->whereNotNull('last_synced_at')
+            ->orderByDesc('last_synced_at')
+            ->value('last_synced_at');
 
-        if ($state?->last_synced_at === null) {
+        if ($latest === null) {
             return 'never';
         }
 
-        return CarbonImmutable::parse($state->last_synced_at)
+        return CarbonImmutable::parse($latest)
             ->setTimezone('America/Los_Angeles')
             ->format('M d, Y h:i A').' PT';
     }

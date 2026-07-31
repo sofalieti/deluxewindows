@@ -29,8 +29,8 @@ class RingCentralCallLogService
      */
     public function findMatchingCall(PhoneClick $click): ?array
     {
-        $targetPhone = $this->normalizePhone((string) $click->phone);
-        if ($targetPhone === '') {
+        $candidatePhones = $this->matchCandidatePhones((string) $click->phone);
+        if ($candidatePhones === []) {
             return null;
         }
 
@@ -42,67 +42,73 @@ class RingCentralCallLogService
         $currentTime = CarbonImmutable::now('UTC');
         $dateTo = $currentTime->lessThan($deadline) ? $currentTime : $deadline;
 
-        $response = $this->getCallLog($targetPhone, $dateFrom, $dateTo);
-        $records = $response->json('records', []);
-        if (! is_array($records)) {
-            return null;
-        }
-
         $matches = [];
+        $seenCallIds = [];
 
-        foreach ($records as $record) {
-            if (! is_array($record)) {
+        foreach ($candidatePhones as $lookupPhone) {
+            $response = $this->getCallLog($lookupPhone, $dateFrom, $dateTo);
+            $records = $response->json('records', []);
+            if (! is_array($records)) {
                 continue;
             }
 
-            $id = trim((string) ($record['id'] ?? ''));
-            $direction = trim((string) ($record['direction'] ?? ''));
-            $type = trim((string) ($record['type'] ?? ''));
-            $toPhone = $this->normalizePhone((string) data_get($record, 'to.phoneNumber', ''));
-            $rawStartTime = trim((string) ($record['startTime'] ?? ''));
+            foreach ($records as $record) {
+                if (! is_array($record)) {
+                    continue;
+                }
 
-            if (
-                $id === ''
-                || strcasecmp($direction, 'Inbound') !== 0
-                || ($type !== '' && strcasecmp($type, 'Voice') !== 0)
-                || $toPhone !== $targetPhone
-                || $rawStartTime === ''
-            ) {
-                continue;
+                $id = trim((string) ($record['id'] ?? ''));
+                $direction = trim((string) ($record['direction'] ?? ''));
+                $type = trim((string) ($record['type'] ?? ''));
+                $toPhone = $this->normalizePhone((string) data_get($record, 'to.phoneNumber', ''));
+                $rawStartTime = trim((string) ($record['startTime'] ?? ''));
+
+                if (
+                    $id === ''
+                    || isset($seenCallIds[$id])
+                    || strcasecmp($direction, 'Inbound') !== 0
+                    || ($type !== '' && strcasecmp($type, 'Voice') !== 0)
+                    || ! $this->matchesAnyPhone($toPhone, $candidatePhones)
+                    || $rawStartTime === ''
+                ) {
+                    continue;
+                }
+
+                $seenCallIds[$id] = true;
+
+                if (PhoneClick::query()
+                    ->where('ringcentral_call_id', $id)
+                    ->where($click->getKeyName(), '!=', $click->getKey())
+                    ->exists()) {
+                    continue;
+                }
+
+                try {
+                    $callStartedAt = CarbonImmutable::parse($rawStartTime)->utc();
+                } catch (\Throwable) {
+                    continue;
+                }
+
+                if ($callStartedAt->lessThan($dateFrom) || $callStartedAt->greaterThan($dateTo)) {
+                    continue;
+                }
+
+                $matches[] = [
+                    'id' => $id,
+                    'session_id' => trim((string) (
+                        $record['telephonySessionId']
+                        ?? $record['sessionId']
+                        ?? ''
+                    )),
+                    'result' => trim((string) ($record['result'] ?? 'Unknown')),
+                    'direction' => $direction,
+                    'start_time' => $callStartedAt,
+                    'duration' => max(0, (int) ($record['duration'] ?? 0)),
+                    'from_phone' => $this->normalizePhone((string) data_get($record, 'from.phoneNumber', '')),
+                    'to_phone' => $toPhone,
+                    'distance' => abs($startedAt->diffInSeconds($callStartedAt, false)),
+                ];
             }
-
-            if (PhoneClick::query()
-                ->where('ringcentral_call_id', $id)
-                ->where($click->getKeyName(), '!=', $click->getKey())
-                ->exists()) {
-                continue;
-            }
-
-            try {
-                $callStartedAt = CarbonImmutable::parse($rawStartTime)->utc();
-            } catch (\Throwable) {
-                continue;
-            }
-
-            if ($callStartedAt->lessThan($dateFrom) || $callStartedAt->greaterThan($dateTo)) {
-                continue;
-            }
-
-            $matches[] = [
-                'id' => $id,
-                'session_id' => trim((string) (
-                    $record['telephonySessionId']
-                    ?? $record['sessionId']
-                    ?? ''
-                )),
-                'result' => trim((string) ($record['result'] ?? 'Unknown')),
-                'direction' => $direction,
-                'start_time' => $callStartedAt,
-                'duration' => max(0, (int) ($record['duration'] ?? 0)),
-                'from_phone' => $this->normalizePhone((string) data_get($record, 'from.phoneNumber', '')),
-                'to_phone' => $toPhone,
-                'distance' => abs($startedAt->diffInSeconds($callStartedAt, false)),
-            ];
         }
 
         if ($matches === []) {
@@ -113,6 +119,44 @@ class RingCentralCallLogService
         unset($matches[0]['distance']);
 
         return $matches[0];
+    }
+
+    /**
+     * Clicked number plus every monitored company number from Promotions.
+     *
+     * @return list<string>
+     */
+    public function matchCandidatePhones(string $clickedPhone): array
+    {
+        $phones = [];
+        $clicked = $this->normalizePhone($clickedPhone);
+        if ($clicked !== '') {
+            $phones[] = $clicked;
+        }
+
+        foreach (app(PromotionControlService::class)->ringCentralPhones() as $phone) {
+            $normalized = $this->normalizePhone($phone);
+            if ($normalized === '' || $this->matchesAnyPhone($normalized, $phones)) {
+                continue;
+            }
+            $phones[] = $normalized;
+        }
+
+        return $phones;
+    }
+
+    /**
+     * @param  list<string>  $phones
+     */
+    public function matchesAnyPhone(string $needle, array $phones): bool
+    {
+        foreach ($phones as $phone) {
+            if ($this->phonesMatch($needle, $phone)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -286,7 +330,7 @@ class RingCentralCallLogService
 
         $externalPhone = $direction === 'Inbound' ? $fromPhone : $toPhone;
         $businessSide = $direction === 'Inbound' ? $toPhone : $fromPhone;
-        if ($businessSide !== $businessPhone || $externalPhone === '') {
+        if (! $this->phonesMatch($businessSide, $businessPhone) || $externalPhone === '') {
             return null;
         }
 
@@ -378,5 +422,28 @@ class RingCentralCallLogService
         }
 
         return $digits !== '' ? '+'.$digits : '';
+    }
+
+    /**
+     * Compare numbers ignoring formatting: "(650) 461-4446", "6504614446", "+16504614446".
+     */
+    public function phonesMatch(string $left, string $right): bool
+    {
+        $left = $this->normalizePhone($left);
+        $right = $this->normalizePhone($right);
+        if ($left === '' || $right === '') {
+            return false;
+        }
+
+        if ($left === $right) {
+            return true;
+        }
+
+        $leftDigits = substr(preg_replace('/\D+/', '', $left) ?? '', -10);
+        $rightDigits = substr(preg_replace('/\D+/', '', $right) ?? '', -10);
+
+        return strlen($leftDigits) === 10
+            && strlen($rightDigits) === 10
+            && $leftDigits === $rightDigits;
     }
 }

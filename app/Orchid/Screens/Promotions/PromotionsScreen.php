@@ -16,6 +16,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Fields\TextArea;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Layout;
 use Orchid\Support\Facades\Toast;
@@ -133,6 +134,9 @@ class PromotionsScreen extends Screen
                 'global_end_date' => optional($control->global_end_date)->format('Y-m-d') ?? '',
                 'phone_display' => (string) ($control->phone_display ?? PromotionControlService::DEFAULT_PHONE_DISPLAY),
                 'phone_tel' => (string) ($control->phone_tel ?? PromotionControlService::DEFAULT_PHONE_TEL),
+                'ringcentral_extra_phones' => implode("\n", is_array($control->ringcentral_extra_phones ?? null)
+                    ? $control->ringcentral_extra_phones
+                    : []),
                 'window_type_prices' => $windowTypePrices,
                 'series_prices' => $seriesPrices,
                 'brand_prices' => $brandPrices,
@@ -209,6 +213,11 @@ class PromotionsScreen extends Screen
                         ->title('Phone Number for "tel:" links')
                         ->placeholder('+16504614446')
                         ->help('Used in click-to-call links. Leave empty to auto-generate from the number above.'),
+                    TextArea::make('promotions.ringcentral_extra_phones')
+                        ->title('Additional RingCentral numbers')
+                        ->rows(4)
+                        ->placeholder("(415) 555-0100\n+14155550100")
+                        ->help('One number per line. These numbers are also used for RingCentral call sync and phone-click call matching (inbound), in addition to the main contact phone.'),
                 ]),
                 'Window Types' => Layout::view('admin.promotions.pricing-tab', [
                     'scope' => 'window_type_prices',
@@ -275,6 +284,11 @@ class PromotionsScreen extends Screen
         $control->global_end_date = $endDate === '' ? null : $endDate;
         $control->phone_display = $phoneDisplay;
         $control->phone_tel = $phoneTel;
+        if (Schema::hasColumn('promotion_controls', 'ringcentral_extra_phones')) {
+            $control->ringcentral_extra_phones = PromotionControlService::normalizeRingCentralExtraPhones(
+                $data['ringcentral_extra_phones'] ?? []
+            );
+        }
         $control->window_type_prices = $windowTypePrices;
         $control->series_prices = $seriesPrices;
         $control->brand_prices = $brandPrices;

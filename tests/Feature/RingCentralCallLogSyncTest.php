@@ -186,6 +186,99 @@ test('Orchid Sync now button pulls calls from RingCentral', function () {
         ->not->toBeNull();
 });
 
+test('phone formatting variants are treated as the same number', function () {
+    $service = app(RingCentralCallLogService::class);
+
+    expect($service->normalizePhone('(650) 461-4446'))->toBe('+16504614446')
+        ->and($service->normalizePhone('650-461-4446'))->toBe('+16504614446')
+        ->and($service->normalizePhone('+1 650 461 4446'))->toBe('+16504614446')
+        ->and($service->phonesMatch('(650) 461-4446', '+16504614446'))->toBeTrue()
+        ->and($service->phonesMatch('6504614446', '+16504614446'))->toBeTrue();
+});
+
+test('sync keeps calls when RingCentral returns a formatted business number', function () {
+    CarbonImmutable::setTestNow('2026-07-31 18:30:00 UTC');
+    Http::fake([
+        'https://platform.ringcentral.test/restapi/oauth/token' => Http::response([
+            'access_token' => 'test-access-token',
+            'expires_in' => 3600,
+        ]),
+        'https://platform.ringcentral.test/restapi/v1.0/account/*/call-log*' => Http::response([
+            'records' => [[
+                'id' => 'formatted-call-1',
+                'sessionId' => 'formatted-session-1',
+                'startTime' => '2026-07-31T18:00:00.000Z',
+                'duration' => 45,
+                'type' => 'Voice',
+                'direction' => 'Inbound',
+                'result' => 'Accepted',
+                'from' => ['phoneNumber' => '(415) 555-0444'],
+                'to' => ['phoneNumber' => '(650) 461-4446'],
+            ]],
+        ]),
+    ]);
+
+    $result = app(RingCentralCallSyncService::class)->sync();
+
+    expect($result['fetched'])->toBe(1)
+        ->and(RingCentralCall::query()->sole()->external_phone)->toBe('+14155550444')
+        ->and(RingCentralCall::query()->sole()->business_phone)->toBe('+16504614446');
+});
+
+test('extra RingCentral phones from promotions are synced too', function () {
+    CarbonImmutable::setTestNow('2026-07-31 18:30:00 UTC');
+
+    PromotionControl::query()->updateOrCreate(
+        ['scope' => 'default'],
+        [
+            'phone_display' => '(650) 461-4446',
+            'phone_tel' => '+16504614446',
+            'ringcentral_extra_phones' => ['(415) 555-0199'],
+        ],
+    );
+    app(\App\Services\PromotionControlService::class)->forgetCache();
+
+    Http::fake(function (\Illuminate\Http\Client\Request $request) {
+        if (str_contains($request->url(), '/oauth/token')) {
+            return Http::response([
+                'access_token' => 'test-access-token',
+                'expires_in' => 3600,
+            ]);
+        }
+
+        $phone = $request['phoneNumber'] ?? '';
+        $id = $phone === '+14155550199' ? 'extra-call' : 'primary-call';
+        $to = $phone === '+14155550199' ? '+14155550199' : '+16504614446';
+
+        return Http::response([
+            'records' => [[
+                'id' => $id,
+                'sessionId' => 'session-'.$id,
+                'startTime' => '2026-07-31T18:00:00.000Z',
+                'duration' => 20,
+                'type' => 'Voice',
+                'direction' => 'Inbound',
+                'result' => 'Accepted',
+                'from' => ['phoneNumber' => '+14155550000'],
+                'to' => ['phoneNumber' => $to],
+            ]],
+        ]);
+    });
+
+    $result = app(RingCentralCallSyncService::class)->sync();
+
+    expect($result['fetched'])->toBe(2)
+        ->and($result['phones'])->toBe(['+16504614446', '+14155550199'])
+        ->and(RingCentralCall::query()->pluck('business_phone')->sort()->values()->all())
+        ->toBe(['+14155550199', '+16504614446']);
+});
+
+test('promotions normalize extra RingCentral phone lines', function () {
+    expect(\App\Services\PromotionControlService::normalizeRingCentralExtraPhones(
+        "(415) 555-0100\n\n+14155550100\n650-461-4446"
+    ))->toBe(['+14155550100', '+16504614446']);
+});
+
 function fakePaginatedRingCentralCalls(): void
 {
     Http::fake([

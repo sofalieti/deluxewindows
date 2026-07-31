@@ -15,6 +15,7 @@ class PromotionControl extends Model
         'global_end_date',
         'phone_display',
         'phone_tel',
+        'ringcentral_extra_phones',
         'window_type_prices',
         'series_prices',
         'brand_prices',
@@ -26,6 +27,7 @@ class PromotionControl extends Model
     {
         return [
             'global_end_date' => 'date',
+            'ringcentral_extra_phones' => 'array',
             'window_type_prices' => 'array',
             'series_prices' => 'array',
             'brand_prices' => 'array',

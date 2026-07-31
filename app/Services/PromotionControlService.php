@@ -26,6 +26,7 @@ class PromotionControlService
                 'global_end_date' => null,
                 'phone_display' => self::DEFAULT_PHONE_DISPLAY,
                 'phone_tel' => self::DEFAULT_PHONE_TEL,
+                'ringcentral_extra_phones' => [],
                 'window_type_prices' => [],
                 'series_prices' => [],
                 'brand_prices' => [],
@@ -87,6 +88,72 @@ class PromotionControlService
         }
 
         return self::normalizeTel($this->phoneDisplay());
+    }
+
+    /**
+     * Primary site phone plus optional RingCentral monitoring numbers.
+     *
+     * @return list<string> E.164 numbers, unique, primary first
+     */
+    public function ringCentralPhones(): array
+    {
+        $phones = [];
+        $primary = trim($this->phoneTel());
+        if ($primary !== '') {
+            $phones[] = self::normalizeTel($primary);
+        }
+
+        $extras = [];
+        if (Schema::hasColumn('promotion_controls', 'ringcentral_extra_phones')) {
+            $extras = $this->get()->ringcentral_extra_phones ?? [];
+        }
+        if (! is_array($extras)) {
+            $extras = [];
+        }
+
+        foreach ($extras as $extra) {
+            $raw = trim((string) $extra);
+            if ($raw === '') {
+                continue;
+            }
+            $normalized = self::normalizeTel($raw);
+            if ($normalized === '' || in_array($normalized, $phones, true)) {
+                continue;
+            }
+            $phones[] = $normalized;
+        }
+
+        return $phones;
+    }
+
+    /**
+     * @param  list<string>|mixed  $phones
+     * @return list<string>
+     */
+    public static function normalizeRingCentralExtraPhones(mixed $phones): array
+    {
+        if (is_string($phones)) {
+            $phones = preg_split('/\R+/', $phones) ?: [];
+        }
+
+        if (! is_array($phones)) {
+            return [];
+        }
+
+        $normalized = [];
+        foreach ($phones as $phone) {
+            $raw = trim((string) $phone);
+            if ($raw === '') {
+                continue;
+            }
+            $value = self::normalizeTel($raw);
+            if ($value === '' || in_array($value, $normalized, true)) {
+                continue;
+            }
+            $normalized[] = $value;
+        }
+
+        return $normalized;
     }
 
     /**

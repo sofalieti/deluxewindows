@@ -18,12 +18,60 @@ final class RingCentralCallSyncService
     ) {}
 
     /**
-     * @return array{created: int, updated: int, fetched: int, from: string, to: string, business_phone: string}
+     * @return array{
+     *     created: int,
+     *     updated: int,
+     *     fetched: int,
+     *     from: string,
+     *     to: string,
+     *     business_phone: string,
+     *     phones: list<string>
+     * }
      */
     public function sync(?CarbonImmutable $now = null): array
     {
         $now = ($now ?? CarbonImmutable::now('UTC'))->utc();
-        $businessPhone = $this->callLog->normalizePhone($this->promotions->phoneTel());
+        $phones = $this->promotions->ringCentralPhones();
+        if ($phones === []) {
+            throw new RuntimeException('No admin phone numbers are configured for RingCentral sync.');
+        }
+
+        $created = 0;
+        $updated = 0;
+        $fetched = 0;
+        $earliestFrom = null;
+        $syncedPhones = [];
+
+        foreach ($phones as $businessPhone) {
+            $result = $this->syncPhone($businessPhone, $now);
+            $created += $result['created'];
+            $updated += $result['updated'];
+            $fetched += $result['fetched'];
+            $syncedPhones[] = $businessPhone;
+
+            $from = CarbonImmutable::parse($result['from']);
+            if ($earliestFrom === null || $from->lessThan($earliestFrom)) {
+                $earliestFrom = $from;
+            }
+        }
+
+        return [
+            'created' => $created,
+            'updated' => $updated,
+            'fetched' => $fetched,
+            'from' => ($earliestFrom ?? $now)->toIso8601String(),
+            'to' => $now->toIso8601String(),
+            'business_phone' => implode(', ', $syncedPhones),
+            'phones' => $syncedPhones,
+        ];
+    }
+
+    /**
+     * @return array{created: int, updated: int, fetched: int, from: string, to: string, business_phone: string}
+     */
+    private function syncPhone(string $businessPhone, CarbonImmutable $now): array
+    {
+        $businessPhone = $this->callLog->normalizePhone($businessPhone);
         if ($businessPhone === '') {
             throw new RuntimeException('The current admin phone number is empty.');
         }
