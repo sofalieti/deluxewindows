@@ -10,7 +10,9 @@ use App\Services\PromotionControlService;
 use App\Services\RingCentralCallLogService;
 use Carbon\CarbonImmutable;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Schema;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Screen;
 use Orchid\Screen\TD;
@@ -27,6 +29,15 @@ class RingCentralCallListScreen extends Screen
     ): iterable {
         $this->businessPhone = $callLog->normalizePhone($promotions->phoneTel());
 
+        if (! Schema::hasTable('ringcentral_calls') || ! Schema::hasTable('ringcentral_excluded_numbers')) {
+            Toast::error('RingCentral call tables are missing. Run: php artisan migrate');
+
+            return [
+                'calls' => new LengthAwarePaginator([], 0, 50),
+                'excludedNumbers' => collect(),
+            ];
+        }
+
         return [
             'calls' => RingCentralCall::query()
                 ->visible()
@@ -34,13 +45,7 @@ class RingCentralCallListScreen extends Screen
                 ->paginate(50),
             'excludedNumbers' => RingCentralExcludedNumber::query()
                 ->whereNull('restored_at')
-                ->select('ringcentral_excluded_numbers.*')
-                ->selectSub(
-                    RingCentralCall::query()
-                        ->selectRaw('count(*)')
-                        ->whereColumn('ringcentral_calls.external_phone', 'ringcentral_excluded_numbers.phone'),
-                    'hidden_calls_count'
-                )
+                ->withCount(['calls as hidden_calls_count'])
                 ->with('excludedBy')
                 ->orderByDesc('excluded_at')
                 ->get(),
@@ -54,7 +59,9 @@ class RingCentralCallListScreen extends Screen
 
     public function description(): ?string
     {
-        return 'Inbound and outbound calls for '.$this->businessPhone.'. Synced hourly.';
+        $phone = $this->businessPhone !== '' ? $this->businessPhone : 'the business number';
+
+        return 'Inbound and outbound calls for '.$phone.'. Synced hourly.';
     }
 
     public function permission(): ?iterable
@@ -125,7 +132,7 @@ class RingCentralCallListScreen extends Screen
                         ->render(fn (RingCentralExcludedNumber $number): string => e($number->excludedBy?->name ?? 'System')),
                     TD::make('hidden_calls_count', 'Hidden calls')
                         ->align(TD::ALIGN_CENTER)
-                        ->render(fn (RingCentralExcludedNumber $number): string => (string) $number->hidden_calls_count),
+                        ->render(fn (RingCentralExcludedNumber $number): string => (string) $number->hiddenCallsCount()),
                     TD::make('id', '')
                         ->align(TD::ALIGN_CENTER)
                         ->render(fn (RingCentralExcludedNumber $number) => Button::make('Restore')

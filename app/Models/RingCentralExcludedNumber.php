@@ -6,6 +6,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Orchid\Screen\AsSource;
 
 class RingCentralExcludedNumber extends Model
@@ -40,8 +41,13 @@ class RingCentralExcludedNumber extends Model
         return $this->belongsTo(User::class, 'restored_by_user_id');
     }
 
+    public function calls(): HasMany
+    {
+        return $this->hasMany(RingCentralCall::class, 'external_phone', 'phone');
+    }
+
     public function hiddenCallsCount(): int
     {
-        return RingCentralCall::query()->where('external_phone', $this->phone)->count();
+        return (int) ($this->hidden_calls_count ?? $this->calls()->count());
     }
 }
