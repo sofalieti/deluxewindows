@@ -2,6 +2,12 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\Admin\GoogleMailboxOAuthController;
+use App\Http\Controllers\Admin\WebflowImageUploadController;
+use App\Orchid\Screens\Contacts\ContactEditScreen;
+use App\Orchid\Screens\Contacts\ContactListScreen;
+use App\Orchid\Screens\DoorBrands\DoorBrandEditScreen;
+use App\Orchid\Screens\DoorBrands\DoorBrandListScreen;
 use App\Orchid\Screens\Examples\ExampleActionsScreen;
 use App\Orchid\Screens\Examples\ExampleCardsScreen;
 use App\Orchid\Screens\Examples\ExampleChartsScreen;
@@ -14,25 +20,21 @@ use App\Orchid\Screens\Examples\ExampleTextEditorsScreen;
 use App\Orchid\Screens\Leads\LeadEditScreen;
 use App\Orchid\Screens\Leads\LeadListScreen;
 use App\Orchid\Screens\Leads\LeadSpamListScreen;
-use App\Orchid\Screens\PhoneClicks\PhoneClickListScreen;
-use App\Orchid\Screens\PhoneClicks\PhoneClickViewScreen;
-use App\Orchid\Screens\Marketing\ContentDatasetsScreen;
-use App\Orchid\Screens\PlatformScreen;
-use App\Orchid\Screens\Seo\SitemapScreen;
-use App\Orchid\Screens\Role\RoleEditScreen;
-use App\Orchid\Screens\Role\RoleListScreen;
-use App\Orchid\Screens\User\UserEditScreen;
-use App\Orchid\Screens\User\UserListScreen;
-use App\Orchid\Screens\User\UserProfileScreen;
-use App\Orchid\Screens\Promotions\PromotionsScreen;
-use App\Orchid\Screens\DoorBrands\DoorBrandListScreen;
-use App\Orchid\Screens\DoorBrands\DoorBrandEditScreen;
 use App\Orchid\Screens\Mailbox\MailboxComposeScreen;
 use App\Orchid\Screens\Mailbox\MailboxListScreen;
 use App\Orchid\Screens\Mailbox\MailboxSettingsScreen;
 use App\Orchid\Screens\Mailbox\MailboxViewScreen;
-use App\Http\Controllers\Admin\GoogleMailboxOAuthController;
-use App\Http\Controllers\Admin\WebflowImageUploadController;
+use App\Orchid\Screens\Marketing\ContentDatasetsScreen;
+use App\Orchid\Screens\PhoneClicks\PhoneClickListScreen;
+use App\Orchid\Screens\PhoneClicks\PhoneClickViewScreen;
+use App\Orchid\Screens\PlatformScreen;
+use App\Orchid\Screens\Promotions\PromotionsScreen;
+use App\Orchid\Screens\Role\RoleEditScreen;
+use App\Orchid\Screens\Role\RoleListScreen;
+use App\Orchid\Screens\Seo\SitemapScreen;
+use App\Orchid\Screens\User\UserEditScreen;
+use App\Orchid\Screens\User\UserListScreen;
+use App\Orchid\Screens\User\UserProfileScreen;
 use App\Orchid\Screens\Webflow\WebflowCollectionEditScreen;
 use App\Orchid\Screens\Webflow\WebflowCollectionListScreen;
 use Illuminate\Support\Facades\Route;
@@ -61,6 +63,15 @@ Route::screen('leads', LeadListScreen::class)
 
 Route::screen('leads/spam', LeadSpamListScreen::class)
     ->name('platform.leads.spam');
+
+Route::screen('contacts/create', ContactEditScreen::class)
+    ->name('platform.contacts.create');
+
+Route::screen('contacts/{contact}/edit', ContactEditScreen::class)
+    ->name('platform.contacts.edit');
+
+Route::screen('contacts', ContactListScreen::class)
+    ->name('platform.contacts');
 
 Route::screen('phone-clicks', PhoneClickListScreen::class)
     ->name('platform.phone-clicks');

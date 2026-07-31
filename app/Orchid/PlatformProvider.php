@@ -14,10 +14,6 @@ class PlatformProvider extends OrchidServiceProvider
 {
     /**
      * Bootstrap the application services.
-     *
-     * @param Dashboard $dashboard
-     *
-     * @return void
      */
     public function boot(Dashboard $dashboard): void
     {
@@ -125,6 +121,11 @@ class PlatformProvider extends OrchidServiceProvider
                 ->route('platform.leads')
                 ->permission('platform.leads'),
 
+            Menu::make('Contacts')
+                ->icon('bs.person-lines-fill')
+                ->route('platform.contacts')
+                ->permission('platform.contacts'),
+
             Menu::make('Spam')
                 ->icon('bs.shield-exclamation')
                 ->route('platform.leads.spam')
@@ -181,6 +182,9 @@ class PlatformProvider extends OrchidServiceProvider
 
             ItemPermission::group('Leads')
                 ->addPermission('platform.leads', 'Manage Leads'),
+
+            ItemPermission::group('Contacts')
+                ->addPermission('platform.contacts', 'Manage Contacts'),
 
             ItemPermission::group('Mailbox')
                 ->addPermission('platform.mailbox', 'View and sync mailbox'),

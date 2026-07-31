@@ -14,8 +14,9 @@ use App\Models\Webflow\DoorsWebflowItem;
 use App\Models\Webflow\DoorTypesWebflowItem;
 use App\Models\Webflow\GalleryWebflowItem;
 use App\Models\Webflow\WindowReplacementWebflowItem;
-use App\Models\Webflow\WindowTypeWebflowItem;
 use App\Models\Webflow\WindowsWebflowItem;
+use App\Models\Webflow\WindowTypeWebflowItem;
+use App\Services\ContactFromLeadService;
 use App\Services\PromotionControlService;
 use App\Services\PromotionSettingsService;
 use App\Services\Webflow\WebflowRichTextNormalizer;
@@ -125,31 +126,31 @@ class ClassicSiteController extends Controller
         // Learn More — referenced collections, fallback to Marvin lines on original template
         $learnMoreWindows = $this->resolveLearnMoreWindows($window);
 
-        $controls       = app(PromotionControlService::class);
-        $windowPricing  = $controls->windowTypePricing(
+        $controls = app(PromotionControlService::class);
+        $windowPricing = $controls->windowTypePricing(
             (string) ($window->webflow_item_id ?? ''),
             (string) ($fieldData['slug'] ?? $slug)
         );
-        $discountHtml   = $windowPricing
+        $discountHtml = $windowPricing
             ? $controls->pricingHtmlFromMap($windowPricing, 'per window installed')
             : $this->legacyDiscountToPromoHtml((string) ($fieldData['discounttext'] ?? ''), 'per window installed');
         $pagePromotionAvailable = $windowPricing !== null
             || trim(strip_tags((string) ($fieldData['discounttext'] ?? ''))) !== '';
 
         return view('windows.show', [
-            'windowFieldData'  => $fieldData,
-            'title'            => $fieldData['name'] ?? 'Window',
-            'summary'          => $fieldData['property-listing---summary'] ?? '',
-            'aboutHtml'        => WebflowRichTextNormalizer::removeEmbeddedH1(
+            'windowFieldData' => $fieldData,
+            'title' => $fieldData['name'] ?? 'Window',
+            'summary' => $fieldData['property-listing---summary'] ?? '',
+            'aboutHtml' => WebflowRichTextNormalizer::removeEmbeddedH1(
                 $fieldData['property-listing---about'] ?? ''
             ),
-            'discountHtml'     => $discountHtml,
+            'discountHtml' => $discountHtml,
             'pagePromotionAvailable' => $pagePromotionAvailable,
-            'warrantyHtml'     => $fieldData['warrantytext'] ?? '',
-            'heroImage'        => $heroImage ?? '',
-            'galleryImages'    => $galleryImages,
-            'brandTypes'       => $brandTypes,
-            'brandsTitle'      => $brandsTitle,
+            'warrantyHtml' => $fieldData['warrantytext'] ?? '',
+            'heroImage' => $heroImage ?? '',
+            'galleryImages' => $galleryImages,
+            'brandTypes' => $brandTypes,
+            'brandsTitle' => $brandsTitle,
             'learnMoreWindows' => $learnMoreWindows,
         ]);
     }
@@ -199,7 +200,7 @@ class ClassicSiteController extends Controller
         $brandsTitle = $fieldData['brands-title'] ?? 'Top Door Brands';
         $learnMoreDoors = $this->resolveLearnMoreDoors($door);
 
-        $controls    = app(PromotionControlService::class);
+        $controls = app(PromotionControlService::class);
         $doorPricing = $controls->doorPricing(
             (string) ($door->webflow_item_id ?? ''),
             (string) ($fieldData['slug'] ?? $slug)
@@ -214,22 +215,22 @@ class ClassicSiteController extends Controller
             || trim(strip_tags((string) ($fieldData['door-discount'] ?? $door->wf_door_discount ?? ''))) !== '';
 
         return view('doors.show', [
-            'doorFieldData'  => $fieldData,
-            'title'          => $fieldData['name'] ?? 'Door',
-            'slug'           => $fieldData['slug'] ?? $slug,
-            'summary'        => $fieldData['description'] ?? '',
-            'aboutHtml'      => WebflowRichTextNormalizer::removeEmbeddedH1(
+            'doorFieldData' => $fieldData,
+            'title' => $fieldData['name'] ?? 'Door',
+            'slug' => $fieldData['slug'] ?? $slug,
+            'summary' => $fieldData['description'] ?? '',
+            'aboutHtml' => WebflowRichTextNormalizer::removeEmbeddedH1(
                 $fieldData['blog-post---rich-text'] ?? $door->wf_blog_post_rich_text ?? ''
             ),
-            'discountHtml'   => $discountHtml,
+            'discountHtml' => $discountHtml,
             'pagePromotionAvailable' => $pagePromotionAvailable,
-            'doorHeroFormHtml'       => $discountHtml,
-            'doorPromotionPricing'   => $doorPricing,
-            'heroImage'      => $heroImage ?? '',
-            'mainImage'      => $mainImage ?? '',
-            'galleryImages'  => $galleryImages,
-            'doorBrands'     => $doorBrands,
-            'brandsTitle'    => $brandsTitle,
+            'doorHeroFormHtml' => $discountHtml,
+            'doorPromotionPricing' => $doorPricing,
+            'heroImage' => $heroImage ?? '',
+            'mainImage' => $mainImage ?? '',
+            'galleryImages' => $galleryImages,
+            'doorBrands' => $doorBrands,
+            'brandsTitle' => $brandsTitle,
             'learnMoreDoors' => $learnMoreDoors,
         ]);
     }
@@ -363,7 +364,7 @@ class ClassicSiteController extends Controller
 
         $sections = [
             [
-                'id'    => 'styling',
+                'id' => 'styling',
                 'title' => 'Windows Replacement',
                 'blocks' => [
                     ['tag' => 'p', 'class' => 'paragraph-35', 'html' => 'The thought of replacing all or most of your old windows with new ones can be daunting and understandably so. Replacing windows throughout your house could be expensive, not to mention inconvenient but don&#x27;t get too discouraged right away. With proper planning to ensure you install the right windows, ones that meet your needs, vision, and budget, this could be one of the best and most financially wise decisions of your life.'],
@@ -378,7 +379,7 @@ class ClassicSiteController extends Controller
                 ],
             ],
             [
-                'id'    => 'editing-pages',
+                'id' => 'editing-pages',
                 'title' => 'Energy Efficient Windows',
                 'blocks' => [
                     ['tag' => 'h4', 'class' => 'mg-bottom-extra-small', 'html' => 'What are Green or Energy Efficient windows?'],
@@ -388,7 +389,7 @@ class ClassicSiteController extends Controller
                 ],
             ],
             [
-                'id'    => 'useful-notes',
+                'id' => 'useful-notes',
                 'title' => 'Energy Star',
                 'blocks' => [
                     ['tag' => 'p', 'class' => 'paragraph-41', 'html' => 'ENERGY STAR is the trusted, government-backed symbol for energy efficiency helping us all save money and protect the environment through energy-efficient products and practices.<br/>‍<br/>The ENERGY STAR label was established to:Reduce greenhouse gas emissions and other pollutants caused by the inefficient use of energy; andMake it easy for consumers to identify and purchase energy-efficient products that offer savings on energy bills without sacrificing performance, features, and comfort.'],
@@ -597,6 +598,8 @@ class ClassicSiteController extends Controller
             'meta' => $meta,
         ]);
 
+        app(ContactFromLeadService::class)->attachNewLead($lead);
+
         $notifyRecipients = (array) config('services.lead_notifications.to', []);
         if ($notifyRecipients !== []) {
             try {
@@ -731,8 +734,8 @@ class ClassicSiteController extends Controller
         $fd = is_array($window->field_data) ? $window->field_data : [];
 
         return [
-            'name'  => $fd['name'] ?? '',
-            'slug'  => $fd['slug'] ?? '',
+            'name' => $fd['name'] ?? '',
+            'slug' => $fd['slug'] ?? '',
             'image' => $this->extractWindowsPropertyListingFeaturedImage($window) ?? '',
         ];
     }
@@ -768,8 +771,8 @@ class ClassicSiteController extends Controller
 
                 return $itemSlug !== ''
                     ? [
-                        'name'  => $fd['name'] ?? '',
-                        'slug'  => $itemSlug,
+                        'name' => $fd['name'] ?? '',
+                        'slug' => $itemSlug,
                         'image' => $this->extractImageUrl($fd, ['blog-post---thumbnail-image-v1', 'blog-post---featured-image']),
                     ]
                     : null;
@@ -877,8 +880,8 @@ class ClassicSiteController extends Controller
 
         $fieldData = is_array($brand->field_data ?? null) ? $brand->field_data : [];
 
-        $logoSvg     = $this->extractImageUrl($fieldData, ['logo-svg']);
-        $logo        = $logoSvg ?? $this->extractImageUrl($fieldData, ['brand-logo', 'agent---avatar-photo', 'agent-avatar-photo']);
+        $logoSvg = $this->extractImageUrl($fieldData, ['logo-svg']);
+        $logo = $logoSvg ?? $this->extractImageUrl($fieldData, ['brand-logo', 'agent---avatar-photo', 'agent-avatar-photo']);
         $description = WebflowRichTextNormalizer::removeEmbeddedH1(
             $fieldData['agent---about'] ?? $brand->wf_agent_about ?? ''
         );
@@ -893,14 +896,14 @@ class ClassicSiteController extends Controller
             $v = @filemtime($localBrandHeroAbsolute) ?: 1;
             $featuredImage = '/'.$localBrandHeroPath.'?v='.$v;
         }
-        $name        = $fieldData['name'] ?? 'Brand';
+        $name = $fieldData['name'] ?? 'Brand';
 
         // Window types referenced by this brand
         $windowTypes = $brand->webflowReferences('window-types')
             ->map(function ($wt) {
-                $fd    = is_array($wt->field_data) ? $wt->field_data : [];
-                $wtSlug  = $fd['slug'] ?? '';
-                $wtName  = $fd['name'] ?? '';
+                $fd = is_array($wt->field_data) ? $wt->field_data : [];
+                $wtSlug = $fd['slug'] ?? '';
+                $wtName = $fd['name'] ?? '';
                 $wtImage = $this->extractImageUrl($fd, [
                     'property-listing---thumbnail-image-v1',
                     'property-listing---featured-image',
@@ -930,8 +933,8 @@ class ClassicSiteController extends Controller
             ->filter()
             ->values();
 
-        $windowsTitle   = $fieldData['windows-titles']         ?? "Explore {$name}'s Window Types";
-        $doorsTitle     = $fieldData['doors-title']            ?? "Explore {$name}'s Door Types";
+        $windowsTitle = $fieldData['windows-titles'] ?? "Explore {$name}'s Window Types";
+        $doorsTitle = $fieldData['doors-title'] ?? "Explore {$name}'s Door Types";
         $sidebarMaterialGroups = $this->buildBrandSidebarMaterialGroups($brand, $fieldData);
         $controls = app(PromotionControlService::class);
         $brandPricing = app(\App\Services\BrandPromotionPricing::class)
@@ -941,17 +944,17 @@ class ClassicSiteController extends Controller
             : null;
 
         return view('brands.show', [
-            'brandFieldData'  => $fieldData,
-            'name'            => $name,
-            'slug'            => $fieldData['slug'] ?? $slug,
-            'logo'            => $logo,
-            'featuredImage'   => $featuredImage,
-            'description'     => $description,
-            'windowTypes'     => $windowTypes,
-            'doorTypes'       => $doorTypes,
+            'brandFieldData' => $fieldData,
+            'name' => $name,
+            'slug' => $fieldData['slug'] ?? $slug,
+            'logo' => $logo,
+            'featuredImage' => $featuredImage,
+            'description' => $description,
+            'windowTypes' => $windowTypes,
+            'doorTypes' => $doorTypes,
             'sidebarMaterialGroups' => $sidebarMaterialGroups,
-            'windowsTitle'    => $windowsTitle,
-            'doorsTitle'      => $doorsTitle,
+            'windowsTitle' => $windowsTitle,
+            'doorsTitle' => $doorsTitle,
             'brandHeroFormHtml' => $brandHeroFormHtml,
             'brandPromotionPricing' => $brandPricing,
         ]);
@@ -971,8 +974,8 @@ class ClassicSiteController extends Controller
 
         $fieldData = is_array($brand->field_data ?? null) ? $brand->field_data : [];
 
-        $logoSvg     = $this->extractImageUrl($fieldData, ['logo-svg']);
-        $logo        = $logoSvg ?? $this->extractImageUrl($fieldData, ['brand-logo', 'agent---avatar-photo', 'agent-avatar-photo']);
+        $logoSvg = $this->extractImageUrl($fieldData, ['logo-svg']);
+        $logo = $logoSvg ?? $this->extractImageUrl($fieldData, ['brand-logo', 'agent---avatar-photo', 'agent-avatar-photo']);
         $featuredImage = $this->extractImageUrl($fieldData, ['featured-image']);
         if ($featuredImage === null && is_array($brand->wf_featured_image ?? null)) {
             $featuredImage = $brand->wf_featured_image['url'] ?? null;
@@ -984,14 +987,14 @@ class ClassicSiteController extends Controller
             $v = @filemtime($localBrandHeroAbsolute) ?: 1;
             $featuredImage = '/'.$localBrandHeroPath.'?v='.$v;
         }
-        $name        = $fieldData['name'] ?? 'Brand';
+        $name = $fieldData['name'] ?? 'Brand';
 
         // Window types referenced by this brand (kept on door-brand pages)
         $windowTypes = $brand->webflowReferences('window-types')
             ->map(function ($wt) {
-                $fd    = is_array($wt->field_data) ? $wt->field_data : [];
-                $wtSlug  = $fd['slug'] ?? '';
-                $wtName  = $fd['name'] ?? '';
+                $fd = is_array($wt->field_data) ? $wt->field_data : [];
+                $wtSlug = $fd['slug'] ?? '';
+                $wtName = $fd['name'] ?? '';
                 $wtImage = $this->extractImageUrl($fd, [
                     'property-listing---thumbnail-image-v1',
                     'property-listing---featured-image',
@@ -1030,8 +1033,8 @@ class ClassicSiteController extends Controller
             : $this->defaultDoorBrandDescription($name);
         $description = WebflowRichTextNormalizer::removeEmbeddedH1($description);
 
-        $windowsTitle   = $fieldData['windows-titles']  ?? "Explore {$name}'s Window Types";
-        $doorsTitle     = ($doorBrand && trim((string) $doorBrand->doors_title) !== '')
+        $windowsTitle = $fieldData['windows-titles'] ?? "Explore {$name}'s Window Types";
+        $doorsTitle = ($doorBrand && trim((string) $doorBrand->doors_title) !== '')
             ? $doorBrand->doors_title
             : ($fieldData['doors-title'] ?? "Explore {$name}'s Door Types");
 
@@ -1044,16 +1047,16 @@ class ClassicSiteController extends Controller
             : null;
 
         return view('door-brands.show', [
-            'brandFieldData'  => $fieldData,
-            'name'            => $name,
-            'slug'            => $fieldData['slug'] ?? $slug,
-            'logo'            => $logo,
-            'featuredImage'   => $featuredImage,
-            'description'     => $description,
-            'windowTypes'     => $windowTypes,
-            'doorTypes'       => $doorTypes,
-            'windowsTitle'    => $windowsTitle,
-            'doorsTitle'      => $doorsTitle,
+            'brandFieldData' => $fieldData,
+            'name' => $name,
+            'slug' => $fieldData['slug'] ?? $slug,
+            'logo' => $logo,
+            'featuredImage' => $featuredImage,
+            'description' => $description,
+            'windowTypes' => $windowTypes,
+            'doorTypes' => $doorTypes,
+            'windowsTitle' => $windowsTitle,
+            'doorsTitle' => $doorsTitle,
             'brandHeroFormHtml' => $brandHeroFormHtml,
             'brandPromotionPricing' => $brandPricing,
         ]);
@@ -1091,7 +1094,7 @@ class ClassicSiteController extends Controller
 
         $fieldData = is_array($windowType->field_data ?? null) ? $windowType->field_data : [];
 
-        $name  = $fieldData['name'] ?? 'Window Type';
+        $name = $fieldData['name'] ?? 'Window Type';
         $about = WebflowRichTextNormalizer::removeEmbeddedH1(
             $fieldData['property-listing---about'] ?? ''
         );
@@ -1140,8 +1143,8 @@ class ClassicSiteController extends Controller
                 }
 
                 return [
-                    'name'  => $fd['name'] ?? '',
-                    'slug'  => $fd['slug'] ?? '',
+                    'name' => $fd['name'] ?? '',
+                    'slug' => $fd['slug'] ?? '',
                     'image' => $image ?? '',
                 ];
             })
@@ -1149,22 +1152,22 @@ class ClassicSiteController extends Controller
             ->values();
 
         $collectionsTitle = $fieldData['title'] ?? "Explore {$brandName} Collections";
-        $heroFormHtml     = $this->resolveWindowTypeHeroPricing($windowType, $fieldData);
+        $heroFormHtml = $this->resolveWindowTypeHeroPricing($windowType, $fieldData);
         $pagePromotionAvailable = $this->heroHtmlHasSpecificPricing($heroFormHtml);
 
         return view('window-types.show', [
-            'name'                  => $name,
-            'slug'                  => $fieldData['slug'] ?? $slug,
-            'aboutHtml'             => $about,
-            'featuredImage'         => $featuredImage,
-            'brandName'             => $brandName,
-            'brandSlug'             => $brandSlug,
-            'logo'                  => $brandLogo,
-            'windowTypes'           => $windowTypes,
+            'name' => $name,
+            'slug' => $fieldData['slug'] ?? $slug,
+            'aboutHtml' => $about,
+            'featuredImage' => $featuredImage,
+            'brandName' => $brandName,
+            'brandSlug' => $brandSlug,
+            'logo' => $brandLogo,
+            'windowTypes' => $windowTypes,
             'sidebarMaterialGroups' => $sidebarMaterialGroups,
-            'collections'           => $collections,
-            'collectionsTitle'      => $collectionsTitle,
-            'heroFormHtml'          => $heroFormHtml,
+            'collections' => $collections,
+            'collectionsTitle' => $collectionsTitle,
+            'heroFormHtml' => $heroFormHtml,
             'pagePromotionAvailable' => $pagePromotionAvailable,
         ]);
     }
@@ -1183,7 +1186,7 @@ class ClassicSiteController extends Controller
 
         $fieldData = is_array($doorType->field_data ?? null) ? $doorType->field_data : [];
 
-        $name  = $fieldData['name'] ?? 'Door Type';
+        $name = $fieldData['name'] ?? 'Door Type';
         $about = WebflowRichTextNormalizer::removeEmbeddedH1(
             $fieldData['property-listing---about'] ?? ''
         );
@@ -1253,8 +1256,8 @@ class ClassicSiteController extends Controller
                 }
 
                 return [
-                    'name'  => $fd['name'] ?? '',
-                    'slug'  => $fd['slug'] ?? '',
+                    'name' => $fd['name'] ?? '',
+                    'slug' => $fd['slug'] ?? '',
                     'image' => $image ?? '',
                 ];
             })
@@ -1273,19 +1276,19 @@ class ClassicSiteController extends Controller
         $pagePromotionAvailable = $this->heroHtmlHasSpecificPricing($heroFormHtml);
 
         return view('door-types.show', [
-            'name'                  => $name,
-            'slug'                  => $fieldData['slug'] ?? $slug,
-            'aboutHtml'             => $about,
-            'featuredImage'         => $featuredImage,
-            'brandName'             => $brandName,
-            'brandSlug'             => $brandSlug,
-            'logo'                  => $brandLogo,
-            'windowTypes'           => $windowTypes,
-            'doorTypes'             => $doorTypes,
+            'name' => $name,
+            'slug' => $fieldData['slug'] ?? $slug,
+            'aboutHtml' => $about,
+            'featuredImage' => $featuredImage,
+            'brandName' => $brandName,
+            'brandSlug' => $brandSlug,
+            'logo' => $brandLogo,
+            'windowTypes' => $windowTypes,
+            'doorTypes' => $doorTypes,
             'sidebarMaterialGroups' => $sidebarMaterialGroups,
-            'collections'           => $collections,
-            'collectionsTitle'      => $collectionsTitle,
-            'heroFormHtml'          => $heroFormHtml,
+            'collections' => $collections,
+            'collectionsTitle' => $collectionsTitle,
+            'heroFormHtml' => $heroFormHtml,
             'pagePromotionAvailable' => $pagePromotionAvailable,
         ]);
     }
@@ -1350,10 +1353,10 @@ class ClassicSiteController extends Controller
 
         $fieldData = is_array($collection->field_data ?? null) ? $collection->field_data : [];
 
-        $name            = $fieldData['name'] ?? 'Collection';
+        $name = $fieldData['name'] ?? 'Collection';
         $longDescription = $fieldData['long-description'] ?? $collection->wf_long_description ?? '';
-        $priceCategory   = $fieldData['price-category'] ?? '';
-        $material        = $fieldData['material'] ?? $collection->wf_material ?? '';
+        $priceCategory = $fieldData['price-category'] ?? '';
+        $material = $fieldData['material'] ?? $collection->wf_material ?? '';
 
         // Featured / hero background image
         $featuredImage = null;
@@ -1377,7 +1380,7 @@ class ClassicSiteController extends Controller
         $brandLogoSvg = null;
         $sidebarMaterialGroups = collect();
         if ($parentBrand) {
-            $brandFd   = is_array($parentBrand->field_data) ? $parentBrand->field_data : [];
+            $brandFd = is_array($parentBrand->field_data) ? $parentBrand->field_data : [];
             $brandName = $brandFd['name'] ?? '';
             $brandSlug = $brandFd['slug'] ?? '';
             $brandLogo = $this->extractImageUrl($brandFd, ['brand-logo', 'agent-avatar-photo']);
@@ -1390,7 +1393,7 @@ class ClassicSiteController extends Controller
             ->map(function ($tab) {
                 $fd = is_array($tab->field_data) ? $tab->field_data : [];
                 $picture = null;
-                $wfPic   = $tab->wf_picture;
+                $wfPic = $tab->wf_picture;
                 if (is_array($wfPic) && isset($wfPic['url'])) {
                     $picture = $wfPic['url'];
                 } else {
@@ -1398,12 +1401,12 @@ class ClassicSiteController extends Controller
                 }
 
                 return [
-                    'name'        => $fd['name'] ?? '',
+                    'name' => $fd['name'] ?? '',
                     'description' => $tab->wf_description ?? $fd['description'] ?? '',
-                    'picture'     => $picture,
-                    'category'    => strtolower($tab->wf_category ?? $fd['category'] ?? ''),
+                    'picture' => $picture,
+                    'category' => strtolower($tab->wf_category ?? $fd['category'] ?? ''),
                     'subcategory' => $tab->wf_subcategory ?? $fd['subcategory'] ?? '',
-                    'color'       => $tab->wf_color ?? $fd['color'] ?? '',
+                    'color' => $tab->wf_color ?? $fd['color'] ?? '',
                 ];
             })
             ->filter(fn ($t) => $t['name'] !== '')
@@ -1413,17 +1416,17 @@ class ClassicSiteController extends Controller
 
         $glassAll = $tabDetails->filter(fn ($t) => str_contains($t['category'], 'glass'));
         $standardGlass = $glassAll->filter(fn ($t) => $t['subcategory'] === '' || stripos($t['subcategory'], 'standard') !== false);
-        $tintedGlass   = $glassAll->filter(fn ($t) => stripos($t['subcategory'], 'tinted') !== false);
-        $obscureGlass  = $glassAll->filter(fn ($t) => stripos($t['subcategory'], 'obscure') !== false);
-        $hasGlassTab   = $glassAll->isNotEmpty();
+        $tintedGlass = $glassAll->filter(fn ($t) => stripos($t['subcategory'], 'tinted') !== false);
+        $obscureGlass = $glassAll->filter(fn ($t) => stripos($t['subcategory'], 'obscure') !== false);
+        $hasGlassTab = $glassAll->isNotEmpty();
 
-        $colorItems     = $tabDetails->filter(fn ($t) => str_contains($t['category'], 'color'));
+        $colorItems = $tabDetails->filter(fn ($t) => str_contains($t['category'], 'color'));
         $exteriorColors = $colorItems->filter(fn ($t) => stripos($t['subcategory'], 'exterior') !== false);
         $interiorColors = $colorItems->filter(fn ($t) => stripos($t['subcategory'], 'interior') !== false);
 
-        $gridStyles    = $tabDetails->filter(fn ($t) => str_contains($t['category'], 'grid style'));
-        $gridPatterns  = $tabDetails->filter(fn ($t) => str_contains($t['category'], 'grid pattern'));
-        $gridPatternImages   = $gridPatterns->filter(fn ($t) => ! empty($t['picture']));
+        $gridStyles = $tabDetails->filter(fn ($t) => str_contains($t['category'], 'grid style'));
+        $gridPatterns = $tabDetails->filter(fn ($t) => str_contains($t['category'], 'grid pattern'));
+        $gridPatternImages = $gridPatterns->filter(fn ($t) => ! empty($t['picture']));
         $gridPatternSwatches = $gridPatterns->filter(fn ($t) => empty($t['picture']) && ($t['color'] ?? '') !== '');
         $hardwareItems = $tabDetails->filter(fn ($t) => str_contains($t['category'], 'hardware'));
         $hasOptionsTab = $gridStyles->isNotEmpty() || $gridPatterns->isNotEmpty() || $hardwareItems->isNotEmpty();
@@ -1437,7 +1440,7 @@ class ClassicSiteController extends Controller
         $advantages = [];
         for ($i = 1; $i <= 4; $i++) {
             $title = $collection->{"wf_advantage_title_{$i}"} ?? $fieldData["advantage-title-{$i}"] ?? '';
-            $desc  = $collection->{"wf_advantage_description_{$i}"} ?? $fieldData["advantage-description-{$i}"] ?? '';
+            $desc = $collection->{"wf_advantage_description_{$i}"} ?? $fieldData["advantage-description-{$i}"] ?? '';
             if ($title !== '') {
                 $advantages[] = ['title' => $title, 'description' => $desc];
             }
@@ -1445,7 +1448,7 @@ class ClassicSiteController extends Controller
 
         // Inspiration photos
         $inspirationPhotos = [];
-        $wfPhotos          = $collection->wf_inspiration_photos;
+        $wfPhotos = $collection->wf_inspiration_photos;
         if (is_array($wfPhotos)) {
             foreach ($wfPhotos as $photo) {
                 if (is_array($photo) && isset($photo['url'])) {
@@ -1467,49 +1470,49 @@ class ClassicSiteController extends Controller
         }
 
         $aboutDescription = $collection->wf_about_collection_description ?? $fieldData['about-collection-description'] ?? '';
-        $aboutHtml        = WebflowRichTextNormalizer::removeEmbeddedH1(
+        $aboutHtml = WebflowRichTextNormalizer::removeEmbeddedH1(
             $collection->wf_about_tab ?? ''
         );
 
         $heroFormHtml = $this->resolveCollectionHeroPricing($collection, $fieldData);
 
         return view('brand-collections.show', [
-            'fieldData'               => $fieldData,
-            'name'                    => $name,
-            'slug'                    => $fieldData['slug'] ?? $slug,
-            'longDescription'         => $longDescription,
-            'priceCategory'           => $priceCategory,
-            'material'                => $material,
-            'featuredImage'           => $featuredImage,
-            'aboutImage'              => $aboutImage,
-            'brandName'               => $brandName,
-            'brandSlug'               => $brandSlug,
-            'brandLogo'               => $brandLogo,
-            'brandLogoSvg'            => $brandLogoSvg,
-            'sidebarMaterialGroups'   => $sidebarMaterialGroups,
-            'windowTypes'             => $windowTypes,
-            'standardGlass'           => $standardGlass,
-            'tintedGlass'             => $tintedGlass,
-            'obscureGlass'            => $obscureGlass,
-            'hasGlassTab'             => $hasGlassTab,
-            'exteriorColors'          => $exteriorColors,
-            'interiorColors'          => $interiorColors,
-            'gridStyles'              => $gridStyles,
-            'gridPatterns'            => $gridPatterns,
-            'gridPatternImages'       => $gridPatternImages,
-            'gridPatternSwatches'     => $gridPatternSwatches,
-            'hardwareItems'           => $hardwareItems,
-            'hasOptionsTab'           => $hasOptionsTab,
-            'configurationSizes'      => $configurationSizes,
+            'fieldData' => $fieldData,
+            'name' => $name,
+            'slug' => $fieldData['slug'] ?? $slug,
+            'longDescription' => $longDescription,
+            'priceCategory' => $priceCategory,
+            'material' => $material,
+            'featuredImage' => $featuredImage,
+            'aboutImage' => $aboutImage,
+            'brandName' => $brandName,
+            'brandSlug' => $brandSlug,
+            'brandLogo' => $brandLogo,
+            'brandLogoSvg' => $brandLogoSvg,
+            'sidebarMaterialGroups' => $sidebarMaterialGroups,
+            'windowTypes' => $windowTypes,
+            'standardGlass' => $standardGlass,
+            'tintedGlass' => $tintedGlass,
+            'obscureGlass' => $obscureGlass,
+            'hasGlassTab' => $hasGlassTab,
+            'exteriorColors' => $exteriorColors,
+            'interiorColors' => $interiorColors,
+            'gridStyles' => $gridStyles,
+            'gridPatterns' => $gridPatterns,
+            'gridPatternImages' => $gridPatternImages,
+            'gridPatternSwatches' => $gridPatternSwatches,
+            'hardwareItems' => $hardwareItems,
+            'hasOptionsTab' => $hasOptionsTab,
+            'configurationSizes' => $configurationSizes,
             'configurationSizesDescription' => $configurationSizesDescription,
-            'performance'             => $performance,
-            'performanceDescription'  => $performanceDescription,
-            'advantages'              => $advantages,
-            'inspirationPhotos'       => $inspirationPhotos,
-            'aboutDescription'        => $aboutDescription,
-            'aboutHtml'               => $aboutHtml,
-            'heroFormHtml'            => $heroFormHtml,
-            'webflowCollectionId'     => '69366118c296b5e2e8bdbfb2',
+            'performance' => $performance,
+            'performanceDescription' => $performanceDescription,
+            'advantages' => $advantages,
+            'inspirationPhotos' => $inspirationPhotos,
+            'aboutDescription' => $aboutDescription,
+            'aboutHtml' => $aboutHtml,
+            'heroFormHtml' => $heroFormHtml,
+            'webflowCollectionId' => '69366118c296b5e2e8bdbfb2',
         ]);
     }
 
@@ -1532,9 +1535,9 @@ class ClassicSiteController extends Controller
                     }
 
                     return [
-                        'name'      => $fd['name'] ?? '',
-                        'slug'      => $postSlug,
-                        'image'     => $this->extractImageUrl($fd, ['main-project-image', 'client-logo']) ?? '',
+                        'name' => $fd['name'] ?? '',
+                        'slug' => $postSlug,
+                        'image' => $this->extractImageUrl($fd, ['main-project-image', 'client-logo']) ?? '',
                         'published' => $this->formatBlogPublishedDate($post->webflow_published_on),
                     ];
                 })
@@ -1555,9 +1558,9 @@ class ClassicSiteController extends Controller
                     }
 
                     return [
-                        'name'      => $fd['name'] ?? '',
-                        'slug'      => $postSlug,
-                        'image'     => $this->extractImageUrl($fd, ['main-project-image', 'client-logo']) ?? '',
+                        'name' => $fd['name'] ?? '',
+                        'slug' => $postSlug,
+                        'image' => $this->extractImageUrl($fd, ['main-project-image', 'client-logo']) ?? '',
                         'published' => $this->formatBlogPublishedDate($item['lastPublished'] ?? null),
                     ];
                 })
@@ -1598,9 +1601,9 @@ class ClassicSiteController extends Controller
                     }
 
                     return [
-                        'name'      => $fd['name'] ?? '',
-                        'slug'      => $postSlug,
-                        'image'     => $this->extractImageUrl($fd, ['main-project-image', 'client-logo']) ?? '',
+                        'name' => $fd['name'] ?? '',
+                        'slug' => $postSlug,
+                        'image' => $this->extractImageUrl($fd, ['main-project-image', 'client-logo']) ?? '',
                         'published' => $this->formatBlogPublishedDate($post->webflow_published_on),
                     ];
                 })
@@ -1622,9 +1625,9 @@ class ClassicSiteController extends Controller
                     }
 
                     return [
-                        'name'      => $fd['name'] ?? '',
-                        'slug'      => $postSlug,
-                        'image'     => $this->extractImageUrl($fd, ['main-project-image', 'client-logo']) ?? '',
+                        'name' => $fd['name'] ?? '',
+                        'slug' => $postSlug,
+                        'image' => $this->extractImageUrl($fd, ['main-project-image', 'client-logo']) ?? '',
                         'published' => $this->formatBlogPublishedDate($item['lastPublished'] ?? null),
                     ];
                 })
@@ -2161,6 +2164,7 @@ class ClassicSiteController extends Controller
             $absolutePath = public_path($relativePath);
             if (File::exists($absolutePath)) {
                 $v = @filemtime($absolutePath) ?: 1;
+
                 return '/'.$relativePath.'?v='.$v;
             }
         }
@@ -2169,6 +2173,7 @@ class ClassicSiteController extends Controller
         $legacyAbsolute = public_path($legacyPath);
         if (File::exists($legacyAbsolute)) {
             $v = @filemtime($legacyAbsolute) ?: 1;
+
             return '/'.$legacyPath.'?v='.$v;
         }
 
@@ -2234,12 +2239,12 @@ class ClassicSiteController extends Controller
                 }, $materials)));
 
                 return [
-                    'name'         => $fd['name'] ?? '',
-                    'slug'         => $fd['slug'] ?? '',
-                    'material'     => $fd['material'] ?? '',
+                    'name' => $fd['name'] ?? '',
+                    'slug' => $fd['slug'] ?? '',
+                    'material' => $fd['material'] ?? '',
                     'mainmaterial' => $mainMaterial,
-                    'materials'    => $materials,
-                    'image'        => $this->extractImageUrl($fd, ['property-type---icon', 'featured-image']) ?? '',
+                    'materials' => $materials,
+                    'image' => $this->extractImageUrl($fd, ['property-type---icon', 'featured-image']) ?? '',
                 ];
             })
             ->filter(fn ($c) => $c['name'] !== '' && $c['slug'] !== '')
@@ -2275,10 +2280,10 @@ class ClassicSiteController extends Controller
                     }
 
                     $groups->push([
-                        'name'        => $materialName,
-                        'sublabel'    => $sublabel,
+                        'name' => $materialName,
+                        'sublabel' => $sublabel,
                         'collections' => $subMatched,
-                        'visible'     => true,
+                        'visible' => true,
                     ]);
                 }
 
@@ -2286,10 +2291,10 @@ class ClassicSiteController extends Controller
             }
 
             $groups->push([
-                'name'        => $materialName,
-                'sublabel'    => null,
+                'name' => $materialName,
+                'sublabel' => null,
                 'collections' => $matched,
-                'visible'     => true,
+                'visible' => true,
             ]);
         }
 
@@ -2300,10 +2305,10 @@ class ClassicSiteController extends Controller
 
         if ($leftover->isNotEmpty()) {
             $groups->push([
-                'name'        => 'Other collections',
-                'sublabel'    => null,
+                'name' => 'Other collections',
+                'sublabel' => null,
                 'collections' => $leftover,
-                'visible'     => true,
+                'visible' => true,
             ]);
         }
 
@@ -2407,7 +2412,7 @@ class ClassicSiteController extends Controller
 
             if ($material) {
                 $materialFd = is_array($material->field_data) ? $material->field_data : [];
-                $discount   = $materialFd['discounttext'] ?? '';
+                $discount = $materialFd['discounttext'] ?? '';
 
                 if (is_string($discount) && trim(strip_tags($discount)) !== '') {
                     return $this->legacyDiscountToPromoHtml($discount);
@@ -2432,7 +2437,7 @@ class ClassicSiteController extends Controller
         $material = $windowType->webflowReference('windor-type-material');
         if ($material) {
             $materialFd = is_array($material->field_data) ? $material->field_data : [];
-            $discount   = $materialFd['discounttext'] ?? '';
+            $discount = $materialFd['discounttext'] ?? '';
 
             if (is_string($discount) && trim(strip_tags($discount)) !== '') {
                 return $this->legacyDiscountToPromoHtml($discount);
@@ -2515,8 +2520,8 @@ class ClassicSiteController extends Controller
         ]);
 
         return [
-            'name'  => $fd['name'] ?? '',
-            'slug'  => $fd['slug'] ?? '',
+            'name' => $fd['name'] ?? '',
+            'slug' => $fd['slug'] ?? '',
             'image' => $image ?? '',
         ];
     }
@@ -2538,8 +2543,8 @@ class ClassicSiteController extends Controller
                 }
 
                 return [
-                    'name'         => $name,
-                    'slug'         => $slug,
+                    'name' => $name,
+                    'slug' => $slug,
                     'filter_value' => $this->brandMaterialFilterValue($name),
                 ];
             })
@@ -2556,13 +2561,13 @@ class ClassicSiteController extends Controller
         ];
 
         return [
-            'name'        => $fd['name'] ?? '',
-            'slug'        => $fd['slug'] ?? '',
-            'logo'        => $logo ?? '',
-            'materials'   => $materials,
+            'name' => $fd['name'] ?? '',
+            'slug' => $fd['slug'] ?? '',
+            'logo' => $logo ?? '',
+            'materials' => $materials,
             'price_range' => $fd['price-range'] ?? '',
             'price_slots' => $priceSlots,
-            'features'    => [
+            'features' => [
                 ['title' => 'KEY FEATURES',       'text' => $fd['brand-feature-description-1'] ?? ''],
                 ['title' => 'Energy Efficiency',  'text' => $fd['brand-feature-description-2'] ?? ''],
                 ['title' => 'Sound Insulation',   'text' => $fd['brand-feature-description-3'] ?? ''],

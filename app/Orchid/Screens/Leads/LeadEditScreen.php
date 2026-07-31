@@ -4,15 +4,19 @@ declare(strict_types=1);
 
 namespace App\Orchid\Screens\Leads;
 
+use App\Models\Contact;
 use App\Models\Lead;
 use App\Models\LeadChange;
 use App\Models\LeadComment;
+use App\Services\ContactFromLeadService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\Link;
+use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Select;
 use Orchid\Screen\Fields\TextArea;
 use Orchid\Screen\Screen;
@@ -26,7 +30,7 @@ class LeadEditScreen extends Screen
 
     public function query(Lead $lead): iterable
     {
-        $lead->load(['comments.user', 'changes.user']);
+        $lead->load(['comments.user', 'changes.user', 'contact']);
 
         $this->lead = $lead;
 
@@ -34,6 +38,7 @@ class LeadEditScreen extends Screen
             'lead' => $lead,
             'comments' => $lead->comments,
             'changes' => $lead->changes,
+            'contact_id' => $lead->contact_id,
         ];
     }
 
@@ -62,19 +67,37 @@ class LeadEditScreen extends Screen
             ? 'platform.leads.spam'
             : 'platform.leads';
 
-        return [
+        $actions = [
             Link::make('Back to list')
                 ->icon('bs.arrow-left')
                 ->route($backRoute),
 
-            Button::make('Save status')
+            Button::make('Save changes')
                 ->icon('bs.check-circle')
-                ->method('saveStatus'),
+                ->method('saveLead'),
 
             Button::make('Add comment')
                 ->icon('bs.chat-left-text')
                 ->method('addComment'),
+
+            Button::make('Create contact from lead')
+                ->icon('bs.person-plus')
+                ->method('createContact')
+                ->confirm('Create a contact and link all matching non-spam leads?')
+                ->canSee($this->lead?->contact_id === null),
+
+            Button::make('Link selected contact')
+                ->icon('bs.link-45deg')
+                ->method('linkContact'),
         ];
+
+        if ($this->lead?->contact_id !== null) {
+            $actions[] = Link::make('Open contact')
+                ->icon('bs.person-vcard')
+                ->route('platform.contacts.edit', $this->lead->contact_id);
+        }
+
+        return $actions;
     }
 
     public function layout(): iterable
@@ -85,47 +108,52 @@ class LeadEditScreen extends Screen
             Layout::tabs([
                 'Details' => Layout::blank([
                     Layout::columns([
+                        Layout::rows([
+                            Input::make('lead.full_name')
+                                ->title('Name')
+                                ->required()
+                                ->maxlength(255),
+                            Input::make('lead.phone')
+                                ->title('Phone')
+                                ->type('tel')
+                                ->required()
+                                ->maxlength(50),
+                            Input::make('lead.email')
+                                ->title('Email')
+                                ->type('email')
+                                ->required()
+                                ->maxlength(255),
+                            Input::make('lead.city')
+                                ->title('City')
+                                ->maxlength(100),
+                            Input::make('lead.page_url')
+                                ->title('Page')
+                                ->maxlength(1000),
+                            TextArea::make('lead.message')
+                                ->title('Message')
+                                ->rows(6)
+                                ->maxlength(3000),
+                            Select::make('lead.status')
+                                ->title('Status')
+                                ->options(Lead::STATUSES)
+                                ->required(),
+                            Select::make('contact_id')
+                                ->title('Link to existing contact')
+                                ->fromModel(Contact::class, 'full_name')
+                                ->empty('Select contact'),
+                        ])->title('Lead details'),
+
                         Layout::legend('lead', [
                             Sight::make('id', 'ID'),
                             Sight::make('created_at', 'Received')
                                 ->render(fn (Lead $lead) => optional($lead->created_at)->format('Y-m-d H:i')),
-                            Sight::make('full_name', 'Name'),
-                            Sight::make('phone', 'Phone')
-                                ->render(function (Lead $lead): string {
-                                    $phone = trim((string) $lead->phone);
-                                    if ($phone === '') {
-                                        return '-';
-                                    }
-
-                                    return '<a href="tel:'.e(preg_replace('/\s+/', '', $phone) ?? $phone).'">'.e($phone).'</a>';
-                                }),
-                            Sight::make('email', 'Email')
-                                ->render(function (Lead $lead): string {
-                                    $email = trim((string) $lead->email);
-                                    if ($email === '') {
-                                        return '-';
-                                    }
-
-                                    return '<a href="mailto:'.e($email).'">'.e($email).'</a>';
-                                }),
-                            Sight::make('city', 'City')
-                                ->render(fn (Lead $lead) => e((string) ($lead->city ?? '-'))),
-                            Sight::make('page_url', 'Page')
-                                ->render(function (Lead $lead): string {
-                                    $url = trim((string) ($lead->page_url ?? ''));
-                                    if ($url === '') {
-                                        return '-';
-                                    }
-
-                                    return '<a href="'.e($url).'" target="_blank" rel="noopener">'.e($url).'</a>';
-                                }),
-                            Sight::make('message', 'Message')
-                                ->render(fn (Lead $lead) => nl2br(e((string) ($lead->message ?? '')))),
-                        ]),
-
-                        Layout::legend('lead', [
                             Sight::make('status', 'Current status')
                                 ->render(fn (Lead $lead) => '<span class="lead-status-badge lead-status-badge--'.e($lead->statusColor()).'">'.e($lead->statusLabel()).'</span>'),
+                            Sight::make('contact', 'Contact')
+                                ->render(fn (Lead $lead): string => $lead->contact
+                                    ? '<a href="'.e(route('platform.contacts.edit', $lead->contact)).'">'
+                                        .e($lead->contact->full_name).' (#'.e((string) $lead->contact->id).')</a>'
+                                    : '<span class="text-muted">Not linked</span>'),
                             Sight::make('traffic_source', 'Traffic source')
                                 ->render(function (Lead $lead): string {
                                     $detail = $lead->trafficSourceDetail();
@@ -171,13 +199,6 @@ class LeadEditScreen extends Screen
                                 ->render(fn (Lead $lead) => e($lead->metaValue('msclkid', '-'))),
                         ]),
                     ]),
-
-                    Layout::rows([
-                        Select::make('lead.status')
-                            ->title('Status')
-                            ->options(Lead::STATUSES)
-                            ->required(),
-                    ])->title('Change status'),
                 ]),
 
                 'Comments' => Layout::blank([
@@ -196,26 +217,80 @@ class LeadEditScreen extends Screen
         ];
     }
 
-    public function saveStatus(Lead $lead, Request $request)
+    public function saveLead(Lead $lead, Request $request)
     {
         $validated = $request->validate([
+            'lead.full_name' => ['required', 'string', 'max:255'],
+            'lead.phone' => ['required', 'string', 'max:50'],
+            'lead.email' => ['required', 'email', 'max:255'],
+            'lead.city' => ['nullable', 'string', 'max:100'],
+            'lead.page_url' => ['nullable', 'string', 'max:1000'],
+            'lead.message' => ['nullable', 'string', 'max:3000'],
             'lead.status' => ['required', 'string', Rule::in(array_keys(Lead::STATUSES))],
         ]);
 
         $user = Auth::user();
         abort_unless($user !== null, 403);
 
-        $from = (string) $lead->status;
-        $to = $validated['lead']['status'];
+        $newValues = [
+            'full_name' => trim($validated['lead']['full_name']),
+            'phone' => trim($validated['lead']['phone']),
+            'email' => trim($validated['lead']['email']),
+            'city' => trim((string) ($validated['lead']['city'] ?? '')),
+            'page_url' => trim((string) ($validated['lead']['page_url'] ?? '')),
+            'message' => trim((string) ($validated['lead']['message'] ?? '')),
+            'status' => $validated['lead']['status'],
+        ];
+        $labels = [
+            'full_name' => 'Name',
+            'phone' => 'Phone',
+            'email' => 'Email',
+            'city' => 'City',
+            'page_url' => 'Page',
+            'message' => 'Message',
+        ];
+        $changes = [];
 
-        if ($from !== $to) {
-            $lead->status = $to;
-            $lead->save();
-            LeadChange::recordStatusChange($lead, $from, $to, (int) $user->id);
-            Toast::info('Status updated.');
-        } else {
-            Toast::info('Status unchanged.');
+        foreach ($newValues as $field => $newValue) {
+            $oldValue = trim((string) ($lead->{$field} ?? ''));
+            if ($oldValue !== $newValue) {
+                $changes[$field] = [$oldValue, $newValue];
+            }
         }
+
+        if ($changes === []) {
+            Toast::info('No changes to save.');
+
+            return redirect()->route('platform.leads.edit', $lead);
+        }
+
+        DB::transaction(function () use ($lead, $newValues, $changes, $labels, $user): void {
+            foreach ($newValues as $field => $value) {
+                $lead->{$field} = $value !== '' || in_array($field, ['full_name', 'phone', 'email', 'status'], true)
+                    ? $value
+                    : null;
+            }
+            $lead->save();
+
+            foreach ($changes as $field => [$oldValue, $newValue]) {
+                if ($field === 'status') {
+                    LeadChange::recordStatusChange($lead, $oldValue, $newValue, (int) $user->id);
+
+                    continue;
+                }
+
+                LeadChange::record(
+                    $lead,
+                    $field,
+                    $oldValue !== '' ? $oldValue : null,
+                    $newValue !== '' ? $newValue : null,
+                    ($labels[$field] ?? Str::headline($field)).' updated',
+                    (int) $user->id,
+                );
+            }
+        });
+
+        Toast::info(count($changes) === 1 ? 'Lead updated.' : count($changes).' lead fields updated.');
 
         return redirect()->route('platform.leads.edit', $lead);
     }
@@ -258,6 +333,32 @@ class LeadEditScreen extends Screen
         );
 
         Toast::info('Comment added.');
+
+        return redirect()->route('platform.leads.edit', $lead);
+    }
+
+    public function createContact(Lead $lead, ContactFromLeadService $service)
+    {
+        $user = Auth::user();
+        abort_unless($user !== null, 403);
+
+        $contact = $service->createOrAttach($lead, (int) $user->id);
+        Toast::info('Contact ready. Matching leads were linked.');
+
+        return redirect()->route('platform.contacts.edit', $contact);
+    }
+
+    public function linkContact(Lead $lead, Request $request, ContactFromLeadService $service)
+    {
+        $validated = $request->validate([
+            'contact_id' => ['required', 'integer', 'exists:contacts,id'],
+        ]);
+        $user = Auth::user();
+        abort_unless($user !== null, 403);
+
+        $contact = Contact::query()->findOrFail((int) $validated['contact_id']);
+        $service->attachToContact($lead, $contact, (int) $user->id);
+        Toast::info('Lead linked to '.$contact->full_name.'.');
 
         return redirect()->route('platform.leads.edit', $lead);
     }

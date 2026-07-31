@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Orchid\Filters\Filterable;
 use Orchid\Filters\Types\Like;
@@ -47,6 +48,7 @@ class Lead extends Model
     ];
 
     protected $fillable = [
+        'contact_id',
         'full_name',
         'email',
         'phone',
@@ -97,6 +99,16 @@ class Lead extends Model
                 $lead->status = self::STATUS_NEW;
             }
         });
+
+        static::saving(function (Lead $lead): void {
+            $lead->normalized_email = Contact::normalizeEmail($lead->email);
+            $lead->normalized_phone = Contact::normalizePhone($lead->phone);
+        });
+    }
+
+    public function contact(): BelongsTo
+    {
+        return $this->belongsTo(Contact::class);
     }
 
     public function comments(): HasMany

@@ -15,6 +15,15 @@
             <div class="text-break">{{ $change->summary }}</div>
             @if ($change->field === 'comment' && filled($change->new_value))
                 <div class="text-muted small mt-1 text-break">{{ $change->new_value }}</div>
+            @elseif ($change->field !== 'status')
+                <div class="small mt-2 text-break">
+                    <span class="text-muted">Before:</span>
+                    {{ filled($change->old_value) ? $change->old_value : '—' }}
+                </div>
+                <div class="small mt-1 text-break">
+                    <span class="text-muted">After:</span>
+                    {{ filled($change->new_value) ? $change->new_value : '—' }}
+                </div>
             @endif
         </div>
     @empty
