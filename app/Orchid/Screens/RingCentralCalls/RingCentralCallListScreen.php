@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace App\Orchid\Screens\RingCentralCalls;
 
 use App\Models\RingCentralCall;
+use App\Models\RingCentralCallSyncState;
 use App\Models\RingCentralExcludedNumber;
 use App\Services\PromotionControlService;
 use App\Services\RingCentralCallLogService;
+use App\Services\RingCentralCallSyncService;
 use Carbon\CarbonImmutable;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -18,16 +20,20 @@ use Orchid\Screen\Screen;
 use Orchid\Screen\TD;
 use Orchid\Support\Facades\Layout;
 use Orchid\Support\Facades\Toast;
+use Throwable;
 
 class RingCentralCallListScreen extends Screen
 {
     private string $businessPhone = '';
+
+    private string $lastSyncedLabel = 'never';
 
     public function query(
         PromotionControlService $promotions,
         RingCentralCallLogService $callLog
     ): iterable {
         $this->businessPhone = $callLog->normalizePhone($promotions->phoneTel());
+        $this->lastSyncedLabel = $this->resolveLastSyncedLabel();
 
         if (! Schema::hasTable('ringcentral_calls') || ! Schema::hasTable('ringcentral_excluded_numbers')) {
             Toast::error('RingCentral call tables are missing. Run: php artisan migrate');
@@ -61,7 +67,8 @@ class RingCentralCallListScreen extends Screen
     {
         $phone = $this->businessPhone !== '' ? $this->businessPhone : 'the business number';
 
-        return 'Inbound and outbound calls for '.$phone.'. Synced hourly.';
+        return 'Inbound and outbound company calls for '.$phone
+            .'. Auto-sync hourly; last sync: '.$this->lastSyncedLabel.'.';
     }
 
     public function permission(): ?iterable
@@ -71,7 +78,12 @@ class RingCentralCallListScreen extends Screen
 
     public function commandBar(): iterable
     {
-        return [];
+        return [
+            Button::make('Sync now')
+                ->icon('bs.arrow-repeat')
+                ->method('syncNow')
+                ->confirm('Pull the latest inbound and outbound calls from RingCentral now?'),
+        ];
     }
 
     public function layout(): iterable
@@ -144,6 +156,32 @@ class RingCentralCallListScreen extends Screen
         ];
     }
 
+    public function syncNow(RingCentralCallSyncService $sync): void
+    {
+        if (! Schema::hasTable('ringcentral_calls') || ! Schema::hasTable('ringcentral_call_sync_states')) {
+            Toast::error('RingCentral call tables are missing. Run: php artisan migrate');
+
+            return;
+        }
+
+        try {
+            $result = $sync->sync();
+        } catch (Throwable $exception) {
+            report($exception);
+            Toast::error('RingCentral sync failed: '.$exception->getMessage());
+
+            return;
+        }
+
+        Toast::success(sprintf(
+            'Synced %s: %d new, %d updated (%d fetched).',
+            $result['business_phone'],
+            $result['created'],
+            $result['updated'],
+            $result['fetched'],
+        ));
+    }
+
     public function excludeNumber(
         Request $request,
         PromotionControlService $promotions,
@@ -189,5 +227,24 @@ class RingCentralCallListScreen extends Screen
         $exclusion->save();
 
         Toast::info($exclusion->phone.' was restored.');
+    }
+
+    private function resolveLastSyncedLabel(): string
+    {
+        if ($this->businessPhone === '' || ! Schema::hasTable('ringcentral_call_sync_states')) {
+            return 'never';
+        }
+
+        $state = RingCentralCallSyncState::query()
+            ->where('business_phone', $this->businessPhone)
+            ->first();
+
+        if ($state?->last_synced_at === null) {
+            return 'never';
+        }
+
+        return CarbonImmutable::parse($state->last_synced_at)
+            ->setTimezone('America/Los_Angeles')
+            ->format('M d, Y h:i A').' PT';
     }
 }

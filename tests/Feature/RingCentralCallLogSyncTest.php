@@ -167,6 +167,25 @@ test('the current business number cannot be excluded', function () {
     expect(RingCentralExcludedNumber::query()->count())->toBe(0);
 });
 
+test('Orchid Sync now button pulls calls from RingCentral', function () {
+    CarbonImmutable::setTestNow('2026-07-31 18:30:00 UTC');
+    fakeSingleRingCentralCall('Accepted');
+
+    $user = User::factory()->create();
+    $user->forceFill([
+        'permissions' => ['platform.leads' => true],
+    ])->save();
+
+    $this->withoutMiddleware(Access::class)
+        ->actingAs($user)
+        ->post(route('platform.ringcentral-calls', ['method' => 'syncNow']))
+        ->assertRedirect();
+
+    expect(RingCentralCall::query()->count())->toBe(1)
+        ->and(RingCentralCallSyncState::query()->where('business_phone', '+16504614446')->value('last_synced_at'))
+        ->not->toBeNull();
+});
+
 function fakePaginatedRingCentralCalls(): void
 {
     Http::fake([
