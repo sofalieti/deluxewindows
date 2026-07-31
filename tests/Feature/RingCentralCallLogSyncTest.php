@@ -63,45 +63,72 @@ test('company call log pagination returns inbound and outbound calls for the adm
             return false;
         }
 
-        return isset($request['phoneNumber'])
-            && $request['phoneNumber'] === '+16504614446'
-            && $request['type'] === 'Voice'
-            && ! isset($request['direction']);
+        $data = $request->data();
+
+        // Account-wide pull (no phoneNumber filter) — filter locally.
+        // Pagination page 2 may have an empty query string.
+        if ($data === []) {
+            return true;
+        }
+
+        return ($data['type'] ?? null) === 'Voice'
+            && ! array_key_exists('phoneNumber', $data)
+            && ! array_key_exists('direction', $data);
     });
 });
 
-test('hourly sync starts at California midnight then overlaps and upserts', function () {
+test('hourly sync starts with a multi-day history window then overlaps and upserts', function () {
     CarbonImmutable::setTestNow('2026-07-31 18:30:00 UTC');
-    fakeSingleRingCentralCall('First result');
+
+    Http::fake(function (Request $request) {
+        if (str_contains($request->url(), '/oauth/token')) {
+            return Http::response([
+                'access_token' => 'test-access-token',
+                'expires_in' => 3600,
+            ]);
+        }
+
+        $dateFrom = $request->data()['dateFrom'] ?? '';
+        $startTime = str_starts_with($dateFrom, '2026-07-31T18:25:00')
+            ? '2026-07-31T19:20:00.000Z'
+            : '2026-07-31T18:00:00.000Z';
+        $result = str_starts_with($dateFrom, '2026-07-31T18:25:00')
+            ? 'Updated result'
+            : 'First result';
+
+        return Http::response([
+            'records' => [[
+                'id' => 'sync-call-1',
+                'sessionId' => 'sync-session-1',
+                'startTime' => $startTime,
+                'duration' => 45,
+                'type' => 'Voice',
+                'direction' => 'Inbound',
+                'result' => $result,
+                'from' => ['phoneNumber' => '+14155550444'],
+                'to' => ['phoneNumber' => '+16504614446'],
+            ]],
+        ]);
+    });
 
     $first = app(RingCentralCallSyncService::class)->sync();
 
     expect($first['created'])->toBe(1)
-        ->and($first['from'])->toStartWith('2026-07-31T07:00:00')
+        ->and($first['from'])->toStartWith('2026-07-24T18:30:00')
         ->and(RingCentralCall::query()->count())->toBe(1);
 
     CarbonImmutable::setTestNow('2026-07-31 19:30:00 UTC');
-    Http::fake();
     Cache::flush();
-    fakeSingleRingCentralCall('Updated result');
 
     $second = app(RingCentralCallSyncService::class)->sync();
 
-    expect($second['created'])->toBe(0)
+    expect($second['fetched'])->toBe(1)
+        ->and($second['created'])->toBe(0)
         ->and($second['updated'])->toBe(1)
         ->and($second['from'])->toStartWith('2026-07-31T18:30:00')
         ->and(RingCentralCall::query()->count())->toBe(1)
-        ->and(RingCentralCallSyncState::query()->sole()->last_synced_at)->not->toBeNull();
-
-    Http::assertSent(function (Request $request): bool {
-        if (! str_contains($request->url(), '/call-log')) {
-            return false;
-        }
-
-        // Second sync must continue from previous checkpoint with a small overlap.
-        return ($request['dateFrom'] ?? '') === '2026-07-31T18:25:00.000Z'
-            && str_starts_with((string) ($request['dateTo'] ?? ''), '2026-07-31T19:30:00');
-    });
+        ->and(RingCentralCallSyncState::query()->sole()->last_synced_at)->not->toBeNull()
+        ->and(RingCentralCall::query()->sole()->result)->toBe('Updated result');
 });
 
 test('sync remembers the previous checkpoint across app timezone casts', function () {
@@ -284,22 +311,31 @@ test('extra RingCentral phones from promotions are synced too', function () {
             ]);
         }
 
-        $phone = $request['phoneNumber'] ?? '';
-        $id = $phone === '+14155550199' ? 'extra-call' : 'primary-call';
-        $to = $phone === '+14155550199' ? '+14155550199' : '+16504614446';
-
         return Http::response([
-            'records' => [[
-                'id' => $id,
-                'sessionId' => 'session-'.$id,
-                'startTime' => '2026-07-31T18:00:00.000Z',
-                'duration' => 20,
-                'type' => 'Voice',
-                'direction' => 'Inbound',
-                'result' => 'Accepted',
-                'from' => ['phoneNumber' => '+14155550000'],
-                'to' => ['phoneNumber' => $to],
-            ]],
+            'records' => [
+                [
+                    'id' => 'primary-call',
+                    'sessionId' => 'session-primary-call',
+                    'startTime' => '2026-07-31T18:00:00.000Z',
+                    'duration' => 20,
+                    'type' => 'Voice',
+                    'direction' => 'Inbound',
+                    'result' => 'Accepted',
+                    'from' => ['phoneNumber' => '+14155550000'],
+                    'to' => ['phoneNumber' => '+16504614446'],
+                ],
+                [
+                    'id' => 'extra-call',
+                    'sessionId' => 'session-extra-call',
+                    'startTime' => '2026-07-31T18:00:00.000Z',
+                    'duration' => 20,
+                    'type' => 'Voice',
+                    'direction' => 'Inbound',
+                    'result' => 'Accepted',
+                    'from' => ['phoneNumber' => '+14155550000'],
+                    'to' => ['phoneNumber' => '+14155550199'],
+                ],
+            ],
         ]);
     });
 
@@ -359,7 +395,7 @@ function fakePaginatedRingCentralCalls(): void
     ]);
 }
 
-function fakeSingleRingCentralCall(string $result): void
+function fakeSingleRingCentralCall(string $result, string $startTime = '2026-07-31T18:00:00.000Z'): void
 {
     Http::fake([
         'https://platform.ringcentral.test/restapi/oauth/token' => Http::response([
@@ -370,7 +406,7 @@ function fakeSingleRingCentralCall(string $result): void
             'records' => [[
                 'id' => 'sync-call-1',
                 'sessionId' => 'sync-session-1',
-                'startTime' => '2026-07-31T18:00:00.000Z',
+                'startTime' => $startTime,
                 'duration' => 45,
                 'type' => 'Voice',
                 'direction' => 'Inbound',

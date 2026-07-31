@@ -174,7 +174,8 @@ class RingCentralCallListScreen extends Screen
         }
 
         try {
-            $result = $sync->sync();
+            // Force 7-day lookback so Sync now recovers after empty checkpoints.
+            $result = $sync->sync(forceDays: 7);
         } catch (Throwable $exception) {
             report($exception);
             Toast::error('RingCentral sync failed: '.$exception->getMessage());
@@ -183,7 +184,7 @@ class RingCentralCallListScreen extends Screen
         }
 
         Toast::success(sprintf(
-            'Synced %s: %d new, %d updated (%d fetched). From last sync %s → now %s PT.',
+            'Synced %s: %d new, %d updated (%d fetched). Window %s → %s PT.',
             $result['business_phone'],
             $result['created'],
             $result['updated'],

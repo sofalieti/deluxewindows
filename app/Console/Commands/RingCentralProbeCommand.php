@@ -9,6 +9,7 @@ use App\Services\RingCentralCallLogService;
 use Carbon\CarbonImmutable;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
+use ReflectionMethod;
 
 class RingCentralProbeCommand extends Command
 {
@@ -59,37 +60,67 @@ class RingCentralProbeCommand extends Command
 
         $this->info("Window: {$dateFrom->toIso8601String()} → {$now->toIso8601String()}");
 
-        $wide = Http::withToken($token)->acceptJson()->timeout(30)->get($url, [
+        // Paginate account-wide (this is what works on this account).
+        $wideRecords = [];
+        $pageUrl = $url;
+        $pageQuery = [
             'view' => 'Simple',
             'type' => 'Voice',
             'dateFrom' => $dateFrom->format('Y-m-d\TH:i:s.v\Z'),
             'dateTo' => $now->format('Y-m-d\TH:i:s.v\Z'),
             'perPage' => 100,
-        ]);
+        ];
+        $page = 0;
+        $firstPaging = null;
 
-        $this->line('Account-wide HTTP '.$wide->status());
-        $wideRecords = $wide->json('records', []);
-        $paging = $wide->json('paging', []);
-        $this->line('Account-wide page records: '.(is_array($wideRecords) ? count($wideRecords) : 0));
-        $this->line('Paging: '.json_encode($paging));
-
-        if (is_array($wideRecords)) {
-            foreach (array_slice($wideRecords, 0, 8) as $i => $record) {
-                if (! is_array($record)) {
-                    continue;
-                }
-                $this->line(sprintf(
-                    '  [%d] %s %s from=%s to=%s start=%s result=%s',
-                    $i,
-                    (string) ($record['direction'] ?? ''),
-                    (string) ($record['id'] ?? ''),
-                    (string) data_get($record, 'from.phoneNumber', ''),
-                    (string) data_get($record, 'to.phoneNumber', ''),
-                    (string) ($record['startTime'] ?? ''),
-                    (string) ($record['result'] ?? ''),
-                ));
+        do {
+            $wide = Http::withToken($token)->acceptJson()->timeout(30)->get($pageUrl, $pageQuery);
+            if ($page === 0) {
+                $this->line('Account-wide HTTP '.$wide->status());
+                $firstPaging = $wide->json('paging', []);
             }
+            if (! $wide->successful()) {
+                $this->error('Account-wide failed: '.substr($wide->body(), 0, 400));
+
+                return self::FAILURE;
+            }
+
+            $pageRecords = $wide->json('records', []);
+            if (is_array($pageRecords)) {
+                foreach ($pageRecords as $record) {
+                    if (is_array($record)) {
+                        $wideRecords[] = $record;
+                    }
+                }
+            }
+
+            $nextUrl = trim((string) $wide->json('navigation.nextPage.uri', ''));
+            $pageUrl = $nextUrl;
+            $pageQuery = [];
+            $page++;
+        } while ($pageUrl !== '' && $page < 100);
+
+        $this->line('Account-wide total records (all pages): '.count($wideRecords));
+        $this->line('First-page paging: '.json_encode($firstPaging));
+
+        foreach (array_slice($wideRecords, 0, 8) as $i => $record) {
+            $this->line(sprintf(
+                '  [%d] %s %s from=%s to=%s start=%s result=%s',
+                $i,
+                (string) ($record['direction'] ?? ''),
+                (string) ($record['id'] ?? ''),
+                (string) data_get($record, 'from.phoneNumber', ''),
+                (string) data_get($record, 'to.phoneNumber', ''),
+                (string) ($record['startTime'] ?? ''),
+                (string) ($record['result'] ?? ''),
+            ));
         }
+
+        $usesAccountWide = $this->fetchCallsUsesAccountWide($callLog);
+        $this->newLine();
+        $this->line('fetchCalls mode: '.($usesAccountWide
+            ? 'account-wide + local filter (good)'
+            : 'API phoneNumber filter (BROKEN on this account — deploy latest code)'));
 
         $phones = [];
         $override = trim((string) $this->option('phone'));
@@ -110,7 +141,7 @@ class RingCentralProbeCommand extends Command
             $this->newLine();
             $this->info("Phone {$phone} → {$normalized}");
 
-            $raw = Http::withToken($token)->acceptJson()->timeout(30)->get($url, [
+            $apiFiltered = Http::withToken($token)->acceptJson()->timeout(30)->get($url, [
                 'view' => 'Simple',
                 'type' => 'Voice',
                 'phoneNumber' => $normalized,
@@ -118,45 +149,55 @@ class RingCentralProbeCommand extends Command
                 'dateTo' => $now->format('Y-m-d\TH:i:s.v\Z'),
                 'perPage' => 100,
             ]);
+            $apiCount = is_array($apiFiltered->json('records')) ? count($apiFiltered->json('records')) : 0;
+            $this->line("API phoneNumber= filter: HTTP {$apiFiltered->status()} count={$apiCount} (expect 0 on this account)");
 
-            $rawRecords = $raw->json('records', []);
-            $this->line('Raw filtered HTTP '.$raw->status().' count='.(is_array($rawRecords) ? count($rawRecords) : 0));
-            $this->line('Raw paging: '.json_encode($raw->json('paging', [])));
-
-            if (is_array($rawRecords)) {
-                foreach (array_slice($rawRecords, 0, 5) as $i => $record) {
-                    if (! is_array($record)) {
-                        continue;
-                    }
-                    $this->line(sprintf(
-                        '  raw[%d] %s from=%s to=%s start=%s',
-                        $i,
-                        (string) ($record['direction'] ?? ''),
-                        (string) data_get($record, 'from.phoneNumber', ''),
-                        (string) data_get($record, 'to.phoneNumber', ''),
-                        (string) ($record['startTime'] ?? ''),
-                    ));
+            $localKept = [];
+            foreach ($wideRecords as $record) {
+                $call = $callLog->normalizeCallRecord($record, $normalized);
+                if ($call !== null) {
+                    $localKept[$call['ringcentral_call_id']] = $call;
                 }
+            }
+            $this->line('Local filter from account-wide: '.count($localKept));
+            foreach (array_slice(array_values($localKept), 0, 5) as $i => $call) {
+                $this->line(sprintf(
+                    '  local[%d] %s external=%s start=%s result=%s',
+                    $i,
+                    $call['direction'],
+                    $call['external_phone'],
+                    $call['started_at']->toIso8601String(),
+                    $call['result'],
+                ));
             }
 
             try {
                 $kept = $callLog->fetchCalls($normalized, $dateFrom, $now);
-                $this->line('After our normalizer: '.count($kept));
-                foreach (array_slice($kept, 0, 5) as $i => $call) {
-                    $this->line(sprintf(
-                        '  kept[%d] %s external=%s start=%s result=%s',
-                        $i,
-                        $call['direction'],
-                        $call['external_phone'],
-                        $call['started_at']->toIso8601String(),
-                        $call['result'],
-                    ));
-                }
+                $this->line('fetchCalls(): '.count($kept).($usesAccountWide ? '' : '  ← still broken until deploy'));
             } catch (\Throwable $e) {
                 $this->error('fetchCalls: '.$e->getMessage());
             }
         }
 
+        $this->newLine();
+        $this->comment('Next: deploy latest sync code, then: php artisan ringcentral:sync-calls --days=7');
+
         return self::SUCCESS;
+    }
+
+    private function fetchCallsUsesAccountWide(RingCentralCallLogService $callLog): bool
+    {
+        try {
+            $method = new ReflectionMethod($callLog, 'fetchCalls');
+            $file = file_get_contents($method->getFileName() ?: '');
+            if (! is_string($file) || $file === '') {
+                return method_exists($callLog, 'fetchAccountVoiceRecords');
+            }
+
+            return str_contains($file, 'fetchAccountVoiceRecords')
+                && method_exists($callLog, 'fetchAccountVoiceRecords');
+        } catch (\Throwable) {
+            return method_exists($callLog, 'fetchAccountVoiceRecords');
+        }
     }
 }

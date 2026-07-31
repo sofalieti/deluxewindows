@@ -188,28 +188,48 @@ class RingCentralCallLogService
             throw new RuntimeException('The current admin phone number is empty.');
         }
 
+        // Account-wide fetch + local phone filter. RingCentral's phoneNumber=
+        // filter can return empty even when account-wide log contains the calls.
+        $records = $this->fetchAccountVoiceRecords($dateFrom, $dateTo);
+        $calls = [];
+
+        foreach ($records as $record) {
+            $call = $this->normalizeCallRecord($record, $businessPhone);
+            if ($call !== null) {
+                $calls[$call['ringcentral_call_id']] = $call;
+            }
+        }
+
+        return array_values($calls);
+    }
+
+    /**
+     * @return list<array<string, mixed>>
+     */
+    public function fetchAccountVoiceRecords(
+        CarbonImmutable $dateFrom,
+        CarbonImmutable $dateTo
+    ): array {
         $url = $this->baseUrl().'/restapi/v1.0/account/'
             .(trim((string) config('services.ringcentral.account_id', '~')) ?: '~')
             .'/call-log';
         $query = [
             'view' => 'Simple',
             'type' => 'Voice',
-            'phoneNumber' => $businessPhone,
             'dateFrom' => $dateFrom->utc()->format('Y-m-d\TH:i:s.v\Z'),
             'dateTo' => $dateTo->utc()->format('Y-m-d\TH:i:s.v\Z'),
             'perPage' => 100,
         ];
-        $calls = [];
+        $records = [];
         $page = 0;
 
         do {
             $response = $this->callLogResponse($url, $query);
-            $records = $response->json('records', []);
-            if (is_array($records)) {
-                foreach ($records as $record) {
-                    $call = $this->normalizeCallRecord($record, $businessPhone);
-                    if ($call !== null) {
-                        $calls[$call['ringcentral_call_id']] = $call;
+            $pageRecords = $response->json('records', []);
+            if (is_array($pageRecords)) {
+                foreach ($pageRecords as $record) {
+                    if (is_array($record)) {
+                        $records[] = $record;
                     }
                 }
             }
@@ -220,7 +240,7 @@ class RingCentralCallLogService
             $page++;
         } while ($url !== '' && $page < 100);
 
-        return array_values($calls);
+        return $records;
     }
 
     private function getCallLog(
@@ -312,7 +332,7 @@ class RingCentralCallLogService
      *     raw: array<string, mixed>
      * }|null
      */
-    private function normalizeCallRecord(mixed $record, string $businessPhone): ?array
+    public function normalizeCallRecord(mixed $record, string $businessPhone): ?array
     {
         if (! is_array($record) || strcasecmp((string) ($record['type'] ?? ''), 'Voice') !== 0) {
             return null;
