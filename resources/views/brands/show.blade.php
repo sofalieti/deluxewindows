@@ -181,7 +181,7 @@
           <div class="w-layout-grid grid-2-columns contact-grid-v2">
             <div id="w-node-_1bf01939-5bf2-786b-3a31-18563ba6ae1f-facb1583" class="inner-container _440px _100-tablet">
               <div class="inner-container _550px---tablet">
-                <h1>Contact Us</h1>
+                <h2>Contact Us</h2>
                 <div class="mg-top-small"><p class="paragraph-8">We’re here to help with all your door and window needs.</p></div>
               </div>
               <div class="mg-top-default">

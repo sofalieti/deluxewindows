@@ -2425,6 +2425,13 @@
 
 /* Brand / material / series H1 — secondary line inside the same heading.
    .display-8.mid is display:flex in Webflow, so the subline needs a full flex row. */
+.page-intro-hero h1,
+.page-intro-hero h1 .h1-main,
+.page-intro-hero h1 .h1-subline {
+  color: oklch(0.985 0.006 246) !important;
+  -webkit-text-fill-color: oklch(0.985 0.006 246) !important;
+}
+
 h1.display-8.mid,
 h1.display-38.mid {
   display: flex !important;

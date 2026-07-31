@@ -3,7 +3,7 @@
           <div class="w-layout-grid grid-2-columns contact-grid-v2">
             <div class="inner-container _440px _100-tablet">
               <div class="inner-container _550px---tablet">
-                <h1>Contact Us</h1>
+                <h2>Contact Us</h2>
                 <div class="mg-top-small">
                   <p class="paragraph-8">We’re here to help with all your door and window needs.</p>
                 </div>

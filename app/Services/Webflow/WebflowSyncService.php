@@ -49,7 +49,9 @@ class WebflowSyncService
             $disk->makeDirectory($collectionDir);
 
             $schema = $this->client->getCollection($collectionId);
-            $items = $this->client->listCollectionItems($collectionId);
+            $items = WebflowRichTextNormalizer::removeEmbeddedH1(
+                $this->client->listCollectionItems($collectionId)
+            );
 
             $disk->put(
                 $collectionDir.'/schema.json',

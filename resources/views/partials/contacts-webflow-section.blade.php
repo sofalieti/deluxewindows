@@ -1,6 +1,6 @@
       <section id="contact" class="section hero-v4">
         <div class="w-layout-blockcontainer container-default w-container">
-          <h1 class="heading-31">Contact Us</h1>
+          <h2 class="heading-31">Contact Us</h2>
           <div class="w-layout-grid grid-2-columns contact-grid-v2">
             <div class="inner-container _440px _100-tablet">
               <div class="inner-container _550px---tablet">

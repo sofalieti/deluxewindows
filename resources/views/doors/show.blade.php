@@ -197,7 +197,7 @@
           <div class="inner-container _600px center">
             <div class="text-center">
               <div class="inner-container _500px---mbl center">
-                <h1 class="display-9 mid">Upgrade to Energy Efficient Windows and Doors for Less</h1>
+                <h2 class="display-9 mid">Upgrade to Energy Efficient Windows and Doors for Less</h2>
               </div>
             </div>
           </div>

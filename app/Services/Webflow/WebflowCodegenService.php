@@ -226,7 +226,9 @@ class WebflowCodegenService
                     'isArchived' => (bool) ($row['is_archived'] ?? false),
                     'isDraft' => (bool) ($row['is_draft'] ?? false),
                     // Image fields stay in DB only — datasets never carry or overwrite them.
-                    'fieldData' => $this->stripImageFields($fieldData),
+                    'fieldData' => WebflowRichTextNormalizer::removeEmbeddedH1(
+                        $this->stripImageFields($fieldData)
+                    ),
                 ];
             }
 
@@ -563,15 +565,21 @@ BLADE;
         $clean = [];
         foreach ($fieldData as $key => $value) {
             if (is_string($value)) {
-                $clean[$key] = $this->decodeStoredValue($value);
+                $clean[$key] = WebflowRichTextNormalizer::removeEmbeddedH1(
+                    $this->decodeStoredValue($value)
+                );
+
                 continue;
             }
 
             if (is_array($value)) {
-                $clean[$key] = array_map(
-                    fn ($item) => is_string($item) ? $this->decodeStoredValue($item) : $item,
-                    $value
+                $clean[$key] = WebflowRichTextNormalizer::removeEmbeddedH1(
+                    array_map(
+                        fn ($item) => is_string($item) ? $this->decodeStoredValue($item) : $item,
+                        $value
+                    )
                 );
+
                 continue;
             }
 

@@ -7,7 +7,7 @@
           <div class="w-layout-grid grid-2-columns contact-grid-v2">
             <div id="w-node-_824fa87e-09e3-541d-f82c-49c3ae0a3f2b-ec241dd4" class="inner-container _440px _100-tablet">
               <div class="inner-container _550px---tablet">
-                <h1 class="{{ $contactHeadingClass ?? '' }}">Contact Us</h1>
+                <h2 class="{{ $contactHeadingClass ?? '' }}">Contact Us</h2>
                 <div class="mg-top-small">
                   <p class="paragraph-8">We’re here to help with all your door and window needs.</p>
                 </div>

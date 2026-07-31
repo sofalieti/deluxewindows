@@ -201,7 +201,7 @@
           <div class="inner-container _600px center">
             <div class="text-center">
               <div class="inner-container _500px---mbl center">
-                <h1 class="heading-20">Upgrade your entire home today with flexible payment options that</h1>
+                <h2 class="heading-20">Upgrade your entire home today with flexible payment options that</h2>
               </div>
             </div>
           </div>

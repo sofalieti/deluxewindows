@@ -18,6 +18,7 @@ use App\Models\Webflow\WindowTypeWebflowItem;
 use App\Models\Webflow\WindowsWebflowItem;
 use App\Services\PromotionControlService;
 use App\Services\PromotionSettingsService;
+use App\Services\Webflow\WebflowRichTextNormalizer;
 use App\Support\WebflowItemOrder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -139,7 +140,9 @@ class ClassicSiteController extends Controller
             'windowFieldData'  => $fieldData,
             'title'            => $fieldData['name'] ?? 'Window',
             'summary'          => $fieldData['property-listing---summary'] ?? '',
-            'aboutHtml'        => $fieldData['property-listing---about'] ?? '',
+            'aboutHtml'        => WebflowRichTextNormalizer::removeEmbeddedH1(
+                $fieldData['property-listing---about'] ?? ''
+            ),
             'discountHtml'     => $discountHtml,
             'pagePromotionAvailable' => $pagePromotionAvailable,
             'warrantyHtml'     => $fieldData['warrantytext'] ?? '',
@@ -215,7 +218,9 @@ class ClassicSiteController extends Controller
             'title'          => $fieldData['name'] ?? 'Door',
             'slug'           => $fieldData['slug'] ?? $slug,
             'summary'        => $fieldData['description'] ?? '',
-            'aboutHtml'      => $fieldData['blog-post---rich-text'] ?? $door->wf_blog_post_rich_text ?? '',
+            'aboutHtml'      => WebflowRichTextNormalizer::removeEmbeddedH1(
+                $fieldData['blog-post---rich-text'] ?? $door->wf_blog_post_rich_text ?? ''
+            ),
             'discountHtml'   => $discountHtml,
             'pagePromotionAvailable' => $pagePromotionAvailable,
             'doorHeroFormHtml'       => $discountHtml,
@@ -874,7 +879,9 @@ class ClassicSiteController extends Controller
 
         $logoSvg     = $this->extractImageUrl($fieldData, ['logo-svg']);
         $logo        = $logoSvg ?? $this->extractImageUrl($fieldData, ['brand-logo', 'agent---avatar-photo', 'agent-avatar-photo']);
-        $description = $fieldData['agent---about'] ?? $brand->wf_agent_about ?? '';
+        $description = WebflowRichTextNormalizer::removeEmbeddedH1(
+            $fieldData['agent---about'] ?? $brand->wf_agent_about ?? ''
+        );
         $featuredImage = $this->extractImageUrl($fieldData, ['featured-image']);
         if ($featuredImage === null && is_array($brand->wf_featured_image ?? null)) {
             $featuredImage = $brand->wf_featured_image['url'] ?? null;
@@ -1021,6 +1028,7 @@ class ClassicSiteController extends Controller
         $description = $doorBrand && trim((string) $doorBrand->description) !== ''
             ? $doorBrand->description
             : $this->defaultDoorBrandDescription($name);
+        $description = WebflowRichTextNormalizer::removeEmbeddedH1($description);
 
         $windowsTitle   = $fieldData['windows-titles']  ?? "Explore {$name}'s Window Types";
         $doorsTitle     = ($doorBrand && trim((string) $doorBrand->doors_title) !== '')
@@ -1084,7 +1092,9 @@ class ClassicSiteController extends Controller
         $fieldData = is_array($windowType->field_data ?? null) ? $windowType->field_data : [];
 
         $name  = $fieldData['name'] ?? 'Window Type';
-        $about = $fieldData['property-listing---about'] ?? '';
+        $about = WebflowRichTextNormalizer::removeEmbeddedH1(
+            $fieldData['property-listing---about'] ?? ''
+        );
         $featuredImage = $this->extractImageUrl($fieldData, [
             'property-listing---featured-image',
             'property-listing---thumbnail-image-v1',
@@ -1174,7 +1184,9 @@ class ClassicSiteController extends Controller
         $fieldData = is_array($doorType->field_data ?? null) ? $doorType->field_data : [];
 
         $name  = $fieldData['name'] ?? 'Door Type';
-        $about = $fieldData['property-listing---about'] ?? '';
+        $about = WebflowRichTextNormalizer::removeEmbeddedH1(
+            $fieldData['property-listing---about'] ?? ''
+        );
         $featuredImage = $this->extractImageUrl($fieldData, [
             'property-listing---featured-image',
             'property-listing---thumbnail-image-v1',
@@ -1455,7 +1467,9 @@ class ClassicSiteController extends Controller
         }
 
         $aboutDescription = $collection->wf_about_collection_description ?? $fieldData['about-collection-description'] ?? '';
-        $aboutHtml        = $collection->wf_about_tab ?? '';
+        $aboutHtml        = WebflowRichTextNormalizer::removeEmbeddedH1(
+            $collection->wf_about_tab ?? ''
+        );
 
         $heroFormHtml = $this->resolveCollectionHeroPricing($collection, $fieldData);
 
@@ -1563,7 +1577,9 @@ class ClassicSiteController extends Controller
 
         $title = $fieldData['name'] ?? 'Blog';
         $heroImage = $this->extractImageUrl($fieldData, ['main-project-image', 'client-logo']);
-        $bodyHtml = $fieldData['project-details'] ?? '';
+        $bodyHtml = WebflowRichTextNormalizer::removeEmbeddedH1(
+            $fieldData['project-details'] ?? ''
+        );
 
         $relatedPosts = collect();
 
