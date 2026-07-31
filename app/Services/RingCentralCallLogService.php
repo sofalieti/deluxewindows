@@ -115,6 +115,70 @@ class RingCentralCallLogService
         return $matches[0];
     }
 
+    /**
+     * @return list<array{
+     *     ringcentral_call_id: string,
+     *     session_id: string,
+     *     telephony_session_id: string,
+     *     direction: string,
+     *     action: string,
+     *     result: string,
+     *     started_at: CarbonImmutable,
+     *     duration: int,
+     *     business_phone: string,
+     *     from_phone: string,
+     *     from_name: string,
+     *     to_phone: string,
+     *     to_name: string,
+     *     external_phone: string,
+     *     raw: array<string, mixed>
+     * }>
+     */
+    public function fetchCalls(
+        string $businessPhone,
+        CarbonImmutable $dateFrom,
+        CarbonImmutable $dateTo
+    ): array {
+        $businessPhone = $this->normalizePhone($businessPhone);
+        if ($businessPhone === '') {
+            throw new RuntimeException('The current admin phone number is empty.');
+        }
+
+        $url = $this->baseUrl().'/restapi/v1.0/account/'
+            .(trim((string) config('services.ringcentral.account_id', '~')) ?: '~')
+            .'/call-log';
+        $query = [
+            'view' => 'Simple',
+            'type' => 'Voice',
+            'phoneNumber' => $businessPhone,
+            'dateFrom' => $dateFrom->utc()->format('Y-m-d\TH:i:s.v\Z'),
+            'dateTo' => $dateTo->utc()->format('Y-m-d\TH:i:s.v\Z'),
+            'perPage' => 100,
+        ];
+        $calls = [];
+        $page = 0;
+
+        do {
+            $response = $this->callLogResponse($url, $query);
+            $records = $response->json('records', []);
+            if (is_array($records)) {
+                foreach ($records as $record) {
+                    $call = $this->normalizeCallRecord($record, $businessPhone);
+                    if ($call !== null) {
+                        $calls[$call['ringcentral_call_id']] = $call;
+                    }
+                }
+            }
+
+            $nextUrl = trim((string) $response->json('navigation.nextPage.uri', ''));
+            $url = $nextUrl;
+            $query = [];
+            $page++;
+        } while ($url !== '' && $page < 100);
+
+        return array_values($calls);
+    }
+
     private function getCallLog(
         string $phone,
         CarbonImmutable $dateFrom,
@@ -132,6 +196,32 @@ class RingCentralCallLogService
         }
 
         return $response;
+    }
+
+    private function callLogResponse(string $url, array $query = []): Response
+    {
+        $response = $this->sendAuthorizedGet($url, $query);
+
+        if ($response->status() === 401) {
+            Cache::forget($this->tokenCacheKey());
+            $response = $this->sendAuthorizedGet($url, $query);
+        }
+
+        if (! $response->successful()) {
+            throw new RuntimeException('RingCentral call log returned HTTP '.$response->status().'.');
+        }
+
+        return $response;
+    }
+
+    private function sendAuthorizedGet(string $url, array $query): Response
+    {
+        return Http::withToken($this->accessToken())
+            ->acceptJson()
+            ->connectTimeout(5)
+            ->timeout(20)
+            ->retry(2, 250, throw: false)
+            ->get($url, $query);
     }
 
     private function sendCallLogRequest(
@@ -157,6 +247,72 @@ class RingCentralCallLogService
                 'dateTo' => $dateTo->format('Y-m-d\TH:i:s.v\Z'),
                 'perPage' => 100,
             ]);
+    }
+
+    /**
+     * @return array{
+     *     ringcentral_call_id: string,
+     *     session_id: string,
+     *     telephony_session_id: string,
+     *     direction: string,
+     *     action: string,
+     *     result: string,
+     *     started_at: CarbonImmutable,
+     *     duration: int,
+     *     business_phone: string,
+     *     from_phone: string,
+     *     from_name: string,
+     *     to_phone: string,
+     *     to_name: string,
+     *     external_phone: string,
+     *     raw: array<string, mixed>
+     * }|null
+     */
+    private function normalizeCallRecord(mixed $record, string $businessPhone): ?array
+    {
+        if (! is_array($record) || strcasecmp((string) ($record['type'] ?? ''), 'Voice') !== 0) {
+            return null;
+        }
+
+        $id = trim((string) ($record['id'] ?? ''));
+        $direction = ucfirst(strtolower(trim((string) ($record['direction'] ?? ''))));
+        $fromPhone = $this->normalizePhone((string) data_get($record, 'from.phoneNumber', ''));
+        $toPhone = $this->normalizePhone((string) data_get($record, 'to.phoneNumber', ''));
+        $rawStartedAt = trim((string) ($record['startTime'] ?? ''));
+
+        if ($id === '' || $rawStartedAt === '' || ! in_array($direction, ['Inbound', 'Outbound'], true)) {
+            return null;
+        }
+
+        $externalPhone = $direction === 'Inbound' ? $fromPhone : $toPhone;
+        $businessSide = $direction === 'Inbound' ? $toPhone : $fromPhone;
+        if ($businessSide !== $businessPhone || $externalPhone === '') {
+            return null;
+        }
+
+        try {
+            $startedAt = CarbonImmutable::parse($rawStartedAt)->utc();
+        } catch (\Throwable) {
+            return null;
+        }
+
+        return [
+            'ringcentral_call_id' => $id,
+            'session_id' => trim((string) ($record['sessionId'] ?? '')),
+            'telephony_session_id' => trim((string) ($record['telephonySessionId'] ?? '')),
+            'direction' => $direction,
+            'action' => trim((string) ($record['action'] ?? '')),
+            'result' => trim((string) ($record['result'] ?? '')),
+            'started_at' => $startedAt,
+            'duration' => max(0, (int) ($record['duration'] ?? 0)),
+            'business_phone' => $businessPhone,
+            'from_phone' => $fromPhone,
+            'from_name' => trim((string) data_get($record, 'from.name', '')),
+            'to_phone' => $toPhone,
+            'to_name' => trim((string) data_get($record, 'to.name', '')),
+            'external_phone' => $externalPhone,
+            'raw' => $record,
+        ];
     }
 
     private function accessToken(): string
@@ -214,7 +370,7 @@ class RingCentralCallLogService
         ), '/');
     }
 
-    private function normalizePhone(string $phone): string
+    public function normalizePhone(string $phone): string
     {
         $digits = preg_replace('/\D+/', '', $phone) ?? '';
         if (strlen($digits) === 10) {

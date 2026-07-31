@@ -5,6 +5,7 @@ use App\Models\Lead;
 use App\Models\User;
 use App\Services\ContactFromLeadService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Orchid\Platform\Http\Middleware\Access;
 
 uses(RefreshDatabase::class);
 
@@ -104,4 +105,39 @@ test('creating from an already linked lead is idempotent', function () {
 
     expect($second->id)->toBe($first->id)
         ->and(Contact::query()->count())->toBe(1);
+});
+
+test('orchid create contact action resolves the service and redirects to the contact', function () {
+    $user = User::factory()->create();
+    $user->forceFill([
+        'permissions' => [
+            'platform.leads' => true,
+            'platform.contacts' => true,
+        ],
+    ])->save();
+    $lead = Lead::query()->create([
+        'full_name' => 'Orchid Client',
+        'email' => 'orchid@example.com',
+        'phone' => '6505556000',
+    ]);
+
+    $response = $this->withoutMiddleware(Access::class)->actingAs($user)->post(route('platform.leads.edit', [
+        'lead' => $lead,
+        'method' => 'createContact',
+    ]));
+
+    expect($response->status())->toBe(302);
+    $contact = Contact::query()->sole();
+    $response->assertRedirect(route('platform.contacts.edit', $contact));
+    expect($lead->refresh()->contact_id)->toBe($contact->id);
+
+    $this->withoutMiddleware(Access::class)
+        ->actingAs($user)
+        ->get(route('platform.contacts.edit', $contact))
+        ->assertOk();
+
+    $this->withoutMiddleware(Access::class)
+        ->actingAs($user)
+        ->get(route('platform.contacts.create'))
+        ->assertOk();
 });

@@ -1,0 +1,7 @@
+.ringcentral-call-number {
+    font-variant-numeric: tabular-nums;
+}
+
+.ringcentral-call-route {
+    line-height: 1.35;
+}

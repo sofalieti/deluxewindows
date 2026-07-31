@@ -19,7 +19,7 @@ use Orchid\Support\Facades\Toast;
 
 class ContactEditScreen extends Screen
 {
-    public Contact $contact;
+    public ?Contact $contact = null;
 
     public function query(Contact $contact): iterable
     {
@@ -43,7 +43,7 @@ class ContactEditScreen extends Screen
 
     public function name(): ?string
     {
-        return $this->contact->exists
+        return $this->contact?->exists
             ? 'Contact #'.$this->contact->id.': '.$this->contact->full_name
             : 'Add contact';
     }

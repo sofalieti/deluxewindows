@@ -30,5 +30,13 @@ return Application::configure(basePath: dirname(__DIR__))
             ->withoutOverlapping()
             ->when(fn () => \Illuminate\Support\Facades\Schema::hasTable('mailbox_settings')
                 && \App\Models\MailboxSetting::query()->where('scope', 'default')->where('enabled', true)->exists());
+
+        $schedule->command('ringcentral:sync-calls')
+            ->hourly()
+            ->timezone('America/Los_Angeles')
+            ->withoutOverlapping()
+            ->when(fn () => filled(config('services.ringcentral.client_id'))
+                && filled(config('services.ringcentral.client_secret'))
+                && filled(config('services.ringcentral.jwt')));
     })
     ->create();

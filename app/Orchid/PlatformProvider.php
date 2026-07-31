@@ -136,6 +136,11 @@ class PlatformProvider extends OrchidServiceProvider
                 ->route('platform.phone-clicks')
                 ->permission('platform.leads'),
 
+            Menu::make('RingCentral calls')
+                ->icon('bs.telephone-inbound')
+                ->route('platform.ringcentral-calls')
+                ->permission('platform.leads'),
+
             Menu::make('Mailbox')
                 ->icon('bs.envelope')
                 ->route('platform.mailbox')
