@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Models\Concerns\StoresUtcTimestamps;
+use Carbon\CarbonImmutable;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Filters\Filterable;
 use Orchid\Filters\Types\Like;
@@ -15,6 +18,7 @@ class RingCentralCall extends Model
 {
     use AsSource;
     use Filterable;
+    use StoresUtcTimestamps;
 
     protected $table = 'ringcentral_calls';
 
@@ -54,11 +58,33 @@ class RingCentralCall extends Model
     protected function casts(): array
     {
         return [
-            'started_at' => 'datetime',
             'duration' => 'integer',
             'raw' => 'array',
-            'synced_at' => 'datetime',
         ];
+    }
+
+    /**
+     * Stored as UTC wall-clock; exposed as UTC Carbon.
+     */
+    protected function startedAt(): Attribute
+    {
+        return Attribute::make(
+            get: fn (mixed $value): ?CarbonImmutable => $this->asUtcImmutable($value),
+            set: fn (mixed $value): ?string => $this->utcDatabaseString($value),
+        );
+    }
+
+    protected function syncedAt(): Attribute
+    {
+        return Attribute::make(
+            get: fn (mixed $value): ?CarbonImmutable => $this->asUtcImmutable($value),
+            set: fn (mixed $value): ?string => $this->utcDatabaseString($value),
+        );
+    }
+
+    public function startedAtPacific(): ?CarbonImmutable
+    {
+        return $this->started_at?->setTimezone('America/Los_Angeles');
     }
 
     public function scopeVisible(Builder $query): Builder

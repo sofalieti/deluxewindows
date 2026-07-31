@@ -310,24 +310,20 @@ test('phone click matching also checks additional RingCentral numbers from promo
             ]);
         }
 
-        $phone = $request['phoneNumber'] ?? '';
-        if ($phone === '+14155550199') {
-            return Http::response([
-                'records' => [[
-                    'id' => 'extra-did-call',
-                    'sessionId' => 'extra-session',
-                    'startTime' => '2026-07-30T16:00:20.000Z',
-                    'duration' => 33,
-                    'type' => 'Voice',
-                    'direction' => 'Inbound',
-                    'result' => 'Accepted',
-                    'from' => ['phoneNumber' => '+14155550888'],
-                    'to' => ['phoneNumber' => '+14155550199'],
-                ]],
-            ]);
-        }
-
-        return Http::response(['records' => []]);
+        // Account-wide log (no phoneNumber filter): call landed on extra DID.
+        return Http::response([
+            'records' => [[
+                'id' => 'extra-did-call',
+                'sessionId' => 'extra-session',
+                'startTime' => '2026-07-30T16:00:20.000Z',
+                'duration' => 33,
+                'type' => 'Voice',
+                'direction' => 'Inbound',
+                'result' => 'Accepted',
+                'from' => ['phoneNumber' => '+14155550888'],
+                'to' => ['phoneNumber' => '+14155550199'],
+            ]],
+        ]);
     });
 
     (new MatchPhoneClickToRingCentral($click->id))

@@ -353,6 +353,26 @@ test('promotions normalize extra RingCentral phone lines', function () {
     ))->toBe(['+14155550100', '+16504614446']);
 });
 
+test('RingCentral call started_at is stored as UTC and shown in Pacific time', function () {
+    config()->set('app.timezone', 'America/Los_Angeles');
+
+    $call = RingCentralCall::query()->create([
+        'ringcentral_call_id' => 'tz-call-1',
+        'direction' => 'Inbound',
+        'started_at' => CarbonImmutable::parse('2026-07-31T16:35:38.879Z'),
+        'duration' => 96,
+        'business_phone' => '+16504614446',
+        'from_phone' => '+19254287640',
+        'to_phone' => '+16504614446',
+        'external_phone' => '+19254287640',
+        'synced_at' => CarbonImmutable::parse('2026-07-31T17:00:00Z'),
+    ]);
+
+    expect($call->getRawOriginal('started_at'))->toBe('2026-07-31 16:35:38')
+        ->and($call->fresh()->started_at?->timezone->getName())->toBe('UTC')
+        ->and($call->fresh()->startedAtPacific()?->format('Y-m-d h:i A'))->toBe('2026-07-31 09:35 AM');
+});
+
 function fakePaginatedRingCentralCalls(): void
 {
     Http::fake([

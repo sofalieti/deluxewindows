@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace App\Orchid\Screens\PhoneClicks;
 
+use App\Jobs\MatchPhoneClickToRingCentral;
 use App\Models\PhoneClick;
 use App\Services\PhoneClickGoogleBridge;
+use App\Services\RingCentralCallLogService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Orchid\Screen\Actions\Button;
@@ -15,6 +17,7 @@ use Orchid\Screen\Sight;
 use Orchid\Support\Color;
 use Orchid\Support\Facades\Layout;
 use Orchid\Support\Facades\Toast;
+use Throwable;
 
 class PhoneClickViewScreen extends Screen
 {
@@ -63,6 +66,21 @@ class PhoneClickViewScreen extends Screen
                 ->type(Color::PRIMARY)
                 ->method('sendToGoogle', ['click' => $this->click->id])
                 ->confirm('Send this phone click to the Google Sheet? This can only be done once.');
+        }
+
+        if ($this->click && $this->click->ringcentral_status !== PhoneClick::RINGCENTRAL_FOUND) {
+            $actions[] = Button::make('Re-match RingCentral')
+                ->icon('bs.link-45deg')
+                ->method('rematch', ['click' => $this->click->id])
+                ->confirm('Match this click again against the call journal / RingCentral?');
+        }
+
+        if ($this->click) {
+            $actions[] = Button::make('Delete')
+                ->icon('bs.trash')
+                ->type(Color::DANGER)
+                ->method('remove', ['click' => $this->click->id])
+                ->confirm('Delete this phone click permanently?');
         }
 
         return $actions;
@@ -252,5 +270,51 @@ class PhoneClickViewScreen extends Screen
         }
 
         Toast::success($result['message']);
+    }
+
+    public function rematch(Request $request, RingCentralCallLogService $ringCentral): void
+    {
+        $validated = $request->validate([
+            'click' => ['required', 'integer', 'exists:phone_clicks,id'],
+        ]);
+
+        $click = PhoneClick::query()->findOrFail((int) $validated['click']);
+        if ($click->ringcentral_status === PhoneClick::RINGCENTRAL_FOUND) {
+            Toast::warning('This click is already matched to a RingCentral call.');
+
+            return;
+        }
+
+        try {
+            (new MatchPhoneClickToRingCentral($click->id, force: true))->handle($ringCentral);
+        } catch (Throwable $exception) {
+            report($exception);
+            Toast::error('Re-match failed: '.$exception->getMessage());
+
+            return;
+        }
+
+        $click->refresh();
+        $this->click = $click;
+
+        if ($click->ringcentral_status === PhoneClick::RINGCENTRAL_FOUND) {
+            Toast::success('Matched RingCentral call: '.($click->ringcentral_result ?: 'found'));
+
+            return;
+        }
+
+        Toast::warning('No matching RingCentral call found in the click time window.');
+    }
+
+    public function remove(Request $request)
+    {
+        $validated = $request->validate([
+            'click' => ['required', 'integer', 'exists:phone_clicks,id'],
+        ]);
+
+        PhoneClick::query()->whereKey((int) $validated['click'])->delete();
+        Toast::info('Phone click deleted.');
+
+        return redirect()->route('platform.phone-clicks');
     }
 }

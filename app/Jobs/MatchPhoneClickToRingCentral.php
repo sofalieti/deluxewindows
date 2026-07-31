@@ -21,8 +21,10 @@ class MatchPhoneClickToRingCentral implements ShouldQueue
 
     public int $timeout = 45;
 
-    public function __construct(public readonly int $phoneClickId)
-    {
+    public function __construct(
+        public readonly int $phoneClickId,
+        public readonly bool $force = false,
+    ) {
         $this->onQueue('default');
     }
 
@@ -31,7 +33,27 @@ class MatchPhoneClickToRingCentral implements ShouldQueue
         Cache::lock('ringcentral:phone-click:'.$this->phoneClickId, 55)->get(
             function () use ($ringCentral): void {
                 $click = PhoneClick::query()->find($this->phoneClickId);
-                if (! $click || $click->hasFinalRingCentralStatus()) {
+                if (! $click) {
+                    return;
+                }
+
+                if ($this->force && $click->ringcentral_status !== PhoneClick::RINGCENTRAL_FOUND) {
+                    $click->forceFill([
+                        'ringcentral_status' => PhoneClick::RINGCENTRAL_PENDING,
+                        'ringcentral_checked_at' => null,
+                        'ringcentral_call_id' => null,
+                        'ringcentral_session_id' => null,
+                        'ringcentral_result' => null,
+                        'ringcentral_direction' => null,
+                        'ringcentral_call_started_at' => null,
+                        'ringcentral_duration' => null,
+                        'ringcentral_from_phone' => null,
+                        'ringcentral_to_phone' => null,
+                        'ringcentral_error' => null,
+                    ])->saveQuietly();
+                }
+
+                if ($click->hasFinalRingCentralStatus()) {
                     return;
                 }
 

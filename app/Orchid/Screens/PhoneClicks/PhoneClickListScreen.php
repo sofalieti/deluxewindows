@@ -54,7 +54,11 @@ class PhoneClickListScreen extends Screen
             Button::make('Check RingCentral now')
                 ->icon('bs.arrow-repeat')
                 ->method('checkRingCentralNow')
-                ->confirm('Re-check pending phone clicks against RingCentral (main and extra numbers)?'),
+                ->confirm('Re-check pending / error phone clicks against RingCentral?'),
+            Button::make('Re-match unmatched')
+                ->icon('bs.link-45deg')
+                ->method('rematchUnmatched')
+                ->confirm('Reset No call / Error / Pending clicks and match them again against the call journal + RingCentral (last 100)?'),
         ];
     }
 
@@ -186,12 +190,21 @@ class PhoneClickListScreen extends Screen
                             ->confirm('Send this phone click to the Google Sheet? This can only be done once.');
                     }),
 
-                TD::make('id', '')
+                TD::make('id', 'View')
                     ->align(TD::ALIGN_CENTER)
-                    ->width('80px')
-                    ->render(fn (PhoneClick $click) => Link::make('View')
+                    ->width('70px')
+                    ->render(fn (PhoneClick $click) => Link::make('')
                         ->icon('bs.eye')
                         ->route('platform.phone-clicks.view', $click)),
+
+                TD::make('delete', '')
+                    ->align(TD::ALIGN_CENTER)
+                    ->width('90px')
+                    ->render(fn (PhoneClick $click) => Button::make('Delete')
+                        ->icon('bs.trash')
+                        ->type(Color::DANGER)
+                        ->method('remove', ['click' => $click->id])
+                        ->confirm('Delete this phone click permanently?')),
             ]),
         ];
     }
@@ -225,17 +238,63 @@ class PhoneClickListScreen extends Screen
 
     public function checkRingCentralNow(RingCentralCallLogService $ringCentral): void
     {
-        $clicks = PhoneClick::query()
-            ->whereNotIn('ringcentral_status', [
-                PhoneClick::RINGCENTRAL_FOUND,
-                PhoneClick::RINGCENTRAL_NO_CALL,
-            ])
-            ->orderByDesc('id')
-            ->limit(50)
-            ->get();
+        $this->runRingCentralMatch(
+            PhoneClick::query()
+                ->whereNotIn('ringcentral_status', [
+                    PhoneClick::RINGCENTRAL_FOUND,
+                    PhoneClick::RINGCENTRAL_NO_CALL,
+                ])
+                ->orderByDesc('id')
+                ->limit(100)
+                ->get(),
+            force: false,
+            emptyMessage: 'No pending phone clicks need a RingCentral check.',
+            ringCentral: $ringCentral,
+        );
+    }
 
+    public function rematchUnmatched(RingCentralCallLogService $ringCentral): void
+    {
+        $this->runRingCentralMatch(
+            PhoneClick::query()
+                ->where(function ($query): void {
+                    $query->whereIn('ringcentral_status', [
+                        PhoneClick::RINGCENTRAL_PENDING,
+                        PhoneClick::RINGCENTRAL_NO_CALL,
+                        PhoneClick::RINGCENTRAL_ERROR,
+                        PhoneClick::RINGCENTRAL_NOT_CHECKED,
+                    ])->orWhereNull('ringcentral_status');
+                })
+                ->orderByDesc('id')
+                ->limit(100)
+                ->get(),
+            force: true,
+            emptyMessage: 'No unmatched phone clicks to re-check.',
+            ringCentral: $ringCentral,
+        );
+    }
+
+    public function remove(Request $request): void
+    {
+        $validated = $request->validate([
+            'click' => ['required', 'integer', 'exists:phone_clicks,id'],
+        ]);
+
+        PhoneClick::query()->whereKey((int) $validated['click'])->delete();
+        Toast::info('Phone click deleted.');
+    }
+
+    /**
+     * @param  \Illuminate\Support\Collection<int, PhoneClick>  $clicks
+     */
+    private function runRingCentralMatch(
+        $clicks,
+        bool $force,
+        string $emptyMessage,
+        RingCentralCallLogService $ringCentral,
+    ): void {
         if ($clicks->isEmpty()) {
-            Toast::info('No pending phone clicks need a RingCentral check.');
+            Toast::info($emptyMessage);
 
             return;
         }
@@ -244,13 +303,12 @@ class PhoneClickListScreen extends Screen
         $errors = 0;
 
         foreach ($clicks as $click) {
-            // Allow an immediate admin re-check even if a job ran moments ago.
             $click->forceFill([
                 'ringcentral_checked_at' => null,
             ])->saveQuietly();
 
             try {
-                (new MatchPhoneClickToRingCentral($click->id))->handle($ringCentral);
+                (new MatchPhoneClickToRingCentral($click->id, $force))->handle($ringCentral);
             } catch (Throwable $exception) {
                 report($exception);
                 $errors++;

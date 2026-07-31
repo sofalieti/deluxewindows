@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace App\Services;
 
 use App\Models\PhoneClick;
+use App\Models\RingCentralCall;
 use Carbon\CarbonImmutable;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Schema;
 use RuntimeException;
 
 class RingCentralCallLogService
@@ -42,73 +44,158 @@ class RingCentralCallLogService
         $currentTime = CarbonImmutable::now('UTC');
         $dateTo = $currentTime->lessThan($deadline) ? $currentTime : $deadline;
 
+        // Prefer already-synced journal (works even when API phoneNumber= is empty).
+        $fromJournal = $this->findMatchingCallInJournal($click, $candidatePhones, $startedAt, $dateFrom, $dateTo);
+        if ($fromJournal !== null) {
+            return $fromJournal;
+        }
+
+        // Account-wide API + local filter (phoneNumber= returns 0 on this RC account).
         $matches = [];
         $seenCallIds = [];
-
-        foreach ($candidatePhones as $lookupPhone) {
-            $response = $this->getCallLog($lookupPhone, $dateFrom, $dateTo);
-            $records = $response->json('records', []);
-            if (! is_array($records)) {
+        foreach ($this->fetchAccountVoiceRecords($dateFrom, $dateTo) as $record) {
+            if (! is_array($record)) {
                 continue;
             }
 
-            foreach ($records as $record) {
-                if (! is_array($record)) {
-                    continue;
-                }
+            $id = trim((string) ($record['id'] ?? ''));
+            $direction = trim((string) ($record['direction'] ?? ''));
+            $type = trim((string) ($record['type'] ?? ''));
+            $toPhone = $this->normalizePhone((string) data_get($record, 'to.phoneNumber', ''));
+            $rawStartTime = trim((string) ($record['startTime'] ?? ''));
 
-                $id = trim((string) ($record['id'] ?? ''));
-                $direction = trim((string) ($record['direction'] ?? ''));
-                $type = trim((string) ($record['type'] ?? ''));
-                $toPhone = $this->normalizePhone((string) data_get($record, 'to.phoneNumber', ''));
-                $rawStartTime = trim((string) ($record['startTime'] ?? ''));
-
-                if (
-                    $id === ''
-                    || isset($seenCallIds[$id])
-                    || strcasecmp($direction, 'Inbound') !== 0
-                    || ($type !== '' && strcasecmp($type, 'Voice') !== 0)
-                    || ! $this->matchesAnyPhone($toPhone, $candidatePhones)
-                    || $rawStartTime === ''
-                ) {
-                    continue;
-                }
-
-                $seenCallIds[$id] = true;
-
-                if (PhoneClick::query()
-                    ->where('ringcentral_call_id', $id)
-                    ->where($click->getKeyName(), '!=', $click->getKey())
-                    ->exists()) {
-                    continue;
-                }
-
-                try {
-                    $callStartedAt = CarbonImmutable::parse($rawStartTime)->utc();
-                } catch (\Throwable) {
-                    continue;
-                }
-
-                if ($callStartedAt->lessThan($dateFrom) || $callStartedAt->greaterThan($dateTo)) {
-                    continue;
-                }
-
-                $matches[] = [
-                    'id' => $id,
-                    'session_id' => trim((string) (
-                        $record['telephonySessionId']
-                        ?? $record['sessionId']
-                        ?? ''
-                    )),
-                    'result' => trim((string) ($record['result'] ?? 'Unknown')),
-                    'direction' => $direction,
-                    'start_time' => $callStartedAt,
-                    'duration' => max(0, (int) ($record['duration'] ?? 0)),
-                    'from_phone' => $this->normalizePhone((string) data_get($record, 'from.phoneNumber', '')),
-                    'to_phone' => $toPhone,
-                    'distance' => abs($startedAt->diffInSeconds($callStartedAt, false)),
-                ];
+            if (
+                $id === ''
+                || isset($seenCallIds[$id])
+                || strcasecmp($direction, 'Inbound') !== 0
+                || ($type !== '' && strcasecmp($type, 'Voice') !== 0)
+                || ! $this->matchesAnyPhone($toPhone, $candidatePhones)
+                || $rawStartTime === ''
+            ) {
+                continue;
             }
+
+            $seenCallIds[$id] = true;
+
+            if (PhoneClick::query()
+                ->where('ringcentral_call_id', $id)
+                ->where($click->getKeyName(), '!=', $click->getKey())
+                ->exists()) {
+                continue;
+            }
+
+            try {
+                $callStartedAt = CarbonImmutable::parse($rawStartTime)->utc();
+            } catch (\Throwable) {
+                continue;
+            }
+
+            if ($callStartedAt->lessThan($dateFrom) || $callStartedAt->greaterThan($dateTo)) {
+                continue;
+            }
+
+            $matches[] = [
+                'id' => $id,
+                'session_id' => trim((string) (
+                    $record['telephonySessionId']
+                    ?? $record['sessionId']
+                    ?? ''
+                )),
+                'result' => trim((string) ($record['result'] ?? 'Unknown')),
+                'direction' => $direction,
+                'start_time' => $callStartedAt,
+                'duration' => max(0, (int) ($record['duration'] ?? 0)),
+                'from_phone' => $this->normalizePhone((string) data_get($record, 'from.phoneNumber', '')),
+                'to_phone' => $toPhone,
+                'distance' => abs($startedAt->diffInSeconds($callStartedAt, false)),
+            ];
+        }
+
+        if ($matches === []) {
+            return null;
+        }
+
+        usort($matches, fn (array $a, array $b): int => $a['distance'] <=> $b['distance']);
+        unset($matches[0]['distance']);
+
+        return $matches[0];
+    }
+
+    /**
+     * @param  list<string>  $candidatePhones
+     * @return array{
+     *     id: string,
+     *     session_id: string,
+     *     result: string,
+     *     direction: string,
+     *     start_time: CarbonImmutable,
+     *     duration: int,
+     *     from_phone: string,
+     *     to_phone: string
+     * }|null
+     */
+    private function findMatchingCallInJournal(
+        PhoneClick $click,
+        array $candidatePhones,
+        CarbonImmutable $startedAt,
+        CarbonImmutable $dateFrom,
+        CarbonImmutable $dateTo,
+    ): ?array {
+        if (! Schema::hasTable('ringcentral_calls')) {
+            return null;
+        }
+
+        $calls = RingCentralCall::query()
+            ->where('direction', 'Inbound')
+            ->where('started_at', '>=', $dateFrom->subHour()->format('Y-m-d H:i:s'))
+            ->where('started_at', '<=', $dateTo->addHour()->format('Y-m-d H:i:s'))
+            ->orderBy('started_at')
+            ->limit(200)
+            ->get();
+
+        $matches = [];
+        foreach ($calls as $call) {
+            $toPhone = $this->normalizePhone((string) ($call->to_phone ?: $call->business_phone));
+            if (! $this->matchesAnyPhone($toPhone, $candidatePhones)) {
+                continue;
+            }
+
+            $id = trim((string) $call->ringcentral_call_id);
+            if ($id === '') {
+                continue;
+            }
+
+            if (PhoneClick::query()
+                ->where('ringcentral_call_id', $id)
+                ->where($click->getKeyName(), '!=', $click->getKey())
+                ->exists()) {
+                continue;
+            }
+
+            try {
+                $callStartedAt = CarbonImmutable::parse($call->getRawOriginal('started_at') ?: $call->started_at)
+                    ->utc();
+            } catch (\Throwable) {
+                continue;
+            }
+
+            if ($callStartedAt->lessThan($dateFrom) || $callStartedAt->greaterThan($dateTo)) {
+                continue;
+            }
+
+            $matches[] = [
+                'id' => $id,
+                'session_id' => trim((string) (
+                    $call->telephony_session_id ?: $call->session_id ?: ''
+                )),
+                'result' => trim((string) ($call->result ?: 'Unknown')),
+                'direction' => 'Inbound',
+                'start_time' => $callStartedAt,
+                'duration' => max(0, (int) $call->duration),
+                'from_phone' => $this->normalizePhone((string) $call->from_phone),
+                'to_phone' => $toPhone,
+                'distance' => abs($startedAt->diffInSeconds($callStartedAt, false)),
+            ];
         }
 
         if ($matches === []) {

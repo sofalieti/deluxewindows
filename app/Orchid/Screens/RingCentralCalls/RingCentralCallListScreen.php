@@ -105,8 +105,10 @@ class RingCentralCallListScreen extends Screen
                         ->sort()
                         ->width('145px')
                         ->render(function (RingCentralCall $call): string {
-                            $date = CarbonImmutable::parse($call->started_at)
-                                ->setTimezone('America/Los_Angeles');
+                            $date = $call->startedAtPacific();
+                            if ($date === null) {
+                                return '—';
+                            }
 
                             return '<div class="fw-semibold">'.e($date->format('M d, Y')).'</div>'
                                 .'<div class="small text-muted">'.e($date->format('h:i A')).' PT</div>';
@@ -250,17 +252,22 @@ class RingCentralCallListScreen extends Screen
             return 'never';
         }
 
-        $latest = RingCentralCallSyncState::query()
+        $state = RingCentralCallSyncState::query()
             ->whereIn('business_phone', $this->monitoredPhones)
             ->whereNotNull('last_synced_at')
             ->orderByDesc('last_synced_at')
-            ->value('last_synced_at');
+            ->first();
 
-        if ($latest === null) {
+        if ($state === null) {
             return 'never';
         }
 
-        return CarbonImmutable::parse($latest)
+        $raw = $state->getRawOriginal('last_synced_at');
+        if ($raw === null || $raw === '') {
+            return 'never';
+        }
+
+        return CarbonImmutable::createFromFormat('Y-m-d H:i:s', (string) $raw, 'UTC')
             ->setTimezone('America/Los_Angeles')
             ->format('M d, Y h:i A').' PT';
     }
