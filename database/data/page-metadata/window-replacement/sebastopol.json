@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/sebastopol",
+    "path": "/window-replacement/sebastopol",
+    "seo": {
+        "title": "Windows & Doors in Sebastopol, Sonoma County",
+        "description": "Window replacement in Sebastopol, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Sebastopol project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/sebastopol",
+        "og": {
+            "title": "Windows & Doors in Sebastopol, Sonoma County",
+            "description": "Window replacement in Sebastopol, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Sebastopol project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Sebastopol, Sonoma County",
+        "primary_keyword": "window replacement sebastopol",
+        "target_keywords": [
+            "window replacement sebastopol",
+            "window installation sebastopol",
+            "replacement windows sebastopol",
+            "sebastopol window replacement",
+            "andersen windows sebastopol"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Sebastopol, Sonoma County",
+            "description": "Window replacement in Sebastopol, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Sebastopol project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Sebastopol?",
+            "answer": "Sebastopol homeowners typically invest $5,500 to $13,000 for a full window replacement project. This eco-conscious Sonoma County community features Victorian farmhouses on Gravenstein Highway, craftsman bungalows, and newer green-built homes. Older farmhouses may require custom sizing. Single window installation starts at approximately $510."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Sebastopol?",
+            "answer": "Yes. Sebastopol requires a building permit for window replacements. The city encourages energy-efficient upgrades; our team ensures all projects meet Sebastopol's sustainability standards and handles all permit applications on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Sebastopol?",
+            "answer": "Sebastopol's sustainability-focused community gravitates toward eco-certified products. We most frequently install Milgard Ultra fiberglass for its superior energy ratings and minimal maintenance, Andersen 400-Series for Victorian farmhouses, and Simonton for budget-conscious projects with good energy performance."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Sebastopol neighborhoods?",
+            "answer": "Yes — we serve all of Sebastopol including the Apple Blossom area, Gravenstein Highway corridor, Llano Road area, and all surrounding residential zones. Zip code: 95472."
+        },
+        {
+            "question": "How long does window replacement take in Sebastopol?",
+            "answer": "Most Sebastopol projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Sebastopol, Sonoma County",
+            "area_served": "Sebastopol"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

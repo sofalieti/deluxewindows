@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/campbell",
+    "path": "/window-replacement/campbell",
+    "seo": {
+        "title": "Windows & Doors in Campbell, Santa Clara County",
+        "description": "Window replacement in Campbell, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Campbell project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/campbell",
+        "og": {
+            "title": "Windows & Doors in Campbell, Santa Clara County",
+            "description": "Window replacement in Campbell, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Campbell project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Campbell, Santa Clara County",
+        "primary_keyword": "window replacement campbell",
+        "target_keywords": [
+            "window replacement campbell",
+            "window installation campbell",
+            "replacement windows campbell",
+            "campbell window replacement",
+            "andersen windows campbell"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Campbell, Santa Clara County",
+            "description": "Window replacement in Campbell, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Campbell project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Campbell?",
+            "answer": "Campbell homeowners typically invest $5,000 to $12,000 for a full window replacement project. The city's mix of 1950s–1970s ranches and newer condos offers a range of project sizes. Standard Campbell replacement projects covering 10–14 windows are among the most efficient we handle in Santa Clara County. Single window installation starts at approximately $500."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Campbell?",
+            "answer": "Yes. Campbell requires a building permit for window replacements, particularly those involving changes to the rough opening. Our team handles all Campbell permit applications and inspection scheduling on your behalf at no additional charge."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Campbell?",
+            "answer": "For Campbell's suburban housing stock, we most frequently install Milgard Tuscany vinyl for cost-effective whole-home replacements, Andersen 400-Series for homes where wood interiors are desired, and Anlin Del Mar for energy-conscious homeowners looking to reduce summer cooling loads."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Campbell neighborhoods?",
+            "answer": "Yes — we serve all Campbell neighborhoods including the Orchard City neighborhoods, downtown Campbell corridor, Union Avenue area, Hacienda, Camden area, and all surrounding residential zones. Zip code: 95008."
+        },
+        {
+            "question": "How long does window replacement take in Campbell?",
+            "answer": "Most Campbell projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Campbell, Santa Clara County",
+            "area_served": "Campbell"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

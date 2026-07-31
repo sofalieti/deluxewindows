@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/emeryville",
+    "path": "/window-replacement/emeryville",
+    "seo": {
+        "title": "Windows & Doors in Emeryville, Alameda County",
+        "description": "Window replacement in Emeryville, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Emeryville project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/emeryville",
+        "og": {
+            "title": "Windows & Doors in Emeryville, Alameda County",
+            "description": "Window replacement in Emeryville, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Emeryville project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Emeryville, Alameda County",
+        "primary_keyword": "window replacement emeryville",
+        "target_keywords": [
+            "window replacement emeryville",
+            "window installation emeryville",
+            "replacement windows emeryville",
+            "emeryville window replacement",
+            "andersen windows emeryville"
+        ],
+        "search_intent": "local-city",
+        "priority": "P2",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Emeryville, Alameda County",
+            "description": "Window replacement in Emeryville, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Emeryville project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Emeryville?",
+            "answer": "Emeryville homeowners and condo owners typically invest $4,500 to $10,000 for window replacement projects. This compact city has a mix of loft conversions, condos, and single-family homes, many with larger urban windows. Single window installation starts at approximately $450–$550."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Emeryville?",
+            "answer": "Yes. Emeryville requires a building permit for window replacements. Condo owners should also confirm with their HOA before beginning any window replacement project. Our team handles all permit applications and HOA coordination on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Emeryville?",
+            "answer": "For Emeryville's urban housing mix, we most frequently install Milgard Tuscany vinyl for clean modern aesthetics, Andersen 400-Series for loft conversions and live-work properties, and Anlin Del Mar for energy-conscious condo owners."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Emeryville neighborhoods?",
+            "answer": "Yes — we serve all of Emeryville including the Public Market area, Warehouse District, Bay Street corridor, and all residential streets. Zip code: 94608."
+        },
+        {
+            "question": "How long does window replacement take in Emeryville?",
+            "answer": "Most Emeryville projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Emeryville, Alameda County",
+            "area_served": "Emeryville"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

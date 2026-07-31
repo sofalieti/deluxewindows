@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/pinole",
+    "path": "/window-replacement/pinole",
+    "seo": {
+        "title": "Windows & Doors in Pinole, Contra Costa County",
+        "description": "Replace windows in Pinole, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Pinole project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/pinole",
+        "og": {
+            "title": "Windows & Doors in Pinole, Contra Costa County",
+            "description": "Replace windows in Pinole, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Pinole project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Pinole, Contra Costa County",
+        "primary_keyword": "window replacement pinole",
+        "target_keywords": [
+            "window replacement pinole",
+            "window installation pinole",
+            "replacement windows pinole",
+            "pinole window replacement",
+            "andersen windows pinole"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Pinole, Contra Costa County",
+            "description": "Replace windows in Pinole, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Pinole project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Pinole?",
+            "answer": "Pinole homeowners typically invest $4,500 to $10,500 for a full window replacement project covering 10–15 windows. This Contra Costa community features 1950s–1970s ranch homes in the flats and hillside developments above I-80. Standard sizing in mid-century homes makes for efficient projects. Single window installation starts at approximately $440."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Pinole?",
+            "answer": "Yes. Pinole requires a building permit for window replacements. Our team handles all permit applications with the City of Pinole Building Department on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Pinole?",
+            "answer": "For Pinole's East Bay suburban and coastal profile, we most frequently install Milgard Tuscany vinyl for cost-effective replacements, Milgard Ultra fiberglass for homes with Bay exposure, and Simonton for budget-conscious full-home projects."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Pinole neighborhoods?",
+            "answer": "Yes — we serve all Pinole neighborhoods including Pinole Valley, the Hilltop area, Giant Road corridor, and all surrounding residential zones. Zip code: 94564."
+        },
+        {
+            "question": "How long does window replacement take in Pinole?",
+            "answer": "Most Pinole projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Pinole, Contra Costa County",
+            "area_served": "Pinole"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

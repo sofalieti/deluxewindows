@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/suisun-city",
+    "path": "/window-replacement/suisun-city",
+    "seo": {
+        "title": "Windows & Doors in Suisun City, Solano County",
+        "description": "Window replacement in Suisun City, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Suisun City project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/suisun-city",
+        "og": {
+            "title": "Windows & Doors in Suisun City, Solano County",
+            "description": "Window replacement in Suisun City, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Suisun City project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Suisun City, Solano County",
+        "primary_keyword": "window replacement suisun city",
+        "target_keywords": [
+            "window replacement suisun city",
+            "window installation suisun city",
+            "replacement windows suisun city",
+            "suisun city window replacement",
+            "andersen windows suisun city"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Suisun City, Solano County",
+            "description": "Window replacement in Suisun City, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Suisun City project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Suisun City?",
+            "answer": "Suisun City homeowners typically invest $4,000 to $9,000 for a full window replacement project covering 10–14 windows. This Solano County city offers affordable window replacement across its 1970s–1990s housing stock. Waterfront District homes may have slightly higher costs due to proximity to the Suisun Marsh. Single window installation starts at approximately $400."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Suisun City?",
+            "answer": "Yes. Suisun City requires a building permit for window replacements. Our team manages all permit applications with the City of Suisun City Planning and Building Department on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Suisun City?",
+            "answer": "For Suisun City's budget-to-mid-range suburban market, we most frequently install Milgard Tuscany vinyl for its excellent value and strong warranty, Simonton for cost-effective full-home replacements, and Anlin Del Mar for homeowners focused on energy savings."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Suisun City neighborhoods?",
+            "answer": "Yes — we serve all of Suisun City including Crystal Springs, the Waterfront District, downtown area, and all surrounding residential zones. Zip code: 94585."
+        },
+        {
+            "question": "How long does window replacement take in Suisun City?",
+            "answer": "Most Suisun City projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Suisun City, Solano County",
+            "area_served": "Suisun City"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

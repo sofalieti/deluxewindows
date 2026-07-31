@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/albany",
+    "path": "/window-replacement/albany",
+    "seo": {
+        "title": "Windows & Doors in Albany, Alameda County",
+        "description": "Replace windows in Albany, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Albany project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/albany",
+        "og": {
+            "title": "Windows & Doors in Albany, Alameda County",
+            "description": "Replace windows in Albany, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Albany project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Albany, Alameda County",
+        "primary_keyword": "window replacement albany",
+        "target_keywords": [
+            "window replacement albany",
+            "window installation albany",
+            "replacement windows albany",
+            "albany window replacement",
+            "andersen windows albany"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Albany, Alameda County",
+            "description": "Replace windows in Albany, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Albany project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Albany?",
+            "answer": "Albany homeowners typically invest $4,500 to $9,500 for a full window replacement project, covering 8–12 windows in the city's characteristic bungalows and craftsman homes. Single window pricing starts around $500 installed. Homes on Albany Hill with larger windows or more complex configurations may see higher totals."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Albany?",
+            "answer": "Yes. Albany requires a building permit for window replacements that involve altering the rough opening size or structural framing. Like-for-like replacements of the same size may qualify for an over-the-counter permit. Our team handles the permit process on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Albany?",
+            "answer": "For Albany's Craftsman bungalows and 1940s–1960s homes, we most frequently install Milgard Tuscany vinyl for its clean lines and competitive pricing, Andersen 400-Series for homeowners wanting a wood interior look, and Anlin Del Mar for maximum energy performance."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Albany neighborhoods?",
+            "answer": "Yes — we serve the entire City of Albany including the Solano Avenue corridor, Albany Hill, Cerrito Vista, and all residential streets throughout the city. Albany zip code: 94706."
+        },
+        {
+            "question": "How long does window replacement take in Albany?",
+            "answer": "Most Albany projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Albany, Alameda County",
+            "area_served": "Albany"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

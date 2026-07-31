@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/sausalito",
+    "path": "/window-replacement/sausalito",
+    "seo": {
+        "title": "Windows & Doors in Sausalito, Marin County",
+        "description": "Window replacement in Sausalito, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Sausalito project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/sausalito",
+        "og": {
+            "title": "Windows & Doors in Sausalito, Marin County",
+            "description": "Window replacement in Sausalito, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Sausalito project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Sausalito, Marin County",
+        "primary_keyword": "window replacement sausalito",
+        "target_keywords": [
+            "window replacement sausalito",
+            "window installation sausalito",
+            "replacement windows sausalito",
+            "sausalito window replacement",
+            "andersen windows sausalito"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Sausalito, Marin County",
+            "description": "Window replacement in Sausalito, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Sausalito project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Sausalito?",
+            "answer": "Sausalito homeowners typically invest $12,000 to $35,000+ for window replacement projects. This beloved Marin waterfront community's dramatic hillside homes, houseboats, and converted artists' studios feature distinctive window configurations — many requiring large custom sizes to frame unobstructed views of the Bay and Golden Gate. Marine-grade specifications add to project cost. Single window installation starts at approximately $750."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Sausalito?",
+            "answer": "Yes. Sausalito requires a building permit for window replacements. The City's Design Review Board may also need to approve exterior changes, particularly for properties with Bay views or located within scenic corridors. Our team manages all permit and design review applications on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Sausalito?",
+            "answer": "Sausalito's waterfront environment demands marine-grade premium products only. We most frequently specify Marvin Ultimate wood-clad fiberglass for its unsurpassed marine performance, Western Window Systems for large-format sliding and multi-panel door systems framing Bay views, and Andersen 400-Series for hillside homes."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Sausalito neighborhoods?",
+            "answer": "Yes — we serve all of Sausalito including the Bridgeway waterfront, Alta Avenue hillsides, Richardson Bay shoreline, and all residential areas. Zip code: 94965."
+        },
+        {
+            "question": "How long does window replacement take in Sausalito?",
+            "answer": "Most Sausalito projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Sausalito, Marin County",
+            "area_served": "Sausalito"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

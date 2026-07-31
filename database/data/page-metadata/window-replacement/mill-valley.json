@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/mill-valley",
+    "path": "/window-replacement/mill-valley",
+    "seo": {
+        "title": "Windows & Doors in Mill Valley, Marin County",
+        "description": "Window replacement in Mill Valley, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Mill Valley project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/mill-valley",
+        "og": {
+            "title": "Windows & Doors in Mill Valley, Marin County",
+            "description": "Window replacement in Mill Valley, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Mill Valley project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Mill Valley, Marin County",
+        "primary_keyword": "window replacement mill valley",
+        "target_keywords": [
+            "window replacement mill valley",
+            "window installation mill valley",
+            "replacement windows mill valley",
+            "mill valley window replacement",
+            "andersen windows mill valley"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Mill Valley, Marin County",
+            "description": "Window replacement in Mill Valley, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Mill Valley project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Mill Valley?",
+            "answer": "Mill Valley homeowners typically invest $8,500 to $20,000 for a full window replacement project. This beloved Marin County town features a mix of Craftsman bungalows in the downtown flats, modern hillside homes with redwood canyon views, and contemporary residences. Projects vary widely based on window count and custom specifications. Single window installation starts at approximately $650."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Mill Valley?",
+            "answer": "Yes. Mill Valley requires a building permit for window replacements. Hillside projects may also require additional review for fire safety compliance under the city's planning codes. Our team manages all permit applications on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Mill Valley?",
+            "answer": "For Mill Valley's eclectic Marin market, we most frequently install Milgard Ultra fiberglass for moisture resistance in redwood-shaded hillside neighborhoods, Andersen 400-Series for Craftsman bungalows and period homes, and Marvin Elevate for contemporary and architect-designed properties."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Mill Valley neighborhoods?",
+            "answer": "Yes — we serve all Mill Valley neighborhoods including Homestead Valley, Tam Valley, Blithedale Canyon, Cascade Canyon, and all hillside areas. Zip code: 94941."
+        },
+        {
+            "question": "How long does window replacement take in Mill Valley?",
+            "answer": "Most Mill Valley projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Mill Valley, Marin County",
+            "area_served": "Mill Valley"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

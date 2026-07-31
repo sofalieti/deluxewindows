@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/american-canyon",
+    "path": "/window-replacement/american-canyon",
+    "seo": {
+        "title": "Windows & Doors in American Canyon, Napa County",
+        "description": "Window replacement in American Canyon, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every American Canyon project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/american-canyon",
+        "og": {
+            "title": "Windows & Doors in American Canyon, Napa County",
+            "description": "Window replacement in American Canyon, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every American Canyon project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in American Canyon, Napa County",
+        "primary_keyword": "window replacement american canyon",
+        "target_keywords": [
+            "window replacement american canyon",
+            "window installation american canyon",
+            "replacement windows american canyon",
+            "american canyon window replacement",
+            "andersen windows american canyon"
+        ],
+        "search_intent": "local-city",
+        "priority": "P2",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in American Canyon, Napa County",
+            "description": "Window replacement in American Canyon, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every American Canyon project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in American Canyon?",
+            "answer": "American Canyon homeowners in typical 1990s–2000s tract homes generally invest $4,500 to $10,000 for a full window replacement project covering 10–15 windows. Standard sizing in newer tract homes keeps costs efficient. Single window pricing starts around $450 installed."
+        },
+        {
+            "question": "Do I need a permit for window replacement in American Canyon?",
+            "answer": "Yes. American Canyon requires a building permit for window replacement projects. Standard replacements in newer tract homes are typically straightforward permit applications that our team manages on your behalf at no additional charge."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in American Canyon?",
+            "answer": "For American Canyon's newer suburban homes, we most commonly install Milgard Tuscany vinyl for its excellent value and strong warranty, Anlin Del Mar for homeowners wanting triple-pane efficiency in the Napa Valley heat, and Simonton for budget-conscious full-home replacement projects."
+        },
+        {
+            "question": "Does Deluxe Windows serve all American Canyon neighborhoods?",
+            "answer": "Yes — we serve all American Canyon communities including Wetlands Edge, Canyon View, Napa Junction area, and all newer planned developments throughout the city. Zip code: 94503."
+        },
+        {
+            "question": "How long does window replacement take in American Canyon?",
+            "answer": "Most American Canyon projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in American Canyon, Napa County",
+            "area_served": "American Canyon"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

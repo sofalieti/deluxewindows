@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/hercules",
+    "path": "/window-replacement/hercules",
+    "seo": {
+        "title": "Windows & Doors in Hercules, Contra Costa County",
+        "description": "Window replacement in Hercules, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Hercules project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/hercules",
+        "og": {
+            "title": "Windows & Doors in Hercules, Contra Costa County",
+            "description": "Window replacement in Hercules, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Hercules project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Hercules, Contra Costa County",
+        "primary_keyword": "window replacement hercules",
+        "target_keywords": [
+            "window replacement hercules",
+            "window installation hercules",
+            "replacement windows hercules",
+            "hercules window replacement",
+            "andersen windows hercules"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Hercules, Contra Costa County",
+            "description": "Window replacement in Hercules, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Hercules project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Hercules?",
+            "answer": "Hercules homeowners typically invest $4,500 to $10,000 for a full window replacement project. This planned Contra Costa community features 1970s–1990s homes with standard window sizing that makes replacement efficient and cost-effective. Projects covering 10–15 windows are typical. Single window installation starts at approximately $440."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Hercules?",
+            "answer": "Yes. Hercules requires a building permit for window replacements. Our team handles all permit applications with the City of Hercules Building Department on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Hercules?",
+            "answer": "For Hercules's suburban market, we most frequently install Milgard Tuscany vinyl for cost-effective replacements, Simonton for budget-conscious full-home projects, and Anlin Del Mar for homeowners focused on energy savings."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Hercules neighborhoods?",
+            "answer": "Yes — we serve all Hercules communities including Pinole Valley area, the Promenade, and all planned residential districts. Zip code: 94547."
+        },
+        {
+            "question": "How long does window replacement take in Hercules?",
+            "answer": "Most Hercules projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Hercules, Contra Costa County",
+            "area_served": "Hercules"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

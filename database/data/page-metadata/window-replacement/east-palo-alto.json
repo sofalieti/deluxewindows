@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/east-palo-alto",
+    "path": "/window-replacement/east-palo-alto",
+    "seo": {
+        "title": "Windows & Doors in East Palo Alto, San Mateo County",
+        "description": "Window replacement in East Palo Alto, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every East Palo Alto project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/east-palo-alto",
+        "og": {
+            "title": "Windows & Doors in East Palo Alto, San Mateo County",
+            "description": "Window replacement in East Palo Alto, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every East Palo Alto project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in East Palo Alto, San Mateo County",
+        "primary_keyword": "window replacement east palo alto",
+        "target_keywords": [
+            "window replacement east palo alto",
+            "window installation east palo alto",
+            "replacement windows east palo alto",
+            "east palo alto window replacement",
+            "andersen windows east palo alto"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in East Palo Alto, San Mateo County",
+            "description": "Window replacement in East Palo Alto, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every East Palo Alto project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in East Palo Alto?",
+            "answer": "East Palo Alto homeowners typically invest $4,500 to $10,000 for a full window replacement project covering 8–12 windows. This compact Peninsula community's older 1960s–1980s homes offer excellent value for full-home replacement projects. Single window installation starts at approximately $450."
+        },
+        {
+            "question": "Do I need a permit for window replacement in East Palo Alto?",
+            "answer": "Yes. East Palo Alto requires a building permit for window replacement. Our team handles all permit applications with the City of East Palo Alto Building Department on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in East Palo Alto?",
+            "answer": "For East Palo Alto, we most frequently install Milgard Tuscany vinyl for cost-effective full-home replacements, Simonton for budget-conscious projects, and Anlin Del Mar for homeowners upgrading to triple-pane energy performance."
+        },
+        {
+            "question": "Does Deluxe Windows serve all East Palo Alto neighborhoods?",
+            "answer": "Yes — we serve all East Palo Alto neighborhoods including Woodland Park, Ravenswood, and all residential areas throughout the city. Zip code: 94303."
+        },
+        {
+            "question": "How long does window replacement take in East Palo Alto?",
+            "answer": "Most East Palo Alto projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in East Palo Alto, San Mateo County",
+            "area_served": "East Palo Alto"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

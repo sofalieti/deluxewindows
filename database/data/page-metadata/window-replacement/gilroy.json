@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/gilroy",
+    "path": "/window-replacement/gilroy",
+    "seo": {
+        "title": "Windows & Doors in Gilroy, Santa Clara County",
+        "description": "Replace windows in Gilroy, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Gilroy project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/gilroy",
+        "og": {
+            "title": "Windows & Doors in Gilroy, Santa Clara County",
+            "description": "Replace windows in Gilroy, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Gilroy project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Gilroy, Santa Clara County",
+        "primary_keyword": "window replacement gilroy",
+        "target_keywords": [
+            "window replacement gilroy",
+            "window installation gilroy",
+            "replacement windows gilroy",
+            "gilroy window replacement",
+            "andersen windows gilroy"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Gilroy, Santa Clara County",
+            "description": "Replace windows in Gilroy, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Gilroy project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Gilroy?",
+            "answer": "Gilroy homeowners typically invest $4,000 to $9,500 for a full window replacement project covering 10–16 windows. This South Valley city features a mix of older ranch homes near downtown and newer master-planned developments in the Glen Loma Ranch area. Standard sizing in newer developments makes for efficient, cost-effective projects. Single window installation starts at approximately $420."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Gilroy?",
+            "answer": "Yes. Gilroy requires a building permit for window replacements. Our team manages all permit applications with the City of Gilroy Building Division on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Gilroy?",
+            "answer": "For Gilroy's hot inland South Valley climate, we most frequently install Anlin Del Mar triple-pane for superior heat rejection, Milgard Tuscany vinyl for cost-effective whole-home replacements, and Simonton for budget-conscious projects with solid energy performance."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Gilroy neighborhoods?",
+            "answer": "Yes — we serve all Gilroy areas including Glen Loma Ranch, Sunrise, Gavilan Hills, downtown Gilroy, and South Valley. Zip codes: 95020."
+        },
+        {
+            "question": "How long does window replacement take in Gilroy?",
+            "answer": "Most Gilroy projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Gilroy, Santa Clara County",
+            "area_served": "Gilroy"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

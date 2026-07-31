@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/san-pablo",
+    "path": "/window-replacement/san-pablo",
+    "seo": {
+        "title": "Windows & Doors in San Pablo, Contra Costa County",
+        "description": "Window replacement in San Pablo, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every San Pablo project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/san-pablo",
+        "og": {
+            "title": "Windows & Doors in San Pablo, Contra Costa County",
+            "description": "Window replacement in San Pablo, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every San Pablo project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in San Pablo, Contra Costa County",
+        "primary_keyword": "window replacement san pablo",
+        "target_keywords": [
+            "window replacement san pablo",
+            "window installation san pablo",
+            "replacement windows san pablo",
+            "san pablo window replacement",
+            "andersen windows san pablo"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in San Pablo, Contra Costa County",
+            "description": "Window replacement in San Pablo, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every San Pablo project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in San Pablo?",
+            "answer": "San Pablo homeowners typically invest $3,800 to $8,500 for a full window replacement project covering 8–14 windows. This compact East Bay city offers some of the most affordable window replacement projects in the region due to its smaller home footprints and standard sizing. Single window installation starts at approximately $380."
+        },
+        {
+            "question": "Do I need a permit for window replacement in San Pablo?",
+            "answer": "Yes. San Pablo requires a building permit for window replacements. Our team handles all permit applications with the City of San Pablo Building Department on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in San Pablo?",
+            "answer": "For San Pablo, we most frequently install Milgard Tuscany vinyl for its excellent value and energy performance, Simonton for budget-conscious full-home replacement projects, and Anlin Del Mar for homeowners looking to upgrade to triple-pane efficiency."
+        },
+        {
+            "question": "Does Deluxe Windows serve all San Pablo neighborhoods?",
+            "answer": "Yes — we serve all of San Pablo including Giant Road corridor, Market Avenue, the City Center area, and all residential streets. Zip code: 94806."
+        },
+        {
+            "question": "How long does window replacement take in San Pablo?",
+            "answer": "Most San Pablo projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in San Pablo, Contra Costa County",
+            "area_served": "San Pablo"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/novato",
+    "path": "/window-replacement/novato",
+    "seo": {
+        "title": "Windows & Doors in Novato, Marin County",
+        "description": "Replace windows in Novato, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Novato project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/novato",
+        "og": {
+            "title": "Windows & Doors in Novato, Marin County",
+            "description": "Replace windows in Novato, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Novato project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Novato, Marin County",
+        "primary_keyword": "window replacement novato",
+        "target_keywords": [
+            "window replacement novato",
+            "window installation novato",
+            "replacement windows novato",
+            "novato window replacement",
+            "andersen windows novato"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Novato, Marin County",
+            "description": "Replace windows in Novato, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Novato project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Novato?",
+            "answer": "Novato homeowners typically invest $5,500 to $13,000 for a full window replacement project covering 10–16 windows. This large Marin County city features a mix of 1950s–1980s ranch homes and newer planned communities in areas like Ignacio and Bel Marin Keys. Single window installation starts at approximately $510."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Novato?",
+            "answer": "Yes. Novato requires a building permit for window replacements. Our team handles all permit applications with the City of Novato Building Division on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Novato?",
+            "answer": "For Novato's Marin County suburban market, we most frequently install Milgard Tuscany vinyl for cost-effective replacements, Milgard Ultra fiberglass for homes closer to the Bay with moisture exposure, and Andersen 400-Series for higher-end properties in Bel Marin Keys."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Novato neighborhoods?",
+            "answer": "Yes — we serve all Novato communities including Ignacio, Bel Marin Keys, San Marin, Black Point, and downtown Novato. Zip codes: 94945, 94947, 94949."
+        },
+        {
+            "question": "How long does window replacement take in Novato?",
+            "answer": "Most Novato projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Novato, Marin County",
+            "area_served": "Novato"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

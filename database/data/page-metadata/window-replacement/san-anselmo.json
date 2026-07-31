@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/san-anselmo",
+    "path": "/window-replacement/san-anselmo",
+    "seo": {
+        "title": "Windows & Doors in San Anselmo, Marin County",
+        "description": "Window replacement in San Anselmo, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every San Anselmo project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/san-anselmo",
+        "og": {
+            "title": "Windows & Doors in San Anselmo, Marin County",
+            "description": "Window replacement in San Anselmo, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every San Anselmo project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in San Anselmo, Marin County",
+        "primary_keyword": "window replacement san anselmo",
+        "target_keywords": [
+            "window replacement san anselmo",
+            "window installation san anselmo",
+            "replacement windows san anselmo",
+            "san anselmo window replacement",
+            "andersen windows san anselmo"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in San Anselmo, Marin County",
+            "description": "Window replacement in San Anselmo, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every San Anselmo project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in San Anselmo?",
+            "answer": "San Anselmo homeowners typically invest $7,000 to $16,000 for a full window replacement project. This charming Marin County town features Craftsman bungalows and Victorian cottages in the flats, as well as hillside properties with canyon views. Custom sizing for older period homes is common. Single window installation starts at approximately $590."
+        },
+        {
+            "question": "Do I need a permit for window replacement in San Anselmo?",
+            "answer": "Yes. San Anselmo requires a building permit for window replacements. Properties in the downtown historic corridor along Sir Francis Drake may require design review. Our team manages all Town of San Anselmo permit applications on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in San Anselmo?",
+            "answer": "For San Anselmo's Marin County market, we most frequently install Marvin Elevate for period-appropriate aesthetics with superior moisture resistance, Andersen 400-Series for Craftsman homes where interior wood aesthetics matter, and Milgard Ultra fiberglass for hillside properties."
+        },
+        {
+            "question": "Does Deluxe Windows serve all San Anselmo neighborhoods?",
+            "answer": "Yes — we serve all San Anselmo neighborhoods including the downtown corridor, Robson-Harrington Park area, Sun Valley, Creek Park, and all surrounding hills. Zip code: 94960."
+        },
+        {
+            "question": "How long does window replacement take in San Anselmo?",
+            "answer": "Most San Anselmo projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in San Anselmo, Marin County",
+            "area_served": "San Anselmo"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

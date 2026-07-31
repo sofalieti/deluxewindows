@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/los-gatos",
+    "path": "/window-replacement/los-gatos",
+    "seo": {
+        "title": "Windows & Doors in Los Gatos, Santa Clara County",
+        "description": "Window replacement in Los Gatos, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Los Gatos project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/los-gatos",
+        "og": {
+            "title": "Windows & Doors in Los Gatos, Santa Clara County",
+            "description": "Window replacement in Los Gatos, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Los Gatos project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Los Gatos, Santa Clara County",
+        "primary_keyword": "window replacement los gatos",
+        "target_keywords": [
+            "window replacement los gatos",
+            "window installation los gatos",
+            "replacement windows los gatos",
+            "los gatos window replacement",
+            "andersen windows los gatos"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Los Gatos, Santa Clara County",
+            "description": "Window replacement in Los Gatos, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Los Gatos project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Los Gatos?",
+            "answer": "Los Gatos homeowners typically invest $9,000 to $22,000 for a full window replacement project. This charming Silicon Valley community features historic Victorians in the downtown, Craftsman bungalows along University Avenue, and luxury hillside estates above the town. Custom sizing is common for older historic homes. Single window installation starts at approximately $700."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Los Gatos?",
+            "answer": "Yes. Los Gatos requires a building permit for window replacements. Properties within the Historic Preservation District may require approval from the Historic Preservation Committee. Our team manages all Los Gatos permit applications, including historic review submittals, on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Los Gatos?",
+            "answer": "Los Gatos's premium market spans historic and contemporary. We most frequently install Andersen 400-Series wood-clad for the town's Victorian and Craftsman homes, Marvin Elevate for hillside estate properties, and Milgard Ultra fiberglass for contemporary homes seeking maximum energy performance."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Los Gatos neighborhoods?",
+            "answer": "Yes — we serve all Los Gatos areas including the Historic Downtown, Los Gatos Hills, Blossom Hill, Shannon Road area, and Belgatos Park. Zip codes: 95030, 95032, 95033."
+        },
+        {
+            "question": "How long does window replacement take in Los Gatos?",
+            "answer": "Most Los Gatos projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Los Gatos, Santa Clara County",
+            "area_served": "Los Gatos"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

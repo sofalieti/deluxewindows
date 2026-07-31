@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/woodside",
+    "path": "/window-replacement/woodside",
+    "seo": {
+        "title": "Windows & Doors in Woodside, San Mateo County",
+        "description": "Window replacement in Woodside, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Woodside project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/woodside",
+        "og": {
+            "title": "Windows & Doors in Woodside, San Mateo County",
+            "description": "Window replacement in Woodside, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Woodside project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Woodside, San Mateo County",
+        "primary_keyword": "window replacement woodside",
+        "target_keywords": [
+            "window replacement woodside",
+            "window installation woodside",
+            "replacement windows woodside",
+            "woodside window replacement",
+            "andersen windows woodside"
+        ],
+        "search_intent": "local-city",
+        "priority": "P2",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Woodside, San Mateo County",
+            "description": "Window replacement in Woodside, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Woodside project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Woodside?",
+            "answer": "Woodside homeowners typically invest $25,000 to $80,000+ for window replacement projects. This extraordinary Peninsula community — home to tech billionaires and Silicon Valley legends — features custom estate homes with 30–50+ windows, large-format glass walls, and bronze-clad custom frames. Projects using Marvin Ultimate or bespoke Western Window Systems installations can exceed $100,000."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Woodside?",
+            "answer": "Yes. Woodside requires a building permit for all window replacements. The Town's Planning Department reviews projects for consistency with Woodside's rural, equestrian character. Large-format glass installations may require additional architectural drawings and a Site Design Review. Our team manages all permit applications and design review submittals on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Woodside?",
+            "answer": "Woodside's extraordinary estates demand the absolute finest products available. We most frequently specify Marvin Ultimate wood-clad fiberglass in custom colors and configurations, Western Window Systems for large multi-slide and folding glass wall systems, and Andersen A-Series for traditional estate homes with authentic wood-interior requirements."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Woodside neighborhoods?",
+            "answer": "Yes — we serve the entire Town of Woodside including Kings Mountain Road, Skyline Boulevard, Whiskey Hill, and all estate properties throughout the community. Zip code: 94062."
+        },
+        {
+            "question": "How long does window replacement take in Woodside?",
+            "answer": "Most Woodside projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Woodside, San Mateo County",
+            "area_served": "Woodside"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

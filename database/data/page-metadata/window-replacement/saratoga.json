@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/saratoga",
+    "path": "/window-replacement/saratoga",
+    "seo": {
+        "title": "Windows & Doors in Saratoga, Santa Clara County",
+        "description": "Window replacement in Saratoga, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Saratoga project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/saratoga",
+        "og": {
+            "title": "Windows & Doors in Saratoga, Santa Clara County",
+            "description": "Window replacement in Saratoga, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Saratoga project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Saratoga, Santa Clara County",
+        "primary_keyword": "window replacement saratoga",
+        "target_keywords": [
+            "window replacement saratoga",
+            "window installation saratoga",
+            "replacement windows saratoga",
+            "saratoga window replacement",
+            "andersen windows saratoga"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Saratoga, Santa Clara County",
+            "description": "Window replacement in Saratoga, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Saratoga project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Saratoga?",
+            "answer": "Saratoga homeowners typically invest $14,000 to $40,000+ for window replacement projects. This exclusive Silicon Valley community features large estate homes and Eichler mid-century moderns where custom sizing and premium specifications are the norm. Projects covering 15–30+ windows with Marvin or Western Window Systems are typical."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Saratoga?",
+            "answer": "Yes. Saratoga requires a building permit for window replacements. Homes in the Historic Village area or those designated as heritage properties may require Heritage Preservation Committee review. Our team manages all permit applications and heritage review submittals on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Saratoga?",
+            "answer": "Saratoga's elite Silicon Valley market demands top-tier products exclusively. We most frequently specify Marvin Ultimate and Elevate for estate homes, Western Window Systems for contemporary homes requiring large indoor-outdoor transitions, and Andersen A-Series for traditional colonial and Mediterranean estates."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Saratoga neighborhoods?",
+            "answer": "Yes — we serve all Saratoga neighborhoods including the Historic Village, Saratoga Hills, Prospect, and Quito. Zip code: 95070."
+        },
+        {
+            "question": "How long does window replacement take in Saratoga?",
+            "answer": "Most Saratoga projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Saratoga, Santa Clara County",
+            "area_served": "Saratoga"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

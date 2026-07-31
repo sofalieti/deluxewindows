@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/yountville",
+    "path": "/window-replacement/yountville",
+    "seo": {
+        "title": "Windows & Doors in Yountville, Napa County",
+        "description": "Window replacement in Yountville, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Yountville project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/yountville",
+        "og": {
+            "title": "Windows & Doors in Yountville, Napa County",
+            "description": "Window replacement in Yountville, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Yountville project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Yountville, Napa County",
+        "primary_keyword": "window replacement yountville",
+        "target_keywords": [
+            "window replacement yountville",
+            "window installation yountville",
+            "replacement windows yountville",
+            "yountville window replacement",
+            "andersen windows yountville"
+        ],
+        "search_intent": "local-city",
+        "priority": "P2",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Yountville, Napa County",
+            "description": "Window replacement in Yountville, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Yountville project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Yountville?",
+            "answer": "Yountville homeowners typically invest $9,000 to $25,000+ for window replacement projects. This intimate Napa Valley wine country town — home to the French Laundry — features boutique residences, historic cottages, and upscale properties where premium window specifications are expected. Projects with Marvin or Andersen premium products covering 12–20 windows are typical."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Yountville?",
+            "answer": "Yes. Yountville requires a building permit for window replacements. The town's Design Review Committee evaluates exterior changes to ensure they are consistent with Yountville's distinct wine country architectural character. Our team manages all Town of Yountville permit and design review applications on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Yountville?",
+            "answer": "Yountville's premium wine country market calls for top-tier products. We most frequently specify Marvin Elevate fiberglass-clad for wine country estates and historic cottages requiring premium aesthetics, Andersen 400-Series for period-appropriate interiors, and Western Window Systems for contemporary properties with indoor-outdoor living requirements."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Yountville neighborhoods?",
+            "answer": "Yes — we serve the entire Town of Yountville including the downtown culinary corridor, Veterans Home area, and all surrounding residential and estate properties. Zip code: 94599."
+        },
+        {
+            "question": "How long does window replacement take in Yountville?",
+            "answer": "Most Yountville projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Yountville, Napa County",
+            "area_served": "Yountville"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

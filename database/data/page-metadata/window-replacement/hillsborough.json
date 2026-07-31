@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/hillsborough",
+    "path": "/window-replacement/hillsborough",
+    "seo": {
+        "title": "Windows & Doors in Hillsborough, San Mateo County",
+        "description": "Window replacement in Hillsborough, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Hillsborough project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/hillsborough",
+        "og": {
+            "title": "Windows & Doors in Hillsborough, San Mateo County",
+            "description": "Window replacement in Hillsborough, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Hillsborough project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Hillsborough, San Mateo County",
+        "primary_keyword": "window replacement hillsborough",
+        "target_keywords": [
+            "window replacement hillsborough",
+            "window installation hillsborough",
+            "replacement windows hillsborough",
+            "hillsborough window replacement",
+            "andersen windows hillsborough"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Hillsborough, San Mateo County",
+            "description": "Window replacement in Hillsborough, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Hillsborough project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Hillsborough?",
+            "answer": "Hillsborough homeowners typically invest $20,000 to $60,000+ for window replacement projects. This ultra-exclusive Peninsula enclave — the wealthiest municipality per capita in California — features estate homes with 20–40+ windows, often requiring custom sizing, premium hardware, and specialty glass. Projects using Marvin Ultimate or Andersen A-Series can exceed $80,000 for larger estates."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Hillsborough?",
+            "answer": "Yes. Hillsborough requires building permits for all window replacements. The Town of Hillsborough's Building Department is known for thorough review; all projects require professionally prepared permit documents. Our team manages all permit applications, architectural drawings coordination, and inspection scheduling on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Hillsborough?",
+            "answer": "Hillsborough's uncompromising estate market exclusively demands the highest-tier products. We most frequently specify Marvin Ultimate wood-clad fiberglass for its limitless customization and finest finishes, Andersen A-Series for traditional estate homes with authentic wood interiors, and Western Window Systems for indoor-outdoor living wall installations."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Hillsborough neighborhoods?",
+            "answer": "Yes — we serve the entire Town of Hillsborough including all residential areas in the upper and lower zones, Crystal Springs Road corridor, and all of zip code 94010."
+        },
+        {
+            "question": "How long does window replacement take in Hillsborough?",
+            "answer": "Most Hillsborough projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Hillsborough, San Mateo County",
+            "area_served": "Hillsborough"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

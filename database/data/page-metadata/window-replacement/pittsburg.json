@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/pittsburg",
+    "path": "/window-replacement/pittsburg",
+    "seo": {
+        "title": "Windows & Doors in Pittsburg, Contra Costa County",
+        "description": "Window replacement in Pittsburg, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Pittsburg project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/pittsburg",
+        "og": {
+            "title": "Windows & Doors in Pittsburg, Contra Costa County",
+            "description": "Window replacement in Pittsburg, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Pittsburg project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Pittsburg, Contra Costa County",
+        "primary_keyword": "window replacement pittsburg",
+        "target_keywords": [
+            "window replacement pittsburg",
+            "window installation pittsburg",
+            "replacement windows pittsburg",
+            "pittsburg window replacement",
+            "andersen windows pittsburg"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Pittsburg, Contra Costa County",
+            "description": "Window replacement in Pittsburg, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Pittsburg project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Pittsburg?",
+            "answer": "Pittsburg homeowners typically invest $4,000 to $9,500 for a full window replacement project covering 10–16 windows. This East Contra Costa city offers a mix of older bungalows near the waterfront and newer 1990s–2000s subdivisions. Standard sizing in newer developments makes replacement projects efficient. Single window installation starts at approximately $400."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Pittsburg?",
+            "answer": "Yes. Pittsburg requires a building permit for window replacements. Our team handles all permit applications with the City of Pittsburg's Building Department on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Pittsburg?",
+            "answer": "For Pittsburg's hot inland climate, we most frequently install Anlin Del Mar triple-pane for its excellent heat rejection, Milgard Tuscany vinyl for cost-effective full-home replacements, and Simonton for budget-conscious projects with solid energy performance."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Pittsburg neighborhoods?",
+            "answer": "Yes — we serve all Pittsburg neighborhoods including Black Diamond, Pittsburg Landing, Loveridge Road area, and Hillview Acres. Zip code: 94565."
+        },
+        {
+            "question": "How long does window replacement take in Pittsburg?",
+            "answer": "Most Pittsburg projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Pittsburg, Contra Costa County",
+            "area_served": "Pittsburg"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

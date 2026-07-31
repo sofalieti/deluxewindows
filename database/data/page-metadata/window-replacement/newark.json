@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/newark",
+    "path": "/window-replacement/newark",
+    "seo": {
+        "title": "Windows & Doors in Newark, Alameda County",
+        "description": "Replace windows in Newark, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Newark project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/newark",
+        "og": {
+            "title": "Windows & Doors in Newark, Alameda County",
+            "description": "Replace windows in Newark, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Newark project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Newark, Alameda County",
+        "primary_keyword": "window replacement newark",
+        "target_keywords": [
+            "window replacement newark",
+            "window installation newark",
+            "replacement windows newark",
+            "newark window replacement",
+            "andersen windows newark"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Newark, Alameda County",
+            "description": "Replace windows in Newark, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Newark project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Newark?",
+            "answer": "Newark homeowners typically invest $4,500 to $10,000 for a full window replacement project covering 10–15 windows. This East Bay community features a predominantly 1960s–1980s housing stock with standard sizing that makes replacement efficient. Single window installation starts at approximately $430."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Newark?",
+            "answer": "Yes. Newark requires a building permit for window replacements. Our team handles all permit applications with the City of Newark Building Department on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Newark?",
+            "answer": "For Newark's suburban East Bay market, we most frequently install Milgard Tuscany vinyl for cost-effective whole-home replacements, Simonton for budget-conscious full projects, and Anlin Del Mar for homeowners prioritizing maximum energy efficiency."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Newark neighborhoods?",
+            "answer": "Yes — we serve all Newark neighborhoods including Willow, Thornton, Cherry, Cedar Blvd corridor, and all surrounding areas. Zip code: 94560."
+        },
+        {
+            "question": "How long does window replacement take in Newark?",
+            "answer": "Most Newark projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Newark, Alameda County",
+            "area_served": "Newark"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

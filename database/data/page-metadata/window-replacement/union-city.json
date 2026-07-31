@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/union-city",
+    "path": "/window-replacement/union-city",
+    "seo": {
+        "title": "Windows & Doors in Union City, Alameda County",
+        "description": "Window replacement in Union City, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Union City project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/union-city",
+        "og": {
+            "title": "Windows & Doors in Union City, Alameda County",
+            "description": "Window replacement in Union City, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Union City project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Union City, Alameda County",
+        "primary_keyword": "window replacement union city",
+        "target_keywords": [
+            "window replacement union city",
+            "window installation union city",
+            "replacement windows union city",
+            "union city window replacement",
+            "andersen windows union city"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Union City, Alameda County",
+            "description": "Window replacement in Union City, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Union City project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Union City?",
+            "answer": "Union City homeowners typically invest $4,500 to $10,000 for a full window replacement project covering 10–15 windows. This East Bay community's 1960s–1980s housing stock features standard sizing that makes replacement efficient and cost-effective. Single window installation starts at approximately $440."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Union City?",
+            "answer": "Yes. Union City requires a building permit for window replacements. Our team manages all permit applications with the City of Union City Building Department on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Union City?",
+            "answer": "For Union City's East Bay suburban market, we most frequently install Milgard Tuscany vinyl for cost-effective whole-home replacements, Simonton for budget-conscious full-home projects, and Anlin Del Mar for homeowners looking to upgrade to triple-pane energy performance."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Union City neighborhoods?",
+            "answer": "Yes — we serve all Union City neighborhoods including Alvarado, Decoto, and Masonic Village. Zip code: 94587."
+        },
+        {
+            "question": "How long does window replacement take in Union City?",
+            "answer": "Most Union City projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Union City, Alameda County",
+            "area_served": "Union City"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

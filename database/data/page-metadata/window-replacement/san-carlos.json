@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/san-carlos",
+    "path": "/window-replacement/san-carlos",
+    "seo": {
+        "title": "Windows & Doors in San Carlos, San Mateo County",
+        "description": "Window replacement in San Carlos, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every San Carlos project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/san-carlos",
+        "og": {
+            "title": "Windows & Doors in San Carlos, San Mateo County",
+            "description": "Window replacement in San Carlos, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every San Carlos project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in San Carlos, San Mateo County",
+        "primary_keyword": "window replacement san carlos",
+        "target_keywords": [
+            "window replacement san carlos",
+            "window installation san carlos",
+            "replacement windows san carlos",
+            "san carlos window replacement",
+            "andersen windows san carlos"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in San Carlos, San Mateo County",
+            "description": "Window replacement in San Carlos, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every San Carlos project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in San Carlos?",
+            "answer": "San Carlos homeowners typically invest $6,500 to $15,000 for a full window replacement project covering 10–15 windows. This well-established Peninsula community — known as the City of Good Living — features attractive 1950s–1960s ranches and two-stories in neighborhoods like Devonshire and White Oaks. Single window installation starts at approximately $570."
+        },
+        {
+            "question": "Do I need a permit for window replacement in San Carlos?",
+            "answer": "Yes. San Carlos requires a building permit for window replacements. Our team manages all permit applications with the City of San Carlos Building Division on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in San Carlos?",
+            "answer": "For San Carlos's established Peninsula market, we most frequently install Milgard Tuscany vinyl for cost-effective replacements, Andersen 400-Series for homes where interior wood aesthetics are desired, and Milgard Ultra fiberglass for hillside homes with Bay views."
+        },
+        {
+            "question": "Does Deluxe Windows serve all San Carlos neighborhoods?",
+            "answer": "Yes — we serve all San Carlos neighborhoods including Devonshire, White Oaks, Howard Park, and Crestview Park. Zip code: 94070."
+        },
+        {
+            "question": "How long does window replacement take in San Carlos?",
+            "answer": "Most San Carlos projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in San Carlos, San Mateo County",
+            "area_served": "San Carlos"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/foster-city",
+    "path": "/window-replacement/foster-city",
+    "seo": {
+        "title": "Windows & Doors in Foster City, San Mateo County",
+        "description": "Window replacement in Foster City, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Foster City project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/foster-city",
+        "og": {
+            "title": "Windows & Doors in Foster City, San Mateo County",
+            "description": "Window replacement in Foster City, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Foster City project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Foster City, San Mateo County",
+        "primary_keyword": "window replacement foster city",
+        "target_keywords": [
+            "window replacement foster city",
+            "window installation foster city",
+            "replacement windows foster city",
+            "foster city window replacement",
+            "andersen windows foster city"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Foster City, San Mateo County",
+            "description": "Window replacement in Foster City, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Foster City project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Foster City?",
+            "answer": "Foster City homeowners typically invest $6,000 to $14,000 for a full window replacement project. This planned San Mateo County community features 1970s–1980s homes on the Bay shoreline that frequently need upgrades to combat salt air and coastal wind exposure. Projects covering 10–16 windows are typical. Single window installation starts at approximately $560."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Foster City?",
+            "answer": "Yes. Foster City requires a building permit for window replacements. HOA requirements may also apply in many of Foster City's planned residential communities. Our team manages all permit applications and HOA submittals on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Foster City?",
+            "answer": "For Foster City's Bay-side location, we most frequently install Milgard Ultra fiberglass for its salt-air resistance and structural integrity, Andersen 400-Series for homeowners wanting wood interiors, and Milgard Tuscany vinyl for cost-effective full-home replacements."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Foster City neighborhoods?",
+            "answer": "Yes — we serve all Foster City neighborhoods including Marlin Cove, Charter Square, Flying Mist Isle, and all waterfront and inland areas. Zip code: 94404."
+        },
+        {
+            "question": "How long does window replacement take in Foster City?",
+            "answer": "Most Foster City projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Foster City, San Mateo County",
+            "area_served": "Foster City"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

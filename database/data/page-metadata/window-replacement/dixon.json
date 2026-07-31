@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/dixon",
+    "path": "/window-replacement/dixon",
+    "seo": {
+        "title": "Windows & Doors in Dixon, Solano County",
+        "description": "Replace windows in Dixon, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Dixon project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/dixon",
+        "og": {
+            "title": "Windows & Doors in Dixon, Solano County",
+            "description": "Replace windows in Dixon, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Dixon project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Dixon, Solano County",
+        "primary_keyword": "window replacement dixon",
+        "target_keywords": [
+            "window replacement dixon",
+            "window installation dixon",
+            "replacement windows dixon",
+            "dixon window replacement",
+            "andersen windows dixon"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Dixon, Solano County",
+            "description": "Replace windows in Dixon, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Dixon project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Dixon?",
+            "answer": "Dixon homeowners typically invest $4,000 to $9,000 for a full window replacement project. This small Solano County agricultural community features modest 1970s–2000s homes with standard window sizing. Projects covering 10–14 windows are typical. Single window installation starts at approximately $400."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Dixon?",
+            "answer": "Yes. Dixon requires a building permit for window replacements. Our team manages all permit applications with the City of Dixon Building Department on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Dixon?",
+            "answer": "For Dixon's agricultural community profile and hot inland climate, we most frequently install Milgard Tuscany vinyl for its value and strong warranty, Simonton for budget-conscious full-home projects, and Anlin Del Mar for homeowners looking to combat the area's extreme summer heat with triple-pane performance."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Dixon neighborhoods?",
+            "answer": "Yes — we serve all of Dixon including Windmill Springs, downtown neighborhoods, and all surrounding residential areas. Zip code: 95620."
+        },
+        {
+            "question": "How long does window replacement take in Dixon?",
+            "answer": "Most Dixon projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Dixon, Solano County",
+            "area_served": "Dixon"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

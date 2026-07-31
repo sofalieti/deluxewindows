@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/benicia",
+    "path": "/window-replacement/benicia",
+    "seo": {
+        "title": "Windows & Doors in Benicia, Solano County",
+        "description": "Replace windows in Benicia, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Benicia project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/benicia",
+        "og": {
+            "title": "Windows & Doors in Benicia, Solano County",
+            "description": "Replace windows in Benicia, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Benicia project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Benicia, Solano County",
+        "primary_keyword": "window replacement benicia",
+        "target_keywords": [
+            "window replacement benicia",
+            "window installation benicia",
+            "replacement windows benicia",
+            "benicia window replacement",
+            "andersen windows benicia"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Benicia, Solano County",
+            "description": "Replace windows in Benicia, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Benicia project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Benicia?",
+            "answer": "Benicia homeowners typically invest $5,000 to $11,500 for a full window replacement project. Homes in the historic First Street district often require custom sizing to match original Victorian and Italianate profiles, which can add to project cost. Standard replacement in newer neighborhoods starts around $450 per window installed."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Benicia?",
+            "answer": "Yes. Benicia requires a building permit for window replacements. Properties in the First Street Corridor or other designated historic areas may also need review from the Historic Preservation Review Commission to ensure new windows are architecturally compatible with the building's historic character. Our team manages all permit applications on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Benicia?",
+            "answer": "For Benicia's diverse housing stock, we install Milgard Tuscany vinyl for suburban homes seeking value and reliability, Andersen 400-Series for historic homes needing interior wood aesthetics, and Simonton Reflections for budget-conscious full-home replacement projects."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Benicia neighborhoods?",
+            "answer": "Yes — we serve all Benicia neighborhoods including the First Street Historic District, Southampton, Park Place, Rose Drive area, Benicia Arsenal area, and Lake Herman Road corridor. Zip code: 94510."
+        },
+        {
+            "question": "How long does window replacement take in Benicia?",
+            "answer": "Most Benicia projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Benicia, Solano County",
+            "area_served": "Benicia"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/corte-madera",
+    "path": "/window-replacement/corte-madera",
+    "seo": {
+        "title": "Windows & Doors in Corte Madera, Marin County",
+        "description": "Window replacement in Corte Madera, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Corte Madera project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/corte-madera",
+        "og": {
+            "title": "Windows & Doors in Corte Madera, Marin County",
+            "description": "Window replacement in Corte Madera, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Corte Madera project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Corte Madera, Marin County",
+        "primary_keyword": "window replacement corte madera",
+        "target_keywords": [
+            "window replacement corte madera",
+            "window installation corte madera",
+            "replacement windows corte madera",
+            "corte madera window replacement",
+            "andersen windows corte madera"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Corte Madera, Marin County",
+            "description": "Window replacement in Corte Madera, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Corte Madera project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Corte Madera?",
+            "answer": "Corte Madera homeowners typically invest $7,000 to $16,000 for a full window replacement project. This affluent Marin community features a mix of mid-century ranches and contemporary homes, many with larger windows framing views of Mt. Tamalpais or the Bay. Single window installation starts at approximately $600."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Corte Madera?",
+            "answer": "Yes. Corte Madera requires a building permit for window replacements. Our team handles all permit applications and coordinates with Corte Madera's Building Department on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Corte Madera?",
+            "answer": "For Corte Madera's Marin County market, we most frequently install Milgard Ultra fiberglass for its superior moisture resistance in the Bay-side climate, Andersen 400-Series for interior wood aesthetics, and Marvin Elevate for higher-end properties requiring custom sizing and premium finishes."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Corte Madera neighborhoods?",
+            "answer": "Yes — we serve all Corte Madera neighborhoods including Corte Madera Village, Murray Park, Meadowsweet, and the Corte Madera Inn area. Zip code: 94925."
+        },
+        {
+            "question": "How long does window replacement take in Corte Madera?",
+            "answer": "Most Corte Madera projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Corte Madera, Marin County",
+            "area_served": "Corte Madera"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

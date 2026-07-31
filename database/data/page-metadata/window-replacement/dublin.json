@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/dublin",
+    "path": "/window-replacement/dublin",
+    "seo": {
+        "title": "Windows & Doors in Dublin, Alameda County",
+        "description": "Replace windows in Dublin, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Dublin project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/dublin",
+        "og": {
+            "title": "Windows & Doors in Dublin, Alameda County",
+            "description": "Replace windows in Dublin, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Dublin project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Dublin, Alameda County",
+        "primary_keyword": "window replacement dublin",
+        "target_keywords": [
+            "window replacement dublin",
+            "window installation dublin",
+            "replacement windows dublin",
+            "dublin window replacement",
+            "andersen windows dublin"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Dublin, Alameda County",
+            "description": "Replace windows in Dublin, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Dublin project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Dublin?",
+            "answer": "Dublin homeowners typically invest $5,500 to $13,000 for a full window replacement project. This growing Tri-Valley community features a mix of 1990s–2000s master-planned homes and newer luxury builds in communities like Schaefer Ranch and Positano. Standard sizing in newer homes makes for efficient replacement projects. Single window installation starts at approximately $500."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Dublin?",
+            "answer": "Yes. Dublin requires a building permit for window replacement. HOA requirements may also apply in communities like Schaefer Ranch, Positano, and Dublin Ranch. Our team manages all permit applications and coordinates with HOA requirements on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Dublin?",
+            "answer": "For Dublin's Tri-Valley suburban market, we most frequently install Milgard Tuscany vinyl for cost-effective whole-home replacements, Anlin Del Mar for homeowners looking to reduce summer cooling costs in the hot valley climate, and Andersen 400-Series for higher-end homes in premium communities."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Dublin neighborhoods?",
+            "answer": "Yes — we serve all Dublin communities including Schaefer Ranch, Positano, Dublin Ranch, Emerald Glen, and Tralee. Zip code: 94568."
+        },
+        {
+            "question": "How long does window replacement take in Dublin?",
+            "answer": "Most Dublin projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Dublin, Alameda County",
+            "area_served": "Dublin"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

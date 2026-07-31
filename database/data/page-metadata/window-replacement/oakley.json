@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/oakley",
+    "path": "/window-replacement/oakley",
+    "seo": {
+        "title": "Windows & Doors in Oakley, Contra Costa County",
+        "description": "Replace windows in Oakley, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Oakley project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/oakley",
+        "og": {
+            "title": "Windows & Doors in Oakley, Contra Costa County",
+            "description": "Replace windows in Oakley, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Oakley project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Oakley, Contra Costa County",
+        "primary_keyword": "window replacement oakley",
+        "target_keywords": [
+            "window replacement oakley",
+            "window installation oakley",
+            "replacement windows oakley",
+            "oakley window replacement",
+            "andersen windows oakley"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Oakley, Contra Costa County",
+            "description": "Replace windows in Oakley, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Oakley project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Oakley?",
+            "answer": "Oakley homeowners typically invest $4,000 to $9,500 for a full window replacement project covering 10–16 windows. This growing East Contra Costa community features newer master-planned subdivisions with standard sizing that makes replacement cost-efficient. Single window installation starts at approximately $410."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Oakley?",
+            "answer": "Yes. Oakley requires a building permit for window replacements. Our team manages all permit applications with the City of Oakley Building Department on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Oakley?",
+            "answer": "For Oakley's hot inland delta climate, we most frequently install Anlin Del Mar triple-pane for superior heat rejection, Milgard Tuscany vinyl for cost-effective whole-home replacements, and Simonton for budget-conscious projects."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Oakley neighborhoods?",
+            "answer": "Yes — we serve all Oakley communities including Summerlake, delta waterfront neighborhoods, and all residential subdivisions throughout the city. Zip code: 94561."
+        },
+        {
+            "question": "How long does window replacement take in Oakley?",
+            "answer": "Most Oakley projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Oakley, Contra Costa County",
+            "area_served": "Oakley"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

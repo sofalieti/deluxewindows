@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/el-cerrito",
+    "path": "/window-replacement/el-cerrito",
+    "seo": {
+        "title": "Windows & Doors in El Cerrito, Contra Costa County",
+        "description": "Window replacement in El Cerrito, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every El Cerrito project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/el-cerrito",
+        "og": {
+            "title": "Windows & Doors in El Cerrito, Contra Costa County",
+            "description": "Window replacement in El Cerrito, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every El Cerrito project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in El Cerrito, Contra Costa County",
+        "primary_keyword": "window replacement el cerrito",
+        "target_keywords": [
+            "window replacement el cerrito",
+            "window installation el cerrito",
+            "replacement windows el cerrito",
+            "el cerrito window replacement",
+            "andersen windows el cerrito"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in El Cerrito, Contra Costa County",
+            "description": "Window replacement in El Cerrito, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every El Cerrito project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in El Cerrito?",
+            "answer": "El Cerrito homeowners typically invest $5,500 to $12,000 for a full window replacement project. This East Bay community's mix of Craftsman bungalows and mid-century ranches often require custom sizing for older homes. Projects covering 10–14 windows are typical. Single window installation starts at approximately $520."
+        },
+        {
+            "question": "Do I need a permit for window replacement in El Cerrito?",
+            "answer": "Yes. El Cerrito requires a building permit for window replacements. Our team manages all permit applications and coordinates with El Cerrito's Building Department on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in El Cerrito?",
+            "answer": "For El Cerrito's East Bay housing stock, we most frequently install Milgard Tuscany vinyl for cost-effective replacements, Andersen 400-Series for Craftsman homes where interior wood aesthetics matter, and Milgard Ultra fiberglass for hillside homes with Bay views."
+        },
+        {
+            "question": "Does Deluxe Windows serve all El Cerrito neighborhoods?",
+            "answer": "Yes — we serve all El Cerrito neighborhoods including Cerrito Vista, Fairmount, the Country Club area, and the El Cerrito Hills. Zip code: 94530."
+        },
+        {
+            "question": "How long does window replacement take in El Cerrito?",
+            "answer": "Most El Cerrito projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in El Cerrito, Contra Costa County",
+            "area_served": "El Cerrito"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

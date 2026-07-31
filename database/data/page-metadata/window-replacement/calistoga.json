@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/calistoga",
+    "path": "/window-replacement/calistoga",
+    "seo": {
+        "title": "Windows & Doors in Calistoga, Napa County",
+        "description": "Window replacement in Calistoga, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Calistoga project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/calistoga",
+        "og": {
+            "title": "Windows & Doors in Calistoga, Napa County",
+            "description": "Window replacement in Calistoga, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Calistoga project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Calistoga, Napa County",
+        "primary_keyword": "window replacement calistoga",
+        "target_keywords": [
+            "window replacement calistoga",
+            "window installation calistoga",
+            "replacement windows calistoga",
+            "calistoga window replacement",
+            "andersen windows calistoga"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Calistoga, Napa County",
+            "description": "Window replacement in Calistoga, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Calistoga project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Calistoga?",
+            "answer": "Calistoga homeowners typically invest $6,000 to $14,000 for a full window replacement project. Wine country properties and historic downtown Victorian homes may require custom sizing to match original period profiles. Estate homes on the hillsides above Calistoga can see projects in the $20,000+ range depending on window count and glass specification."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Calistoga?",
+            "answer": "Yes. Calistoga requires a building permit for window replacement. Properties in or adjacent to the historic downtown corridor may need review by the City's Design Review Committee to ensure replacements are consistent with the architectural character of the area. Our team manages all permit applications on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Calistoga?",
+            "answer": "For Calistoga's wine country homes and hot valley climate, we most frequently install Marvin Elevate for estate homes requiring premium aesthetics, Andersen 400-Series for Victorian and Craftsman homes, and Milgard Ultra fiberglass for its thermal stability in Calistoga's significant temperature swings between hot summers and cool winters."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Calistoga neighborhoods?",
+            "answer": "Yes — we serve all of Calistoga including the historic downtown, Tubbs Lane area, Lincoln Avenue corridor, and hillside properties above the city. Zip code: 94515."
+        },
+        {
+            "question": "How long does window replacement take in Calistoga?",
+            "answer": "Most Calistoga projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Calistoga, Napa County",
+            "area_served": "Calistoga"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

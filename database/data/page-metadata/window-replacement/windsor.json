@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/windsor",
+    "path": "/window-replacement/windsor",
+    "seo": {
+        "title": "Windows & Doors in Windsor, Sonoma County",
+        "description": "Replace windows in Windsor, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Windsor project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/windsor",
+        "og": {
+            "title": "Windows & Doors in Windsor, Sonoma County",
+            "description": "Replace windows in Windsor, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Windsor project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Windsor, Sonoma County",
+        "primary_keyword": "window replacement windsor",
+        "target_keywords": [
+            "window replacement windsor",
+            "window installation windsor",
+            "replacement windows windsor",
+            "windsor window replacement",
+            "andersen windows windsor"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Windsor, Sonoma County",
+            "description": "Replace windows in Windsor, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Windsor project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Windsor?",
+            "answer": "Windsor homeowners typically invest $4,500 to $10,500 for a full window replacement project covering 10–16 windows. This growing Sonoma County town features 1990s–2010s homes in planned neighborhoods throughout the Town Green and Vintage Greens area. Standard sizing in planned developments makes replacement efficient. Single window installation starts at approximately $440."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Windsor?",
+            "answer": "Yes. Windsor requires a building permit for window replacements. HOA requirements may apply in certain planned communities. Our team manages all permit applications with the Town of Windsor Building Department on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Windsor?",
+            "answer": "For Windsor's suburban Sonoma County market, we most frequently install Milgard Tuscany vinyl for cost-effective whole-home replacements, Simonton for budget-conscious projects, and Andersen 400-Series for premium homes in higher-value planned communities."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Windsor neighborhoods?",
+            "answer": "Yes — we serve all Windsor communities including Town Green, Vintage Greens, the Shiloh area, and all surrounding residential neighborhoods. Zip code: 95492."
+        },
+        {
+            "question": "How long does window replacement take in Windsor?",
+            "answer": "Most Windsor projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Windsor, Sonoma County",
+            "area_served": "Windsor"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

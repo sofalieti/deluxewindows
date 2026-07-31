@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/st-helena",
+    "path": "/window-replacement/st-helena",
+    "seo": {
+        "title": "Windows & Doors in St. Helena, Napa County",
+        "description": "Window replacement in St. Helena, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every St. Helena project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/st-helena",
+        "og": {
+            "title": "Windows & Doors in St. Helena, Napa County",
+            "description": "Window replacement in St. Helena, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every St. Helena project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in St. Helena, Napa County",
+        "primary_keyword": "window replacement st. helena",
+        "target_keywords": [
+            "window replacement st. helena",
+            "window installation st. helena",
+            "replacement windows st. helena",
+            "st. helena window replacement",
+            "andersen windows st. helena"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in St. Helena, Napa County",
+            "description": "Window replacement in St. Helena, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every St. Helena project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in St. Helena?",
+            "answer": "St. Helena homeowners typically invest $10,000 to $30,000+ for window replacement projects. This prestigious Napa Valley wine country town features Victorian homes along Main Street, craftsman bungalows, and estate properties throughout the surrounding vineyards. Premium specifications are expected in this upscale community where median home values exceed $2 million. Single window installation starts at approximately $750."
+        },
+        {
+            "question": "Do I need a permit for window replacement in St. Helena?",
+            "answer": "Yes. St. Helena requires a building permit for window replacements. Properties in or near the downtown historic corridor may require Design Review Board approval. Our team manages all permit and design review applications on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in St. Helena?",
+            "answer": "St. Helena's upscale wine country market drives demand for premium products. We most frequently specify Marvin Ultimate wood-clad fiberglass for estate homes and Victorian Main Street properties, Andersen 400-Series for period-appropriate aesthetics, and Western Window Systems for contemporary wine country properties."
+        },
+        {
+            "question": "Does Deluxe Windows serve all St. Helena neighborhoods?",
+            "answer": "Yes — we serve all of St. Helena including the downtown Main Street corridor, Sulphur Springs Avenue area, Pope Street corridor, and all surrounding vineyard estate properties. Zip code: 94574."
+        },
+        {
+            "question": "How long does window replacement take in St. Helena?",
+            "answer": "Most St. Helena projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in St. Helena, Napa County",
+            "area_served": "St. Helena"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

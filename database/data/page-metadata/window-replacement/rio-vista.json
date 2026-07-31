@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/rio-vista",
+    "path": "/window-replacement/rio-vista",
+    "seo": {
+        "title": "Windows & Doors in Rio Vista, Solano County",
+        "description": "Window replacement in Rio Vista, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Rio Vista project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/rio-vista",
+        "og": {
+            "title": "Windows & Doors in Rio Vista, Solano County",
+            "description": "Window replacement in Rio Vista, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Rio Vista project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Rio Vista, Solano County",
+        "primary_keyword": "window replacement rio vista",
+        "target_keywords": [
+            "window replacement rio vista",
+            "window installation rio vista",
+            "replacement windows rio vista",
+            "rio vista window replacement",
+            "andersen windows rio vista"
+        ],
+        "search_intent": "local-city",
+        "priority": "P2",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Rio Vista, Solano County",
+            "description": "Window replacement in Rio Vista, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Rio Vista project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Rio Vista?",
+            "answer": "Rio Vista homeowners typically invest $4,000 to $9,500 for a full window replacement project. This small delta community features a mix of older ranch homes near downtown and the newer active-adult homes of Trilogy at Rio Vista. Trilogy homes often have standard-sized windows that make replacement efficient. Single window installation starts at approximately $400."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Rio Vista?",
+            "answer": "Yes. Rio Vista requires a building permit for window replacements. Trilogy at Rio Vista HOA requirements may also apply for exterior changes. Our team manages all permit applications and HOA submittals on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Rio Vista?",
+            "answer": "For Rio Vista's delta climate, we most frequently install Simonton Reflections for its exceptional wind resistance ratings critical in the delta, Milgard Tuscany vinyl for cost-effective replacements throughout the city, and Anlin Del Mar for homeowners in Trilogy focused on energy efficiency."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Rio Vista neighborhoods?",
+            "answer": "Yes — we serve all of Rio Vista including the downtown historic neighborhoods, Main Street corridor, Trilogy at Rio Vista, and all surrounding residential areas. Zip code: 94571."
+        },
+        {
+            "question": "How long does window replacement take in Rio Vista?",
+            "answer": "Most Rio Vista projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Rio Vista, Solano County",
+            "area_served": "Rio Vista"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

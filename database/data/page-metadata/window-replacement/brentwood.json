@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/brentwood",
+    "path": "/window-replacement/brentwood",
+    "seo": {
+        "title": "Windows & Doors in Brentwood, Contra Costa County",
+        "description": "Window replacement in Brentwood, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Brentwood project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/brentwood",
+        "og": {
+            "title": "Windows & Doors in Brentwood, Contra Costa County",
+            "description": "Window replacement in Brentwood, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Brentwood project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Brentwood, Contra Costa County",
+        "primary_keyword": "window replacement brentwood",
+        "target_keywords": [
+            "window replacement brentwood",
+            "window installation brentwood",
+            "replacement windows brentwood",
+            "brentwood window replacement",
+            "andersen windows brentwood"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Brentwood, Contra Costa County",
+            "description": "Window replacement in Brentwood, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Brentwood project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Brentwood?",
+            "answer": "Brentwood homeowners typically invest $4,500 to $10,500 for a full window replacement project covering 10–16 windows. The city's newer master-planned communities feature standard sizing that makes replacement efficient and cost-effective. Single windows start at approximately $400–$500 installed."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Brentwood?",
+            "answer": "Yes. The City of Brentwood requires building permits for window replacement projects. Our team handles all permit applications and inspections on your behalf, typically at no additional charge for standard residential projects."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Brentwood?",
+            "answer": "For Brentwood's hot inland climate, we most frequently install Anlin Del Mar triple-pane for its superior solar heat gain control, Milgard Tuscany vinyl for cost-effective full-home replacements, and Simonton Reflections for budget-conscious projects with strong energy performance in hot-summer conditions."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Brentwood neighborhoods?",
+            "answer": "Yes — we serve all Brentwood communities including Trilogy, Summerset, Garin Ranch, Delta, Deer Ridge, Sand Creek, and all newer master-planned developments. Zip code: 94513."
+        },
+        {
+            "question": "How long does window replacement take in Brentwood?",
+            "answer": "Most Brentwood projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Brentwood, Contra Costa County",
+            "area_served": "Brentwood"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

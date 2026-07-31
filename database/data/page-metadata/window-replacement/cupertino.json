@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/cupertino",
+    "path": "/window-replacement/cupertino",
+    "seo": {
+        "title": "Windows & Doors in Cupertino, Santa Clara County",
+        "description": "Window replacement in Cupertino, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Cupertino project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/cupertino",
+        "og": {
+            "title": "Windows & Doors in Cupertino, Santa Clara County",
+            "description": "Window replacement in Cupertino, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Cupertino project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Cupertino, Santa Clara County",
+        "primary_keyword": "window replacement cupertino",
+        "target_keywords": [
+            "window replacement cupertino",
+            "window installation cupertino",
+            "replacement windows cupertino",
+            "cupertino window replacement",
+            "andersen windows cupertino"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Cupertino, Santa Clara County",
+            "description": "Window replacement in Cupertino, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Cupertino project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Cupertino?",
+            "answer": "Cupertino homeowners typically invest $7,000 to $17,000 for a full window replacement project. This premium Silicon Valley city features a mix of 1960s–1980s ranches and newer luxury homes. Projects frequently include premium glass packages for energy efficiency and UV protection of high-value interiors. Single window installation starts at approximately $600."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Cupertino?",
+            "answer": "Yes. Cupertino requires a building permit for window replacements, including like-for-like replacements. Our team manages all Cupertino permit applications and coordinates with the Community Development Department on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Cupertino?",
+            "answer": "Cupertino's high-income demographic drives demand for premium products. We most frequently install Andersen 400-Series wood-clad for homes in established neighborhoods, Milgard Ultra fiberglass for superior energy performance, and Anlin Del Mar triple-pane for tech-forward homeowners focused on maximum efficiency and noise reduction near Apple Park."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Cupertino neighborhoods?",
+            "answer": "Yes — we serve all Cupertino neighborhoods including Monta Vista, Garden Gate, Seven Springs, Rancho Rinconada, and all areas adjacent to Apple Park. We cover zip codes 95014 and 95015."
+        },
+        {
+            "question": "How long does window replacement take in Cupertino?",
+            "answer": "Most Cupertino projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Cupertino, Santa Clara County",
+            "area_served": "Cupertino"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

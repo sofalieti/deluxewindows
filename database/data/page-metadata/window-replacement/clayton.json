@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/clayton",
+    "path": "/window-replacement/clayton",
+    "seo": {
+        "title": "Windows & Doors in Clayton, Contra Costa County",
+        "description": "Replace windows in Clayton, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Clayton project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/clayton",
+        "og": {
+            "title": "Windows & Doors in Clayton, Contra Costa County",
+            "description": "Replace windows in Clayton, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Clayton project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Clayton, Contra Costa County",
+        "primary_keyword": "window replacement clayton",
+        "target_keywords": [
+            "window replacement clayton",
+            "window installation clayton",
+            "replacement windows clayton",
+            "clayton window replacement",
+            "andersen windows clayton"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Clayton, Contra Costa County",
+            "description": "Replace windows in Clayton, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Clayton project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Clayton?",
+            "answer": "Clayton homeowners typically invest $5,500 to $13,000 for a full window replacement project. This small Contra Costa community features a mix of 1970s–1990s homes near downtown and newer developments in the Oakhurst Country Club area. Window count typically ranges from 10 to 16 per project."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Clayton?",
+            "answer": "Yes. Clayton requires a building permit for window replacement. Projects involving changes to the rough opening or structural framing require a full building permit; like-for-like replacements may qualify for expedited review. Our team handles all permitting for Clayton projects on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Clayton?",
+            "answer": "For Clayton's warm inland climate, we most frequently install Milgard Tuscany vinyl for its value and energy performance, Anlin Del Mar triple-pane for homeowners wanting maximum heat rejection, and Andersen 400-Series for higher-end properties in the Oakhurst Country Club area."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Clayton neighborhoods?",
+            "answer": "Yes — we serve all of Clayton including the historic downtown, Oakhurst Country Club area, Los Médanos Hills, and all residential streets throughout the city. Zip code: 94517."
+        },
+        {
+            "question": "How long does window replacement take in Clayton?",
+            "answer": "Most Clayton projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Clayton, Contra Costa County",
+            "area_served": "Clayton"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

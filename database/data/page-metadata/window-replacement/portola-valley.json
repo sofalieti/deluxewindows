@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/portola-valley",
+    "path": "/window-replacement/portola-valley",
+    "seo": {
+        "title": "Windows & Doors in Portola Valley, San Mateo County",
+        "description": "Window replacement in Portola Valley, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Portola Valley project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/portola-valley",
+        "og": {
+            "title": "Windows & Doors in Portola Valley, San Mateo County",
+            "description": "Window replacement in Portola Valley, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Portola Valley project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Portola Valley, San Mateo County",
+        "primary_keyword": "window replacement portola valley",
+        "target_keywords": [
+            "window replacement portola valley",
+            "window installation portola valley",
+            "replacement windows portola valley",
+            "portola valley window replacement",
+            "andersen windows portola valley"
+        ],
+        "search_intent": "local-city",
+        "priority": "P2",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Portola Valley, San Mateo County",
+            "description": "Window replacement in Portola Valley, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Portola Valley project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Portola Valley?",
+            "answer": "Portola Valley homeowners typically invest $18,000 to $55,000+ for window replacement projects. This ultra-exclusive Peninsula community features custom estate homes on large lots where premium Marvin, Western Window Systems, or Andersen specifications are the norm. Projects covering 20–35+ windows with custom sizing are common."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Portola Valley?",
+            "answer": "Yes. Portola Valley requires a building permit for window replacements. The Town's Planning Department may also review projects for consistency with the community's rural, open-space character. Our team manages all Town of Portola Valley permit applications on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Portola Valley?",
+            "answer": "Portola Valley's elite estate market exclusively demands the highest-tier products. We most frequently specify Marvin Ultimate and Elevate for their exceptional customization and natural wood interiors, Western Window Systems for indoor-outdoor living wall installations, and Andersen A-Series for traditional estate homes."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Portola Valley neighborhoods?",
+            "answer": "Yes — we serve the entire Town of Portola Valley including Alpine Road corridor, Los Trancos Woods, Central Portola Valley, and all estate properties throughout this hillside community. Zip code: 94028."
+        },
+        {
+            "question": "How long does window replacement take in Portola Valley?",
+            "answer": "Most Portola Valley projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Portola Valley, San Mateo County",
+            "area_served": "Portola Valley"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

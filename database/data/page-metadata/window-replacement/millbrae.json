@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/millbrae",
+    "path": "/window-replacement/millbrae",
+    "seo": {
+        "title": "Windows & Doors in Millbrae, San Mateo County",
+        "description": "Window replacement in Millbrae, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Millbrae project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/millbrae",
+        "og": {
+            "title": "Windows & Doors in Millbrae, San Mateo County",
+            "description": "Window replacement in Millbrae, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Millbrae project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Millbrae, San Mateo County",
+        "primary_keyword": "window replacement millbrae",
+        "target_keywords": [
+            "window replacement millbrae",
+            "window installation millbrae",
+            "replacement windows millbrae",
+            "millbrae window replacement",
+            "andersen windows millbrae"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Millbrae, San Mateo County",
+            "description": "Window replacement in Millbrae, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Millbrae project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Millbrae?",
+            "answer": "Millbrae homeowners typically invest $6,500 to $15,000 for a full window replacement project covering 10–16 windows. This established Peninsula community features a mix of 1950s–1970s ranches and two-story homes, many in need of full-frame replacement after decades of use. Single window installation starts at approximately $570."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Millbrae?",
+            "answer": "Yes. Millbrae requires a building permit for window replacements. Our team handles all permit applications with the City of Millbrae's Building Department on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Millbrae?",
+            "answer": "For Millbrae's established Peninsula neighborhood profile, we most frequently install Milgard Tuscany vinyl for cost-effective replacements, Andersen 400-Series for homeowners preferring wood interiors, and Milgard Ultra fiberglass for superior performance in the coastal climate."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Millbrae neighborhoods?",
+            "answer": "Yes — we serve all Millbrae neighborhoods including Green Hills, Spring Valley, Millbrae Meadows, and all residential areas throughout the city. Zip code: 94030."
+        },
+        {
+            "question": "How long does window replacement take in Millbrae?",
+            "answer": "Most Millbrae projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Millbrae, San Mateo County",
+            "area_served": "Millbrae"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

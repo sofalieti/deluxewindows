@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/danville",
+    "path": "/window-replacement/danville",
+    "seo": {
+        "title": "Windows & Doors in Danville, Contra Costa County",
+        "description": "Window replacement in Danville, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Danville project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/danville",
+        "og": {
+            "title": "Windows & Doors in Danville, Contra Costa County",
+            "description": "Window replacement in Danville, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Danville project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Danville, Contra Costa County",
+        "primary_keyword": "window replacement danville",
+        "target_keywords": [
+            "window replacement danville",
+            "window installation danville",
+            "replacement windows danville",
+            "danville window replacement",
+            "andersen windows danville"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Danville, Contra Costa County",
+            "description": "Window replacement in Danville, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Danville project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Danville?",
+            "answer": "Danville homeowners typically invest $8,000 to $20,000 for a full window replacement project. This upscale Contra Costa community features large single-family homes in neighborhoods like Blackhawk and Diablo, where premium window specifications — Andersen or Milgard Ultra fiberglass with custom glass packages — are common. Projects covering 15–25 windows are typical. Single window installation starts at approximately $650."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Danville?",
+            "answer": "Yes. Danville (as an unincorporated Town) processes building permits through Contra Costa County Building Inspection. Homes in Blackhawk or gated communities may also have HOA requirements regarding window appearance. Our team handles all county permit applications and HOA submittals on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Danville?",
+            "answer": "Danville's premium market drives demand for higher-end products. We most frequently install Andersen 400-Series wood-clad for established neighborhood homes, Milgard Ultra fiberglass for maximum performance in the Diablo Valley heat, and Marvin Elevate for custom estate homes in Blackhawk requiring premium aesthetics."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Danville neighborhoods?",
+            "answer": "Yes — we serve all Danville communities including Blackhawk, Diablo, Green Valley, Stone Valley, Alamo area, and Sycamore Valley. Zip codes: 94506, 94526."
+        },
+        {
+            "question": "How long does window replacement take in Danville?",
+            "answer": "Most Danville projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Danville, Contra Costa County",
+            "area_served": "Danville"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

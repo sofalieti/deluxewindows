@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/orinda",
+    "path": "/window-replacement/orinda",
+    "seo": {
+        "title": "Windows & Doors in Orinda, Contra Costa County",
+        "description": "Replace windows in Orinda, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Orinda project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/orinda",
+        "og": {
+            "title": "Windows & Doors in Orinda, Contra Costa County",
+            "description": "Replace windows in Orinda, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Orinda project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Orinda, Contra Costa County",
+        "primary_keyword": "window replacement orinda",
+        "target_keywords": [
+            "window replacement orinda",
+            "window installation orinda",
+            "replacement windows orinda",
+            "orinda window replacement",
+            "andersen windows orinda"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Orinda, Contra Costa County",
+            "description": "Replace windows in Orinda, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Orinda project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Orinda?",
+            "answer": "Orinda homeowners typically invest $8,500 to $20,000 for a full window replacement project. This prestigious Lamorinda community features premium single-family homes in neighborhoods like Glorietta, Orinda Downs, and the Orinda Country Club area. Projects covering 14–22 windows with premium glass are common. Single window installation starts at approximately $680."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Orinda?",
+            "answer": "Yes. Orinda requires a building permit for window replacements administered through Contra Costa County Building Inspection. Our team handles all permit applications on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Orinda?",
+            "answer": "Orinda's affluent Lamorinda market drives demand for premium products. We most frequently install Andersen 400-Series wood-clad for the community's established ranch and colonial homes, Milgard Ultra fiberglass for superior energy performance, and Marvin Elevate for higher-end custom properties."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Orinda neighborhoods?",
+            "answer": "Yes — we serve all Orinda neighborhoods including Glorietta, Orinda Downs, Orinda Country Club, and Sleepy Hollow. Zip code: 94563."
+        },
+        {
+            "question": "How long does window replacement take in Orinda?",
+            "answer": "Most Orinda projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Orinda, Contra Costa County",
+            "area_served": "Orinda"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

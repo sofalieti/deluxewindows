@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/atherton",
+    "path": "/window-replacement/atherton",
+    "seo": {
+        "title": "Windows & Doors in Atherton, San Mateo County",
+        "description": "Window replacement in Atherton, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Atherton project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/atherton",
+        "og": {
+            "title": "Windows & Doors in Atherton, San Mateo County",
+            "description": "Window replacement in Atherton, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Atherton project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Atherton, San Mateo County",
+        "primary_keyword": "window replacement atherton",
+        "target_keywords": [
+            "window replacement atherton",
+            "window installation atherton",
+            "replacement windows atherton",
+            "atherton window replacement",
+            "andersen windows atherton"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Atherton, San Mateo County",
+            "description": "Window replacement in Atherton, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Atherton project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Atherton?",
+            "answer": "Atherton homeowners typically invest $18,000 to $45,000+ for a full window replacement project. Estate homes on the town's large lots often have 20–35+ windows, many requiring custom sizing and premium finishes. Projects featuring Marvin Ultimate or Andersen A-Series with bronze hardware and specialty glazing packages can exceed $60,000 for larger properties."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Atherton?",
+            "answer": "Yes. Atherton requires building permits for all window replacement projects. Our team handles all permit applications and coordinates directly with Atherton's Building Department. Estate homes may also require architectural plans demonstrating that replacement windows match the property's approved design character."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Atherton?",
+            "answer": "Atherton's estate market demands the highest-tier products. We most frequently specify Marvin Ultimate wood-clad fiberglass for its unmatched customization and premium finishes, Andersen A-Series with FSC-certified wood interiors for traditional estates, and Western Window Systems multi-slide and folding wall systems for indoor-outdoor living spaces."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Atherton neighborhoods?",
+            "answer": "Yes — we serve the entire Town of Atherton, including Lindenwood, West Atherton, and all residential areas throughout the community. Atherton zip code: 94027."
+        },
+        {
+            "question": "How long does window replacement take in Atherton?",
+            "answer": "Most Atherton projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Atherton, San Mateo County",
+            "area_served": "Atherton"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

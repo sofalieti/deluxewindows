@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/san-bruno",
+    "path": "/window-replacement/san-bruno",
+    "seo": {
+        "title": "Windows & Doors in San Bruno, San Mateo County",
+        "description": "Window replacement in San Bruno, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every San Bruno project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/san-bruno",
+        "og": {
+            "title": "Windows & Doors in San Bruno, San Mateo County",
+            "description": "Window replacement in San Bruno, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every San Bruno project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in San Bruno, San Mateo County",
+        "primary_keyword": "window replacement san bruno",
+        "target_keywords": [
+            "window replacement san bruno",
+            "window installation san bruno",
+            "replacement windows san bruno",
+            "san bruno window replacement",
+            "andersen windows san bruno"
+        ],
+        "search_intent": "local-city",
+        "priority": "P2",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in San Bruno, San Mateo County",
+            "description": "Window replacement in San Bruno, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every San Bruno project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in San Bruno?",
+            "answer": "San Bruno homeowners typically invest $5,500 to $12,500 for a full window replacement project covering 10–15 windows. This Peninsula city's 1950s–1970s ranch homes and split-levels offer some of the most efficient replacement projects in San Mateo County. Acoustic upgrade packages for homes near SFO may add modestly to cost. Single window installation starts at approximately $490."
+        },
+        {
+            "question": "Do I need a permit for window replacement in San Bruno?",
+            "answer": "Yes. San Bruno requires a building permit for window replacements. Our team manages all permit applications with the City of San Bruno Building & Safety Division on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in San Bruno?",
+            "answer": "For San Bruno's coastal suburban market — particularly for noise reduction near SFO — we most frequently install Milgard Tuscany vinyl with laminated acoustic glass, Anlin Del Mar triple-pane for maximum noise and energy performance, and Simonton for budget-conscious full-home projects."
+        },
+        {
+            "question": "Does Deluxe Windows serve all San Bruno neighborhoods?",
+            "answer": "Yes — we serve all San Bruno neighborhoods including Crestmoor, Rollingwood, Portola Highlands, and all zip codes: 94066."
+        },
+        {
+            "question": "How long does window replacement take in San Bruno?",
+            "answer": "Most San Bruno projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in San Bruno, San Mateo County",
+            "area_served": "San Bruno"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

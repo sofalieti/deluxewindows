@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/cloverdale",
+    "path": "/window-replacement/cloverdale",
+    "seo": {
+        "title": "Windows & Doors in Cloverdale, Sonoma County",
+        "description": "Window replacement in Cloverdale, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Cloverdale project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/cloverdale",
+        "og": {
+            "title": "Windows & Doors in Cloverdale, Sonoma County",
+            "description": "Window replacement in Cloverdale, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Cloverdale project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Cloverdale, Sonoma County",
+        "primary_keyword": "window replacement cloverdale",
+        "target_keywords": [
+            "window replacement cloverdale",
+            "window installation cloverdale",
+            "replacement windows cloverdale",
+            "cloverdale window replacement",
+            "andersen windows cloverdale"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Cloverdale, Sonoma County",
+            "description": "Window replacement in Cloverdale, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Cloverdale project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Cloverdale?",
+            "answer": "Cloverdale homeowners typically invest $4,500 to $10,000 for a full window replacement project. This Sonoma County wine country community has a modest housing stock, and most projects involve standard-sized windows in 1970s–1990s ranch homes. Single window installation starts at approximately $420."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Cloverdale?",
+            "answer": "Yes. Cloverdale requires a building permit for window replacements. Our team manages all permit applications and scheduling with the City of Cloverdale Building Department on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Cloverdale?",
+            "answer": "For Cloverdale's rural Sonoma County location, we most frequently install Milgard Tuscany vinyl for its value and strong warranty, Simonton Reflections for budget-conscious whole-home replacements, and Anlin Del Mar for homeowners focused on energy efficiency in a climate with hot summers and cold winters."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Cloverdale neighborhoods?",
+            "answer": "Yes — we serve all of Cloverdale including the historic downtown, Lake Sonoma area, Asti Road corridor, and all surrounding residential areas. Zip code: 95425."
+        },
+        {
+            "question": "How long does window replacement take in Cloverdale?",
+            "answer": "Most Cloverdale projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Cloverdale, Sonoma County",
+            "area_served": "Cloverdale"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

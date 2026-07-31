@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/los-altos-hills",
+    "path": "/window-replacement/los-altos-hills",
+    "seo": {
+        "title": "Windows & Doors in Los Altos Hills, Santa Clara County",
+        "description": "Window replacement in Los Altos Hills, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Los Altos Hills project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/los-altos-hills",
+        "og": {
+            "title": "Windows & Doors in Los Altos Hills, Santa Clara County",
+            "description": "Window replacement in Los Altos Hills, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Los Altos Hills project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Los Altos Hills, Santa Clara County",
+        "primary_keyword": "window replacement los altos hills",
+        "target_keywords": [
+            "window replacement los altos hills",
+            "window installation los altos hills",
+            "replacement windows los altos hills",
+            "los altos hills window replacement",
+            "andersen windows los altos hills"
+        ],
+        "search_intent": "local-city",
+        "priority": "P2",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Los Altos Hills, Santa Clara County",
+            "description": "Window replacement in Los Altos Hills, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Los Altos Hills project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Los Altos Hills?",
+            "answer": "Los Altos Hills homeowners typically invest $18,000 to $50,000+ for window replacement projects. This exclusive Stanford-adjacent community features large estate homes on 1-acre+ lots, frequently with 20–35 windows and floor-to-ceiling glass walls. Custom sizing and premium hardware are the standard where median home values exceed $5 million. Single window installation starts at approximately $850."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Los Altos Hills?",
+            "answer": "Yes. Los Altos Hills requires a building permit for all window replacements. The town's Planning and Building Department evaluates projects for consistency with the community's natural, open-space character. Our team manages all permit applications and coordinates with town staff on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Los Altos Hills?",
+            "answer": "Los Altos Hills exclusively demands the highest-tier window products. We most frequently specify Marvin Ultimate wood-clad fiberglass for its unmatched customization and premium finishes, Western Window Systems for large folding and multi-slide door systems, and Andersen A-Series for traditional estate homes with authentic wood interiors."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Los Altos Hills neighborhoods?",
+            "answer": "Yes — we serve the entire Town of Los Altos Hills including Vineyards Road area, Moody Road corridor, Concepcion Road, and all estate properties throughout the community. Zip code: 94022."
+        },
+        {
+            "question": "How long does window replacement take in Los Altos Hills?",
+            "answer": "Most Los Altos Hills projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Los Altos Hills, Santa Clara County",
+            "area_served": "Los Altos Hills"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

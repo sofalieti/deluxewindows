@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/belmont",
+    "path": "/window-replacement/belmont",
+    "seo": {
+        "title": "Windows & Doors in Belmont, San Mateo County",
+        "description": "Replace windows in Belmont, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Belmont project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/belmont",
+        "og": {
+            "title": "Windows & Doors in Belmont, San Mateo County",
+            "description": "Replace windows in Belmont, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Belmont project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Belmont, San Mateo County",
+        "primary_keyword": "window replacement belmont",
+        "target_keywords": [
+            "window replacement belmont",
+            "window installation belmont",
+            "replacement windows belmont",
+            "belmont window replacement",
+            "andersen windows belmont"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Belmont, San Mateo County",
+            "description": "Replace windows in Belmont, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Belmont project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Belmont?",
+            "answer": "Belmont homeowners typically invest $6,500 to $14,000 for a full window replacement project covering 10–15 windows. Belmont Hills properties with larger windows and custom configurations will see costs at the higher end of that range. Single window installations start around $550–$650."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Belmont?",
+            "answer": "Yes. Belmont requires a building permit for window replacement projects, particularly those involving changes to rough opening size or framing. Like-for-like replacements may qualify for a streamlined permit process. Our team handles all Belmont permit applications on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Belmont?",
+            "answer": "For Belmont's mix of mid-century ranch homes and hillside properties, we most frequently install Milgard Tuscany vinyl for everyday replacement projects, Andersen 400-Series for homeowners who want a wood interior look, and Milgard Ultra fiberglass for hillside homes where superior structural performance and minimal maintenance are priorities."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Belmont neighborhoods?",
+            "answer": "Yes — we serve all Belmont neighborhoods including Belmont Hills, Cipriani, Twin Pines, Notre Dame Hills, and Ralston. We cover all of Belmont's zip code 94002."
+        },
+        {
+            "question": "How long does window replacement take in Belmont?",
+            "answer": "Most Belmont projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Belmont, San Mateo County",
+            "area_served": "Belmont"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

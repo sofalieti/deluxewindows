@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/rohnert-park",
+    "path": "/window-replacement/rohnert-park",
+    "seo": {
+        "title": "Windows & Doors in Rohnert Park, Sonoma County",
+        "description": "Window replacement in Rohnert Park, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Rohnert Park project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/rohnert-park",
+        "og": {
+            "title": "Windows & Doors in Rohnert Park, Sonoma County",
+            "description": "Window replacement in Rohnert Park, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Rohnert Park project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Rohnert Park, Sonoma County",
+        "primary_keyword": "window replacement rohnert park",
+        "target_keywords": [
+            "window replacement rohnert park",
+            "window installation rohnert park",
+            "replacement windows rohnert park",
+            "rohnert park window replacement",
+            "andersen windows rohnert park"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Rohnert Park, Sonoma County",
+            "description": "Window replacement in Rohnert Park, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Rohnert Park project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Rohnert Park?",
+            "answer": "Rohnert Park homeowners typically invest $4,500 to $10,000 for a full window replacement project covering 10–16 windows. This planned Sonoma County city features uniform 1960s–1980s tract homes in its many village neighborhoods, making replacement projects highly efficient and cost-effective. Single window installation starts at approximately $430."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Rohnert Park?",
+            "answer": "Yes. Rohnert Park requires a building permit for window replacements. Our team manages all permit applications with the City of Rohnert Park Community Development Department on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Rohnert Park?",
+            "answer": "For Rohnert Park's value-oriented suburban market, we most frequently install Milgard Tuscany vinyl for its excellent value and lifetime warranty, Simonton for budget-conscious whole-home projects, and Anlin Del Mar for homeowners focused on energy savings in the warm Sonoma County climate."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Rohnert Park neighborhoods?",
+            "answer": "Yes — we serve all Rohnert Park's village neighborhoods including Magnolia Village, Sunrise Village, Rancho Cotate, and Southwest Rohnert Park. Zip code: 94928."
+        },
+        {
+            "question": "How long does window replacement take in Rohnert Park?",
+            "answer": "Most Rohnert Park projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Rohnert Park, Sonoma County",
+            "area_served": "Rohnert Park"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

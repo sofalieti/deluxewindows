@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/morgan-hill",
+    "path": "/window-replacement/morgan-hill",
+    "seo": {
+        "title": "Windows & Doors in Morgan Hill, Santa Clara County",
+        "description": "Window replacement in Morgan Hill, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Morgan Hill project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/morgan-hill",
+        "og": {
+            "title": "Windows & Doors in Morgan Hill, Santa Clara County",
+            "description": "Window replacement in Morgan Hill, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Morgan Hill project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Morgan Hill, Santa Clara County",
+        "primary_keyword": "window replacement morgan hill",
+        "target_keywords": [
+            "window replacement morgan hill",
+            "window installation morgan hill",
+            "replacement windows morgan hill",
+            "morgan hill window replacement",
+            "andersen windows morgan hill"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Morgan Hill, Santa Clara County",
+            "description": "Window replacement in Morgan Hill, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Morgan Hill project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Morgan Hill?",
+            "answer": "Morgan Hill homeowners typically invest $4,500 to $11,000 for a full window replacement project covering 10–16 windows. This South Bay community features a mix of ranch homes, planned communities, and newer developments. Standard sizing in newer builds makes replacement efficient. Single window installation starts at approximately $440."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Morgan Hill?",
+            "answer": "Yes. Morgan Hill requires a building permit for window replacements. Our team handles all permit applications with the City of Morgan Hill Community Development Department on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Morgan Hill?",
+            "answer": "For Morgan Hill's South Valley climate, we most frequently install Anlin Del Mar triple-pane for its superior heat rejection during hot summers, Milgard Tuscany vinyl for cost-effective whole-home replacements, and Andersen 400-Series for premium homes in the Granadillas and wine country areas."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Morgan Hill neighborhoods?",
+            "answer": "Yes — we serve all Morgan Hill communities including Granadillas, Madrone, East Main Street area, and all surrounding residential zones. Zip codes: 95037, 95038."
+        },
+        {
+            "question": "How long does window replacement take in Morgan Hill?",
+            "answer": "Most Morgan Hill projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Morgan Hill, Santa Clara County",
+            "area_served": "Morgan Hill"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

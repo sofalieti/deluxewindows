@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/ross",
+    "path": "/window-replacement/ross",
+    "seo": {
+        "title": "Windows & Doors in Ross, Marin County",
+        "description": "Window replacement in Ross, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Ross project. Book a free estimate.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/ross",
+        "og": {
+            "title": "Windows & Doors in Ross, Marin County",
+            "description": "Window replacement in Ross, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Ross project. Book a free estimate.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Ross, Marin County",
+        "primary_keyword": "window replacement ross",
+        "target_keywords": [
+            "window replacement ross",
+            "window installation ross",
+            "replacement windows ross",
+            "ross window replacement",
+            "andersen windows ross"
+        ],
+        "search_intent": "local-city",
+        "priority": "P2",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Ross, Marin County",
+            "description": "Window replacement in Ross, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Ross project. Book a free estimate.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Ross?",
+            "answer": "Ross homeowners typically invest $18,000 to $50,000+ for window replacement projects. This exclusive Marin County enclave — one of the smallest and wealthiest towns in California — features Tudor Revival, English Country, and Mediterranean estates with custom windows that demand premium specifications. Projects with Marvin Ultimate or Andersen A-Series covering 20–35+ windows are typical. Single window installation starts at approximately $850."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Ross?",
+            "answer": "Yes. Ross requires a building permit for all window replacements. The Town of Ross is known for thorough architectural review through the Design Review Board, which evaluates all exterior changes for consistency with the town's historic and character-defining standards. Our team manages all Town of Ross permit and design review applications on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Ross?",
+            "answer": "Ross's elite estate market demands exclusively the finest products. We most frequently specify Marvin Ultimate wood-clad fiberglass for its architectural authenticity and limitless custom options, Andersen A-Series for traditional Tudor and English Country estates, and Western Window Systems for contemporary additions."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Ross neighborhoods?",
+            "answer": "Yes — we serve the entire Town of Ross including Lagunitas Road area, Bolinas Road corridor, and all hillside estates throughout the community. Zip code: 94957."
+        },
+        {
+            "question": "How long does window replacement take in Ross?",
+            "answer": "Most Ross projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Ross, Marin County",
+            "area_served": "Ross"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

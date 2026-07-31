@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/half-moon-bay",
+    "path": "/window-replacement/half-moon-bay",
+    "seo": {
+        "title": "Windows & Doors in Half Moon Bay, San Mateo County",
+        "description": "Window replacement in Half Moon Bay, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Half Moon Bay project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/half-moon-bay",
+        "og": {
+            "title": "Windows & Doors in Half Moon Bay, San Mateo County",
+            "description": "Window replacement in Half Moon Bay, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Half Moon Bay project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Half Moon Bay, San Mateo County",
+        "primary_keyword": "window replacement half moon bay",
+        "target_keywords": [
+            "window replacement half moon bay",
+            "window installation half moon bay",
+            "replacement windows half moon bay",
+            "half moon bay window replacement",
+            "andersen windows half moon bay"
+        ],
+        "search_intent": "local-city",
+        "priority": "P2",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Half Moon Bay, San Mateo County",
+            "description": "Window replacement in Half Moon Bay, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Half Moon Bay project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Half Moon Bay?",
+            "answer": "Half Moon Bay homeowners typically invest $6,500 to $15,000 for a full window replacement project. This scenic coastal community's homes — many with Pacific Ocean views — require marine-grade window systems that withstand salt air and persistent coastal winds. Oceanfront and bluff-top properties may exceed $20,000. Single window installation starts at approximately $600."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Half Moon Bay?",
+            "answer": "Yes. Half Moon Bay requires a building permit for window replacements. Coastal properties may also be subject to Coastal Zone permit requirements administered by the San Mateo County Planning and Building Department. Our team manages all permit and coastal compliance applications on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Half Moon Bay?",
+            "answer": "Half Moon Bay's demanding coastal environment calls for marine-grade products. We most frequently install Milgard Ultra fiberglass for its exceptional resistance to salt air and coastal moisture, Andersen 400-Series for interior wood aesthetics, and Marvin Elevate for oceanfront homes requiring premium performance and marine-grade hardware."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Half Moon Bay neighborhoods?",
+            "answer": "Yes — we serve all Half Moon Bay areas including the downtown corridor, Miramar, El Granada, Montara, and Moss Beach. Zip codes: 94019, 94038."
+        },
+        {
+            "question": "How long does window replacement take in Half Moon Bay?",
+            "answer": "Most Half Moon Bay projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Half Moon Bay, San Mateo County",
+            "area_served": "Half Moon Bay"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

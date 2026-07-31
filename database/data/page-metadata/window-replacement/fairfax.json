@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/fairfax",
+    "path": "/window-replacement/fairfax",
+    "seo": {
+        "title": "Windows & Doors in Fairfax, Marin County",
+        "description": "Replace windows in Fairfax, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Fairfax project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/fairfax",
+        "og": {
+            "title": "Windows & Doors in Fairfax, Marin County",
+            "description": "Replace windows in Fairfax, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Fairfax project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Fairfax, Marin County",
+        "primary_keyword": "window replacement fairfax",
+        "target_keywords": [
+            "window replacement fairfax",
+            "window installation fairfax",
+            "replacement windows fairfax",
+            "fairfax window replacement",
+            "andersen windows fairfax"
+        ],
+        "search_intent": "local-city",
+        "priority": "P2",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Fairfax, Marin County",
+            "description": "Replace windows in Fairfax, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Fairfax project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Fairfax?",
+            "answer": "Fairfax homeowners typically invest $6,000 to $14,000 for a full window replacement project. This eco-conscious Marin County town features older Craftsman and Victorian homes along Sir Francis Drake, as well as hillside properties with custom windows framing views of Mt. Tamalpais. Single window installation starts at approximately $575."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Fairfax?",
+            "answer": "Yes. Fairfax requires a building permit for window replacements. Given the town's sustainability-focused character, energy-efficient windows with strong green building credentials are often preferred. Our team manages all Town of Fairfax permit applications on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Fairfax?",
+            "answer": "Fairfax's sustainability-minded community drives demand for eco-certified products. We most frequently install Milgard Ultra fiberglass for its superior moisture resistance and energy ratings, Andersen 400-Series for period-appropriate aesthetics in older homes, and Marvin Elevate for hillside properties requiring premium performance."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Fairfax neighborhoods?",
+            "answer": "Yes — we serve all of Fairfax including Sir Francis Drake corridor, Manor, White Hill area, Cascades, and all surrounding neighborhoods. Zip code: 94930."
+        },
+        {
+            "question": "How long does window replacement take in Fairfax?",
+            "answer": "Most Fairfax projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Fairfax, Marin County",
+            "area_served": "Fairfax"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

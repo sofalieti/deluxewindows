@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/pleasant-hill",
+    "path": "/window-replacement/pleasant-hill",
+    "seo": {
+        "title": "Windows & Doors in Pleasant Hill, Contra Costa County",
+        "description": "Window replacement in Pleasant Hill, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Pleasant Hill project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/pleasant-hill",
+        "og": {
+            "title": "Windows & Doors in Pleasant Hill, Contra Costa County",
+            "description": "Window replacement in Pleasant Hill, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Pleasant Hill project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Pleasant Hill, Contra Costa County",
+        "primary_keyword": "window replacement pleasant hill",
+        "target_keywords": [
+            "window replacement pleasant hill",
+            "window installation pleasant hill",
+            "replacement windows pleasant hill",
+            "pleasant hill window replacement",
+            "andersen windows pleasant hill"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Pleasant Hill, Contra Costa County",
+            "description": "Window replacement in Pleasant Hill, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Pleasant Hill project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Pleasant Hill?",
+            "answer": "Pleasant Hill homeowners typically invest $5,000 to $12,000 for a full window replacement project covering 10–15 windows. This suburban Contra Costa community features 1960s–1980s homes in neighborhoods like Gregory Gardens and Monument Corridor. Standard sizing makes replacement efficient and cost-effective. Single window installation starts at approximately $470."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Pleasant Hill?",
+            "answer": "Yes. Pleasant Hill requires a building permit for window replacements. Our team handles all permit applications with the City of Pleasant Hill Building & Safety Division on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Pleasant Hill?",
+            "answer": "For Pleasant Hill's warm inland market, we most frequently install Milgard Tuscany vinyl for cost-effective whole-home replacements, Andersen 400-Series for upgraded homes in nicer neighborhoods, and Anlin Del Mar for energy-conscious homeowners targeting summer cooling costs."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Pleasant Hill neighborhoods?",
+            "answer": "Yes — we serve all Pleasant Hill neighborhoods including Gregory Gardens, Monument Corridor, Ellinwood, Diablo Valley Estates, and all surrounding areas. Zip code: 94523."
+        },
+        {
+            "question": "How long does window replacement take in Pleasant Hill?",
+            "answer": "Most Pleasant Hill projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Pleasant Hill, Contra Costa County",
+            "area_served": "Pleasant Hill"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

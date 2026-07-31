@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/tiburon",
+    "path": "/window-replacement/tiburon",
+    "seo": {
+        "title": "Windows & Doors in Tiburon, Marin County",
+        "description": "Replace windows in Tiburon, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Tiburon project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/tiburon",
+        "og": {
+            "title": "Windows & Doors in Tiburon, Marin County",
+            "description": "Replace windows in Tiburon, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Tiburon project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Tiburon, Marin County",
+        "primary_keyword": "window replacement tiburon",
+        "target_keywords": [
+            "window replacement tiburon",
+            "window installation tiburon",
+            "replacement windows tiburon",
+            "tiburon window replacement",
+            "andersen windows tiburon"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Tiburon, Marin County",
+            "description": "Replace windows in Tiburon, CA with Milgard, Marvin, Andersen and more. Deluxe Windows measures, installs, and warranties every Tiburon project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Tiburon?",
+            "answer": "Tiburon homeowners typically invest $16,000 to $50,000+ for window replacement projects. This exclusive Marin peninsula — with panoramic views of San Francisco Bay and some of the highest per-square-foot real estate in California — features waterfront estates and hillside homes with large custom windows. Marine-grade specifications are mandatory. Single window installation starts at approximately $800."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Tiburon?",
+            "answer": "Yes. Tiburon requires a building permit for window replacements. The Town of Tiburon's Design Review Board reviews exterior changes for properties with significant view corridors or within the town's scenic overlay. Our team manages all permit and design review applications on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Tiburon?",
+            "answer": "Tiburon's ultra-premium waterfront market demands exclusively the finest products. We most frequently specify Marvin Ultimate fiberglass-clad for its superior marine-grade performance and premium aesthetics, Western Window Systems for large-format sliding glass systems framing Bay views, and Andersen A-Series for traditional estate homes."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Tiburon neighborhoods?",
+            "answer": "Yes — we serve all of Tiburon including Paradise Drive waterfront estates, Belvedere Cove, and Tiburon Peninsula hillsides. Zip code: 94920."
+        },
+        {
+            "question": "How long does window replacement take in Tiburon?",
+            "answer": "Most Tiburon projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Tiburon, Marin County",
+            "area_served": "Tiburon"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/larkspur",
+    "path": "/window-replacement/larkspur",
+    "seo": {
+        "title": "Windows & Doors in Larkspur, Marin County",
+        "description": "Window replacement in Larkspur, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Larkspur project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/larkspur",
+        "og": {
+            "title": "Windows & Doors in Larkspur, Marin County",
+            "description": "Window replacement in Larkspur, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Larkspur project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Larkspur, Marin County",
+        "primary_keyword": "window replacement larkspur",
+        "target_keywords": [
+            "window replacement larkspur",
+            "window installation larkspur",
+            "replacement windows larkspur",
+            "larkspur window replacement",
+            "andersen windows larkspur"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Larkspur, Marin County",
+            "description": "Window replacement in Larkspur, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Larkspur project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Larkspur?",
+            "answer": "Larkspur homeowners typically invest $7,500 to $17,000 for a full window replacement project. This affluent Marin County community features a mix of Victorian-era homes in the historic downtown, craftsmans, and contemporary hillside properties with Bay and Mt. Tamalpais views. Single window installation starts at approximately $620."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Larkspur?",
+            "answer": "Yes. Larkspur requires a building permit for window replacements. Properties in the historic downtown corridor may be subject to design review. Our team manages all permit applications on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Larkspur?",
+            "answer": "For Larkspur's Marin County premium market, we most frequently install Milgard Ultra fiberglass for moisture resistance in the Bay-influenced climate, Andersen 400-Series for period-appropriate aesthetics in older homes, and Marvin Elevate for hillside properties with custom sizing requirements."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Larkspur neighborhoods?",
+            "answer": "Yes — we serve all of Larkspur including downtown Larkspur, Greenbrae, Kentfield, and all surrounding residential areas. Zip code: 94939."
+        },
+        {
+            "question": "How long does window replacement take in Larkspur?",
+            "answer": "Most Larkspur projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Larkspur, Marin County",
+            "area_served": "Larkspur"
+        },
+        "extra": [],
+        "replace": []
+    }
+}

@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "key": "window-replacement/lafayette",
+    "path": "/window-replacement/lafayette",
+    "seo": {
+        "title": "Windows & Doors in Lafayette, Contra Costa County",
+        "description": "Window replacement in Lafayette, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Lafayette project.",
+        "canonical": "https://www.deluxewindows.com/window-replacement/lafayette",
+        "og": {
+            "title": "Windows & Doors in Lafayette, Contra Costa County",
+            "description": "Window replacement in Lafayette, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Lafayette project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "type": "website"
+        },
+        "h1": "Windows & Doors in Lafayette, Contra Costa County",
+        "primary_keyword": "window replacement lafayette",
+        "target_keywords": [
+            "window replacement lafayette",
+            "window installation lafayette",
+            "replacement windows lafayette",
+            "lafayette window replacement",
+            "andersen windows lafayette"
+        ],
+        "search_intent": "local-city",
+        "priority": "P3",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "twitter": {
+            "title": "Windows & Doors in Lafayette, Contra Costa County",
+            "description": "Window replacement in Lafayette, CA with Milgard, Marvin, Andersen and more. Local crews measure, install and warranty every Lafayette project.",
+            "image": "/webflow-assets/images/688129a7fdac73f612686f21_pexels-linkedin-1251842.avif",
+            "card": "summary_large_image"
+        }
+    },
+    "faq": [
+        {
+            "question": "How much does window replacement cost in Lafayette?",
+            "answer": "Lafayette homeowners typically invest $8,000 to $18,000 for a full window replacement project. This upscale Contra Costa community features premium single-family homes in neighborhoods like Burton Valley, Happy Valley, and Upper Happy Valley. Projects covering 12–20 windows are typical. Single window installation starts at approximately $650."
+        },
+        {
+            "question": "Do I need a permit for window replacement in Lafayette?",
+            "answer": "Yes. Lafayette requires building permits for window replacement through Contra Costa County Building Inspection. HOA requirements may also apply in some planned neighborhoods. Our team handles all county permit applications and HOA coordination on your behalf."
+        },
+        {
+            "question": "Which window brands does Deluxe Windows install in Lafayette?",
+            "answer": "Lafayette's premium market drives demand for top-tier products. We most frequently install Andersen 400-Series wood-clad for established neighborhood estates, Milgard Ultra fiberglass for maximum energy performance in the Lamorinda heat, and Marvin Elevate for higher-end custom homes."
+        },
+        {
+            "question": "Does Deluxe Windows serve all Lafayette neighborhoods?",
+            "answer": "Yes — we serve all Lafayette neighborhoods including Burton Valley, Happy Valley, Upper Happy Valley, and Springhill. Zip code: 94549."
+        },
+        {
+            "question": "How long does window replacement take in Lafayette?",
+            "answer": "Most Lafayette projects are measured in one visit and installed in one to three working days once windows arrive, typically four to eight weeks after ordering."
+        }
+    ],
+    "schema": {
+        "primary_type": "Service",
+        "data": {
+            "name": "Windows & Doors in Lafayette, Contra Costa County",
+            "area_served": "Lafayette"
+        },
+        "extra": [],
+        "replace": []
+    }
+}
