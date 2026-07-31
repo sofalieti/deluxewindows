@@ -74,8 +74,17 @@ class ContactListScreen extends Screen
                     ->render(fn (Contact $contact): string => e((string) ($contact->city ?: '—'))),
                 TD::make('leads_count', 'Leads')
                     ->align(TD::ALIGN_CENTER)
-                    ->render(fn (Contact $contact): string => '<span class="badge bg-primary text-white">'
-                        .e((string) $contact->leads_count).'</span>'),
+                    ->render(function (Contact $contact): string {
+                        $count = (int) $contact->leads_count;
+                        $url = route('platform.leads', [
+                            'filter' => ['contact_id' => $contact->id],
+                        ]);
+
+                        return '<a class="badge bg-primary text-white text-decoration-none" href="'
+                            .e($url).'" title="Open leads for this contact">'
+                            .e((string) $count)
+                            .'</a>';
+                    }),
                 TD::make('traffic', 'Traffic summary')
                     ->render(function (Contact $contact): string {
                         $parts = collect($contact->trafficSummary())

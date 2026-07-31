@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orchid\Screens\Leads;
 
+use App\Models\Contact;
 use App\Models\Lead;
 use App\Models\LeadChange;
 use App\Orchid\Layouts\Leads\LeadFiltersLayout;
@@ -11,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
+use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
 use Orchid\Screen\TD;
 use Orchid\Support\Facades\Layout;
@@ -18,9 +20,12 @@ use Orchid\Support\Facades\Toast;
 
 class LeadListScreen extends Screen
 {
+    public ?Contact $contactFilter = null;
+
     public function query(): iterable
     {
         $statusFilter = trim((string) request()->input('filter.status', ''));
+        $contactId = (int) request()->input('filter.contact_id', 0);
 
         $leads = Lead::filters(LeadFiltersLayout::class)
             ->defaultSort('id', 'desc');
@@ -30,18 +35,30 @@ class LeadListScreen extends Screen
             $leads->where('status', '!=', Lead::STATUS_SPAM);
         }
 
+        if ($contactId > 0) {
+            $this->contactFilter = Contact::query()->find($contactId);
+            $leads->where('contact_id', $contactId);
+        }
+
         return [
             'leads' => $leads->paginate(50),
+            'contactFilter' => $this->contactFilter,
         ];
     }
 
     public function name(): ?string
     {
-        return 'Leads';
+        return $this->contactFilter
+            ? 'Leads for '.$this->contactFilter->full_name
+            : 'Leads';
     }
 
     public function description(): ?string
     {
+        if ($this->contactFilter !== null) {
+            return 'Showing leads linked to contact #'.$this->contactFilter->id.'.';
+        }
+
         return 'Form submissions from the website. Spam is listed under Spam in the menu.';
     }
 
@@ -54,7 +71,18 @@ class LeadListScreen extends Screen
 
     public function commandBar(): iterable
     {
-        return [];
+        if ($this->contactFilter === null) {
+            return [];
+        }
+
+        return [
+            Link::make('Open contact')
+                ->icon('bs.person-vcard')
+                ->route('platform.contacts.edit', $this->contactFilter),
+            Link::make('All leads')
+                ->icon('bs.arrow-left')
+                ->route('platform.leads'),
+        ];
     }
 
     public function layout(): iterable

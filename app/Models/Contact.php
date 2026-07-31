@@ -55,9 +55,58 @@ class Contact extends Model
         return $this->hasMany(Lead::class)->latest();
     }
 
+    public function comments(): HasMany
+    {
+        return $this->hasMany(ContactComment::class)->latest();
+    }
+
     public function leadComments(): HasManyThrough
     {
         return $this->hasManyThrough(LeadComment::class, Lead::class);
+    }
+
+    /**
+     * Contact notes plus lead comments, newest first.
+     *
+     * @return \Illuminate\Support\Collection<int, object{
+     *     type: string,
+     *     body: string,
+     *     created_at: \Illuminate\Support\Carbon|null,
+     *     user: ?User,
+     *     lead_id: ?int,
+     *     lead: ?Lead
+     * }>
+     */
+    public function timelineComments()
+    {
+        $contactComments = $this->comments()
+            ->with('user')
+            ->get()
+            ->map(fn (ContactComment $comment) => (object) [
+                'type' => 'contact',
+                'body' => $comment->body,
+                'created_at' => $comment->created_at,
+                'user' => $comment->user,
+                'lead_id' => null,
+                'lead' => null,
+            ]);
+
+        $leadComments = $this->leadComments()
+            ->with(['lead', 'user'])
+            ->get()
+            ->map(fn (LeadComment $comment) => (object) [
+                'type' => 'lead',
+                'body' => $comment->body,
+                'created_at' => $comment->created_at,
+                'user' => $comment->user,
+                'lead_id' => $comment->lead_id,
+                'lead' => $comment->lead,
+            ]);
+
+        return $contactComments
+            ->concat($leadComments)
+            ->sortByDesc(fn (object $comment) => optional($comment->created_at)->timestamp ?? 0)
+            ->values();
     }
 
     public function sourceLead(): BelongsTo

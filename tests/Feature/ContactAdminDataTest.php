@@ -84,3 +84,74 @@ test('contact aggregates traffic sources and comments retain their lead attribut
         ->and($comments)->toHaveCount(2)
         ->and($comments->pluck('lead_id')->sort()->values()->all())->toBe([$direct->id, $ads->id]);
 });
+
+test('contact comments can be added and appear with lead comments in the timeline', function () {
+    $user = User::factory()->create();
+    $contact = Contact::query()->create([
+        'full_name' => 'Comment Client',
+        'email' => 'comment@example.com',
+        'phone' => '6505558000',
+    ]);
+    $lead = Lead::query()->create([
+        'contact_id' => $contact->id,
+        'full_name' => 'Comment Client',
+        'email' => 'comment@example.com',
+        'phone' => '6505558000',
+    ]);
+    LeadComment::query()->create([
+        'lead_id' => $lead->id,
+        'user_id' => $user->id,
+        'body' => 'Lead note',
+        'created_at' => now()->subMinute(),
+        'updated_at' => now()->subMinute(),
+    ]);
+
+    $this->actingAs($user);
+    $request = Request::create('/admin/contacts/'.$contact->id.'/edit', 'POST', [
+        'comment' => 'Contact-level note',
+    ]);
+    (new ContactEditScreen)->addComment($contact, $request);
+
+    $timeline = $contact->fresh()->timelineComments();
+
+    expect($contact->comments)->toHaveCount(1)
+        ->and($timeline)->toHaveCount(2)
+        ->and($timeline->first()->type)->toBe('contact')
+        ->and($timeline->first()->body)->toBe('Contact-level note')
+        ->and($timeline->last()->type)->toBe('lead')
+        ->and($timeline->last()->lead_id)->toBe($lead->id);
+});
+
+test('leads list can be filtered by contact from the contacts list deep link', function () {
+    $contact = Contact::query()->create([
+        'full_name' => 'Filter Client',
+        'email' => 'filter@example.com',
+        'phone' => '6505557000',
+    ]);
+    $other = Contact::query()->create([
+        'full_name' => 'Other Client',
+        'email' => 'other-filter@example.com',
+        'phone' => '6505557001',
+    ]);
+    $matching = Lead::query()->create([
+        'contact_id' => $contact->id,
+        'full_name' => 'Filter Client',
+        'email' => 'filter@example.com',
+        'phone' => '6505557000',
+    ]);
+    Lead::query()->create([
+        'contact_id' => $other->id,
+        'full_name' => 'Other Client',
+        'email' => 'other-filter@example.com',
+        'phone' => '6505557001',
+    ]);
+
+    request()->merge(['filter' => ['contact_id' => $contact->id]]);
+
+    $screen = new \App\Orchid\Screens\Leads\LeadListScreen;
+    $result = $screen->query();
+
+    expect($result['contactFilter']->id)->toBe($contact->id)
+        ->and($result['leads']->pluck('id')->all())->toBe([$matching->id])
+        ->and($screen->name())->toBe('Leads for Filter Client');
+});

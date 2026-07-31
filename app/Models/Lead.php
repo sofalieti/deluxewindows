@@ -73,6 +73,7 @@ class Lead extends Model
      */
     protected $allowedFilters = [
         'id' => Where::class,
+        'contact_id' => Where::class,
         'full_name' => Like::class,
         'email' => Like::class,
         'phone' => Like::class,
