@@ -142,8 +142,19 @@ class PhoneClickViewScreen extends Screen
 
                             return '<a href="tel:'.e($phone).'">'.e($phone).'</a>';
                         }),
-                    Sight::make('source_label', 'Source')
+                    Sight::make('source_label', 'Click placement')
                         ->render(fn (PhoneClick $click) => e((string) ($click->source_label ?: '-'))),
+                    Sight::make('utm_source', 'Traffic source')
+                        ->render(function (PhoneClick $click): string {
+                            $detail = $click->trafficSourceDetail();
+
+                            return '<span class="badge bg-'.$click->trafficSourceColor().' text-white">'
+                                .e($click->trafficSourceLabel())
+                                .'</span>'
+                                .($detail !== ''
+                                    ? '<div class="small text-muted mt-1">'.e($detail).'</div>'
+                                    : '');
+                        }),
                     Sight::make('page_url', 'Page')
                         ->render(function (PhoneClick $click): string {
                             $url = trim((string) ($click->page_url ?? ''));

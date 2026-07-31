@@ -38,7 +38,7 @@ class PhoneClickListScreen extends Screen
 
     public function description(): ?string
     {
-        return 'Website phone clicks with RingCentral validation (main + extra numbers), GCLID attribution, and Google Sheet status.';
+        return 'Website phone clicks with traffic source (SEO / Ads / Direct), RingCentral validation, and Google Sheet status.';
     }
 
     public function permission(): ?iterable
@@ -111,14 +111,19 @@ class PhoneClickListScreen extends Screen
                         return $page;
                     }),
 
-                TD::make('gclid', 'GCLID')
-                    ->width('145px')
+                TD::make('utm_source', 'Traffic')
+                    ->width('150px')
                     ->render(function (PhoneClick $click): string {
-                        $gclid = trim((string) ($click->gclid ?? ''));
+                        $detail = $click->trafficSourceDetail();
+                        $html = '<span class="badge bg-'.$click->trafficSourceColor().' text-white">'
+                            .e($click->trafficSourceLabel())
+                            .'</span>';
 
-                        return $gclid !== ''
-                            ? '<code>'.e(Str::limit($gclid, 16, '…')).'</code>'
-                            : '<span class="text-muted">—</span>';
+                        if ($detail !== '') {
+                            $html .= '<div class="small text-muted mt-1">'.e(Str::limit($detail, 28)).'</div>';
+                        }
+
+                        return $html;
                     }),
 
                 TD::make('ringcentral_status', 'RingCentral')

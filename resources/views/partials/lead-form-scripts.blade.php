@@ -120,10 +120,6 @@
         const fromCookie = gclidFromGoogleCookies();
         if (fromCookie) storageSet('lead_param_gclid', fromCookie);
       }
-      if (!storageGet('lead_param_utm_source')) {
-        storageSet('lead_param_utm_source', '(direct)');
-        storageSet('lead_param_utm_medium', '(none)');
-      }
       if (!storageGet('lead_param_landing_page')) {
         storageSet('lead_param_landing_page', window.location.pathname);
       }
@@ -136,6 +132,60 @@
         } catch (error) {
           // Ignore malformed referrer values.
         }
+      }
+      if (!storageGet('lead_param_utm_source')) {
+        inferSourceFromReferrer();
+      }
+    }
+
+    function inferSourceFromReferrer() {
+      const referrer = storageGet('lead_param_referrer') || document.referrer || '';
+      if (!referrer) {
+        storageSet('lead_param_utm_source', '(direct)');
+        storageSet('lead_param_utm_medium', '(none)');
+        return;
+      }
+
+      try {
+        const referrerUrl = new URL(referrer);
+        if (referrerUrl.hostname === window.location.hostname) {
+          storageSet('lead_param_utm_source', '(direct)');
+          storageSet('lead_param_utm_medium', '(none)');
+          return;
+        }
+
+        const host = referrerUrl.hostname.replace(/^www\./i, '').toLowerCase();
+        const engines = {
+          'google.com': 'google',
+          'bing.com': 'bing',
+          'yahoo.com': 'yahoo',
+          'duckduckgo.com': 'duckduckgo',
+        };
+        let searchEngine = '';
+        Object.keys(engines).forEach(function (domain) {
+          if (!searchEngine && (host === domain || host.endsWith('.' + domain))) {
+            searchEngine = engines[domain];
+          }
+        });
+
+        if (searchEngine) {
+          storageSet('lead_param_utm_source', searchEngine);
+          storageSet('lead_param_utm_medium', 'organic');
+          if (!storageGet('lead_param_utm_term')) {
+            const keyword = referrerUrl.searchParams.get('q')
+              || referrerUrl.searchParams.get('p')
+              || referrerUrl.searchParams.get('query')
+              || '(not provided)';
+            storageSet('lead_param_utm_term', keyword);
+          }
+          return;
+        }
+
+        storageSet('lead_param_utm_source', host);
+        storageSet('lead_param_utm_medium', 'referral');
+      } catch (error) {
+        storageSet('lead_param_utm_source', '(direct)');
+        storageSet('lead_param_utm_medium', '(none)');
       }
     }
 

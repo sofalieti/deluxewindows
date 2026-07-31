@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Models\Concerns\ClassifiesTrafficSource;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Orchid\Filters\Filterable;
@@ -14,6 +15,7 @@ use Orchid\Screen\AsSource;
 class PhoneClick extends Model
 {
     use AsSource;
+    use ClassifiesTrafficSource;
     use Filterable;
 
     public const RINGCENTRAL_NOT_CHECKED = 'not_checked';
