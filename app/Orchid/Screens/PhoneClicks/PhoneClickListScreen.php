@@ -112,15 +112,25 @@ class PhoneClickListScreen extends Screen
                     }),
 
                 TD::make('utm_source', 'Traffic')
-                    ->width('150px')
+                    ->width('180px')
                     ->render(function (PhoneClick $click): string {
-                        $detail = $click->trafficSourceDetail();
-                        $html = '<span class="badge bg-'.$click->trafficSourceColor().' text-white">'
+                        $lastDetail = $click->trafficSourceDetail();
+                        $firstDetail = $click->firstTrafficSourceDetail();
+
+                        $html = '<div class="small text-muted">Last</div>'
+                            .'<span class="badge bg-'.$click->trafficSourceColor().' text-white">'
                             .e($click->trafficSourceLabel())
                             .'</span>';
+                        if ($lastDetail !== '') {
+                            $html .= '<div class="small text-muted">'.e(Str::limit($lastDetail, 24)).'</div>';
+                        }
 
-                        if ($detail !== '') {
-                            $html .= '<div class="small text-muted mt-1">'.e(Str::limit($detail, 28)).'</div>';
+                        $html .= '<div class="small text-muted mt-2">First</div>'
+                            .'<span class="badge bg-'.$click->firstTrafficSourceColor().' text-white">'
+                            .e($click->firstTrafficSourceLabel())
+                            .'</span>';
+                        if ($firstDetail !== '') {
+                            $html .= '<div class="small text-muted">'.e(Str::limit($firstDetail, 24)).'</div>';
                         }
 
                         return $html;

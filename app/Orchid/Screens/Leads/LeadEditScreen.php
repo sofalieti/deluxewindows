@@ -146,12 +146,21 @@ class LeadEditScreen extends Screen
                                     ? '<a href="'.e(route('platform.contacts.edit', $lead->contact)).'">'
                                         .e($lead->contact->full_name).' (#'.e((string) $lead->contact->id).')</a>'
                                     : '<span class="text-muted">Not linked</span>'),
-                            Sight::make('traffic_source', 'Traffic source')
+                            Sight::make('traffic_source', 'Last traffic source')
                                 ->render(function (Lead $lead): string {
                                     $detail = $lead->trafficSourceDetail();
 
                                     return '<span class="badge bg-'.e($lead->trafficSourceColor()).' text-white">'
                                         .e($lead->trafficSourceLabel())
+                                        .'</span>'
+                                        .($detail !== '' ? ' <span class="text-muted">'.e($detail).'</span>' : '');
+                                }),
+                            Sight::make('first_traffic_source', 'First traffic source')
+                                ->render(function (Lead $lead): string {
+                                    $detail = $lead->firstTrafficSourceDetail();
+
+                                    return '<span class="badge bg-'.e($lead->firstTrafficSourceColor()).' text-white">'
+                                        .e($lead->firstTrafficSourceLabel())
                                         .'</span>'
                                         .($detail !== '' ? ' <span class="text-muted">'.e($detail).'</span>' : '');
                                 }),

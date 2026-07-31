@@ -144,12 +144,23 @@ class PhoneClickViewScreen extends Screen
                         }),
                     Sight::make('source_label', 'Click placement')
                         ->render(fn (PhoneClick $click) => e((string) ($click->source_label ?: '-'))),
-                    Sight::make('utm_source', 'Traffic source')
+                    Sight::make('utm_source', 'Last traffic source')
                         ->render(function (PhoneClick $click): string {
                             $detail = $click->trafficSourceDetail();
 
                             return '<span class="badge bg-'.$click->trafficSourceColor().' text-white">'
                                 .e($click->trafficSourceLabel())
+                                .'</span>'
+                                .($detail !== ''
+                                    ? '<div class="small text-muted mt-1">'.e($detail).'</div>'
+                                    : '');
+                        }),
+                    Sight::make('first_utm_source', 'First traffic source')
+                        ->render(function (PhoneClick $click): string {
+                            $detail = $click->firstTrafficSourceDetail();
+
+                            return '<span class="badge bg-'.$click->firstTrafficSourceColor().' text-white">'
+                                .e($click->firstTrafficSourceLabel())
                                 .'</span>'
                                 .($detail !== ''
                                     ? '<div class="small text-muted mt-1">'.e($detail).'</div>'
@@ -164,10 +175,14 @@ class PhoneClickViewScreen extends Screen
 
                             return '<a href="'.e($url).'" target="_blank" rel="noopener">'.e($url).'</a>';
                         }),
-                    Sight::make('landing_page', 'Landing page')
+                    Sight::make('landing_page', 'Last landing page')
                         ->render(fn (PhoneClick $click) => e((string) ($click->landing_page ?: '-'))),
-                    Sight::make('referrer', 'Referrer')
+                    Sight::make('first_landing_page', 'First landing page')
+                        ->render(fn (PhoneClick $click) => e((string) ($click->first_landing_page ?: '-'))),
+                    Sight::make('referrer', 'Last referrer')
                         ->render(fn (PhoneClick $click) => e((string) ($click->referrer ?: '-'))),
+                    Sight::make('first_referrer', 'First referrer')
+                        ->render(fn (PhoneClick $click) => e((string) ($click->first_referrer ?: '-'))),
                     Sight::make('geo_location', 'Geo')
                         ->render(fn (PhoneClick $click) => e((string) ($click->geo_location ?: '-'))),
                     Sight::make('ip_address', 'IP')
@@ -177,12 +192,22 @@ class PhoneClickViewScreen extends Screen
                 ]),
 
                 Layout::legend('click', [
-                    Sight::make('utm_source', 'UTM source')
+                    Sight::make('utm_source', 'Last UTM source')
                         ->render(fn (PhoneClick $click) => e((string) ($click->utm_source ?: '-'))),
-                    Sight::make('utm_medium', 'UTM medium')
+                    Sight::make('utm_medium', 'Last UTM medium')
                         ->render(fn (PhoneClick $click) => e((string) ($click->utm_medium ?: '-'))),
-                    Sight::make('utm_campaign', 'UTM campaign')
+                    Sight::make('utm_campaign', 'Last UTM campaign')
                         ->render(fn (PhoneClick $click) => e((string) ($click->utm_campaign ?: '-'))),
+                    Sight::make('gclid', 'Last GCLID')
+                        ->render(fn (PhoneClick $click) => e((string) ($click->gclid ?: '-'))),
+                    Sight::make('first_utm_source', 'First UTM source')
+                        ->render(fn (PhoneClick $click) => e((string) ($click->first_utm_source ?: '-'))),
+                    Sight::make('first_utm_medium', 'First UTM medium')
+                        ->render(fn (PhoneClick $click) => e((string) ($click->first_utm_medium ?: '-'))),
+                    Sight::make('first_utm_campaign', 'First UTM campaign')
+                        ->render(fn (PhoneClick $click) => e((string) ($click->first_utm_campaign ?: '-'))),
+                    Sight::make('first_gclid', 'First GCLID')
+                        ->render(fn (PhoneClick $click) => e((string) ($click->first_gclid ?: '-'))),
                     Sight::make('utm_content', 'UTM content')
                         ->render(fn (PhoneClick $click) => e((string) ($click->utm_content ?: '-'))),
                     Sight::make('utm_term', 'UTM term')
@@ -193,8 +218,6 @@ class PhoneClickViewScreen extends Screen
                         ->render(fn (PhoneClick $click) => e((string) ($click->device ?: '-'))),
                     Sight::make('creative', 'Creative')
                         ->render(fn (PhoneClick $click) => e((string) ($click->creative ?: '-'))),
-                    Sight::make('gclid', 'GCLID')
-                        ->render(fn (PhoneClick $click) => e((string) ($click->gclid ?: '-'))),
                     Sight::make('fbclid', 'FBCLID')
                         ->render(fn (PhoneClick $click) => e((string) ($click->fbclid ?: '-'))),
                     Sight::make('msclkid', 'MSCLKID')

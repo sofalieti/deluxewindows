@@ -36,3 +36,19 @@ test('phone click traffic source is classified like leads', function (
         'utm_medium' => '(none)',
     ], 'direct', 'Direct'],
 ]);
+
+test('phone click keeps first and last traffic sources separately', function () {
+    $click = new PhoneClick([
+        'utm_source' => 'google',
+        'utm_medium' => 'cpc',
+        'gclid' => 'last-gclid',
+        'first_utm_source' => 'google',
+        'first_utm_medium' => 'organic',
+        'first_referrer' => 'https://www.google.com/search?q=windows',
+    ]);
+
+    expect($click->trafficSourceKey())->toBe('google_ads')
+        ->and($click->trafficSourceLabel())->toBe('Google Ads')
+        ->and($click->firstTrafficSourceKey())->toBe('seo_google')
+        ->and($click->firstTrafficSourceLabel())->toBe('SEO · Google');
+});

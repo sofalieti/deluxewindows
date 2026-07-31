@@ -114,6 +114,7 @@
           </div>
         </div>
       </footer>
+      @include('partials.attribution-tracking')
       @include('partials.lead-form-scripts')
       @include('partials.phone-click-scripts')
 

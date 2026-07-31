@@ -529,6 +529,19 @@ class ClassicSiteController extends Controller
             $pageUrl = trim((string) $request->headers->get('referer', ''));
         }
 
+        $firstTouch = array_filter([
+            'landing_page' => trim((string) $request->input('first_landing_page')),
+            'referrer' => trim((string) $request->input('first_referrer')),
+            'utm_source' => trim((string) $request->input('first_utm_source')),
+            'utm_medium' => trim((string) $request->input('first_utm_medium')),
+            'utm_campaign' => trim((string) $request->input('first_utm_campaign')),
+            'utm_content' => trim((string) $request->input('first_utm_content')),
+            'utm_term' => trim((string) $request->input('first_utm_term')),
+            'gclid' => trim((string) $request->input('first_gclid')),
+            'fbclid' => trim((string) $request->input('first_fbclid')),
+            'msclkid' => trim((string) $request->input('first_msclkid')),
+        ], static fn (string $value): bool => $value !== '');
+
         $meta = [
             'request_id' => (string) $request->headers->get('x-request-id', ''),
             'via' => 'classic-site-contact-form',
@@ -544,6 +557,7 @@ class ClassicSiteController extends Controller
             'fbclid' => $validated['fbclid'],
             'msclkid' => $validated['msclkid'],
             'form_id' => $formId,
+            'first_touch' => $firstTouch,
         ];
 
         if ($spam['spam']) {

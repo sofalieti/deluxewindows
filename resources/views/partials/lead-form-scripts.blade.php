@@ -97,95 +97,9 @@
       return res;
     }
 
-    function gclidFromGoogleCookies() {
-      // Google click ID cookie format: GCL.<timestamp>.<gclid>
-      const raw = getCookie('_gcl_aw') || getCookie('_gcl_dc') || '';
-      if (!raw) return '';
-      const parts = raw.split('.');
-      return parts.length >= 3 ? parts.slice(2).join('.') : '';
-    }
-
     function captureTracking() {
-      const params = new URLSearchParams(window.location.search);
-      trackingParams.forEach(function (param) {
-        const value = params.get(param);
-        if (value) storageSet('lead_param_' + param, value);
-      });
-      // Some Ads templates send utm_creative instead of creative.
-      if (!storageGet('lead_param_creative')) {
-        const utmCreative = params.get('utm_creative');
-        if (utmCreative) storageSet('lead_param_creative', utmCreative);
-      }
-      if (!storageGet('lead_param_gclid')) {
-        const fromCookie = gclidFromGoogleCookies();
-        if (fromCookie) storageSet('lead_param_gclid', fromCookie);
-      }
-      if (!storageGet('lead_param_landing_page')) {
-        storageSet('lead_param_landing_page', window.location.pathname);
-      }
-      if (!storageGet('lead_param_referrer') && document.referrer) {
-        try {
-          const referrerUrl = new URL(document.referrer);
-          if (referrerUrl.hostname !== window.location.hostname) {
-            storageSet('lead_param_referrer', document.referrer);
-          }
-        } catch (error) {
-          // Ignore malformed referrer values.
-        }
-      }
-      if (!storageGet('lead_param_utm_source')) {
-        inferSourceFromReferrer();
-      }
-    }
-
-    function inferSourceFromReferrer() {
-      const referrer = storageGet('lead_param_referrer') || document.referrer || '';
-      if (!referrer) {
-        storageSet('lead_param_utm_source', '(direct)');
-        storageSet('lead_param_utm_medium', '(none)');
-        return;
-      }
-
-      try {
-        const referrerUrl = new URL(referrer);
-        if (referrerUrl.hostname === window.location.hostname) {
-          storageSet('lead_param_utm_source', '(direct)');
-          storageSet('lead_param_utm_medium', '(none)');
-          return;
-        }
-
-        const host = referrerUrl.hostname.replace(/^www\./i, '').toLowerCase();
-        const engines = {
-          'google.com': 'google',
-          'bing.com': 'bing',
-          'yahoo.com': 'yahoo',
-          'duckduckgo.com': 'duckduckgo',
-        };
-        let searchEngine = '';
-        Object.keys(engines).forEach(function (domain) {
-          if (!searchEngine && (host === domain || host.endsWith('.' + domain))) {
-            searchEngine = engines[domain];
-          }
-        });
-
-        if (searchEngine) {
-          storageSet('lead_param_utm_source', searchEngine);
-          storageSet('lead_param_utm_medium', 'organic');
-          if (!storageGet('lead_param_utm_term')) {
-            const keyword = referrerUrl.searchParams.get('q')
-              || referrerUrl.searchParams.get('p')
-              || referrerUrl.searchParams.get('query')
-              || '(not provided)';
-            storageSet('lead_param_utm_term', keyword);
-          }
-          return;
-        }
-
-        storageSet('lead_param_utm_source', host);
-        storageSet('lead_param_utm_medium', 'referral');
-      } catch (error) {
-        storageSet('lead_param_utm_source', '(direct)');
-        storageSet('lead_param_utm_medium', '(none)');
+      if (window.DeluxeAttribution && typeof window.DeluxeAttribution.capture === 'function') {
+        window.DeluxeAttribution.capture();
       }
     }
 
@@ -229,7 +143,11 @@
         || (form.getAttribute('data-form-id') || '').trim()
         || resolveFormId(pagePath);
 
-      const payload = {
+      const attribution = (window.DeluxeAttribution && typeof window.DeluxeAttribution.payloadFields === 'function')
+        ? window.DeluxeAttribution.payloadFields()
+        : {};
+
+      const payload = Object.assign({}, attribution, {
         Name: firstValue(['Name', 'full_name', 'name']),
         Email: firstValue(['Email', 'email']),
         Phone: firstValue(['Phone', 'phone']),
@@ -240,12 +158,12 @@
         Page: pageUrl,
         page_url: pageUrl,
         URL: pageUrl,
-        landing_page: firstValue(['landing_page']) || storageGet('lead_param_landing_page') || pagePath,
-        referrer: firstValue(['referrer']) || storageGet('lead_param_referrer') || document.referrer,
+        landing_page: firstValue(['landing_page']) || attribution.landing_page || storageGet('lead_param_landing_page') || pagePath,
+        referrer: firstValue(['referrer']) || attribution.referrer || storageGet('lead_param_referrer') || document.referrer,
         geo_location: geoLocation,
-      };
+      });
       trackingParams.forEach(function (param) {
-        payload[param] = firstValue([param]) || storageGet('lead_param_' + param);
+        payload[param] = firstValue([param]) || payload[param] || storageGet('lead_param_' + param);
       });
       return payload;
     }
