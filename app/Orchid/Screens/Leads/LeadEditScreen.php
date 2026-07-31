@@ -72,14 +72,6 @@ class LeadEditScreen extends Screen
                 ->icon('bs.arrow-left')
                 ->route($backRoute),
 
-            Button::make('Save changes')
-                ->icon('bs.check-circle')
-                ->method('saveLead'),
-
-            Button::make('Add comment')
-                ->icon('bs.chat-left-text')
-                ->method('addComment'),
-
             Button::make('Create contact from lead')
                 ->icon('bs.person-plus')
                 ->method('createContact')
@@ -208,11 +200,16 @@ class LeadEditScreen extends Screen
                             ->rows(4)
                             ->placeholder('Write a note for your team…'),
                     ])->title('Add comment'),
-
+                    Layout::view('admin.partials.comment-actions'),
                     Layout::view('admin.leads.comments'),
                 ]),
 
                 'History' => Layout::view('admin.leads.history'),
+            ]),
+
+            Layout::view('admin.partials.sticky-save', [
+                'label' => 'Save changes',
+                'method' => 'saveLead',
             ]),
         ];
     }

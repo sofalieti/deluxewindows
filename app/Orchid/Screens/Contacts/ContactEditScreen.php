@@ -9,7 +9,6 @@ use App\Models\ContactComment;
 use App\Services\ContactFromLeadService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\TextArea;
@@ -62,13 +61,6 @@ class ContactEditScreen extends Screen
             Link::make('Back to contacts')
                 ->icon('bs.arrow-left')
                 ->route('platform.contacts'),
-            Button::make('Save contact')
-                ->icon('bs.check-circle')
-                ->method('save'),
-            Button::make('Add comment')
-                ->icon('bs.chat-left-text')
-                ->method('addComment')
-                ->canSee($this->contact?->exists ?? false),
         ];
     }
 
@@ -123,6 +115,7 @@ class ContactEditScreen extends Screen
                         ->rows(4)
                         ->placeholder('Write a note about this client…'),
                 ])->title('Add comment'),
+                Layout::view('admin.partials.comment-actions'),
                 Layout::view('admin.contacts.comments'),
             ]);
             $tabs['Traffic summary'] = Layout::view('admin.contacts.traffic-summary');
@@ -131,6 +124,10 @@ class ContactEditScreen extends Screen
         return [
             Layout::view('admin.contacts.assets'),
             Layout::tabs($tabs),
+            Layout::view('admin.partials.sticky-save', [
+                'label' => 'Save contact',
+                'method' => 'save',
+            ]),
         ];
     }
 
