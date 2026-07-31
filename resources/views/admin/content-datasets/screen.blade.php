@@ -17,9 +17,6 @@
             <dt class="col-sm-4">Door brands</dt>
             <dd class="col-sm-8">{{ number_format($dataset['door_brands']) }}</dd>
 
-            <dt class="col-sm-4">Promotion controls</dt>
-            <dd class="col-sm-8">{{ number_format($dataset['promotion_controls']) }}</dd>
-
             <dt class="col-sm-4">Page metadata files</dt>
             <dd class="col-sm-8">{{ number_format($dataset['page_metadata']) }}</dd>
 
@@ -38,10 +35,11 @@
     <h2 class="h5">Included data</h2>
     <p class="mb-2">
         All Webflow CMS collections, service-area and county content, door-brand content,
-        promotion settings, and validated file-backed SEO, FAQ, and schema metadata.
+        and validated file-backed SEO, FAQ, and schema metadata.
     </p>
     <p class="mb-0 text-muted">
-        Leads, admin users, system tables, caches, and image fields are not included.
+        Promotions Control Center settings (phones, discounts, prices, calendar), leads,
+        admin users, system tables, caches, and image fields are not included.
         Image URLs and files in the database are left unchanged on import and export.
         Import updates or creates records and never deletes records that are absent from files.
     </p>

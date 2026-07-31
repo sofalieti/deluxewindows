@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Services;
 
 use App\Models\DoorBrand;
-use App\Models\PromotionControl;
 use App\Models\Webflow\DoorsWebflowItem;
 use App\Models\Webflow\WindowsWebflowItem;
 use App\Services\Seo\PageMetadataRepository;
@@ -22,8 +21,6 @@ class ContentDatasetService
 
     public function __construct(
         private readonly WebflowCodegenService $webflow,
-        private readonly PromotionControlService $promotionControl,
-        private readonly PromotionSettingsService $promotionSettings,
         private readonly PageMetadataRepository $pageMetadata,
     ) {
     }
@@ -34,7 +31,6 @@ class ContentDatasetService
      *     webflow_collections: int,
      *     webflow_records: int,
      *     door_brands: int,
-     *     promotion_controls: int,
      *     page_metadata: int
      * }
      */
@@ -54,7 +50,6 @@ class ContentDatasetService
             ));
         }
         $doorBrands = $this->exportDoorBrands();
-        $promotionControls = $this->exportPromotionControls();
         $generatedAt = now()->toIso8601String();
 
         $summary = [
@@ -62,19 +57,16 @@ class ContentDatasetService
             'webflow_collections' => count($webflow),
             'webflow_records' => array_sum(array_column($webflow, 'count')),
             'door_brands' => count($doorBrands),
-            'promotion_controls' => count($promotionControls),
             'page_metadata' => $pageMetadataCount,
         ];
 
         $this->writeJson($this->doorBrandsPath(), $doorBrands);
-        $this->writeJson($this->promotionControlsPath(), $promotionControls);
         $this->writeJson($this->datasetManifestPath(), [
             'format_version' => self::FORMAT_VERSION,
             ...$summary,
             'files' => [
                 'webflow_root' => $root,
                 'door_brands' => $this->relativeProjectPath($this->doorBrandsPath()),
-                'promotion_controls' => $this->relativeProjectPath($this->promotionControlsPath()),
                 'page_metadata_root' => $this->relativeProjectPath($this->pageMetadata->root()),
             ],
         ]);
@@ -88,7 +80,6 @@ class ContentDatasetService
      *     webflow_collections: int,
      *     webflow_records: int,
      *     door_brands: int,
-     *     promotion_controls: int,
      *     page_metadata: int
      * }
      */
@@ -100,20 +91,16 @@ class ContentDatasetService
             $webflow = $this->webflow->importIntoDatabase($this->webflowRoot());
             $this->touchMaterialUpdateDates();
             $doorBrandCount = $this->importDoorBrands($validated['door_brands']);
-            $promotionCount = $this->importPromotionControls($validated['promotion_controls']);
 
             return [
                 'imported_at' => now()->toIso8601String(),
                 'webflow_collections' => count($webflow),
                 'webflow_records' => array_sum(array_column($webflow, 'count')),
                 'door_brands' => $doorBrandCount,
-                'promotion_controls' => $promotionCount,
                 'page_metadata' => $validated['page_metadata'],
             ];
         });
 
-        $this->promotionControl->forgetCache();
-        $this->promotionSettings->forgetCache();
         $this->pageMetadata->clearCache();
 
         return $result;
@@ -151,7 +138,6 @@ class ContentDatasetService
      *     webflow_collections: int,
      *     webflow_records: int,
      *     door_brands: int,
-     *     promotion_controls: int,
      *     page_metadata: int,
      *     error: ?string
      * }
@@ -166,7 +152,6 @@ class ContentDatasetService
                 'webflow_collections' => 0,
                 'webflow_records' => 0,
                 'door_brands' => 0,
-                'promotion_controls' => 0,
                 'page_metadata' => 0,
                 'error' => 'Dataset manifest has not been generated.',
             ];
@@ -185,7 +170,6 @@ class ContentDatasetService
                 'webflow_collections' => (int) ($manifest['webflow_collections'] ?? 0),
                 'webflow_records' => (int) ($manifest['webflow_records'] ?? 0),
                 'door_brands' => (int) ($manifest['door_brands'] ?? 0),
-                'promotion_controls' => (int) ($manifest['promotion_controls'] ?? 0),
                 'page_metadata' => (int) ($manifest['page_metadata'] ?? 0),
                 'error' => null,
             ];
@@ -197,7 +181,6 @@ class ContentDatasetService
                 'webflow_collections' => 0,
                 'webflow_records' => 0,
                 'door_brands' => 0,
-                'promotion_controls' => 0,
                 'page_metadata' => 0,
                 'error' => $e->getMessage(),
             ];
@@ -223,34 +206,8 @@ class ContentDatasetService
     }
 
     /**
-     * @return list<array<string, mixed>>
-     */
-    private function exportPromotionControls(): array
-    {
-        return PromotionControl::query()
-            ->orderBy('scope')
-            ->get()
-            ->map(fn (PromotionControl $item): array => [
-                'scope' => (string) $item->scope,
-                'global_promotion_name' => $item->global_promotion_name,
-                'global_discount_percent' => (int) $item->global_discount_percent,
-                'global_end_date' => $item->global_end_date?->format('Y-m-d'),
-                'phone_display' => $item->phone_display,
-                'phone_tel' => $item->phone_tel,
-                'window_type_prices' => $item->window_type_prices ?? [],
-                'series_prices' => $item->series_prices ?? [],
-                'brand_prices' => $item->brand_prices ?? [],
-                'door_prices' => $item->door_prices ?? [],
-                'calendar_periods' => $item->calendar_periods ?? [],
-            ])
-            ->values()
-            ->all();
-    }
-
-    /**
      * @return array{
      *     door_brands: list<array<string, mixed>>,
-     *     promotion_controls: list<array<string, mixed>>,
      *     page_metadata: int
      * }
      */
@@ -292,16 +249,8 @@ class ContentDatasetService
             }
         }
 
-        $promotionControls = $this->readJsonList($this->promotionControlsPath());
-        foreach ($promotionControls as $index => $item) {
-            if (! is_array($item) || trim((string) ($item['scope'] ?? '')) === '') {
-                throw new RuntimeException("Promotion dataset row {$index} has no scope.");
-            }
-        }
-
         return [
             'door_brands' => $doorBrands,
-            'promotion_controls' => $promotionControls,
             'page_metadata' => $pageMetadataCount,
         ];
     }
@@ -342,33 +291,6 @@ class ContentDatasetService
     }
 
     /**
-     * @param list<array<string, mixed>> $items
-     */
-    private function importPromotionControls(array $items): int
-    {
-        foreach ($items as $item) {
-            $scope = strtolower(trim((string) $item['scope']));
-            PromotionControl::query()->updateOrCreate(
-                ['scope' => $scope],
-                [
-                    'global_promotion_name' => $item['global_promotion_name'] ?? null,
-                    'global_discount_percent' => max(0, min(95, (int) ($item['global_discount_percent'] ?? 40))),
-                    'global_end_date' => $item['global_end_date'] ?? null,
-                    'phone_display' => $item['phone_display'] ?? null,
-                    'phone_tel' => $item['phone_tel'] ?? null,
-                    'window_type_prices' => is_array($item['window_type_prices'] ?? null) ? $item['window_type_prices'] : [],
-                    'series_prices' => is_array($item['series_prices'] ?? null) ? $item['series_prices'] : [],
-                    'brand_prices' => is_array($item['brand_prices'] ?? null) ? $item['brand_prices'] : [],
-                    'door_prices' => is_array($item['door_prices'] ?? null) ? $item['door_prices'] : [],
-                    'calendar_periods' => is_array($item['calendar_periods'] ?? null) ? $item['calendar_periods'] : [],
-                ]
-            );
-        }
-
-        return count($items);
-    }
-
-    /**
      * @return array<string, mixed>
      */
     private function readJsonObject(string $path): array
@@ -404,12 +326,45 @@ class ContentDatasetService
 
     private function writeJson(string $path, array $data): void
     {
-        File::ensureDirectoryExists(dirname($path));
+        $this->assertWritableDirectory(dirname($path));
         $json = json_encode(
             $data,
             JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR
         ).PHP_EOL;
-        File::replace($path, $json);
+
+        try {
+            File::replace($path, $json);
+        } catch (\Throwable $e) {
+            throw new RuntimeException($this->writeFailureMessage($path, $e), 0, $e);
+        }
+    }
+
+    private function assertWritableDirectory(string $directory): void
+    {
+        File::ensureDirectoryExists($directory);
+        if (! is_writable($directory)) {
+            throw new RuntimeException($this->permissionHint($directory));
+        }
+    }
+
+    private function writeFailureMessage(string $path, \Throwable $e): string
+    {
+        $message = $e->getMessage();
+        if (stripos($message, 'Permission denied') !== false || stripos($message, 'failed to open stream') !== false) {
+            return $this->permissionHint(dirname($path)).' Original error: '.$message;
+        }
+
+        return 'Failed to write '.$path.': '.$message;
+    }
+
+    private function permissionHint(string $directory): string
+    {
+        $webflowRoot = base_path('webflow-data');
+
+        return "Cannot write to {$directory}: permission denied. "
+            ."On the server fix ownership for the PHP user, e.g. "
+            ."sudo chown -R www-data:www-data {$webflowRoot} database/data "
+            ."&& sudo chmod -R ug+rwX {$webflowRoot} database/data";
     }
 
     private function assertWebflowManifestExists(string $root): void
@@ -454,11 +409,6 @@ class ContentDatasetService
     private function doorBrandsPath(): string
     {
         return database_path('data/door-brands.json');
-    }
-
-    private function promotionControlsPath(): string
-    {
-        return database_path('data/promotion-controls.json');
     }
 
     private function datasetManifestPath(): string

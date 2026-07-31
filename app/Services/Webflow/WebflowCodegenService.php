@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use RuntimeException;
 
 class WebflowCodegenService
 {
@@ -233,24 +234,16 @@ class WebflowCodegenService
             }
 
             $itemsOutputPath = $this->exportPath($root, "collections/{$slug}/items.local.json");
-            File::ensureDirectoryExists(dirname($itemsOutputPath));
-            File::put(
-                $itemsOutputPath,
-                json_encode(['items' => $items], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)
-            );
+            $this->writeExportJson($itemsOutputPath, ['items' => $items]);
 
             $importPath = $this->exportPath($root, "imports/{$slug}.json");
-            File::ensureDirectoryExists(dirname($importPath));
-            File::put(
-                $importPath,
-                json_encode([
-                    'table' => $table,
-                    'collectionId' => $collection['id'] ?? null,
-                    'collectionSlug' => $slug,
-                    'items' => $items,
-                    'flattenedFieldMap' => $fieldMap,
-                ], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)
-            );
+            $this->writeExportJson($importPath, [
+                'table' => $table,
+                'collectionId' => $collection['id'] ?? null,
+                'collectionSlug' => $slug,
+                'items' => $items,
+                'flattenedFieldMap' => $fieldMap,
+            ]);
 
             $exported[] = [
                 'slug' => $slug,
@@ -817,6 +810,46 @@ BLADE;
         } catch (\Throwable) {
             return null;
         }
+    }
+
+    private function writeExportJson(string $path, array $data): void
+    {
+        $directory = dirname($path);
+        File::ensureDirectoryExists($directory);
+
+        if (! is_writable($directory)) {
+            throw new RuntimeException($this->exportPermissionHint($directory));
+        }
+
+        $json = json_encode(
+            $data,
+            JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR
+        );
+
+        try {
+            if (File::put($path, $json) === false) {
+                throw new RuntimeException($this->exportPermissionHint($directory));
+            }
+        } catch (RuntimeException $e) {
+            throw $e;
+        } catch (\Throwable $e) {
+            $message = $e->getMessage();
+            if (stripos($message, 'Permission denied') !== false || stripos($message, 'failed to open stream') !== false) {
+                throw new RuntimeException($this->exportPermissionHint($directory).' Original error: '.$message, 0, $e);
+            }
+
+            throw new RuntimeException('Failed to write '.$path.': '.$message, 0, $e);
+        }
+    }
+
+    private function exportPermissionHint(string $directory): string
+    {
+        $webflowRoot = base_path('webflow-data');
+
+        return "Cannot write to {$directory}: permission denied. "
+            ."On the server fix ownership for the PHP/web user, e.g. "
+            ."sudo chown -R www-data:www-data {$webflowRoot} "
+            ."&& sudo chmod -R ug+rwX {$webflowRoot}";
     }
 
     private function exportPath(string $root, string $relative = ''): string

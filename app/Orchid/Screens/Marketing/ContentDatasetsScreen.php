@@ -26,7 +26,7 @@ class ContentDatasetsScreen extends Screen
 
     public function description(): ?string
     {
-        return 'Export or import site content (text/data only — image fields in the database are never changed).';
+        return 'Export or import site content (text/data only — image fields, phones, and Promotions settings are never changed).';
     }
 
     public function permission(): ?iterable
@@ -88,12 +88,11 @@ class ContentDatasetsScreen extends Screen
     private function summary(string $prefix, array $result): string
     {
         return sprintf(
-            '%s: %d Webflow collections (%d records), %d door brands, %d promotion controls, %d page metadata files.',
+            '%s: %d Webflow collections (%d records), %d door brands, %d page metadata files.',
             $prefix,
             (int) ($result['webflow_collections'] ?? 0),
             (int) ($result['webflow_records'] ?? 0),
             (int) ($result['door_brands'] ?? 0),
-            (int) ($result['promotion_controls'] ?? 0),
             (int) ($result['page_metadata'] ?? 0),
         );
     }
