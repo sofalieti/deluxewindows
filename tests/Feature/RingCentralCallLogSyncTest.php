@@ -89,9 +89,47 @@ test('hourly sync starts at California midnight then overlaps and upserts', func
 
     expect($second['created'])->toBe(0)
         ->and($second['updated'])->toBe(1)
-        ->and($second['from'])->toStartWith('2026-07-31T18:25:00')
+        ->and($second['from'])->toStartWith('2026-07-31T18:30:00')
         ->and(RingCentralCall::query()->count())->toBe(1)
         ->and(RingCentralCallSyncState::query()->sole()->last_synced_at)->not->toBeNull();
+
+    Http::assertSent(function (Request $request): bool {
+        if (! str_contains($request->url(), '/call-log')) {
+            return false;
+        }
+
+        // Second sync must continue from previous checkpoint with a small overlap.
+        return ($request['dateFrom'] ?? '') === '2026-07-31T18:25:00.000Z'
+            && str_starts_with((string) ($request['dateTo'] ?? ''), '2026-07-31T19:30:00');
+    });
+});
+
+test('sync remembers the previous checkpoint across app timezone casts', function () {
+    config()->set('app.timezone', 'America/Los_Angeles');
+    CarbonImmutable::setTestNow('2026-07-31 18:00:00 UTC');
+    fakeSingleRingCentralCall('First');
+
+    app(RingCentralCallSyncService::class)->sync();
+
+    $state = RingCentralCallSyncState::query()->sole();
+    expect($state->last_synced_at)->not->toBeNull();
+
+    CarbonImmutable::setTestNow('2026-07-31 20:00:00 UTC');
+    Cache::flush();
+    fakeSingleRingCentralCall('Second');
+
+    $second = app(RingCentralCallSyncService::class)->sync();
+
+    expect($second['from'])->toStartWith('2026-07-31T18:00:00')
+        ->and($second['to'])->toStartWith('2026-07-31T20:00:00');
+
+    Http::assertSent(function (Request $request): bool {
+        if (! str_contains($request->url(), '/call-log')) {
+            return false;
+        }
+
+        return ($request['dateFrom'] ?? '') === '2026-07-31T17:55:00.000Z';
+    });
 });
 
 test('a failed API request does not advance the sync checkpoint', function () {

@@ -183,7 +183,7 @@ class RingCentralCallListScreen extends Screen
         }
 
         Toast::success(sprintf(
-            'Synced %s: %d new, %d updated (%d fetched). Window %s → %s PT.',
+            'Synced %s: %d new, %d updated (%d fetched). From last sync %s → now %s PT.',
             $result['business_phone'],
             $result['created'],
             $result['updated'],
