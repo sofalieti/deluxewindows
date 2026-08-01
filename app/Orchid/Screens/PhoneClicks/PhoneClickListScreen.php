@@ -10,7 +10,6 @@ use App\Services\PhoneClickGoogleBridge;
 use App\Services\RingCentralCallLogService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\Link;
@@ -94,38 +93,15 @@ class PhoneClickListScreen extends Screen
                 ])),
 
             TD::make('page_url', 'Page')
-                ->width('190px')
-                ->render(function (PhoneClick $click): string {
-                    $url = trim((string) ($click->page_url ?? ''));
-                    $landing = trim((string) ($click->landing_page ?? ''));
-
-                    if ($url === '' && $landing === '') {
-                        return '-';
-                    }
-
-                    $label = $url !== ''
-                        ? ((string) parse_url($url, PHP_URL_PATH) ?: $url)
-                        : $landing;
-                    $page = $url !== ''
-                        ? '<a href="'.e($url).'" target="_blank" rel="noopener">'.e(Str::limit($label, 30)).'</a>'
-                        : e(Str::limit($label, 30));
-
-                    if ($landing !== '' && $landing !== $label) {
-                        $page .= '<div class="small text-muted mt-1">'.e(Str::limit($landing, 30)).'</div>';
-                    }
-
-                    return $page;
-                }),
+                ->width('200px')
+                ->render(fn (PhoneClick $click) => view('admin.phone-clicks.page-cell', [
+                    'click' => $click,
+                ])),
 
             TD::make('utm_source', 'Traffic')
-                ->width('200px')
+                ->width('140px')
                 ->render(fn (PhoneClick $click) => view('admin.phone-clicks.traffic-cell', [
                     'click' => $click,
-                    'sendToGoogle' => Button::make('Send to Google')
-                        ->icon('bs.google')
-                        ->type(Color::PRIMARY)
-                        ->method('sendToGoogle', ['click' => $click->id])
-                        ->confirm('Send this phone click to the Google Sheet? This can only be done once.'),
                 ])),
 
             TD::make('ringcentral_status', 'RingCentral')
@@ -175,22 +151,31 @@ class PhoneClickListScreen extends Screen
                     ->route('platform.phone-clicks.view', $click)),
         ];
 
-        $columns[] = $spamTab
-            ? TD::make('restore', '')
-                ->align(TD::ALIGN_CENTER)
-                ->width('100px')
-                ->render(fn (PhoneClick $click) => Button::make('Restore')
-                    ->icon('bs.arrow-counterclockwise')
-                    ->method('restoreFromSpam', ['phone_click_id' => $click->id])
-                    ->confirm('Move this phone click back to the main list?'))
-            : TD::make('spam', '')
-                ->align(TD::ALIGN_CENTER)
-                ->width('90px')
-                ->render(fn (PhoneClick $click) => Button::make('Spam')
-                    ->icon('bs.shield-exclamation')
-                    ->type(Color::DANGER)
-                    ->method('markAsSpam', ['phone_click_id' => $click->id])
-                    ->confirm('Mark this phone click as spam and hide it from the main list?'));
+        $columns[] = TD::make('actions', '')
+            ->align(TD::ALIGN_CENTER)
+            ->width('120px')
+            ->render(function (PhoneClick $click) use ($spamTab) {
+                $spamAction = $spamTab
+                    ? Button::make('Restore')
+                        ->icon('bs.arrow-counterclockwise')
+                        ->method('restoreFromSpam', ['phone_click_id' => $click->id])
+                        ->confirm('Move this phone click back to the main list?')
+                    : Button::make('Spam')
+                        ->icon('bs.shield-exclamation')
+                        ->type(Color::DANGER)
+                        ->method('markAsSpam', ['phone_click_id' => $click->id])
+                        ->confirm('Mark this phone click as spam and hide it from the main list?');
+
+                return view('admin.phone-clicks.actions-cell', [
+                    'click' => $click,
+                    'sendToGoogle' => Button::make('Google')
+                        ->icon('bs.google')
+                        ->type(Color::PRIMARY)
+                        ->method('sendToGoogle', ['click' => $click->id])
+                        ->confirm('Send this phone click to the Google Sheet? This can only be done once.'),
+                    'spamAction' => $spamAction,
+                ]);
+            });
 
         return $columns;
     }

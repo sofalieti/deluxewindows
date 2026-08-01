@@ -3,7 +3,7 @@
     $comments = $comments ?? collect();
 @endphp
 
-<div class="bg-white rounded shadow-sm p-4 contact-panel">
+<div class="bg-white rounded shadow-sm p-4 contact-panel contact-comments-sidebar">
     <h6 class="text-muted text-uppercase mb-3 contact-panel__title">Comment history</h6>
 
     @forelse ($comments as $comment)

@@ -5,10 +5,13 @@ declare(strict_types=1);
 namespace App\Orchid\Screens\Contacts;
 
 use App\Models\Contact;
+use App\Models\ContactChange;
 use App\Models\ContactComment;
 use App\Services\ContactFromLeadService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\TextArea;
@@ -24,6 +27,9 @@ class ContactEditScreen extends Screen
     public function query(Contact $contact): iterable
     {
         $contact->load(['leads.comments.user', 'createdBy', 'comments.user']);
+        if ($contact->exists && Schema::hasTable('contact_changes')) {
+            $contact->load(['changes.user']);
+        }
         $this->contact = $contact;
 
         $comments = $contact->exists
@@ -35,6 +41,12 @@ class ContactEditScreen extends Screen
             'leads' => $contact->leads,
             'comments' => $comments,
             'trafficSummary' => $contact->trafficSummary(),
+            'changes' => $contact->exists && Schema::hasTable('contact_changes')
+                ? $contact->changes
+                : collect(),
+            'calls' => $contact->exists
+                ? $contact->ringCentralCallsForPhone()
+                : collect(),
         ];
     }
 
@@ -47,7 +59,7 @@ class ContactEditScreen extends Screen
 
     public function description(): ?string
     {
-        return 'Client details, linked leads, comments, and source summary.';
+        return 'Client details with comments, linked leads, calls, and change history.';
     }
 
     public function permission(): ?iterable
@@ -66,58 +78,68 @@ class ContactEditScreen extends Screen
 
     public function layout(): iterable
     {
-        $tabs = [
-            'Details' => Layout::columns([
-                Layout::rows([
-                    Input::make('contact.full_name')
-                        ->title('Name')
-                        ->required()
-                        ->maxlength(255),
-                    Input::make('contact.phone')
-                        ->title('Phone')
-                        ->type('tel')
-                        ->maxlength(50),
-                    Input::make('contact.email')
-                        ->title('Email')
-                        ->type('email')
-                        ->maxlength(255),
-                    Input::make('contact.city')
-                        ->title('City')
-                        ->maxlength(100),
-                    TextArea::make('contact.address')
-                        ->title('Address')
-                        ->rows(3)
-                        ->maxlength(2000),
-                    TextArea::make('contact.additional_information')
-                        ->title('Additional information about client')
-                        ->rows(8)
-                        ->maxlength(10000),
-                ])->title('Contact details'),
-                Layout::legend('contact', [
-                    Sight::make('id', 'ID')
-                        ->render(fn (Contact $contact): string => $contact->exists ? (string) $contact->id : 'New'),
-                    Sight::make('created_at', 'Created')
-                        ->render(fn (Contact $contact): string => optional($contact->created_at)->format('Y-m-d H:i') ?? '—'),
-                    Sight::make('createdBy.name', 'Created by')
-                        ->render(fn (Contact $contact): string => e($contact->createdBy?->name ?? '—')),
-                    Sight::make('leads_count', 'Linked leads')
-                        ->render(fn (Contact $contact): string => (string) $contact->leads->count()),
-                ]),
+        $detailsLeft = Layout::blank([
+            Layout::rows([
+                Input::make('contact.full_name')
+                    ->title('Name')
+                    ->required()
+                    ->maxlength(255),
+                Input::make('contact.phone')
+                    ->title('Phone')
+                    ->type('tel')
+                    ->maxlength(50),
+                Input::make('contact.email')
+                    ->title('Email')
+                    ->type('email')
+                    ->maxlength(255),
+                Input::make('contact.city')
+                    ->title('City')
+                    ->maxlength(100),
+                TextArea::make('contact.address')
+                    ->title('Address')
+                    ->rows(3)
+                    ->maxlength(2000),
+                TextArea::make('contact.additional_information')
+                    ->title('Additional information about client')
+                    ->rows(8)
+                    ->maxlength(10000),
+            ])->title('Contact details'),
+            Layout::legend('contact', [
+                Sight::make('id', 'ID')
+                    ->render(fn (Contact $contact): string => $contact->exists ? (string) $contact->id : 'New'),
+                Sight::make('created_at', 'Created')
+                    ->render(fn (Contact $contact): string => optional($contact->created_at)->format('Y-m-d H:i') ?? '—'),
+                Sight::make('createdBy.name', 'Created by')
+                    ->render(fn (Contact $contact): string => e($contact->createdBy?->name ?? '—')),
+                Sight::make('leads_count', 'Linked leads')
+                    ->render(fn (Contact $contact): string => (string) $contact->leads->count()),
             ]),
-        ];
+        ]);
 
-        if ($this->contact?->exists) {
-            $tabs['Leads'] = Layout::view('admin.contacts.leads');
-            $tabs['Comments'] = Layout::blank([
+        $commentsRight = $this->contact?->exists
+            ? Layout::blank([
                 Layout::rows([
                     TextArea::make('comment')
                         ->title('New comment')
                         ->rows(4)
                         ->placeholder('Write a note about this client…'),
-                ])->title('Add comment'),
+                ])->title('Comments'),
                 Layout::view('admin.partials.comment-actions'),
                 Layout::view('admin.contacts.comments'),
-            ]);
+            ])
+            : Layout::view('admin.contacts.comments-placeholder');
+
+        $tabs = [
+            'Details' => Layout::columns([
+                $detailsLeft,
+                $commentsRight,
+            ]),
+        ];
+
+        if ($this->contact?->exists) {
+            $tabs['Calls'] = Layout::view('admin.contacts.calls');
+            $tabs['Leads'] = Layout::view('admin.contacts.leads');
+            $tabs['History'] = Layout::view('admin.contacts.history');
             $tabs['Traffic summary'] = Layout::view('admin.contacts.traffic-summary');
         }
 
@@ -142,22 +164,83 @@ class ContactEditScreen extends Screen
             'contact.additional_information' => ['nullable', 'string', 'max:10000'],
         ]);
 
+        $user = Auth::user();
+        abort_unless($user !== null, 403);
+
         $values = collect($validated['contact'])
             ->map(fn (mixed $value): mixed => is_string($value) ? trim($value) : $value)
             ->map(fn (mixed $value): mixed => $value === '' ? null : $value)
             ->all();
 
         $wasNew = ! $contact->exists;
-        $contact->fill($values);
-        if ($wasNew) {
-            $contact->created_by_user_id = Auth::id();
-        }
-        $contact->save();
-        if ($wasNew) {
-            $service->attachExistingMatches($contact, Auth::id());
+        $labels = [
+            'full_name' => 'Name',
+            'phone' => 'Phone',
+            'email' => 'Email',
+            'city' => 'City',
+            'address' => 'Address',
+            'additional_information' => 'Additional information',
+        ];
+
+        $changes = [];
+        if (! $wasNew) {
+            foreach ($labels as $field => $label) {
+                $oldValue = trim((string) ($contact->{$field} ?? ''));
+                $newValue = trim((string) ($values[$field] ?? ''));
+                if ($oldValue !== $newValue) {
+                    $changes[$field] = [$oldValue, $newValue, $label];
+                }
+            }
+
+            if ($changes === []) {
+                Toast::info('No changes to save.');
+
+                return redirect()->route('platform.contacts.edit', $contact);
+            }
         }
 
-        Toast::info('Contact saved.');
+        DB::transaction(function () use ($contact, $values, $wasNew, $changes, $service, $user): void {
+            $contact->fill($values);
+            if ($wasNew) {
+                $contact->created_by_user_id = $user->id;
+            }
+            $contact->save();
+
+            if ($wasNew) {
+                $service->attachExistingMatches($contact, $user->id);
+                if (Schema::hasTable('contact_changes')) {
+                    ContactChange::record(
+                        $contact,
+                        'created',
+                        null,
+                        null,
+                        'Contact created',
+                        (int) $user->id,
+                    );
+                }
+
+                return;
+            }
+
+            if (! Schema::hasTable('contact_changes')) {
+                return;
+            }
+
+            foreach ($changes as $field => [$oldValue, $newValue, $label]) {
+                ContactChange::record(
+                    $contact,
+                    $field,
+                    $oldValue !== '' ? $oldValue : null,
+                    $newValue !== '' ? $newValue : null,
+                    $label.' updated',
+                    (int) $user->id,
+                );
+            }
+        });
+
+        Toast::info($wasNew
+            ? 'Contact saved.'
+            : (count($changes) === 1 ? 'Contact updated.' : count($changes).' contact fields updated.'));
 
         return redirect()->route('platform.contacts.edit', $contact);
     }
@@ -173,11 +256,26 @@ class ContactEditScreen extends Screen
         $user = Auth::user();
         abort_unless($user !== null, 403);
 
-        ContactComment::query()->create([
-            'contact_id' => $contact->id,
-            'user_id' => $user->id,
-            'body' => trim($validated['comment']),
-        ]);
+        $body = trim($validated['comment']);
+
+        DB::transaction(function () use ($contact, $user, $body): void {
+            ContactComment::query()->create([
+                'contact_id' => $contact->id,
+                'user_id' => $user->id,
+                'body' => $body,
+            ]);
+
+            if (Schema::hasTable('contact_changes')) {
+                ContactChange::record(
+                    $contact,
+                    'comment',
+                    null,
+                    $body,
+                    'Comment added',
+                    (int) $user->id,
+                );
+            }
+        });
 
         Toast::info('Comment added.');
 

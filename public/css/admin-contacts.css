@@ -32,3 +32,49 @@
     padding: 0.75rem;
     background: #f8fafc;
 }
+
+.contact-call {
+    padding: 0.85rem 0;
+}
+
+.contact-call--border {
+    border-bottom: 1px solid #e9ecef;
+}
+
+.contact-call__main {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.contact-call__when {
+    min-width: 6.5rem;
+}
+
+.contact-call__date {
+    font-weight: 600;
+}
+
+.contact-call__time,
+.contact-call__result,
+.contact-call__route {
+    font-size: 0.8125rem;
+}
+
+.contact-call__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.contact-history .border-bottom:last-child {
+    border-bottom: 0 !important;
+}
+
+.contact-comments-sidebar {
+    height: 100%;
+}
+
+.contact-comments-sidebar .contact-comment {
+    padding: 0.75rem 0;
+}

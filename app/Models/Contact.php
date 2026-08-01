@@ -4,10 +4,13 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Services\RingCentralCallLogService;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Schema;
 use Orchid\Filters\Filterable;
 use Orchid\Filters\Types\Like;
 use Orchid\Screen\AsSource;
@@ -60,9 +63,60 @@ class Contact extends Model
         return $this->hasMany(ContactComment::class)->latest();
     }
 
+    public function changes(): HasMany
+    {
+        return $this->hasMany(ContactChange::class)->latest('created_at')->latest('id');
+    }
+
     public function leadComments(): HasManyThrough
     {
         return $this->hasManyThrough(LeadComment::class, Lead::class);
+    }
+
+    /**
+     * RingCentral calls where this contact's phone is the other party.
+     *
+     * @return Collection<int, RingCentralCall>
+     */
+    public function ringCentralCallsForPhone(?RingCentralCallLogService $ringCentral = null): Collection
+    {
+        if (! Schema::hasTable('ringcentral_calls')) {
+            return collect();
+        }
+
+        $phone = trim((string) ($this->phone ?? ''));
+        $normalized = self::normalizePhone($phone);
+        if ($phone === '' || $normalized === null) {
+            return collect();
+        }
+
+        $last10 = substr($normalized, -10);
+        if (strlen($last10) < 10) {
+            return collect();
+        }
+
+        $ringCentral ??= app(RingCentralCallLogService::class);
+
+        return RingCentralCall::query()
+            ->visible()
+            ->where(function ($query) use ($last10): void {
+                $query->where('external_phone', 'like', '%'.$last10)
+                    ->orWhere('from_phone', 'like', '%'.$last10)
+                    ->orWhere('to_phone', 'like', '%'.$last10);
+            })
+            ->orderByDesc('started_at')
+            ->limit(200)
+            ->get()
+            ->filter(function (RingCentralCall $call) use ($ringCentral, $phone): bool {
+                foreach ([$call->external_phone, $call->from_phone, $call->to_phone] as $candidate) {
+                    if ($candidate !== null && $candidate !== '' && $ringCentral->phonesMatch($phone, (string) $candidate)) {
+                        return true;
+                    }
+                }
+
+                return false;
+            })
+            ->values();
     }
 
     /**
