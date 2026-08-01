@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Models\Concerns\ClassifiesTrafficSource;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Facades\Schema;
 use Orchid\Filters\Filterable;
 use Orchid\Filters\Types\Like;
 use Orchid\Filters\Types\Where;
@@ -112,11 +114,31 @@ class PhoneClick extends Model
 
     public function isSpam(): bool
     {
-        return (bool) $this->is_spam;
+        return (bool) ($this->attributes['is_spam'] ?? false);
+    }
+
+    public function scopeNotSpam(Builder $query): Builder
+    {
+        if (! $this->spamColumnReady()) {
+            return $query;
+        }
+
+        return $query->where($query->getModel()->getTable().'.is_spam', false);
+    }
+
+    public function scopeOnlySpam(Builder $query): Builder
+    {
+        if (! $this->spamColumnReady()) {
+            return $query->whereRaw('0 = 1');
+        }
+
+        return $query->where($query->getModel()->getTable().'.is_spam', true);
     }
 
     public function markAsSpam(): void
     {
+        abort_unless($this->spamColumnReady(), 500, 'Run migrations: phone_clicks.is_spam is missing.');
+
         $this->forceFill([
             'is_spam' => true,
             'spam_marked_at' => now(),
@@ -125,10 +147,17 @@ class PhoneClick extends Model
 
     public function restoreFromSpam(): void
     {
+        abort_unless($this->spamColumnReady(), 500, 'Run migrations: phone_clicks.is_spam is missing.');
+
         $this->forceFill([
             'is_spam' => false,
             'spam_marked_at' => null,
         ])->save();
+    }
+
+    private function spamColumnReady(): bool
+    {
+        return Schema::hasColumn($this->getTable(), 'is_spam');
     }
 
     public function googleSheetSender(): BelongsTo

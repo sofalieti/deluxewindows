@@ -1,0 +1,49 @@
+.phone-click-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    line-height: 1.25;
+    min-width: 9rem;
+}
+
+.phone-click-cell__date {
+    font-weight: 600;
+}
+
+.phone-click-cell__phone a,
+.phone-click-cell__phone {
+    font-weight: 600;
+}
+
+.phone-click-cell__time,
+.phone-click-cell__source {
+    font-size: 0.8125rem;
+    color: var(--bs-secondary-color, #6c757d);
+}
+
+.phone-click-traffic {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    min-width: 10rem;
+}
+
+.phone-click-traffic__block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.phone-click-traffic__label {
+    font-size: 0.75rem;
+    color: var(--bs-secondary-color, #6c757d);
+}
+
+.phone-click-traffic__detail {
+    font-size: 0.8125rem;
+    color: var(--bs-secondary-color, #6c757d);
+}
+
+.phone-click-traffic__google {
+    margin-top: 0.15rem;
+}

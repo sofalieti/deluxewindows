@@ -10,7 +10,6 @@ use App\Services\PhoneClickGoogleBridge;
 use App\Services\RingCentralCallLogService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\Link;
@@ -25,15 +24,14 @@ class PhoneClickListScreen extends Screen
 {
     public function query(): iterable
     {
-        $base = PhoneClick::query()->defaultSort('id', 'desc');
-        $hasSpam = Schema::hasColumn('phone_clicks', 'is_spam');
-
         return [
-            'clicks' => (clone $base)
-                ->when($hasSpam, fn ($q) => $q->where('is_spam', false))
+            'clicks' => PhoneClick::query()
+                ->notSpam()
+                ->defaultSort('id', 'desc')
                 ->paginate(50, pageName: 'page'),
-            'spamClicks' => (clone $base)
-                ->when($hasSpam, fn ($q) => $q->where('is_spam', true), fn ($q) => $q->whereRaw('0 = 1'))
+            'spamClicks' => PhoneClick::query()
+                ->onlySpam()
+                ->defaultSort('id', 'desc')
                 ->paginate(50, pageName: 'spam_page'),
         ];
     }
@@ -65,13 +63,14 @@ class PhoneClickListScreen extends Screen
             Button::make('Re-run call tracking')
                 ->icon('bs.link-45deg')
                 ->method('rematchUnmatched')
-                ->confirm('Reset and re-match the latest 100 non-spam phone clicks against each click’s phone number?'),
+                ->confirm('Reset and re-match the latest 100 non-spam phone clicks against each click phone number?'),
         ];
     }
 
     public function layout(): iterable
     {
         return [
+            Layout::view('admin.phone-clicks.assets'),
             Layout::tabs([
                 'Phone clicks' => Layout::table('clicks', $this->clickColumns(spamTab: false)),
                 'Spam' => Layout::table('spamClicks', $this->clickColumns(spamTab: true)),
@@ -85,32 +84,13 @@ class PhoneClickListScreen extends Screen
     private function clickColumns(bool $spamTab): array
     {
         $columns = [
-            TD::make('created_at', 'Click time')
+            TD::make('created_at', 'Click')
                 ->sort()
-                ->width('130px')
-                ->render(function (PhoneClick $click): string {
-                    if (! $click->created_at) {
-                        return '-';
-                    }
-
-                    $clickAt = $click->created_at->copy()->timezone('America/Los_Angeles');
-
-                    return '<div class="fw-semibold">'.e($clickAt->format('M d, Y')).'</div>'
-                        .'<div class="small text-muted">'.e($clickAt->format('h:i A')).' PT</div>';
-                }),
-
-            TD::make('phone', 'Click')
-                ->width('175px')
-                ->render(function (PhoneClick $click): string {
-                    $phone = trim((string) ($click->phone ?? ''));
-                    $source = trim((string) ($click->source_label ?? ''));
-                    $phoneHtml = $phone !== ''
-                        ? '<a class="fw-semibold" href="tel:'.e($phone).'">'.e($phone).'</a>'
-                        : '<span class="text-muted">No number</span>';
-
-                    return $phoneHtml
-                        .'<div class="small text-muted mt-1">'.e($source !== '' ? $source : 'Unknown source').'</div>';
-                }),
+                ->cantHide()
+                ->width('160px')
+                ->render(fn (PhoneClick $click) => view('admin.phone-clicks.click-cell', [
+                    'click' => $click,
+                ])),
 
             TD::make('page_url', 'Page')
                 ->width('190px')
@@ -137,29 +117,15 @@ class PhoneClickListScreen extends Screen
                 }),
 
             TD::make('utm_source', 'Traffic')
-                ->width('180px')
-                ->render(function (PhoneClick $click): string {
-                    $lastDetail = $click->trafficSourceDetail();
-                    $firstDetail = $click->firstTrafficSourceDetail();
-
-                    $html = '<div class="small text-muted">Last</div>'
-                        .'<span class="badge bg-'.$click->trafficSourceColor().' text-white">'
-                        .e($click->trafficSourceLabel())
-                        .'</span>';
-                    if ($lastDetail !== '') {
-                        $html .= '<div class="small text-muted">'.e(Str::limit($lastDetail, 24)).'</div>';
-                    }
-
-                    $html .= '<div class="small text-muted mt-2">First</div>'
-                        .'<span class="badge bg-'.$click->firstTrafficSourceColor().' text-white">'
-                        .e($click->firstTrafficSourceLabel())
-                        .'</span>';
-                    if ($firstDetail !== '') {
-                        $html .= '<div class="small text-muted">'.e(Str::limit($firstDetail, 24)).'</div>';
-                    }
-
-                    return $html;
-                }),
+                ->width('200px')
+                ->render(fn (PhoneClick $click) => view('admin.phone-clicks.traffic-cell', [
+                    'click' => $click,
+                    'sendToGoogle' => Button::make('Send to Google')
+                        ->icon('bs.google')
+                        ->type(Color::PRIMARY)
+                        ->method('sendToGoogle', ['click' => $click->id])
+                        ->confirm('Send this phone click to the Google Sheet? This can only be done once.'),
+                ])),
 
             TD::make('ringcentral_status', 'RingCentral')
                 ->sort()
@@ -198,24 +164,6 @@ class PhoneClickListScreen extends Screen
                     }
 
                     return '<span class="badge bg-light text-dark">Not checked</span>';
-                }),
-
-            TD::make('google_sheet_sent_at', 'Google Sheet')
-                ->sort()
-                ->cantHide()
-                ->width('190px')
-                ->render(function (PhoneClick $click) {
-                    if ($click->wasSentToGoogleSheet()) {
-                        $sentAt = optional($click->google_sheet_sent_at)->format('Y-m-d H:i');
-
-                        return '<span class="badge bg-success text-white">✓ Sent '.e((string) $sentAt).'</span>';
-                    }
-
-                    return Button::make('Send to Google')
-                        ->icon('bs.google')
-                        ->type(Color::PRIMARY)
-                        ->method('sendToGoogle', ['click' => $click->id])
-                        ->confirm('Send this phone click to the Google Sheet? This can only be done once.');
                 }),
 
             TD::make('id', 'View')
@@ -275,34 +223,44 @@ class PhoneClickListScreen extends Screen
 
     public function checkRingCentralNow(RingCentralCallLogService $ringCentral): void
     {
-        $this->runRingCentralMatch(
-            PhoneClick::query()
-                ->where('is_spam', false)
-                ->whereNotIn('ringcentral_status', [
-                    PhoneClick::RINGCENTRAL_FOUND,
-                    PhoneClick::RINGCENTRAL_NO_CALL,
-                ])
-                ->orderByDesc('id')
-                ->limit(100)
-                ->get(),
-            force: false,
-            emptyMessage: 'No pending phone clicks need a RingCentral check.',
-            ringCentral: $ringCentral,
-        );
+        try {
+            $this->runRingCentralMatch(
+                PhoneClick::query()
+                    ->notSpam()
+                    ->whereNotIn('ringcentral_status', [
+                        PhoneClick::RINGCENTRAL_FOUND,
+                        PhoneClick::RINGCENTRAL_NO_CALL,
+                    ])
+                    ->orderByDesc('id')
+                    ->limit(100)
+                    ->get(),
+                force: false,
+                emptyMessage: 'No pending phone clicks need a RingCentral check.',
+                ringCentral: $ringCentral,
+            );
+        } catch (Throwable $exception) {
+            report($exception);
+            Toast::error('RingCentral check failed: '.$exception->getMessage());
+        }
     }
 
     public function rematchUnmatched(RingCentralCallLogService $ringCentral): void
     {
-        $this->runRingCentralMatch(
-            PhoneClick::query()
-                ->where('is_spam', false)
-                ->orderByDesc('id')
-                ->limit(100)
-                ->get(),
-            force: true,
-            emptyMessage: 'No phone clicks to re-check.',
-            ringCentral: $ringCentral,
-        );
+        try {
+            $this->runRingCentralMatch(
+                PhoneClick::query()
+                    ->notSpam()
+                    ->orderByDesc('id')
+                    ->limit(100)
+                    ->get(),
+                force: true,
+                emptyMessage: 'No phone clicks to re-check.',
+                ringCentral: $ringCentral,
+            );
+        } catch (Throwable $exception) {
+            report($exception);
+            Toast::error('Call tracking re-run failed: '.$exception->getMessage());
+        }
     }
 
     public function markAsSpam(Request $request): void
