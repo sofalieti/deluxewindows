@@ -54,11 +54,11 @@ class PhoneClickListScreen extends Screen
             Button::make('Check RingCentral now')
                 ->icon('bs.arrow-repeat')
                 ->method('checkRingCentralNow')
-                ->confirm('Re-check pending / error phone clicks against RingCentral?'),
-            Button::make('Re-match unmatched')
+                ->confirm('Re-check pending / error phone clicks against the primary site number in RingCentral?'),
+            Button::make('Re-run call tracking')
                 ->icon('bs.link-45deg')
                 ->method('rematchUnmatched')
-                ->confirm('Reset No call / Error / Pending clicks and match them again against the call journal + RingCentral (last 100)?'),
+                ->confirm('Reset and re-match the latest 100 phone clicks against the primary site number only (extra RingCentral numbers are ignored)?'),
         ];
     }
 
@@ -66,16 +66,18 @@ class PhoneClickListScreen extends Screen
     {
         return [
             Layout::table('clicks', [
-                TD::make('created_at', 'Date')
+                TD::make('created_at', 'Click time')
                     ->sort()
-                    ->width('125px')
+                    ->width('130px')
                     ->render(function (PhoneClick $click): string {
                         if (! $click->created_at) {
                             return '-';
                         }
 
-                        return '<div class="fw-semibold">'.e($click->created_at->format('M d, Y')).'</div>'
-                            .'<div class="small text-muted">'.e($click->created_at->format('h:i A')).'</div>';
+                        $clickAt = $click->created_at->copy()->timezone('America/Los_Angeles');
+
+                        return '<div class="fw-semibold">'.e($clickAt->format('M d, Y')).'</div>'
+                            .'<div class="small text-muted">'.e($clickAt->format('h:i A')).' PT</div>';
                     }),
 
                 TD::make('phone', 'Click')
@@ -149,11 +151,18 @@ class PhoneClickListScreen extends Screen
 
                         if ($status === PhoneClick::RINGCENTRAL_FOUND) {
                             $result = trim((string) ($click->ringcentral_result ?: 'Call found'));
+                            $callAt = $click->ringcentral_call_started_at
+                                ? $click->ringcentral_call_started_at->copy()->timezone('America/Los_Angeles')->format('h:i A')
+                                : null;
+                            $lag = $click->metaValue('ringcentral_match_lag_seconds');
+                            $lagLabel = $lag !== '' ? ' · +'.$lag.'s after click' : '';
 
                             return '<span class="badge bg-success text-white">✓ '.e($result).'</span>'
                                 .'<div class="small text-muted mt-1">'
+                                .($callAt ? 'Call '.e($callAt).' PT · ' : '')
                                 .e($click->ringCentralDurationLabel())
                                 .' · '.e((string) ($click->ringcentral_from_phone ?: 'Unknown caller'))
+                                .e($lagLabel)
                                 .'</div>';
                         }
 
@@ -257,19 +266,11 @@ class PhoneClickListScreen extends Screen
     {
         $this->runRingCentralMatch(
             PhoneClick::query()
-                ->where(function ($query): void {
-                    $query->whereIn('ringcentral_status', [
-                        PhoneClick::RINGCENTRAL_PENDING,
-                        PhoneClick::RINGCENTRAL_NO_CALL,
-                        PhoneClick::RINGCENTRAL_ERROR,
-                        PhoneClick::RINGCENTRAL_NOT_CHECKED,
-                    ])->orWhereNull('ringcentral_status');
-                })
                 ->orderByDesc('id')
                 ->limit(100)
                 ->get(),
             force: true,
-            emptyMessage: 'No unmatched phone clicks to re-check.',
+            emptyMessage: 'No phone clicks to re-check.',
             ringCentral: $ringCentral,
         );
     }

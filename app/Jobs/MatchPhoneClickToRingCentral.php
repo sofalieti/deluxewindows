@@ -37,7 +37,9 @@ class MatchPhoneClickToRingCentral implements ShouldQueue
                     return;
                 }
 
-                if ($this->force && $click->ringcentral_status !== PhoneClick::RINGCENTRAL_FOUND) {
+                if ($this->force) {
+                    $meta = is_array($click->meta) ? $click->meta : [];
+                    unset($meta['ringcentral_match_lag_seconds']);
                     $click->forceFill([
                         'ringcentral_status' => PhoneClick::RINGCENTRAL_PENDING,
                         'ringcentral_checked_at' => null,
@@ -50,6 +52,7 @@ class MatchPhoneClickToRingCentral implements ShouldQueue
                         'ringcentral_from_phone' => null,
                         'ringcentral_to_phone' => null,
                         'ringcentral_error' => null,
+                        'meta' => $meta,
                     ])->saveQuietly();
                 }
 
@@ -91,6 +94,9 @@ class MatchPhoneClickToRingCentral implements ShouldQueue
 
                 if ($match !== null) {
                     try {
+                        $meta = is_array($click->meta) ? $click->meta : [];
+                        $meta['ringcentral_match_lag_seconds'] = (int) ($match['lag_seconds'] ?? 0);
+
                         $click->forceFill([
                             'ringcentral_status' => PhoneClick::RINGCENTRAL_FOUND,
                             'ringcentral_checked_at' => $now,
@@ -103,6 +109,7 @@ class MatchPhoneClickToRingCentral implements ShouldQueue
                             'ringcentral_from_phone' => $match['from_phone'],
                             'ringcentral_to_phone' => $match['to_phone'],
                             'ringcentral_error' => null,
+                            'meta' => $meta,
                         ])->save();
                     } catch (\Throwable $exception) {
                         Log::warning('RingCentral call could not be assigned to phone click', [

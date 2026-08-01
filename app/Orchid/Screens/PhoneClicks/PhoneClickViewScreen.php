@@ -68,11 +68,11 @@ class PhoneClickViewScreen extends Screen
                 ->confirm('Send this phone click to the Google Sheet? This can only be done once.');
         }
 
-        if ($this->click && $this->click->ringcentral_status !== PhoneClick::RINGCENTRAL_FOUND) {
+        if ($this->click) {
             $actions[] = Button::make('Re-match RingCentral')
                 ->icon('bs.link-45deg')
                 ->method('rematch', ['click' => $this->click->id])
-                ->confirm('Match this click again against the call journal / RingCentral?');
+                ->confirm('Clear current match (if any) and match this click again: same DID, call after click time?');
         }
 
         if ($this->click) {
@@ -279,11 +279,6 @@ class PhoneClickViewScreen extends Screen
         ]);
 
         $click = PhoneClick::query()->findOrFail((int) $validated['click']);
-        if ($click->ringcentral_status === PhoneClick::RINGCENTRAL_FOUND) {
-            Toast::warning('This click is already matched to a RingCentral call.');
-
-            return;
-        }
 
         try {
             (new MatchPhoneClickToRingCentral($click->id, force: true))->handle($ringCentral);

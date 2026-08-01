@@ -279,7 +279,7 @@ test('one RingCentral call cannot be assigned to two phone clicks', function () 
         ->and(PhoneClick::query()->where('ringcentral_call_id', 'one-call-only')->count())->toBe(1);
 });
 
-test('phone click matching also checks additional RingCentral numbers from promotions', function () {
+test('phone click call tracking ignores extra RingCentral numbers and uses primary only', function () {
     Queue::fake();
     CarbonImmutable::setTestNow('2026-07-30 16:03:00 UTC');
 
@@ -293,11 +293,20 @@ test('phone click matching also checks additional RingCentral numbers from promo
     );
     app(\App\Services\PromotionControlService::class)->forgetCache();
 
-    $click = PhoneClick::query()->create([
+    $clickOnExtra = PhoneClick::query()->create([
+        'phone' => '+14155550199',
+        'ringcentral_status' => PhoneClick::RINGCENTRAL_PENDING,
+    ]);
+    $clickOnExtra->forceFill([
+        'created_at' => CarbonImmutable::parse('2026-07-30 16:00:00 UTC'),
+        'updated_at' => CarbonImmutable::parse('2026-07-30 16:00:00 UTC'),
+    ])->saveQuietly();
+
+    $clickOnPrimary = PhoneClick::query()->create([
         'phone' => '+16504614446',
         'ringcentral_status' => PhoneClick::RINGCENTRAL_PENDING,
     ]);
-    $click->forceFill([
+    $clickOnPrimary->forceFill([
         'created_at' => CarbonImmutable::parse('2026-07-30 16:00:00 UTC'),
         'updated_at' => CarbonImmutable::parse('2026-07-30 16:00:00 UTC'),
     ])->saveQuietly();
@@ -310,31 +319,89 @@ test('phone click matching also checks additional RingCentral numbers from promo
             ]);
         }
 
-        // Account-wide log (no phoneNumber filter): call landed on extra DID.
         return Http::response([
-            'records' => [[
-                'id' => 'extra-did-call',
-                'sessionId' => 'extra-session',
-                'startTime' => '2026-07-30T16:00:20.000Z',
-                'duration' => 33,
-                'type' => 'Voice',
-                'direction' => 'Inbound',
-                'result' => 'Accepted',
-                'from' => ['phoneNumber' => '+14155550888'],
-                'to' => ['phoneNumber' => '+14155550199'],
-            ]],
+            'records' => [
+                [
+                    'id' => 'extra-did-call',
+                    'sessionId' => 'extra-session',
+                    'startTime' => '2026-07-30T16:00:20.000Z',
+                    'duration' => 33,
+                    'type' => 'Voice',
+                    'direction' => 'Inbound',
+                    'result' => 'Accepted',
+                    'from' => ['phoneNumber' => '+14155550888'],
+                    'to' => ['phoneNumber' => '+14155550199'],
+                ],
+                [
+                    'id' => 'primary-did-call',
+                    'sessionId' => 'primary-session',
+                    'startTime' => '2026-07-30T16:00:25.000Z',
+                    'duration' => 40,
+                    'type' => 'Voice',
+                    'direction' => 'Inbound',
+                    'result' => 'Accepted',
+                    'from' => ['phoneNumber' => '+14155550777'],
+                    'to' => ['phoneNumber' => '+16504614446'],
+                ],
+            ],
         ]);
     });
+
+    $service = app(RingCentralCallLogService::class);
+    (new MatchPhoneClickToRingCentral($clickOnExtra->id))->handle($service);
+    (new MatchPhoneClickToRingCentral($clickOnPrimary->id))->handle($service);
+
+    expect($clickOnExtra->refresh()->ringcentral_status)->not->toBe(PhoneClick::RINGCENTRAL_FOUND)
+        ->and($clickOnExtra->ringcentral_call_id)->toBeNull()
+        ->and($clickOnPrimary->refresh()->ringcentral_status)->toBe(PhoneClick::RINGCENTRAL_FOUND)
+        ->and($clickOnPrimary->ringcentral_call_id)->toBe('primary-did-call')
+        ->and($clickOnPrimary->ringcentral_to_phone)->toBe('+16504614446');
+});
+
+test('journal call times are read as UTC so morning calls do not match evening clicks', function () {
+    Queue::fake();
+    config()->set('app.timezone', 'America/Los_Angeles');
+    CarbonImmutable::setTestNow('2026-07-31 23:00:00 UTC');
+
+    $click = PhoneClick::query()->create([
+        'phone' => '+16504614446',
+        'ringcentral_status' => PhoneClick::RINGCENTRAL_PENDING,
+    ]);
+    // 3:55 PM PT
+    $click->forceFill([
+        'created_at' => CarbonImmutable::parse('2026-07-31 22:55:00 UTC'),
+        'updated_at' => CarbonImmutable::parse('2026-07-31 22:55:00 UTC'),
+    ])->saveQuietly();
+
+    // Morning call 8:55 AM PT = 15:55 UTC — must NOT match the evening click.
+    \App\Models\RingCentralCall::query()->create([
+        'ringcentral_call_id' => 'morning-call',
+        'direction' => 'Inbound',
+        'started_at' => CarbonImmutable::parse('2026-07-31T15:55:00Z'),
+        'duration' => 40,
+        'business_phone' => '+16504614446',
+        'from_phone' => '+19258646114',
+        'to_phone' => '+16504614446',
+        'external_phone' => '+19258646114',
+        'result' => 'Accepted',
+        'synced_at' => CarbonImmutable::parse('2026-07-31T16:00:00Z'),
+    ]);
+
+    Http::fake([
+        'https://platform.ringcentral.test/restapi/oauth/token' => Http::response([
+            'access_token' => 'test-access-token',
+            'expires_in' => 3600,
+        ]),
+        'https://platform.ringcentral.test/restapi/v1.0/account/*/call-log*' => Http::response([
+            'records' => [],
+        ]),
+    ]);
 
     (new MatchPhoneClickToRingCentral($click->id))
         ->handle(app(RingCentralCallLogService::class));
 
-    $click->refresh();
-
-    expect($click->ringcentral_status)->toBe(PhoneClick::RINGCENTRAL_FOUND)
-        ->and($click->ringcentral_call_id)->toBe('extra-did-call')
-        ->and($click->ringcentral_to_phone)->toBe('+14155550199')
-        ->and($click->ringcentral_from_phone)->toBe('+14155550888');
+    expect($click->refresh()->ringcentral_status)->not->toBe(PhoneClick::RINGCENTRAL_FOUND)
+        ->and($click->ringcentral_call_id)->toBeNull();
 });
 
 test('phone clicks screen can trigger an immediate RingCentral re-check', function () {

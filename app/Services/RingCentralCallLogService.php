@@ -31,21 +31,21 @@ class RingCentralCallLogService
      */
     public function findMatchingCall(PhoneClick $click): ?array
     {
-        $candidatePhones = $this->matchCandidatePhones((string) $click->phone);
-        if ($candidatePhones === []) {
+        $targetPhones = $this->callTrackingTargetPhones((string) $click->phone);
+        if ($targetPhones === []) {
             return null;
         }
 
-        $startedAt = CarbonImmutable::parse($click->created_at)->utc();
+        $clickAt = $this->clickTimeUtc($click);
         $tolerance = max(0, (int) config('services.ringcentral.clock_tolerance_seconds', 30));
-        $dateFrom = $startedAt->subSeconds($tolerance);
         $windowMinutes = max(3, (int) config('services.ringcentral.match_window_minutes', 10));
-        $deadline = $startedAt->addMinutes($windowMinutes);
+        $dateFrom = $clickAt->subSeconds($tolerance);
+        $deadline = $clickAt->addMinutes($windowMinutes);
         $currentTime = CarbonImmutable::now('UTC');
         $dateTo = $currentTime->lessThan($deadline) ? $currentTime : $deadline;
 
         // Prefer already-synced journal (works even when API phoneNumber= is empty).
-        $fromJournal = $this->findMatchingCallInJournal($click, $candidatePhones, $startedAt, $dateFrom, $dateTo);
+        $fromJournal = $this->findMatchingCallInJournal($click, $targetPhones, $clickAt, $dateFrom, $dateTo);
         if ($fromJournal !== null) {
             return $fromJournal;
         }
@@ -54,75 +54,59 @@ class RingCentralCallLogService
         $matches = [];
         $seenCallIds = [];
         foreach ($this->fetchAccountVoiceRecords($dateFrom, $dateTo) as $record) {
-            if (! is_array($record)) {
+            $match = $this->matchFromApiRecord($record, $click, $targetPhones, $clickAt, $dateFrom, $dateTo, $seenCallIds);
+            if ($match === null) {
                 continue;
             }
-
-            $id = trim((string) ($record['id'] ?? ''));
-            $direction = trim((string) ($record['direction'] ?? ''));
-            $type = trim((string) ($record['type'] ?? ''));
-            $toPhone = $this->normalizePhone((string) data_get($record, 'to.phoneNumber', ''));
-            $rawStartTime = trim((string) ($record['startTime'] ?? ''));
-
-            if (
-                $id === ''
-                || isset($seenCallIds[$id])
-                || strcasecmp($direction, 'Inbound') !== 0
-                || ($type !== '' && strcasecmp($type, 'Voice') !== 0)
-                || ! $this->matchesAnyPhone($toPhone, $candidatePhones)
-                || $rawStartTime === ''
-            ) {
-                continue;
-            }
-
-            $seenCallIds[$id] = true;
-
-            if (PhoneClick::query()
-                ->where('ringcentral_call_id', $id)
-                ->where($click->getKeyName(), '!=', $click->getKey())
-                ->exists()) {
-                continue;
-            }
-
-            try {
-                $callStartedAt = CarbonImmutable::parse($rawStartTime)->utc();
-            } catch (\Throwable) {
-                continue;
-            }
-
-            if ($callStartedAt->lessThan($dateFrom) || $callStartedAt->greaterThan($dateTo)) {
-                continue;
-            }
-
-            $matches[] = [
-                'id' => $id,
-                'session_id' => trim((string) (
-                    $record['telephonySessionId']
-                    ?? $record['sessionId']
-                    ?? ''
-                )),
-                'result' => trim((string) ($record['result'] ?? 'Unknown')),
-                'direction' => $direction,
-                'start_time' => $callStartedAt,
-                'duration' => max(0, (int) ($record['duration'] ?? 0)),
-                'from_phone' => $this->normalizePhone((string) data_get($record, 'from.phoneNumber', '')),
-                'to_phone' => $toPhone,
-                'distance' => abs($startedAt->diffInSeconds($callStartedAt, false)),
-            ];
+            $seenCallIds[$match['id']] = true;
+            $matches[] = $match;
         }
 
-        if ($matches === []) {
-            return null;
-        }
-
-        usort($matches, fn (array $a, array $b): int => $a['distance'] <=> $b['distance']);
-        unset($matches[0]['distance']);
-
-        return $matches[0];
+        return $this->pickBestCallMatch($matches);
     }
 
     /**
-     * @param  list<string>  $candidatePhones
+     * Phone-click call tracking uses only the primary site number (Promotions phone_tel).
+     * Extra RingCentral numbers are ignored for click ↔ call matching.
+     *
+     * @return list<string>
+     */
+    public function callTrackingTargetPhones(string $clickedPhone): array
+    {
+        $primary = $this->normalizePhone(app(PromotionControlService::class)->phoneTel());
+        if ($primary === '') {
+            return [];
+        }
+
+        $clicked = $this->normalizePhone($clickedPhone);
+        // Click on a non-primary DID is out of scope for site call tracking.
+        if ($clicked !== '' && ! $this->phonesMatch($clicked, $primary)) {
+            return [];
+        }
+
+        return [$primary];
+    }
+
+    /**
+     * @return list<string>
+     */
+    public function matchCandidatePhones(string $clickedPhone): array
+    {
+        return $this->callTrackingTargetPhones($clickedPhone);
+    }
+
+    private function clickTimeUtc(PhoneClick $click): CarbonImmutable
+    {
+        if ($click->created_at instanceof \DateTimeInterface) {
+            return CarbonImmutable::instance($click->created_at)->utc();
+        }
+
+        return CarbonImmutable::parse((string) $click->created_at, (string) config('app.timezone', 'UTC'))->utc();
+    }
+
+    /**
+     * @param  list<string>  $targetPhones
+     * @param  array<string, bool>  $seenCallIds
      * @return array{
      *     id: string,
      *     session_id: string,
@@ -131,13 +115,89 @@ class RingCentralCallLogService
      *     start_time: CarbonImmutable,
      *     duration: int,
      *     from_phone: string,
-     *     to_phone: string
+     *     to_phone: string,
+     *     lag_seconds: int
+     * }|null
+     */
+    private function matchFromApiRecord(
+        mixed $record,
+        PhoneClick $click,
+        array $targetPhones,
+        CarbonImmutable $clickAt,
+        CarbonImmutable $dateFrom,
+        CarbonImmutable $dateTo,
+        array $seenCallIds,
+    ): ?array {
+        if (! is_array($record)) {
+            return null;
+        }
+
+        $id = trim((string) ($record['id'] ?? ''));
+        $direction = trim((string) ($record['direction'] ?? ''));
+        $type = trim((string) ($record['type'] ?? ''));
+        $toPhone = $this->normalizePhone((string) data_get($record, 'to.phoneNumber', ''));
+        $rawStartTime = trim((string) ($record['startTime'] ?? ''));
+
+        if (
+            $id === ''
+            || isset($seenCallIds[$id])
+            || strcasecmp($direction, 'Inbound') !== 0
+            || ($type !== '' && strcasecmp($type, 'Voice') !== 0)
+            || ! $this->matchesAnyPhone($toPhone, $targetPhones)
+            || $rawStartTime === ''
+        ) {
+            return null;
+        }
+
+        if (PhoneClick::query()
+            ->where('ringcentral_call_id', $id)
+            ->where($click->getKeyName(), '!=', $click->getKey())
+            ->exists()) {
+            return null;
+        }
+
+        try {
+            $callStartedAt = CarbonImmutable::parse($rawStartTime)->utc();
+        } catch (\Throwable) {
+            return null;
+        }
+
+        return $this->buildMatchIfInWindow(
+            id: $id,
+            sessionId: trim((string) (
+                $record['telephonySessionId']
+                ?? $record['sessionId']
+                ?? ''
+            )),
+            result: trim((string) ($record['result'] ?? 'Unknown')),
+            callStartedAt: $callStartedAt,
+            duration: max(0, (int) ($record['duration'] ?? 0)),
+            fromPhone: $this->normalizePhone((string) data_get($record, 'from.phoneNumber', '')),
+            toPhone: $toPhone,
+            clickAt: $clickAt,
+            dateFrom: $dateFrom,
+            dateTo: $dateTo,
+        );
+    }
+
+    /**
+     * @param  list<string>  $targetPhones
+     * @return array{
+     *     id: string,
+     *     session_id: string,
+     *     result: string,
+     *     direction: string,
+     *     start_time: CarbonImmutable,
+     *     duration: int,
+     *     from_phone: string,
+     *     to_phone: string,
+     *     lag_seconds: int
      * }|null
      */
     private function findMatchingCallInJournal(
         PhoneClick $click,
-        array $candidatePhones,
-        CarbonImmutable $startedAt,
+        array $targetPhones,
+        CarbonImmutable $clickAt,
         CarbonImmutable $dateFrom,
         CarbonImmutable $dateTo,
     ): ?array {
@@ -156,7 +216,7 @@ class RingCentralCallLogService
         $matches = [];
         foreach ($calls as $call) {
             $toPhone = $this->normalizePhone((string) ($call->to_phone ?: $call->business_phone));
-            if (! $this->matchesAnyPhone($toPhone, $candidatePhones)) {
+            if (! $this->matchesAnyPhone($toPhone, $targetPhones)) {
                 continue;
             }
 
@@ -172,64 +232,118 @@ class RingCentralCallLogService
                 continue;
             }
 
+            $rawStarted = $call->getRawOriginal('started_at');
             try {
-                $callStartedAt = CarbonImmutable::parse($call->getRawOriginal('started_at') ?: $call->started_at)
-                    ->utc();
+                $callStartedAt = is_string($rawStarted) && $rawStarted !== ''
+                    ? CarbonImmutable::createFromFormat('Y-m-d H:i:s', $rawStarted, 'UTC')
+                    : CarbonImmutable::instance($call->started_at)->utc();
             } catch (\Throwable) {
                 continue;
             }
 
-            if ($callStartedAt->lessThan($dateFrom) || $callStartedAt->greaterThan($dateTo)) {
-                continue;
-            }
-
-            $matches[] = [
-                'id' => $id,
-                'session_id' => trim((string) (
+            $match = $this->buildMatchIfInWindow(
+                id: $id,
+                sessionId: trim((string) (
                     $call->telephony_session_id ?: $call->session_id ?: ''
                 )),
-                'result' => trim((string) ($call->result ?: 'Unknown')),
-                'direction' => 'Inbound',
-                'start_time' => $callStartedAt,
-                'duration' => max(0, (int) $call->duration),
-                'from_phone' => $this->normalizePhone((string) $call->from_phone),
-                'to_phone' => $toPhone,
-                'distance' => abs($startedAt->diffInSeconds($callStartedAt, false)),
-            ];
+                result: trim((string) ($call->result ?: 'Unknown')),
+                callStartedAt: $callStartedAt,
+                duration: max(0, (int) $call->duration),
+                fromPhone: $this->normalizePhone((string) $call->from_phone),
+                toPhone: $toPhone,
+                clickAt: $clickAt,
+                dateFrom: $dateFrom,
+                dateTo: $dateTo,
+            );
+            if ($match !== null) {
+                $matches[] = $match;
+            }
         }
 
+        return $this->pickBestCallMatch($matches);
+    }
+
+    /**
+     * @return array{
+     *     id: string,
+     *     session_id: string,
+     *     result: string,
+     *     direction: string,
+     *     start_time: CarbonImmutable,
+     *     duration: int,
+     *     from_phone: string,
+     *     to_phone: string,
+     *     lag_seconds: int
+     * }|null
+     */
+    private function buildMatchIfInWindow(
+        string $id,
+        string $sessionId,
+        string $result,
+        CarbonImmutable $callStartedAt,
+        int $duration,
+        string $fromPhone,
+        string $toPhone,
+        CarbonImmutable $clickAt,
+        CarbonImmutable $dateFrom,
+        CarbonImmutable $dateTo,
+    ): ?array {
+        if ($callStartedAt->lessThan($dateFrom) || $callStartedAt->greaterThan($dateTo)) {
+            return null;
+        }
+
+        // Call tracking: call should start at/after the click (tiny clock skew allowed via dateFrom).
+        $lagSeconds = $callStartedAt->getTimestamp() - $clickAt->getTimestamp();
+        if ($lagSeconds < -1 * max(0, (int) config('services.ringcentral.clock_tolerance_seconds', 30))) {
+            return null;
+        }
+
+        return [
+            'id' => $id,
+            'session_id' => $sessionId,
+            'result' => $result,
+            'direction' => 'Inbound',
+            'start_time' => $callStartedAt,
+            'duration' => $duration,
+            'from_phone' => $fromPhone,
+            'to_phone' => $toPhone,
+            'lag_seconds' => max(0, $lagSeconds),
+        ];
+    }
+
+    /**
+     * @param  list<array{
+     *     id: string,
+     *     session_id: string,
+     *     result: string,
+     *     direction: string,
+     *     start_time: CarbonImmutable,
+     *     duration: int,
+     *     from_phone: string,
+     *     to_phone: string,
+     *     lag_seconds: int
+     * }>  $matches
+     * @return array{
+     *     id: string,
+     *     session_id: string,
+     *     result: string,
+     *     direction: string,
+     *     start_time: CarbonImmutable,
+     *     duration: int,
+     *     from_phone: string,
+     *     to_phone: string,
+     *     lag_seconds: int
+     * }|null
+     */
+    private function pickBestCallMatch(array $matches): ?array
+    {
         if ($matches === []) {
             return null;
         }
 
-        usort($matches, fn (array $a, array $b): int => $a['distance'] <=> $b['distance']);
-        unset($matches[0]['distance']);
+        usort($matches, fn (array $a, array $b): int => $a['lag_seconds'] <=> $b['lag_seconds']);
 
         return $matches[0];
-    }
-
-    /**
-     * Clicked number plus every monitored company number from Promotions.
-     *
-     * @return list<string>
-     */
-    public function matchCandidatePhones(string $clickedPhone): array
-    {
-        $phones = [];
-        $clicked = $this->normalizePhone($clickedPhone);
-        if ($clicked !== '') {
-            $phones[] = $clicked;
-        }
-
-        foreach (app(PromotionControlService::class)->ringCentralPhones() as $phone) {
-            $normalized = $this->normalizePhone($phone);
-            if ($normalized === '' || $this->matchesAnyPhone($normalized, $phones)) {
-                continue;
-            }
-            $phones[] = $normalized;
-        }
-
-        return $phones;
     }
 
     /**
