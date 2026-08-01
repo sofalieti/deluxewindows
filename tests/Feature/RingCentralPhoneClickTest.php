@@ -279,7 +279,7 @@ test('one RingCentral call cannot be assigned to two phone clicks', function () 
         ->and(PhoneClick::query()->where('ringcentral_call_id', 'one-call-only')->count())->toBe(1);
 });
 
-test('phone click call tracking ignores extra RingCentral numbers and uses primary only', function () {
+test('phone click call tracking matches the DID that was clicked', function () {
     Queue::fake();
     CarbonImmutable::setTestNow('2026-07-30 16:03:00 UTC');
 
@@ -351,8 +351,9 @@ test('phone click call tracking ignores extra RingCentral numbers and uses prima
     (new MatchPhoneClickToRingCentral($clickOnExtra->id))->handle($service);
     (new MatchPhoneClickToRingCentral($clickOnPrimary->id))->handle($service);
 
-    expect($clickOnExtra->refresh()->ringcentral_status)->not->toBe(PhoneClick::RINGCENTRAL_FOUND)
-        ->and($clickOnExtra->ringcentral_call_id)->toBeNull()
+    expect($clickOnExtra->refresh()->ringcentral_status)->toBe(PhoneClick::RINGCENTRAL_FOUND)
+        ->and($clickOnExtra->ringcentral_call_id)->toBe('extra-did-call')
+        ->and($clickOnExtra->ringcentral_to_phone)->toBe('+14155550199')
         ->and($clickOnPrimary->refresh()->ringcentral_status)->toBe(PhoneClick::RINGCENTRAL_FOUND)
         ->and($clickOnPrimary->ringcentral_call_id)->toBe('primary-did-call')
         ->and($clickOnPrimary->ringcentral_to_phone)->toBe('+16504614446');

@@ -61,11 +61,11 @@ class PhoneClickListScreen extends Screen
             Button::make('Check RingCentral now')
                 ->icon('bs.arrow-repeat')
                 ->method('checkRingCentralNow')
-                ->confirm('Re-check pending / error phone clicks against the primary site number in RingCentral?'),
+                ->confirm('Re-check pending / error phone clicks against the phone number that was clicked?'),
             Button::make('Re-run call tracking')
                 ->icon('bs.link-45deg')
                 ->method('rematchUnmatched')
-                ->confirm('Reset and re-match the latest 100 non-spam phone clicks against the primary site number only?'),
+                ->confirm('Reset and re-match the latest 100 non-spam phone clicks against each click’s phone number?'),
         ];
     }
 

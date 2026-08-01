@@ -66,25 +66,21 @@ class RingCentralCallLogService
     }
 
     /**
-     * Phone-click call tracking uses only the primary site number (Promotions phone_tel).
-     * Extra RingCentral numbers are ignored for click ↔ call matching.
+     * Match inbound RingCentral calls to the DID the visitor actually clicked.
+     * Falls back to the primary site number when the click has no usable phone.
      *
      * @return list<string>
      */
     public function callTrackingTargetPhones(string $clickedPhone): array
     {
-        $primary = $this->normalizePhone(app(PromotionControlService::class)->phoneTel());
-        if ($primary === '') {
-            return [];
-        }
-
         $clicked = $this->normalizePhone($clickedPhone);
-        // Click on a non-primary DID is out of scope for site call tracking.
-        if ($clicked !== '' && ! $this->phonesMatch($clicked, $primary)) {
-            return [];
+        if ($clicked !== '') {
+            return [$clicked];
         }
 
-        return [$primary];
+        $primary = $this->normalizePhone(app(PromotionControlService::class)->phoneTel());
+
+        return $primary !== '' ? [$primary] : [];
     }
 
     /**
