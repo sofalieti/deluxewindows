@@ -63,6 +63,13 @@ class PhoneClickGoogleBridge
      */
     public function send(PhoneClick $click): array
     {
+        if ($click->ringCentralClientPhone() === null) {
+            return [
+                'ok' => false,
+                'message' => 'Match a RingCentral call first — Google Sheet needs the client phone number.',
+            ];
+        }
+
         $urls = array_values(array_filter(
             (array) config('services.lead_bridge.urls', []),
             fn (mixed $url): bool => is_string($url) && trim($url) !== ''
@@ -149,6 +156,7 @@ class PhoneClickGoogleBridge
     private function payload(PhoneClick $click): array
     {
         $pageUrl = trim((string) $click->page_url);
+        $clientPhone = (string) $click->ringCentralClientPhone();
 
         return [
             'Form ID' => 'Phone Click',
@@ -158,7 +166,7 @@ class PhoneClickGoogleBridge
             'URL' => $pageUrl,
             'Name' => '',
             'Email' => '',
-            'Phone' => (string) ($click->phone ?? ''),
+            'Phone' => $clientPhone,
             'Subject' => (string) ($click->source_label ?? 'Phone click'),
             'Message' => 'Phone click #'.$click->id,
             'landing_page' => (string) ($click->landing_page ?? ''),

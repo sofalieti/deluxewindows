@@ -27,6 +27,10 @@ test('a phone click is sent to every Google bridge only once', function () {
         'utm_source' => 'google',
         'utm_campaign' => 'doors',
         'gclid' => 'test-gclid',
+        'ringcentral_status' => PhoneClick::RINGCENTRAL_FOUND,
+        'ringcentral_direction' => 'Inbound',
+        'ringcentral_from_phone' => '+14155550999',
+        'ringcentral_to_phone' => '+16504614446',
     ]);
 
     $bridge = app(PhoneClickGoogleBridge::class);
@@ -45,8 +49,54 @@ test('a phone click is sent to every Google bridge only once', function () {
 
     Http::assertSentCount(2);
     Http::assertSent(fn ($request) => $request['Form ID'] === 'Phone Click'
-        && $request['Phone'] === '+16504614446'
+        && $request['Phone'] === '+14155550999'
         && $request['utm_source'] === 'google'
         && $request['gclid'] === 'test-gclid'
         && $request['idempotency_key'] === 'phone-click-'.$click->id);
+});
+
+test('google sheet phone uses the outbound RingCentral client number', function () {
+    config()->set('services.lead_bridge.urls', [
+        'https://example.test/google-sheet-one',
+    ]);
+
+    Http::fake([
+        'https://example.test/*' => Http::response('ok', 200),
+    ]);
+
+    $user = User::factory()->create();
+    $click = PhoneClick::query()->create([
+        'phone' => '+16504614446',
+        'ringcentral_status' => PhoneClick::RINGCENTRAL_FOUND,
+        'ringcentral_direction' => 'Outbound',
+        'ringcentral_from_phone' => '+16504614446',
+        'ringcentral_to_phone' => '+19255550123',
+    ]);
+
+    $result = app(PhoneClickGoogleBridge::class)->sendOnce($click, (int) $user->id);
+
+    expect($result['ok'])->toBeTrue();
+    Http::assertSent(fn ($request) => $request['Phone'] === '+19255550123');
+});
+
+test('google sheet send is blocked until a RingCentral client phone exists', function () {
+    config()->set('services.lead_bridge.urls', [
+        'https://example.test/google-sheet-one',
+    ]);
+
+    Http::fake();
+
+    $user = User::factory()->create();
+    $click = PhoneClick::query()->create([
+        'phone' => '+16504614446',
+        'ringcentral_status' => PhoneClick::RINGCENTRAL_PENDING,
+    ]);
+
+    $result = app(PhoneClickGoogleBridge::class)->sendOnce($click, (int) $user->id);
+
+    expect($result['ok'])->toBeFalse()
+        ->and($result['already_sent'])->toBeFalse()
+        ->and($click->refresh()->google_sheet_sent_at)->toBeNull();
+
+    Http::assertNothingSent();
 });

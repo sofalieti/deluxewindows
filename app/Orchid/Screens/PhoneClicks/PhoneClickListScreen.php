@@ -166,13 +166,17 @@ class PhoneClickListScreen extends Screen
                         ->method('markAsSpam', ['phone_click_id' => $click->id])
                         ->confirm('Mark this phone click as spam and hide it from the main list?');
 
-                return view('admin.phone-clicks.actions-cell', [
-                    'click' => $click,
-                    'sendToGoogle' => Button::make('Google')
+                $sendToGoogle = $click->ringCentralClientPhone() !== null
+                    ? Button::make('Google')
                         ->icon('bs.google')
                         ->type(Color::PRIMARY)
                         ->method('sendToGoogle', ['click' => $click->id])
-                        ->confirm('Send this phone click to the Google Sheet? This can only be done once.'),
+                        ->confirm('Send this phone click to the Google Sheet with the RingCentral client phone? This can only be done once.')
+                    : null;
+
+                return view('admin.phone-clicks.actions-cell', [
+                    'click' => $click,
+                    'sendToGoogle' => $sendToGoogle,
                     'spamAction' => $spamAction,
                 ]);
             });

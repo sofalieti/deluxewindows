@@ -188,6 +188,27 @@ class PhoneClick extends Model
         ], true);
     }
 
+    /**
+     * External (client) phone from the matched RingCentral call.
+     */
+    public function ringCentralClientPhone(): ?string
+    {
+        if ($this->ringcentral_status !== self::RINGCENTRAL_FOUND) {
+            return null;
+        }
+
+        $direction = ucfirst(strtolower(trim((string) ($this->ringcentral_direction ?? ''))));
+        $from = trim((string) ($this->ringcentral_from_phone ?? ''));
+        $to = trim((string) ($this->ringcentral_to_phone ?? ''));
+
+        $client = $direction === 'Outbound' ? $to : $from;
+        if ($client === '') {
+            $client = $from !== '' ? $from : $to;
+        }
+
+        return $client !== '' ? $client : null;
+    }
+
     public function ringCentralDurationLabel(): string
     {
         $seconds = max(0, (int) $this->ringcentral_duration);
