@@ -11,6 +11,7 @@ use App\Services\RingCentralCallLogService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Illuminate\Validation\ValidationException;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
@@ -180,7 +181,7 @@ class PhoneClickListScreen extends Screen
                 ->width('100px')
                 ->render(fn (PhoneClick $click) => Button::make('Restore')
                     ->icon('bs.arrow-counterclockwise')
-                    ->method('restoreFromSpam', ['click' => $click->id])
+                    ->method('restoreFromSpam', ['phone_click_id' => $click->id])
                     ->confirm('Move this phone click back to the main list?'))
             : TD::make('spam', '')
                 ->align(TD::ALIGN_CENTER)
@@ -188,7 +189,7 @@ class PhoneClickListScreen extends Screen
                 ->render(fn (PhoneClick $click) => Button::make('Spam')
                     ->icon('bs.shield-exclamation')
                     ->type(Color::DANGER)
-                    ->method('markAsSpam', ['click' => $click->id])
+                    ->method('markAsSpam', ['phone_click_id' => $click->id])
                     ->confirm('Mark this phone click as spam and hide it from the main list?'));
 
         return $columns;
@@ -265,24 +266,38 @@ class PhoneClickListScreen extends Screen
 
     public function markAsSpam(Request $request): void
     {
-        $validated = $request->validate([
-            'click' => ['required', 'integer', 'exists:phone_clicks,id'],
-        ]);
+        try {
+            $validated = $request->validate([
+                'phone_click_id' => ['required', 'integer', 'exists:phone_clicks,id'],
+            ]);
 
-        $click = PhoneClick::query()->findOrFail((int) $validated['click']);
-        $click->markAsSpam();
-        Toast::info('Phone click marked as spam.');
+            $click = PhoneClick::query()->findOrFail((int) $validated['phone_click_id']);
+            $click->markAsSpam();
+            Toast::info('Phone click marked as spam.');
+        } catch (ValidationException $exception) {
+            throw $exception;
+        } catch (Throwable $exception) {
+            report($exception);
+            Toast::error('Could not mark as spam: '.$exception->getMessage());
+        }
     }
 
     public function restoreFromSpam(Request $request): void
     {
-        $validated = $request->validate([
-            'click' => ['required', 'integer', 'exists:phone_clicks,id'],
-        ]);
+        try {
+            $validated = $request->validate([
+                'phone_click_id' => ['required', 'integer', 'exists:phone_clicks,id'],
+            ]);
 
-        $click = PhoneClick::query()->findOrFail((int) $validated['click']);
-        $click->restoreFromSpam();
-        Toast::info('Phone click restored from spam.');
+            $click = PhoneClick::query()->findOrFail((int) $validated['phone_click_id']);
+            $click->restoreFromSpam();
+            Toast::info('Phone click restored from spam.');
+        } catch (ValidationException $exception) {
+            throw $exception;
+        } catch (Throwable $exception) {
+            report($exception);
+            Toast::error('Could not restore from spam: '.$exception->getMessage());
+        }
     }
 
     /**

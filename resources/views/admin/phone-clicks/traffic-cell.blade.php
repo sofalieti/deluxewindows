@@ -23,7 +23,7 @@
     <div class="phone-click-traffic__google">
         @if ($click->wasSentToGoogleSheet())
             <span class="badge bg-success text-white">✓ Sent {{ optional($click->google_sheet_sent_at)->format('Y-m-d H:i') }}</span>
-        @else
+        @elseif (! empty($sendToGoogle))
             {!! $sendToGoogle !!}
         @endif
     </div>

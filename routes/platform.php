@@ -77,7 +77,8 @@ Route::screen('phone-clicks', PhoneClickListScreen::class)
     ->name('platform.phone-clicks');
 
 Route::screen('phone-clicks/{click}', PhoneClickViewScreen::class)
-    ->name('platform.phone-clicks.view');
+    ->name('platform.phone-clicks.view')
+    ->whereNumber('click');
 
 Route::screen('ringcentral-calls', RingCentralCallListScreen::class)
     ->name('platform.ringcentral-calls');

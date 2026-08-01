@@ -137,7 +137,9 @@ class PhoneClick extends Model
 
     public function markAsSpam(): void
     {
-        abort_unless($this->spamColumnReady(), 500, 'Run migrations: phone_clicks.is_spam is missing.');
+        if (! $this->spamColumnReady()) {
+            throw new \RuntimeException('Run php artisan migrate — column phone_clicks.is_spam is missing.');
+        }
 
         $this->forceFill([
             'is_spam' => true,
@@ -147,7 +149,9 @@ class PhoneClick extends Model
 
     public function restoreFromSpam(): void
     {
-        abort_unless($this->spamColumnReady(), 500, 'Run migrations: phone_clicks.is_spam is missing.');
+        if (! $this->spamColumnReady()) {
+            throw new \RuntimeException('Run php artisan migrate — column phone_clicks.is_spam is missing.');
+        }
 
         $this->forceFill([
             'is_spam' => false,
@@ -157,7 +161,13 @@ class PhoneClick extends Model
 
     private function spamColumnReady(): bool
     {
-        return Schema::hasColumn($this->getTable(), 'is_spam');
+        static $ready = null;
+
+        if ($ready === null) {
+            $ready = Schema::hasColumn($this->getTable(), 'is_spam');
+        }
+
+        return $ready;
     }
 
     public function googleSheetSender(): BelongsTo
