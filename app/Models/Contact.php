@@ -73,8 +73,13 @@ class Contact extends Model
         return $this->hasManyThrough(LeadComment::class, Lead::class);
     }
 
+    public function ringCentralCalls(): HasMany
+    {
+        return $this->hasMany(RingCentralCall::class)->latest('started_at');
+    }
+
     /**
-     * RingCentral calls where this contact's phone is the other party.
+     * RingCentral calls for this contact's phone (bound by contact_id, with phone fallback).
      *
      * @return Collection<int, RingCentralCall>
      */
@@ -84,30 +89,45 @@ class Contact extends Model
             return collect();
         }
 
+        $ringCentral ??= app(RingCentralCallLogService::class);
         $phone = trim((string) ($this->phone ?? ''));
         $normalized = self::normalizePhone($phone);
-        if ($phone === '' || $normalized === null) {
-            return collect();
-        }
+        $last10 = $normalized !== null ? substr($normalized, -10) : '';
 
-        $last10 = substr($normalized, -10);
-        if (strlen($last10) < 10) {
-            return collect();
-        }
+        $query = RingCentralCall::query()->visible()->orderByDesc('started_at')->limit(200);
 
-        $ringCentral ??= app(RingCentralCallLogService::class);
-
-        return RingCentralCall::query()
-            ->visible()
-            ->where(function ($query) use ($last10): void {
-                $query->where('external_phone', 'like', '%'.$last10)
+        if (Schema::hasColumn('ringcentral_calls', 'contact_id') && $this->exists) {
+            $query->where(function ($inner) use ($last10): void {
+                $inner->where('contact_id', $this->id);
+                if (strlen($last10) === 10) {
+                    $inner->orWhere(function ($phoneQuery) use ($last10): void {
+                        $phoneQuery->whereNull('contact_id')
+                            ->where(function ($match) use ($last10): void {
+                                $match->where('external_phone', 'like', '%'.$last10)
+                                    ->orWhere('from_phone', 'like', '%'.$last10)
+                                    ->orWhere('to_phone', 'like', '%'.$last10);
+                            });
+                    });
+                }
+            });
+        } elseif (strlen($last10) === 10) {
+            $query->where(function ($match) use ($last10): void {
+                $match->where('external_phone', 'like', '%'.$last10)
                     ->orWhere('from_phone', 'like', '%'.$last10)
                     ->orWhere('to_phone', 'like', '%'.$last10);
-            })
-            ->orderByDesc('started_at')
-            ->limit(200)
-            ->get()
+            });
+        } else {
+            return collect();
+        }
+
+        return $query->get()
             ->filter(function (RingCentralCall $call) use ($ringCentral, $phone): bool {
+                if ((int) $call->contact_id === (int) $this->id) {
+                    return true;
+                }
+                if ($phone === '') {
+                    return false;
+                }
                 foreach ([$call->external_phone, $call->from_phone, $call->to_phone] as $candidate) {
                     if ($candidate !== null && $candidate !== '' && $ringCentral->phonesMatch($phone, (string) $candidate)) {
                         return true;

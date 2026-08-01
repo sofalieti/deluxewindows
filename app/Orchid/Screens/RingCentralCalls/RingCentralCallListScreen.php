@@ -46,16 +46,25 @@ class RingCentralCallListScreen extends Screen
             Toast::error('RingCentral call tables are missing. Run: php artisan migrate');
 
             return [
-                'calls' => new LengthAwarePaginator([], 0, 50),
+                'mainCalls' => new LengthAwarePaginator([], 0, 50, 1, ['pageName' => 'main_page']),
+                'otherCalls' => new LengthAwarePaginator([], 0, 50, 1, ['pageName' => 'other_page']),
                 'excludedNumbers' => collect(),
             ];
         }
 
         return [
-            'calls' => RingCentralCall::query()
+            'mainCalls' => RingCentralCall::query()
                 ->visible()
+                ->onMonitoredLines($this->monitoredPhones)
+                ->with('contact')
                 ->defaultSort('started_at', 'desc')
-                ->paginate(50),
+                ->paginate(50, pageName: 'main_page'),
+            'otherCalls' => RingCentralCall::query()
+                ->visible()
+                ->onOtherLines($this->monitoredPhones)
+                ->with('contact')
+                ->defaultSort('started_at', 'desc')
+                ->paginate(50, pageName: 'other_page'),
             'excludedNumbers' => RingCentralExcludedNumber::query()
                 ->whereNull('restored_at')
                 ->withCount(['calls as hidden_calls_count'])
@@ -76,7 +85,7 @@ class RingCentralCallListScreen extends Screen
             ? implode(', ', $this->monitoredPhones)
             : 'configured numbers';
 
-        return 'Inbound and outbound company calls for '.$phones
+        return 'Account-wide call log. Main numbers: '.$phones
             .'. Auto-sync hourly; last sync: '.$this->lastSyncedLabel.'.';
     }
 
@@ -91,7 +100,7 @@ class RingCentralCallListScreen extends Screen
             Button::make('Sync now')
                 ->icon('bs.arrow-repeat')
                 ->method('syncNow')
-                ->confirm('Pull the latest inbound and outbound calls from RingCentral now?'),
+                ->confirm('Pull all account voice calls from RingCentral now (main numbers, other lines, and contact linking)?'),
         ];
     }
 
@@ -100,46 +109,7 @@ class RingCentralCallListScreen extends Screen
         return [
             Layout::view('admin.ringcentral-calls.assets'),
             Layout::tabs([
-                'Calls' => Layout::table('calls', [
-                    TD::make('started_at', 'Date')
-                        ->sort()
-                        ->width('145px')
-                        ->render(function (RingCentralCall $call): string {
-                            $date = $call->startedAtPacific();
-                            if ($date === null) {
-                                return '—';
-                            }
-
-                            return '<div class="fw-semibold">'.e($date->format('M d, Y')).'</div>'
-                                .'<div class="small text-muted">'.e($date->format('h:i A')).' PT</div>';
-                        }),
-                    TD::make('direction', 'Direction')
-                        ->sort()
-                        ->render(fn (RingCentralCall $call): string => $call->direction === 'Inbound'
-                            ? '<span class="badge bg-success text-white">Inbound</span>'
-                            : '<span class="badge bg-primary text-white">Outbound</span>'),
-                    TD::make('external_phone', 'Other number')
-                        ->render(function (RingCentralCall $call): string {
-                            $name = $call->direction === 'Inbound' ? $call->from_name : $call->to_name;
-
-                            return '<a class="fw-semibold" href="tel:'.e($call->external_phone).'">'
-                                .e((string) $call->external_phone).'</a>'
-                                .(filled($name) ? '<div class="small text-muted">'.e($name).'</div>' : '');
-                        }),
-                    TD::make('route', 'From → To')
-                        ->render(fn (RingCentralCall $call): string => '<div>'.e((string) ($call->from_phone ?: '—')).'</div>'
-                            .'<div class="small text-muted">→ '.e((string) ($call->to_phone ?: '—')).'</div>'),
-                    TD::make('result', 'Result')
-                        ->render(fn (RingCentralCall $call): string => e((string) ($call->result ?: 'Unknown'))
-                            .'<div class="small text-muted">'.e($call->durationLabel()).'</div>'),
-                    TD::make('id', '')
-                        ->align(TD::ALIGN_CENTER)
-                        ->width('125px')
-                        ->render(fn (RingCentralCall $call) => Button::make('Exclude number')
-                            ->icon('bs.eye-slash')
-                            ->method('excludeNumber', ['call' => $call->id])
-                            ->confirm('Hide all calls to and from '.$call->external_phone.'?')),
-                ]),
+                'Main numbers' => Layout::table('mainCalls', $this->callColumns(showExclude: true)),
                 'Excluded numbers' => Layout::table('excludedNumbers', [
                     TD::make('phone', 'Number')
                         ->render(fn (RingCentralExcludedNumber $number): string => '<a class="fw-semibold" href="tel:'
@@ -161,10 +131,72 @@ class RingCentralCallListScreen extends Screen
                         ->render(fn (RingCentralExcludedNumber $number) => Button::make('Restore')
                             ->icon('bs.arrow-counterclockwise')
                             ->method('restoreNumber', ['exclusion' => $number->id])
-                            ->confirm('Return this number and all its calls to the main list?')),
+                            ->confirm('Return this number and all its calls to the lists?')),
                 ]),
+                'Other numbers' => Layout::table('otherCalls', $this->callColumns(showExclude: true)),
             ]),
         ];
+    }
+
+    /**
+     * @return list<TD>
+     */
+    private function callColumns(bool $showExclude): array
+    {
+        $columns = [
+            TD::make('started_at', 'Date')
+                ->sort()
+                ->width('145px')
+                ->render(function (RingCentralCall $call): string {
+                    $date = $call->startedAtPacific();
+                    if ($date === null) {
+                        return '—';
+                    }
+
+                    return '<div class="fw-semibold">'.e($date->format('M d, Y')).'</div>'
+                        .'<div class="small text-muted">'.e($date->format('h:i A')).' PT</div>';
+                }),
+            TD::make('direction', 'Direction')
+                ->sort()
+                ->render(fn (RingCentralCall $call): string => $call->direction === 'Inbound'
+                    ? '<span class="badge bg-success text-white">Inbound</span>'
+                    : '<span class="badge bg-primary text-white">Outbound</span>'),
+            TD::make('external_phone', 'Other number')
+                ->render(function (RingCentralCall $call): string {
+                    $name = $call->direction === 'Inbound' ? $call->from_name : $call->to_name;
+                    $html = '<a class="fw-semibold" href="tel:'.e($call->external_phone).'">'
+                        .e((string) $call->external_phone).'</a>'
+                        .(filled($name) ? '<div class="small text-muted">'.e($name).'</div>' : '');
+
+                    if ($call->contact_id && $call->contact) {
+                        $html .= '<div class="small mt-1"><a href="'
+                            .e(route('platform.contacts.edit', $call->contact)).'">'
+                            .e($call->contact->full_name ?: 'Contact #'.$call->contact_id)
+                            .'</a></div>';
+                    }
+
+                    return $html;
+                }),
+            TD::make('route', 'From → To')
+                ->render(fn (RingCentralCall $call): string => '<div>'.e((string) ($call->from_phone ?: '—')).'</div>'
+                    .'<div class="small text-muted">→ '.e((string) ($call->to_phone ?: '—')).'</div>'
+                    .'<div class="small text-muted mt-1">Line '.e((string) ($call->business_phone ?: '—')).'</div>'),
+            TD::make('result', 'Result')
+                ->render(fn (RingCentralCall $call): string => e((string) ($call->result ?: 'Unknown'))
+                    .'<div class="small text-muted">'.e($call->durationLabel()).'</div>'),
+        ];
+
+        if ($showExclude) {
+            $columns[] = TD::make('id', '')
+                ->align(TD::ALIGN_CENTER)
+                ->width('125px')
+                ->render(fn (RingCentralCall $call) => Button::make('Exclude number')
+                    ->icon('bs.eye-slash')
+                    ->method('excludeNumber', ['call' => $call->id])
+                    ->confirm('Hide all calls to and from '.$call->external_phone.'?'));
+        }
+
+        return $columns;
     }
 
     public function syncNow(RingCentralCallSyncService $sync): void
@@ -176,7 +208,6 @@ class RingCentralCallListScreen extends Screen
         }
 
         try {
-            // Force 7-day lookback so Sync now recovers after empty checkpoints.
             $result = $sync->sync(forceDays: 7);
         } catch (Throwable $exception) {
             report($exception);
@@ -186,8 +217,7 @@ class RingCentralCallListScreen extends Screen
         }
 
         Toast::success(sprintf(
-            'Synced %s: %d new, %d updated (%d fetched). Window %s → %s PT.',
-            $result['business_phone'],
+            'Synced account log: %d new, %d updated (%d fetched). Window %s → %s PT.',
             $result['created'],
             $result['updated'],
             $result['fetched'],
@@ -248,15 +278,22 @@ class RingCentralCallListScreen extends Screen
 
     private function resolveLastSyncedLabel(): string
     {
-        if ($this->monitoredPhones === [] || ! Schema::hasTable('ringcentral_call_sync_states')) {
+        if (! Schema::hasTable('ringcentral_call_sync_states')) {
             return 'never';
         }
 
         $state = RingCentralCallSyncState::query()
-            ->whereIn('business_phone', $this->monitoredPhones)
+            ->where('business_phone', RingCentralCallSyncService::ACCOUNT_SYNC_KEY)
             ->whereNotNull('last_synced_at')
-            ->orderByDesc('last_synced_at')
             ->first();
+
+        if ($state === null && $this->monitoredPhones !== []) {
+            $state = RingCentralCallSyncState::query()
+                ->whereIn('business_phone', $this->monitoredPhones)
+                ->whereNotNull('last_synced_at')
+                ->orderByDesc('last_synced_at')
+                ->first();
+        }
 
         if ($state === null) {
             return 'never';

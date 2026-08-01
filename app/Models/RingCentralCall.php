@@ -9,6 +9,7 @@ use Carbon\CarbonImmutable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Orchid\Filters\Filterable;
 use Orchid\Filters\Types\Like;
 use Orchid\Filters\Types\Where;
@@ -37,6 +38,7 @@ class RingCentralCall extends Model
         'to_phone',
         'to_name',
         'external_phone',
+        'contact_id',
         'raw',
         'synced_at',
     ];
@@ -87,6 +89,11 @@ class RingCentralCall extends Model
         return $this->started_at?->setTimezone('America/Los_Angeles');
     }
 
+    public function contact(): BelongsTo
+    {
+        return $this->belongsTo(Contact::class);
+    }
+
     public function scopeVisible(Builder $query): Builder
     {
         return $query->whereNotExists(function ($subquery): void {
@@ -94,6 +101,42 @@ class RingCentralCall extends Model
                 ->from('ringcentral_excluded_numbers')
                 ->whereNull('restored_at')
                 ->whereColumn('ringcentral_excluded_numbers.phone', 'ringcentral_calls.external_phone');
+        });
+    }
+
+    /**
+     * @param  list<string>  $monitoredPhones  Normalized E.164 business numbers
+     */
+    public function scopeOnMonitoredLines(Builder $query, array $monitoredPhones): Builder
+    {
+        $phones = array_values(array_filter($monitoredPhones));
+        if ($phones === []) {
+            return $query->whereRaw('0 = 1');
+        }
+
+        return $query->where(function (Builder $inner) use ($phones): void {
+            $inner->whereIn('business_phone', $phones);
+            foreach ($phones as $phone) {
+                $last10 = substr(preg_replace('/\D+/', '', $phone) ?? '', -10);
+                if (strlen($last10) === 10) {
+                    $inner->orWhere('business_phone', 'like', '%'.$last10);
+                }
+            }
+        });
+    }
+
+    /**
+     * @param  list<string>  $monitoredPhones  Normalized E.164 business numbers
+     */
+    public function scopeOnOtherLines(Builder $query, array $monitoredPhones): Builder
+    {
+        $phones = array_values(array_filter($monitoredPhones));
+        if ($phones === []) {
+            return $query;
+        }
+
+        return $query->whereNot(function (Builder $inner) use ($phones): void {
+            $inner->onMonitoredLines($phones);
         });
     }
 

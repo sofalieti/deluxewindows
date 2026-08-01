@@ -35,6 +35,7 @@ final class ContactFromLeadService
 
             $this->linkLead($lockedLead, $contact, $userId);
             $this->linkMatchingLeads($contact, $userId);
+            app(RingCentralContactBinder::class)->rebindContact($contact);
 
             return $contact->fresh(['leads']) ?? $contact;
         });

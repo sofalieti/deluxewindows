@@ -8,10 +8,13 @@ use App\Models\RingCentralCall;
 use App\Models\RingCentralCallSyncState;
 use Carbon\CarbonImmutable;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 use RuntimeException;
 
 final class RingCentralCallSyncService
 {
+    public const ACCOUNT_SYNC_KEY = 'account';
+
     private const OVERLAP_MINUTES = 5;
 
     private const DEFAULT_HISTORY_DAYS = 7;
@@ -19,6 +22,7 @@ final class RingCentralCallSyncService
     public function __construct(
         private readonly RingCentralCallLogService $callLog,
         private readonly PromotionControlService $promotions,
+        private readonly RingCentralContactBinder $contacts,
     ) {}
 
     /**
@@ -35,88 +39,120 @@ final class RingCentralCallSyncService
     public function sync(?CarbonImmutable $now = null, ?int $forceDays = null): array
     {
         $now = ($now ?? CarbonImmutable::now('UTC'))->utc();
-        $phones = $this->promotions->ringCentralPhones();
-        if ($phones === []) {
-            throw new RuntimeException('No admin phone numbers are configured for RingCentral sync.');
-        }
+        $monitored = array_values(array_filter(
+            array_map(
+                fn (string $phone): string => $this->callLog->normalizePhone($phone),
+                $this->promotions->ringCentralPhones(),
+            ),
+            fn (string $phone): bool => $phone !== '',
+        ));
 
-        $created = 0;
-        $updated = 0;
-        $fetched = 0;
-        $earliestFrom = null;
-        $syncedPhones = [];
+        $window = $this->resolveAccountWindow($now, $forceDays);
+        $accountRecords = $this->callLog->fetchAccountVoiceRecords($window['date_from'], $now);
+        $phoneIndex = $this->contacts->phoneIndex();
 
-        // One account-wide pull for the widest phone window, then filter per number.
-        $windows = [];
-        foreach ($phones as $businessPhone) {
-            $normalized = $this->callLog->normalizePhone($businessPhone);
-            if ($normalized === '') {
+        $records = [];
+        foreach ($accountRecords as $record) {
+            $call = $this->callLog->normalizeAnyCallRecord($record);
+            if ($call === null) {
                 continue;
             }
-            $windows[$normalized] = $this->resolveWindow($normalized, $now, $forceDays);
-        }
-
-        if ($windows === []) {
-            throw new RuntimeException('No admin phone numbers are configured for RingCentral sync.');
-        }
-
-        $globalFrom = null;
-        foreach ($windows as $window) {
-            if ($globalFrom === null || $window['date_from']->lessThan($globalFrom)) {
-                $globalFrom = $window['date_from'];
+            if ($call['started_at']->lessThan($window['date_from']) || $call['started_at']->greaterThan($now)) {
+                continue;
             }
+
+            $call['contact_id'] = Schema::hasColumn('ringcentral_calls', 'contact_id')
+                ? $this->contacts->contactIdForPhone($call['external_phone'], $phoneIndex)
+                : null;
+
+            $records[$call['ringcentral_call_id']] = $call;
         }
 
-        $accountRecords = $this->callLog->fetchAccountVoiceRecords($globalFrom ?? $now, $now);
+        $records = array_values($records);
+        $created = 0;
+        $updated = 0;
 
-        foreach ($windows as $businessPhone => $window) {
-            $result = $this->syncPhoneFromRecords(
-                $businessPhone,
-                $window,
-                $now,
-                $accountRecords,
-            );
-            $created += $result['created'];
-            $updated += $result['updated'];
-            $fetched += $result['fetched'];
-            $syncedPhones[] = $businessPhone;
+        $state = RingCentralCallSyncState::query()
+            ->where('business_phone', self::ACCOUNT_SYNC_KEY)
+            ->firstOrFail();
 
-            $from = CarbonImmutable::parse($result['from'])->utc();
-            if ($earliestFrom === null || $from->lessThan($earliestFrom)) {
-                $earliestFrom = $from;
+        DB::transaction(function () use (
+            $records,
+            $state,
+            $now,
+            $monitored,
+            &$created,
+            &$updated
+        ): void {
+            foreach ($records as $record) {
+                $payload = $record;
+                if (! Schema::hasColumn('ringcentral_calls', 'contact_id')) {
+                    unset($payload['contact_id']);
+                }
+
+                $call = RingCentralCall::query()->firstOrNew([
+                    'ringcentral_call_id' => $payload['ringcentral_call_id'],
+                ]);
+                $call->exists ? $updated++ : $created++;
+                $call->fill($payload);
+                $call->synced_at = $now;
+                $call->save();
             }
-        }
+
+            RingCentralCallSyncState::query()->whereKey($state->id)->update([
+                'last_synced_at' => $this->utcDatabaseString($now),
+                'updated_at' => $this->utcDatabaseString($now),
+            ]);
+
+            // Keep per-phone checkpoints warm for older tooling/UI labels.
+            foreach ($monitored as $phone) {
+                $phoneState = RingCentralCallSyncState::query()
+                    ->where('business_phone', $phone)
+                    ->first();
+                if ($phoneState === null) {
+                    RingCentralCallSyncState::query()->insert([
+                        'business_phone' => $phone,
+                        'started_at' => $this->utcDatabaseString($now->subDays(self::DEFAULT_HISTORY_DAYS)),
+                        'last_synced_at' => $this->utcDatabaseString($now),
+                        'created_at' => $this->utcDatabaseString($now),
+                        'updated_at' => $this->utcDatabaseString($now),
+                    ]);
+                } else {
+                    RingCentralCallSyncState::query()->whereKey($phoneState->id)->update([
+                        'last_synced_at' => $this->utcDatabaseString($now),
+                        'updated_at' => $this->utcDatabaseString($now),
+                    ]);
+                }
+            }
+        });
 
         return [
             'created' => $created,
             'updated' => $updated,
-            'fetched' => $fetched,
-            'from' => ($earliestFrom ?? $now)->toIso8601String(),
+            'fetched' => count($records),
+            'from' => ($window['previous_checkpoint'] ?? $window['date_from'])->toIso8601String(),
             'to' => $now->toIso8601String(),
-            'business_phone' => implode(', ', $syncedPhones),
-            'phones' => $syncedPhones,
+            'business_phone' => $monitored !== [] ? implode(', ', $monitored) : 'account',
+            'phones' => $monitored,
         ];
     }
 
     /**
      * @return array{date_from: CarbonImmutable, history_start: CarbonImmutable, previous_checkpoint: ?CarbonImmutable}
      */
-    private function resolveWindow(
-        string $businessPhone,
-        CarbonImmutable $now,
-        ?int $forceDays
-    ): array {
+    private function resolveAccountWindow(CarbonImmutable $now, ?int $forceDays): array
+    {
         $historyStart = $now
             ->subDays(self::DEFAULT_HISTORY_DAYS)
             ->utc();
 
         $state = RingCentralCallSyncState::query()
-            ->where('business_phone', $businessPhone)
+            ->where('business_phone', self::ACCOUNT_SYNC_KEY)
             ->first();
 
         if ($state === null) {
             $id = RingCentralCallSyncState::query()->insertGetId([
-                'business_phone' => $businessPhone,
+                'business_phone' => self::ACCOUNT_SYNC_KEY,
                 'started_at' => $this->utcDatabaseString($historyStart),
                 'last_synced_at' => null,
                 'created_at' => $this->utcDatabaseString($now),
@@ -129,7 +165,6 @@ final class RingCentralCallSyncService
 
         $storedHistoryStart = $this->readUtcColumn($state, 'started_at') ?? $historyStart;
         if ($storedHistoryStart->greaterThan($historyStart)) {
-            // Widen a too-short first window from older deploys (midnight-only).
             RingCentralCallSyncState::query()->whereKey($state->id)->update([
                 'started_at' => $this->utcDatabaseString($historyStart),
                 'updated_at' => $this->utcDatabaseString($now),
@@ -138,9 +173,7 @@ final class RingCentralCallSyncService
         }
 
         $previousCheckpoint = $this->readUtcColumn($state, 'last_synced_at');
-        $storedCallCount = RingCentralCall::query()
-            ->where('business_phone', $businessPhone)
-            ->count();
+        $storedCallCount = RingCentralCall::query()->count();
 
         if ($forceDays !== null) {
             $dateFrom = $now->subDays(max(1, $forceDays));
@@ -155,7 +188,6 @@ final class RingCentralCallSyncService
             ];
         }
 
-        // Empty local journal after a bad/empty sync: ignore checkpoint and backfill.
         if ($storedCallCount === 0 || $previousCheckpoint === null) {
             $dateFrom = $storedHistoryStart;
         } else {
@@ -177,73 +209,6 @@ final class RingCentralCallSyncService
             'date_from' => $dateFrom,
             'history_start' => $storedHistoryStart,
             'previous_checkpoint' => $previousCheckpoint,
-        ];
-    }
-
-    /**
-     * @param  array{date_from: CarbonImmutable, history_start: CarbonImmutable, previous_checkpoint: ?CarbonImmutable}  $window
-     * @param  list<array<string, mixed>>  $accountRecords
-     * @return array{created: int, updated: int, fetched: int, from: string, to: string, business_phone: string}
-     */
-    private function syncPhoneFromRecords(
-        string $businessPhone,
-        array $window,
-        CarbonImmutable $now,
-        array $accountRecords,
-    ): array {
-        $dateFrom = $window['date_from'];
-        $previousCheckpoint = $window['previous_checkpoint'];
-        $records = [];
-
-        foreach ($accountRecords as $record) {
-            $call = $this->callLog->normalizeCallRecord($record, $businessPhone);
-            if ($call === null) {
-                continue;
-            }
-            if ($call['started_at']->lessThan($dateFrom) || $call['started_at']->greaterThan($now)) {
-                continue;
-            }
-            $records[$call['ringcentral_call_id']] = $call;
-        }
-
-        $records = array_values($records);
-        $created = 0;
-        $updated = 0;
-
-        $state = RingCentralCallSyncState::query()
-            ->where('business_phone', $businessPhone)
-            ->firstOrFail();
-
-        DB::transaction(function () use (
-            $records,
-            $state,
-            $now,
-            &$created,
-            &$updated
-        ): void {
-            foreach ($records as $record) {
-                $call = RingCentralCall::query()->firstOrNew([
-                    'ringcentral_call_id' => $record['ringcentral_call_id'],
-                ]);
-                $call->exists ? $updated++ : $created++;
-                $call->fill($record);
-                $call->synced_at = $now;
-                $call->save();
-            }
-
-            RingCentralCallSyncState::query()->whereKey($state->id)->update([
-                'last_synced_at' => $this->utcDatabaseString($now),
-                'updated_at' => $this->utcDatabaseString($now),
-            ]);
-        });
-
-        return [
-            'created' => $created,
-            'updated' => $updated,
-            'fetched' => count($records),
-            'from' => ($previousCheckpoint ?? $dateFrom)->toIso8601String(),
-            'to' => $now->toIso8601String(),
-            'business_phone' => $businessPhone,
         ];
     }
 

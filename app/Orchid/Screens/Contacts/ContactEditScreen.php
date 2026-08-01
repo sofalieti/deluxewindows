@@ -8,6 +8,7 @@ use App\Models\Contact;
 use App\Models\ContactChange;
 use App\Models\ContactComment;
 use App\Services\ContactFromLeadService;
+use App\Services\RingCentralContactBinder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -155,6 +156,8 @@ class ContactEditScreen extends Screen
 
     public function save(Contact $contact, Request $request, ContactFromLeadService $service)
     {
+        $callBinder = app(RingCentralContactBinder::class);
+
         $validated = $request->validate([
             'contact.full_name' => ['required', 'string', 'max:255'],
             'contact.phone' => ['nullable', 'string', 'max:50', 'required_without:contact.email'],
@@ -199,7 +202,9 @@ class ContactEditScreen extends Screen
             }
         }
 
-        DB::transaction(function () use ($contact, $values, $wasNew, $changes, $service, $user): void {
+        $phoneChanged = $wasNew || trim((string) ($contact->phone ?? '')) !== trim((string) ($values['phone'] ?? ''));
+
+        DB::transaction(function () use ($contact, $values, $wasNew, $changes, $service, $user, $callBinder, $phoneChanged): void {
             $contact->fill($values);
             if ($wasNew) {
                 $contact->created_by_user_id = $user->id;
@@ -218,23 +223,26 @@ class ContactEditScreen extends Screen
                         (int) $user->id,
                     );
                 }
+                $callBinder->rebindContact($contact);
 
                 return;
             }
 
-            if (! Schema::hasTable('contact_changes')) {
-                return;
+            if (Schema::hasTable('contact_changes')) {
+                foreach ($changes as $field => [$oldValue, $newValue, $label]) {
+                    ContactChange::record(
+                        $contact,
+                        $field,
+                        $oldValue !== '' ? $oldValue : null,
+                        $newValue !== '' ? $newValue : null,
+                        $label.' updated',
+                        (int) $user->id,
+                    );
+                }
             }
 
-            foreach ($changes as $field => [$oldValue, $newValue, $label]) {
-                ContactChange::record(
-                    $contact,
-                    $field,
-                    $oldValue !== '' ? $oldValue : null,
-                    $newValue !== '' ? $newValue : null,
-                    $label.' updated',
-                    (int) $user->id,
-                );
+            if ($phoneChanged) {
+                $callBinder->rebindContact($contact);
             }
         });
 

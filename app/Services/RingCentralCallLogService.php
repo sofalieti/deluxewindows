@@ -531,6 +531,44 @@ class RingCentralCallLogService
      */
     public function normalizeCallRecord(mixed $record, string $businessPhone): ?array
     {
+        $normalized = $this->normalizeAnyCallRecord($record);
+        if ($normalized === null) {
+            return null;
+        }
+
+        if (! $this->phonesMatch($normalized['business_phone'], $businessPhone)) {
+            return null;
+        }
+
+        $normalized['business_phone'] = $this->normalizePhone($businessPhone) ?: $normalized['business_phone'];
+
+        return $normalized;
+    }
+
+    /**
+     * Normalize any account voice call (no monitored-DID filter).
+     * business_phone = company-side number on the call (to for inbound, from for outbound).
+     *
+     * @return array{
+     *     ringcentral_call_id: string,
+     *     session_id: string,
+     *     telephony_session_id: string,
+     *     direction: string,
+     *     action: string,
+     *     result: string,
+     *     started_at: CarbonImmutable,
+     *     duration: int,
+     *     business_phone: string,
+     *     from_phone: string,
+     *     from_name: string,
+     *     to_phone: string,
+     *     to_name: string,
+     *     external_phone: string,
+     *     raw: array<string, mixed>
+     * }|null
+     */
+    public function normalizeAnyCallRecord(mixed $record): ?array
+    {
         if (! is_array($record) || strcasecmp((string) ($record['type'] ?? ''), 'Voice') !== 0) {
             return null;
         }
@@ -547,7 +585,7 @@ class RingCentralCallLogService
 
         $externalPhone = $direction === 'Inbound' ? $fromPhone : $toPhone;
         $businessSide = $direction === 'Inbound' ? $toPhone : $fromPhone;
-        if (! $this->phonesMatch($businessSide, $businessPhone) || $externalPhone === '') {
+        if ($externalPhone === '' || $businessSide === '') {
             return null;
         }
 
@@ -566,7 +604,7 @@ class RingCentralCallLogService
             'result' => trim((string) ($record['result'] ?? '')),
             'started_at' => $startedAt,
             'duration' => max(0, (int) ($record['duration'] ?? 0)),
-            'business_phone' => $businessPhone,
+            'business_phone' => $businessSide,
             'from_phone' => $fromPhone,
             'from_name' => trim((string) data_get($record, 'from.name', '')),
             'to_phone' => $toPhone,

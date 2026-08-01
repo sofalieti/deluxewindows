@@ -127,7 +127,7 @@ test('hourly sync starts with a multi-day history window then overlaps and upser
         ->and($second['updated'])->toBe(1)
         ->and($second['from'])->toStartWith('2026-07-31T18:30:00')
         ->and(RingCentralCall::query()->count())->toBe(1)
-        ->and(RingCentralCallSyncState::query()->sole()->last_synced_at)->not->toBeNull()
+        ->and(RingCentralCallSyncState::query()->where('business_phone', RingCentralCallSyncService::ACCOUNT_SYNC_KEY)->sole()->last_synced_at)->not->toBeNull()
         ->and(RingCentralCall::query()->sole()->result)->toBe('Updated result');
 });
 
@@ -138,7 +138,9 @@ test('sync remembers the previous checkpoint across app timezone casts', functio
 
     app(RingCentralCallSyncService::class)->sync();
 
-    $state = RingCentralCallSyncState::query()->sole();
+    $state = RingCentralCallSyncState::query()
+        ->where('business_phone', RingCentralCallSyncService::ACCOUNT_SYNC_KEY)
+        ->sole();
     expect($state->last_synced_at)->not->toBeNull();
 
     CarbonImmutable::setTestNow('2026-07-31 20:00:00 UTC');
@@ -351,6 +353,103 @@ test('promotions normalize extra RingCentral phone lines', function () {
     expect(\App\Services\PromotionControlService::normalizeRingCentralExtraPhones(
         "(415) 555-0100\n\n+14155550100\n650-461-4446"
     ))->toBe(['+14155550100', '+16504614446']);
+});
+
+test('sync stores calls on non-monitored business lines and links matching contacts', function () {
+    CarbonImmutable::setTestNow('2026-07-31 18:30:00 UTC');
+
+    $contact = \App\Models\Contact::query()->create([
+        'full_name' => 'Linked Caller',
+        'phone' => '(415) 555-7777',
+    ]);
+
+    Http::fake([
+        'https://platform.ringcentral.test/restapi/oauth/token' => Http::response([
+            'access_token' => 'test-access-token',
+            'expires_in' => 3600,
+        ]),
+        'https://platform.ringcentral.test/restapi/v1.0/account/*/call-log*' => Http::response([
+            'records' => [
+                [
+                    'id' => 'main-line-call',
+                    'sessionId' => 'session-main',
+                    'startTime' => '2026-07-31T18:00:00.000Z',
+                    'duration' => 40,
+                    'type' => 'Voice',
+                    'direction' => 'Inbound',
+                    'result' => 'Accepted',
+                    'from' => ['phoneNumber' => '+14155557777'],
+                    'to' => ['phoneNumber' => '+16504614446'],
+                ],
+                [
+                    'id' => 'other-line-call',
+                    'sessionId' => 'session-other',
+                    'startTime' => '2026-07-31T18:05:00.000Z',
+                    'duration' => 25,
+                    'type' => 'Voice',
+                    'direction' => 'Outbound',
+                    'result' => 'Call connected',
+                    'from' => ['phoneNumber' => '+18885550100'],
+                    'to' => ['phoneNumber' => '+14155558888'],
+                ],
+            ],
+        ]),
+    ]);
+
+    $result = app(RingCentralCallSyncService::class)->sync();
+
+    expect($result['fetched'])->toBe(2)
+        ->and(RingCentralCall::query()->count())->toBe(2);
+
+    $main = RingCentralCall::query()->where('ringcentral_call_id', 'main-line-call')->sole();
+    $other = RingCentralCall::query()->where('ringcentral_call_id', 'other-line-call')->sole();
+
+    expect($main->business_phone)->toBe('+16504614446')
+        ->and($main->contact_id)->toBe($contact->id)
+        ->and($other->business_phone)->toBe('+18885550100')
+        ->and($other->contact_id)->toBeNull()
+        ->and($contact->ringCentralCallsForPhone()->pluck('ringcentral_call_id')->all())
+        ->toBe(['main-line-call']);
+});
+
+test('RingCentral calls screen has main excluded and other tabs', function () {
+    $user = User::factory()->create();
+    $user->forceFill([
+        'permissions' => ['platform.leads' => true],
+    ])->save();
+
+    RingCentralCall::query()->create([
+        'ringcentral_call_id' => 'ui-main',
+        'direction' => 'Inbound',
+        'started_at' => CarbonImmutable::parse('2026-07-31T18:00:00Z'),
+        'duration' => 20,
+        'business_phone' => '+16504614446',
+        'from_phone' => '+14155550001',
+        'to_phone' => '+16504614446',
+        'external_phone' => '+14155550001',
+        'synced_at' => now(),
+    ]);
+    RingCentralCall::query()->create([
+        'ringcentral_call_id' => 'ui-other',
+        'direction' => 'Outbound',
+        'started_at' => CarbonImmutable::parse('2026-07-31T18:10:00Z'),
+        'duration' => 20,
+        'business_phone' => '+18885550100',
+        'from_phone' => '+18885550100',
+        'to_phone' => '+14155550002',
+        'external_phone' => '+14155550002',
+        'synced_at' => now(),
+    ]);
+
+    $this->withoutMiddleware(Access::class)
+        ->actingAs($user)
+        ->get(route('platform.ringcentral-calls'))
+        ->assertOk()
+        ->assertSee('Main numbers')
+        ->assertSee('Excluded numbers')
+        ->assertSee('Other numbers')
+        ->assertSee('+14155550001')
+        ->assertSee('+14155550002');
 });
 
 test('RingCentral call started_at is stored as UTC and shown in Pacific time', function () {
