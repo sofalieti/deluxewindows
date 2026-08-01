@@ -33,7 +33,7 @@ class MatchPhoneClickToRingCentral implements ShouldQueue
         Cache::lock('ringcentral:phone-click:'.$this->phoneClickId, 55)->get(
             function () use ($ringCentral): void {
                 $click = PhoneClick::query()->find($this->phoneClickId);
-                if (! $click) {
+                if (! $click || $click->isSpam()) {
                     return;
                 }
 

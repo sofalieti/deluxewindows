@@ -59,6 +59,8 @@ class PhoneClick extends Model
         'ip_address',
         'user_agent',
         'meta',
+        'is_spam',
+        'spam_marked_at',
         'ringcentral_status',
         'ringcentral_checked_at',
         'ringcentral_attempts',
@@ -98,12 +100,35 @@ class PhoneClick extends Model
     {
         return [
             'meta' => 'array',
+            'is_spam' => 'boolean',
+            'spam_marked_at' => 'datetime',
             'ringcentral_checked_at' => 'datetime',
             'ringcentral_call_started_at' => 'datetime',
             'ringcentral_attempts' => 'integer',
             'ringcentral_duration' => 'integer',
             'google_sheet_sent_at' => 'datetime',
         ];
+    }
+
+    public function isSpam(): bool
+    {
+        return (bool) $this->is_spam;
+    }
+
+    public function markAsSpam(): void
+    {
+        $this->forceFill([
+            'is_spam' => true,
+            'spam_marked_at' => now(),
+        ])->save();
+    }
+
+    public function restoreFromSpam(): void
+    {
+        $this->forceFill([
+            'is_spam' => false,
+            'spam_marked_at' => null,
+        ])->save();
     }
 
     public function googleSheetSender(): BelongsTo

@@ -24,24 +24,28 @@ class LeadListScreen extends Screen
 
     public function query(): iterable
     {
-        $statusFilter = trim((string) request()->input('filter.status', ''));
         $contactId = (int) request()->input('filter.contact_id', 0);
-
-        $leads = Lead::filters(LeadFiltersLayout::class)
-            ->defaultSort('id', 'desc');
-
-        // Hide spam unless the status filter explicitly selects Spam (or another status).
-        if ($statusFilter === '') {
-            $leads->where('status', '!=', Lead::STATUS_SPAM);
-        }
 
         if ($contactId > 0) {
             $this->contactFilter = Contact::query()->find($contactId);
+        }
+
+        $leads = Lead::filters(LeadFiltersLayout::class)
+            ->defaultSort('id', 'desc')
+            ->where('status', '!=', Lead::STATUS_SPAM);
+
+        $spamLeads = Lead::query()
+            ->where('status', Lead::STATUS_SPAM)
+            ->defaultSort('id', 'desc');
+
+        if ($contactId > 0) {
             $leads->where('contact_id', $contactId);
+            $spamLeads->where('contact_id', $contactId);
         }
 
         return [
-            'leads' => $leads->paginate(50),
+            'leads' => $leads->paginate(50, pageName: 'page'),
+            'spamLeads' => $spamLeads->paginate(50, pageName: 'spam_page'),
             'contactFilter' => $this->contactFilter,
         ];
     }
@@ -59,7 +63,7 @@ class LeadListScreen extends Screen
             return 'Showing leads linked to contact #'.$this->contactFilter->id.'.';
         }
 
-        return 'Form submissions from the website. Spam is listed under Spam in the menu.';
+        return 'Form submissions from the website. Spam is under the Spam tab.';
     }
 
     public function permission(): ?iterable
@@ -91,70 +95,92 @@ class LeadListScreen extends Screen
             Layout::view('admin.leads.assets'),
             LeadFiltersLayout::class,
 
-            Layout::table('leads', [
-                TD::make('created_at', 'Date')
-                    ->sort()
-                    ->render(fn (Lead $lead) => optional($lead->created_at)->format('Y-m-d H:i')),
-
-                TD::make('status', 'Status')
-                    ->sort()
-                    ->cantHide()
-                    ->width('200px')
-                    ->render(fn (Lead $lead) => view('admin.leads.status-cell', [
-                        'lead' => $lead,
-                    ])),
-
-                TD::make('full_name', 'Name')
-                    ->width('190px')
-                    ->render(function (Lead $lead): string {
-                        $phone = trim((string) $lead->phone);
-                        $name = trim((string) $lead->full_name);
-                        $nameLink = '<a class="fw-semibold" href="'
-                            .e(route('platform.leads.edit', $lead)).'">'
-                            .e($name !== '' ? $name : 'Open lead')
-                            .'</a>';
-
-                        return $nameLink
-                            .($phone !== ''
-                                ? '<div class="small mt-1"><a href="tel:'
-                                    .e(preg_replace('/\s+/', '', $phone) ?? $phone).'">'
-                                    .e($phone)
-                                    .'</a></div>'
-                                : '');
-                    }),
-
-                TD::make('email', 'Email')
-                    ->render(function (Lead $lead): string {
-                        $email = trim((string) $lead->email);
-                        if ($email === '') {
-                            return '-';
-                        }
-
-                        return '<a href="mailto:'.e($email).'">'.e($email).'</a>';
-                    }),
-
-                TD::make('city', 'City')
-                    ->width('165px')
-                    ->render(function (Lead $lead): string {
-                        $city = trim((string) ($lead->city ?? ''));
-
-                        return e($city !== '' ? $city : '-')
-                            .'<div class="small text-muted mt-1">('
-                            .e($lead->trafficSourceLabel())
-                            .')</div>';
-                    }),
-
-                TD::make('message', 'Message')
-                    ->render(function (Lead $lead): string {
-                        $message = trim((string) ($lead->message ?? ''));
-                        if ($message === '') {
-                            return '-';
-                        }
-
-                        return e(Str::words($message, 5, '…'));
-                    }),
+            Layout::tabs([
+                'Leads' => Layout::table('leads', $this->leadColumns(spamTab: false)),
+                'Spam' => Layout::table('spamLeads', $this->leadColumns(spamTab: true)),
             ]),
         ];
+    }
+
+    /**
+     * @return list<TD>
+     */
+    private function leadColumns(bool $spamTab): array
+    {
+        $columns = [
+            TD::make('created_at', 'Date')
+                ->sort()
+                ->render(fn (Lead $lead) => optional($lead->created_at)->format('Y-m-d H:i')),
+        ];
+
+        if ($spamTab) {
+            $columns[] = TD::make('spam_reason', 'Reason')
+                ->render(fn (Lead $lead) => e($lead->metaValue('spam_reason', '-')));
+        }
+
+        $columns[] = TD::make('status', 'Status')
+            ->sort()
+            ->cantHide()
+            ->width('200px')
+            ->render(fn (Lead $lead) => view('admin.leads.status-cell', [
+                'lead' => $lead,
+            ]));
+
+        $columns[] = TD::make('full_name', 'Name')
+            ->width('190px')
+            ->render(function (Lead $lead): string {
+                $phone = trim((string) $lead->phone);
+                $name = trim((string) $lead->full_name);
+                $nameLink = '<a class="fw-semibold" href="'
+                    .e(route('platform.leads.edit', $lead)).'">'
+                    .e($name !== '' ? $name : 'Open lead')
+                    .'</a>';
+
+                return $nameLink
+                    .($phone !== ''
+                        ? '<div class="small mt-1"><a href="tel:'
+                            .e(preg_replace('/\s+/', '', $phone) ?? $phone).'">'
+                            .e($phone)
+                            .'</a></div>'
+                        : '');
+            });
+
+        $columns[] = TD::make('email', 'Email')
+            ->render(function (Lead $lead): string {
+                $email = trim((string) $lead->email);
+                if ($email === '') {
+                    return '-';
+                }
+
+                return '<a href="mailto:'.e($email).'">'.e($email).'</a>';
+            });
+
+        $columns[] = TD::make('city', 'City')
+            ->width('165px')
+            ->render(function (Lead $lead) use ($spamTab): string {
+                $city = trim((string) ($lead->city ?? ''));
+
+                if ($spamTab) {
+                    return e($city !== '' ? $city : '-');
+                }
+
+                return e($city !== '' ? $city : '-')
+                    .'<div class="small text-muted mt-1">('
+                    .e($lead->trafficSourceLabel())
+                    .')</div>';
+            });
+
+        $columns[] = TD::make('message', 'Message')
+            ->render(function (Lead $lead): string {
+                $message = trim((string) ($lead->message ?? ''));
+                if ($message === '') {
+                    return '-';
+                }
+
+                return e(Str::words($message, 5, '…'));
+            });
+
+        return $columns;
     }
 
     public function changeStatus(Request $request): void

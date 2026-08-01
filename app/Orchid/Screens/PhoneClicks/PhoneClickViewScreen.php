@@ -76,11 +76,18 @@ class PhoneClickViewScreen extends Screen
         }
 
         if ($this->click) {
-            $actions[] = Button::make('Delete')
-                ->icon('bs.trash')
-                ->type(Color::DANGER)
-                ->method('remove', ['click' => $this->click->id])
-                ->confirm('Delete this phone click permanently?');
+            if ($this->click->isSpam()) {
+                $actions[] = Button::make('Restore from spam')
+                    ->icon('bs.arrow-counterclockwise')
+                    ->method('restoreFromSpam', ['click' => $this->click->id])
+                    ->confirm('Move this phone click back to the main list?');
+            } else {
+                $actions[] = Button::make('Mark as spam')
+                    ->icon('bs.shield-exclamation')
+                    ->type(Color::DANGER)
+                    ->method('markAsSpam', ['click' => $this->click->id])
+                    ->confirm('Mark this phone click as spam and hide it from the main list?');
+            }
         }
 
         return $actions;
@@ -301,15 +308,28 @@ class PhoneClickViewScreen extends Screen
         Toast::warning('No matching RingCentral call found in the click time window.');
     }
 
-    public function remove(Request $request)
+    public function markAsSpam(Request $request)
     {
         $validated = $request->validate([
             'click' => ['required', 'integer', 'exists:phone_clicks,id'],
         ]);
 
-        PhoneClick::query()->whereKey((int) $validated['click'])->delete();
-        Toast::info('Phone click deleted.');
+        $click = PhoneClick::query()->findOrFail((int) $validated['click']);
+        $click->markAsSpam();
+        Toast::info('Phone click marked as spam.');
 
         return redirect()->route('platform.phone-clicks');
+    }
+
+    public function restoreFromSpam(Request $request): void
+    {
+        $validated = $request->validate([
+            'click' => ['required', 'integer', 'exists:phone_clicks,id'],
+        ]);
+
+        $click = PhoneClick::query()->findOrFail((int) $validated['click']);
+        $click->restoreFromSpam();
+        $this->click = $click->refresh();
+        Toast::info('Phone click restored from spam.');
     }
 }

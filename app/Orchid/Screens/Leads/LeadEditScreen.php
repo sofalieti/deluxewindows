@@ -63,14 +63,10 @@ class LeadEditScreen extends Screen
 
     public function commandBar(): iterable
     {
-        $backRoute = ($this->lead?->isSpam() ?? false)
-            ? 'platform.leads.spam'
-            : 'platform.leads';
-
         $actions = [
             Link::make('Back to list')
                 ->icon('bs.arrow-left')
-                ->route($backRoute),
+                ->route('platform.leads'),
 
             Button::make('Create contact from lead')
                 ->icon('bs.person-plus')

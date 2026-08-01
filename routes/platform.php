@@ -19,7 +19,6 @@ use App\Orchid\Screens\Examples\ExampleScreen;
 use App\Orchid\Screens\Examples\ExampleTextEditorsScreen;
 use App\Orchid\Screens\Leads\LeadEditScreen;
 use App\Orchid\Screens\Leads\LeadListScreen;
-use App\Orchid\Screens\Leads\LeadSpamListScreen;
 use App\Orchid\Screens\Mailbox\MailboxComposeScreen;
 use App\Orchid\Screens\Mailbox\MailboxListScreen;
 use App\Orchid\Screens\Mailbox\MailboxSettingsScreen;
@@ -62,7 +61,7 @@ Route::screen('promotions', PromotionsScreen::class)
 Route::screen('leads', LeadListScreen::class)
     ->name('platform.leads');
 
-Route::screen('leads/spam', LeadSpamListScreen::class)
+Route::get('leads/spam', fn () => redirect()->route('platform.leads'))
     ->name('platform.leads.spam');
 
 Route::screen('contacts/create', ContactEditScreen::class)
