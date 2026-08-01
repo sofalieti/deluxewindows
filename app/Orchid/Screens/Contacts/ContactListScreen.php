@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Orchid\Screens\Contacts;
 
 use App\Models\Contact;
+use App\Services\RingCentralPhoneCallStatsService;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
 use Orchid\Screen\TD;
@@ -12,15 +13,24 @@ use Orchid\Support\Facades\Layout;
 
 class ContactListScreen extends Screen
 {
+    /** @var array<string, array{inbound: int, outbound: int, connected: bool, connected_count: int}> */
+    private array $callStatsByPhone = [];
+
     public function query(): iterable
     {
+        $contacts = Contact::filters()
+            ->with('leads')
+            ->withCount('leads')
+            ->withMax('leads', 'created_at')
+            ->defaultSort('id', 'desc')
+            ->paginate(50);
+
+        $this->callStatsByPhone = app(RingCentralPhoneCallStatsService::class)->statsForPhones(
+            collect($contacts->items())->pluck('phone')->all()
+        );
+
         return [
-            'contacts' => Contact::filters()
-                ->with('leads')
-                ->withCount('leads')
-                ->withMax('leads', 'created_at')
-                ->defaultSort('id', 'desc')
-                ->paginate(50),
+            'contacts' => $contacts,
         ];
     }
 
@@ -50,6 +60,8 @@ class ContactListScreen extends Screen
 
     public function layout(): iterable
     {
+        $callStats = app(RingCentralPhoneCallStatsService::class);
+
         return [
             Layout::view('admin.contacts.assets'),
             Layout::table('contacts', [
@@ -58,18 +70,26 @@ class ContactListScreen extends Screen
                     ->render(function (Contact $contact): string {
                         $name = trim((string) $contact->full_name);
                         $phone = trim((string) $contact->phone);
+                        $email = trim((string) ($contact->email ?? ''));
 
-                        return '<a class="fw-semibold" href="'.e(route('platform.contacts.edit', $contact)).'">'
+                        $html = '<a class="fw-semibold" href="'.e(route('platform.contacts.edit', $contact)).'">'
                             .e($name !== '' ? $name : 'Contact #'.$contact->id)
-                            .'</a>'
-                            .($phone !== ''
-                                ? '<div class="small mt-1"><a href="tel:'.e($phone).'">'.e($phone).'</a></div>'
-                                : '');
+                            .'</a>';
+
+                        if ($phone !== '') {
+                            $html .= '<div class="small mt-1"><a href="tel:'.e($phone).'">'.e($phone).'</a></div>';
+                        }
+                        if ($email !== '') {
+                            $html .= '<div class="small mt-1"><a href="mailto:'.e($email).'">'.e($email).'</a></div>';
+                        }
+
+                        return $html;
                     }),
-                TD::make('email', 'Email')
-                    ->render(fn (Contact $contact): string => filled($contact->email)
-                        ? '<a href="mailto:'.e($contact->email).'">'.e($contact->email).'</a>'
-                        : '—'),
+                TD::make('calls', 'Calls')
+                    ->width('110px')
+                    ->render(fn (Contact $contact) => view('admin.partials.call-stats-cell', [
+                        'stats' => $callStats->lookup($this->callStatsByPhone, $contact->phone),
+                    ])),
                 TD::make('city', 'City')
                     ->render(fn (Contact $contact): string => e((string) ($contact->city ?: '—'))),
                 TD::make('leads_count', 'Leads')

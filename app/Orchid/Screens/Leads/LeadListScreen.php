@@ -8,6 +8,7 @@ use App\Models\Contact;
 use App\Models\Lead;
 use App\Models\LeadChange;
 use App\Orchid\Layouts\Leads\LeadFiltersLayout;
+use App\Services\RingCentralPhoneCallStatsService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -21,6 +22,9 @@ use Orchid\Support\Facades\Toast;
 class LeadListScreen extends Screen
 {
     public ?Contact $contactFilter = null;
+
+    /** @var array<string, array{inbound: int, outbound: int, connected: bool, connected_count: int}> */
+    private array $callStatsByPhone = [];
 
     public function query(): iterable
     {
@@ -43,9 +47,19 @@ class LeadListScreen extends Screen
             $spamLeads->where('contact_id', $contactId);
         }
 
+        $leadsPage = $leads->paginate(50, pageName: 'page');
+        $spamPage = $spamLeads->paginate(50, pageName: 'spam_page');
+
+        $this->callStatsByPhone = app(RingCentralPhoneCallStatsService::class)->statsForPhones(
+            collect($leadsPage->items())
+                ->concat($spamPage->items())
+                ->pluck('phone')
+                ->all()
+        );
+
         return [
-            'leads' => $leads->paginate(50, pageName: 'page'),
-            'spamLeads' => $spamLeads->paginate(50, pageName: 'spam_page'),
+            'leads' => $leadsPage,
+            'spamLeads' => $spamPage,
             'contactFilter' => $this->contactFilter,
         ];
     }
@@ -107,6 +121,8 @@ class LeadListScreen extends Screen
      */
     private function leadColumns(bool $spamTab): array
     {
+        $callStats = app(RingCentralPhoneCallStatsService::class);
+
         $columns = [
             TD::make('created_at', 'Date')
                 ->sort()
@@ -127,33 +143,35 @@ class LeadListScreen extends Screen
             ]));
 
         $columns[] = TD::make('full_name', 'Name')
-            ->width('190px')
+            ->width('200px')
             ->render(function (Lead $lead): string {
                 $phone = trim((string) $lead->phone);
+                $email = trim((string) $lead->email);
                 $name = trim((string) $lead->full_name);
                 $nameLink = '<a class="fw-semibold" href="'
                     .e(route('platform.leads.edit', $lead)).'">'
                     .e($name !== '' ? $name : 'Open lead')
                     .'</a>';
 
-                return $nameLink
-                    .($phone !== ''
-                        ? '<div class="small mt-1"><a href="tel:'
-                            .e(preg_replace('/\s+/', '', $phone) ?? $phone).'">'
-                            .e($phone)
-                            .'</a></div>'
-                        : '');
-            });
-
-        $columns[] = TD::make('email', 'Email')
-            ->render(function (Lead $lead): string {
-                $email = trim((string) $lead->email);
-                if ($email === '') {
-                    return '-';
+                $html = $nameLink;
+                if ($phone !== '') {
+                    $html .= '<div class="small mt-1"><a href="tel:'
+                        .e(preg_replace('/\s+/', '', $phone) ?? $phone).'">'
+                        .e($phone)
+                        .'</a></div>';
+                }
+                if ($email !== '') {
+                    $html .= '<div class="small mt-1"><a href="mailto:'.e($email).'">'.e($email).'</a></div>';
                 }
 
-                return '<a href="mailto:'.e($email).'">'.e($email).'</a>';
+                return $html;
             });
+
+        $columns[] = TD::make('calls', 'Calls')
+            ->width('110px')
+            ->render(fn (Lead $lead) => view('admin.partials.call-stats-cell', [
+                'stats' => $callStats->lookup($this->callStatsByPhone, $lead->phone),
+            ]));
 
         $columns[] = TD::make('city', 'City')
             ->width('165px')

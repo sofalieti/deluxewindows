@@ -1,0 +1,39 @@
+.call-stats-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    min-width: 5.5rem;
+    line-height: 1.2;
+}
+
+.call-stats-cell__counts {
+    display: flex;
+    gap: 0.55rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+}
+
+.call-stats-cell__in {
+    color: #15803d;
+}
+
+.call-stats-cell__out {
+    color: #1d4ed8;
+}
+
+.call-stats-cell__status {
+    font-size: 0.75rem;
+}
+
+.call-stats-cell__status--ok {
+    color: #15803d;
+    font-weight: 600;
+}
+
+.call-stats-cell__status--miss {
+    color: #b45309;
+}
+
+.call-stats-cell__status--none {
+    color: #6c757d;
+}
