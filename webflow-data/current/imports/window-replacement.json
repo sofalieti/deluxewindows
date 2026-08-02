@@ -1329,7 +1329,7 @@
             "lastUpdated": "2026-04-18T20:26:18+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Atherton",
                 "slug": "atherton",
@@ -1491,7 +1491,7 @@
             "lastUpdated": "2026-04-18T20:33:17+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Hillsborough",
                 "slug": "hillsborough",
@@ -1815,7 +1815,7 @@
             "lastUpdated": "2026-04-18T20:35:40+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Sonoma",
                 "slug": "sonoma",
@@ -1874,7 +1874,7 @@
             "lastUpdated": "2026-04-18T20:35:40+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "St. Helena",
                 "slug": "st-helena",
@@ -2059,7 +2059,7 @@
             "lastUpdated": "2026-04-18T20:32:12+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Calistoga",
                 "slug": "calistoga",
@@ -2278,7 +2278,7 @@
             "lastUpdated": "2026-04-18T20:32:12+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Cloverdale",
                 "slug": "cloverdale",
@@ -2440,7 +2440,7 @@
             "lastUpdated": "2026-04-18T20:32:12+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Clayton",
                 "slug": "clayton",
@@ -2983,7 +2983,7 @@
             "lastUpdated": "2026-04-18T20:32:47+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "East Palo Alto",
                 "slug": "east-palo-alto",
@@ -3145,7 +3145,7 @@
             "lastUpdated": "2026-04-18T20:26:18+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Belmont",
                 "slug": "belmont",
@@ -3307,7 +3307,7 @@
             "lastUpdated": "2026-04-18T20:34:13+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Orinda",
                 "slug": "orinda",
@@ -3469,7 +3469,7 @@
             "lastUpdated": "2026-04-18T20:33:45+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Moraga",
                 "slug": "moraga",
@@ -3631,7 +3631,7 @@
             "lastUpdated": "2026-04-18T20:34:43+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Pinole",
                 "slug": "pinole",
@@ -3793,7 +3793,7 @@
             "lastUpdated": "2026-04-18T20:35:40+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Sausalito",
                 "slug": "sausalito",
@@ -3852,7 +3852,7 @@
             "lastUpdated": "2026-04-18T20:36:03+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Tiburon",
                 "slug": "tiburon",
@@ -3911,7 +3911,7 @@
             "lastUpdated": "2026-04-18T20:32:12+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Corte Madera",
                 "slug": "corte-madera",
@@ -4073,7 +4073,7 @@
             "lastUpdated": "2026-04-18T20:35:12+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "San Anselmo",
                 "slug": "san-anselmo",
@@ -4132,7 +4132,7 @@
             "lastUpdated": "2026-04-18T20:33:17+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Larkspur",
                 "slug": "larkspur",
@@ -4294,7 +4294,7 @@
             "lastUpdated": "2026-04-18T20:33:45+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Mill Valley",
                 "slug": "mill-valley",
@@ -4456,7 +4456,7 @@
             "lastUpdated": "2026-04-18T20:32:47+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Dixon",
                 "slug": "dixon",
@@ -4618,7 +4618,7 @@
             "lastUpdated": "2026-04-18T20:35:40+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Sebastopol",
                 "slug": "sebastopol",
@@ -4677,7 +4677,7 @@
             "lastUpdated": "2026-04-18T20:36:03+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Windsor",
                 "slug": "windsor",
@@ -4736,7 +4736,7 @@
             "lastUpdated": "2026-04-18T20:33:17+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Healdsburg",
                 "slug": "healdsburg",
@@ -4898,7 +4898,7 @@
             "lastUpdated": "2026-04-18T20:33:17+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Hercules",
                 "slug": "hercules",
@@ -5060,7 +5060,7 @@
             "lastUpdated": "2026-04-18T20:35:12+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "San Pablo",
                 "slug": "san-pablo",
@@ -5119,7 +5119,7 @@
             "lastUpdated": "2026-04-18T20:33:45+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Millbrae",
                 "slug": "millbrae",
@@ -5281,7 +5281,7 @@
             "lastUpdated": "2026-04-18T20:32:47+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "El Cerrito",
                 "slug": "el-cerrito",
@@ -5443,7 +5443,7 @@
             "lastUpdated": "2026-04-18T20:34:43+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Pleasant Hill",
                 "slug": "pleasant-hill",
@@ -5605,7 +5605,7 @@
             "lastUpdated": "2026-04-18T20:33:17+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Lafayette",
                 "slug": "lafayette",
@@ -5767,7 +5767,7 @@
             "lastUpdated": "2026-04-18T20:33:45+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Menlo Park",
                 "slug": "menlo-park",
@@ -5929,7 +5929,7 @@
             "lastUpdated": "2026-04-18T20:35:40+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Saratoga",
                 "slug": "saratoga",
@@ -5988,7 +5988,7 @@
             "lastUpdated": "2026-04-18T20:33:17+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Los Altos",
                 "slug": "los-altos",
@@ -6150,7 +6150,7 @@
             "lastUpdated": "2026-04-18T20:33:45+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Los Gatos",
                 "slug": "los-gatos",
@@ -6474,7 +6474,7 @@
             "lastUpdated": "2026-04-18T20:35:12+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "San Carlos",
                 "slug": "san-carlos",
@@ -6533,7 +6533,7 @@
             "lastUpdated": "2026-04-18T20:32:47+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Foster City",
                 "slug": "foster-city",
@@ -6695,7 +6695,7 @@
             "lastUpdated": "2026-04-18T20:34:13+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Newark",
                 "slug": "newark",
@@ -6857,7 +6857,7 @@
             "lastUpdated": "2026-04-18T20:35:40+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Suisun City",
                 "slug": "suisun-city",
@@ -6916,7 +6916,7 @@
             "lastUpdated": "2026-04-18T20:26:18+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Benicia",
                 "slug": "benicia",
@@ -7078,7 +7078,7 @@
             "lastUpdated": "2026-04-18T20:34:13+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Pacifica",
                 "slug": "pacifica",
@@ -7240,7 +7240,7 @@
             "lastUpdated": "2026-04-18T20:33:45+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Morgan Hill",
                 "slug": "morgan-hill",
@@ -7402,7 +7402,7 @@
             "lastUpdated": "2026-04-18T20:34:13+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Oakley",
                 "slug": "oakley",
@@ -7564,7 +7564,7 @@
             "lastUpdated": "2026-04-18T20:32:12+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Campbell",
                 "slug": "campbell",
@@ -7726,7 +7726,7 @@
             "lastUpdated": "2026-04-18T20:34:43+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Rohnert Park",
                 "slug": "rohnert-park",
@@ -7785,7 +7785,7 @@
             "lastUpdated": "2026-04-18T20:36:03+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Union City",
                 "slug": "union-city",
@@ -7844,7 +7844,7 @@
             "lastUpdated": "2026-04-18T20:32:47+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Danville",
                 "slug": "danville",
@@ -8006,7 +8006,7 @@
             "lastUpdated": "2026-04-18T20:26:18+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Brentwood",
                 "slug": "brentwood",
@@ -8294,7 +8294,7 @@
             "lastUpdated": "2026-04-18T20:34:43+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Pittsburg",
                 "slug": "pittsburg",
@@ -8456,7 +8456,7 @@
             "lastUpdated": "2026-04-18T20:32:46+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Dublin",
                 "slug": "dublin",
@@ -8839,7 +8839,7 @@
             "lastUpdated": "2026-04-18T20:34:13+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Novato",
                 "slug": "novato",
@@ -9119,7 +9119,7 @@
             "lastUpdated": "2026-04-18T20:32:12+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Cupertino",
                 "slug": "cupertino",
@@ -9281,7 +9281,7 @@
             "lastUpdated": "2026-04-18T20:33:17+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Gilroy",
                 "slug": "gilroy",
@@ -9664,7 +9664,7 @@
             "lastUpdated": "2026-04-18T20:34:13+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Palo Alto",
                 "slug": "palo-alto",
@@ -12463,7 +12463,7 @@
             "lastUpdated": "2026-04-18T20:26:18+00:00",
             "lastPublished": null,
             "isArchived": false,
-            "isDraft": true,
+            "isDraft": false,
             "fieldData": {
                 "name": "Albany",
                 "slug": "albany",
