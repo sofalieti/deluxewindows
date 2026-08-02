@@ -69,6 +69,7 @@ return [
 
     'ringcentral' => [
         'base_url' => rtrim((string) env('RINGCENTRAL_BASE_URL', 'https://platform.ringcentral.com'), '/'),
+        'media_url' => rtrim((string) env('RINGCENTRAL_MEDIA_URL', ''), '/'),
         'client_id' => env('RINGCENTRAL_CLIENT_ID'),
         'client_secret' => env('RINGCENTRAL_CLIENT_SECRET'),
         'jwt' => env('RINGCENTRAL_JWT'),
@@ -76,6 +77,15 @@ return [
         'match_window_minutes' => (int) env('RINGCENTRAL_MATCH_WINDOW_MINUTES', 10),
         'clock_tolerance_seconds' => (int) env('RINGCENTRAL_CLOCK_TOLERANCE_SECONDS', 30),
         'retry_delay_seconds' => (int) env('RINGCENTRAL_RETRY_DELAY_SECONDS', 120),
+    ],
+
+    'openai' => [
+        'api_key' => env('OPENAI_API_KEY'),
+        'base_url' => rtrim((string) env('OPENAI_BASE_URL', 'https://api.openai.com/v1'), '/'),
+        'transcription_model' => env('OPENAI_TRANSCRIPTION_MODEL', 'gpt-4o-mini-transcribe'),
+        'summary_model' => env('OPENAI_SUMMARY_MODEL', 'gpt-5.4-nano'),
+        'transcript_min_duration_seconds' => (int) env('OPENAI_TRANSCRIPT_MIN_DURATION_SECONDS', 20),
+        'transcript_stuck_minutes' => (int) env('OPENAI_TRANSCRIPT_STUCK_MINUTES', 15),
     ],
 
     'sitemap' => [

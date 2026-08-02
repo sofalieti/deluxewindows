@@ -6,6 +6,7 @@ namespace App\Orchid\Screens\PhoneClicks;
 
 use App\Jobs\MatchPhoneClickToRingCentral;
 use App\Models\PhoneClick;
+use App\Orchid\Screens\Concerns\QueuesCallTranscripts;
 use App\Services\PhoneClickGoogleBridge;
 use App\Services\RingCentralCallLogService;
 use Illuminate\Http\Request;
@@ -22,6 +23,8 @@ use Throwable;
 
 class PhoneClickViewScreen extends Screen
 {
+    use QueuesCallTranscripts;
+
     public ?PhoneClick $click = null;
 
     public function query(PhoneClick $click): iterable
@@ -31,6 +34,7 @@ class PhoneClickViewScreen extends Screen
 
         return [
             'click' => $click,
+            'matchedCall' => $click->ringCentralCall(),
         ];
     }
 
@@ -97,6 +101,8 @@ class PhoneClickViewScreen extends Screen
     public function layout(): iterable
     {
         return [
+            Layout::view('admin.phone-clicks.assets'),
+
             Layout::columns([
                 Layout::legend('click', [
                     Sight::make('id', 'ID'),
@@ -142,6 +148,25 @@ class PhoneClickViewScreen extends Screen
                         }),
                     Sight::make('ringcentral_to_phone', 'Called number')
                         ->render(fn (PhoneClick $click) => e((string) ($click->ringcentral_to_phone ?: '-'))),
+                    Sight::make('recording', 'Recording')
+                        ->render(fn (PhoneClick $click): string => $click->hasRecording()
+                            ? view('admin.partials.call-recording', [
+                                'url' => $click->recordingUrl(),
+                            ])->render()
+                            : '<span class="text-muted">No recording</span>'),
+                    Sight::make('transcript', 'Transcript')
+                        ->render(function (PhoneClick $click): string {
+                            $call = $click->ringCentralCall();
+                            if ($call === null) {
+                                return '<span class="text-muted">No linked call journal row yet</span>';
+                            }
+
+                            return view('admin.partials.call-transcript', [
+                                'call' => $call,
+                                'compact' => false,
+                                'canQueue' => true,
+                            ])->render();
+                        }),
                     Sight::make('ringcentral_attempts', 'RingCentral attempts'),
                     Sight::make('ringcentral_call_id', 'RingCentral call ID')
                         ->render(fn (PhoneClick $click) => e((string) ($click->ringcentral_call_id ?: '-'))),

@@ -5,12 +5,15 @@ declare(strict_types=1);
 namespace App\Jobs;
 
 use App\Models\PhoneClick;
+use App\Models\RingCentralCall;
+use App\Services\CallTranscriptionQueue;
 use App\Services\RingCentralCallLogService;
 use Carbon\CarbonImmutable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
 
 class MatchPhoneClickToRingCentral implements ShouldQueue
@@ -30,8 +33,10 @@ class MatchPhoneClickToRingCentral implements ShouldQueue
 
     public function handle(RingCentralCallLogService $ringCentral): void
     {
+        $transcriptQueue = app(CallTranscriptionQueue::class);
+
         Cache::lock('ringcentral:phone-click:'.$this->phoneClickId, 55)->get(
-            function () use ($ringCentral): void {
+            function () use ($ringCentral, $transcriptQueue): void {
                 $click = PhoneClick::query()->find($this->phoneClickId);
                 if (! $click || $click->isSpam()) {
                     return;
@@ -44,6 +49,7 @@ class MatchPhoneClickToRingCentral implements ShouldQueue
                         'ringcentral_status' => PhoneClick::RINGCENTRAL_PENDING,
                         'ringcentral_checked_at' => null,
                         'ringcentral_call_id' => null,
+                        'ringcentral_recording_id' => null,
                         'ringcentral_session_id' => null,
                         'ringcentral_result' => null,
                         'ringcentral_direction' => null,
@@ -101,6 +107,7 @@ class MatchPhoneClickToRingCentral implements ShouldQueue
                             'ringcentral_status' => PhoneClick::RINGCENTRAL_FOUND,
                             'ringcentral_checked_at' => $now,
                             'ringcentral_call_id' => $match['id'],
+                            'ringcentral_recording_id' => $match['recording_id'] ?? null,
                             'ringcentral_session_id' => $match['session_id'],
                             'ringcentral_result' => $match['result'],
                             'ringcentral_direction' => $match['direction'],
@@ -111,6 +118,8 @@ class MatchPhoneClickToRingCentral implements ShouldQueue
                             'ringcentral_error' => null,
                             'meta' => $meta,
                         ])->save();
+
+                        $this->enqueueTranscriptForMatch($match, $ringCentral, $transcriptQueue);
                     } catch (\Throwable $exception) {
                         Log::warning('RingCentral call could not be assigned to phone click', [
                             'phone_click_id' => $click->id,
@@ -198,5 +207,68 @@ class MatchPhoneClickToRingCentral implements ShouldQueue
         self::dispatch($click->id)
             ->delay(now()->addSeconds($delaySeconds))
             ->afterCommit();
+    }
+
+    /**
+     * @param  array{
+     *     id: string,
+     *     session_id: string,
+     *     result: string,
+     *     direction: string,
+     *     start_time: CarbonImmutable,
+     *     duration: int,
+     *     from_phone: string,
+     *     to_phone: string,
+     *     recording_id?: ?string
+     * }  $match
+     */
+    private function enqueueTranscriptForMatch(
+        array $match,
+        RingCentralCallLogService $ringCentral,
+        CallTranscriptionQueue $transcriptQueue,
+    ): void {
+        if (! Schema::hasTable('ringcentral_calls')) {
+            return;
+        }
+
+        $callId = trim((string) $match['id']);
+        if ($callId === '') {
+            return;
+        }
+
+        $from = $ringCentral->normalizePhone((string) $match['from_phone']);
+        $to = $ringCentral->normalizePhone((string) $match['to_phone']);
+        $direction = ucfirst(strtolower(trim((string) $match['direction'])));
+        $external = $direction === 'Outbound' ? $to : $from;
+        $business = $direction === 'Outbound' ? $from : $to;
+
+        $call = RingCentralCall::query()->firstOrNew([
+            'ringcentral_call_id' => $callId,
+        ]);
+
+        $payload = [
+            'session_id' => (string) $match['session_id'],
+            'direction' => $direction !== '' ? $direction : 'Inbound',
+            'result' => (string) $match['result'],
+            'started_at' => $match['start_time']->utc(),
+            'duration' => max(0, (int) $match['duration']),
+            'from_phone' => $from,
+            'to_phone' => $to,
+            'business_phone' => $business,
+            'external_phone' => $external,
+            'synced_at' => CarbonImmutable::now('UTC'),
+        ];
+
+        $recordingId = trim((string) ($match['recording_id'] ?? ''));
+        if ($recordingId !== '') {
+            $payload['recording_id'] = $recordingId;
+        } elseif ($call->exists && filled($call->recording_id)) {
+            // keep existing
+        }
+
+        $call->fill($payload);
+        $call->save();
+
+        $transcriptQueue->enqueueIfEligible($call->fresh() ?? $call);
     }
 }

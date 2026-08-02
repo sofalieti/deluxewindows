@@ -8,6 +8,7 @@ use App\Models\Contact;
 use App\Models\Lead;
 use App\Models\LeadChange;
 use App\Models\LeadComment;
+use App\Orchid\Screens\Concerns\QueuesCallTranscripts;
 use App\Services\ContactFromLeadService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -26,6 +27,8 @@ use Orchid\Support\Facades\Toast;
 
 class LeadEditScreen extends Screen
 {
+    use QueuesCallTranscripts;
+
     public ?Lead $lead = null;
 
     public function query(Lead $lead): iterable
@@ -39,6 +42,7 @@ class LeadEditScreen extends Screen
             'comments' => $lead->comments,
             'changes' => $lead->changes,
             'contact_id' => $lead->contact_id,
+            'calls' => $lead->ringCentralCallsForPhone(),
         ];
     }
 
@@ -208,6 +212,8 @@ class LeadEditScreen extends Screen
                     Layout::view('admin.partials.comment-actions'),
                     Layout::view('admin.leads.comments'),
                 ]),
+
+                'Calls' => Layout::view('admin.leads.calls'),
 
                 'History' => Layout::view('admin.leads.history'),
             ]),

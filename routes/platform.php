@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\Admin\GoogleMailboxOAuthController;
+use App\Http\Controllers\Admin\RingCentralRecordingController;
 use App\Http\Controllers\Admin\WebflowImageUploadController;
 use App\Orchid\Screens\Contacts\ContactEditScreen;
 use App\Orchid\Screens\Contacts\ContactListScreen;
@@ -80,8 +81,16 @@ Route::screen('phone-clicks/{click}', PhoneClickViewScreen::class)
     ->name('platform.phone-clicks.view')
     ->whereNumber('click');
 
+Route::get('phone-clicks/{click}/recording', [RingCentralRecordingController::class, 'forPhoneClick'])
+    ->name('platform.phone-clicks.recording')
+    ->whereNumber('click');
+
 Route::screen('ringcentral-calls', RingCentralCallListScreen::class)
     ->name('platform.ringcentral-calls');
+
+Route::get('ringcentral-calls/{call}/recording', [RingCentralRecordingController::class, 'forCall'])
+    ->name('platform.ringcentral-calls.recording')
+    ->whereNumber('call');
 
 Route::screen('leads/{lead}/edit', LeadEditScreen::class)
     ->name('platform.leads.edit');

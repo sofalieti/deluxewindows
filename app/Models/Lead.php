@@ -8,6 +8,7 @@ use App\Models\Concerns\ClassifiesTrafficSource;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Collection;
 use Orchid\Filters\Filterable;
 use Orchid\Filters\Types\Like;
 use Orchid\Filters\Types\Where;
@@ -150,6 +151,26 @@ class Lead extends Model
     public function isSpam(): bool
     {
         return $this->status === self::STATUS_SPAM;
+    }
+
+    /**
+     * RingCentral calls for the linked contact, or this lead's phone.
+     *
+     * @return Collection<int, RingCentralCall>
+     */
+    public function ringCentralCallsForPhone(): Collection
+    {
+        if ($this->contact_id) {
+            $contact = $this->relationLoaded('contact')
+                ? $this->contact
+                : $this->contact()->first();
+
+            if ($contact !== null) {
+                return $contact->ringCentralCallsForPhone();
+            }
+        }
+
+        return (new Contact(['phone' => $this->phone]))->ringCentralCallsForPhone();
     }
 
     /**

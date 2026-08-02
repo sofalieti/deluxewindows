@@ -7,6 +7,7 @@ namespace App\Orchid\Screens\Contacts;
 use App\Models\Contact;
 use App\Models\ContactChange;
 use App\Models\ContactComment;
+use App\Orchid\Screens\Concerns\QueuesCallTranscripts;
 use App\Services\ContactFromLeadService;
 use App\Services\RingCentralContactBinder;
 use Illuminate\Http\Request;
@@ -23,6 +24,8 @@ use Orchid\Support\Facades\Toast;
 
 class ContactEditScreen extends Screen
 {
+    use QueuesCallTranscripts;
+
     public ?Contact $contact = null;
 
     public function query(Contact $contact): iterable

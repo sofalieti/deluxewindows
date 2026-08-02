@@ -12,6 +12,7 @@ class RingCentralContactBinder
 {
     public function __construct(
         private readonly RingCentralCallLogService $callLog,
+        private readonly CallTranscriptionQueue $transcriptQueue,
     ) {}
 
     /**
@@ -108,6 +109,7 @@ class RingCentralContactBinder
                     if ((int) $call->contact_id !== $contactId) {
                         $call->forceFill(['contact_id' => $contactId])->saveQuietly();
                     }
+                    $this->transcriptQueue->enqueueIfEligible($call->fresh() ?? $call);
                 }
             });
     }

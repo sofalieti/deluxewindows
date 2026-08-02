@@ -119,13 +119,31 @@ class PhoneClickListScreen extends Screen
                         $lag = $click->metaValue('ringcentral_match_lag_seconds');
                         $lagLabel = $lag !== '' ? ' · +'.$lag.'s after click' : '';
 
-                        return '<span class="badge bg-success text-white">✓ '.e($result).'</span>'
+                        $html = '<span class="badge bg-success text-white">✓ '.e($result).'</span>'
                             .'<div class="small text-muted mt-1">'
                             .($callAt ? 'Call '.e($callAt).' PT · ' : '')
                             .e($click->ringCentralDurationLabel())
                             .' · '.e((string) ($click->ringcentral_from_phone ?: 'Unknown caller'))
                             .e($lagLabel)
                             .'</div>';
+
+                        if ($click->hasRecording()) {
+                            $html .= view('admin.partials.call-recording', [
+                                'url' => $click->recordingUrl(),
+                                'compact' => true,
+                            ])->render();
+                        }
+
+                        $matchedCall = $click->ringCentralCall();
+                        if ($matchedCall !== null) {
+                            $html .= view('admin.partials.call-transcript', [
+                                'call' => $matchedCall,
+                                'compact' => true,
+                                'canQueue' => false,
+                            ])->render();
+                        }
+
+                        return $html;
                     }
 
                     if ($status === PhoneClick::RINGCENTRAL_NO_CALL) {

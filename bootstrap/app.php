@@ -38,5 +38,11 @@ return Application::configure(basePath: dirname(__DIR__))
             ->when(fn () => filled(config('services.ringcentral.client_id'))
                 && filled(config('services.ringcentral.client_secret'))
                 && filled(config('services.ringcentral.jwt')));
+
+        $schedule->command('ringcentral:process-transcripts')
+            ->everyTwoMinutes()
+            ->withoutOverlapping()
+            ->when(fn () => filled(config('services.openai.api_key'))
+                && \Illuminate\Support\Facades\Schema::hasColumn('ringcentral_calls', 'transcript_status'));
     })
     ->create();

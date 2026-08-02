@@ -26,7 +26,8 @@ class RingCentralCallLogService
      *     start_time: CarbonImmutable,
      *     duration: int,
      *     from_phone: string,
-     *     to_phone: string
+     *     to_phone: string,
+     *     recording_id: ?string
      * }|null
      */
     public function findMatchingCall(PhoneClick $click): ?array
@@ -112,6 +113,7 @@ class RingCentralCallLogService
      *     duration: int,
      *     from_phone: string,
      *     to_phone: string,
+     *     recording_id: ?string,
      *     lag_seconds: int
      * }|null
      */
@@ -170,6 +172,7 @@ class RingCentralCallLogService
             duration: max(0, (int) ($record['duration'] ?? 0)),
             fromPhone: $this->normalizePhone((string) data_get($record, 'from.phoneNumber', '')),
             toPhone: $toPhone,
+            recordingId: $this->recordingIdFromRecord($record),
             clickAt: $clickAt,
             dateFrom: $dateFrom,
             dateTo: $dateTo,
@@ -187,6 +190,7 @@ class RingCentralCallLogService
      *     duration: int,
      *     from_phone: string,
      *     to_phone: string,
+     *     recording_id: ?string,
      *     lag_seconds: int
      * }|null
      */
@@ -247,6 +251,7 @@ class RingCentralCallLogService
                 duration: max(0, (int) $call->duration),
                 fromPhone: $this->normalizePhone((string) $call->from_phone),
                 toPhone: $toPhone,
+                recordingId: $call->resolvedRecordingId(),
                 clickAt: $clickAt,
                 dateFrom: $dateFrom,
                 dateTo: $dateTo,
@@ -269,6 +274,7 @@ class RingCentralCallLogService
      *     duration: int,
      *     from_phone: string,
      *     to_phone: string,
+     *     recording_id: ?string,
      *     lag_seconds: int
      * }|null
      */
@@ -280,6 +286,7 @@ class RingCentralCallLogService
         int $duration,
         string $fromPhone,
         string $toPhone,
+        ?string $recordingId,
         CarbonImmutable $clickAt,
         CarbonImmutable $dateFrom,
         CarbonImmutable $dateTo,
@@ -303,6 +310,7 @@ class RingCentralCallLogService
             'duration' => $duration,
             'from_phone' => $fromPhone,
             'to_phone' => $toPhone,
+            'recording_id' => $recordingId,
             'lag_seconds' => max(0, $lagSeconds),
         ];
     }
@@ -317,6 +325,7 @@ class RingCentralCallLogService
      *     duration: int,
      *     from_phone: string,
      *     to_phone: string,
+     *     recording_id: ?string,
      *     lag_seconds: int
      * }>  $matches
      * @return array{
@@ -328,6 +337,7 @@ class RingCentralCallLogService
      *     duration: int,
      *     from_phone: string,
      *     to_phone: string,
+     *     recording_id: ?string,
      *     lag_seconds: int
      * }|null
      */
@@ -526,6 +536,7 @@ class RingCentralCallLogService
      *     to_phone: string,
      *     to_name: string,
      *     external_phone: string,
+     *     recording_id: ?string,
      *     raw: array<string, mixed>
      * }|null
      */
@@ -564,6 +575,7 @@ class RingCentralCallLogService
      *     to_phone: string,
      *     to_name: string,
      *     external_phone: string,
+     *     recording_id: ?string,
      *     raw: array<string, mixed>
      * }|null
      */
@@ -610,8 +622,54 @@ class RingCentralCallLogService
             'to_phone' => $toPhone,
             'to_name' => trim((string) data_get($record, 'to.name', '')),
             'external_phone' => $externalPhone,
+            'recording_id' => $this->recordingIdFromRecord($record),
             'raw' => $record,
         ];
+    }
+
+    /**
+     * Stream call recording bytes from RingCentral media API.
+     */
+    public function fetchRecordingContent(string $recordingId): Response
+    {
+        $recordingId = trim($recordingId);
+        if ($recordingId === '') {
+            throw new RuntimeException('RingCentral recording id is empty.');
+        }
+
+        $accountId = trim((string) config('services.ringcentral.account_id', '~')) ?: '~';
+        $url = $this->mediaBaseUrl().'/restapi/v1.0/account/'.$accountId.'/recording/'.$recordingId.'/content';
+
+        $response = $this->sendAuthorizedRecordingGet($url);
+
+        if ($response->status() === 401) {
+            Cache::forget($this->tokenCacheKey());
+            $response = $this->sendAuthorizedRecordingGet($url);
+        }
+
+        return $response;
+    }
+
+    private function sendAuthorizedRecordingGet(string $url): Response
+    {
+        return Http::withToken($this->accessToken())
+            ->withHeaders(['Accept' => 'audio/mpeg'])
+            ->connectTimeout(5)
+            ->timeout(60)
+            ->retry(1, 250, throw: false)
+            ->get($url, [
+                'contentDisposition' => 'Inline',
+            ]);
+    }
+
+    /**
+     * @param  array<string, mixed>  $record
+     */
+    public function recordingIdFromRecord(array $record): ?string
+    {
+        $id = trim((string) data_get($record, 'recording.id', ''));
+
+        return $id !== '' ? $id : null;
     }
 
     private function accessToken(): string
@@ -667,6 +725,25 @@ class RingCentralCallLogService
             'services.ringcentral.base_url',
             'https://platform.ringcentral.com'
         ), '/');
+    }
+
+    private function mediaBaseUrl(): string
+    {
+        $configured = trim((string) config('services.ringcentral.media_url', ''));
+        if ($configured !== '') {
+            return rtrim($configured, '/');
+        }
+
+        $platform = $this->baseUrl();
+        if (str_contains($platform, 'platform.devtest.ringcentral.com')) {
+            return 'https://media.devtest.ringcentral.com';
+        }
+
+        if (str_contains($platform, 'platform.ringcentral.com')) {
+            return 'https://media.ringcentral.com';
+        }
+
+        return preg_replace('#://platform\\.#', '://media.', $platform) ?: $platform;
     }
 
     public function normalizePhone(string $phone): string

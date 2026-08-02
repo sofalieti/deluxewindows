@@ -23,6 +23,16 @@ class RingCentralCall extends Model
 
     protected $table = 'ringcentral_calls';
 
+    public const TRANSCRIPT_PENDING = 'pending';
+
+    public const TRANSCRIPT_PROCESSING = 'processing';
+
+    public const TRANSCRIPT_COMPLETED = 'completed';
+
+    public const TRANSCRIPT_FAILED = 'failed';
+
+    public const TRANSCRIPT_SKIPPED = 'skipped';
+
     protected $fillable = [
         'ringcentral_call_id',
         'session_id',
@@ -38,7 +48,15 @@ class RingCentralCall extends Model
         'to_phone',
         'to_name',
         'external_phone',
+        'recording_id',
         'contact_id',
+        'transcript_status',
+        'transcript_queued_at',
+        'transcript_processed_at',
+        'transcript',
+        'transcript_summary',
+        'transcript_error',
+        'transcript_meta',
         'raw',
         'synced_at',
     ];
@@ -62,6 +80,10 @@ class RingCentralCall extends Model
         return [
             'duration' => 'integer',
             'raw' => 'array',
+            'transcript_summary' => 'array',
+            'transcript_meta' => 'array',
+            'transcript_queued_at' => 'datetime',
+            'transcript_processed_at' => 'datetime',
         ];
     }
 
@@ -145,5 +167,45 @@ class RingCentralCall extends Model
         $seconds = max(0, (int) $this->duration);
 
         return sprintf('%d:%02d', intdiv($seconds, 60), $seconds % 60);
+    }
+
+    public function resolvedRecordingId(): ?string
+    {
+        $id = trim((string) ($this->recording_id ?? ''));
+        if ($id !== '') {
+            return $id;
+        }
+
+        $fromRaw = trim((string) data_get($this->raw, 'recording.id', ''));
+
+        return $fromRaw !== '' ? $fromRaw : null;
+    }
+
+    public function hasRecording(): bool
+    {
+        return $this->resolvedRecordingId() !== null;
+    }
+
+    public function recordingUrl(): ?string
+    {
+        if (! $this->hasRecording() || ! $this->exists) {
+            return null;
+        }
+
+        return route('platform.ringcentral-calls.recording', $this);
+    }
+
+    public function hasCompletedTranscript(): bool
+    {
+        return $this->transcript_status === self::TRANSCRIPT_COMPLETED
+            && trim((string) ($this->transcript ?? '')) !== '';
+    }
+
+    public function transcriptOverview(): string
+    {
+        $summary = is_array($this->transcript_summary) ? $this->transcript_summary : [];
+        $overview = trim((string) ($summary['overview'] ?? ''));
+
+        return $overview;
     }
 }

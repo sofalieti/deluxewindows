@@ -67,6 +67,7 @@ class PhoneClick extends Model
         'ringcentral_checked_at',
         'ringcentral_attempts',
         'ringcentral_call_id',
+        'ringcentral_recording_id',
         'ringcentral_session_id',
         'ringcentral_result',
         'ringcentral_direction',
@@ -186,6 +187,51 @@ class PhoneClick extends Model
             self::RINGCENTRAL_FOUND,
             self::RINGCENTRAL_NO_CALL,
         ], true);
+    }
+
+    public function resolvedRecordingId(): ?string
+    {
+        $id = trim((string) ($this->ringcentral_recording_id ?? ''));
+        if ($id !== '') {
+            return $id;
+        }
+
+        $callId = trim((string) ($this->ringcentral_call_id ?? ''));
+        if ($callId === '' || ! Schema::hasTable('ringcentral_calls')) {
+            return null;
+        }
+
+        $call = RingCentralCall::query()
+            ->where('ringcentral_call_id', $callId)
+            ->first();
+
+        return $call?->resolvedRecordingId();
+    }
+
+    public function hasRecording(): bool
+    {
+        return $this->resolvedRecordingId() !== null;
+    }
+
+    public function recordingUrl(): ?string
+    {
+        if (! $this->hasRecording() || ! $this->exists) {
+            return null;
+        }
+
+        return route('platform.phone-clicks.recording', $this);
+    }
+
+    public function ringCentralCall(): ?RingCentralCall
+    {
+        $callId = trim((string) ($this->ringcentral_call_id ?? ''));
+        if ($callId === '' || ! Schema::hasTable('ringcentral_calls')) {
+            return null;
+        }
+
+        return RingCentralCall::query()
+            ->where('ringcentral_call_id', $callId)
+            ->first();
     }
 
     /**

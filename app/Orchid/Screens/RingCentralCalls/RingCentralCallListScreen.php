@@ -7,6 +7,7 @@ namespace App\Orchid\Screens\RingCentralCalls;
 use App\Models\RingCentralCall;
 use App\Models\RingCentralCallSyncState;
 use App\Models\RingCentralExcludedNumber;
+use App\Orchid\Screens\Concerns\QueuesCallTranscripts;
 use App\Services\PromotionControlService;
 use App\Services\RingCentralCallLogService;
 use App\Services\RingCentralCallSyncService;
@@ -24,6 +25,8 @@ use Throwable;
 
 class RingCentralCallListScreen extends Screen
 {
+    use QueuesCallTranscripts;
+
     /** @var list<string> */
     private array $monitoredPhones = [];
 
@@ -184,6 +187,27 @@ class RingCentralCallListScreen extends Screen
             TD::make('result', 'Result')
                 ->render(fn (RingCentralCall $call): string => e((string) ($call->result ?: 'Unknown'))
                     .'<div class="small text-muted">'.e($call->durationLabel()).'</div>'),
+            TD::make('recording', 'Recording')
+                ->width('240px')
+                ->render(function (RingCentralCall $call): string {
+                    $html = '';
+                    if ($call->hasRecording()) {
+                        $html .= view('admin.partials.call-recording', [
+                            'url' => $call->recordingUrl(),
+                            'compact' => true,
+                        ])->render();
+                    } else {
+                        $html .= '<span class="text-muted">—</span>';
+                    }
+
+                    $html .= view('admin.partials.call-transcript', [
+                        'call' => $call,
+                        'compact' => true,
+                        'canQueue' => $call->hasRecording(),
+                    ])->render();
+
+                    return $html;
+                }),
         ];
 
         if ($showExclude) {

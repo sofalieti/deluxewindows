@@ -2,6 +2,7 @@
 
 use App\Models\Contact;
 use App\Models\ContactChange;
+use App\Models\Lead;
 use App\Models\RingCentralCall;
 use App\Models\User;
 use App\Orchid\Screens\Contacts\ContactEditScreen;
@@ -115,6 +116,7 @@ test('contact edit screen exposes calls and history tabs', function () {
         'from_phone' => '+16505553333',
         'to_phone' => '+16504614446',
         'external_phone' => '+16505553333',
+        'recording_id' => 'rec-tab-1',
         'result' => 'Accepted',
         'synced_at' => CarbonImmutable::parse('2026-07-31T16:05:00Z'),
     ]);
@@ -127,5 +129,43 @@ test('contact edit screen exposes calls and history tabs', function () {
         ->assertSee('History')
         ->assertSee('Contact created')
         ->assertSee('Inbound')
-        ->assertSee('+16505553333');
+        ->assertSee('+16505553333')
+        ->assertSee('Listen')
+        ->assertSee(route('platform.ringcentral-calls.recording', RingCentralCall::query()->where('ringcentral_call_id', 'tab-call')->sole()), false);
+});
+
+test('lead edit screen exposes calls tab with recording link', function () {
+    $user = User::factory()->create();
+    $user->forceFill([
+        'permissions' => ['platform.leads' => true],
+    ])->save();
+
+    $lead = Lead::query()->create([
+        'full_name' => 'Lead Caller',
+        'email' => 'lead-caller@example.com',
+        'phone' => '+16505554444',
+        'status' => Lead::STATUS_NEW,
+    ]);
+
+    $call = RingCentralCall::query()->create([
+        'ringcentral_call_id' => 'lead-tab-call',
+        'direction' => 'Inbound',
+        'started_at' => CarbonImmutable::parse('2026-07-31T16:00:00Z'),
+        'duration' => 40,
+        'business_phone' => '+16504614446',
+        'from_phone' => '+16505554444',
+        'to_phone' => '+16504614446',
+        'external_phone' => '+16505554444',
+        'recording_id' => 'rec-lead-1',
+        'result' => 'Accepted',
+        'synced_at' => CarbonImmutable::parse('2026-07-31T16:05:00Z'),
+    ]);
+
+    $this->withoutMiddleware(\Orchid\Platform\Http\Middleware\Access::class)
+        ->actingAs($user)
+        ->get(route('platform.leads.edit', $lead))
+        ->assertOk()
+        ->assertSee('Calls')
+        ->assertSee('Listen')
+        ->assertSee(route('platform.ringcentral-calls.recording', $call), false);
 });

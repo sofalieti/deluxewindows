@@ -23,6 +23,7 @@ final class RingCentralCallSyncService
         private readonly RingCentralCallLogService $callLog,
         private readonly PromotionControlService $promotions,
         private readonly RingCentralContactBinder $contacts,
+        private readonly CallTranscriptionQueue $transcriptQueue,
     ) {}
 
     /**
@@ -89,14 +90,29 @@ final class RingCentralCallSyncService
                 if (! Schema::hasColumn('ringcentral_calls', 'contact_id')) {
                     unset($payload['contact_id']);
                 }
+                if (! Schema::hasColumn('ringcentral_calls', 'recording_id')) {
+                    unset($payload['recording_id']);
+                }
 
                 $call = RingCentralCall::query()->firstOrNew([
                     'ringcentral_call_id' => $payload['ringcentral_call_id'],
                 ]);
                 $call->exists ? $updated++ : $created++;
+
+                // Keep a previously known recording if this sync payload has none yet.
+                if (
+                    empty($payload['recording_id'])
+                    && $call->exists
+                    && filled($call->recording_id)
+                ) {
+                    unset($payload['recording_id']);
+                }
+
                 $call->fill($payload);
                 $call->synced_at = $now;
                 $call->save();
+
+                $this->transcriptQueue->enqueueIfEligible($call->fresh() ?? $call);
             }
 
             RingCentralCallSyncState::query()->whereKey($state->id)->update([
