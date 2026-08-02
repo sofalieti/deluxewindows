@@ -19,7 +19,7 @@
       gtag('config', 'G-JHYBB0THJM');
       gtag('config', 'AW-1030787786');
 
-      function gtag_report_conversion(url) {
+      function gtag_report_conversion(url, user) {
         var callback = function () {
           if (typeof url !== 'undefined') {
             window.location = url;
@@ -29,6 +29,9 @@
           'send_to': 'AW-1030787786/Hs9eCP7MwngQyqXC6wM',
           'event_callback': callback
         });
+        if (typeof window.uet_report_conversion === 'function') {
+          window.uet_report_conversion(user);
+        }
         return false;
       }
     </script>
@@ -48,6 +51,29 @@
         ti: "97258460",
         enableAutoSpaTracking: true
       });
+
+      // Mirror Google Ads lead conversion into Bing UET.
+      // Goal: custom event "submit_lead_form". Optional Enhanced Conversions via pid.
+      window.uet_report_conversion = function (user) {
+        window.uetq = window.uetq || [];
+        user = user || {};
+        var pid = {};
+        var em = String(user.email || '').trim().toLowerCase();
+        var phDigits = String(user.phone || '').replace(/\D/g, '');
+        if (em) {
+          pid.em = em;
+        }
+        if (phDigits.length === 10) {
+          phDigits = '1' + phDigits;
+        }
+        if (phDigits.length >= 11) {
+          pid.ph = '+' + phDigits;
+        }
+        if (pid.em || pid.ph) {
+          window.uetq.push('set', { pid: pid });
+        }
+        window.uetq.push('event', 'submit_lead_form', {});
+      };
     </script>
     @include('partials.seo-head')
     <meta content="width=device-width, initial-scale=1" name="viewport" />

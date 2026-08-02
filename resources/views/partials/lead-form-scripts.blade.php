@@ -413,7 +413,10 @@
           postToGoogleBridges(payload);
           sendGa4LeadConversion(payload);
           if (typeof window.gtag_report_conversion === 'function') {
-            window.gtag_report_conversion();
+            window.gtag_report_conversion(undefined, {
+              email: payload.Email || payload.email || '',
+              phone: payload.Phone || payload.phone || '',
+            });
           }
         }
         showState(form, true);
