@@ -83,6 +83,26 @@ test('representative public page families resolve metadata and schema from files
     'service area' => ['/window-replacement/san-jose', 'Service'],
 ]);
 
+test('product schema on material pages includes offers for rich results', function (string $path) {
+    $metadata = app(PageMetadataRepository::class)->forPath($path);
+    $schemas = app(SchemaBuilder::class)->build($metadata);
+    $product = collect($schemas)->firstWhere('@type', 'Product');
+
+    expect($product)->toBeArray()
+        ->and($product)->toHaveKey('offers')
+        ->and($product['offers'])->toHaveKey('priceCurrency')
+        ->and($product['offers']['priceCurrency'])->toBe('USD')
+        ->and(
+            isset($product['offers']['lowPrice'])
+            || isset($product['offers']['price'])
+        )->toBeTrue();
+})->with([
+    'fiberglass windows' => ['/windows/fiberglass-windows'],
+    'vinyl windows' => ['/windows/vinyl-windows'],
+    'fiberglass doors' => ['/doors/fiberglass-doors'],
+    'aluminum doors' => ['/doors/aluminum-doors'],
+]);
+
 test('faq markup and faq schema use the same file entries', function () {
     $metadata = app(PageMetadataRepository::class)->forPath('/window-replacement/san-jose');
     $schemas = app(SchemaBuilder::class)->build($metadata);

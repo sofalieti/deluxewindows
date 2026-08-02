@@ -225,7 +225,7 @@ class SchemaBuilder
                 return [];
             }
 
-            $unit = str_starts_with($path, '/door-brands/')
+            $unit = $resolver->isDoorCatalogPath($path)
                 ? 'per door installed'
                 : 'per window installed';
 
