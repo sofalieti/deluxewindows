@@ -172,3 +172,37 @@ test('recording id falls back to raw call log payload', function () {
             'recording' => ['id' => 'abc'],
         ]))->toBe('abc');
 });
+
+test('recording id is taken from detailed call legs when top-level recording is missing', function () {
+    Http::fake([
+        'https://platform.ringcentral.test/restapi/oauth/token' => Http::response([
+            'access_token' => 'test-access-token',
+            'expires_in' => 3600,
+        ]),
+        'https://platform.ringcentral.test/restapi/v1.0/account/*/call-log*' => Http::response([
+            'records' => [[
+                'id' => 'legged-call-1',
+                'sessionId' => 'session-legged',
+                'startTime' => '2026-08-01T18:00:00.000Z',
+                'duration' => 55,
+                'type' => 'Voice',
+                'direction' => 'Inbound',
+                'result' => 'Accepted',
+                'from' => ['phoneNumber' => '+14155550999'],
+                'to' => ['phoneNumber' => '+16504614446'],
+                'legs' => [[
+                    'direction' => 'Inbound',
+                    'recording' => ['id' => 'rec-from-leg'],
+                ]],
+            ]],
+        ]),
+    ]);
+
+    CarbonImmutable::setTestNow('2026-08-01 19:00:00 UTC');
+    app(RingCentralCallSyncService::class)->sync(forceDays: 1);
+
+    $call = RingCentralCall::query()->where('ringcentral_call_id', 'legged-call-1')->sole();
+
+    expect($call->recording_id)->toBe('rec-from-leg')
+        ->and($call->hasRecording())->toBeTrue();
+});

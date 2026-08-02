@@ -197,7 +197,7 @@ class RingCentralCallListScreen extends Screen
                             'compact' => true,
                         ])->render();
                     } else {
-                        $html .= '<span class="text-muted">—</span>';
+                        $html .= '<span class="text-muted">No recording in RingCentral</span>';
                     }
 
                     $html .= view('admin.partials.call-transcript', [

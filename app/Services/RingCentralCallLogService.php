@@ -421,7 +421,8 @@ class RingCentralCallLogService
             .(trim((string) config('services.ringcentral.account_id', '~')) ?: '~')
             .'/call-log';
         $query = [
-            'view' => 'Simple',
+            // Detailed includes recording metadata on the record and/or call legs.
+            'view' => 'Detailed',
             'type' => 'Voice',
             'dateFrom' => $dateFrom->utc()->format('Y-m-d\TH:i:s.v\Z'),
             'dateTo' => $dateTo->utc()->format('Y-m-d\TH:i:s.v\Z'),
@@ -510,7 +511,7 @@ class RingCentralCallLogService
             ->timeout(20)
             ->retry(2, 250, throw: false)
             ->get($url, [
-                'view' => 'Simple',
+                'view' => 'Detailed',
                 'type' => 'Voice',
                 'direction' => 'Inbound',
                 'phoneNumber' => $phone,
@@ -668,8 +669,22 @@ class RingCentralCallLogService
     public function recordingIdFromRecord(array $record): ?string
     {
         $id = trim((string) data_get($record, 'recording.id', ''));
+        if ($id !== '') {
+            return $id;
+        }
 
-        return $id !== '' ? $id : null;
+        // Company/multi-leg calls often put the recording on a leg in Detailed view.
+        foreach ((array) ($record['legs'] ?? []) as $leg) {
+            if (! is_array($leg)) {
+                continue;
+            }
+            $legId = trim((string) data_get($leg, 'recording.id', ''));
+            if ($legId !== '') {
+                return $legId;
+            }
+        }
+
+        return null;
     }
 
     private function accessToken(): string

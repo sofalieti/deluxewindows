@@ -176,9 +176,23 @@ class RingCentralCall extends Model
             return $id;
         }
 
-        $fromRaw = trim((string) data_get($this->raw, 'recording.id', ''));
+        $raw = is_array($this->raw) ? $this->raw : [];
+        $fromRaw = trim((string) data_get($raw, 'recording.id', ''));
+        if ($fromRaw !== '') {
+            return $fromRaw;
+        }
 
-        return $fromRaw !== '' ? $fromRaw : null;
+        foreach ((array) ($raw['legs'] ?? []) as $leg) {
+            if (! is_array($leg)) {
+                continue;
+            }
+            $legId = trim((string) data_get($leg, 'recording.id', ''));
+            if ($legId !== '') {
+                return $legId;
+            }
+        }
+
+        return null;
     }
 
     public function hasRecording(): bool
