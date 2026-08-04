@@ -40,7 +40,9 @@ class GoogleAdsOauthCommand extends Command
             $this->info('1. Open this URL and approve access:');
             $this->line($url);
             $this->newLine();
-            $this->info('2. Re-run with the returned code:');
+            $this->info('2. The browser lands on a blank/error page — copy the "code" value from its address bar.');
+            $this->newLine();
+            $this->info('3. Re-run with that code:');
             $this->line('   php artisan ads:google-oauth --code=THE_CODE');
 
             return self::SUCCESS;
