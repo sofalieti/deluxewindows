@@ -52,6 +52,50 @@ return [
         'redirect' => env('GOOGLE_MAILBOX_REDIRECT_URI'),
     ],
 
+    /*
+     * Offline conversion upload for phone clicks confirmed by a RingCentral call.
+     * Each block is only used when every required credential is present.
+     */
+    'google_ads' => [
+        'developer_token' => env('GOOGLE_ADS_DEVELOPER_TOKEN'),
+        'client_id' => env('GOOGLE_ADS_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_ADS_CLIENT_SECRET'),
+        'refresh_token' => env('GOOGLE_ADS_REFRESH_TOKEN'),
+        'customer_id' => env('GOOGLE_ADS_CUSTOMER_ID'),
+        'login_customer_id' => env('GOOGLE_ADS_LOGIN_CUSTOMER_ID'),
+        'phone_conversion_action' => env('GOOGLE_ADS_PHONE_CONVERSION_ACTION'),
+        'oauth_redirect_uri' => env('GOOGLE_ADS_OAUTH_REDIRECT_URI', 'http://localhost'),
+        'api_version' => env('GOOGLE_ADS_API_VERSION', 'v25'),
+        'api_base_url' => rtrim((string) env('GOOGLE_ADS_API_BASE_URL', 'https://googleads.googleapis.com'), '/'),
+        'oauth_token_url' => env('GOOGLE_ADS_OAUTH_TOKEN_URL', 'https://oauth2.googleapis.com/token'),
+    ],
+
+    'microsoft_ads' => [
+        'developer_token' => env('MICROSOFT_ADS_DEVELOPER_TOKEN'),
+        'client_id' => env('MICROSOFT_ADS_CLIENT_ID'),
+        'client_secret' => env('MICROSOFT_ADS_CLIENT_SECRET'),
+        'refresh_token' => env('MICROSOFT_ADS_REFRESH_TOKEN'),
+        'customer_id' => env('MICROSOFT_ADS_CUSTOMER_ID'),
+        'account_id' => env('MICROSOFT_ADS_ACCOUNT_ID'),
+        'phone_conversion_name' => env('MICROSOFT_ADS_PHONE_CONVERSION_NAME', 'Phone Call Confirmed'),
+        'oauth_redirect_uri' => env(
+            'MICROSOFT_ADS_OAUTH_REDIRECT_URI',
+            'https://login.microsoftonline.com/common/oauth2/nativeclient'
+        ),
+        'api_base_url' => rtrim((string) env(
+            'MICROSOFT_ADS_API_BASE_URL',
+            'https://campaign.api.bingads.microsoft.com'
+        ), '/'),
+        'oauth_token_url' => env(
+            'MICROSOFT_ADS_OAUTH_TOKEN_URL',
+            'https://login.microsoftonline.com/common/oauth2/v2.0/token'
+        ),
+        'oauth_authorize_url' => env(
+            'MICROSOFT_ADS_OAUTH_AUTHORIZE_URL',
+            'https://login.microsoftonline.com/common/oauth2/v2.0/authorize'
+        ),
+    ],
+
     'lead_bridge' => [
         'urls' => array_values(array_filter([
             env('LEAD_BRIDGE_URL_1', 'https://script.google.com/macros/s/AKfycbyJGhNROpBI8TUkGn9RtdNtIDxNjxsI52kyHgBtDIUauSEWgzVIqCFPic0-chwjxNxU/exec'),

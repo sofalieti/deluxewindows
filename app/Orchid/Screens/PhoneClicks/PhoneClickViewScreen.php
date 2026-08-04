@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Orchid\Screens\PhoneClicks;
 
 use App\Jobs\MatchPhoneClickToRingCentral;
+use App\Jobs\SendPhoneClickOfflineConversions;
 use App\Models\PhoneClick;
 use App\Orchid\Screens\Concerns\QueuesCallTranscripts;
 use App\Services\PhoneClickGoogleBridge;
@@ -78,6 +79,13 @@ class PhoneClickViewScreen extends Screen
                 ->icon('bs.link-45deg')
                 ->method('rematch', ['click' => $this->click->id])
                 ->confirm('Clear current match (if any) and match this click again: same DID, call after click time?');
+        }
+
+        if ($this->click && $this->click->ringcentral_status === PhoneClick::RINGCENTRAL_FOUND) {
+            $actions[] = Button::make('Resend ad conversions')
+                ->icon('bs.megaphone')
+                ->method('resendOfflineConversions', ['click' => $this->click->id])
+                ->confirm('Upload this confirmed call to Google Ads and Microsoft Ads again?');
         }
 
         if ($this->click) {
@@ -184,6 +192,20 @@ class PhoneClickViewScreen extends Screen
 
                             return '<span class="badge bg-success text-white">✓ Sent '.e((string) $sentAt).$suffix.'</span>';
                         }),
+                    Sight::make('google_ads_conversion_sent_at', 'Google Ads conversion')
+                        ->render(fn (PhoneClick $click) => $this->conversionBadge(
+                            $click->google_ads_conversion_sent_at,
+                            (string) $click->google_ads_conversion_error,
+                            $click->resolvedGclid() !== null,
+                            'GCLID'
+                        )),
+                    Sight::make('bing_ads_conversion_sent_at', 'Microsoft Ads conversion')
+                        ->render(fn (PhoneClick $click) => $this->conversionBadge(
+                            $click->bing_ads_conversion_sent_at,
+                            (string) $click->bing_ads_conversion_error,
+                            $click->resolvedMsclkid() !== null,
+                            'MSCLKID'
+                        )),
                     Sight::make('phone', 'Phone')
                         ->render(function (PhoneClick $click): string {
                             $phone = trim((string) ($click->phone ?? ''));
@@ -276,6 +298,48 @@ class PhoneClickViewScreen extends Screen
                 ]),
             ]),
         ];
+    }
+
+    private function conversionBadge(
+        ?\Illuminate\Support\Carbon $sentAt,
+        string $error,
+        bool $hasClickId,
+        string $clickIdLabel
+    ): string {
+        if ($sentAt !== null) {
+            return '<span class="badge bg-success text-white">✓ Sent '
+                .e($sentAt->copy()->setTimezone('America/Los_Angeles')->format('Y-m-d H:i:s'))
+                .'</span>';
+        }
+
+        if (trim($error) !== '') {
+            return '<span class="badge bg-danger text-white">Failed</span>'
+                .'<div class="small text-muted mt-1">'.e($error).'</div>';
+        }
+
+        if (! $hasClickId) {
+            return '<span class="badge bg-light text-dark">No '.e($clickIdLabel).'</span>';
+        }
+
+        return '<span class="badge bg-secondary text-white">Not sent</span>';
+    }
+
+    public function resendOfflineConversions(Request $request): void
+    {
+        $validated = $request->validate([
+            'click' => ['required', 'integer', 'exists:phone_clicks,id'],
+        ]);
+
+        $click = PhoneClick::query()->findOrFail((int) $validated['click']);
+
+        if ($click->ringcentral_status !== PhoneClick::RINGCENTRAL_FOUND) {
+            Toast::error('Match a RingCentral call first — offline conversions need a confirmed call.');
+
+            return;
+        }
+
+        SendPhoneClickOfflineConversions::dispatch($click->id, force: true);
+        Toast::info('Offline conversion upload queued.');
     }
 
     public function sendToGoogle(Request $request, PhoneClickGoogleBridge $bridge): void

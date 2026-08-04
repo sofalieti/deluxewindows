@@ -120,6 +120,7 @@ class MatchPhoneClickToRingCentral implements ShouldQueue
                         ])->save();
 
                         $this->enqueueTranscriptForMatch($match, $ringCentral, $transcriptQueue);
+                        SendPhoneClickOfflineConversions::dispatch($click->id)->afterCommit();
                     } catch (\Throwable $exception) {
                         Log::warning('RingCentral call could not be assigned to phone click', [
                             'phone_click_id' => $click->id,

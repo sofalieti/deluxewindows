@@ -1,0 +1,305 @@
+<?php
+
+use App\Jobs\SendPhoneClickOfflineConversions;
+use App\Models\PhoneClick;
+use App\Services\Ads\GoogleAdsOfflineConversionService;
+use App\Services\Ads\MicrosoftAdsOfflineConversionService;
+use Carbon\CarbonImmutable;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Http;
+
+uses(RefreshDatabase::class);
+
+beforeEach(function () {
+    config()->set('services.google_ads', [
+        'developer_token' => 'dev-token',
+        'client_id' => 'google-client',
+        'client_secret' => 'google-secret',
+        'refresh_token' => 'google-refresh',
+        'customer_id' => '123-456-7890',
+        'login_customer_id' => '999-888-7777',
+        'phone_conversion_action' => 'customers/1234567890/conversionActions/555',
+        'oauth_redirect_uri' => 'urn:ietf:wg:oauth:2.0:oob',
+        'api_version' => 'v18',
+        'api_base_url' => 'https://googleads.test',
+        'oauth_token_url' => 'https://oauth2.test/token',
+    ]);
+
+    config()->set('services.microsoft_ads', [
+        'developer_token' => 'ms-dev-token',
+        'client_id' => 'ms-client',
+        'client_secret' => 'ms-secret',
+        'refresh_token' => 'ms-refresh',
+        'customer_id' => '4242',
+        'account_id' => '2424',
+        'phone_conversion_name' => 'Phone Call Confirmed',
+        'oauth_redirect_uri' => 'https://login.test/native',
+        'api_base_url' => 'https://campaign.bingads.test',
+        'oauth_token_url' => 'https://login.test/token',
+        'oauth_authorize_url' => 'https://login.test/authorize',
+    ]);
+
+    Cache::flush();
+});
+
+afterEach(function () {
+    CarbonImmutable::setTestNow();
+});
+
+function confirmedClick(array $overrides = []): PhoneClick
+{
+    return PhoneClick::query()->create(array_merge([
+        'phone' => '+16504614446',
+        'ringcentral_status' => PhoneClick::RINGCENTRAL_FOUND,
+        'ringcentral_direction' => 'Inbound',
+        'ringcentral_from_phone' => '+14155550999',
+        'ringcentral_to_phone' => '+16504614446',
+        // Stored in the app timezone, exactly like MatchPhoneClickToRingCentral does.
+        'ringcentral_call_started_at' => CarbonImmutable::parse('2026-08-04 10:15:00 UTC')
+            ->setTimezone((string) config('app.timezone')),
+    ], $overrides));
+}
+
+function fakeAdsEndpoints(): void
+{
+    Http::fake([
+        'https://oauth2.test/token' => Http::response(['access_token' => 'google-access', 'expires_in' => 3600]),
+        'https://googleads.test/*' => Http::response(['results' => [['gclid' => 'abc']]]),
+        'https://login.test/token' => Http::response(['access_token' => 'ms-access', 'expires_in' => 3600]),
+        'https://campaign.bingads.test/*' => Http::response(['PartialErrors' => []]),
+    ]);
+}
+
+test('a confirmed call with a gclid is uploaded to Google Ads', function () {
+    fakeAdsEndpoints();
+    $click = confirmedClick(['gclid' => 'test-gclid']);
+
+    (new SendPhoneClickOfflineConversions($click->id))->handle(
+        app(GoogleAdsOfflineConversionService::class),
+        app(MicrosoftAdsOfflineConversionService::class),
+    );
+
+    $click->refresh();
+
+    expect($click->google_ads_conversion_sent_at)->not->toBeNull()
+        ->and($click->google_ads_conversion_error)->toBeNull()
+        ->and($click->bing_ads_conversion_sent_at)->toBeNull();
+
+    Http::assertSent(fn ($request) => str_contains($request->url(), ':uploadClickConversions')
+        && $request['conversions'][0]['gclid'] === 'test-gclid'
+        && $request['conversions'][0]['orderId'] === 'phone-click-'.$click->id
+        && $request->header('developer-token')[0] === 'dev-token'
+        && $request->header('login-customer-id')[0] === '9998887777');
+});
+
+test('a confirmed call with an msclkid is uploaded to Microsoft Ads', function () {
+    fakeAdsEndpoints();
+    $click = confirmedClick(['msclkid' => 'test-msclkid']);
+
+    (new SendPhoneClickOfflineConversions($click->id))->handle(
+        app(GoogleAdsOfflineConversionService::class),
+        app(MicrosoftAdsOfflineConversionService::class),
+    );
+
+    $click->refresh();
+
+    expect($click->bing_ads_conversion_sent_at)->not->toBeNull()
+        ->and($click->bing_ads_conversion_error)->toBeNull()
+        ->and($click->google_ads_conversion_sent_at)->toBeNull();
+
+    Http::assertSent(fn ($request) => str_contains($request->url(), '/OfflineConversions/Apply')
+        && $request['OfflineConversions'][0]['MicrosoftClickId'] === 'test-msclkid'
+        && $request['OfflineConversions'][0]['ConversionName'] === 'Phone Call Confirmed'
+        && $request['OfflineConversions'][0]['ConversionTime'] === '2026-08-04T10:15:00Z');
+});
+
+test('first touch click ids are used when the last touch is empty', function () {
+    fakeAdsEndpoints();
+    $click = confirmedClick([
+        'first_gclid' => 'first-touch-gclid',
+        'first_msclkid' => 'first-touch-msclkid',
+    ]);
+
+    (new SendPhoneClickOfflineConversions($click->id))->handle(
+        app(GoogleAdsOfflineConversionService::class),
+        app(MicrosoftAdsOfflineConversionService::class),
+    );
+
+    Http::assertSent(fn ($request) => str_contains($request->url(), ':uploadClickConversions')
+        && $request['conversions'][0]['gclid'] === 'first-touch-gclid');
+    Http::assertSent(fn ($request) => str_contains($request->url(), '/OfflineConversions/Apply')
+        && $request['OfflineConversions'][0]['MicrosoftClickId'] === 'first-touch-msclkid');
+});
+
+test('an already uploaded conversion is not sent twice', function () {
+    fakeAdsEndpoints();
+    $click = confirmedClick(['gclid' => 'test-gclid']);
+
+    $job = new SendPhoneClickOfflineConversions($click->id);
+    $job->handle(
+        app(GoogleAdsOfflineConversionService::class),
+        app(MicrosoftAdsOfflineConversionService::class),
+    );
+    $sentAt = $click->refresh()->google_ads_conversion_sent_at;
+
+    (new SendPhoneClickOfflineConversions($click->id))->handle(
+        app(GoogleAdsOfflineConversionService::class),
+        app(MicrosoftAdsOfflineConversionService::class),
+    );
+
+    expect($click->refresh()->google_ads_conversion_sent_at->timestamp)->toBe($sentAt->timestamp);
+
+    Http::assertSentCount(2);
+});
+
+test('nothing is uploaded when the ad credentials are missing', function () {
+    config()->set('services.google_ads.developer_token', '');
+    config()->set('services.microsoft_ads.developer_token', '');
+    Http::fake();
+
+    $click = confirmedClick(['gclid' => 'test-gclid', 'msclkid' => 'test-msclkid']);
+
+    (new SendPhoneClickOfflineConversions($click->id))->handle(
+        app(GoogleAdsOfflineConversionService::class),
+        app(MicrosoftAdsOfflineConversionService::class),
+    );
+
+    $click->refresh();
+
+    expect($click->google_ads_conversion_sent_at)->toBeNull()
+        ->and($click->bing_ads_conversion_sent_at)->toBeNull();
+
+    Http::assertNothingSent();
+});
+
+test('a click without any ad click id is skipped', function () {
+    Http::fake();
+    $click = confirmedClick();
+
+    (new SendPhoneClickOfflineConversions($click->id))->handle(
+        app(GoogleAdsOfflineConversionService::class),
+        app(MicrosoftAdsOfflineConversionService::class),
+    );
+
+    expect($click->refresh()->google_ads_conversion_sent_at)->toBeNull();
+    Http::assertNothingSent();
+});
+
+test('an unconfirmed phone click is never uploaded', function () {
+    Http::fake();
+    $click = confirmedClick([
+        'gclid' => 'test-gclid',
+        'ringcentral_status' => PhoneClick::RINGCENTRAL_PENDING,
+    ]);
+
+    (new SendPhoneClickOfflineConversions($click->id))->handle(
+        app(GoogleAdsOfflineConversionService::class),
+        app(MicrosoftAdsOfflineConversionService::class),
+    );
+
+    expect($click->refresh()->google_ads_conversion_sent_at)->toBeNull();
+    Http::assertNothingSent();
+});
+
+test('a spam phone click is never uploaded', function () {
+    Http::fake();
+    $click = confirmedClick(['gclid' => 'test-gclid', 'is_spam' => true]);
+
+    (new SendPhoneClickOfflineConversions($click->id))->handle(
+        app(GoogleAdsOfflineConversionService::class),
+        app(MicrosoftAdsOfflineConversionService::class),
+    );
+
+    expect($click->refresh()->google_ads_conversion_sent_at)->toBeNull();
+    Http::assertNothingSent();
+});
+
+test('an upload failure is recorded without blocking the other platform', function () {
+    Http::fake([
+        'https://oauth2.test/token' => Http::response(['access_token' => 'google-access', 'expires_in' => 3600]),
+        'https://googleads.test/*' => Http::response(['error' => ['message' => 'Invalid gclid']], 400),
+        'https://login.test/token' => Http::response(['access_token' => 'ms-access', 'expires_in' => 3600]),
+        'https://campaign.bingads.test/*' => Http::response(['PartialErrors' => []]),
+    ]);
+
+    $click = confirmedClick(['gclid' => 'bad-gclid', 'msclkid' => 'test-msclkid']);
+
+    (new SendPhoneClickOfflineConversions($click->id))->handle(
+        app(GoogleAdsOfflineConversionService::class),
+        app(MicrosoftAdsOfflineConversionService::class),
+    );
+
+    $click->refresh();
+
+    expect($click->google_ads_conversion_sent_at)->toBeNull()
+        ->and($click->google_ads_conversion_error)->toContain('Invalid gclid')
+        ->and($click->bing_ads_conversion_sent_at)->not->toBeNull();
+});
+
+test('microsoft partial errors are treated as a failure', function () {
+    Http::fake([
+        'https://login.test/token' => Http::response(['access_token' => 'ms-access', 'expires_in' => 3600]),
+        'https://campaign.bingads.test/*' => Http::response([
+            'PartialErrors' => [['Message' => 'MSCLKID is invalid']],
+        ]),
+    ]);
+
+    $click = confirmedClick(['msclkid' => 'expired-msclkid']);
+
+    (new SendPhoneClickOfflineConversions($click->id))->handle(
+        app(GoogleAdsOfflineConversionService::class),
+        app(MicrosoftAdsOfflineConversionService::class),
+    );
+
+    $click->refresh();
+
+    expect($click->bing_ads_conversion_sent_at)->toBeNull()
+        ->and($click->bing_ads_conversion_error)->toContain('MSCLKID is invalid');
+});
+
+test('the phone click screen shows the offline conversion status', function () {
+    fakeAdsEndpoints();
+
+    $user = \App\Models\User::factory()->create();
+    $user->forceFill(['permissions' => ['platform.leads' => true]])->save();
+
+    $click = confirmedClick(['gclid' => 'test-gclid']);
+
+    $screen = $this->withoutMiddleware(\Orchid\Platform\Http\Middleware\Access::class)
+        ->actingAs($user);
+
+    $screen->get(route('platform.phone-clicks.view', $click))
+        ->assertOk()
+        ->assertSee('Google Ads conversion')
+        ->assertSee('Microsoft Ads conversion')
+        ->assertSee('No MSCLKID');
+
+    $screen->post(route('platform.phone-clicks.view', [
+        'click' => $click->id,
+        'method' => 'resendOfflineConversions',
+    ]), ['click' => $click->id])->assertRedirect();
+
+    expect($click->refresh()->google_ads_conversion_sent_at)->not->toBeNull();
+
+    $screen->get(route('platform.phone-clicks.view', $click))
+        ->assertOk()
+        ->assertSee('✓ Sent', escape: false);
+});
+
+test('a forced resend uploads again after a successful send', function () {
+    fakeAdsEndpoints();
+    $click = confirmedClick(['gclid' => 'test-gclid']);
+
+    (new SendPhoneClickOfflineConversions($click->id))->handle(
+        app(GoogleAdsOfflineConversionService::class),
+        app(MicrosoftAdsOfflineConversionService::class),
+    );
+
+    (new SendPhoneClickOfflineConversions($click->id, force: true))->handle(
+        app(GoogleAdsOfflineConversionService::class),
+        app(MicrosoftAdsOfflineConversionService::class),
+    );
+
+    Http::assertSentCount(3);
+});

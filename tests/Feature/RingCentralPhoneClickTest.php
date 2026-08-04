@@ -1,6 +1,7 @@
 <?php
 
 use App\Jobs\MatchPhoneClickToRingCentral;
+use App\Jobs\SendPhoneClickOfflineConversions;
 use App\Models\PhoneClick;
 use App\Services\RingCentralCallLogService;
 use Carbon\CarbonImmutable;
@@ -137,7 +138,11 @@ test('the queued lookup stores any RingCentral call attempt and its result', fun
         ->and($click->ringcentral_from_phone)->toBe('+14155550999')
         ->and($click->ringcentral_attempts)->toBe(1);
 
-    Queue::assertNothingPushed();
+    Queue::assertNotPushed(MatchPhoneClickToRingCentral::class);
+    Queue::assertPushed(
+        SendPhoneClickOfflineConversions::class,
+        fn (SendPhoneClickOfflineConversions $job): bool => $job->phoneClickId === $click->id
+    );
 });
 
 test('a missing call is retried and becomes no call at the end of the window', function () {

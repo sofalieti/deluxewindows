@@ -78,6 +78,10 @@ class PhoneClick extends Model
         'ringcentral_error',
         'google_sheet_sent_at',
         'google_sheet_sent_by',
+        'google_ads_conversion_sent_at',
+        'google_ads_conversion_error',
+        'bing_ads_conversion_sent_at',
+        'bing_ads_conversion_error',
     ];
 
     /**
@@ -110,6 +114,8 @@ class PhoneClick extends Model
             'ringcentral_attempts' => 'integer',
             'ringcentral_duration' => 'integer',
             'google_sheet_sent_at' => 'datetime',
+            'google_ads_conversion_sent_at' => 'datetime',
+            'bing_ads_conversion_sent_at' => 'datetime',
         ];
     }
 
@@ -253,6 +259,49 @@ class PhoneClick extends Model
         }
 
         return $client !== '' ? $client : null;
+    }
+
+    /**
+     * Last-touch click id wins; first touch is the fallback for multi-visit journeys.
+     */
+    public function resolvedGclid(): ?string
+    {
+        return $this->firstFilled(['gclid', 'first_gclid']);
+    }
+
+    public function resolvedMsclkid(): ?string
+    {
+        return $this->firstFilled(['msclkid', 'first_msclkid']);
+    }
+
+    /**
+     * Timestamp reported to the ad platforms as the conversion moment.
+     */
+    public function offlineConversionTime(): \Illuminate\Support\Carbon
+    {
+        return $this->ringcentral_call_started_at
+            ? $this->ringcentral_call_started_at->copy()
+            : ($this->created_at?->copy() ?? now());
+    }
+
+    public function offlineConversionOrderId(): string
+    {
+        return 'phone-click-'.$this->id;
+    }
+
+    /**
+     * @param  list<string>  $fields
+     */
+    private function firstFilled(array $fields): ?string
+    {
+        foreach ($fields as $field) {
+            $value = trim((string) ($this->{$field} ?? ''));
+            if ($value !== '') {
+                return $value;
+            }
+        }
+
+        return null;
     }
 
     public function ringCentralDurationLabel(): string
