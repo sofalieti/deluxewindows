@@ -32,7 +32,6 @@
                       @include('partials.service-area-phones', [
                         'localPhone' => $localPhone ?? null,
                         'localLabel' => $cityName ?: null,
-                        'variant' => 'hero',
                         'alwaysVisible' => true,
                       ])
                     </div>
@@ -41,6 +40,7 @@
                         'variant' => 'price',
                         'badgeHtml' => promotion_hero_mobile_price_tag_html(),
                         'buttonLabel' => 'Request a Free Estimate',
+                        'localPhone' => $localPhone ?? null,
                       ])
                     </div>
                   </div>

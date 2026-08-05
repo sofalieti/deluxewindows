@@ -306,7 +306,7 @@
                     </div>
                     @endif
                     @else
-                    <h1 class="heading-4">Looking to Replace Your Windows in the <span data-area-label>Bay Area</span>?</h1>
+                    <h1 class="heading-4">Looking to Replace Your Windows in <span data-area-label>the Bay Area</span>?</h1>
                     <div class="hero-mobile-promo-slot hero-mobile-promo-slot--mobile">
                       @include('partials.hero-mobile-promo', [
                         'buttonLabel' => 'Request a Free Estimate',
@@ -316,7 +316,6 @@
                     @include('partials.service-area-phones', [
                       'localPhone' => null,
                       'localLabel' => null,
-                      'variant' => 'hero',
                       'alwaysVisible' => false,
                     ])
                   </div>

@@ -88,32 +88,40 @@
       }
     }
 
-    function applyPhones(city) {
-      var blocks = document.querySelectorAll('[data-area-phones]');
-      for (var i = 0; i < blocks.length; i++) {
-        blocks[i].removeAttribute('hidden');
+    function setText(selector, value) {
+      var nodes = document.querySelectorAll(selector);
+      for (var i = 0; i < nodes.length; i++) {
+        nodes[i].textContent = value;
       }
+    }
 
-      var links = document.querySelectorAll('[data-area-phones-local]');
-      for (var j = 0; j < links.length; j++) {
-        links[j].setAttribute('href', 'tel:' + city.phone_tel);
-        links[j].removeAttribute('hidden');
+    function reveal(selector) {
+      var nodes = document.querySelectorAll(selector);
+      for (var i = 0; i < nodes.length; i++) {
+        nodes[i].removeAttribute('hidden');
       }
+    }
 
-      var numbers = document.querySelectorAll('[data-area-phones-local-number]');
-      for (var k = 0; k < numbers.length; k++) {
-        numbers[k].textContent = city.phone_display;
+    function applyPhone(city) {
+      // Single number spots (mobile hero promo, bottom CTA) swap in place.
+      var links = document.querySelectorAll('[data-area-phone]');
+      for (var i = 0; i < links.length; i++) {
+        links[i].setAttribute('href', 'tel:' + city.phone_tel);
+        if (links[i].hasAttribute('aria-label')) {
+          links[i].setAttribute('aria-label', 'Call ' + city.phone_display);
+        }
       }
+      setText('[data-area-phone-number]', city.phone_display);
 
-      var labels = document.querySelectorAll('[data-area-phones-local-label]');
-      for (var l = 0; l < labels.length; l++) {
-        labels[l].textContent = city.name;
+      // Desktop hero shows the general and the local number side by side.
+      var locals = document.querySelectorAll('[data-area-phones-local]');
+      for (var j = 0; j < locals.length; j++) {
+        locals[j].setAttribute('href', 'tel:' + city.phone_tel);
       }
-
-      var blocksToShow = document.querySelectorAll('[data-area-phones-local-block]');
-      for (var m = 0; m < blocksToShow.length; m++) {
-        blocksToShow[m].removeAttribute('hidden');
-      }
+      setText('[data-area-phones-local-number]', city.phone_display);
+      setText('[data-area-phones-local-label]', city.name);
+      reveal('[data-area-phones-local]');
+      reveal('[data-area-phones]');
     }
 
     function run() {
@@ -125,7 +133,7 @@
         if (!match) return;
 
         applyAreaLabel(match.city.name);
-        applyPhones(match.city);
+        applyPhone(match.city);
       });
     }
 

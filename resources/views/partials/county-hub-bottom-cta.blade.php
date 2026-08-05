@@ -9,23 +9,15 @@
             </div>
             <div class="div-block-68">
               <a href="/contacts" class="primary-button-2 add w-inline-block"><div class="additional">Request a Free Estimate</div></a>
+              @php($ctaPhone = $localPhone ?? null)
               <div class="code-embed-12 w-embed">
                 Or call us directly
                 <h3 class="faqs-title county-bottom-cta__title">
-                  <a href="tel:{{ site_phone_tel() }}" class="county-bottom-cta__phone">✆ {{ site_phone_display() }}</a>
-                  <span class="county-bottom-cta__area">Bay Area</span>
-                </h3>
-                <h3
-                  class="faqs-title county-bottom-cta__title county-bottom-cta__local"
-                  data-area-phones-local-block
-                  @unless(! empty($localPhone)) hidden @endunless
-                >
                   <a
-                    href="{{ ! empty($localPhone) ? 'tel:'.$localPhone['phone_tel'] : '#' }}"
+                    href="tel:{{ $ctaPhone['phone_tel'] ?? site_phone_tel() }}"
                     class="county-bottom-cta__phone"
-                    data-area-phones-local
-                  >✆ <span data-area-phones-local-number>{{ $localPhone['phone_display'] ?? '' }}</span></a>
-                  <span class="county-bottom-cta__area" data-area-phones-local-label>{{ $cityName ?? '' }}</span>
+                    data-area-phone
+                  >✆ <span data-area-phone-number>{{ $ctaPhone['phone_display'] ?? site_phone_display() }}</span></a>
                 </h3>
               </div>
             </div>

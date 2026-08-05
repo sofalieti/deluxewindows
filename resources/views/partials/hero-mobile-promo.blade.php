@@ -9,6 +9,11 @@
   $buttonLabel = $buttonLabel ?? 'Request a Free Estimate';
   $showExpires = $showExpires ?? true;
   $percent = $percent ?? app(\App\Services\PromotionControlService::class)->globalDiscountPercent() . '%';
+  // On a service area page we advertise that city's number instead of the
+  // general one; the utm_city script swaps it in on every other page.
+  $localPhone = $localPhone ?? null;
+  $heroPhoneTel = $localPhone['phone_tel'] ?? site_phone_tel();
+  $heroPhoneDisplay = $localPhone['phone_display'] ?? site_phone_display();
 @endphp
 
 {{-- promo-offer.css is served inside the layout CSS bundle (see layouts/classic.blade.php) --}}
@@ -30,8 +35,13 @@
     @endif
   </div>
   <button type="button" class="hero-mobile-promo__btn" data-open-estimate-modal>{{ $buttonLabel }}</button>
-  <a href="tel:{{ site_phone_tel() }}" class="hero-mobile-promo__phone" aria-label="Call {{ site_phone_display() }}">
-    <span class="hero-mobile-promo__phone-number">{{ site_phone_display() }}</span>
+  <a
+    href="tel:{{ $heroPhoneTel }}"
+    class="hero-mobile-promo__phone"
+    aria-label="Call {{ $heroPhoneDisplay }}"
+    data-area-phone
+  >
+    <span class="hero-mobile-promo__phone-number" data-area-phone-number>{{ $heroPhoneDisplay }}</span>
     <span class="hero-mobile-promo__phone-icon" aria-hidden="true">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
         <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.2 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1l-2.2 2.2Z"/>

@@ -102,16 +102,15 @@ test('the lookup endpoint only publishes cities that have a local number', funct
     $response->assertHeader('cache-control', 'max-age=86400, public, s-maxage=86400');
 });
 
-test('a city page shows the general number next to the local one', function () {
+test('a city page advertises the local number in place of the general one', function () {
     $response = get('/window-replacement/oakland')->assertOk();
 
-    $response->assertSee('tel:'.site_phone_tel(), false)
-        ->assertSee('tel:+15102446500', false)
+    $response->assertSee('tel:+15102446500', false)
         ->assertSee('(510) 244-6500', false)
         ->assertDontSee('Installation &amp; Replacement | Bay Area', false);
 });
 
-test('a city without a region shows only the general number', function () {
+test('a city without a region keeps the general number', function () {
     $response = get('/window-replacement/vallejo')->assertOk();
 
     $response->assertSee('tel:'.site_phone_tel(), false)
