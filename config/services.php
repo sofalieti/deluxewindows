@@ -78,10 +78,11 @@ return [
         'customer_id' => env('MICROSOFT_ADS_CUSTOMER_ID'),
         'account_id' => env('MICROSOFT_ADS_ACCOUNT_ID'),
         'phone_conversion_name' => env('MICROSOFT_ADS_PHONE_CONVERSION_NAME', 'Phone Call Confirmed'),
-        'oauth_redirect_uri' => env(
-            'MICROSOFT_ADS_OAUTH_REDIRECT_URI',
-            'https://login.microsoftonline.com/common/oauth2/nativeclient'
-        ),
+        // Which identity signs in to Microsoft Advertising: "microsoft" or "google".
+        // Accounts created through "Sign in with Google" must use google, otherwise
+        // the API rejects the token with IdentityTypeMismatch.
+        'identity_provider' => env('MICROSOFT_ADS_IDENTITY_PROVIDER', 'microsoft'),
+        'oauth_redirect_uri' => env('MICROSOFT_ADS_OAUTH_REDIRECT_URI'),
         'api_base_url' => rtrim((string) env(
             'MICROSOFT_ADS_API_BASE_URL',
             'https://campaign.api.bingads.microsoft.com'
@@ -93,6 +94,14 @@ return [
         'oauth_authorize_url' => env(
             'MICROSOFT_ADS_OAUTH_AUTHORIZE_URL',
             'https://login.microsoftonline.com/common/oauth2/v2.0/authorize'
+        ),
+        'google_oauth_token_url' => env(
+            'MICROSOFT_ADS_GOOGLE_TOKEN_URL',
+            'https://oauth2.googleapis.com/token'
+        ),
+        'google_oauth_authorize_url' => env(
+            'MICROSOFT_ADS_GOOGLE_AUTHORIZE_URL',
+            'https://accounts.google.com/o/oauth2/v2/auth'
         ),
     ],
 

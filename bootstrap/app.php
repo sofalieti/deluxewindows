@@ -39,6 +39,13 @@ return Application::configure(basePath: dirname(__DIR__))
                 && filled(config('services.ringcentral.client_secret'))
                 && filled(config('services.ringcentral.jwt')));
 
+        $schedule->command('ads:backfill-offline-conversions --days=7')
+            ->hourly()
+            ->withoutOverlapping()
+            ->when(fn () => \Illuminate\Support\Facades\Schema::hasColumn('phone_clicks', 'bing_ads_conversion_sent_at')
+                && (filled(config('services.microsoft_ads.refresh_token'))
+                    || filled(config('services.google_ads.refresh_token'))));
+
         $schedule->command('ringcentral:process-transcripts')
             ->everyTwoMinutes()
             ->withoutOverlapping()

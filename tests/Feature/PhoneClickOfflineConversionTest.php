@@ -34,16 +34,26 @@ beforeEach(function () {
         'customer_id' => '4242',
         'account_id' => '2424',
         'phone_conversion_name' => 'Phone Call Confirmed',
+        'identity_provider' => 'microsoft',
         'oauth_redirect_uri' => 'https://login.test/native',
         'api_base_url' => 'https://campaign.bingads.test',
         'oauth_token_url' => 'https://login.test/token',
         'oauth_authorize_url' => 'https://login.test/authorize',
+        'google_oauth_token_url' => 'https://google-oauth.test/token',
+        'google_oauth_authorize_url' => 'https://google-oauth.test/authorize',
     ]);
 
     Cache::flush();
+
+    // Pins the clock so the 90 day import window keeps behaving the same over time.
+    // Must stay in the app timezone: Carbon reads DB datetimes in the frozen clock's zone.
+    $this->travelTo(
+        CarbonImmutable::parse('2026-08-04 12:00:00 UTC')->setTimezone((string) config('app.timezone'))
+    );
 });
 
 afterEach(function () {
+    $this->travelBack();
     CarbonImmutable::setTestNow();
 });
 
@@ -112,6 +122,81 @@ test('a confirmed call with an msclkid is uploaded to Microsoft Ads', function (
         && $request['OfflineConversions'][0]['MicrosoftClickId'] === 'test-msclkid'
         && $request['OfflineConversions'][0]['ConversionName'] === 'Phone Call Confirmed'
         && $request['OfflineConversions'][0]['ConversionTime'] === '2026-08-04T10:15:00Z');
+});
+
+test('the caller number is sent to Microsoft as a SHA-256 hash for enhanced conversions', function () {
+    fakeAdsEndpoints();
+    $click = confirmedClick(['msclkid' => 'test-msclkid']);
+
+    (new SendPhoneClickOfflineConversions($click->id))->handle(
+        app(GoogleAdsOfflineConversionService::class),
+        app(MicrosoftAdsOfflineConversionService::class),
+    );
+
+    Http::assertSent(fn ($request) => str_contains($request->url(), '/OfflineConversions/Apply')
+        && $request['OfflineConversions'][0]['HashedPhoneNumber'] === hash('sha256', '+14155550999'));
+});
+
+test('a Google signed in Bing account authenticates through Google and flags the identity provider', function () {
+    config()->set('services.microsoft_ads.identity_provider', 'google');
+
+    Http::fake([
+        'https://google-oauth.test/token' => Http::response(['access_token' => 'google-access', 'expires_in' => 3600]),
+        'https://campaign.bingads.test/*' => Http::response(['PartialErrors' => []]),
+    ]);
+
+    $click = confirmedClick(['msclkid' => 'test-msclkid']);
+
+    (new SendPhoneClickOfflineConversions($click->id))->handle(
+        app(GoogleAdsOfflineConversionService::class),
+        app(MicrosoftAdsOfflineConversionService::class),
+    );
+
+    expect($click->refresh()->bing_ads_conversion_sent_at)->not->toBeNull();
+
+    // Google refuses a refresh that asks for a scope it never granted.
+    Http::assertSent(fn ($request) => $request->url() === 'https://google-oauth.test/token'
+        && $request['grant_type'] === 'refresh_token'
+        && ! isset($request['scope']));
+
+    Http::assertSent(fn ($request) => str_contains($request->url(), '/OfflineConversions/Apply')
+        && $request->header('IdentityProvider')[0] === 'Google');
+
+    Http::assertNotSent(fn ($request) => $request->url() === 'https://login.test/token');
+});
+
+test('the Microsoft identity path does not announce a Google provider', function () {
+    fakeAdsEndpoints();
+    $click = confirmedClick(['msclkid' => 'test-msclkid']);
+
+    (new SendPhoneClickOfflineConversions($click->id))->handle(
+        app(GoogleAdsOfflineConversionService::class),
+        app(MicrosoftAdsOfflineConversionService::class),
+    );
+
+    Http::assertSent(fn ($request) => str_contains($request->url(), '/OfflineConversions/Apply')
+        && $request->header('IdentityProvider') === []);
+});
+
+test('a call older than the Microsoft import window is not uploaded', function () {
+    fakeAdsEndpoints();
+    $click = confirmedClick([
+        'msclkid' => 'test-msclkid',
+        'ringcentral_call_started_at' => CarbonImmutable::parse('2026-01-01 10:00:00 UTC')
+            ->setTimezone((string) config('app.timezone')),
+    ]);
+
+    (new SendPhoneClickOfflineConversions($click->id))->handle(
+        app(GoogleAdsOfflineConversionService::class),
+        app(MicrosoftAdsOfflineConversionService::class),
+    );
+
+    $click->refresh();
+
+    expect($click->bing_ads_conversion_sent_at)->toBeNull()
+        ->and($click->bing_ads_conversion_error)->toContain('90 day');
+
+    Http::assertNotSent(fn ($request) => str_contains($request->url(), '/OfflineConversions/Apply'));
 });
 
 test('first touch click ids are used when the last touch is empty', function () {
@@ -285,6 +370,47 @@ test('the phone click screen shows the offline conversion status', function () {
     $screen->get(route('platform.phone-clicks.view', $click))
         ->assertOk()
         ->assertSee('✓ Sent', escape: false);
+});
+
+test('the backfill command queues confirmed calls that were never uploaded', function () {
+    \Illuminate\Support\Facades\Queue::fake();
+
+    $waiting = confirmedClick(['msclkid' => 'waiting-msclkid']);
+    $alreadySent = confirmedClick([
+        'msclkid' => 'sent-msclkid',
+        'bing_ads_conversion_sent_at' => now(),
+    ]);
+    $withoutClickId = confirmedClick();
+    $notConfirmed = confirmedClick([
+        'msclkid' => 'pending-msclkid',
+        'ringcentral_status' => PhoneClick::RINGCENTRAL_PENDING,
+    ]);
+
+    $this->artisan('ads:backfill-offline-conversions', ['--days' => 7])->assertSuccessful();
+
+    \Illuminate\Support\Facades\Queue::assertPushed(
+        SendPhoneClickOfflineConversions::class,
+        fn ($job) => $job->phoneClickId === $waiting->id,
+    );
+
+    foreach ([$alreadySent, $withoutClickId, $notConfirmed] as $skipped) {
+        \Illuminate\Support\Facades\Queue::assertNotPushed(
+            SendPhoneClickOfflineConversions::class,
+            fn ($job) => $job->phoneClickId === $skipped->id,
+        );
+    }
+});
+
+test('the backfill command does nothing while the ad credentials are missing', function () {
+    \Illuminate\Support\Facades\Queue::fake();
+    config()->set('services.google_ads.developer_token', '');
+    config()->set('services.microsoft_ads.developer_token', '');
+
+    confirmedClick(['msclkid' => 'waiting-msclkid']);
+
+    $this->artisan('ads:backfill-offline-conversions')->assertSuccessful();
+
+    \Illuminate\Support\Facades\Queue::assertNothingPushed();
 });
 
 test('a forced resend uploads again after a successful send', function () {

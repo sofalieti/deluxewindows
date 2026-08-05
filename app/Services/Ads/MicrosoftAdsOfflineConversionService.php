@@ -18,6 +18,11 @@ final class MicrosoftAdsOfflineConversionService
 {
     private const TOKEN_CACHE_KEY = 'microsoft-ads:access-token';
 
+    /**
+     * Microsoft rejects the whole request when a conversion time is older than this.
+     */
+    public const IMPORT_WINDOW_DAYS = 90;
+
     public function isConfigured(): bool
     {
         $keys = [
@@ -44,6 +49,48 @@ final class MicrosoftAdsOfflineConversionService
         return $click->resolvedMsclkid() !== null;
     }
 
+    /**
+     * Microsoft Advertising accounts opened with "Sign in with Google" authenticate
+     * through Google instead of Entra ID, and must announce that on every call.
+     */
+    public function usesGoogleIdentity(): bool
+    {
+        return strtolower(trim((string) config('services.microsoft_ads.identity_provider'))) === 'google';
+    }
+
+    public function oauthTokenUrl(): string
+    {
+        return (string) config($this->usesGoogleIdentity()
+            ? 'services.microsoft_ads.google_oauth_token_url'
+            : 'services.microsoft_ads.oauth_token_url');
+    }
+
+    public function oauthAuthorizeUrl(): string
+    {
+        return (string) config($this->usesGoogleIdentity()
+            ? 'services.microsoft_ads.google_oauth_authorize_url'
+            : 'services.microsoft_ads.oauth_authorize_url');
+    }
+
+    public function oauthRedirectUri(): string
+    {
+        $configured = trim((string) config('services.microsoft_ads.oauth_redirect_uri'));
+        if ($configured !== '') {
+            return $configured;
+        }
+
+        return $this->usesGoogleIdentity()
+            ? 'http://localhost'
+            : 'https://login.microsoftonline.com/common/oauth2/nativeclient';
+    }
+
+    public function oauthScope(): string
+    {
+        return $this->usesGoogleIdentity()
+            ? 'profile email'
+            : 'https://ads.microsoft.com/msads.manage offline_access';
+    }
+
     public function upload(PhoneClick $click): void
     {
         $msclkid = $click->resolvedMsclkid();
@@ -51,24 +98,44 @@ final class MicrosoftAdsOfflineConversionService
             throw new RuntimeException('Phone click has no MSCLKID.');
         }
 
+        if ($click->offlineConversionTime()->lt(now()->subDays(self::IMPORT_WINDOW_DAYS))) {
+            throw new RuntimeException(
+                'Call is older than the '.self::IMPORT_WINDOW_DAYS.' day Microsoft Ads import window.'
+            );
+        }
+
+        $conversion = [
+            'MicrosoftClickId' => $msclkid,
+            'ConversionName' => trim((string) config('services.microsoft_ads.phone_conversion_name')),
+            'ConversionTime' => $this->formatConversionTime($click),
+            'ConversionCurrencyCode' => 'USD',
+        ];
+
+        // Enhanced conversions: lets Microsoft match the call even if the click id has expired.
+        $hashedPhone = $this->hashedCallerPhone($click);
+        if ($hashedPhone !== null) {
+            $conversion['HashedPhoneNumber'] = $hashedPhone;
+        }
+
         $base = (string) config('services.microsoft_ads.api_base_url');
 
+        $headers = [
+            'DeveloperToken' => trim((string) config('services.microsoft_ads.developer_token')),
+            'CustomerId' => trim((string) config('services.microsoft_ads.customer_id')),
+            'CustomerAccountId' => trim((string) config('services.microsoft_ads.account_id')),
+        ];
+
+        if ($this->usesGoogleIdentity()) {
+            $headers['IdentityProvider'] = 'Google';
+        }
+
         $response = Http::withToken($this->accessToken())
-            ->withHeaders([
-                'DeveloperToken' => trim((string) config('services.microsoft_ads.developer_token')),
-                'CustomerId' => trim((string) config('services.microsoft_ads.customer_id')),
-                'CustomerAccountId' => trim((string) config('services.microsoft_ads.account_id')),
-            ])
+            ->withHeaders($headers)
             ->acceptJson()
             ->connectTimeout(10)
             ->timeout(30)
             ->post($base.'/CampaignManagement/v13/OfflineConversions/Apply', [
-                'OfflineConversions' => [[
-                    'MicrosoftClickId' => $msclkid,
-                    'ConversionName' => trim((string) config('services.microsoft_ads.phone_conversion_name')),
-                    'ConversionTime' => $this->formatConversionTime($click),
-                    'ConversionCurrencyCode' => 'USD',
-                ]],
+                'OfflineConversions' => [$conversion],
             ]);
 
         if (! $response->successful()) {
@@ -81,6 +148,24 @@ final class MicrosoftAdsOfflineConversionService
         if (is_array($partialErrors) && $partialErrors !== []) {
             throw new RuntimeException('Microsoft Ads rejected the conversion: '.$this->partialErrorMessage($partialErrors));
         }
+    }
+
+    /**
+     * SHA-256 hex of the caller number in E.164, as required for enhanced conversions.
+     */
+    private function hashedCallerPhone(PhoneClick $click): ?string
+    {
+        $digits = preg_replace('/\D/', '', (string) $click->ringCentralClientPhone()) ?? '';
+
+        if (strlen($digits) === 10) {
+            $digits = '1'.$digits;
+        }
+
+        if (strlen($digits) < 11 || strlen($digits) > 15) {
+            return null;
+        }
+
+        return hash('sha256', '+'.$digits);
     }
 
     /**
@@ -98,17 +183,23 @@ final class MicrosoftAdsOfflineConversionService
             return $cached;
         }
 
+        $payload = [
+            'client_id' => trim((string) config('services.microsoft_ads.client_id')),
+            'client_secret' => trim((string) config('services.microsoft_ads.client_secret')),
+            'refresh_token' => trim((string) config('services.microsoft_ads.refresh_token')),
+            'grant_type' => 'refresh_token',
+        ];
+
+        // Google rejects a scope it did not issue the refresh token for.
+        if (! $this->usesGoogleIdentity()) {
+            $payload['scope'] = $this->oauthScope();
+        }
+
         $response = Http::asForm()
             ->acceptJson()
             ->connectTimeout(10)
             ->timeout(30)
-            ->post((string) config('services.microsoft_ads.oauth_token_url'), [
-                'client_id' => trim((string) config('services.microsoft_ads.client_id')),
-                'client_secret' => trim((string) config('services.microsoft_ads.client_secret')),
-                'refresh_token' => trim((string) config('services.microsoft_ads.refresh_token')),
-                'grant_type' => 'refresh_token',
-                'scope' => 'https://ads.microsoft.com/msads.manage offline_access',
-            ]);
+            ->post($this->oauthTokenUrl(), $payload);
 
         if (! $response->successful()) {
             throw new RuntimeException('Microsoft Ads OAuth refresh failed HTTP '.$response->status().'.');
