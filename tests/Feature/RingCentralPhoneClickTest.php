@@ -364,6 +364,62 @@ test('phone click call tracking matches the DID that was clicked', function () {
         ->and($clickOnPrimary->ringcentral_to_phone)->toBe('+16504614446');
 });
 
+test('a click on a city number still matches a call that landed on an admin number', function () {
+    Queue::fake();
+    CarbonImmutable::setTestNow('2026-07-30 16:03:00 UTC');
+
+    \App\Models\PromotionControl::query()->updateOrCreate(
+        ['scope' => 'default'],
+        [
+            'phone_display' => '(650) 461-4446',
+            'phone_tel' => '+16504614446',
+            'ringcentral_extra_phones' => ['+14155550199'],
+        ],
+    );
+    app(\App\Services\PromotionControlService::class)->forgetCache();
+
+    // Visitor clicked the East Bay number, which is not monitored in the admin.
+    $click = PhoneClick::query()->create([
+        'phone' => '+15102446500',
+        'ringcentral_status' => PhoneClick::RINGCENTRAL_PENDING,
+    ]);
+    $click->forceFill([
+        'created_at' => CarbonImmutable::parse('2026-07-30 16:00:00 UTC'),
+        'updated_at' => CarbonImmutable::parse('2026-07-30 16:00:00 UTC'),
+    ])->saveQuietly();
+
+    Http::fake(function (Request $request) {
+        if (str_contains($request->url(), '/oauth/token')) {
+            return Http::response([
+                'access_token' => 'test-access-token',
+                'expires_in' => 3600,
+            ]);
+        }
+
+        return Http::response([
+            'records' => [
+                [
+                    'id' => 'primary-did-call',
+                    'sessionId' => 'primary-session',
+                    'startTime' => '2026-07-30T16:00:25.000Z',
+                    'duration' => 40,
+                    'type' => 'Voice',
+                    'direction' => 'Inbound',
+                    'result' => 'Accepted',
+                    'from' => ['phoneNumber' => '+14155550777'],
+                    'to' => ['phoneNumber' => '+16504614446'],
+                ],
+            ],
+        ]);
+    });
+
+    (new MatchPhoneClickToRingCentral($click->id))->handle(app(RingCentralCallLogService::class));
+
+    expect($click->refresh()->ringcentral_status)->toBe(PhoneClick::RINGCENTRAL_FOUND)
+        ->and($click->ringcentral_call_id)->toBe('primary-did-call')
+        ->and($click->ringcentral_to_phone)->toBe('+16504614446');
+});
+
 test('journal call times are read as UTC so morning calls do not match evening clicks', function () {
     Queue::fake();
     config()->set('app.timezone', 'America/Los_Angeles');

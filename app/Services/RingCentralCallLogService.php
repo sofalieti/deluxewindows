@@ -67,21 +67,32 @@ class RingCentralCallLogService
     }
 
     /**
-     * Match inbound RingCentral calls to the DID the visitor actually clicked.
-     * Falls back to the primary site number when the click has no usable phone.
+     * Numbers a click may have landed on, in priority order: the DID the visitor
+     * actually clicked first, then every number monitored in the admin panel
+     * (primary site phone plus the extra RingCentral numbers). The admin numbers
+     * keep the match working when the caller dialled a different line than the
+     * one on the page, or when the click carries no usable phone at all.
      *
      * @return list<string>
      */
     public function callTrackingTargetPhones(string $clickedPhone): array
     {
+        $phones = [];
+
         $clicked = $this->normalizePhone($clickedPhone);
         if ($clicked !== '') {
-            return [$clicked];
+            $phones[] = $clicked;
         }
 
-        $primary = $this->normalizePhone(app(PromotionControlService::class)->phoneTel());
+        foreach (app(PromotionControlService::class)->ringCentralPhones() as $adminPhone) {
+            $normalized = $this->normalizePhone((string) $adminPhone);
+            if ($normalized === '' || $this->matchesAnyPhone($normalized, $phones)) {
+                continue;
+            }
+            $phones[] = $normalized;
+        }
 
-        return $primary !== '' ? [$primary] : [];
+        return $phones;
     }
 
     /**
@@ -114,7 +125,8 @@ class RingCentralCallLogService
      *     from_phone: string,
      *     to_phone: string,
      *     recording_id: ?string,
-     *     lag_seconds: int
+     *     lag_seconds: int,
+     *     phone_rank: int
      * }|null
      */
     private function matchFromApiRecord(
@@ -176,6 +188,7 @@ class RingCentralCallLogService
             clickAt: $clickAt,
             dateFrom: $dateFrom,
             dateTo: $dateTo,
+            targetPhones: $targetPhones,
         );
     }
 
@@ -191,7 +204,8 @@ class RingCentralCallLogService
      *     from_phone: string,
      *     to_phone: string,
      *     recording_id: ?string,
-     *     lag_seconds: int
+     *     lag_seconds: int,
+     *     phone_rank: int
      * }|null
      */
     private function findMatchingCallInJournal(
@@ -255,6 +269,7 @@ class RingCentralCallLogService
                 clickAt: $clickAt,
                 dateFrom: $dateFrom,
                 dateTo: $dateTo,
+                targetPhones: $targetPhones,
             );
             if ($match !== null) {
                 $matches[] = $match;
@@ -265,6 +280,7 @@ class RingCentralCallLogService
     }
 
     /**
+     * @param  list<string>  $targetPhones
      * @return array{
      *     id: string,
      *     session_id: string,
@@ -275,7 +291,8 @@ class RingCentralCallLogService
      *     from_phone: string,
      *     to_phone: string,
      *     recording_id: ?string,
-     *     lag_seconds: int
+     *     lag_seconds: int,
+     *     phone_rank: int
      * }|null
      */
     private function buildMatchIfInWindow(
@@ -290,6 +307,7 @@ class RingCentralCallLogService
         CarbonImmutable $clickAt,
         CarbonImmutable $dateFrom,
         CarbonImmutable $dateTo,
+        array $targetPhones,
     ): ?array {
         if ($callStartedAt->lessThan($dateFrom) || $callStartedAt->greaterThan($dateTo)) {
             return null;
@@ -312,7 +330,25 @@ class RingCentralCallLogService
             'to_phone' => $toPhone,
             'recording_id' => $recordingId,
             'lag_seconds' => max(0, $lagSeconds),
+            'phone_rank' => $this->phoneRank($toPhone, $targetPhones),
         ];
+    }
+
+    /**
+     * Position of the called number in the candidate list, so the DID from the
+     * click always beats a call that only matched an admin number.
+     *
+     * @param  list<string>  $phones
+     */
+    private function phoneRank(string $needle, array $phones): int
+    {
+        foreach ($phones as $index => $phone) {
+            if ($this->phonesMatch($needle, $phone)) {
+                return $index;
+            }
+        }
+
+        return PHP_INT_MAX;
     }
 
     /**
@@ -326,7 +362,8 @@ class RingCentralCallLogService
      *     from_phone: string,
      *     to_phone: string,
      *     recording_id: ?string,
-     *     lag_seconds: int
+     *     lag_seconds: int,
+     *     phone_rank: int
      * }>  $matches
      * @return array{
      *     id: string,
@@ -338,7 +375,8 @@ class RingCentralCallLogService
      *     from_phone: string,
      *     to_phone: string,
      *     recording_id: ?string,
-     *     lag_seconds: int
+     *     lag_seconds: int,
+     *     phone_rank: int
      * }|null
      */
     private function pickBestCallMatch(array $matches): ?array
@@ -347,7 +385,11 @@ class RingCentralCallLogService
             return null;
         }
 
-        usort($matches, fn (array $a, array $b): int => $a['lag_seconds'] <=> $b['lag_seconds']);
+        usort(
+            $matches,
+            fn (array $a, array $b): int => [$a['phone_rank'], $a['lag_seconds']]
+                <=> [$b['phone_rank'], $b['lag_seconds']]
+        );
 
         return $matches[0];
     }
