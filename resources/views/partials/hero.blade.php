@@ -293,6 +293,11 @@
                       <p>‍</p>
                       <div class="w-embed">
                         <h2 data-city=""><span data-area-label>Bay Area</span> Installers</h2>
+                        @include('partials.service-area-phones', [
+                          'localPhone' => null,
+                          'localLabel' => null,
+                          'alwaysVisible' => false,
+                        ])
                       </div>
                     </div>
                     <div class="hero-mobile-promo-slot hero-mobile-promo-slot--mobile">
@@ -307,17 +312,17 @@
                     @endif
                     @else
                     <h1 class="heading-4">Looking to Replace Your Windows in <span data-area-label>the Bay Area</span>?</h1>
+                    @include('partials.service-area-phones', [
+                      'localPhone' => null,
+                      'localLabel' => null,
+                      'alwaysVisible' => false,
+                    ])
                     <div class="hero-mobile-promo-slot hero-mobile-promo-slot--mobile">
                       @include('partials.hero-mobile-promo', [
                         'buttonLabel' => 'Request a Free Estimate',
                       ])
                     </div>
                     @endif
-                    @include('partials.service-area-phones', [
-                      'localPhone' => null,
-                      'localLabel' => null,
-                      'alwaysVisible' => false,
-                    ])
                   </div>
                 </div>
               </div>
