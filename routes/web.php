@@ -66,4 +66,6 @@ Route::get('/terms', [ClassicSiteController::class, 'terms']);
 Route::get('/special-offers', [ClassicSiteController::class, 'specialOffers']);
 Route::post('/contact-form', [ClassicSiteController::class, 'submitContactForm'])->name('contact.submit');
 Route::post('/phone-click', [PhoneClickController::class, 'store'])->name('phone-click.store');
+Route::get('/service-area-phones.json', [ClassicSiteController::class, 'serviceAreaPhones'])
+    ->name('service-area-phones');
 

@@ -101,7 +101,7 @@
   <div class="w-layout-blockcontainer container-default w-container">
     <div class="w-layout-vflex inner-container _500px---mbl center">
       <div class="mg-top-small">
-        <h1 class="display-10 mid text-light">Door Replacement &amp; Installation<br />for Bay Area Homes</h1>
+        <h1 class="display-10 mid text-light">Door Replacement &amp; Installation<br />for <span data-area-label>Bay Area</span> Homes</h1>
       </div>
     </div>
     <div class="mg-top-small">

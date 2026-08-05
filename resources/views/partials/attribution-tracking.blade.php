@@ -7,6 +7,10 @@
       'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term',
       'matchtype', 'device', 'creative', 'gclid', 'fbclid', 'msclkid'
     ];
+    // Carried with every touch but never treated as a campaign signal, so a bare
+    // ?utm_city= cannot overwrite a real source or fake one for direct traffic.
+    const CONTEXT_PARAMS = ['utm_city', 'utm_redirect'];
+    const STORED_PARAMS = TRACKING_PARAMS.concat(CONTEXT_PARAMS);
     const SESSION_GAP_MS = 30 * 60 * 1000;
     const SESSION_FLAG = 'dw_site_visit';
     const ACTIVITY_KEY = 'dw_last_activity_at';
@@ -129,7 +133,7 @@
         referrer: externalReferrer(),
       };
 
-      TRACKING_PARAMS.forEach(function (param) {
+      STORED_PARAMS.forEach(function (param) {
         snapshot[param] = params.get(param) || '';
       });
 
@@ -165,7 +169,7 @@
     }
 
     function writeTouch(prefix, snapshot) {
-      TRACKING_PARAMS.forEach(function (param) {
+      STORED_PARAMS.forEach(function (param) {
         storageSet(prefix + param, snapshot[param] || '');
       });
       storageSet(prefix + 'landing_page', snapshot.landing_page || '');
@@ -177,7 +181,7 @@
         landing_page: storageGet(prefix + 'landing_page'),
         referrer: storageGet(prefix + 'referrer'),
       };
-      TRACKING_PARAMS.forEach(function (param) {
+      STORED_PARAMS.forEach(function (param) {
         touch[param] = storageGet(prefix + param);
       });
       return touch;
@@ -217,7 +221,7 @@
       const first = readTouch('lead_param_first_');
       const payload = {};
 
-      TRACKING_PARAMS.forEach(function (param) {
+      STORED_PARAMS.forEach(function (param) {
         payload[param] = last[param] || '';
         payload['first_' + param] = first[param] || '';
       });
@@ -230,7 +234,7 @@
     }
 
     window.DeluxeAttribution = {
-      params: TRACKING_PARAMS,
+      params: STORED_PARAMS,
       capture: capture,
       payloadFields: payloadFields,
       readLast: function () { return readTouch('lead_param_'); },

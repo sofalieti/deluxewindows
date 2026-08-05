@@ -11,6 +11,7 @@
       'cityLabel' => $cityLabel,
       'countyName' => $countyName,
       'heroImage' => $heroImage,
+      'localPhone' => $localPhone,
     ])
 
     @include('partials.trust-badges')
@@ -54,6 +55,9 @@
       </div>
     </section>
 
-    @include('partials.county-hub-bottom-cta', ['ctaLocationLabel' => $cityName])
+    @include('partials.county-hub-bottom-cta', [
+      'ctaLocationLabel' => $cityName,
+      'localPhone' => $localPhone,
+    ])
 
 @endsection

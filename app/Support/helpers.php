@@ -5,6 +5,7 @@ declare(strict_types=1);
 use App\Services\Media\ImageThumbnailService;
 use App\Services\PromotionControlService;
 use App\Services\PromotionSettingsService;
+use App\Services\ServiceAreaRegions;
 
 if (! function_exists('site_phone_display')) {
     function site_phone_display(): string
@@ -24,6 +25,30 @@ if (! function_exists('site_phone_tel')) {
             return app(PromotionControlService::class)->phoneTel();
         } catch (\Throwable) {
             return PromotionControlService::DEFAULT_PHONE_TEL;
+        }
+    }
+}
+
+if (! function_exists('service_area_phone')) {
+    /**
+     * Local number for a service area, or null when the city has no dedicated
+     * region or its region number equals the general site number.
+     *
+     * @return array{key: string, label: string, phone_display: string, phone_tel: string}|null
+     */
+    function service_area_phone(?string $citySlug): ?array
+    {
+        try {
+            $regions = app(ServiceAreaRegions::class);
+            $region = $regions->forCitySlug($citySlug);
+
+            if ($region === null || $region['phone_tel'] === '' || $region['phone_tel'] === site_phone_tel()) {
+                return null;
+            }
+
+            return $region;
+        } catch (\Throwable) {
+            return null;
         }
     }
 }

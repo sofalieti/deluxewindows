@@ -479,6 +479,8 @@ class ClassicSiteController extends Controller
             'utm_campaign' => trim((string) $request->input('utm_campaign')),
             'utm_content' => trim((string) $request->input('utm_content')),
             'utm_term' => trim((string) $request->input('utm_term')),
+            'utm_city' => trim((string) $request->input('utm_city')),
+            'utm_redirect' => trim((string) $request->input('utm_redirect')),
             'matchtype' => trim((string) $request->input('matchtype')),
             'device' => trim((string) $request->input('device')),
             'creative' => trim((string) ($request->input('creative') ?: $request->input('utm_creative'))),
@@ -503,6 +505,8 @@ class ClassicSiteController extends Controller
             'utm_campaign' => 'nullable|string|max:255',
             'utm_content' => 'nullable|string|max:255',
             'utm_term' => 'nullable|string|max:255',
+            'utm_city' => 'nullable|string|max:255',
+            'utm_redirect' => 'nullable|string|max:255',
             'matchtype' => 'nullable|string|max:255',
             'device' => 'nullable|string|max:255',
             'creative' => 'nullable|string|max:255',
@@ -537,6 +541,7 @@ class ClassicSiteController extends Controller
             'utm_campaign' => trim((string) $request->input('first_utm_campaign')),
             'utm_content' => trim((string) $request->input('first_utm_content')),
             'utm_term' => trim((string) $request->input('first_utm_term')),
+            'utm_city' => trim((string) $request->input('first_utm_city')),
             'gclid' => trim((string) $request->input('first_gclid')),
             'fbclid' => trim((string) $request->input('first_fbclid')),
             'msclkid' => trim((string) $request->input('first_msclkid')),
@@ -550,6 +555,8 @@ class ClassicSiteController extends Controller
             'referrer' => $validated['referrer'],
             'utm_content' => $validated['utm_content'],
             'utm_term' => $validated['utm_term'],
+            'utm_city' => $validated['utm_city'],
+            'utm_redirect' => $validated['utm_redirect'],
             'matchtype' => $validated['matchtype'],
             'device' => $validated['device'],
             'creative' => $validated['creative'],
@@ -1688,6 +1695,44 @@ class ClassicSiteController extends Controller
         ));
     }
 
+    /**
+     * Lookup table for the utm_city personalisation script: Google geo criteria
+     * ids and our city slugs mapped to the local number we advertise there.
+     * Fetched at most once per visitor and cached hard, so it never touches the
+     * page weight of the 99% who arrive without utm_city.
+     */
+    public function serviceAreaPhones(): \Illuminate\Http\JsonResponse
+    {
+        $regions = app(\App\Services\ServiceAreaRegions::class);
+
+        $cities = [];
+        foreach ($regions->cities() as $slug => $city) {
+            $key = $city['region'] ?? null;
+            $region = is_string($key) ? $regions->region($key) : null;
+
+            if ($region === null || $region['phone_tel'] === '') {
+                continue;
+            }
+
+            $cities[$slug] = [
+                'name' => (string) ($city['name'] ?? ''),
+                'phone_display' => $region['phone_display'],
+                'phone_tel' => $region['phone_tel'],
+            ];
+        }
+
+        $geo = array_filter(
+            $regions->geoTargets(),
+            static fn (string $slug): bool => isset($cities[$slug])
+        );
+
+        return response()
+            ->json(['geo' => $geo, 'cities' => $cities])
+            ->setPublic()
+            ->setMaxAge(86400)
+            ->setSharedMaxAge(86400);
+    }
+
     public function windowReplacementBySlug(string $slug)
     {
         $slug = strtolower(trim($slug));
@@ -1710,6 +1755,7 @@ class ClassicSiteController extends Controller
         $windowTypes = $this->loadServiceAreaWindowTypes();
         $featuredBrands = $this->resolveServiceAreaFeaturedBrands($fieldData);
         $countyHubSlug = $this->resolveCountyHubSlug($fieldData['county-page'] ?? null);
+        $localPhone = service_area_phone($slug);
 
         return view('window-replacement.show', compact(
             'slug',
@@ -1722,6 +1768,7 @@ class ClassicSiteController extends Controller
             'windowTypes',
             'featuredBrands',
             'countyHubSlug',
+            'localPhone',
         ));
     }
 

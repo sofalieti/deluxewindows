@@ -1,0 +1,423 @@
+{
+    "regions": {
+        "north_bay": {
+            "label": "San Francisco / North Bay",
+            "phone_display": "(415) 651-2321",
+            "phone_tel": "+14156512321"
+        },
+        "peninsula": {
+            "label": "San Mateo / Peninsula",
+            "phone_display": "(650) 461-4446",
+            "phone_tel": "+16504614446"
+        },
+        "east_bay": {
+            "label": "East Bay",
+            "phone_display": "(510) 244-6500",
+            "phone_tel": "+15102446500"
+        },
+        "tri_valley": {
+            "label": "Lamorinda / Tri-Valley",
+            "phone_display": "(925) 430-5135",
+            "phone_tel": "+19254305135"
+        },
+        "south_bay": {
+            "label": "South Bay",
+            "phone_display": "(408) 516-1200",
+            "phone_tel": "+14085161200"
+        }
+    },
+    "cities": {
+        "alameda": {
+            "name": "Alameda",
+            "region": "east_bay"
+        },
+        "albany": {
+            "name": "Albany",
+            "region": "east_bay"
+        },
+        "american-canyon": {
+            "name": "American Canyon",
+            "region": "north_bay"
+        },
+        "antioch": {
+            "name": "Antioch",
+            "region": "tri_valley"
+        },
+        "atherton": {
+            "name": "Atherton",
+            "region": "peninsula"
+        },
+        "belmont": {
+            "name": "Belmont",
+            "region": "peninsula"
+        },
+        "belvedere": {
+            "name": "Belvedere",
+            "region": "north_bay"
+        },
+        "benicia": {
+            "name": "Benicia",
+            "region": null
+        },
+        "berkeley": {
+            "name": "Berkeley",
+            "region": "east_bay"
+        },
+        "brentwood": {
+            "name": "Brentwood",
+            "region": "tri_valley"
+        },
+        "burlingame": {
+            "name": "Burlingame",
+            "region": "peninsula"
+        },
+        "calistoga": {
+            "name": "Calistoga",
+            "region": "north_bay"
+        },
+        "campbell": {
+            "name": "Campbell",
+            "region": "south_bay"
+        },
+        "clayton": {
+            "name": "Clayton",
+            "region": "tri_valley"
+        },
+        "cloverdale": {
+            "name": "Cloverdale",
+            "region": "north_bay"
+        },
+        "concord": {
+            "name": "Concord",
+            "region": "tri_valley"
+        },
+        "corte-madera": {
+            "name": "Corte Madera",
+            "region": "north_bay"
+        },
+        "cotati": {
+            "name": "Cotati",
+            "region": "north_bay"
+        },
+        "cupertino": {
+            "name": "Cupertino",
+            "region": "south_bay"
+        },
+        "daly-city": {
+            "name": "Daly City",
+            "region": "peninsula"
+        },
+        "danville": {
+            "name": "Danville",
+            "region": "tri_valley"
+        },
+        "dixon": {
+            "name": "Dixon",
+            "region": null
+        },
+        "dublin": {
+            "name": "Dublin",
+            "region": "tri_valley"
+        },
+        "east-palo-alto": {
+            "name": "East Palo Alto",
+            "region": "peninsula"
+        },
+        "el-cerrito": {
+            "name": "El Cerrito",
+            "region": "east_bay"
+        },
+        "emeryville": {
+            "name": "Emeryville",
+            "region": "east_bay"
+        },
+        "fairfax": {
+            "name": "Fairfax",
+            "region": "north_bay"
+        },
+        "fairfield": {
+            "name": "Fairfield",
+            "region": null
+        },
+        "foster-city": {
+            "name": "Foster City",
+            "region": "peninsula"
+        },
+        "fremont": {
+            "name": "Fremont",
+            "region": "east_bay"
+        },
+        "gilroy": {
+            "name": "Gilroy",
+            "region": "south_bay"
+        },
+        "half-moon-bay": {
+            "name": "Half Moon Bay",
+            "region": "peninsula"
+        },
+        "hayward": {
+            "name": "Hayward",
+            "region": "east_bay"
+        },
+        "healdsburg": {
+            "name": "Healdsburg",
+            "region": "north_bay"
+        },
+        "hercules": {
+            "name": "Hercules",
+            "region": "east_bay"
+        },
+        "hillsborough": {
+            "name": "Hillsborough",
+            "region": "peninsula"
+        },
+        "lafayette": {
+            "name": "Lafayette",
+            "region": "tri_valley"
+        },
+        "larkspur": {
+            "name": "Larkspur",
+            "region": "north_bay"
+        },
+        "livermore": {
+            "name": "Livermore",
+            "region": "tri_valley"
+        },
+        "los-altos": {
+            "name": "Los Altos",
+            "region": "peninsula"
+        },
+        "los-altos-hills": {
+            "name": "Los Altos Hills",
+            "region": "peninsula"
+        },
+        "los-gatos": {
+            "name": "Los Gatos",
+            "region": "south_bay"
+        },
+        "menlo-park": {
+            "name": "Menlo Park",
+            "region": "peninsula"
+        },
+        "mill-valley": {
+            "name": "Mill Valley",
+            "region": "north_bay"
+        },
+        "millbrae": {
+            "name": "Millbrae",
+            "region": "peninsula"
+        },
+        "milpitas": {
+            "name": "Milpitas",
+            "region": "south_bay"
+        },
+        "monte-sereno": {
+            "name": "Monte Sereno",
+            "region": "south_bay"
+        },
+        "moraga": {
+            "name": "Moraga",
+            "region": "tri_valley"
+        },
+        "morgan-hill": {
+            "name": "Morgan Hill",
+            "region": "south_bay"
+        },
+        "mountain-view": {
+            "name": "Mountain View",
+            "region": "peninsula"
+        },
+        "napa": {
+            "name": "Napa",
+            "region": "north_bay"
+        },
+        "newark": {
+            "name": "Newark",
+            "region": "east_bay"
+        },
+        "novato": {
+            "name": "Novato",
+            "region": "north_bay"
+        },
+        "oakland": {
+            "name": "Oakland",
+            "region": "east_bay"
+        },
+        "oakley": {
+            "name": "Oakley",
+            "region": "tri_valley"
+        },
+        "orinda": {
+            "name": "Orinda",
+            "region": "tri_valley"
+        },
+        "pacifica": {
+            "name": "Pacifica",
+            "region": "peninsula"
+        },
+        "palo-alto": {
+            "name": "Palo Alto",
+            "region": "peninsula"
+        },
+        "petaluma": {
+            "name": "Petaluma",
+            "region": "north_bay"
+        },
+        "piedmont": {
+            "name": "Piedmont",
+            "region": "east_bay"
+        },
+        "pinole": {
+            "name": "Pinole",
+            "region": "east_bay"
+        },
+        "pittsburg": {
+            "name": "Pittsburg",
+            "region": "tri_valley"
+        },
+        "pleasant-hill": {
+            "name": "Pleasant Hill",
+            "region": "tri_valley"
+        },
+        "pleasanton": {
+            "name": "Pleasanton",
+            "region": "tri_valley"
+        },
+        "portola-valley": {
+            "name": "Portola Valley",
+            "region": "peninsula"
+        },
+        "redwood-city": {
+            "name": "Redwood City",
+            "region": "peninsula"
+        },
+        "richmond": {
+            "name": "Richmond",
+            "region": "east_bay"
+        },
+        "rio-vista": {
+            "name": "Rio Vista",
+            "region": null
+        },
+        "rohnert-park": {
+            "name": "Rohnert Park",
+            "region": "north_bay"
+        },
+        "ross": {
+            "name": "Ross",
+            "region": "north_bay"
+        },
+        "san-anselmo": {
+            "name": "San Anselmo",
+            "region": "north_bay"
+        },
+        "san-bruno": {
+            "name": "San Bruno",
+            "region": "peninsula"
+        },
+        "san-carlos": {
+            "name": "San Carlos",
+            "region": "peninsula"
+        },
+        "san-francisco": {
+            "name": "San Francisco",
+            "region": "north_bay"
+        },
+        "san-jose": {
+            "name": "San Jose",
+            "region": "south_bay"
+        },
+        "san-leandro": {
+            "name": "San Leandro",
+            "region": "east_bay"
+        },
+        "san-mateo": {
+            "name": "San Mateo",
+            "region": "peninsula"
+        },
+        "san-pablo": {
+            "name": "San Pablo",
+            "region": "east_bay"
+        },
+        "san-rafael": {
+            "name": "San Rafael",
+            "region": "north_bay"
+        },
+        "san-ramon": {
+            "name": "San Ramon",
+            "region": "tri_valley"
+        },
+        "santa-clara": {
+            "name": "Santa Clara",
+            "region": "south_bay"
+        },
+        "santa-rosa": {
+            "name": "Santa Rosa",
+            "region": "north_bay"
+        },
+        "saratoga": {
+            "name": "Saratoga",
+            "region": "south_bay"
+        },
+        "sausalito": {
+            "name": "Sausalito",
+            "region": "north_bay"
+        },
+        "sebastopol": {
+            "name": "Sebastopol",
+            "region": "north_bay"
+        },
+        "sonoma": {
+            "name": "Sonoma",
+            "region": "north_bay"
+        },
+        "south-san-francisco": {
+            "name": "South San Francisco",
+            "region": "peninsula"
+        },
+        "st-helena": {
+            "name": "St. Helena",
+            "region": "north_bay"
+        },
+        "suisun-city": {
+            "name": "Suisun City",
+            "region": null
+        },
+        "sunnyvale": {
+            "name": "Sunnyvale",
+            "region": "south_bay"
+        },
+        "tiburon": {
+            "name": "Tiburon",
+            "region": "north_bay"
+        },
+        "union-city": {
+            "name": "Union City",
+            "region": "east_bay"
+        },
+        "vacaville": {
+            "name": "Vacaville",
+            "region": null
+        },
+        "vallejo": {
+            "name": "Vallejo",
+            "region": null
+        },
+        "walnut-creek": {
+            "name": "Walnut Creek",
+            "region": "tri_valley"
+        },
+        "windsor": {
+            "name": "Windsor",
+            "region": "north_bay"
+        },
+        "woodside": {
+            "name": "Woodside",
+            "region": "peninsula"
+        },
+        "yountville": {
+            "name": "Yountville",
+            "region": "north_bay"
+        }
+    }
+}

@@ -285,6 +285,12 @@ class PhoneClickViewScreen extends Screen
                         ->render(fn (PhoneClick $click) => e((string) ($click->utm_content ?: '-'))),
                     Sight::make('utm_term', 'UTM term')
                         ->render(fn (PhoneClick $click) => e((string) ($click->utm_term ?: '-'))),
+                    Sight::make('utm_city', 'UTM city')
+                        ->render(fn (PhoneClick $click) => e(
+                            app(\App\Services\ServiceAreaRegions::class)->utmCityLabel($click->utm_city)
+                        )),
+                    Sight::make('utm_redirect', 'UTM redirect')
+                        ->render(fn (PhoneClick $click) => e((string) ($click->utm_redirect ?: '-'))),
                     Sight::make('matchtype', 'Match type')
                         ->render(fn (PhoneClick $click) => e((string) ($click->matchtype ?: '-'))),
                     Sight::make('device', 'Device')
@@ -438,4 +444,5 @@ class PhoneClickViewScreen extends Screen
             Toast::error('Could not restore from spam: '.$exception->getMessage());
         }
     }
+
 }

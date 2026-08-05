@@ -1,3 +1,4 @@
+@php($areaLabel = trim((string) ($cityName ?? '')) !== '' ? $cityName : 'Bay Area')
       <div class="div-block-59 service-area-hero">
         @if($heroImage)
         <img
@@ -18,16 +19,22 @@
                       <div class="code-embed-7 w-embed">⚲ Serving {{ $cityLabel }}</div>
                       <div class="code-embed-6 w-embed">
                         <h1 class="heading-4">
-                          Windows &amp; Doors in <span class="city-highlight">@if(!empty($countyName)){{ $cityName }}, {{ $countyName }}@else{{ $cityLabel }}@endif</span><span class="h1-subline">Installation &amp; Replacement | Bay Area</span>
+                          Windows &amp; Doors in <span class="city-highlight">@if(!empty($countyName)){{ $cityName }}, {{ $countyName }}@else{{ $cityLabel }}@endif</span><span class="h1-subline">Installation &amp; Replacement | {{ $areaLabel }}</span>
                         </h1>
                       </div>
-                      <p class="paragraph-62">Professional window &amp; door installation by Bay Area's most trusted team. Vinyl, fiberglass, wood &amp; aluminum — every brand, every style, free estimate.</p>
+                      <p class="paragraph-62">Professional window &amp; door installation by {{ $areaLabel }}'s most trusted team. Vinyl, fiberglass, wood &amp; aluminum — every brand, every style, free estimate.</p>
                       <div class="w-layout-grid grid">
                         <div><div class="text-block-46">✔</div><div class="text-block-47">30+ Years Experience</div></div>
                         <div><div class="text-block-46">✔</div><div class="text-block-47">Employee Owned<br /></div></div>
                         <div><div class="text-block-46">✔</div><div class="text-block-47">Title 24 Compliant</div></div>
                         <div><div class="text-block-46">✔</div><div class="text-block-47">Licensed &amp; Insure</div></div>
                       </div>
+                      @include('partials.service-area-phones', [
+                        'localPhone' => $localPhone ?? null,
+                        'localLabel' => $cityName ?: null,
+                        'variant' => 'hero',
+                        'alwaysVisible' => true,
+                      ])
                     </div>
                     <div class="hero-mobile-promo-slot hero-mobile-promo-slot--mobile">
                       @include('partials.hero-mobile-promo', [
