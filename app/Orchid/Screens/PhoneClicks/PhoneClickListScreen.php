@@ -6,6 +6,7 @@ namespace App\Orchid\Screens\PhoneClicks;
 
 use App\Jobs\MatchPhoneClickToRingCentral;
 use App\Models\PhoneClick;
+use App\Services\Ads\GoogleAdsOfflineSheetExporter;
 use App\Services\PhoneClickGoogleBridge;
 use App\Services\RingCentralCallLogService;
 use App\Services\TrafficSourceVisibility;
@@ -67,6 +68,14 @@ class PhoneClickListScreen extends Screen
     public function commandBar(): iterable
     {
         return [
+            Button::make('Export Google Ads sheet (yesterday)')
+                ->icon('bs.file-earmark-spreadsheet')
+                ->method('exportGoogleAdsSheetYesterday')
+                ->confirm('Create a new Google Sheet in Drive with yesterday\'s RingCentral-confirmed phone clicks that have a GCLID?'),
+            Button::make('Export Google Ads sheet (all pending)')
+                ->icon('bs.cloud-upload')
+                ->method('exportGoogleAdsSheetAllPending')
+                ->confirm('Create a new Google Sheet with all confirmed phone clicks that still have a GCLID and have not been exported yet?'),
             Button::make('Check RingCentral now')
                 ->icon('bs.arrow-repeat')
                 ->method('checkRingCentralNow')
@@ -315,6 +324,52 @@ class PhoneClickListScreen extends Screen
         } catch (Throwable $exception) {
             report($exception);
             Toast::error('Could not restore from spam: '.$exception->getMessage());
+        }
+    }
+
+    public function exportGoogleAdsSheetYesterday(GoogleAdsOfflineSheetExporter $exporter): void
+    {
+        $this->runGoogleAdsSheetExport($exporter, allPending: false);
+    }
+
+    public function exportGoogleAdsSheetAllPending(GoogleAdsOfflineSheetExporter $exporter): void
+    {
+        $this->runGoogleAdsSheetExport($exporter, allPending: true);
+    }
+
+    private function runGoogleAdsSheetExport(GoogleAdsOfflineSheetExporter $exporter, bool $allPending): void
+    {
+        if (! $exporter->isConfigured()) {
+            Toast::error('Google Drive sheet export is not configured (folder, conversion name, service account or OAuth).');
+
+            return;
+        }
+
+        try {
+            $result = $exporter->export(null, $allPending, false);
+        } catch (Throwable $exception) {
+            report($exception);
+            Toast::error('Google Ads sheet export failed: '.$exception->getMessage());
+
+            return;
+        }
+
+        if ($result['count'] === 0) {
+            Toast::info($allPending
+                ? 'No pending confirmed phone clicks with a GCLID to export.'
+                : 'No confirmed phone clicks with a GCLID for yesterday to export.');
+
+            return;
+        }
+
+        Toast::success(sprintf(
+            'Exported %d conversion(s) to “%s”.',
+            $result['count'],
+            $result['title'],
+        ));
+
+        if (is_string($result['spreadsheet_url']) && $result['spreadsheet_url'] !== '') {
+            Toast::info($result['spreadsheet_url']);
         }
     }
 

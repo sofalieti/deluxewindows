@@ -64,10 +64,30 @@ return [
         'customer_id' => env('GOOGLE_ADS_CUSTOMER_ID'),
         'login_customer_id' => env('GOOGLE_ADS_LOGIN_CUSTOMER_ID'),
         'phone_conversion_action' => env('GOOGLE_ADS_PHONE_CONVERSION_ACTION'),
+        // Exact conversion action name for the official GCLID import sheet template.
+        'phone_conversion_name' => env('GOOGLE_ADS_PHONE_CONVERSION_NAME', 'Phone Call Confirmed'),
         'oauth_redirect_uri' => env('GOOGLE_ADS_OAUTH_REDIRECT_URI', 'http://localhost'),
         'api_version' => env('GOOGLE_ADS_API_VERSION', 'v25'),
         'api_base_url' => rtrim((string) env('GOOGLE_ADS_API_BASE_URL', 'https://googleads.googleapis.com'), '/'),
         'oauth_token_url' => env('GOOGLE_ADS_OAUTH_TOKEN_URL', 'https://oauth2.googleapis.com/token'),
+    ],
+
+    /*
+     * Daily / on-demand Google Drive export of confirmed Google Ads phone clicks
+     * in the official Offline Conversion Import spreadsheet template.
+     * Prefer a service account JSON whose email has Editor on the Drive folder.
+     */
+    'google_drive' => [
+        'auth' => env('GOOGLE_DRIVE_AUTH', 'service_account'), // service_account | oauth
+        'folder_id' => env('GOOGLE_DRIVE_FOLDER_ID', '1rCfaF8tk29fPPdO0zljjRXyMIp4PLALv'),
+        'service_account_json' => env('GOOGLE_DRIVE_SERVICE_ACCOUNT_JSON'),
+        'client_id' => env('GOOGLE_DRIVE_CLIENT_ID', env('GOOGLE_ADS_CLIENT_ID')),
+        'client_secret' => env('GOOGLE_DRIVE_CLIENT_SECRET', env('GOOGLE_ADS_CLIENT_SECRET')),
+        'refresh_token' => env('GOOGLE_DRIVE_REFRESH_TOKEN'),
+        'oauth_token_url' => env('GOOGLE_DRIVE_OAUTH_TOKEN_URL', 'https://oauth2.googleapis.com/token'),
+        'timezone' => env('GOOGLE_DRIVE_EXPORT_TIMEZONE', 'America/Los_Angeles'),
+        'drive_api_base_url' => rtrim((string) env('GOOGLE_DRIVE_API_BASE_URL', 'https://www.googleapis.com/drive/v3'), '/'),
+        'sheets_api_base_url' => rtrim((string) env('GOOGLE_SHEETS_API_BASE_URL', 'https://sheets.googleapis.com/v4'), '/'),
     ],
 
     'microsoft_ads' => [

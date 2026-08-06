@@ -46,6 +46,17 @@ return Application::configure(basePath: dirname(__DIR__))
                 && (filled(config('services.microsoft_ads.refresh_token'))
                     || filled(config('services.google_ads.refresh_token'))));
 
+        $schedule->command('ads:export-google-offline-sheet')
+            ->dailyAt('00:05')
+            ->timezone('America/Los_Angeles')
+            ->withoutOverlapping()
+            ->when(fn () => \Illuminate\Support\Facades\Schema::hasColumn('phone_clicks', 'google_ads_sheet_exported_at')
+                && filled(config('services.google_drive.folder_id'))
+                && (
+                    (config('services.google_drive.auth') === 'oauth' && filled(config('services.google_drive.refresh_token')))
+                    || filled(config('services.google_drive.service_account_json'))
+                ));
+
         $schedule->command('ringcentral:process-transcripts')
             ->everyTwoMinutes()
             ->withoutOverlapping()

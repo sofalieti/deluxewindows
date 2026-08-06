@@ -85,6 +85,8 @@ class PhoneClick extends Model
         'google_sheet_sent_by',
         'google_ads_conversion_sent_at',
         'google_ads_conversion_error',
+        'google_ads_sheet_exported_at',
+        'google_ads_sheet_url',
         'bing_ads_conversion_sent_at',
         'bing_ads_conversion_error',
     ];
@@ -120,6 +122,7 @@ class PhoneClick extends Model
             'ringcentral_duration' => 'integer',
             'google_sheet_sent_at' => 'datetime',
             'google_ads_conversion_sent_at' => 'datetime',
+            'google_ads_sheet_exported_at' => 'datetime',
             'bing_ads_conversion_sent_at' => 'datetime',
         ];
     }
