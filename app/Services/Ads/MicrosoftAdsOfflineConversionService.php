@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace App\Services\Ads;
 
 use App\Models\PhoneClick;
+use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Str;
 use RuntimeException;
 
 /**
@@ -129,7 +131,34 @@ final class MicrosoftAdsOfflineConversionService
             $headers['IdentityProvider'] = 'Google';
         }
 
-        $response = Http::withToken($this->accessToken())
+        $response = $this->apply($base, $headers, $conversion, $this->accessToken());
+
+        // Microsoft answers an expired access token with a fault, not a 401, so the
+        // cached token has to be dropped explicitly before a single retry.
+        if ($this->isAuthenticationFault($response)) {
+            Cache::forget(self::TOKEN_CACHE_KEY);
+            $response = $this->apply($base, $headers, $conversion, $this->accessToken());
+        }
+
+        if (! $response->successful()) {
+            throw new RuntimeException(
+                'Microsoft Ads upload failed HTTP '.$response->status().': '.$this->errorMessage($response)
+            );
+        }
+
+        $partialErrors = $response->json('PartialErrors');
+        if (is_array($partialErrors) && $partialErrors !== []) {
+            throw new RuntimeException('Microsoft Ads rejected the conversion: '.$this->errorMessage($response));
+        }
+    }
+
+    /**
+     * @param  array<string, string>  $headers
+     * @param  array<string, mixed>  $conversion
+     */
+    private function apply(string $base, array $headers, array $conversion, string $accessToken): Response
+    {
+        return Http::withToken($accessToken)
             ->withHeaders($headers)
             ->acceptJson()
             ->connectTimeout(10)
@@ -137,17 +166,6 @@ final class MicrosoftAdsOfflineConversionService
             ->post($base.'/CampaignManagement/v13/OfflineConversions/Apply', [
                 'OfflineConversions' => [$conversion],
             ]);
-
-        if (! $response->successful()) {
-            throw new RuntimeException(
-                'Microsoft Ads upload failed HTTP '.$response->status().': '.$this->errorMessage($response->json())
-            );
-        }
-
-        $partialErrors = $response->json('PartialErrors');
-        if (is_array($partialErrors) && $partialErrors !== []) {
-            throw new RuntimeException('Microsoft Ads rejected the conversion: '.$this->partialErrorMessage($partialErrors));
-        }
     }
 
     /**
@@ -202,7 +220,9 @@ final class MicrosoftAdsOfflineConversionService
             ->post($this->oauthTokenUrl(), $payload);
 
         if (! $response->successful()) {
-            throw new RuntimeException('Microsoft Ads OAuth refresh failed HTTP '.$response->status().'.');
+            throw new RuntimeException(
+                'Microsoft Ads OAuth refresh failed HTTP '.$response->status().': '.$this->errorMessage($response)
+            );
         }
 
         $token = trim((string) $response->json('access_token'));
@@ -216,30 +236,92 @@ final class MicrosoftAdsOfflineConversionService
         return $token;
     }
 
-    private function errorMessage(mixed $payload): string
-    {
-        $message = data_get($payload, 'Message')
-            ?? data_get($payload, 'error_description')
-            ?? '';
-
-        $message = trim((string) $message);
-
-        return $message !== '' ? $message : 'unknown error';
-    }
-
     /**
-     * @param  array<int, mixed>  $partialErrors
+     * Microsoft returns its faults in several shapes (AdApiFaultDetail, ApiFaultDetail,
+     * plain OAuth errors), so every known bucket is read and the raw body is kept as a
+     * last resort. Anything less leaves the admin panel showing "unknown error".
      */
-    private function partialErrorMessage(array $partialErrors): string
+    private function errorMessage(Response $response): string
     {
-        $messages = [];
-        foreach ($partialErrors as $error) {
-            $text = trim((string) (data_get($error, 'Message') ?? data_get($error, 'ErrorCode') ?? ''));
-            if ($text !== '') {
-                $messages[] = $text;
+        $payload = $response->json();
+        $parts = [];
+
+        foreach (['Errors', 'OperationErrors', 'BatchErrors', 'PartialErrors'] as $bucket) {
+            foreach ((array) data_get($payload, $bucket, []) as $error) {
+                $text = $this->describeError($error);
+                if ($text !== '' && ! in_array($text, $parts, true)) {
+                    $parts[] = $text;
+                }
             }
         }
 
-        return $messages !== [] ? implode('; ', $messages) : 'unknown error';
+        foreach (['Message', 'error_description', 'error'] as $key) {
+            $text = trim((string) (data_get($payload, $key) ?? ''));
+            if ($text !== '' && ! in_array($text, $parts, true)) {
+                $parts[] = $text;
+            }
+        }
+
+        if ($parts === []) {
+            $body = trim($response->body());
+            $parts[] = $body !== '' ? Str::limit($body, 400) : 'empty response body';
+        }
+
+        $trackingId = trim((string) (data_get($payload, 'TrackingId') ?? ''));
+        if ($trackingId !== '') {
+            $parts[] = 'TrackingId '.$trackingId;
+        }
+
+        return implode('; ', $parts);
+    }
+
+    private function describeError(mixed $error): string
+    {
+        $code = trim((string) (data_get($error, 'ErrorCode') ?? ''));
+        $number = data_get($error, 'Code');
+        $message = trim((string) (data_get($error, 'Message') ?? ''));
+        $details = trim((string) (data_get($error, 'Details') ?? data_get($error, 'Detail') ?? ''));
+
+        if ($details !== '' && $details !== $message) {
+            $message = trim($message.' ('.$details.')');
+        }
+
+        $label = implode(' ', array_filter([
+            $code !== '' ? $code : null,
+            is_numeric($number) ? '#'.$number : null,
+        ]));
+
+        if ($label === '') {
+            return $message;
+        }
+
+        return $message !== '' ? $label.': '.$message : $label;
+    }
+
+    /**
+     * Bing reports a stale access token as an HTTP 500 fault rather than a 401.
+     */
+    private function isAuthenticationFault(Response $response): bool
+    {
+        if ($response->successful()) {
+            return false;
+        }
+
+        if ($response->status() === 401) {
+            return true;
+        }
+
+        foreach ((array) data_get($response->json(), 'Errors', []) as $error) {
+            $code = strtolower(trim((string) (data_get($error, 'ErrorCode') ?? '')));
+            if (in_array($code, ['authenticationtokenexpired', 'invalidcredentials'], true)) {
+                return true;
+            }
+
+            if (in_array((int) data_get($error, 'Code'), [105, 109], true)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

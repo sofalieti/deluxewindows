@@ -343,6 +343,89 @@ test('microsoft partial errors are treated as a failure', function () {
         ->and($click->bing_ads_conversion_error)->toContain('MSCLKID is invalid');
 });
 
+test('a microsoft fault is reported with its code, message and tracking id', function () {
+    Http::fake([
+        'https://login.test/token' => Http::response(['access_token' => 'ms-access', 'expires_in' => 3600]),
+        'https://campaign.bingads.test/*' => Http::response([
+            'TrackingId' => 'trk-9182',
+            'OperationErrors' => [[
+                'Code' => 5615,
+                'ErrorCode' => 'OfflineConversionNotAcceptedForGoal',
+                'Message' => 'The conversion goal is not ready yet.',
+                'Details' => 'Wait two hours after creating the goal.',
+            ]],
+        ], 500),
+    ]);
+
+    $click = confirmedClick(['msclkid' => 'test-msclkid']);
+
+    (new SendPhoneClickOfflineConversions($click->id))->handle(
+        app(GoogleAdsOfflineConversionService::class),
+        app(MicrosoftAdsOfflineConversionService::class),
+    );
+
+    $error = $click->refresh()->bing_ads_conversion_error;
+
+    expect($error)->toContain('OfflineConversionNotAcceptedForGoal #5615')
+        ->and($error)->toContain('The conversion goal is not ready yet.')
+        ->and($error)->toContain('Wait two hours after creating the goal.')
+        ->and($error)->toContain('TrackingId trk-9182')
+        ->and($error)->not->toContain('unknown error');
+});
+
+test('an unrecognised microsoft fault falls back to the raw response body', function () {
+    Http::fake([
+        'https://login.test/token' => Http::response(['access_token' => 'ms-access', 'expires_in' => 3600]),
+        'https://campaign.bingads.test/*' => Http::response('<html>Bad Gateway</html>', 502),
+    ]);
+
+    $click = confirmedClick(['msclkid' => 'test-msclkid']);
+
+    (new SendPhoneClickOfflineConversions($click->id))->handle(
+        app(GoogleAdsOfflineConversionService::class),
+        app(MicrosoftAdsOfflineConversionService::class),
+    );
+
+    expect($click->refresh()->bing_ads_conversion_error)->toContain('Bad Gateway');
+});
+
+test('an expired microsoft token is refreshed and the upload retried once', function () {
+    $attempts = 0;
+
+    Http::fake([
+        'https://login.test/token' => Http::response(['access_token' => 'ms-access', 'expires_in' => 3600]),
+        'https://campaign.bingads.test/*' => function () use (&$attempts) {
+            $attempts++;
+
+            if ($attempts === 1) {
+                return Http::response([
+                    'TrackingId' => 'trk-1',
+                    'Errors' => [[
+                        'Code' => 105,
+                        'ErrorCode' => 'AuthenticationTokenExpired',
+                        'Message' => 'Authentication token expired.',
+                    ]],
+                ], 500);
+            }
+
+            return Http::response(['PartialErrors' => []]);
+        },
+    ]);
+
+    $click = confirmedClick(['msclkid' => 'test-msclkid']);
+
+    (new SendPhoneClickOfflineConversions($click->id))->handle(
+        app(GoogleAdsOfflineConversionService::class),
+        app(MicrosoftAdsOfflineConversionService::class),
+    );
+
+    $click->refresh();
+
+    expect($attempts)->toBe(2)
+        ->and($click->bing_ads_conversion_sent_at)->not->toBeNull()
+        ->and($click->bing_ads_conversion_error)->toBeNull();
+});
+
 test('the phone click screen shows the offline conversion status', function () {
     fakeAdsEndpoints();
 
