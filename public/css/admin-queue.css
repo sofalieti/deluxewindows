@@ -1,0 +1,46 @@
+/* Queue screen: keep the job class and the error readable instead of letting
+   Bootstrap split every cell into two-character columns. */
+
+.queue-table__job {
+    font-weight: 600;
+    word-break: break-word;
+    min-width: 260px;
+    display: inline-block;
+}
+
+.queue-table__queue {
+    white-space: nowrap;
+}
+
+.queue-table__state {
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.queue-table__state--running {
+    color: #198754;
+}
+
+.queue-table__state--waiting {
+    color: #b26a00;
+}
+
+.queue-table__state--delayed {
+    color: #6c757d;
+}
+
+.queue-table__time {
+    white-space: nowrap;
+}
+
+.queue-table__time-ago {
+    display: block;
+    color: #6c757d;
+    font-size: 12px;
+}
+
+.queue-table__error {
+    color: #b02a37;
+    font-size: 12px;
+    word-break: break-word;
+}

@@ -87,6 +87,11 @@ return [
             'MICROSOFT_ADS_API_BASE_URL',
             'https://campaign.api.bingads.microsoft.com'
         ), '/'),
+        // Customer Management lives on its own host; used to verify the account id.
+        'customer_api_base_url' => rtrim((string) env(
+            'MICROSOFT_ADS_CUSTOMER_API_BASE_URL',
+            'https://clientcenter.api.bingads.microsoft.com'
+        ), '/'),
         'oauth_token_url' => env(
             'MICROSOFT_ADS_OAUTH_TOKEN_URL',
             'https://login.microsoftonline.com/common/oauth2/v2.0/token'

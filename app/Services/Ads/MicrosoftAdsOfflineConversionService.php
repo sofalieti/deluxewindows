@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Services\Ads;
 
 use App\Models\PhoneClick;
+use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
@@ -119,25 +120,13 @@ final class MicrosoftAdsOfflineConversionService
             $conversion['HashedPhoneNumber'] = $hashedPhone;
         }
 
-        $base = (string) config('services.microsoft_ads.api_base_url');
-
-        $headers = [
-            'DeveloperToken' => trim((string) config('services.microsoft_ads.developer_token')),
-            'CustomerId' => trim((string) config('services.microsoft_ads.customer_id')),
-            'CustomerAccountId' => trim((string) config('services.microsoft_ads.account_id')),
-        ];
-
-        if ($this->usesGoogleIdentity()) {
-            $headers['IdentityProvider'] = 'Google';
-        }
-
-        $response = $this->apply($base, $headers, $conversion, $this->accessToken());
+        $response = $this->apply($conversion, $this->accessToken());
 
         // Microsoft answers an expired access token with a fault, not a 401, so the
         // cached token has to be dropped explicitly before a single retry.
         if ($this->isAuthenticationFault($response)) {
             Cache::forget(self::TOKEN_CACHE_KEY);
-            $response = $this->apply($base, $headers, $conversion, $this->accessToken());
+            $response = $this->apply($conversion, $this->accessToken());
         }
 
         if (! $response->successful()) {
@@ -153,19 +142,85 @@ final class MicrosoftAdsOfflineConversionService
     }
 
     /**
-     * @param  array<string, string>  $headers
+     * The account the uploads are billed to, so a wrong id can be spotted by name.
+     *
+     * @return list<array<string, mixed>>
+     */
+    public function accounts(): array
+    {
+        $base = rtrim((string) config('services.microsoft_ads.customer_api_base_url'), '/')
+            ?: 'https://clientcenter.api.bingads.microsoft.com';
+
+        $response = $this->client($this->accessToken())->post(
+            $base.'/CustomerManagement/v13/AccountsInfo/Query',
+            [
+                'CustomerId' => (int) config('services.microsoft_ads.customer_id'),
+                'OnlyParentAccounts' => false,
+            ]
+        );
+
+        if (! $response->successful()) {
+            throw new RuntimeException(
+                'Microsoft Ads account lookup failed HTTP '.$response->status().': '.$this->errorMessage($response)
+            );
+        }
+
+        return (array) $response->json('AccountsInfo', []);
+    }
+
+    /**
+     * Offline conversion goals defined on the account. The JSON API only accepts a
+     * single goal type per request, hence no other types here.
+     *
+     * @return list<array<string, mixed>>
+     */
+    public function offlineConversionGoals(): array
+    {
+        $response = $this->client($this->accessToken())->post(
+            (string) config('services.microsoft_ads.api_base_url').'/CampaignManagement/v13/ConversionGoals/QueryByIds',
+            [
+                'ConversionGoalIds' => null,
+                'ConversionGoalTypes' => 'OfflineConversion',
+            ]
+        );
+
+        if (! $response->successful()) {
+            throw new RuntimeException(
+                'Microsoft Ads goal lookup failed HTTP '.$response->status().': '.$this->errorMessage($response)
+            );
+        }
+
+        return (array) $response->json('ConversionGoals', []);
+    }
+
+    /**
      * @param  array<string, mixed>  $conversion
      */
-    private function apply(string $base, array $headers, array $conversion, string $accessToken): Response
+    private function apply(array $conversion, string $accessToken): Response
     {
+        return $this->client($accessToken)->post(
+            (string) config('services.microsoft_ads.api_base_url').'/CampaignManagement/v13/OfflineConversions/Apply',
+            ['OfflineConversions' => [$conversion]]
+        );
+    }
+
+    private function client(string $accessToken): PendingRequest
+    {
+        $headers = [
+            'DeveloperToken' => trim((string) config('services.microsoft_ads.developer_token')),
+            'CustomerId' => trim((string) config('services.microsoft_ads.customer_id')),
+            'CustomerAccountId' => trim((string) config('services.microsoft_ads.account_id')),
+        ];
+
+        if ($this->usesGoogleIdentity()) {
+            $headers['IdentityProvider'] = 'Google';
+        }
+
         return Http::withToken($accessToken)
             ->withHeaders($headers)
             ->acceptJson()
             ->connectTimeout(10)
-            ->timeout(30)
-            ->post($base.'/CampaignManagement/v13/OfflineConversions/Apply', [
-                'OfflineConversions' => [$conversion],
-            ]);
+            ->timeout(30);
     }
 
     /**

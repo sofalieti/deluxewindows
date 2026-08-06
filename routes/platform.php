@@ -33,6 +33,7 @@ use App\Orchid\Screens\RingCentralCalls\RingCentralCallListScreen;
 use App\Orchid\Screens\Role\RoleEditScreen;
 use App\Orchid\Screens\Role\RoleListScreen;
 use App\Orchid\Screens\Seo\SitemapScreen;
+use App\Orchid\Screens\System\QueueScreen;
 use App\Orchid\Screens\User\UserEditScreen;
 use App\Orchid\Screens\User\UserListScreen;
 use App\Orchid\Screens\User\UserProfileScreen;
@@ -124,6 +125,9 @@ Route::screen('door-brands', DoorBrandListScreen::class)
 
 Route::screen('door-brands/{slug}/edit', DoorBrandEditScreen::class)
     ->name('platform.door-brands.edit');
+
+Route::screen('queue', QueueScreen::class)
+    ->name('platform.queue');
 
 // Platform > Profile
 Route::screen('profile', UserProfileScreen::class)

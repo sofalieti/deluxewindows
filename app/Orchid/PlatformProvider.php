@@ -152,6 +152,14 @@ class PlatformProvider extends OrchidServiceProvider
                 ->permission('platform.marketing'),
         ];
 
+        $systemMenu = [
+            Menu::make('Queue')
+                ->icon('bs.list-task')
+                ->route('platform.queue')
+                ->permission('platform.queue')
+                ->title('System'),
+        ];
+
         $accessMenu = [
             Menu::make(__('Users'))
                 ->icon('bs.people')
@@ -165,7 +173,7 @@ class PlatformProvider extends OrchidServiceProvider
                 ->permission('platform.systems.roles'),
         ];
 
-        return array_merge($marketingMenu, $windowsMenu, $doorsMenu, $webflowMenus, $townsMenu, $accessMenu);
+        return array_merge($marketingMenu, $windowsMenu, $doorsMenu, $webflowMenus, $townsMenu, $systemMenu, $accessMenu);
     }
 
     /**
@@ -178,7 +186,8 @@ class PlatformProvider extends OrchidServiceProvider
         return [
             ItemPermission::group(__('System'))
                 ->addPermission('platform.systems.roles', __('Roles'))
-                ->addPermission('platform.systems.users', __('Users')),
+                ->addPermission('platform.systems.users', __('Users'))
+                ->addPermission('platform.queue', 'Queue monitor'),
 
             ItemPermission::group('Leads')
                 ->addPermission('platform.leads', 'Manage Leads'),

@@ -37,6 +37,7 @@ beforeEach(function () {
         'identity_provider' => 'microsoft',
         'oauth_redirect_uri' => 'https://login.test/native',
         'api_base_url' => 'https://campaign.bingads.test',
+        'customer_api_base_url' => 'https://clientcenter.bingads.test',
         'oauth_token_url' => 'https://login.test/token',
         'oauth_authorize_url' => 'https://login.test/authorize',
         'google_oauth_token_url' => 'https://google-oauth.test/token',
@@ -424,6 +425,55 @@ test('an expired microsoft token is refreshed and the upload retried once', func
     expect($attempts)->toBe(2)
         ->and($click->bing_ads_conversion_sent_at)->not->toBeNull()
         ->and($click->bing_ads_conversion_error)->toBeNull();
+});
+
+test('the bing status command reports the account, the goal and pending uploads', function () {
+    Http::fake([
+        'https://login.test/token' => Http::response(['access_token' => 'ms-access', 'expires_in' => 3600]),
+        '*/CustomerManagement/v13/AccountsInfo/Query' => Http::response([
+            'AccountsInfo' => [[
+                'Id' => '2424',
+                'Name' => 'Deluxe Windows',
+                'Number' => 'G1204KAX',
+                'AccountLifeCycleStatus' => 'Active',
+            ]],
+        ]),
+        '*/ConversionGoals/QueryByIds' => Http::response([
+            'ConversionGoals' => [[
+                'Name' => 'Phone Call Confirmed',
+                'Type' => 'OfflineConversion',
+                'Status' => 'Active',
+                'Scope' => 'Account',
+                'CountType' => 'Unique',
+                'ConversionWindowInMinutes' => 43200,
+                'TrackingStatus' => 'NoRecentConversions',
+            ]],
+        ]),
+    ]);
+
+    confirmedClick(['msclkid' => 'waiting-msclkid']);
+
+    $this->artisan('ads:bing-status')
+        ->expectsOutputToContain('Deluxe Windows (G1204KAX)')
+        ->expectsOutputToContain('Phone Call Confirmed')
+        ->expectsOutputToContain('NoRecentConversions')
+        ->assertSuccessful();
+});
+
+test('the bing status command flags a goal name that does not exist', function () {
+    Http::fake([
+        'https://login.test/token' => Http::response(['access_token' => 'ms-access', 'expires_in' => 3600]),
+        '*/CustomerManagement/v13/AccountsInfo/Query' => Http::response([
+            'AccountsInfo' => [['Id' => '2424', 'Name' => 'Deluxe Windows', 'Number' => 'G1204KAX']],
+        ]),
+        '*/ConversionGoals/QueryByIds' => Http::response([
+            'ConversionGoals' => [['Name' => 'Something Else', 'Status' => 'Active']],
+        ]),
+    ]);
+
+    $this->artisan('ads:bing-status')
+        ->expectsOutputToContain('No goal is named "Phone Call Confirmed"')
+        ->assertSuccessful();
 });
 
 test('the phone click screen shows the offline conversion status', function () {
