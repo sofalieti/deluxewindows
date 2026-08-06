@@ -10,16 +10,27 @@ use Illuminate\Support\Str;
  * Maps a Bay Area service area to the local phone number we advertise there.
  *
  * The mapping lives in JSON datasets rather than on the Webflow city record so
- * that a Webflow re-import cannot wipe it. Cities without a region (Solano
- * County today) simply fall back to the general site number.
+ * that a Webflow re-import cannot wipe it. Cities without a region fall back
+ * to the general site number.
+ *
+ * Numeric utm_city values come from ad platforms and use different id spaces:
+ * Google fills {loc_physical_ms}, Bing fills {loc_physical}. Each has its own
+ * map; the traffic source picks which one to consult first.
  */
 final class ServiceAreaRegions
 {
+    public const GEO_GOOGLE = 'google';
+
+    public const GEO_BING = 'bing';
+
     /** @var array{regions: array<string, array<string, string>>, cities: array<string, array<string, string|null>>}|null */
     private ?array $data = null;
 
-    /** @var array<int, string>|null Google geo criteria id => city slug */
-    private ?array $geoTargets = null;
+    /** @var array<int, string>|null */
+    private ?array $googleGeoTargets = null;
+
+    /** @var array<int, string>|null */
+    private ?array $bingGeoTargets = null;
 
     /**
      * @return array{key: string, label: string, phone_display: string, phone_tel: string}|null
@@ -41,40 +52,94 @@ final class ServiceAreaRegions
     }
 
     /**
-     * Resolve a raw utm_city value, which is either one of our slugs or the
-     * numeric Google Ads geo criteria id produced by {loc_physical_ms}.
+     * Resolve a raw utm_city value: a city slug/name, or a numeric geo id from
+     * Google ({loc_physical_ms}) or Bing ({loc_physical}).
      *
+     * @param  self::GEO_GOOGLE|self::GEO_BING|null  $platform  preferred id space; null tries both
      * @return array{slug: string, name: string, region: array{key: string, label: string, phone_display: string, phone_tel: string}|null}|null
      */
-    public function resolveUtmCity(?string $value): ?array
+    public function resolveUtmCity(?string $value, ?string $platform = null): ?array
     {
         $value = trim((string) $value);
         if ($value === '') {
             return null;
         }
 
-        $slug = ctype_digit($value)
-            ? ($this->geoTargets()[(int) $value] ?? null)
-            : Str::slug($value);
+        if (! ctype_digit($value)) {
+            return $this->cityBySlug(Str::slug($value));
+        }
 
-        return $slug === null ? null : $this->cityBySlug($slug);
+        $id = (int) $value;
+        $order = $this->geoLookupOrder($platform);
+
+        foreach ($order as $provider) {
+            $slug = $this->geoTargets($provider)[$id] ?? null;
+            if ($slug !== null) {
+                return $this->cityBySlug($slug);
+            }
+        }
+
+        return null;
     }
 
     /**
      * Human readable form of a raw utm_city value for the admin screens.
      */
-    public function utmCityLabel(?string $value): string
+    public function utmCityLabel(?string $value, ?string $platform = null): string
     {
         $value = trim((string) $value);
         if ($value === '') {
             return '-';
         }
 
-        $city = $this->resolveUtmCity($value);
+        $city = $this->resolveUtmCity($value, $platform);
 
         return $city === null
             ? $value.' (unmatched)'
             : $city['name'].' — '.$value;
+    }
+
+    /**
+     * Pick google / bing from common attribution fields (utm_source, click ids).
+     *
+     * @param  array{utm_source?: mixed, gclid?: mixed, msclkid?: mixed, first_utm_source?: mixed, first_gclid?: mixed, first_msclkid?: mixed}  $touch
+     * @return self::GEO_GOOGLE|self::GEO_BING|null
+     */
+    public function platformFromAttribution(array $touch): ?string
+    {
+        $msclkid = trim((string) ($touch['msclkid'] ?? $touch['first_msclkid'] ?? ''));
+        if ($msclkid !== '') {
+            return self::GEO_BING;
+        }
+
+        $gclid = trim((string) ($touch['gclid'] ?? $touch['first_gclid'] ?? ''));
+        if ($gclid !== '') {
+            return self::GEO_GOOGLE;
+        }
+
+        $source = strtolower(trim((string) ($touch['utm_source'] ?? $touch['first_utm_source'] ?? '')));
+        if ($source === '') {
+            return null;
+        }
+
+        if (
+            $source === 'bing'
+            || $source === 'msn'
+            || str_contains($source, 'bing')
+            || str_contains($source, 'microsoft')
+        ) {
+            return self::GEO_BING;
+        }
+
+        if (
+            $source === 'google'
+            || $source === 'adwords'
+            || str_contains($source, 'google')
+        ) {
+            return self::GEO_GOOGLE;
+        }
+
+        return null;
     }
 
     /**
@@ -125,16 +190,24 @@ final class ServiceAreaRegions
     }
 
     /**
+     * @param  self::GEO_GOOGLE|self::GEO_BING  $platform
      * @return array<int, string>
      */
-    public function geoTargets(): array
+    public function geoTargets(string $platform = self::GEO_GOOGLE): array
     {
-        if ($this->geoTargets !== null) {
-            return $this->geoTargets;
+        if ($platform === self::GEO_BING) {
+            return $this->bingGeoTargets ??= $this->readGeoMap(database_path('data/bing-geo-targets.json'));
         }
 
-        $decoded = $this->readJson(database_path('data/google-geo-targets.json'));
+        return $this->googleGeoTargets ??= $this->readGeoMap(database_path('data/google-geo-targets.json'));
+    }
 
+    /**
+     * @return array<int, string>
+     */
+    private function readGeoMap(string $path): array
+    {
+        $decoded = $this->readJson($path);
         $map = [];
         foreach (is_array($decoded) ? $decoded : [] as $id => $slug) {
             if (is_string($slug) && $slug !== '') {
@@ -142,7 +215,19 @@ final class ServiceAreaRegions
             }
         }
 
-        return $this->geoTargets = $map;
+        return $map;
+    }
+
+    /**
+     * @return list<self::GEO_GOOGLE|self::GEO_BING>
+     */
+    private function geoLookupOrder(?string $platform): array
+    {
+        return match ($platform) {
+            self::GEO_BING => [self::GEO_BING, self::GEO_GOOGLE],
+            self::GEO_GOOGLE => [self::GEO_GOOGLE, self::GEO_BING],
+            default => [self::GEO_GOOGLE, self::GEO_BING],
+        };
     }
 
     /**

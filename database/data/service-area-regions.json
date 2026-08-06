@@ -57,7 +57,7 @@
         },
         "benicia": {
             "name": "Benicia",
-            "region": null
+            "region": "tri_valley"
         },
         "berkeley": {
             "name": "Berkeley",
@@ -113,7 +113,7 @@
         },
         "dixon": {
             "name": "Dixon",
-            "region": null
+            "region": "tri_valley"
         },
         "dublin": {
             "name": "Dublin",
@@ -137,7 +137,7 @@
         },
         "fairfield": {
             "name": "Fairfield",
-            "region": null
+            "region": "tri_valley"
         },
         "foster-city": {
             "name": "Foster City",
@@ -297,7 +297,7 @@
         },
         "rio-vista": {
             "name": "Rio Vista",
-            "region": null
+            "region": "tri_valley"
         },
         "rohnert-park": {
             "name": "Rohnert Park",
@@ -381,7 +381,7 @@
         },
         "suisun-city": {
             "name": "Suisun City",
-            "region": null
+            "region": "tri_valley"
         },
         "sunnyvale": {
             "name": "Sunnyvale",
@@ -397,11 +397,11 @@
         },
         "vacaville": {
             "name": "Vacaville",
-            "region": null
+            "region": "tri_valley"
         },
         "vallejo": {
             "name": "Vallejo",
-            "region": null
+            "region": "tri_valley"
         },
         "walnut-creek": {
             "name": "Walnut Creek",

@@ -293,9 +293,21 @@ class PhoneClickViewScreen extends Screen
                     Sight::make('utm_term', 'UTM term')
                         ->render(fn (PhoneClick $click) => e((string) ($click->utm_term ?: '-'))),
                     Sight::make('utm_city', 'UTM city')
-                        ->render(fn (PhoneClick $click) => e(
-                            app(\App\Services\ServiceAreaRegions::class)->utmCityLabel($click->utm_city)
-                        )),
+                        ->render(function (PhoneClick $click) {
+                            $regions = app(\App\Services\ServiceAreaRegions::class);
+
+                            return e($regions->utmCityLabel(
+                                $click->utm_city,
+                                $regions->platformFromAttribution([
+                                    'utm_source' => $click->utm_source,
+                                    'gclid' => $click->gclid,
+                                    'msclkid' => $click->msclkid,
+                                    'first_utm_source' => $click->first_utm_source,
+                                    'first_gclid' => $click->first_gclid,
+                                    'first_msclkid' => $click->first_msclkid,
+                                ])
+                            ));
+                        }),
                     Sight::make('utm_redirect', 'UTM redirect')
                         ->render(fn (PhoneClick $click) => e((string) ($click->utm_redirect ?: '-'))),
                     Sight::make('matchtype', 'Match type')

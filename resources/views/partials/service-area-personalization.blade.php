@@ -1,12 +1,12 @@
 @once
 <script>
   (function () {
-    // Visitors arriving from a geo targeted ad carry ?utm_city=. Google fills it
-    // with {loc_physical_ms}, which is a numeric geo criteria id rather than a
-    // city name, so the mapping has to happen here against our lookup table.
+    // Visitors arriving from a geo targeted ad carry ?utm_city=.
+    // Google fills {loc_physical_ms} (Google criteria id); Bing fills
+    // {loc_physical} (Bing location id). The maps live in separate tables.
     var ENDPOINT = @json(route('service-area-phones'));
     var STORAGE_KEY = 'lead_param_utm_city';
-    var CACHE_KEY = 'dw_service_area_phones';
+    var CACHE_KEY = 'dw_service_area_phones_v2';
 
     function storageGet(key) {
       try {
@@ -16,14 +16,39 @@
       }
     }
 
-    function utmCity() {
+    function queryParam(name) {
       try {
-        var fromUrl = new URLSearchParams(window.location.search).get('utm_city');
-        if (fromUrl) return fromUrl.trim();
+        return new URLSearchParams(window.location.search).get(name) || '';
       } catch (_) {
-        // URLSearchParams is unavailable on very old browsers.
+        return '';
       }
+    }
+
+    function utmCity() {
+      var fromUrl = queryParam('utm_city').trim();
+      if (fromUrl) return fromUrl;
       return storageGet(STORAGE_KEY).trim();
+    }
+
+    function platformHint() {
+      var source = (queryParam('utm_source') || storageGet('lead_param_utm_source') || '').toLowerCase();
+      var msclkid = queryParam('msclkid') || storageGet('lead_param_msclkid') || '';
+      var gclid = queryParam('gclid') || storageGet('lead_param_gclid') || '';
+
+      if (msclkid) return 'bing';
+      if (gclid) return 'google';
+      if (
+        source === 'bing' ||
+        source === 'msn' ||
+        source.indexOf('bing') !== -1 ||
+        source.indexOf('microsoft') !== -1
+      ) {
+        return 'bing';
+      }
+      if (source === 'google' || source === 'adwords' || source.indexOf('google') !== -1) {
+        return 'google';
+      }
+      return null;
     }
 
     function loadTable() {
@@ -69,12 +94,37 @@
         .replace(/^-+|-+$/g, '');
     }
 
-    function resolve(table, raw) {
+    function geoMaps(table) {
+      return {
+        google: table.geo_google || table.geo || {},
+        bing: table.geo_bing || {}
+      };
+    }
+
+    function resolve(table, raw, platform) {
       if (!table || !raw) return null;
-      var slug = /^\d+$/.test(raw) ? (table.geo || {})[raw] : slugify(raw);
-      if (!slug) return null;
-      var city = (table.cities || {})[slug];
-      return city ? { slug: slug, city: city } : null;
+
+      if (!/^\d+$/.test(raw)) {
+        var namedSlug = slugify(raw);
+        var namedCity = (table.cities || {})[namedSlug];
+        return namedCity ? { slug: namedSlug, city: namedCity } : null;
+      }
+
+      var maps = geoMaps(table);
+      var order = platform === 'bing'
+        ? ['bing', 'google']
+        : platform === 'google'
+          ? ['google', 'bing']
+          : ['google', 'bing'];
+
+      for (var i = 0; i < order.length; i++) {
+        var slug = (maps[order[i]] || {})[raw];
+        if (!slug) continue;
+        var city = (table.cities || {})[slug];
+        if (city) return { slug: slug, city: city };
+      }
+
+      return null;
     }
 
     function applyAreaLabel(name) {
@@ -128,8 +178,10 @@
       var raw = utmCity();
       if (!raw) return;
 
+      var platform = platformHint();
+
       loadTable().then(function (table) {
-        var match = resolve(table, raw);
+        var match = resolve(table, raw, platform);
         if (!match) return;
 
         applyAreaLabel(match.city.name);

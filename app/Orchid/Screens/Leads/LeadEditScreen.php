@@ -194,10 +194,18 @@ class LeadEditScreen extends Screen
                             Sight::make('utm_term', 'UTM term')
                                 ->render(fn (Lead $lead) => e($lead->metaValue('utm_term', '-'))),
                             Sight::make('utm_city', 'UTM city')
-                                ->render(fn (Lead $lead) => e(
-                                    app(\App\Services\ServiceAreaRegions::class)
-                                        ->utmCityLabel($lead->metaValue('utm_city', ''))
-                                )),
+                                ->render(function (Lead $lead) {
+                                    $regions = app(\App\Services\ServiceAreaRegions::class);
+
+                                    return e($regions->utmCityLabel(
+                                        $lead->metaValue('utm_city', ''),
+                                        $regions->platformFromAttribution([
+                                            'utm_source' => $lead->utm_source,
+                                            'gclid' => $lead->metaValue('gclid'),
+                                            'msclkid' => $lead->metaValue('msclkid'),
+                                        ])
+                                    ));
+                                }),
                             Sight::make('utm_redirect', 'UTM redirect')
                                 ->render(fn (Lead $lead) => e($lead->metaValue('utm_redirect', '-'))),
                             Sight::make('matchtype', 'Match type')

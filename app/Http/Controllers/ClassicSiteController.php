@@ -1696,8 +1696,8 @@ class ClassicSiteController extends Controller
     }
 
     /**
-     * Lookup table for the utm_city personalisation script: Google geo criteria
-     * ids and our city slugs mapped to the local number we advertise there.
+     * Lookup table for the utm_city personalisation script: Google and Bing geo
+     * ids plus our city slugs mapped to the local number we advertise there.
      * Fetched at most once per visitor and cached hard, so it never touches the
      * page weight of the 99% who arrive without utm_city.
      */
@@ -1721,13 +1721,16 @@ class ClassicSiteController extends Controller
             ];
         }
 
-        $geo = array_filter(
-            $regions->geoTargets(),
-            static fn (string $slug): bool => isset($cities[$slug])
-        );
+        $filter = static fn (string $slug): bool => isset($cities[$slug]);
 
         return response()
-            ->json(['geo' => $geo, 'cities' => $cities])
+            ->json([
+                // Legacy key kept for older cached sessionStorage payloads.
+                'geo' => array_filter($regions->geoTargets(\App\Services\ServiceAreaRegions::GEO_GOOGLE), $filter),
+                'geo_google' => array_filter($regions->geoTargets(\App\Services\ServiceAreaRegions::GEO_GOOGLE), $filter),
+                'geo_bing' => array_filter($regions->geoTargets(\App\Services\ServiceAreaRegions::GEO_BING), $filter),
+                'cities' => $cities,
+            ])
             ->setPublic()
             ->setMaxAge(86400)
             ->setSharedMaxAge(86400);

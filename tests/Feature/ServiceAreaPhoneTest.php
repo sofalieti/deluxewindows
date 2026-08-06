@@ -28,7 +28,7 @@ test('every city maps to a region with a well formed local number', function () 
             ->and($region['phone_tel'])->toMatch('/^\+1\d{10}$/');
     }
 
-    expect($withRegion)->toBe(91);
+    expect($withRegion)->toBe(98);
 });
 
 test('cities land on the number their area code implies', function (string $slug, string $expected) {
@@ -43,26 +43,53 @@ test('cities land on the number their area code implies', function (string $slug
     'Walnut Creek is 925' => ['walnut-creek', '(925) 430-5135'],
     'Pleasanton is 925 despite Alameda' => ['pleasanton', '(925) 430-5135'],
     'San Jose is South Bay' => ['san-jose', '(408) 516-1200'],
+    'Vallejo (Solano) is 925' => ['vallejo', '(925) 430-5135'],
+    'Fairfield (Solano) is 925' => ['fairfield', '(925) 430-5135'],
+    'Vacaville (Solano) is 925' => ['vacaville', '(925) 430-5135'],
 ]);
 
-test('Solano County stays on the general number', function (string $slug) {
-    expect(app(ServiceAreaRegions::class)->forCitySlug($slug))->toBeNull()
-        ->and(service_area_phone($slug))->toBeNull();
+test('Solano County cities share the 925 Lamorinda number', function (string $slug) {
+    expect(app(ServiceAreaRegions::class)->forCitySlug($slug)['phone_display'])->toBe('(925) 430-5135')
+        ->and(service_area_phone($slug)['phone_tel'])->toBe('+19254305135');
 })->with(['vallejo', 'fairfield', 'benicia', 'vacaville', 'dixon', 'rio-vista', 'suisun-city']);
 
 test('utm_city resolves a Google geo criteria id to one of our cities', function () {
     $regions = app(ServiceAreaRegions::class);
-    $geo = $regions->geoTargets();
+    $geo = $regions->geoTargets(ServiceAreaRegions::GEO_GOOGLE);
 
     $id = array_search('fremont', $geo, true);
     expect($id)->toBeInt();
 
-    $resolved = $regions->resolveUtmCity((string) $id);
+    $resolved = $regions->resolveUtmCity((string) $id, ServiceAreaRegions::GEO_GOOGLE);
 
     expect($resolved)->not->toBeNull()
         ->and($resolved['slug'])->toBe('fremont')
         ->and($resolved['name'])->toBe('Fremont')
         ->and($resolved['region']['phone_display'])->toBe('(510) 244-6500');
+});
+
+test('utm_city resolves a Bing location id through the Bing map', function () {
+    $regions = app(ServiceAreaRegions::class);
+    $geo = $regions->geoTargets(ServiceAreaRegions::GEO_BING);
+
+    $id = array_search('vallejo', $geo, true);
+    expect($id)->toBeInt()
+        ->and($id)->toBe(43578);
+
+    $resolved = $regions->resolveUtmCity((string) $id, ServiceAreaRegions::GEO_BING);
+
+    expect($resolved)->not->toBeNull()
+        ->and($resolved['slug'])->toBe('vallejo')
+        ->and($resolved['region']['phone_display'])->toBe('(925) 430-5135');
+});
+
+test('traffic source picks which geo id space to prefer', function () {
+    $regions = app(ServiceAreaRegions::class);
+
+    expect($regions->platformFromAttribution(['msclkid' => 'abc']))->toBe(ServiceAreaRegions::GEO_BING)
+        ->and($regions->platformFromAttribution(['gclid' => 'abc']))->toBe(ServiceAreaRegions::GEO_GOOGLE)
+        ->and($regions->platformFromAttribution(['utm_source' => 'bing']))->toBe(ServiceAreaRegions::GEO_BING)
+        ->and($regions->platformFromAttribution(['utm_source' => 'google']))->toBe(ServiceAreaRegions::GEO_GOOGLE);
 });
 
 test('utm_city also accepts a plain city name or slug', function (string $value) {
@@ -87,15 +114,22 @@ test('the lookup endpoint only publishes cities that have a local number', funct
 
     $payload = $response->json();
 
-    expect($payload['cities'])->toHaveCount(91)
-        ->and($payload['cities'])->not->toHaveKey('vallejo')
+    expect($payload['cities'])->toHaveCount(98)
+        ->and($payload['geo_google'])->toHaveCount(98)
+        ->and($payload['geo_bing'])->toHaveCount(98)
+        ->and($payload['geo_bing']['43578'])->toBe('vallejo')
+        ->and($payload['cities']['vallejo'])->toBe([
+            'name' => 'Vallejo',
+            'phone_display' => '(925) 430-5135',
+            'phone_tel' => '+19254305135',
+        ])
         ->and($payload['cities']['oakland'])->toBe([
             'name' => 'Oakland',
             'phone_display' => '(510) 244-6500',
             'phone_tel' => '+15102446500',
         ]);
 
-    foreach ($payload['geo'] as $slug) {
+    foreach ($payload['geo_bing'] as $slug) {
         expect($payload['cities'])->toHaveKey($slug);
     }
 
@@ -110,11 +144,11 @@ test('a city page advertises the local number in place of the general one', func
         ->assertDontSee('Installation &amp; Replacement | Bay Area', false);
 });
 
-test('a city without a region keeps the general number', function () {
+test('a Solano County city page advertises the 925 number', function () {
     $response = get('/window-replacement/vallejo')->assertOk();
 
-    $response->assertSee('tel:'.site_phone_tel(), false)
-        ->assertDontSee('tel:+15102446500', false);
+    $response->assertSee('tel:+19254305135', false)
+        ->assertSee('(925) 430-5135', false);
 });
 
 test('a phone click records utm_city and utm_redirect', function () {
