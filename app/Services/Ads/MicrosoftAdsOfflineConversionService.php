@@ -107,6 +107,76 @@ final class MicrosoftAdsOfflineConversionService
             );
         }
 
+        $base = [
+            'MicrosoftClickId' => $msclkid,
+            'ConversionName' => trim((string) config('services.microsoft_ads.phone_conversion_name')),
+            'ConversionTime' => $this->formatConversionTime($click),
+        ];
+
+        // Bing sometimes answers InternalError #0 for optional fields it does not like
+        // (hashed phone / currency without a value). Try the richest payload first, then
+        // strip optionals before giving up — the click id alone is enough to attribute.
+        $attempts = [];
+
+        $withExtras = $base + ['ConversionCurrencyCode' => 'USD'];
+        $hashedPhone = $this->hashedCallerPhone($click);
+        if ($hashedPhone !== null) {
+            $withExtras['HashedPhoneNumber'] = $hashedPhone;
+        }
+        $attempts[] = $withExtras;
+
+        if (isset($withExtras['HashedPhoneNumber'])) {
+            $attempts[] = $base + ['ConversionCurrencyCode' => 'USD'];
+        }
+
+        $attempts[] = $base;
+
+        $lastResponse = null;
+
+        foreach ($attempts as $index => $conversion) {
+            $response = $this->apply($conversion, $this->accessToken());
+
+            // Microsoft answers an expired access token with a fault, not a 401, so the
+            // cached token has to be dropped explicitly before a single retry.
+            if ($this->isAuthenticationFault($response)) {
+                Cache::forget(self::TOKEN_CACHE_KEY);
+                $response = $this->apply($conversion, $this->accessToken());
+            }
+
+            $lastResponse = $response;
+
+            if ($response->successful()) {
+                $partialErrors = $response->json('PartialErrors');
+                if (! is_array($partialErrors) || $partialErrors === []) {
+                    return;
+                }
+
+                // A real rejection of the conversion itself — do not keep stripping fields.
+                throw new RuntimeException('Microsoft Ads rejected the conversion: '.$this->errorMessage($response));
+            }
+
+            if (! $this->isInternalError($response) || $index === array_key_last($attempts)) {
+                break;
+            }
+        }
+
+        throw new RuntimeException(
+            'Microsoft Ads upload failed HTTP '.$lastResponse->status().': '.$this->errorMessage($lastResponse)
+        );
+    }
+
+    /**
+     * Payload Microsoft would receive for this click — used by the probe command.
+     *
+     * @return array<string, mixed>
+     */
+    public function conversionPayload(PhoneClick $click): array
+    {
+        $msclkid = $click->resolvedMsclkid();
+        if ($msclkid === null) {
+            throw new RuntimeException('Phone click has no MSCLKID.');
+        }
+
         $conversion = [
             'MicrosoftClickId' => $msclkid,
             'ConversionName' => trim((string) config('services.microsoft_ads.phone_conversion_name')),
@@ -114,31 +184,12 @@ final class MicrosoftAdsOfflineConversionService
             'ConversionCurrencyCode' => 'USD',
         ];
 
-        // Enhanced conversions: lets Microsoft match the call even if the click id has expired.
         $hashedPhone = $this->hashedCallerPhone($click);
         if ($hashedPhone !== null) {
             $conversion['HashedPhoneNumber'] = $hashedPhone;
         }
 
-        $response = $this->apply($conversion, $this->accessToken());
-
-        // Microsoft answers an expired access token with a fault, not a 401, so the
-        // cached token has to be dropped explicitly before a single retry.
-        if ($this->isAuthenticationFault($response)) {
-            Cache::forget(self::TOKEN_CACHE_KEY);
-            $response = $this->apply($conversion, $this->accessToken());
-        }
-
-        if (! $response->successful()) {
-            throw new RuntimeException(
-                'Microsoft Ads upload failed HTTP '.$response->status().': '.$this->errorMessage($response)
-            );
-        }
-
-        $partialErrors = $response->json('PartialErrors');
-        if (is_array($partialErrors) && $partialErrors !== []) {
-            throw new RuntimeException('Microsoft Ads rejected the conversion: '.$this->errorMessage($response));
-        }
+        return $conversion;
     }
 
     /**
@@ -378,5 +429,22 @@ final class MicrosoftAdsOfflineConversionService
         }
 
         return false;
+    }
+
+    /**
+     * Opaque "something broke" faults are often caused by optional payload fields.
+     */
+    private function isInternalError(Response $response): bool
+    {
+        foreach ((array) data_get($response->json(), 'Errors', []) as $error) {
+            $code = strtolower(trim((string) (data_get($error, 'ErrorCode') ?? '')));
+            if ($code === 'internalerror' || (int) data_get($error, 'Code') === 0) {
+                return true;
+            }
+        }
+
+        $message = strtolower($this->errorMessage($response));
+
+        return str_contains($message, 'internalerror') || str_contains($message, 'internal error');
     }
 }

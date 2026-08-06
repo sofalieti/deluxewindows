@@ -138,6 +138,67 @@ test('the caller number is sent to Microsoft as a SHA-256 hash for enhanced conv
         && $request['OfflineConversions'][0]['HashedPhoneNumber'] === hash('sha256', '+14155550999'));
 });
 
+test('an opaque microsoft internal error is retried without optional fields', function () {
+    $apply = 0;
+
+    Http::fake(function ($request) use (&$apply) {
+        if (str_contains($request->url(), '/token')) {
+            return Http::response(['access_token' => 'ms-access', 'expires_in' => 3600]);
+        }
+
+        if (! str_contains($request->url(), '/OfflineConversions/Apply')) {
+            return Http::response(['PartialErrors' => []]);
+        }
+
+        $apply++;
+        $conversion = $request['OfflineConversions'][0] ?? [];
+
+        if ($apply === 1) {
+            expect($conversion)->toHaveKey('HashedPhoneNumber')
+                ->and($conversion)->toHaveKey('ConversionCurrencyCode');
+
+            return Http::response([
+                'Errors' => [[
+                    'ErrorCode' => 'InternalError',
+                    'Code' => 0,
+                    'Message' => 'An internal error has occurred.',
+                ]],
+                'TrackingId' => 't-1',
+            ], 500);
+        }
+
+        if ($apply === 2) {
+            expect($conversion)->not->toHaveKey('HashedPhoneNumber')
+                ->and($conversion)->toHaveKey('ConversionCurrencyCode');
+
+            return Http::response([
+                'Errors' => [[
+                    'ErrorCode' => 'InternalError',
+                    'Code' => 0,
+                    'Message' => 'An internal error has occurred.',
+                ]],
+                'TrackingId' => 't-2',
+            ], 500);
+        }
+
+        expect($conversion)->not->toHaveKey('HashedPhoneNumber')
+            ->and($conversion)->not->toHaveKey('ConversionCurrencyCode')
+            ->and($conversion['MicrosoftClickId'])->toBe('test-msclkid');
+
+        return Http::response(['PartialErrors' => []]);
+    });
+
+    $click = confirmedClick(['msclkid' => 'test-msclkid']);
+
+    (new SendPhoneClickOfflineConversions($click->id))->handle(
+        app(GoogleAdsOfflineConversionService::class),
+        app(MicrosoftAdsOfflineConversionService::class),
+    );
+
+    expect($click->refresh()->bing_ads_conversion_sent_at)->not->toBeNull()
+        ->and($apply)->toBe(3);
+});
+
 test('a Google signed in Bing account authenticates through Google and flags the identity provider', function () {
     config()->set('services.microsoft_ads.identity_provider', 'google');
 
