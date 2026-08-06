@@ -8,6 +8,7 @@ use App\Services\QueueMonitor;
 use Carbon\CarbonInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Cache;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\DropDown;
 use Orchid\Screen\Repository;
@@ -16,6 +17,7 @@ use Orchid\Screen\TD;
 use Orchid\Support\Color;
 use Orchid\Support\Facades\Layout;
 use Orchid\Support\Facades\Toast;
+use Throwable;
 
 class QueueScreen extends Screen
 {
@@ -28,13 +30,6 @@ class QueueScreen extends Screen
     {
         $this->monitor = $monitor;
         $this->stats = $monitor->stats();
-
-        if (! $monitor->isAvailable()) {
-            Toast::warning(sprintf(
-                'The "%s" queue driver cannot be inspected here — only the database driver stores jobs in a table.',
-                $monitor->driver()
-            ));
-        }
 
         return [
             'metrics' => [
@@ -59,7 +54,18 @@ class QueueScreen extends Screen
             return null;
         }
 
-        $parts = ['Driver: '.$this->monitor->driver().'.'];
+        $parts = [sprintf(
+            'Connection "%s" (%s driver).',
+            $this->monitor->connection(),
+            $this->monitor->driver()
+        )];
+
+        if (! $this->monitor->isAvailable()) {
+            $parts[] = 'Waiting jobs are not stored in a table on this driver, so they cannot be listed here'
+                .' — only failed jobs are shown.';
+
+            return implode(' ', $parts);
+        }
 
         $oldest = $this->stats['oldest_waiting_at'] ?? null;
         if ($oldest !== null) {
@@ -69,6 +75,11 @@ class QueueScreen extends Screen
 
         if ($this->monitor->isStalled($this->stats)) {
             $parts[] = 'Nothing seems to be consuming the queue — check that queue:work is running.';
+        }
+
+        $restartedAt = $this->monitor->lastRestartSignalAt();
+        if ($restartedAt !== null) {
+            $parts[] = 'Last restart signal: '.$restartedAt->format('Y-m-d H:i').'.';
         }
 
         if (($this->stats['failed_today'] ?? 0) > 0) {
@@ -185,37 +196,66 @@ class QueueScreen extends Screen
     {
         $uuid = (string) $request->input('uuid');
 
-        Artisan::call('queue:retry', ['id' => [$uuid]]);
-
-        Toast::info('The job was pushed back onto the queue.');
+        $this->run(
+            fn () => Artisan::call('queue:retry', ['id' => [$uuid]]),
+            'The job was pushed back onto the queue.'
+        );
     }
 
     public function retryAll(): void
     {
-        Artisan::call('queue:retry', ['id' => ['all']]);
-
-        Toast::info('All failed jobs were pushed back onto the queue.');
+        $this->run(
+            fn () => Artisan::call('queue:retry', ['id' => ['all']]),
+            'All failed jobs were pushed back onto the queue.'
+        );
     }
 
     public function forget(Request $request): void
     {
-        Artisan::call('queue:forget', ['id' => (string) $request->input('uuid')]);
+        $uuid = (string) $request->input('uuid');
 
-        Toast::info('The failed job was deleted.');
+        $this->run(
+            fn () => Artisan::call('queue:forget', ['id' => $uuid]),
+            'The failed job was deleted.'
+        );
     }
 
     public function flushFailed(): void
     {
-        Artisan::call('queue:flush');
-
-        Toast::info('All failed jobs were deleted.');
+        $this->run(
+            fn () => Artisan::call('queue:flush'),
+            'All failed jobs were deleted.'
+        );
     }
 
+    /**
+     * queue:restart is nothing but this cache write, and calling it directly keeps
+     * the button working even when the console kernel cannot boot inside a request.
+     */
     public function restartWorkers(): void
     {
-        Artisan::call('queue:restart');
+        $this->run(
+            fn () => Cache::forever('illuminate:queue:restart', now()->getTimestamp()),
+            'Restart signal sent. Workers will restart after finishing their current job.'
+        );
+    }
 
-        Toast::info('Workers will restart after finishing their current job.');
+    /**
+     * Queue maintenance touches the cache, the console kernel and the queue
+     * connection, any of which can be misconfigured on a server. Showing that
+     * reason beats the blank 500 the admin would get otherwise.
+     */
+    private function run(callable $action, string $success): void
+    {
+        try {
+            $action();
+
+            Toast::info($success);
+        } catch (Throwable $exception) {
+            report($exception);
+
+            Toast::error($exception->getMessage());
+        }
     }
 
     private function stateBadge(string $state): string

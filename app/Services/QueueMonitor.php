@@ -6,6 +6,7 @@ namespace App\Services;
 
 use Carbon\CarbonImmutable;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
@@ -97,6 +98,19 @@ class QueueMonitor
         $seconds = ($stats ?? $this->stats())['oldest_waiting_seconds'] ?? null;
 
         return $seconds !== null && $seconds >= $thresholdSeconds;
+    }
+
+    /**
+     * When workers were last told to restart. Reading it back is the only way to
+     * tell from the panel that the restart button actually reached the cache.
+     */
+    public function lastRestartSignalAt(): ?CarbonImmutable
+    {
+        $timestamp = Cache::get('illuminate:queue:restart');
+
+        return is_numeric($timestamp)
+            ? CarbonImmutable::createFromTimestamp((int) $timestamp, config('app.timezone'))
+            : null;
     }
 
     /**

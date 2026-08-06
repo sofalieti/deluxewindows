@@ -4,6 +4,8 @@ use App\Models\User;
 use App\Services\QueueMonitor;
 use Carbon\CarbonImmutable;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 
 uses(RefreshDatabase::class);
@@ -88,6 +90,41 @@ test('a non database driver reports itself as not inspectable', function () {
     expect($monitor->isAvailable())->toBeFalse()
         ->and($monitor->driver())->toBe('sync')
         ->and($monitor->stats()['waiting'])->toBe(0);
+});
+
+test('the screen names the connection and explains an uninspectable driver', function () {
+    config()->set('queue.default', 'redis');
+
+    $this->withoutMiddleware(\Orchid\Platform\Http\Middleware\Access::class)
+        ->actingAs(adminUser())
+        ->get(route('platform.queue'))
+        ->assertOk()
+        ->assertSee('Connection &quot;redis&quot; (redis driver).', escape: false)
+        ->assertSee('cannot be listed here');
+});
+
+test('restarting workers writes the signal the workers watch for', function () {
+    Cache::forget('illuminate:queue:restart');
+
+    $this->withoutMiddleware(\Orchid\Platform\Http\Middleware\Access::class)
+        ->actingAs(adminUser())
+        ->post(route('platform.queue', ['method' => 'restartWorkers']))
+        ->assertRedirect();
+
+    expect(Cache::get('illuminate:queue:restart'))->not->toBeNull()
+        ->and(app(QueueMonitor::class)->lastRestartSignalAt())->not->toBeNull();
+});
+
+test('a broken action shows the reason instead of failing with a server error', function () {
+    Artisan::shouldReceive('call')
+        ->once()
+        ->andThrow(new RuntimeException('Cache store [file] is not writable.'));
+
+    $this->withoutMiddleware(\Orchid\Platform\Http\Middleware\Access::class)
+        ->actingAs(adminUser())
+        ->post(route('platform.queue', ['method' => 'flushFailed']))
+        ->assertRedirect()
+        ->assertSessionHas('toast_notification');
 });
 
 test('the queue screen lists waiting and failed jobs', function () {
