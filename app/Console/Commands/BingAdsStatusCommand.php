@@ -149,7 +149,10 @@ class BingAdsStatusCommand extends Command
         $this->components->twoColumnDetail('Waiting to upload', (string) $pending);
         $this->components->twoColumnDetail('Failed at least once', (string) $failed);
 
+        // Only surface errors for clicks that still have not been accepted — a later
+        // force-retry can leave a stale message on a row that already has sent_at.
         $latest = (clone $confirmed)
+            ->whereNull('bing_ads_conversion_sent_at')
             ->whereNotNull('bing_ads_conversion_error')
             ->orderByDesc('id')
             ->first(['id', 'bing_ads_conversion_error']);
