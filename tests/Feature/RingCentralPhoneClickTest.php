@@ -470,7 +470,7 @@ test('phone clicks screen can trigger an immediate RingCentral re-check', functi
     CarbonImmutable::setTestNow('2026-07-30 16:03:00 UTC');
     $user = \App\Models\User::factory()->create();
     $user->forceFill([
-        'permissions' => ['platform.leads' => true],
+        'permissions' => adminTrafficPermissions(),
     ])->save();
 
     $click = PhoneClick::query()->create([

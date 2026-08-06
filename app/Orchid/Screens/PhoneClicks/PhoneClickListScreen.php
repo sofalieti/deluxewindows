@@ -8,6 +8,7 @@ use App\Jobs\MatchPhoneClickToRingCentral;
 use App\Models\PhoneClick;
 use App\Services\PhoneClickGoogleBridge;
 use App\Services\RingCentralCallLogService;
+use App\Services\TrafficSourceVisibility;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
@@ -24,12 +25,16 @@ class PhoneClickListScreen extends Screen
 {
     public function query(): iterable
     {
+        $user = Auth::user();
+
         return [
             'clicks' => PhoneClick::query()
+                ->visibleTo($user)
                 ->notSpam()
                 ->defaultSort('id', 'desc')
                 ->paginate(50, pageName: 'page'),
             'spamClicks' => PhoneClick::query()
+                ->visibleTo($user)
                 ->onlySpam()
                 ->defaultSort('id', 'desc')
                 ->paginate(50, pageName: 'spam_page'),
@@ -43,13 +48,19 @@ class PhoneClickListScreen extends Screen
 
     public function description(): ?string
     {
-        return 'Website phone clicks with traffic source, RingCentral call tracking, and spam tab.';
+        $sources = app(TrafficSourceVisibility::class)
+            ->allowedBucketLabels(Auth::user(), TrafficSourceVisibility::SECTION_PHONE_CLICKS);
+        $sourceNote = $sources === []
+            ? ' No traffic sources are enabled for your role.'
+            : ' Visible sources: '.implode(', ', $sources).'.';
+
+        return 'Website phone clicks with traffic source, RingCentral call tracking, and spam tab.'.$sourceNote;
     }
 
     public function permission(): ?iterable
     {
         return [
-            'platform.leads',
+            'platform.phone-clicks',
         ];
     }
 
@@ -335,6 +346,7 @@ class PhoneClickListScreen extends Screen
             } catch (Throwable $exception) {
                 report($exception);
                 $errors++;
+
                 continue;
             }
 

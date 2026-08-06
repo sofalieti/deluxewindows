@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Models\Concerns\ClassifiesTrafficSource;
+use App\Services\TrafficSourceVisibility;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -120,6 +122,23 @@ class PhoneClick extends Model
             'google_ads_conversion_sent_at' => 'datetime',
             'bing_ads_conversion_sent_at' => 'datetime',
         ];
+    }
+
+    protected static function booted(): void
+    {
+        static::saving(function (PhoneClick $click): void {
+            $click->traffic_source = $click->trafficSourceKey();
+        });
+    }
+
+    /**
+     * @param  Builder<PhoneClick>  $query
+     * @return Builder<PhoneClick>
+     */
+    public function scopeVisibleTo(Builder $query, ?Authenticatable $user): Builder
+    {
+        return app(TrafficSourceVisibility::class)
+            ->constrain($query, $user, TrafficSourceVisibility::SECTION_PHONE_CLICKS);
     }
 
     public function isSpam(): bool

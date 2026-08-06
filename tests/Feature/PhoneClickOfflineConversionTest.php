@@ -480,7 +480,7 @@ test('the phone click screen shows the offline conversion status', function () {
     fakeAdsEndpoints();
 
     $user = \App\Models\User::factory()->create();
-    $user->forceFill(['permissions' => ['platform.leads' => true]])->save();
+    $user->forceFill(['permissions' => adminTrafficPermissions()])->save();
 
     $click = confirmedClick(['gclid' => 'test-gclid']);
 

@@ -10,6 +10,7 @@ use App\Models\LeadChange;
 use App\Models\LeadComment;
 use App\Orchid\Screens\Concerns\QueuesCallTranscripts;
 use App\Services\ContactFromLeadService;
+use App\Services\TrafficSourceVisibility;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -31,8 +32,14 @@ class LeadEditScreen extends Screen
 
     public ?Lead $lead = null;
 
-    public function query(Lead $lead): iterable
+    public function query(Lead $lead, TrafficSourceVisibility $visibility): iterable
     {
+        $visibility->authorizeOrAbort(
+            Auth::user(),
+            $lead,
+            TrafficSourceVisibility::SECTION_LEADS
+        );
+
         $lead->load(['comments.user', 'changes.user', 'contact']);
 
         $this->lead = $lead;

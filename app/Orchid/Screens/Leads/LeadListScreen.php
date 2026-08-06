@@ -9,6 +9,7 @@ use App\Models\Lead;
 use App\Models\LeadChange;
 use App\Orchid\Layouts\Leads\LeadFiltersLayout;
 use App\Services\RingCentralPhoneCallStatsService;
+use App\Services\TrafficSourceVisibility;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -34,11 +35,15 @@ class LeadListScreen extends Screen
             $this->contactFilter = Contact::query()->find($contactId);
         }
 
+        $user = Auth::user();
+
         $leads = Lead::filters(LeadFiltersLayout::class)
+            ->visibleTo($user)
             ->defaultSort('id', 'desc')
             ->where('status', '!=', Lead::STATUS_SPAM);
 
         $spamLeads = Lead::query()
+            ->visibleTo($user)
             ->where('status', Lead::STATUS_SPAM)
             ->defaultSort('id', 'desc');
 
@@ -73,11 +78,17 @@ class LeadListScreen extends Screen
 
     public function description(): ?string
     {
+        $sources = app(TrafficSourceVisibility::class)
+            ->allowedBucketLabels(Auth::user(), TrafficSourceVisibility::SECTION_LEADS);
+        $sourceNote = $sources === []
+            ? ' No traffic sources are enabled for your role.'
+            : ' Visible sources: '.implode(', ', $sources).'.';
+
         if ($this->contactFilter !== null) {
-            return 'Showing leads linked to contact #'.$this->contactFilter->id.'.';
+            return 'Showing leads linked to contact #'.$this->contactFilter->id.'.'.$sourceNote;
         }
 
-        return 'Form submissions from the website. Spam is under the Spam tab.';
+        return 'Form submissions from the website. Spam is under the Spam tab.'.$sourceNote;
     }
 
     public function permission(): ?iterable

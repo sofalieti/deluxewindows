@@ -110,10 +110,9 @@ test('creating from an already linked lead is idempotent', function () {
 test('orchid create contact action resolves the service and redirects to the contact', function () {
     $user = User::factory()->create();
     $user->forceFill([
-        'permissions' => [
-            'platform.leads' => true,
+        'permissions' => array_merge(adminTrafficPermissions(phoneClicks: false), [
             'platform.contacts' => true,
-        ],
+        ]),
     ])->save();
     $lead = Lead::query()->create([
         'full_name' => 'Orchid Client',

@@ -59,7 +59,7 @@ test('phone call stats count inbound outbound and connected results', function (
 test('leads list shows call stats instead of email column', function () {
     $user = User::factory()->create();
     $user->forceFill([
-        'permissions' => ['platform.leads' => true],
+        'permissions' => adminTrafficPermissions(phoneClicks: false),
     ])->save();
 
     Lead::query()->create([

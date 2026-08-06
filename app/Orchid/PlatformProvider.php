@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orchid;
 
+use App\Services\TrafficSourceVisibility;
 use App\Support\WebflowCollectionRegistry;
 use Orchid\Platform\Dashboard;
 use Orchid\Platform\ItemPermission;
@@ -129,7 +130,7 @@ class PlatformProvider extends OrchidServiceProvider
             Menu::make('Phone clicks')
                 ->icon('bs.telephone')
                 ->route('platform.phone-clicks')
-                ->permission('platform.leads'),
+                ->permission('platform.phone-clicks'),
 
             Menu::make('RingCentral calls')
                 ->icon('bs.telephone')
@@ -190,7 +191,20 @@ class PlatformProvider extends OrchidServiceProvider
                 ->addPermission('platform.queue', 'Queue monitor'),
 
             ItemPermission::group('Leads')
-                ->addPermission('platform.leads', 'Manage Leads'),
+                ->addPermission('platform.leads', 'Open Leads section'),
+
+            $this->sourcePermissions(
+                ItemPermission::group('Lead sources'),
+                TrafficSourceVisibility::SECTION_LEADS
+            ),
+
+            ItemPermission::group('Phone clicks')
+                ->addPermission('platform.phone-clicks', 'Open Phone clicks section'),
+
+            $this->sourcePermissions(
+                ItemPermission::group('Phone click sources'),
+                TrafficSourceVisibility::SECTION_PHONE_CLICKS
+            ),
 
             ItemPermission::group('Contacts')
                 ->addPermission('platform.contacts', 'Manage Contacts'),
@@ -204,5 +218,17 @@ class PlatformProvider extends OrchidServiceProvider
             ItemPermission::group('Webflow')
                 ->addPermission('platform.webflow.manage', 'Manage Webflow Collections'),
         ];
+    }
+
+    private function sourcePermissions(ItemPermission $group, string $section): ItemPermission
+    {
+        foreach (TrafficSourceVisibility::bucketLabels() as $bucket => $label) {
+            $group->addPermission(
+                TrafficSourceVisibility::permission($section, $bucket),
+                'View '.$label
+            );
+        }
+
+        return $group;
     }
 }

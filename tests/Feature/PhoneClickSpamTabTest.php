@@ -9,7 +9,7 @@ uses(RefreshDatabase::class);
 test('phone clicks spam tab and mark as spam work', function () {
     $user = User::factory()->create();
     $user->forceFill([
-        'permissions' => ['platform.leads' => true],
+        'permissions' => adminTrafficPermissions(),
     ])->save();
 
     $click = PhoneClick::query()->create([
@@ -44,7 +44,7 @@ test('phone clicks spam tab and mark as spam work', function () {
 test('leads spam tab renders', function () {
     $user = User::factory()->create();
     $user->forceFill([
-        'permissions' => ['platform.leads' => true],
+        'permissions' => adminTrafficPermissions(phoneClicks: false),
     ])->save();
 
     \App\Models\Lead::query()->create([

@@ -41,7 +41,34 @@ expect()->extend('toBeOne', function () {
 |
 */
 
-function something()
+/**
+ * Full Orchid permissions for lead / phone-click screens including every traffic source.
+ *
+ * @return array<string, bool>
+ */
+function adminTrafficPermissions(bool $leads = true, bool $phoneClicks = true): array
 {
-    // ..
+    $permissions = [];
+
+    if ($leads) {
+        $permissions['platform.leads'] = true;
+        $permissions = array_merge(
+            $permissions,
+            \App\Services\TrafficSourceVisibility::sourceGrantPayload(
+                \App\Services\TrafficSourceVisibility::SECTION_LEADS
+            )
+        );
+    }
+
+    if ($phoneClicks) {
+        $permissions['platform.phone-clicks'] = true;
+        $permissions = array_merge(
+            $permissions,
+            \App\Services\TrafficSourceVisibility::sourceGrantPayload(
+                \App\Services\TrafficSourceVisibility::SECTION_PHONE_CLICKS
+            )
+        );
+    }
+
+    return $permissions;
 }

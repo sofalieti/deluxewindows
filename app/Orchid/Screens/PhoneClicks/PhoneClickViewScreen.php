@@ -10,8 +10,10 @@ use App\Models\PhoneClick;
 use App\Orchid\Screens\Concerns\QueuesCallTranscripts;
 use App\Services\PhoneClickGoogleBridge;
 use App\Services\RingCentralCallLogService;
+use App\Services\TrafficSourceVisibility;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
@@ -19,7 +21,6 @@ use Orchid\Screen\Sight;
 use Orchid\Support\Color;
 use Orchid\Support\Facades\Layout;
 use Orchid\Support\Facades\Toast;
-use Illuminate\Validation\ValidationException;
 use Throwable;
 
 class PhoneClickViewScreen extends Screen
@@ -28,8 +29,14 @@ class PhoneClickViewScreen extends Screen
 
     public ?PhoneClick $click = null;
 
-    public function query(PhoneClick $click): iterable
+    public function query(PhoneClick $click, TrafficSourceVisibility $visibility): iterable
     {
+        $visibility->authorizeOrAbort(
+            Auth::user(),
+            $click,
+            TrafficSourceVisibility::SECTION_PHONE_CLICKS
+        );
+
         $click->load('googleSheetSender');
         $this->click = $click;
 
@@ -54,7 +61,7 @@ class PhoneClickViewScreen extends Screen
     public function permission(): ?iterable
     {
         return [
-            'platform.leads',
+            'platform.phone-clicks',
         ];
     }
 
@@ -444,5 +451,4 @@ class PhoneClickViewScreen extends Screen
             Toast::error('Could not restore from spam: '.$exception->getMessage());
         }
     }
-
 }

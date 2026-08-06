@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Models\Concerns\ClassifiesTrafficSource;
+use App\Services\TrafficSourceVisibility;
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -107,7 +110,18 @@ class Lead extends Model
         static::saving(function (Lead $lead): void {
             $lead->normalized_email = Contact::normalizeEmail($lead->email);
             $lead->normalized_phone = Contact::normalizePhone($lead->phone);
+            $lead->traffic_source = $lead->trafficSourceKey();
         });
+    }
+
+    /**
+     * @param  Builder<Lead>  $query
+     * @return Builder<Lead>
+     */
+    public function scopeVisibleTo(Builder $query, ?Authenticatable $user): Builder
+    {
+        return app(TrafficSourceVisibility::class)
+            ->constrain($query, $user, TrafficSourceVisibility::SECTION_LEADS);
     }
 
     public function contact(): BelongsTo
@@ -245,5 +259,4 @@ class Lead extends Model
 
         return $parts;
     }
-
 }

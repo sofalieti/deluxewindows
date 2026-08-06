@@ -137,7 +137,7 @@ test('contact edit screen exposes calls and history tabs', function () {
 test('lead edit screen exposes calls tab with recording link', function () {
     $user = User::factory()->create();
     $user->forceFill([
-        'permissions' => ['platform.leads' => true],
+        'permissions' => adminTrafficPermissions(phoneClicks: false),
     ])->save();
 
     $lead = Lead::query()->create([
