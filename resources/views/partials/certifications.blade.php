@@ -49,16 +49,13 @@
       </div>
       <div class="previous-jobs-map-section">
         <div class="title-left---content-right dva"><h2 class="heading-23">Our Previous Jobs</h2></div>
-        <div id="previous-jobs-map" class="jobs-map jobs-map--empty" aria-label="Map of our previous installation jobs">
-          <p class="jobs-map-empty">Loading completed projects…</p>
+        <div class="w-embed w-script">
+          <!-- Elfsight Google Maps | Deluxe Windows -->
+          <script src="https://elfsightcdn.com/platform.js" async></script>
+          <div
+            class="elfsight-app-52cd283b-2339-4964-ade7-7ada818548f7"
+            data-elfsight-app-lazy
+            aria-label="Map of our previous installation jobs"
+          ></div>
         </div>
       </div>
-      @push('scripts')
-        @once
-          @php
-            $previousJobsMapScript = public_path('webflow-overrides/previous-jobs-map.js');
-            $previousJobsMapVersion = is_file($previousJobsMapScript) ? filemtime($previousJobsMapScript) : 1;
-          @endphp
-          <script defer src="/webflow-overrides/previous-jobs-map.js?v={{ $previousJobsMapVersion }}"></script>
-        @endonce
-      @endpush
