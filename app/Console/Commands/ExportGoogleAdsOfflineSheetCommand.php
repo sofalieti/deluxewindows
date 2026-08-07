@@ -9,7 +9,8 @@ use Illuminate\Console\Command;
 
 /**
  * Creates a new Google Sheet in the configured Drive folder with yesterday's
- * (or all pending) RingCentral-confirmed phone clicks that have a GCLID.
+ * (or all pending) RingCentral-confirmed Google Ads phone clicks that have a GCLID.
+ * Bing / Microsoft Ads conversions are excluded (they use the Microsoft offline API).
  */
 final class ExportGoogleAdsOfflineSheetCommand extends Command
 {
@@ -18,7 +19,7 @@ final class ExportGoogleAdsOfflineSheetCommand extends Command
                             {--all-pending : Export all confirmed clicks not yet written to a sheet}
                             {--dry-run : Build rows without calling Drive/Sheets or marking clicks}';
 
-    protected $description = 'Export RingCentral-confirmed Google Ads phone clicks to a Drive spreadsheet (offline conversion import template)';
+    protected $description = 'Export RingCentral-confirmed Google Ads phone clicks to a Drive spreadsheet (excludes Bing / Microsoft Ads)';
 
     public function handle(GoogleAdsOfflineSheetExporter $exporter): int
     {

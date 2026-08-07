@@ -159,6 +159,14 @@ final class GoogleAdsOfflineSheetExporter
                     $inner->whereNotNull('first_gclid')->where('first_gclid', '!=', '');
                 });
             })
+            // Bing / Microsoft Ads conversions are uploaded via the Microsoft API — never to a Google Ads sheet.
+            ->where(function (Builder $q): void {
+                $q->whereNull('traffic_source')
+                    ->orWhere('traffic_source', '!=', 'microsoft_ads');
+            })
+            ->where(function (Builder $q): void {
+                $q->whereNull('msclkid')->orWhere('msclkid', '');
+            })
             ->whereNull('google_ads_sheet_exported_at')
             ->orderBy('id');
 

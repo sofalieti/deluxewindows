@@ -75,6 +75,21 @@ test('eligible filter keeps only RC-found non-spam clicks with a gclid', functio
         'google_ads_sheet_exported_at' => now(),
         'ringcentral_call_started_at' => CarbonImmutable::parse('2026-08-05 08:00:00', 'America/Los_Angeles'),
     ]);
+    sheetClick([
+        'gclid' => null,
+        'first_gclid' => 'stale-google-first',
+        'msclkid' => 'bing-last-touch',
+        'utm_source' => 'bing',
+        'utm_medium' => 'cpc',
+        'ringcentral_call_started_at' => CarbonImmutable::parse('2026-08-05 14:00:00', 'America/Los_Angeles'),
+    ]);
+    sheetClick([
+        'gclid' => 'should-not-export-bing',
+        'utm_source' => 'bing',
+        'utm_medium' => 'cpc',
+        'msclkid' => 'msclkid-paid',
+        'ringcentral_call_started_at' => CarbonImmutable::parse('2026-08-05 14:30:00', 'America/Los_Angeles'),
+    ]);
 
     $exporter = app(GoogleAdsOfflineSheetExporter::class);
     $resolved = $exporter->eligibleClicks('2026-08-05')
@@ -83,6 +98,36 @@ test('eligible filter keeps only RC-found non-spam clicks with a gclid', functio
         ->all();
 
     expect($resolved)->toEqualCanonicalizing(['gclid-yesterday', 'first-only']);
+});
+
+test('eligible filter excludes Microsoft Ads / Bing last-touch conversions', function () {
+    sheetClick([
+        'gclid' => 'google-ok',
+        'ringcentral_call_started_at' => CarbonImmutable::parse('2026-08-05 09:00:00', 'America/Los_Angeles'),
+    ]);
+    sheetClick([
+        'gclid' => null,
+        'first_gclid' => 'old-gclid',
+        'msclkid' => 'ms-click',
+        'utm_source' => 'bing',
+        'utm_medium' => 'cpc',
+        'ringcentral_call_started_at' => CarbonImmutable::parse('2026-08-05 10:00:00', 'America/Los_Angeles'),
+    ]);
+    sheetClick([
+        'gclid' => null,
+        'first_gclid' => 'utm-bing-only',
+        'utm_source' => 'bing',
+        'utm_medium' => 'cpc',
+        'ringcentral_call_started_at' => CarbonImmutable::parse('2026-08-05 11:00:00', 'America/Los_Angeles'),
+    ]);
+
+    $exporter = app(GoogleAdsOfflineSheetExporter::class);
+    $resolved = $exporter->eligibleClicks('2026-08-05')
+        ->get()
+        ->map(fn (PhoneClick $click) => $click->resolvedGclid())
+        ->all();
+
+    expect($resolved)->toBe(['google-ok']);
 });
 
 test('template grid matches the official Google Ads GCLID import format', function () {
