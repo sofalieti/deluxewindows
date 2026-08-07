@@ -167,6 +167,9 @@
       var locals = document.querySelectorAll('[data-area-phones-local]');
       for (var j = 0; j < locals.length; j++) {
         locals[j].setAttribute('href', 'tel:' + city.phone_tel);
+        if (locals[j].hasAttribute('aria-label')) {
+          locals[j].setAttribute('aria-label', 'Call ' + city.phone_display);
+        }
       }
       setText('[data-area-phones-local-number]', city.phone_display);
       setText('[data-area-phones-local-label]', city.name);

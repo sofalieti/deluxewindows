@@ -340,7 +340,7 @@ class PhoneClickListScreen extends Screen
     private function runGoogleAdsSheetExport(GoogleAdsOfflineSheetExporter $exporter, bool $allPending): void
     {
         if (! $exporter->isConfigured()) {
-            Toast::error('Google Drive sheet export is not configured (folder, conversion name, service account or OAuth).');
+            Toast::error('Google Drive sheet export is not configured: '.$exporter->configurationError());
 
             return;
         }

@@ -36,31 +36,43 @@ final class GoogleAdsOfflineSheetExporter
 
     public function isConfigured(): bool
     {
+        return $this->configurationError() === null;
+    }
+
+    /**
+     * Human-readable reason the export cannot run, or null when ready.
+     */
+    public function configurationError(): ?string
+    {
         if (trim((string) config('services.google_drive.folder_id')) === '') {
-            return false;
+            return 'Set GOOGLE_DRIVE_FOLDER_ID in .env.';
         }
 
         if (trim((string) config('services.google_ads.phone_conversion_name')) === '') {
-            return false;
+            return 'Set GOOGLE_ADS_PHONE_CONVERSION_NAME in .env (exact Ads conversion action name).';
         }
 
         $auth = $this->authMode();
 
         if ($auth === 'service_account') {
-            return $this->serviceAccountCredentials() !== null;
+            if ($this->serviceAccountCredentials() === null) {
+                return 'Set GOOGLE_DRIVE_SERVICE_ACCOUNT_JSON to a service-account JSON file path (or inline JSON), then share the Drive folder with that SA email as Editor.';
+            }
+
+            return null;
         }
 
         if ($auth === 'oauth') {
-            foreach (['client_id', 'client_secret', 'refresh_token'] as $key) {
+            foreach (['client_id' => 'GOOGLE_DRIVE_CLIENT_ID (or GOOGLE_ADS_CLIENT_ID)', 'client_secret' => 'GOOGLE_DRIVE_CLIENT_SECRET (or GOOGLE_ADS_CLIENT_SECRET)', 'refresh_token' => 'GOOGLE_DRIVE_REFRESH_TOKEN'] as $key => $env) {
                 if (trim((string) config('services.google_drive.'.$key)) === '') {
-                    return false;
+                    return 'OAuth mode: set '.$env.' (scopes: drive.file + spreadsheets).';
                 }
             }
 
-            return true;
+            return null;
         }
 
-        return false;
+        return 'GOOGLE_DRIVE_AUTH must be service_account or oauth (got: '.$auth.').';
     }
 
     /**

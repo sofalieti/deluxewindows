@@ -127,7 +127,14 @@
                 </div>
               </div>
               <div class="nav-menu-left-side-2"></div>
-              <div class="div-block-16"><div class="text-block-15">{{ site_phone_display() }}</div></div>
+              <div class="div-block-16">
+                <a
+                  href="tel:{{ site_phone_tel() }}"
+                  class="text-block-15 header-phone-link"
+                  aria-label="Call {{ site_phone_display() }}"
+                  data-phone-source="header-phone"
+                >{{ site_phone_display() }}</a>
+              </div>
             </div>
           </div>
         </div>
