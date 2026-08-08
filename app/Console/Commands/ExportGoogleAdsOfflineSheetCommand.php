@@ -28,7 +28,7 @@ final class ExportGoogleAdsOfflineSheetCommand extends Command
         $date = $this->option('date');
         $date = is_string($date) && $date !== '' ? $date : null;
 
-        if (! $dryRun && ! $exporter->isConfigured()) {
+        if (! $exporter->isConfigured()) {
             $this->error('Google Drive sheet export is not configured: '.$exporter->configurationError());
 
             return self::FAILURE;
