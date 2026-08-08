@@ -6,6 +6,7 @@ namespace App\Jobs;
 
 use App\Models\PhoneClick;
 use App\Services\Ads\GoogleAdsOfflineConversionService;
+use App\Services\Ads\GoogleAdsOfflineSheetExporter;
 use App\Services\Ads\MicrosoftAdsOfflineConversionService;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
@@ -20,6 +21,7 @@ use Throwable;
  *
  * Browser tags cannot fire here: the call is confirmed minutes after the visitor left,
  * so the ad platforms are only reachable through their offline conversion APIs.
+ * Google Ads GCLID rows are also appended to the shared Drive import sheet.
  */
 class SendPhoneClickOfflineConversions implements ShouldQueue
 {
@@ -39,13 +41,16 @@ class SendPhoneClickOfflineConversions implements ShouldQueue
     public function handle(
         GoogleAdsOfflineConversionService $google,
         MicrosoftAdsOfflineConversionService $microsoft,
+        ?GoogleAdsOfflineSheetExporter $sheet = null,
     ): void {
+        $sheet ??= app(GoogleAdsOfflineSheetExporter::class);
+
         if (! Schema::hasColumn('phone_clicks', 'google_ads_conversion_sent_at')) {
             return;
         }
 
         Cache::lock('ads:offline-conversion:'.$this->phoneClickId, 90)->get(
-            function () use ($google, $microsoft): void {
+            function () use ($google, $microsoft, $sheet): void {
                 $click = PhoneClick::query()->find($this->phoneClickId);
                 if (! $click || $click->isSpam()) {
                     return;
@@ -70,8 +75,30 @@ class SendPhoneClickOfflineConversions implements ShouldQueue
                     'bing_ads_conversion_error',
                     'Microsoft Ads'
                 );
+
+                $this->appendToGoogleSheet($click->fresh() ?? $click, $sheet);
             }
         );
+    }
+
+    private function appendToGoogleSheet(PhoneClick $click, GoogleAdsOfflineSheetExporter $sheet): void
+    {
+        if (! Schema::hasColumn('phone_clicks', 'google_ads_sheet_exported_at')) {
+            return;
+        }
+
+        if (! $sheet->isConfigured()) {
+            return;
+        }
+
+        try {
+            $sheet->exportClick($click, $this->force);
+        } catch (Throwable $exception) {
+            Log::warning('Google Ads Drive sheet append failed after RingCentral confirm', [
+                'phone_click_id' => $click->id,
+                'error' => $exception->getMessage(),
+            ]);
+        }
     }
 
     /**

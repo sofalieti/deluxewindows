@@ -79,6 +79,53 @@ final class GoogleAdsOfflineSheetExporter
     }
 
     /**
+     * Append one RingCentral-confirmed Google Ads click into the shared sheet.
+     * Used right after a call match so the workbook stays live without waiting for cron.
+     */
+    public function exportClick(PhoneClick $click, bool $force = false): bool
+    {
+        if (! $this->isConfigured()) {
+            return false;
+        }
+
+        if ($click->isSpam() || $click->ringcentral_status !== PhoneClick::RINGCENTRAL_FOUND) {
+            return false;
+        }
+
+        if (! $force && $click->google_ads_sheet_exported_at !== null) {
+            return false;
+        }
+
+        if ($click->resolvedGclid() === null) {
+            return false;
+        }
+
+        if (($click->traffic_source ?? '') === 'microsoft_ads') {
+            return false;
+        }
+
+        if (trim((string) ($click->msclkid ?? '')) !== '') {
+            return false;
+        }
+
+        $rows = $this->buildDataRows(collect([$click]));
+        if ($rows === []) {
+            return false;
+        }
+
+        $spreadsheetId = $this->resolveSpreadsheetId();
+        $this->appendConversionRows($spreadsheetId, $rows);
+        $url = 'https://docs.google.com/spreadsheets/d/'.$spreadsheetId.'/edit';
+
+        $click->forceFill([
+            'google_ads_sheet_exported_at' => now(),
+            'google_ads_sheet_url' => $url,
+        ])->save();
+
+        return true;
+    }
+
+    /**
      * @return array{
      *     count: int,
      *     spreadsheet_id: string|null,

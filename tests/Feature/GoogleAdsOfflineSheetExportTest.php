@@ -303,3 +303,65 @@ test('ads:export-google-offline-sheet dry-run succeeds via artisan', function ()
         ->expectsOutputToContain('Dry run: 1 row(s)')
         ->assertSuccessful();
 });
+
+test('exportClick appends a single confirmed Google click into the pinned sheet', function () {
+    config()->set('services.google_drive.spreadsheet_id', 'live-sheet');
+
+    Http::fake([
+        'https://oauth2.test/token' => Http::response(['access_token' => 'drive-access', 'expires_in' => 3600]),
+        'https://sheets.test/v4/spreadsheets/live-sheet/values/A1:B2' => Http::response([
+            'values' => [
+                ['Parameters:TimeZone=America/Los_Angeles'],
+                ['Google Click ID'],
+            ],
+        ], 200),
+        'https://sheets.test/v4/spreadsheets/live-sheet/values/*' => Http::response(['updates' => ['updatedRows' => 1]], 200),
+    ]);
+
+    $click = sheetClick(['gclid' => 'live-gclid']);
+
+    $ok = app(GoogleAdsOfflineSheetExporter::class)->exportClick($click);
+
+    expect($ok)->toBeTrue();
+    $click->refresh();
+    expect($click->google_ads_sheet_exported_at)->not->toBeNull()
+        ->and($click->google_ads_sheet_url)->toBe('https://docs.google.com/spreadsheets/d/live-sheet/edit');
+
+    Http::assertSent(fn ($request) => $request->method() === 'POST'
+        && str_contains($request->url(), 'append')
+        && (($request['values'][0][0] ?? null) === 'live-gclid'));
+});
+
+test('SendPhoneClickOfflineConversions appends to the Drive sheet after confirm', function () {
+    config()->set('services.google_drive.spreadsheet_id', 'job-sheet');
+    config()->set('services.google_drive.auth', 'oauth');
+    config()->set('services.google_drive.client_id', 'drive-client');
+    config()->set('services.google_drive.client_secret', 'drive-secret');
+    config()->set('services.google_drive.refresh_token', 'drive-refresh');
+    config()->set('services.google_drive.oauth_token_url', 'https://oauth2.test/token');
+    config()->set('services.google_drive.sheets_api_base_url', 'https://sheets.test/v4');
+    config()->set('services.google_ads.developer_token', ''); // skip API upload
+    config()->set('services.microsoft_ads.developer_token', '');
+
+    Http::fake([
+        'https://oauth2.test/token' => Http::response(['access_token' => 'drive-access', 'expires_in' => 3600]),
+        'https://sheets.test/v4/spreadsheets/job-sheet/values/A1:B2' => Http::response([
+            'values' => [
+                ['Parameters:TimeZone=America/Los_Angeles'],
+                ['Google Click ID'],
+            ],
+        ], 200),
+        'https://sheets.test/v4/spreadsheets/job-sheet/values/*' => Http::response(['updates' => ['updatedRows' => 1]], 200),
+    ]);
+
+    $click = sheetClick(['gclid' => 'from-job']);
+
+    (new \App\Jobs\SendPhoneClickOfflineConversions($click->id))->handle(
+        app(\App\Services\Ads\GoogleAdsOfflineConversionService::class),
+        app(\App\Services\Ads\MicrosoftAdsOfflineConversionService::class),
+        app(GoogleAdsOfflineSheetExporter::class),
+    );
+
+    $click->refresh();
+    expect($click->google_ads_sheet_exported_at)->not->toBeNull();
+});
