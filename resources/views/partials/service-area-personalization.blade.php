@@ -6,7 +6,7 @@
     // {loc_physical} (Bing location id). The maps live in separate tables.
     var ENDPOINT = @json(route('service-area-phones'));
     var STORAGE_KEY = 'lead_param_utm_city';
-    var CACHE_KEY = 'dw_service_area_phones_v2';
+    var CACHE_KEY = 'dw_service_area_phones_v4';
 
     function storageGet(key) {
       try {

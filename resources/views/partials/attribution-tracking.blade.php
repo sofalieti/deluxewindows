@@ -196,7 +196,8 @@
 
     function capture() {
       const snapshot = buildVisitSnapshot();
-      const shouldRefreshLast = isNewSiteVisit() || hasUrlTracking();
+      const wasNewVisit = isNewSiteVisit();
+      const shouldRefreshLast = wasNewVisit || hasUrlTracking();
 
       if (shouldRefreshLast) {
         writeTouch('lead_param_', snapshot);
@@ -213,6 +214,7 @@
       return {
         last: readTouch('lead_param_'),
         first: readTouch('lead_param_first_'),
+        isNewSiteVisit: wasNewVisit,
       };
     }
 
@@ -237,11 +239,12 @@
       params: STORED_PARAMS,
       capture: capture,
       payloadFields: payloadFields,
+      isNewSiteVisit: isNewSiteVisit,
       readLast: function () { return readTouch('lead_param_'); },
       readFirst: function () { return readTouch('lead_param_first_'); },
     };
 
-    capture();
+    window.__dwAttributionCapture = capture();
   })();
 </script>
 @endonce

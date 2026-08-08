@@ -27,6 +27,8 @@ use App\Orchid\Screens\Mailbox\MailboxViewScreen;
 use App\Orchid\Screens\Marketing\ContentDatasetsScreen;
 use App\Orchid\Screens\PhoneClicks\PhoneClickListScreen;
 use App\Orchid\Screens\PhoneClicks\PhoneClickViewScreen;
+use App\Orchid\Screens\Visits\VisitListScreen;
+use App\Orchid\Screens\Visits\VisitViewScreen;
 use App\Orchid\Screens\PlatformScreen;
 use App\Orchid\Screens\Promotions\PromotionsScreen;
 use App\Orchid\Screens\RingCentralCalls\RingCentralCallListScreen;
@@ -81,6 +83,13 @@ Route::screen('phone-clicks', PhoneClickListScreen::class)
 Route::screen('phone-clicks/{click}', PhoneClickViewScreen::class)
     ->name('platform.phone-clicks.view')
     ->whereNumber('click');
+
+Route::screen('visits', VisitListScreen::class)
+    ->name('platform.visits');
+
+Route::screen('visits/{visit}', VisitViewScreen::class)
+    ->name('platform.visits.view')
+    ->whereNumber('visit');
 
 Route::get('phone-clicks/{click}/recording', [RingCentralRecordingController::class, 'forPhoneClick'])
     ->name('platform.phone-clicks.recording')

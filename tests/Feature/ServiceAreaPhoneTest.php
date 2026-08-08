@@ -68,6 +68,25 @@ test('utm_city resolves a Google geo criteria id to one of our cities', function
         ->and($resolved['region']['phone_display'])->toBe('(510) 244-6500');
 });
 
+test('utm_city resolves a Google postal-code criteria id to the city', function () {
+    // Google sometimes fills {loc_physical_ms} with a Postal Code criteria id
+    // (9032015 = ZIP 94549) instead of the City id (1013919 = Lafayette).
+    $regions = app(ServiceAreaRegions::class);
+    $resolved = $regions->resolveUtmCity('9032015', ServiceAreaRegions::GEO_GOOGLE);
+
+    expect($resolved)->not->toBeNull()
+        ->and($resolved['slug'])->toBe('lafayette')
+        ->and($resolved['name'])->toBe('Lafayette')
+        ->and($regions->utmCityLabel('9032015', ServiceAreaRegions::GEO_GOOGLE))
+        ->toBe('Lafayette — 9032015');
+
+    // Burlingame ZIP 94010 and Cupertino ZIP 95014 are also mapped.
+    $geo = $regions->geoTargets(ServiceAreaRegions::GEO_GOOGLE);
+    expect(array_search('burlingame', $geo, true))->toBeInt()
+        ->and($regions->resolveUtmCity((string) array_search('burlingame', $geo, true), ServiceAreaRegions::GEO_GOOGLE)['slug'])
+        ->toBe('burlingame');
+});
+
 test('utm_city resolves a Bing location id through the Bing map', function () {
     $regions = app(ServiceAreaRegions::class);
     $geo = $regions->geoTargets(ServiceAreaRegions::GEO_BING);
@@ -115,7 +134,9 @@ test('the lookup endpoint only publishes cities that have a local number', funct
     $payload = $response->json();
 
     expect($payload['cities'])->toHaveCount(98)
-        ->and($payload['geo_google'])->toHaveCount(98)
+        ->and(count($payload['geo_google']))->toBeGreaterThan(200)
+        ->and($payload['geo_google'])->toHaveKey('9032015')
+        ->and($payload['geo_google']['9032015'])->toBe('lafayette')
         ->and($payload['geo_bing'])->toHaveCount(98)
         ->and($payload['geo_bing']['43578'])->toBe('vallejo')
         ->and($payload['cities']['vallejo'])->toBe([

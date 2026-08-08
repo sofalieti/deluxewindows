@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ClassicSiteController;
 use App\Http\Controllers\PhoneClickController;
+use App\Http\Controllers\VisitController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ClassicSiteController::class, 'home']);
@@ -66,6 +67,7 @@ Route::get('/terms', [ClassicSiteController::class, 'terms']);
 Route::get('/special-offers', [ClassicSiteController::class, 'specialOffers']);
 Route::post('/contact-form', [ClassicSiteController::class, 'submitContactForm'])->name('contact.submit');
 Route::post('/phone-click', [PhoneClickController::class, 'store'])->name('phone-click.store');
+Route::post('/visit', [VisitController::class, 'store'])->name('visit.store');
 Route::get('/service-area-phones.json', [ClassicSiteController::class, 'serviceAreaPhones'])
     ->name('service-area-phones');
 

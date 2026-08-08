@@ -132,6 +132,11 @@ class PlatformProvider extends OrchidServiceProvider
                 ->route('platform.phone-clicks')
                 ->permission('platform.phone-clicks'),
 
+            Menu::make('Visits')
+                ->icon('bs.geo-alt')
+                ->route('platform.visits')
+                ->permission('platform.visits'),
+
             Menu::make('RingCentral calls')
                 ->icon('bs.telephone')
                 ->route('platform.ringcentral-calls')
@@ -205,6 +210,9 @@ class PlatformProvider extends OrchidServiceProvider
                 ItemPermission::group('Phone click sources'),
                 TrafficSourceVisibility::SECTION_PHONE_CLICKS
             ),
+
+            ItemPermission::group('Visits')
+                ->addPermission('platform.visits', 'Open Visits section'),
 
             ItemPermission::group('Contacts')
                 ->addPermission('platform.contacts', 'Manage Contacts'),
