@@ -15,6 +15,7 @@ beforeEach(function () {
     config()->set('services.google_drive', [
         'auth' => 'oauth',
         'folder_id' => 'folder-test-id',
+        'spreadsheet_id' => null,
         'service_account_json' => null,
         'client_id' => 'drive-client',
         'client_secret' => 'drive-secret',
@@ -167,8 +168,7 @@ test('dry-run builds yesterday rows without calling Drive or marking clicks', fu
 
     expect($result['dry_run'])->toBeTrue()
         ->and($result['count'])->toBe(1)
-        ->and($result['spreadsheet_id'])->toBeNull()
-        ->and($result['title'])->toBe('Google Ads Offline Conversions 2026-08-05')
+        ->and($result['title'])->toContain('Google Ads Offline Conversions')
         ->and($result['click_ids'])->toBe([$click->id]);
 
     $click->refresh();
@@ -176,12 +176,39 @@ test('dry-run builds yesterday rows without calling Drive or marking clicks', fu
     Http::assertNothingSent();
 });
 
-test('export creates a Drive spreadsheet, writes values, and marks clicks', function () {
-    Http::fake([
-        'https://oauth2.test/token' => Http::response(['access_token' => 'drive-access', 'expires_in' => 3600]),
-        'https://drive.test/v3/files' => Http::response(['id' => 'sheet-abc'], 200),
-        'https://sheets.test/v4/spreadsheets/*' => Http::response(['updatedCells' => 10], 200),
-    ]);
+test('export creates one shared spreadsheet then appends rows and marks clicks', function () {
+    Http::fake(function (\Illuminate\Http\Client\Request $request) {
+        $url = $request->url();
+
+        if ($url === 'https://oauth2.test/token') {
+            return Http::response(['access_token' => 'drive-access', 'expires_in' => 3600]);
+        }
+
+        // First resolve: list finds nothing → create.
+        if ($request->method() === 'GET' && str_starts_with($url, 'https://drive.test/v3/files')) {
+            return Http::response(['files' => []], 200);
+        }
+
+        if ($request->method() === 'POST' && $url === 'https://drive.test/v3/files') {
+            return Http::response(['id' => 'sheet-abc'], 200);
+        }
+
+        // After create: seed header via PUT; later GET header check; then append.
+        if (str_contains($url, '/spreadsheets/sheet-abc/values/A1:B2') && $request->method() === 'GET') {
+            return Http::response([
+                'values' => [
+                    ['Parameters:TimeZone=America/Los_Angeles'],
+                    ['Google Click ID', 'Conversion Name'],
+                ],
+            ], 200);
+        }
+
+        if (str_contains($url, '/spreadsheets/sheet-abc/values/') && in_array($request->method(), ['PUT', 'POST'], true)) {
+            return Http::response(['updatedCells' => 10], 200);
+        }
+
+        return Http::response(['error' => 'unexpected '.$request->method().' '.$url], 500);
+    });
 
     $click = sheetClick(['gclid' => 'export-me']);
 
@@ -190,34 +217,66 @@ test('export creates a Drive spreadsheet, writes values, and marks clicks', func
     expect($result['count'])->toBe(1)
         ->and($result['spreadsheet_id'])->toBe('sheet-abc')
         ->and($result['spreadsheet_url'])->toBe('https://docs.google.com/spreadsheets/d/sheet-abc/edit')
+        ->and($result['title'])->toBe('Google Ads Offline Conversions')
         ->and($result['dry_run'])->toBeFalse();
 
     $click->refresh();
     expect($click->google_ads_sheet_exported_at)->not->toBeNull()
         ->and($click->google_ads_sheet_url)->toBe('https://docs.google.com/spreadsheets/d/sheet-abc/edit');
 
-    Http::assertSent(fn ($request) => $request->url() === 'https://drive.test/v3/files'
-        && $request['name'] === 'Google Ads Offline Conversions 2026-08-05'
-        && $request['mimeType'] === 'application/vnd.google-apps.spreadsheet'
+    Http::assertSent(fn ($request) => $request->method() === 'POST'
+        && $request->url() === 'https://drive.test/v3/files'
+        && $request['name'] === 'Google Ads Offline Conversions'
         && $request['parents'] === ['folder-test-id']);
 
     Http::assertSent(function ($request) {
-        if (! str_contains($request->url(), '/spreadsheets/sheet-abc/values/')) {
-            return false;
-        }
-
-        $values = $request['values'] ?? [];
-
-        return ($values[0][0] ?? null) === 'Parameters:TimeZone=America/Los_Angeles'
-            && ($values[2][0] ?? null) === 'export-me';
+        return $request->method() === 'POST'
+            && str_contains($request->url(), '/spreadsheets/sheet-abc/values/')
+            && str_contains($request->url(), 'append')
+            && (($request['values'][0][0] ?? null) === 'export-me');
     });
 });
 
-test('all-pending exports across days and skips already exported rows', function () {
+test('export appends into a configured spreadsheet id without creating a new file', function () {
+    config()->set('services.google_drive.spreadsheet_id', 'pinned-sheet');
+
     Http::fake([
         'https://oauth2.test/token' => Http::response(['access_token' => 'drive-access', 'expires_in' => 3600]),
-        'https://drive.test/v3/files' => Http::response(['id' => 'sheet-pending'], 200),
-        'https://sheets.test/v4/spreadsheets/*' => Http::response(['updatedCells' => 10], 200),
+        'https://sheets.test/v4/spreadsheets/pinned-sheet/values/A1:B2' => Http::response([
+            'values' => [
+                ['Parameters:TimeZone=America/Los_Angeles'],
+                ['Google Click ID'],
+            ],
+        ], 200),
+        'https://sheets.test/v4/spreadsheets/pinned-sheet/values/*' => Http::response(['updates' => ['updatedRows' => 1]], 200),
+    ]);
+
+    $click = sheetClick(['gclid' => 'pinned-row']);
+
+    $result = app(GoogleAdsOfflineSheetExporter::class)->export(null, false, false);
+
+    expect($result['spreadsheet_id'])->toBe('pinned-sheet')
+        ->and($result['count'])->toBe(1);
+
+    $click->refresh();
+    expect($click->google_ads_sheet_exported_at)->not->toBeNull();
+
+    Http::assertNotSent(fn ($request) => $request->url() === 'https://drive.test/v3/files'
+        && $request->method() === 'POST');
+});
+
+test('all-pending exports across days and skips already exported rows', function () {
+    config()->set('services.google_drive.spreadsheet_id', 'sheet-pending');
+
+    Http::fake([
+        'https://oauth2.test/token' => Http::response(['access_token' => 'drive-access', 'expires_in' => 3600]),
+        'https://sheets.test/v4/spreadsheets/sheet-pending/values/A1:B2' => Http::response([
+            'values' => [
+                ['Parameters:TimeZone=America/Los_Angeles'],
+                ['Google Click ID'],
+            ],
+        ], 200),
+        'https://sheets.test/v4/spreadsheets/sheet-pending/values/*' => Http::response(['updates' => ['updatedRows' => 2]], 200),
     ]);
 
     sheetClick([

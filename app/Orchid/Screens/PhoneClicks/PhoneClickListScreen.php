@@ -71,11 +71,11 @@ class PhoneClickListScreen extends Screen
             Button::make('Export Google Ads sheet (yesterday)')
                 ->icon('bs.file-earmark-spreadsheet')
                 ->method('exportGoogleAdsSheetYesterday')
-                ->confirm('Create a new Google Sheet in Drive with yesterday\'s RingCentral-confirmed phone clicks that have a GCLID?'),
+                ->confirm('Append yesterday\'s RingCentral-confirmed phone clicks with a GCLID into the shared Google Ads Offline Conversions sheet?'),
             Button::make('Export Google Ads sheet (all pending)')
                 ->icon('bs.cloud-upload')
                 ->method('exportGoogleAdsSheetAllPending')
-                ->confirm('Create a new Google Sheet with all confirmed phone clicks that still have a GCLID and have not been exported yet?'),
+                ->confirm('Append all pending confirmed phone clicks with a GCLID into the shared Google Ads Offline Conversions sheet?'),
             Button::make('Check RingCentral now')
                 ->icon('bs.arrow-repeat')
                 ->method('checkRingCentralNow')

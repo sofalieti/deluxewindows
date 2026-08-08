@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Http;
 use RuntimeException;
 
 /**
- * Builds the official Google Ads GCLID offline-conversion spreadsheet and
- * creates it in a Drive folder (service account or OAuth).
+ * Appends Google Ads GCLID offline conversions into a single Drive spreadsheet
+ * (official import template). Creates the file once, then appends new rows.
  *
  * @see https://support.google.com/google-ads/answer/7014069
  */
@@ -23,6 +23,9 @@ final class GoogleAdsOfflineSheetExporter
     private const TOKEN_CACHE_KEY = 'google-drive:access-token';
 
     private const SHEET_MIME = 'application/vnd.google-apps.spreadsheet';
+
+    /** Fixed workbook name in the Drive folder (one file for all days). */
+    public const SPREADSHEET_TITLE = 'Google Ads Offline Conversions';
 
     private const HEADER_ROW = [
         'Google Click ID',
@@ -65,7 +68,7 @@ final class GoogleAdsOfflineSheetExporter
         if ($auth === 'oauth') {
             foreach (['client_id' => 'GOOGLE_DRIVE_CLIENT_ID (or GOOGLE_ADS_CLIENT_ID)', 'client_secret' => 'GOOGLE_DRIVE_CLIENT_SECRET (or GOOGLE_ADS_CLIENT_SECRET)', 'refresh_token' => 'GOOGLE_DRIVE_REFRESH_TOKEN'] as $key => $env) {
                 if (trim((string) config('services.google_drive.'.$key)) === '') {
-                    return 'OAuth mode: set '.$env.' (scopes: drive.file + spreadsheets).';
+                    return 'OAuth mode: set '.$env.' (scopes: drive + spreadsheets).';
                 }
             }
 
@@ -95,16 +98,15 @@ final class GoogleAdsOfflineSheetExporter
 
         $clicks = $this->eligibleClicks($allPending ? null : $titleDate)->get();
         $rows = $this->buildDataRows($clicks);
-        $grid = $this->buildGrid($rows);
-        $title = 'Google Ads Offline Conversions '.$titleDate;
+        $title = self::SPREADSHEET_TITLE;
         $clickIds = $clicks->pluck('id')->map(fn ($id) => (int) $id)->values()->all();
 
         if ($dryRun || $clicks->isEmpty()) {
             return [
                 'count' => count($rows),
-                'spreadsheet_id' => null,
+                'spreadsheet_id' => $this->configuredSpreadsheetId() ?: null,
                 'spreadsheet_url' => null,
-                'title' => $title,
+                'title' => $title.($allPending ? ' (all pending)' : ' ('.$titleDate.')'),
                 'dry_run' => true,
                 'rows' => $rows,
                 'click_ids' => $clickIds,
@@ -117,8 +119,8 @@ final class GoogleAdsOfflineSheetExporter
             );
         }
 
-        $spreadsheetId = $this->createSpreadsheet($title);
-        $this->writeValues($spreadsheetId, $grid);
+        $spreadsheetId = $this->resolveSpreadsheetId();
+        $this->appendConversionRows($spreadsheetId, $rows);
         $url = 'https://docs.google.com/spreadsheets/d/'.$spreadsheetId.'/edit';
 
         $now = now();
@@ -238,6 +240,67 @@ final class GoogleAdsOfflineSheetExporter
             ->format('Y-m-d H:i:sO');
     }
 
+    private function resolveSpreadsheetId(): string
+    {
+        $configured = $this->configuredSpreadsheetId();
+        if ($configured !== '') {
+            return $configured;
+        }
+
+        $existing = $this->findSpreadsheetInFolder(self::SPREADSHEET_TITLE);
+        if ($existing !== null) {
+            return $existing;
+        }
+
+        return $this->createSpreadsheet(self::SPREADSHEET_TITLE);
+    }
+
+    private function configuredSpreadsheetId(): string
+    {
+        return trim((string) config('services.google_drive.spreadsheet_id'));
+    }
+
+    private function findSpreadsheetInFolder(string $title): ?string
+    {
+        $folderId = trim((string) config('services.google_drive.folder_id'));
+        $base = (string) config('services.google_drive.drive_api_base_url');
+
+        $query = sprintf(
+            "name = '%s' and '%s' in parents and mimeType = '%s' and trashed = false",
+            str_replace("'", "\\'", $title),
+            str_replace("'", "\\'", $folderId),
+            self::SHEET_MIME
+        );
+
+        $response = Http::withToken($this->accessToken())
+            ->acceptJson()
+            ->connectTimeout(10)
+            ->timeout(30)
+            ->get($base.'/files', [
+                'q' => $query,
+                'spaces' => 'drive',
+                'fields' => 'files(id,name)',
+                'pageSize' => 5,
+                'supportsAllDrives' => 'true',
+                'includeItemsFromAllDrives' => 'true',
+            ]);
+
+        if (! $response->successful()) {
+            throw new RuntimeException(
+                'Drive list failed HTTP '.$response->status().': '.$response->body()
+            );
+        }
+
+        $files = $response->json('files');
+        if (! is_array($files) || $files === []) {
+            return null;
+        }
+
+        $id = trim((string) ($files[0]['id'] ?? ''));
+
+        return $id !== '' ? $id : null;
+    }
+
     private function createSpreadsheet(string $title): string
     {
         $folderId = trim((string) config('services.google_drive.folder_id'));
@@ -264,7 +327,55 @@ final class GoogleAdsOfflineSheetExporter
             throw new RuntimeException('Drive create returned no spreadsheet id.');
         }
 
+        // Seed the official template header so later exports only append data rows.
+        $this->writeValues($id, $this->buildGrid([]));
+
         return $id;
+    }
+
+    /**
+     * @param  list<list<string>>  $rows
+     */
+    private function appendConversionRows(string $spreadsheetId, array $rows): void
+    {
+        if ($rows === []) {
+            return;
+        }
+
+        if (! $this->sheetHasHeader($spreadsheetId)) {
+            $this->writeValues($spreadsheetId, $this->buildGrid($rows));
+
+            return;
+        }
+
+        $this->appendValues($spreadsheetId, $rows);
+    }
+
+    private function sheetHasHeader(string $spreadsheetId): bool
+    {
+        $base = (string) config('services.google_drive.sheets_api_base_url');
+
+        $response = Http::withToken($this->accessToken())
+            ->acceptJson()
+            ->connectTimeout(10)
+            ->timeout(30)
+            ->get($base.'/spreadsheets/'.$spreadsheetId.'/values/A1:B2');
+
+        if (! $response->successful()) {
+            return false;
+        }
+
+        $values = $response->json('values');
+        if (! is_array($values) || $values === []) {
+            return false;
+        }
+
+        $first = (string) ($values[0][0] ?? '');
+        $second = (string) (($values[1][0] ?? '') ?: '');
+
+        return str_starts_with($first, 'Parameters:TimeZone=')
+            || $first === 'Google Click ID'
+            || $second === 'Google Click ID';
     }
 
     /**
@@ -273,26 +384,28 @@ final class GoogleAdsOfflineSheetExporter
     private function writeValues(string $spreadsheetId, array $grid): void
     {
         $base = (string) config('services.google_drive.sheets_api_base_url');
-        $endRow = $this->columnLetter(count(self::HEADER_ROW)).(count($grid));
+        $endCol = $this->columnLetter(count(self::HEADER_ROW));
+        $endRow = max(1, count($grid));
+        $range = 'Sheet1!A1:'.$endCol.$endRow;
 
         $response = Http::withToken($this->accessToken())
             ->acceptJson()
             ->connectTimeout(10)
             ->timeout(30)
-            ->put($base.'/spreadsheets/'.$spreadsheetId.'/values/Sheet1!A1:'.$endRow.'?valueInputOption=RAW', [
-                'range' => 'Sheet1!A1:'.$endRow,
+            ->put($base.'/spreadsheets/'.$spreadsheetId.'/values/'.$range.'?valueInputOption=RAW', [
+                'range' => $range,
                 'majorDimension' => 'ROWS',
                 'values' => $grid,
             ]);
 
         if (! $response->successful()) {
-            // New spreadsheets are usually named "Sheet1"; retry first sheet via A1 without name.
+            $fallbackRange = 'A1:'.$endCol.$endRow;
             $fallback = Http::withToken($this->accessToken())
                 ->acceptJson()
                 ->connectTimeout(10)
                 ->timeout(30)
-                ->put($base.'/spreadsheets/'.$spreadsheetId.'/values/A1:'.$endRow.'?valueInputOption=RAW', [
-                    'range' => 'A1:'.$endRow,
+                ->put($base.'/spreadsheets/'.$spreadsheetId.'/values/'.$fallbackRange.'?valueInputOption=RAW', [
+                    'range' => $fallbackRange,
                     'majorDimension' => 'ROWS',
                     'values' => $grid,
                 ]);
@@ -300,6 +413,45 @@ final class GoogleAdsOfflineSheetExporter
             if (! $fallback->successful()) {
                 throw new RuntimeException(
                     'Sheets write failed HTTP '.$response->status().': '.$response->body()
+                );
+            }
+        }
+    }
+
+    /**
+     * @param  list<list<string>>  $rows
+     */
+    private function appendValues(string $spreadsheetId, array $rows): void
+    {
+        $base = (string) config('services.google_drive.sheets_api_base_url');
+        $url = $base.'/spreadsheets/'.$spreadsheetId.'/values/Sheet1!A:G:append'
+            .'?valueInputOption=RAW&insertDataOption=INSERT_ROWS';
+
+        $response = Http::withToken($this->accessToken())
+            ->acceptJson()
+            ->connectTimeout(10)
+            ->timeout(30)
+            ->post($url, [
+                'majorDimension' => 'ROWS',
+                'values' => $rows,
+            ]);
+
+        if (! $response->successful()) {
+            $fallback = Http::withToken($this->accessToken())
+                ->acceptJson()
+                ->connectTimeout(10)
+                ->timeout(30)
+                ->post(
+                    $base.'/spreadsheets/'.$spreadsheetId.'/values/A:G:append?valueInputOption=RAW&insertDataOption=INSERT_ROWS',
+                    [
+                        'majorDimension' => 'ROWS',
+                        'values' => $rows,
+                    ]
+                );
+
+            if (! $fallback->successful()) {
+                throw new RuntimeException(
+                    'Sheets append failed HTTP '.$response->status().': '.$response->body()
                 );
             }
         }
@@ -356,8 +508,9 @@ final class GoogleAdsOfflineSheetExporter
         }
 
         $now = time();
+        // drive (not drive.file) so we can find the shared workbook in the folder.
         $scope = implode(' ', [
-            'https://www.googleapis.com/auth/drive.file',
+            'https://www.googleapis.com/auth/drive',
             'https://www.googleapis.com/auth/spreadsheets',
         ]);
 
