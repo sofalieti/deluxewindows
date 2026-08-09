@@ -31,6 +31,7 @@ use App\Orchid\Screens\Visits\VisitListScreen;
 use App\Orchid\Screens\Visits\VisitViewScreen;
 use App\Orchid\Screens\PlatformScreen;
 use App\Orchid\Screens\Promotions\PromotionsScreen;
+use App\Orchid\Screens\Analytics\CallAnalyticsScreen;
 use App\Orchid\Screens\RingCentralCalls\RingCentralCallListScreen;
 use App\Orchid\Screens\Role\RoleEditScreen;
 use App\Orchid\Screens\Role\RoleListScreen;
@@ -97,6 +98,9 @@ Route::get('phone-clicks/{click}/recording', [RingCentralRecordingController::cl
 
 Route::screen('ringcentral-calls', RingCentralCallListScreen::class)
     ->name('platform.ringcentral-calls');
+
+Route::screen('analytics/calls', CallAnalyticsScreen::class)
+    ->name('platform.analytics.calls');
 
 Route::get('ringcentral-calls/{call}/recording', [RingCentralRecordingController::class, 'forCall'])
     ->name('platform.ringcentral-calls.recording')

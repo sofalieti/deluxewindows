@@ -142,6 +142,11 @@ class PlatformProvider extends OrchidServiceProvider
                 ->route('platform.ringcentral-calls')
                 ->permission('platform.leads'),
 
+            Menu::make('Call Analytics')
+                ->icon('bs.graph-up')
+                ->route('platform.analytics.calls')
+                ->permission('platform.analytics'),
+
             Menu::make('Mailbox')
                 ->icon('bs.envelope')
                 ->route('platform.mailbox')
@@ -213,6 +218,9 @@ class PlatformProvider extends OrchidServiceProvider
 
             ItemPermission::group('Visits')
                 ->addPermission('platform.visits', 'Open Visits section'),
+
+            ItemPermission::group('Analytics')
+                ->addPermission('platform.analytics', 'Open Call Analytics'),
 
             ItemPermission::group('Contacts')
                 ->addPermission('platform.contacts', 'Manage Contacts'),
