@@ -109,6 +109,12 @@ trait ClassifiesTrafficSource
         $referrerHost = $this->hostFromReferrer($touch['referrer']);
         $isPaid = preg_match('/(?:^|[_\-\s])(cpc|ppc|paid|paidsearch|paid_social|display|sem)(?:$|[_\-\s])/i', $medium) === 1;
 
+        // Paid UTM source wins over a stale click id from another platform
+        // (e.g. Bing visit still carrying an old Google _gcl_aw GCLID in storage).
+        if ($isPaid && $this->isBingSource($source)) {
+            return 'microsoft_ads';
+        }
+
         if ($touch['gclid'] !== '' || $source === 'adwords' || ($this->isGoogleSource($source) && $isPaid)) {
             return 'google_ads';
         }

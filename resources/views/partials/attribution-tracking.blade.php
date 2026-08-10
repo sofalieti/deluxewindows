@@ -140,8 +140,30 @@
       if (!snapshot.creative) {
         snapshot.creative = params.get('utm_creative') || '';
       }
-      if (!snapshot.gclid) {
+
+      // Google click-id cookies (_gcl_aw) can linger after a later Bing Ads visit.
+      // Never backfill gclid onto a Bing/Microsoft (or Meta) paid hit — otherwise
+      // last-touch keeps the old GCLID and we mis-label the visit as Google Ads.
+      const msclkidInUrl = !!params.get('msclkid');
+      const fbclidInUrl = !!params.get('fbclid');
+      const sourceHint = String(snapshot.utm_source || '').toLowerCase();
+      const mediumHint = String(snapshot.utm_medium || '').toLowerCase();
+      const paidMedium = /(?:^|[_\-\s])(cpc|ppc|paid|paidsearch|paid_social|display|sem)(?:$|[_\-\s])/.test(mediumHint);
+      const isBingPaidHit = msclkidInUrl || (
+        paidMedium && (sourceHint === 'bing' || sourceHint === 'msn'
+          || sourceHint.indexOf('bing') !== -1 || sourceHint.indexOf('microsoft') !== -1)
+      );
+      const isMetaPaidHit = fbclidInUrl || (
+        paidMedium && (sourceHint === 'fb' || sourceHint === 'ig'
+          || sourceHint.indexOf('facebook') !== -1 || sourceHint.indexOf('instagram') !== -1
+          || sourceHint.indexOf('meta') !== -1)
+      );
+
+      if (!snapshot.gclid && !isBingPaidHit && !isMetaPaidHit) {
         snapshot.gclid = gclidFromGoogleCookies() || '';
+      }
+      if (isBingPaidHit || isMetaPaidHit) {
+        snapshot.gclid = '';
       }
 
       const hasPaidOrCampaignSignal = TRACKING_PARAMS.some(function (param) {
