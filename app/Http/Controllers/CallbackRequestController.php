@@ -16,15 +16,40 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 
 /**
- * Phone-only callback requests from the Bing Ads phone-choice modal.
- * Creates a Lead and runs the same notification path as the contact form.
+ * Phone-only contact requests from the Bing Ads phone-choice modal.
+ * Channels: callback (we'll call), sms / whatsapp (we'll text them).
  */
 class CallbackRequestController extends Controller
 {
+    private const CHANNELS = [
+        'callback' => [
+            'full_name' => 'Callback request',
+            'message' => 'Bing Ads phone modal callback request',
+            'form_id' => 'bing-phone-callback',
+            'via' => 'bing-phone-callback',
+            'email_prefix' => 'callback',
+        ],
+        'sms' => [
+            'full_name' => 'SMS request',
+            'message' => 'Bing Ads phone modal SMS request — please text this number',
+            'form_id' => 'bing-phone-sms',
+            'via' => 'bing-phone-sms',
+            'email_prefix' => 'sms',
+        ],
+        'whatsapp' => [
+            'full_name' => 'WhatsApp request',
+            'message' => 'Bing Ads phone modal WhatsApp request — please message this number',
+            'form_id' => 'bing-phone-whatsapp',
+            'via' => 'bing-phone-whatsapp',
+            'email_prefix' => 'whatsapp',
+        ],
+    ];
+
     public function store(Request $request): JsonResponse
     {
         $payload = [
             'phone' => trim((string) ($request->input('phone') ?: $request->input('Phone'))),
+            'channel' => strtolower(trim((string) $request->input('channel', 'callback'))),
             'page_url' => trim((string) (
                 $request->input('page_url')
                 ?: $request->input('Page')
@@ -50,6 +75,7 @@ class CallbackRequestController extends Controller
 
         $validator = Validator::make($payload, [
             'phone' => 'required|string|max:50',
+            'channel' => 'required|in:callback,sms,whatsapp',
             'page_url' => 'nullable|string|max:1000',
             'landing_page' => 'nullable|string|max:1000',
             'referrer' => 'nullable|string|max:1000',
@@ -74,6 +100,8 @@ class CallbackRequestController extends Controller
         }
 
         $validated = $validator->validated();
+        $channel = $validated['channel'];
+        $channelMeta = self::CHANNELS[$channel];
         $phone = $validated['phone'];
         $digits = preg_replace('/\D+/', '', $phone) ?? '';
         $last10 = strlen($digits) >= 10 ? substr($digits, -10) : $digits;
@@ -81,10 +109,11 @@ class CallbackRequestController extends Controller
             $last10 = (string) time();
         }
 
-        $fullName = 'Callback request';
-        $email = 'callback+'.$last10.'@noreply.deluxewindows.com';
-        $message = 'Bing Ads phone modal callback request';
-        $formId = 'bing-phone-callback';
+        $fullName = $channelMeta['full_name'];
+        $email = $channelMeta['email_prefix'].'+'.$last10.'@noreply.deluxewindows.com';
+        $message = $channelMeta['message'];
+        $formId = $channelMeta['form_id'];
+        $via = $channelMeta['via'];
 
         $spam = app(LeadSpamGuard::class)->inspect([
             'full_name' => $fullName,
@@ -114,7 +143,8 @@ class CallbackRequestController extends Controller
 
         $meta = [
             'request_id' => (string) $request->headers->get('x-request-id', ''),
-            'via' => 'bing-phone-callback',
+            'via' => $via,
+            'channel' => $channel,
             'geo_location' => $validated['geo_location'],
             'landing_page' => $validated['landing_page'],
             'referrer' => $validated['referrer'],
@@ -152,8 +182,9 @@ class CallbackRequestController extends Controller
                 'meta' => $meta,
             ]);
 
-            Log::info('Callback lead saved as spam', [
+            Log::info('Bing phone modal lead saved as spam', [
                 'lead_id' => $spamLead->id,
+                'channel' => $channel,
                 'reason' => $spam['reason'],
                 'phone' => $phone,
                 'ip' => $request->ip(),
@@ -184,14 +215,20 @@ class CallbackRequestController extends Controller
             try {
                 Mail::to($notifyRecipients)->send(new LeadNotificationMail($lead));
             } catch (\Throwable $e) {
-                Log::warning('Callback lead notification email failed', [
+                Log::warning('Bing phone modal lead notification email failed', [
                     'lead_id' => $lead->id,
+                    'channel' => $channel,
                     'phone' => $phone,
                     'error' => $e->getMessage(),
                 ]);
             }
         }
 
-        return response()->json(['ok' => true, 'spam' => false, 'lead_id' => $lead->id]);
+        return response()->json([
+            'ok' => true,
+            'spam' => false,
+            'lead_id' => $lead->id,
+            'channel' => $channel,
+        ]);
     }
 }

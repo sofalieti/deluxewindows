@@ -131,10 +131,28 @@
       }
     }
 
-    function phoneDigitsFromAnchor(anchor) {
-      const href = (anchor && anchor.getAttribute('href')) || '';
-      return href.replace(/^tel:/i, '').replace(/\D+/g, '');
-    }
+    let contactBackPanel = 'choice';
+
+    const contactCopy = {
+      callback: {
+        title: 'Request a callback',
+        copy: 'Leave your phone number. Hours: <strong>Mon–Fri, 9:00 AM – 7:00 PM (PT)</strong>. Closed weekends — we’ll call you back.',
+        success: 'Thanks — we’ll call you back soon.',
+        formId: 'bing-phone-callback',
+      },
+      sms: {
+        title: 'Text you on SMS',
+        copy: 'Leave your phone number and we’ll text you. Hours: <strong>Mon–Fri, 9:00 AM – 7:00 PM (PT)</strong>. Closed weekends — we’ll still reach out.',
+        success: 'Thanks — we’ll text you soon.',
+        formId: 'bing-phone-sms',
+      },
+      whatsapp: {
+        title: 'Message you on WhatsApp',
+        copy: 'Leave your phone number and we’ll message you on WhatsApp. Hours: <strong>Mon–Fri, 9:00 AM – 7:00 PM (PT)</strong>. Closed weekends — we’ll still reach out.',
+        success: 'Thanks — we’ll message you on WhatsApp soon.',
+        formId: 'bing-phone-whatsapp',
+      },
+    };
 
     function modalEl() {
       return document.getElementById('bingPhoneChoiceModal');
@@ -148,6 +166,37 @@
       });
     }
 
+    function openContactPanel(channel, backPanel) {
+      const modal = modalEl();
+      if (!modal) return;
+      const conf = contactCopy[channel] || contactCopy.callback;
+      contactBackPanel = backPanel || 'choice';
+      const channelInput = modal.querySelector('[data-bing-phone-channel]');
+      const titleEl = modal.querySelector('[data-bing-phone-contact-title]');
+      const copyEl = modal.querySelector('[data-bing-phone-contact-copy]');
+      const successEl = modal.querySelector('[data-bing-phone-success]');
+      const errorEl = modal.querySelector('[data-bing-phone-error]');
+      const form = modal.querySelector('[data-bing-phone-contact-form]');
+      if (channelInput) channelInput.value = channel;
+      if (titleEl) titleEl.textContent = conf.title;
+      if (copyEl) copyEl.innerHTML = conf.copy;
+      if (successEl) {
+        successEl.textContent = conf.success;
+        successEl.hidden = true;
+      }
+      if (errorEl) {
+        errorEl.hidden = true;
+        errorEl.textContent = '';
+      }
+      if (form) {
+        const phoneInput = form.querySelector('input[name="phone"]');
+        if (phoneInput) phoneInput.value = '';
+      }
+      showPanel('contact');
+      const input = modal.querySelector('#bingPhoneContactInput');
+      if (input) input.focus();
+    }
+
     function openModal(anchor) {
       const modal = modalEl();
       if (!modal) return false;
@@ -157,6 +206,7 @@
       modal.setAttribute('aria-hidden', 'false');
       document.body.classList.add('bing-phone-choice-open');
       showPanel('choice');
+      contactBackPanel = 'choice';
       const err = modal.querySelector('[data-bing-phone-error]');
       const ok = modal.querySelector('[data-bing-phone-success]');
       if (err) {
@@ -164,7 +214,7 @@
         err.textContent = '';
       }
       if (ok) ok.hidden = true;
-      const form = modal.querySelector('[data-bing-phone-callback-form]');
+      const form = modal.querySelector('[data-bing-phone-contact-form]');
       if (form) form.reset();
       const firstBtn = modal.querySelector('[data-bing-phone-action="call"]');
       if (firstBtn) firstBtn.focus();
@@ -198,30 +248,16 @@
       }
     }
 
-    function openTextChannel(kind) {
-      const anchor = activeAnchor;
-      if (!anchor) {
-        closeModal();
-        return;
-      }
-      const digits = phoneDigitsFromAnchor(anchor);
-      trackPhoneClick(anchor, kind === 'whatsapp' ? 'bing-whatsapp' : 'bing-sms');
-      closeModal();
-      if (!digits) return;
-      if (kind === 'whatsapp') {
-        window.location.href = 'https://wa.me/' + digits;
-        return;
-      }
-      window.location.href = 'sms:' + digits;
-    }
-
-    async function submitCallback(form) {
+    async function submitContact(form) {
       const modal = modalEl();
       const phoneInput = form.querySelector('input[name="phone"]');
+      const channelInput = form.querySelector('[data-bing-phone-channel]');
       const errorEl = modal ? modal.querySelector('[data-bing-phone-error]') : null;
       const successEl = modal ? modal.querySelector('[data-bing-phone-success]') : null;
       const submitBtn = form.querySelector('[data-bing-phone-submit]');
       const phone = phoneInput ? String(phoneInput.value || '').trim() : '';
+      const channel = channelInput ? String(channelInput.value || 'callback').trim() : 'callback';
+      const conf = contactCopy[channel] || contactCopy.callback;
 
       if (errorEl) {
         errorEl.hidden = true;
@@ -245,9 +281,10 @@
       const attribution = attributionFields();
       const payload = Object.assign({}, attribution, {
         phone: phone,
+        channel: channel,
         page_url: window.location.href,
         geo_location: storageGet('lead_param_geo_location') || '',
-        form_id: 'bing-phone-callback',
+        form_id: conf.formId,
       });
 
       try {
@@ -258,7 +295,7 @@
           body: JSON.stringify(payload),
         });
         if (!res.ok) {
-          throw new Error('Callback submit failed');
+          throw new Error('Contact submit failed');
         }
         const data = await res.json().catch(function () { return { ok: true }; });
         const isSpam = !!(data && data.spam);
@@ -272,12 +309,15 @@
           if (typeof window.gtag === 'function') {
             window.gtag('event', 'generate_lead', {
               send_to: 'G-JHYBB0THJM',
-              form_id: 'bing-phone-callback',
+              form_id: conf.formId,
               transport_type: 'beacon',
             });
           }
         }
-        if (successEl) successEl.hidden = false;
+        if (successEl) {
+          successEl.textContent = conf.success;
+          successEl.hidden = false;
+        }
         if (phoneInput) phoneInput.value = '';
         setTimeout(closeModal, 1600);
       } catch (_) {
@@ -313,25 +353,25 @@
         if (action === 'call') {
           callNow();
         } else if (action === 'callback') {
-          showPanel('callback');
-          const input = modal.querySelector('#bingPhoneCallbackInput');
-          if (input) input.focus();
+          openContactPanel('callback', 'choice');
         } else if (action === 'text') {
           showPanel('text');
         } else if (action === 'sms') {
-          openTextChannel('sms');
+          openContactPanel('sms', 'text');
         } else if (action === 'whatsapp') {
-          openTextChannel('whatsapp');
+          openContactPanel('whatsapp', 'text');
         } else if (action === 'back') {
           showPanel('choice');
+        } else if (action === 'back-contact') {
+          showPanel(contactBackPanel || 'choice');
         }
       });
 
-      const form = modal.querySelector('[data-bing-phone-callback-form]');
+      const form = modal.querySelector('[data-bing-phone-contact-form]');
       if (form) {
         form.addEventListener('submit', function (event) {
           event.preventDefault();
-          submitCallback(form);
+          submitContact(form);
         });
       }
 
