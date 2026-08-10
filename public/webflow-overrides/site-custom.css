@@ -2881,4 +2881,159 @@ h1 .h1-subline {
   margin-bottom: 16px;
 }
 
+/* ============================================================
+   Bing Ads phone choice modal
+   ============================================================ */
+.bing-phone-choice {
+  position: fixed;
+  inset: 0;
+  z-index: 10050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.bing-phone-choice[hidden] {
+  display: none !important;
+}
+
+.bing-phone-choice__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 24, 40, 0.55);
+}
+
+.bing-phone-choice__dialog {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 420px);
+  max-height: calc(100vh - 32px);
+  overflow: auto;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+  padding: 28px 24px 22px;
+}
+
+.bing-phone-choice__close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  background: transparent;
+  color: #334155;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.bing-phone-choice__title {
+  margin: 0 0 10px;
+  font-size: 1.35rem;
+  line-height: 1.25;
+  color: #0f4d89;
+  font-weight: 700;
+  padding-right: 28px;
+}
+
+.bing-phone-choice__hours {
+  margin: 0 0 18px;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: #334155;
+}
+
+.bing-phone-choice__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bing-phone-choice__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+
+.bing-phone-choice__btn:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.bing-phone-choice__btn--primary {
+  background: linear-gradient(180deg, #1a5f8f 0%, #0f4d89 100%);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(15, 77, 137, 0.28);
+}
+
+.bing-phone-choice__btn--secondary {
+  background: #fff;
+  color: #0f4d89;
+  border-color: #0f4d89;
+}
+
+.bing-phone-choice__btn--ghost {
+  background: transparent;
+  color: #475569;
+  border-color: #cbd5e1;
+}
+
+.bing-phone-choice__label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.bing-phone-choice__input {
+  width: 100%;
+  min-height: 46px;
+  margin-bottom: 10px;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: #0f172a;
+  background: #fff;
+}
+
+.bing-phone-choice__input:focus {
+  outline: 2px solid rgba(15, 77, 137, 0.35);
+  border-color: #0f4d89;
+}
+
+.bing-phone-choice__error {
+  margin: 0 0 10px;
+  font-size: 0.875rem;
+  color: #b42318;
+}
+
+.bing-phone-choice__success {
+  margin: 0 0 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #15803d;
+}
+
+.bing-phone-choice__panel[hidden] {
+  display: none !important;
+}
+
+body.bing-phone-choice-open {
+  overflow: hidden;
+}
+
 

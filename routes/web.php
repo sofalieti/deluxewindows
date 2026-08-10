@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CallbackRequestController;
 use App\Http\Controllers\ClassicSiteController;
 use App\Http\Controllers\PhoneClickController;
 use App\Http\Controllers\VisitController;
@@ -66,6 +67,7 @@ Route::get('/privacy-policy', [ClassicSiteController::class, 'privacyPolicy']);
 Route::get('/terms', [ClassicSiteController::class, 'terms']);
 Route::get('/special-offers', [ClassicSiteController::class, 'specialOffers']);
 Route::post('/contact-form', [ClassicSiteController::class, 'submitContactForm'])->name('contact.submit');
+Route::post('/callback-request', [CallbackRequestController::class, 'store'])->name('callback-request.store');
 Route::post('/phone-click', [PhoneClickController::class, 'store'])->name('phone-click.store');
 Route::post('/visit', [VisitController::class, 'store'])->name('visit.store');
 Route::get('/service-area-phones.json', [ClassicSiteController::class, 'serviceAreaPhones'])

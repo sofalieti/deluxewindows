@@ -117,6 +117,7 @@
       @include('partials.attribution-tracking')
       @include('partials.visit-tracking')
       @include('partials.service-area-personalization')
+      @include('partials.bing-phone-choice-modal')
       @include('partials.lead-form-scripts')
       @include('partials.phone-click-scripts')
 
