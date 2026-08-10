@@ -1,3 +1,36 @@
+.offline-conversion-stats__card {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 0.5rem;
+    padding: 0.9rem 1rem;
+    background: #fff;
+    height: 100%;
+}
+
+.offline-conversion-stats__title {
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+}
+
+.offline-conversion-stats__last {
+    font-size: 0.9rem;
+    margin-bottom: 0.45rem;
+}
+
+.offline-conversion-stats__counts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    font-size: 0.85rem;
+    color: var(--bs-secondary-color, #6c757d);
+}
+
+.offline-conversion-stats__error {
+    margin-top: 0.55rem;
+    font-size: 0.8rem;
+    color: #b42318;
+    word-break: break-word;
+}
+
 .phone-click-cell {
     display: flex;
     flex-direction: column;

@@ -7,6 +7,7 @@ namespace App\Orchid\Screens\PhoneClicks;
 use App\Jobs\MatchPhoneClickToRingCentral;
 use App\Models\PhoneClick;
 use App\Services\Ads\GoogleAdsOfflineSheetExporter;
+use App\Services\Ads\OfflineConversionStatsService;
 use App\Services\PhoneClickGoogleBridge;
 use App\Services\RingCentralCallLogService;
 use App\Services\TrafficSourceVisibility;
@@ -24,9 +25,15 @@ use Throwable;
 
 class PhoneClickListScreen extends Screen
 {
+    public function __construct(
+        private readonly OfflineConversionStatsService $conversionStats,
+    ) {
+    }
+
     public function query(): iterable
     {
         $user = Auth::user();
+        $stats = $this->conversionStats->summary();
 
         return [
             'clicks' => PhoneClick::query()
@@ -39,6 +46,15 @@ class PhoneClickListScreen extends Screen
                 ->onlySpam()
                 ->defaultSort('id', 'desc')
                 ->paginate(50, pageName: 'spam_page'),
+            'conversionStats' => $stats,
+            'metrics' => [
+                'bing_uploaded' => ['value' => number_format($stats['bing']['uploaded'])],
+                'bing_waiting' => ['value' => number_format($stats['bing']['waiting'])],
+                'bing_last' => ['value' => $stats['bing']['last_sent_label']],
+                'google_uploaded' => ['value' => number_format($stats['google']['uploaded'])],
+                'google_waiting' => ['value' => number_format($stats['google']['waiting'])],
+                'google_last' => ['value' => $stats['google']['last_sent_label']],
+            ],
         ];
     }
 
@@ -91,6 +107,20 @@ class PhoneClickListScreen extends Screen
     {
         return [
             Layout::view('admin.phone-clicks.assets'),
+
+            Layout::metrics([
+                'Bing uploaded' => 'metrics.bing_uploaded',
+                'Bing waiting' => 'metrics.bing_waiting',
+                'Bing last sent' => 'metrics.bing_last',
+                'Google uploaded' => 'metrics.google_uploaded',
+                'Google waiting' => 'metrics.google_waiting',
+                'Google last sent' => 'metrics.google_last',
+            ]),
+
+            Layout::block([
+                Layout::view('admin.partials.offline-conversion-stats'),
+            ])->title('Offline conversions (Phone Call Confirmed)'),
+
             Layout::tabs([
                 'Phone clicks' => Layout::table('clicks', $this->clickColumns(spamTab: false)),
                 'Spam' => Layout::table('spamClicks', $this->clickColumns(spamTab: true)),
