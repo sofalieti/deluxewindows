@@ -2882,6 +2882,56 @@ h1 .h1-subline {
 }
 
 /* ============================================================
+   Hero / estimate form — Offer Expires + date + note
+   ============================================================ */
+.hero-form-offer-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+.hero-form-offer-footer__expires {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  align-items: baseline;
+  gap: 0.35em;
+  white-space: nowrap;
+  line-height: 1.35;
+}
+
+.hero-form-offer-footer__date {
+  font-weight: 700;
+  font-style: normal;
+  color: inherit;
+}
+
+.hero-form-offer-footer__note {
+  display: block;
+  font-size: 0.875em;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.35;
+  opacity: 0.92;
+}
+
+@media screen and (min-width: 992px) {
+  .form-block-2 .hero-form-offer-footer,
+  .form-3 .hero-form-offer-footer,
+  .form-4 .hero-form-offer-footer {
+    margin-top: 10px;
+  }
+
+  .form-block-2 .hero-form-offer-footer__date,
+  .form-3 .hero-form-offer-footer__date,
+  .form-4 .hero-form-offer-footer__date {
+    font-weight: 700;
+  }
+}
+
+/* ============================================================
    Bing Ads phone choice modal
    ============================================================ */
 .bing-phone-choice {

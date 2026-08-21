@@ -41,10 +41,7 @@
                 >
                   <div class="div-block-24">
                     <h2 class="display-33">Get Deluxe Windows for Less. {{ promotion_percent_label() }}* Windows</h2>
-                    <label for="email-banner" class="body-14">
-                      <em class="italic-text">Offer Expires </em>
-                      <span class="date-span italic-span"><em class="italic-text">{{ promotion_date('us-short') }}</em></span>
-                    </label>
+                    @include('partials.hero-form-offer-footer')
                     <label for="email-banner" class="body-14">Request a FREE No-Obligation Quote &amp; Expert Advice!</label>
                   </div>
                   <div class="div-block-25">

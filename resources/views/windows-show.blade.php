@@ -1302,12 +1302,7 @@
                       value="Request a Free Estimate"
                     />
                   </div>
-                  <label for="email-banner" class="body-14"
-                    ><em class="italic-text">Offer Expires </em
-                    ><span class="date-span italic-span"
-                      ><em class="italic-text">{{ promotion_date('us-short') }}</em></span
-                    ></label
-                  >
+                  @include('partials.hero-form-offer-footer')
                 </form>
                 <div class="w-form-done"><div>Thank you! Your submission has been received!</div></div>
                 <div class="w-form-fail"><div>Oops! Something went wrong while submitting the form.</div></div>

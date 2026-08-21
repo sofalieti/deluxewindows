@@ -102,10 +102,7 @@
                   <div class="primary-button space-between-v1">
                     <input type="submit" data-wait="Please wait..." class="inside-input-button text-light w-button" value="Request a Free Estimate" />
                   </div>
-                  <label for="email-banner" class="body-14">
-                    <em class="italic-text">Offer Expires </em>
-                    <span class="date-span italic-span"><em class="italic-text">{{ promotion_date('us-short') }}</em></span>
-                  </label>
+                  @include('partials.hero-form-offer-footer')
                 </form>
                 <div class="w-form-done" tabindex="-1" role="region" aria-label="Main Form success">
                   <div>Thank you! Your submission has been received!</div>
