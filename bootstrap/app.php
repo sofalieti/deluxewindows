@@ -46,8 +46,10 @@ return Application::configure(basePath: dirname(__DIR__))
                 && (filled(config('services.microsoft_ads.refresh_token'))
                     || filled(config('services.google_ads.refresh_token'))));
 
-        $schedule->command('ads:export-google-offline-sheet')
-            ->dailyAt('00:05')
+        // Safety net: live append also runs in SendPhoneClickOfflineConversions after RC match.
+        // Hourly --all-pending catches anything the queue missed (worker restart, API blip).
+        $schedule->command('ads:export-google-offline-sheet --all-pending')
+            ->hourly()
             ->timezone('America/Los_Angeles')
             ->withoutOverlapping()
             ->when(fn () => \Illuminate\Support\Facades\Schema::hasColumn('phone_clicks', 'google_ads_sheet_exported_at')
