@@ -298,7 +298,7 @@
                       {{-- Promo line in hero; canonical H1 lives in the product content section from SEO --}}
                       <h2 class="heading-49">{{ $heroHeadlineText }}</h2>
                       @if($heroMiniDescription !== '')
-                        <p class="hero-mini-description">{{ $heroMiniDescription }}</p>
+                        <p class="hero-mini-description">{!! $heroMiniDescription !!}</p>
                       @endif
                       <p>‍</p>
                       <div class="w-embed">

@@ -190,3 +190,13 @@ test('a phone click records utm_city and utm_redirect', function () {
         ->and(app(ServiceAreaRegions::class)->utmCityLabel($click->utm_city))
         ->toBe('Fremont — 1013802');
 });
+
+test('new construction page exposes area labels for utm_city personalisation', function () {
+    $response = get('/new-construction')->assertOk();
+    $html = $response->getContent();
+
+    expect(substr_count($html, 'data-area-label'))->toBeGreaterThanOrEqual(4)
+        ->and($html)->toContain('<span data-area-label>Bay Area</span> Installers')
+        ->and($html)->toContain('for <span data-area-label>Bay Area</span> Homes')
+        ->and($html)->toContain('applyAreaLabel');
+});

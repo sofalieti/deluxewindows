@@ -22,37 +22,37 @@
     [
       'name' => 'Vinyl Windows',
       'href' => '/windows/vinyl-windows',
-      'image' => '/webflow-assets/images/window-type-hero/vinyl-windows.avif',
+      'image' => '/webflow-assets/images/new-construction/vinyl-windows.avif',
       'description' => 'Budget-friendly, low-maintenance frames that meet energy code in every room of the build.',
     ],
     [
       'name' => 'Fiberglass Windows',
       'href' => '/windows/fiberglass-windows',
-      'image' => '/webflow-assets/images/window-type-hero/fiberglass-windows.avif',
+      'image' => '/webflow-assets/images/new-construction/fiberglass-windows.avif',
       'description' => 'Dimensionally stable frames that handle sun exposure and large openings without warping.',
     ],
     [
       'name' => 'Aluminum Windows',
       'href' => '/windows/aluminum-windows',
-      'image' => '/webflow-assets/images/window-type-hero/aluminum-windows.avif',
+      'image' => '/webflow-assets/images/new-construction/aluminum-windows.avif',
       'description' => 'Slim sightlines and big glass for modern architecture and floor-to-ceiling designs.',
     ],
     [
       'name' => 'Entry Doors',
       'href' => '/doors/steel-doors',
-      'image' => '/webflow-assets/images/door-type-hero/steel-doors.avif',
+      'image' => '/webflow-assets/images/new-construction/entry-doors.avif',
       'description' => 'Secure, insulated front doors that set the first impression of the new home.',
     ],
     [
       'name' => 'Sliding & French Patio Doors',
       'href' => '/doors/fiberglass-doors',
-      'image' => '/webflow-assets/images/door-type-hero/fiberglass-doors.avif',
+      'image' => '/webflow-assets/images/new-construction/patio-doors.avif',
       'description' => 'Smooth-operating patio systems planned into the framing from day one.',
     ],
     [
       'name' => 'Multi-Slide & Bi-Fold Systems',
       'href' => '/doors/aluminum-doors',
-      'image' => '/webflow-assets/images/door-type-hero/aluminum-doors.avif',
+      'image' => '/webflow-assets/images/new-construction/multislide-doors.avif',
       'description' => 'Moving glass walls for indoor-outdoor living — sized and engineered for your plans.',
     ],
   ];
@@ -88,7 +88,7 @@
   'pagePromotionAvailable' => false,
   'saleHeadlineHtmlOverride' => $ncSaleHeadlineHtml,
   'heroHeadlineOverride' => 'Building a New Home? Get Every Window & Door from One Team',
-  'heroMiniDescriptionOverride' => 'New-construction windows and doors — specified from your plans, priced for the whole house, and installed on your build schedule.',
+  'heroMiniDescriptionOverride' => 'New-construction windows and doors for <span data-area-label>Bay Area</span> homes — specified from your plans, priced for the whole house, and installed on your build schedule.',
   'slug' => 'new-construction',
 ])
 
@@ -115,9 +115,9 @@
       <div class="inner-container _690px center">
         <div class="text-neutral-light">
           <p class="paragraph-26">
-            Building from the ground up or adding an ADU? We supply and install new-construction
-            windows, patio doors, and entry doors from leading manufacturers — one takeoff,
-            one delivery, one accountable installation team.
+            Building from the ground up or adding an ADU in the <span data-area-label>Bay Area</span>?
+            We supply and install new-construction windows, patio doors, and entry doors from leading
+            manufacturers — one takeoff, one delivery, one accountable installation team.
           </p>
         </div>
       </div>
@@ -155,7 +155,7 @@
     <div class="w-layout-grid grid-2-columns values-wrapper-grid nc-process-shell">
       <div class="image-wrapper border-radius-image-default nc-process-image">
         <x-img
-          src="/webflow-assets/images/6979dd17e1e8dbc951d9753e_Interior-Kitchen-Hero-Doors-MR-scaled.webp"
+          src="/webflow-assets/images/new-construction/process.avif"
           preset="hero_bg"
           loading="lazy"
           alt="New home kitchen with floor-to-ceiling glass doors opening to the backyard"
@@ -225,7 +225,7 @@
         <span class="nc-kicker">What we install</span>
         <h2 id="nc-products-heading" class="display-8 mid">Windows &amp; Doors for the Whole Build</h2>
       </div>
-      <p>Every product below is available in new-construction configurations. We help match series and glass packages to your plans, elevation, and budget.</p>
+      <p>Every product below is available in new-construction configurations across the <span data-area-label>Bay Area</span>. We help match series and glass packages to your plans, elevation, and budget.</p>
     </div>
     <div class="nc-products-grid">
       @foreach($ncProducts as $product)
@@ -276,8 +276,8 @@
     'ctaTitleLine2' => 'Every Opening in the House',
     'ctaText' => 'Send your plans or window schedule — we will return a complete takeoff with whole-house pricing and lead times.',
     'ctaButtonLabel' => 'Get a Free Project Estimate',
-    'ctaImage' => '/webflow-assets/images/6979dd17e1e8dbc951d9753e_Interior-Kitchen-Hero-Doors-MR-scaled.webp',
-    'ctaImageAlt' => 'New construction home with modern glass doors',
+    'ctaImage' => '/webflow-assets/images/new-construction/cta.avif',
+    'ctaImageAlt' => 'New construction home with modern glass doors and open indoor-outdoor living',
     'ctaImageClass' => 'cover-image',
   ])
 </div>
