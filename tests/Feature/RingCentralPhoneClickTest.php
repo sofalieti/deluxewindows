@@ -2,6 +2,7 @@
 
 use App\Jobs\MatchPhoneClickToRingCentral;
 use App\Jobs\SendPhoneClickOfflineConversions;
+use App\Jobs\SendPhoneClickToGoogleSheet;
 use App\Models\PhoneClick;
 use App\Services\RingCentralCallLogService;
 use Carbon\CarbonImmutable;
@@ -143,6 +144,10 @@ test('the queued lookup stores any RingCentral call attempt and its result', fun
         SendPhoneClickOfflineConversions::class,
         fn (SendPhoneClickOfflineConversions $job): bool => $job->phoneClickId === $click->id
     );
+    Queue::assertPushed(
+        SendPhoneClickToGoogleSheet::class,
+        fn (SendPhoneClickToGoogleSheet $job): bool => $job->phoneClickId === $click->id
+    );
 });
 
 test('a missing call is retried and becomes no call at the end of the window', function () {
@@ -173,7 +178,12 @@ test('a missing call is retried and becomes no call at the end of the window', f
     $click->refresh();
     expect($click->ringcentral_status)->toBe(PhoneClick::RINGCENTRAL_NO_CALL)
         ->and($click->ringcentral_attempts)->toBe(2);
-    Queue::assertNothingPushed();
+    Queue::assertPushed(
+        SendPhoneClickToGoogleSheet::class,
+        fn (SendPhoneClickToGoogleSheet $job): bool => $job->phoneClickId === $click->id
+    );
+    Queue::assertNotPushed(MatchPhoneClickToRingCentral::class);
+    Queue::assertNotPushed(SendPhoneClickOfflineConversions::class);
 });
 
 test('a legacy future checked timestamp does not stop RingCentral retries', function () {

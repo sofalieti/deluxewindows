@@ -120,7 +120,6 @@ class MatchPhoneClickToRingCentral implements ShouldQueue
                         ])->save();
 
                         $this->enqueueTranscriptForMatch($match, $ringCentral, $transcriptQueue);
-                        SendPhoneClickOfflineConversions::dispatch($click->id)->afterCommit();
                     } catch (\Throwable $exception) {
                         Log::warning('RingCentral call could not be assigned to phone click', [
                             'phone_click_id' => $click->id,
@@ -133,7 +132,13 @@ class MatchPhoneClickToRingCentral implements ShouldQueue
                             $now,
                             'A matching RingCentral call was already assigned.'
                         );
+
+                        return;
                     }
+
+                    // Outside the assignment try: sync afterCommit jobs must not roll back FOUND.
+                    SendPhoneClickOfflineConversions::dispatch($click->id)->afterCommit();
+                    SendPhoneClickToGoogleSheet::dispatch($click->id)->afterCommit();
 
                     return;
                 }
@@ -185,13 +190,21 @@ class MatchPhoneClickToRingCentral implements ShouldQueue
         bool $apiFailed = false
     ): void {
         if ($now->greaterThanOrEqualTo($deadline)) {
+            $status = $apiFailed
+                ? PhoneClick::RINGCENTRAL_ERROR
+                : PhoneClick::RINGCENTRAL_NO_CALL;
+
             $click->forceFill([
-                'ringcentral_status' => $apiFailed
-                    ? PhoneClick::RINGCENTRAL_ERROR
-                    : PhoneClick::RINGCENTRAL_NO_CALL,
+                'ringcentral_status' => $status,
                 'ringcentral_checked_at' => $now,
                 'ringcentral_error' => $error ? Str::limit($error, 1000, '') : null,
             ])->save();
+
+            // Missed calls (no RingCentral match) still go to the lead Google Sheet,
+            // same bridge as the admin "Google" button — excluding Bing traffic.
+            if ($status === PhoneClick::RINGCENTRAL_NO_CALL) {
+                SendPhoneClickToGoogleSheet::dispatch($click->id)->afterCommit();
+            }
 
             return;
         }
