@@ -7,6 +7,7 @@ namespace App\Services\Ads;
 use App\Models\PhoneClick;
 use Carbon\CarbonImmutable;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
@@ -319,10 +320,8 @@ final class GoogleAdsOfflineSheetExporter
             self::SHEET_MIME
         );
 
-        $response = Http::withToken($this->accessToken())
-            ->acceptJson()
-            ->connectTimeout(10)
-            ->timeout(30)
+        $response = $this->http()
+            ->withToken($this->accessToken())
             ->get($base.'/files', [
                 'q' => $query,
                 'spaces' => 'drive',
@@ -353,10 +352,8 @@ final class GoogleAdsOfflineSheetExporter
         $folderId = trim((string) config('services.google_drive.folder_id'));
         $base = (string) config('services.google_drive.drive_api_base_url');
 
-        $response = Http::withToken($this->accessToken())
-            ->acceptJson()
-            ->connectTimeout(10)
-            ->timeout(30)
+        $response = $this->http()
+            ->withToken($this->accessToken())
             ->post($base.'/files', [
                 'name' => $title,
                 'mimeType' => self::SHEET_MIME,
@@ -402,10 +399,8 @@ final class GoogleAdsOfflineSheetExporter
     {
         $base = (string) config('services.google_drive.sheets_api_base_url');
 
-        $response = Http::withToken($this->accessToken())
-            ->acceptJson()
-            ->connectTimeout(10)
-            ->timeout(30)
+        $response = $this->http()
+            ->withToken($this->accessToken())
             ->get($base.'/spreadsheets/'.$spreadsheetId.'/values/A1:B2');
 
         if (! $response->successful()) {
@@ -435,10 +430,8 @@ final class GoogleAdsOfflineSheetExporter
         $endRow = max(1, count($grid));
         $range = 'Sheet1!A1:'.$endCol.$endRow;
 
-        $response = Http::withToken($this->accessToken())
-            ->acceptJson()
-            ->connectTimeout(10)
-            ->timeout(30)
+        $response = $this->http()
+            ->withToken($this->accessToken())
             ->put($base.'/spreadsheets/'.$spreadsheetId.'/values/'.$range.'?valueInputOption=RAW', [
                 'range' => $range,
                 'majorDimension' => 'ROWS',
@@ -447,10 +440,8 @@ final class GoogleAdsOfflineSheetExporter
 
         if (! $response->successful()) {
             $fallbackRange = 'A1:'.$endCol.$endRow;
-            $fallback = Http::withToken($this->accessToken())
-                ->acceptJson()
-                ->connectTimeout(10)
-                ->timeout(30)
+            $fallback = $this->http()
+                ->withToken($this->accessToken())
                 ->put($base.'/spreadsheets/'.$spreadsheetId.'/values/'.$fallbackRange.'?valueInputOption=RAW', [
                     'range' => $fallbackRange,
                     'majorDimension' => 'ROWS',
@@ -474,20 +465,16 @@ final class GoogleAdsOfflineSheetExporter
         $url = $base.'/spreadsheets/'.$spreadsheetId.'/values/Sheet1!A:G:append'
             .'?valueInputOption=RAW&insertDataOption=INSERT_ROWS';
 
-        $response = Http::withToken($this->accessToken())
-            ->acceptJson()
-            ->connectTimeout(10)
-            ->timeout(30)
+        $response = $this->http()
+            ->withToken($this->accessToken())
             ->post($url, [
                 'majorDimension' => 'ROWS',
                 'values' => $rows,
             ]);
 
         if (! $response->successful()) {
-            $fallback = Http::withToken($this->accessToken())
-                ->acceptJson()
-                ->connectTimeout(10)
-                ->timeout(30)
+            $fallback = $this->http()
+                ->withToken($this->accessToken())
                 ->post(
                     $base.'/spreadsheets/'.$spreadsheetId.'/values/A:G:append?valueInputOption=RAW&insertDataOption=INSERT_ROWS',
                     [
@@ -522,10 +509,7 @@ final class GoogleAdsOfflineSheetExporter
 
     private function fetchOAuthAccessToken(): string
     {
-        $response = Http::asForm()
-            ->acceptJson()
-            ->connectTimeout(10)
-            ->timeout(20)
+        $response = $this->httpForm()
             ->post((string) config('services.google_drive.oauth_token_url'), [
                 'grant_type' => 'refresh_token',
                 'client_id' => trim((string) config('services.google_drive.client_id')),
@@ -580,10 +564,7 @@ final class GoogleAdsOfflineSheetExporter
         $assertion = $unsigned.'.'.$this->base64UrlEncode($signature);
         $tokenUrl = (string) config('services.google_drive.oauth_token_url', 'https://oauth2.googleapis.com/token');
 
-        $response = Http::asForm()
-            ->acceptJson()
-            ->connectTimeout(10)
-            ->timeout(20)
+        $response = $this->httpForm()
             ->post($tokenUrl, [
                 'grant_type' => 'urn:ietf:params:oauth:grant-type:jwt-bearer',
                 'assertion' => $assertion,
@@ -661,5 +642,33 @@ final class GoogleAdsOfflineSheetExporter
     private function base64UrlEncode(string $data): string
     {
         return rtrim(strtr(base64_encode($data), '+/', '-_'), '=');
+    }
+
+    /**
+     * Force IPv4: hosts with broken outbound IPv6 hang on AAAA for googleapis.com.
+     */
+    private function http(): PendingRequest
+    {
+        return Http::acceptJson()
+            ->connectTimeout(10)
+            ->timeout(30)
+            ->withOptions([
+                'curl' => [
+                    \CURLOPT_IPRESOLVE => \CURL_IPRESOLVE_V4,
+                ],
+            ]);
+    }
+
+    private function httpForm(): PendingRequest
+    {
+        return Http::asForm()
+            ->acceptJson()
+            ->connectTimeout(10)
+            ->timeout(20)
+            ->withOptions([
+                'curl' => [
+                    \CURLOPT_IPRESOLVE => \CURL_IPRESOLVE_V4,
+                ],
+            ]);
     }
 }
