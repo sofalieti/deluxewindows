@@ -7,6 +7,15 @@
 
 /* ---- Benefits ---- */
 
+.new-construction-page .nc-benefits-section .title-left---content-right {
+  justify-content: center;
+  text-align: center;
+}
+
+.new-construction-page .nc-benefits-section .width-100-mobile-landscape {
+  width: 100%;
+}
+
 .new-construction-page .nc-benefits-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -17,11 +26,13 @@
   display: flex;
   min-width: 0;
   flex-direction: column;
-  padding: 28px 26px 30px;
+  align-items: center;
+  padding: 32px 24px 34px;
   border: 1px solid oklch(0.84 0.025 246);
   border-radius: 16px;
   background: oklch(0.985 0.004 246);
   box-shadow: 0 12px 34px oklch(0.31 0.05 246 / 7%);
+  text-align: center;
   transition:
     transform 240ms cubic-bezier(0.22, 1, 0.36, 1),
     border-color 240ms ease,
@@ -36,29 +47,37 @@
 
 .new-construction-page .nc-benefit-icon {
   display: flex;
-  width: 52px;
-  height: 52px;
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  margin-bottom: 18px;
-  border-radius: 12px;
-  background: oklch(0.32 0.095 246);
+  margin: 0 auto 20px;
+  background: transparent;
+}
+
+.new-construction-page .nc-benefit-card:hover .nc-benefit-icon img {
+  transform: scale(1.06);
 }
 
 .new-construction-page .nc-benefit-icon img {
-  width: 26px;
-  height: 26px;
+  display: block;
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .new-construction-page .nc-benefit-card h3 {
   margin: 0 0 10px;
   color: oklch(0.28 0.06 246);
   font-size: 21px;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
 .new-construction-page .nc-benefit-card p {
-  margin: 0;
+  max-width: 26ch;
+  margin: 0 auto;
   color: oklch(0.47 0.025 246);
   font-size: 14px;
   line-height: 1.6;
@@ -327,6 +346,156 @@
   object-position: center;
 }
 
+/* ---- Before / After compare slider ---- */
+
+.new-construction-page .nc-compare-header {
+  max-width: 720px;
+  margin-bottom: 34px;
+}
+
+.new-construction-page .nc-compare-intro {
+  max-width: 62ch;
+  margin: 14px 0 0;
+  color: oklch(0.45 0.025 246);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.new-construction-page .dw-compare {
+  position: relative;
+}
+
+.new-construction-page .dw-compare__viewport {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  border: 1px solid oklch(0.84 0.025 246);
+  border-radius: 18px;
+  background: oklch(0.22 0.04 246);
+  box-shadow: 0 28px 70px oklch(0.31 0.06 246 / 16%);
+  cursor: ew-resize;
+  touch-action: none;
+  user-select: none;
+}
+
+.new-construction-page .dw-compare__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+}
+
+.new-construction-page .dw-compare__image--after {
+  position: absolute;
+  inset: 0;
+}
+
+.new-construction-page .dw-compare__before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  will-change: width;
+}
+
+.new-construction-page .dw-compare__image--before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: none;
+}
+
+.new-construction-page .dw-compare__divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  z-index: 3;
+  width: 3px;
+  background: oklch(0.98 0.006 240);
+  box-shadow: 0 0 0 1px oklch(0.24 0.05 246 / 35%);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.new-construction-page .dw-compare__handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  width: 52px;
+  height: 52px;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid oklch(0.98 0.006 240);
+  border-radius: 999px;
+  background: oklch(0.32 0.095 246);
+  color: oklch(0.98 0.006 240);
+  box-shadow: 0 10px 28px oklch(0.2 0.05 246 / 35%);
+  transform: translate(-50%, -50%);
+}
+
+.new-construction-page .dw-compare__badge {
+  position: absolute;
+  top: 18px;
+  z-index: 4;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: oklch(0.18 0.04 246 / 72%);
+  color: oklch(0.98 0.006 240);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.new-construction-page .dw-compare__badge--before {
+  left: 18px;
+}
+
+.new-construction-page .dw-compare__badge--after {
+  right: 18px;
+}
+
+.new-construction-page .dw-compare__range-label {
+  display: block;
+  margin-top: 14px;
+}
+
+.new-construction-page .dw-compare__range {
+  display: block;
+  width: 100%;
+  height: 28px;
+  margin: 0;
+  background: transparent;
+  cursor: ew-resize;
+  accent-color: oklch(0.32 0.095 246);
+}
+
+.new-construction-page .dw-compare__range:focus-visible {
+  outline: 2px solid oklch(0.66 0.09 246);
+  outline-offset: 3px;
+}
+
+.new-construction-page .dw-compare__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* ---- Responsive ---- */
 
 @media (max-width: 991px) {
@@ -408,12 +577,32 @@
   .new-construction-page .nc-product-image {
     height: 200px;
   }
+
+  .new-construction-page .dw-compare__handle {
+    width: 44px;
+    height: 44px;
+  }
+
+  .new-construction-page .dw-compare__badge {
+    top: 12px;
+    padding: 7px 10px;
+    font-size: 11px;
+  }
+
+  .new-construction-page .dw-compare__badge--before {
+    left: 12px;
+  }
+
+  .new-construction-page .dw-compare__badge--after {
+    right: 12px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .new-construction-page .nc-benefit-card,
   .new-construction-page .nc-product-card,
-  .new-construction-page .nc-process-item {
+  .new-construction-page .nc-process-item,
+  .new-construction-page .nc-benefit-icon img {
     transition: none;
   }
 }

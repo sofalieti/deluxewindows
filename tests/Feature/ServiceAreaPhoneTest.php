@@ -200,3 +200,13 @@ test('new construction page exposes area labels for utm_city personalisation', f
         ->and($html)->toContain('for <span data-area-label>Bay Area</span> Homes')
         ->and($html)->toContain('applyAreaLabel');
 });
+
+test('new construction page renders before after compare slider', function () {
+    $response = get('/new-construction')->assertOk();
+    $html = $response->getContent();
+
+    expect($html)->toContain('data-dw-compare')
+        ->and($html)->toContain('before-no-windows.avif')
+        ->and($html)->toContain('after-with-windows.avif')
+        ->and($html)->toContain('dw-compare__range');
+});

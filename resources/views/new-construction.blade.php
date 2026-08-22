@@ -59,22 +59,22 @@
 
   $ncBenefits = [
     [
-      'icon' => '/webflow-assets/images/684d86f32d344f16ce6ec364_flag_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg',
+      'icon' => '/webflow-assets/images/new-construction/icons/frames.svg',
       'title' => 'New-Construction Frames',
       'text' => 'Nail-fin and block-frame units installed before stucco or siding — flashed and sealed the right way, not retrofitted later.',
     ],
     [
-      'icon' => '/webflow-assets/images/684d870c533c4f729eb8094c_settings_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg',
+      'icon' => '/webflow-assets/images/new-construction/icons/energy.svg',
       'title' => 'Title 24 & ENERGY STAR',
       'text' => 'Products selected to pass California energy code and inspection the first time, with documentation for your permit set.',
     ],
     [
-      'icon' => '/webflow-assets/images/684d86ff1fff20336f975d74_shopping_bag_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg',
+      'icon' => '/webflow-assets/images/new-construction/icons/pricing.svg',
       'title' => 'Whole-House Pricing',
       'text' => 'One quote for every opening in the project. Volume pricing on multi-window packages beats ordering piece by piece.',
     ],
     [
-      'icon' => '/webflow-assets/images/684d8718e99d2a34dfef7e4d_home_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg',
+      'icon' => '/webflow-assets/images/new-construction/icons/schedule.svg',
       'title' => 'Built Around Your Schedule',
       'text' => 'We coordinate delivery and installation with your GC and framing timeline, so windows never hold up the build.',
     ],
@@ -125,7 +125,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section nc-benefits-section">
   <div class="w-layout-blockcontainer container-default w-container">
     <div class="text-center---mbl">
       <div class="title-left---content-right">
@@ -149,6 +149,17 @@
     </div>
   </div>
 </section>
+
+@include('partials.before-after-slider', [
+  'beforeSrc' => '/webflow-assets/images/new-construction/before-no-windows.avif',
+  'afterSrc' => '/webflow-assets/images/new-construction/after-with-windows.avif',
+  'beforeAlt' => 'New construction home with framed openings boarded with plywood — windows not installed yet',
+  'afterAlt' => 'Same new construction home with vinyl windows, entry door, and garage door installed',
+  'compareHeading' => 'From Framed Openings to Finished Home',
+  'compareText' => 'Drag the slider to compare a new build before window installation with the finished result — every opening specified, delivered, and installed by one team.',
+  'beforeLabel' => 'Before',
+  'afterLabel' => 'After',
+])
 
 <section class="section top-none nc-process-section">
   <div class="w-layout-blockcontainer container-default w-container">
