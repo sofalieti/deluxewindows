@@ -11,28 +11,42 @@
 @endsection
 
 @section('content')
-<section class="section hero-v4 page-intro-hero referral-hero">
-  <div class="w-layout-blockcontainer container-default w-container">
-    <div class="w-layout-vflex inner-container _500px---mbl center">
-      <div class="mg-top-small">
-        <p class="referral-kicker">Referral Partner Program</p>
-        <h1 class="display-10 mid text-light">Earn $150 for Every Customer You Refer</h1>
-      </div>
+<section class="section_breadcrumbs section-121">
+  <div class="w-layout-blockcontainer container-default breadcrumbs-container w-container">
+    <div class="breadcrumbs-wrapper">
+      <a href="/" class="breadcrumb-link">Home</a>
+      <div class="breadcrumb-div">/</div>
+      <div class="breadcrumb-text">Referrals</div>
     </div>
-    <div class="mg-top-small">
-      <div class="inner-container _690px center">
-        <div class="text-neutral-light">
-          <p class="paragraph-26">
-            Share Deluxe Windows with homeowners in the Bay Area. When your referral becomes a real customer,
-            you earn <strong>$150</strong>. Apply below — we’ll review your request and send login details.
-          </p>
-        </div>
-        <div class="referral-hero-actions">
-          <a href="#apply" class="primary-button w-inline-block">
-            <div class="text-block-22">Apply to Become a Partner</div>
-          </a>
-        </div>
-      </div>
+  </div>
+</section>
+
+<section class="referral-hero" aria-labelledby="referral-hero-heading">
+  <div class="referral-hero__media" aria-hidden="true">
+    <img
+      src="/webflow-assets/images/new-construction/after-with-windows.avif"
+      alt=""
+      class="referral-hero__image"
+      width="1920"
+      height="1080"
+      fetchpriority="high"
+      decoding="async"
+    />
+    <div class="referral-hero__overlay"></div>
+  </div>
+  <div class="w-layout-blockcontainer container-default w-container referral-hero__content">
+    <p class="referral-hero__kicker">Referral Partner Program</p>
+    <h1 id="referral-hero-heading" class="referral-hero__title">
+      Earn $150 for Every Customer You Refer
+    </h1>
+    <p class="referral-hero__lead">
+      Share Deluxe Windows with homeowners in the Bay Area. When your referral becomes a real customer,
+      you earn <strong>$150</strong>. Apply below — we’ll review your request and send login details.
+    </p>
+    <div class="referral-hero__actions">
+      <a href="#apply" class="primary-button w-inline-block">
+        <div class="text-block-22">Apply to Become a Partner</div>
+      </a>
     </div>
   </div>
 </section>
@@ -84,10 +98,10 @@
   </div>
 </section>
 
-<section class="section top-none" id="apply" aria-labelledby="referral-apply-heading">
+<section class="section top-none referral-apply-section" id="apply" aria-labelledby="referral-apply-heading">
   <div class="w-layout-blockcontainer container-default w-container">
     <div class="referral-apply-shell">
-      <div>
+      <div class="referral-apply-intro">
         <span class="referral-kicker">Join the program</span>
         <h2 id="referral-apply-heading" class="display-8 mid">Apply for a Partner Account</h2>
         <p class="referral-apply-copy">
@@ -101,19 +115,27 @@
           Thanks — we received your application. We’ll review it and email you next steps.
         </div>
       @else
-        <form method="post" action="{{ route('referrals.apply') }}" class="referral-apply-form">
+        <form method="post" action="{{ route('referrals.apply') }}" class="referral-apply-form" data-no-lead>
           @csrf
-          <label class="referral-label" for="referral_full_name">Full name</label>
-          <input id="referral_full_name" class="referral-input" type="text" name="full_name" value="{{ old('full_name') }}" required maxlength="255" />
+          <div class="referral-field">
+            <label class="referral-label" for="referral_full_name">Full name</label>
+            <input id="referral_full_name" class="referral-input" type="text" name="full_name" value="{{ old('full_name') }}" required maxlength="255" autocomplete="name" />
+          </div>
 
-          <label class="referral-label" for="referral_email">Email</label>
-          <input id="referral_email" class="referral-input" type="email" name="email" value="{{ old('email') }}" required maxlength="255" />
+          <div class="referral-field">
+            <label class="referral-label" for="referral_email">Email</label>
+            <input id="referral_email" class="referral-input" type="email" name="email" value="{{ old('email') }}" required maxlength="255" autocomplete="email" />
+          </div>
 
-          <label class="referral-label" for="referral_phone">Phone <span class="referral-optional">(optional)</span></label>
-          <input id="referral_phone" class="referral-input" type="tel" name="phone" value="{{ old('phone') }}" maxlength="50" />
+          <div class="referral-field">
+            <label class="referral-label" for="referral_phone">Phone <span class="referral-optional">(optional)</span></label>
+            <input id="referral_phone" class="referral-input" type="tel" name="phone" value="{{ old('phone') }}" maxlength="50" autocomplete="tel" />
+          </div>
 
-          <label class="referral-label" for="referral_message">About you <span class="referral-optional">(optional)</span></label>
-          <textarea id="referral_message" class="referral-input referral-textarea" name="message" rows="4" maxlength="5000">{{ old('message') }}</textarea>
+          <div class="referral-field">
+            <label class="referral-label" for="referral_message">About you <span class="referral-optional">(optional)</span></label>
+            <textarea id="referral_message" class="referral-input referral-textarea" name="message" rows="4" maxlength="5000">{{ old('message') }}</textarea>
+          </div>
 
           @if($errors->any())
             <div class="referral-apply-error" role="alert">
