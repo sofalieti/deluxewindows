@@ -9,7 +9,7 @@ Group=www-root
 Restart=always
 RestartSec=3
 WorkingDirectory=/var/www/www-root/data/www/deluxewindows.com
-# Requires pcntl on /opt/php83 CLI (enable in ISPmanager → PHP 8.3 → Extensions).
+# Requires pcntl on /opt/php83 CLI (enable in ISPmanager: PHP 8.3 Extensions).
 ExecStart=/opt/php83/bin/php /var/www/www-root/data/www/deluxewindows.com/artisan queue:work database --sleep=1 --tries=3 --timeout=90 --max-time=3600
 Nice=10
 
