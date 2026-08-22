@@ -220,12 +220,22 @@
       : ((!empty($windowBrandHero) && trim((string) ($brandName ?? '')) !== '')
         ? 'Authorized '.trim((string) $brandName).' window installation across the Bay Area — vinyl, fiberglass, wood & more.'
         : ''));
+  // Campaign landings (doors, new-construction) supply their own hero copy.
+  if (isset($heroHeadlineOverride)) {
+      $heroHeadlineText = (string) $heroHeadlineOverride;
+  }
+  if (isset($heroMiniDescriptionOverride)) {
+      $heroMiniDescription = (string) $heroMiniDescriptionOverride;
+  }
 @endphp
 
       <div class="div-block-59">
         @if(!empty($doorLandingHero))
           {{-- Doors campaign landing uses the standard site hero with a local CSS background. --}}
           <div data-parallax="1" class="div-block-61 door-landing-hero-bg"></div>
+        @elseif(!empty($landingHeroBgClass))
+          {{-- Generic campaign landing: background comes from a page-local CSS class. --}}
+          <div data-parallax="1" class="div-block-61 {{ $landingHeroBgClass }}"></div>
         @elseif(!empty($heroBackgroundImage))
           {{-- Static hero background (brand pages etc.) --}}
           <div data-parallax="1" style="background-image:url('{{ thumbnail_url($heroBackgroundImage, 'hero_bg') }}');background-position:center center;background-size:cover;background-repeat:no-repeat;" class="div-block-61"></div>

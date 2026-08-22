@@ -58,6 +58,7 @@ class SitemapGeneratorService
             '/',
             '/windows',
             '/doors',
+            '/new-construction',
             '/brands',
 
             '/blog',

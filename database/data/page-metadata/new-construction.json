@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "key": "new-construction",
+  "path": "/new-construction",
+  "seo": {
+    "title": "New Construction Windows & Doors Bay Area | Deluxe Windows",
+    "description": "Windows and doors for new construction homes and ADUs in the Bay Area. Plan takeoffs, Title 24 compliant products, whole-house pricing, and installation.",
+    "canonical": "https://www.deluxewindows.com/new-construction",
+    "og": {
+      "title": "New Construction Windows & Doors Bay Area | Deluxe Windows",
+      "description": "Windows and doors for new construction homes and ADUs in the Bay Area. Plan takeoffs, Title 24 compliant products, whole-house pricing, and installation.",
+      "image": "/webflow-assets/images/6979dd17e1e8dbc951d9753e_Interior-Kitchen-Hero-Doors-MR-scaled.webp",
+      "type": "website"
+    },
+    "h1": "New Construction Windows & Doors for Bay Area Homes",
+    "primary_keyword": "new construction windows",
+    "target_keywords": [
+      "new construction windows",
+      "new construction doors",
+      "new build window installation",
+      "nail fin windows",
+      "ADU windows and doors"
+    ],
+    "search_intent": "transactional",
+    "priority": "P1",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "New Construction Windows & Doors Bay Area | Deluxe Windows",
+      "description": "Windows and doors for new construction homes and ADUs in the Bay Area. Plan takeoffs, Title 24 compliant products, whole-house pricing, and installation.",
+      "image": "/webflow-assets/images/6979dd17e1e8dbc951d9753e_Interior-Kitchen-Hero-Doors-MR-scaled.webp",
+      "card": "summary_large_image"
+    }
+  },
+  "faq": [
+    {
+      "question": "What is the difference between new construction and replacement windows?",
+      "answer": "New construction windows have a nailing fin (flange) that attaches directly to the framing and is flashed before siding or stucco goes on. Replacement (retrofit) windows are sized to fit an existing opening. For new builds, additions, and ADUs, nail-fin units give the cleanest weather seal and the best long-term performance."
+    },
+    {
+      "question": "Do you work with builders, contractors, and architects on new builds?",
+      "answer": "Yes. We price complete window and door packages from plans or a window schedule, coordinate lead times with the framing calendar, and install with our own AAMA-certified crews. One point of contact covers the takeoff, ordering, delivery, and installation."
+    },
+    {
+      "question": "Are your new construction windows Title 24 compliant?",
+      "answer": "We quote products that meet current California Title 24 energy code requirements for U-factor and solar heat gain, and we provide the documentation needed for your permit set and final inspection."
+    },
+    {
+      "question": "When should I order windows for a new construction project?",
+      "answer": "As soon as framing dimensions are locked — ideally right after plan approval. Manufacturer lead times range from a few weeks to a few months depending on series and finish, and ordering early keeps windows from delaying the build schedule."
+    },
+    {
+      "question": "Do you install windows and doors for ADUs?",
+      "answer": "Yes. Accessory dwelling units follow the same process as full new builds: we take off every opening from the ADU plans, recommend code-compliant products that match the budget, and install on your construction timeline."
+    }
+  ],
+  "schema": {
+    "primary_type": "WebPage",
+    "data": {},
+    "extra": [],
+    "replace": []
+  }
+}

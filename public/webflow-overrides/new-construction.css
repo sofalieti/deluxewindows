@@ -1,0 +1,419 @@
+.div-block-59 > .new-construction-hero-bg {
+  background-image: url("/webflow-assets/images/69ce36fd76a6aaff9c68df7e_01.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* ---- Benefits ---- */
+
+.new-construction-page .nc-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.new-construction-page .nc-benefit-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: 28px 26px 30px;
+  border: 1px solid oklch(0.84 0.025 246);
+  border-radius: 16px;
+  background: oklch(0.985 0.004 246);
+  box-shadow: 0 12px 34px oklch(0.31 0.05 246 / 7%);
+  transition:
+    transform 240ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 240ms ease,
+    box-shadow 240ms ease;
+}
+
+.new-construction-page .nc-benefit-card:hover {
+  transform: translateY(-5px);
+  border-color: oklch(0.66 0.09 246);
+  box-shadow: 0 24px 54px oklch(0.31 0.06 246 / 14%);
+}
+
+.new-construction-page .nc-benefit-icon {
+  display: flex;
+  width: 52px;
+  height: 52px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  border-radius: 12px;
+  background: oklch(0.32 0.095 246);
+}
+
+.new-construction-page .nc-benefit-icon img {
+  width: 26px;
+  height: 26px;
+}
+
+.new-construction-page .nc-benefit-card h3 {
+  margin: 0 0 10px;
+  color: oklch(0.28 0.06 246);
+  font-size: 21px;
+  line-height: 1.2;
+}
+
+.new-construction-page .nc-benefit-card p {
+  margin: 0;
+  color: oklch(0.47 0.025 246);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ---- Process (image + numbered steps) ---- */
+
+.new-construction-page .nc-process-shell {
+  grid-template-columns: minmax(0, 1.08fr) minmax(380px, 0.92fr);
+  gap: 0;
+  align-items: stretch;
+  overflow: hidden;
+  border: 1px solid oklch(0.41 0.07 246 / 28%);
+  border-radius: 20px;
+  background: oklch(0.3 0.095 246);
+  box-shadow: 0 28px 70px oklch(0.24 0.06 246 / 18%);
+}
+
+.new-construction-page .nc-process-image {
+  position: relative;
+  min-height: 680px;
+  border-radius: 0;
+}
+
+.new-construction-page .nc-process-image > img {
+  width: 100%;
+  height: 100%;
+  min-height: 680px;
+  object-fit: cover;
+}
+
+.new-construction-page .nc-process-image-note {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  left: 24px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+  padding: 16px 18px;
+  color: oklch(0.97 0.008 240);
+  background: oklch(0.23 0.055 246 / 92%);
+  box-shadow: 0 14px 34px oklch(0.18 0.04 246 / 24%);
+}
+
+.new-construction-page .nc-process-image-note strong {
+  color: oklch(0.81 0.17 66);
+  font-size: 18px;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.new-construction-page .nc-process-image-note span {
+  max-width: 42ch;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.new-construction-page .nc-process-copy {
+  width: 100%;
+  max-width: none;
+  flex-direction: column;
+  align-items: stretch;
+  padding: clamp(36px, 4.5vw, 70px);
+  color: oklch(0.96 0.008 240);
+}
+
+.new-construction-page .nc-process-kicker {
+  width: fit-content;
+  margin-bottom: 18px;
+  padding: 7px 10px;
+  color: oklch(0.84 0.16 66);
+  background: oklch(0.38 0.1 246);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.new-construction-page .nc-process-heading .heading-8 {
+  max-width: 14ch;
+  margin: 0;
+  color: oklch(0.98 0.006 240);
+  font-size: clamp(32px, 3.2vw, 48px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.new-construction-page .nc-process-intro {
+  max-width: 57ch;
+  margin-top: 22px;
+}
+
+.new-construction-page .nc-process-intro .paragraph-17 {
+  margin: 0;
+  color: oklch(0.87 0.018 240);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.new-construction-page .nc-process-list {
+  margin-top: 30px;
+  border-top: 1px solid oklch(0.92 0.015 240 / 18%);
+}
+
+.new-construction-page .nc-process-item {
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr);
+  gap: 18px;
+  padding: 21px 0;
+  border-bottom: 1px solid oklch(0.92 0.015 240 / 18%);
+  transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.new-construction-page .nc-process-item:hover {
+  transform: translateX(6px);
+}
+
+.new-construction-page .nc-process-number {
+  padding-top: 3px;
+  color: oklch(0.81 0.17 66);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.new-construction-page .nc-process-item h3 {
+  margin: 0 0 6px;
+  color: oklch(0.98 0.006 240);
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.new-construction-page .nc-process-item p {
+  max-width: 46ch;
+  margin: 0;
+  color: oklch(0.82 0.02 240);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.new-construction-page .nc-process-action {
+  margin-top: 30px;
+}
+
+/* ---- Products ---- */
+
+.new-construction-page .nc-kicker {
+  color: oklch(0.51 0.14 246);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.new-construction-page .nc-products-heading-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.72fr);
+  gap: 48px;
+  align-items: end;
+  margin-bottom: 38px;
+}
+
+.new-construction-page .nc-products-heading-row h2 {
+  max-width: 16ch;
+  margin: 10px 0 0;
+}
+
+.new-construction-page .nc-products-heading-row > p {
+  max-width: 56ch;
+  margin: 0 0 5px;
+  color: oklch(0.45 0.025 246);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.new-construction-page .nc-products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.new-construction-page .nc-product-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid oklch(0.84 0.025 246);
+  border-radius: 16px;
+  background: oklch(0.985 0.004 246);
+  box-shadow: 0 12px 34px oklch(0.31 0.05 246 / 7%);
+  text-decoration: none;
+  transition:
+    transform 240ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 240ms ease,
+    box-shadow 240ms ease;
+}
+
+.new-construction-page .nc-product-card:hover {
+  transform: translateY(-5px);
+  border-color: oklch(0.66 0.09 246);
+  box-shadow: 0 24px 54px oklch(0.31 0.06 246 / 14%);
+}
+
+.new-construction-page .nc-product-image {
+  height: 220px;
+  border-radius: 0;
+}
+
+.new-construction-page .nc-product-image > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.new-construction-page .nc-product-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 24px 26px 26px;
+}
+
+.new-construction-page .nc-product-content h3 {
+  margin: 0 0 8px;
+  color: oklch(0.28 0.06 246);
+  font-size: 21px;
+  line-height: 1.2;
+}
+
+.new-construction-page .nc-product-content p {
+  margin: 0 0 20px;
+  color: oklch(0.47 0.025 246);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.new-construction-page .nc-product-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  color: oklch(0.4 0.11 246);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  transition: gap 200ms ease;
+}
+
+.new-construction-page .nc-product-card:hover .nc-product-link {
+  gap: 16px;
+}
+
+.new-construction-page .nc-product-link span {
+  color: oklch(0.72 0.15 66);
+  font-size: 17px;
+  line-height: 0.8;
+}
+
+.new-construction-page #nc-contact .cta-v3-image .cover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ---- Responsive ---- */
+
+@media (max-width: 991px) {
+  .new-construction-page .nc-benefits-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .new-construction-page .nc-process-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .new-construction-page .nc-process-image,
+  .new-construction-page .nc-process-image > img {
+    min-height: 480px;
+  }
+
+  .new-construction-page .nc-products-heading-row {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .new-construction-page .nc-products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .div-block-59 > .new-construction-hero-bg {
+    background-position: 56% center;
+  }
+
+  .new-construction-page .nc-benefits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .new-construction-page .nc-benefit-card:hover,
+  .new-construction-page .nc-product-card:hover,
+  .new-construction-page .nc-process-item:hover {
+    transform: none;
+  }
+
+  .new-construction-page .nc-process-shell {
+    border-radius: 14px;
+  }
+
+  .new-construction-page .nc-process-image,
+  .new-construction-page .nc-process-image > img {
+    min-height: 380px;
+  }
+
+  .new-construction-page .nc-process-image-note {
+    right: 14px;
+    bottom: 14px;
+    left: 14px;
+    grid-template-columns: 1fr;
+    gap: 5px;
+    padding: 14px;
+  }
+
+  .new-construction-page .nc-process-copy {
+    padding: 32px 22px 36px;
+  }
+
+  .new-construction-page .nc-process-heading .heading-8 {
+    max-width: 14ch;
+    font-size: clamp(30px, 9vw, 40px);
+  }
+
+  .new-construction-page .nc-process-item {
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: 12px;
+    padding: 18px 0;
+  }
+
+  .new-construction-page .nc-products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .new-construction-page .nc-product-image {
+    height: 200px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .new-construction-page .nc-benefit-card,
+  .new-construction-page .nc-product-card,
+  .new-construction-page .nc-process-item {
+    transition: none;
+  }
+}

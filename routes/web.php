@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [ClassicSiteController::class, 'home']);
 Route::get('/windows', [ClassicSiteController::class, 'windowsIndex']);
 Route::get('/doors', [ClassicSiteController::class, 'doorsIndex']);
+Route::get('/new-construction', [ClassicSiteController::class, 'newConstruction']);
 
 Route::permanentRedirect('/windows/martin-elevate', '/brand-collections/brand-marvin-elevate-collection');
 Route::permanentRedirect('/windows/martin-vivid', '/brand-collections/brand-marvin-vivid-collection');

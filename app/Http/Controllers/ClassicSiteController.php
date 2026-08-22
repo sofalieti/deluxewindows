@@ -419,6 +419,11 @@ class ClassicSiteController extends Controller
         return view('financing');
     }
 
+    public function newConstruction()
+    {
+        return view('new-construction');
+    }
+
     public function about()
     {
         return view('about');
