@@ -85,7 +85,7 @@ class VisitController extends Controller
         ])->validate();
 
         try {
-            SiteVisit::query()->create([
+            $visit = SiteVisit::query()->create([
                 ...$validated,
                 'ip_address' => $request->ip(),
                 'user_agent' => (string) $request->userAgent(),
@@ -94,6 +94,8 @@ class VisitController extends Controller
                     'request_id' => (string) $request->headers->get('x-request-id', ''),
                 ],
             ]);
+
+            app(\App\Services\ReferralAttributionService::class)->attributeVisit($visit);
         } catch (\Throwable $e) {
             Log::warning('Site visit save failed', [
                 'error' => $e->getMessage(),

@@ -32,6 +32,15 @@ use App\Orchid\Screens\Visits\VisitViewScreen;
 use App\Orchid\Screens\PlatformScreen;
 use App\Orchid\Screens\Promotions\PromotionsScreen;
 use App\Orchid\Screens\Analytics\CallAnalyticsScreen;
+use App\Orchid\Screens\Referral\PartnerDashboardScreen;
+use App\Orchid\Screens\Referral\PartnerLeadListScreen;
+use App\Orchid\Screens\Referral\PartnerLinkScreen;
+use App\Orchid\Screens\Referral\PartnerRewardListScreen;
+use App\Orchid\Screens\Referral\PartnerTrafficScreen;
+use App\Orchid\Screens\Referral\ReferralAnalyticsScreen;
+use App\Orchid\Screens\Referral\ReferralApplicationListScreen;
+use App\Orchid\Screens\Referral\ReferralPartnerListScreen;
+use App\Orchid\Screens\Referral\ReferralRewardListScreen;
 use App\Orchid\Screens\RingCentralCalls\RingCentralCallListScreen;
 use App\Orchid\Screens\Role\RoleEditScreen;
 use App\Orchid\Screens\Role\RoleListScreen;
@@ -101,6 +110,33 @@ Route::screen('ringcentral-calls', RingCentralCallListScreen::class)
 
 Route::screen('analytics/calls', CallAnalyticsScreen::class)
     ->name('platform.analytics.calls');
+
+Route::screen('referral/applications', ReferralApplicationListScreen::class)
+    ->name('platform.referral.applications');
+
+Route::screen('referral/partners', ReferralPartnerListScreen::class)
+    ->name('platform.referral.partners');
+
+Route::screen('referral/rewards', ReferralRewardListScreen::class)
+    ->name('platform.referral.rewards');
+
+Route::screen('referral/analytics', ReferralAnalyticsScreen::class)
+    ->name('platform.referral.analytics');
+
+Route::screen('referral/my-dashboard', PartnerDashboardScreen::class)
+    ->name('platform.referral.my-dashboard');
+
+Route::screen('referral/my-leads', PartnerLeadListScreen::class)
+    ->name('platform.referral.my-leads');
+
+Route::screen('referral/my-traffic', PartnerTrafficScreen::class)
+    ->name('platform.referral.my-traffic');
+
+Route::screen('referral/my-rewards', PartnerRewardListScreen::class)
+    ->name('platform.referral.my-rewards');
+
+Route::screen('referral/my-link', PartnerLinkScreen::class)
+    ->name('platform.referral.my-link');
 
 Route::get('ringcentral-calls/{call}/recording', [RingCentralRecordingController::class, 'forCall'])
     ->name('platform.ringcentral-calls.recording')

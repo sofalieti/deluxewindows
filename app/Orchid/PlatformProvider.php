@@ -147,6 +147,53 @@ class PlatformProvider extends OrchidServiceProvider
                 ->route('platform.analytics.calls')
                 ->permission('platform.analytics'),
 
+            Menu::make('Referral applications')
+                ->icon('bs.person-plus')
+                ->route('platform.referral.applications')
+                ->permission('platform.referral.admin')
+                ->title('Referrals'),
+
+            Menu::make('Referral partners')
+                ->icon('bs.people')
+                ->route('platform.referral.partners')
+                ->permission('platform.referral.admin'),
+
+            Menu::make('Referral rewards')
+                ->icon('bs.cash-coin')
+                ->route('platform.referral.rewards')
+                ->permission('platform.referral.admin'),
+
+            Menu::make('Referral analytics')
+                ->icon('bs.bar-chart')
+                ->route('platform.referral.analytics')
+                ->permission('platform.referral.admin'),
+
+            Menu::make('My dashboard')
+                ->icon('bs.speedometer2')
+                ->route('platform.referral.my-dashboard')
+                ->permission('platform.referral.portal')
+                ->title('Partner portal'),
+
+            Menu::make('My leads')
+                ->icon('bs.inbox')
+                ->route('platform.referral.my-leads')
+                ->permission('platform.referral.portal'),
+
+            Menu::make('My traffic')
+                ->icon('bs.activity')
+                ->route('platform.referral.my-traffic')
+                ->permission('platform.referral.portal'),
+
+            Menu::make('My rewards')
+                ->icon('bs.cash')
+                ->route('platform.referral.my-rewards')
+                ->permission('platform.referral.portal'),
+
+            Menu::make('My link')
+                ->icon('bs.link-45deg')
+                ->route('platform.referral.my-link')
+                ->permission('platform.referral.portal'),
+
             Menu::make('Mailbox')
                 ->icon('bs.envelope')
                 ->route('platform.mailbox')
@@ -221,6 +268,10 @@ class PlatformProvider extends OrchidServiceProvider
 
             ItemPermission::group('Analytics')
                 ->addPermission('platform.analytics', 'Open Call Analytics'),
+
+            ItemPermission::group('Referrals')
+                ->addPermission('platform.referral.admin', 'Manage referral partners, applications & rewards')
+                ->addPermission('platform.referral.portal', 'Partner portal (own referral data only)'),
 
             ItemPermission::group('Contacts')
                 ->addPermission('platform.contacts', 'Manage Contacts'),

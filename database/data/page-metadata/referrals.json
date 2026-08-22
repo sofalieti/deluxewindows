@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "key": "referrals",
+  "path": "/referrals",
+  "seo": {
+    "title": "Referral Partner Program | Earn $150 | Deluxe Windows",
+    "description": "Join the Deluxe Windows referral partner program. Share your unique link and earn $150 for every referred customer who becomes a sold Bay Area project.",
+    "canonical": "https://www.deluxewindows.com/referrals",
+    "og": {
+      "title": "Referral Partner Program | Earn $150 | Deluxe Windows",
+      "description": "Join the Deluxe Windows referral partner program. Share your unique link and earn $150 for every referred customer who becomes a sold Bay Area project.",
+      "image": "/webflow-assets/images/new-construction/hero.avif",
+      "type": "website"
+    },
+    "h1": "Earn $150 for Every Customer You Refer",
+    "primary_keyword": "window referral program",
+    "target_keywords": [
+      "window referral program",
+      "door referral partner",
+      "earn money referring windows",
+      "Bay Area window referral"
+    ],
+    "search_intent": "commercial",
+    "priority": "P2",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "twitter": {
+      "title": "Referral Partner Program | Earn $150 | Deluxe Windows",
+      "description": "Join the Deluxe Windows referral partner program. Share your unique link and earn $150 for every referred customer who becomes a sold Bay Area project.",
+      "image": "/webflow-assets/images/new-construction/hero.avif",
+      "card": "summary_large_image"
+    }
+  },
+  "faq": [],
+  "schema": {
+    "primary_type": "WebPage",
+    "data": {},
+    "extra": [],
+    "replace": []
+  }
+}

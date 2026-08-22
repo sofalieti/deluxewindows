@@ -64,6 +64,7 @@ class Lead extends Model
         'utm_source',
         'utm_medium',
         'utm_campaign',
+        'referral_partner_id',
         'ip_address',
         'user_agent',
         'meta',
@@ -127,6 +128,16 @@ class Lead extends Model
     public function contact(): BelongsTo
     {
         return $this->belongsTo(Contact::class);
+    }
+
+    public function referralPartner(): BelongsTo
+    {
+        return $this->belongsTo(ReferralPartner::class, 'referral_partner_id');
+    }
+
+    public function referralReward(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(ReferralReward::class);
     }
 
     public function comments(): HasMany

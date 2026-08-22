@@ -3,6 +3,7 @@
 use App\Http\Controllers\CallbackRequestController;
 use App\Http\Controllers\ClassicSiteController;
 use App\Http\Controllers\PhoneClickController;
+use App\Http\Controllers\ReferralController;
 use App\Http\Controllers\VisitController;
 use Illuminate\Support\Facades\Route;
 
@@ -10,6 +11,10 @@ Route::get('/', [ClassicSiteController::class, 'home']);
 Route::get('/windows', [ClassicSiteController::class, 'windowsIndex']);
 Route::get('/doors', [ClassicSiteController::class, 'doorsIndex']);
 Route::get('/new-construction', [ClassicSiteController::class, 'newConstruction']);
+Route::get('/referrals', [ReferralController::class, 'landing']);
+Route::post('/referrals/apply', [ReferralController::class, 'apply'])->name('referrals.apply');
+Route::get('/r/{code}', [ReferralController::class, 'redirect'])
+    ->where('code', '[A-Za-z0-9\-]+');
 
 Route::permanentRedirect('/windows/martin-elevate', '/brand-collections/brand-marvin-elevate-collection');
 Route::permanentRedirect('/windows/martin-vivid', '/brand-collections/brand-marvin-vivid-collection');

@@ -94,6 +94,8 @@ class PhoneClickController extends Controller
                     'request_id' => (string) $request->headers->get('x-request-id', ''),
                 ],
             ]);
+
+            app(\App\Services\ReferralAttributionService::class)->attributePhoneClick($click);
         } catch (\Throwable $e) {
             Log::warning('Phone click save failed', [
                 'error' => $e->getMessage(),

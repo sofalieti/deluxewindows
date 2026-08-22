@@ -40,7 +40,7 @@ class LeadEditScreen extends Screen
             TrafficSourceVisibility::SECTION_LEADS
         );
 
-        $lead->load(['comments.user', 'changes.user', 'contact']);
+        $lead->load(['comments.user', 'changes.user', 'contact', 'referralPartner', 'referralReward']);
 
         $this->lead = $lead;
 
@@ -189,6 +189,22 @@ class LeadEditScreen extends Screen
                                 ->render(fn (Lead $lead) => e(trim((string) ($lead->utm_medium ?? '')) !== '' ? (string) $lead->utm_medium : '-')),
                             Sight::make('utm_campaign', 'UTM campaign')
                                 ->render(fn (Lead $lead) => e(trim((string) ($lead->utm_campaign ?? '')) !== '' ? (string) $lead->utm_campaign : '-')),
+                            Sight::make('referral_partner', 'Referral partner')
+                                ->render(function (Lead $lead): string {
+                                    $partner = $lead->referralPartner;
+                                    if ($partner === null) {
+                                        return '<span class="text-muted">—</span>';
+                                    }
+
+                                    $reward = $lead->referralReward;
+                                    $rewardLabel = $reward
+                                        ? ' · reward: '.e(\App\Models\ReferralReward::STATUSES[$reward->status] ?? $reward->status)
+                                        : '';
+
+                                    return '<span class="badge bg-primary text-white">'
+                                        .e($partner->name).' ('.e($partner->code).')</span>'
+                                        .$rewardLabel;
+                                }),
                             Sight::make('utm_content', 'UTM content')
                                 ->render(fn (Lead $lead) => e($lead->metaValue('utm_content', '-'))),
                             Sight::make('utm_term', 'UTM term')
@@ -320,6 +336,8 @@ class LeadEditScreen extends Screen
             }
         });
 
+        app(\App\Services\ReferralRewardService::class)->syncEligibleForLead($lead->refresh());
+
         Toast::info(count($changes) === 1 ? 'Lead updated.' : count($changes).' lead fields updated.');
 
         return redirect()->route('platform.leads.edit', $lead);
@@ -342,6 +360,7 @@ class LeadEditScreen extends Screen
                 $lead->status = $to;
                 $lead->save();
                 LeadChange::recordStatusChange($lead, $from, $to, (int) $user->id);
+                app(\App\Services\ReferralRewardService::class)->syncEligibleForLead($lead->refresh());
             }
         }
 

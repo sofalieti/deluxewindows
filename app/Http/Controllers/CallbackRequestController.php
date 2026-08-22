@@ -208,6 +208,8 @@ class CallbackRequestController extends Controller
             'meta' => $meta,
         ]);
 
+        app(\App\Services\ReferralAttributionService::class)->attributeLead($lead);
+
         app(ContactFromLeadService::class)->attachNewLead($lead);
 
         $notifyRecipients = (array) config('services.lead_notifications.to', []);

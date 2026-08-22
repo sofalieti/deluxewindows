@@ -236,6 +236,7 @@ class LeadListScreen extends Screen
         $lead->save();
 
         LeadChange::recordStatusChange($lead, $from, $to, (int) $user->id);
+        app(\App\Services\ReferralRewardService::class)->syncEligibleForLead($lead->refresh());
 
         Toast::info('Status updated: '.$lead->statusLabel());
     }

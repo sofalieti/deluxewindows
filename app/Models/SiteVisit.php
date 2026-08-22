@@ -26,6 +26,7 @@ class SiteVisit extends Model
         'utm_source',
         'utm_medium',
         'utm_campaign',
+        'referral_partner_id',
         'utm_content',
         'utm_term',
         'utm_city',
@@ -84,5 +85,10 @@ class SiteVisit extends Model
         static::saving(function (SiteVisit $visit): void {
             $visit->traffic_source = $visit->trafficSourceKey();
         });
+    }
+
+    public function referralPartner(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(ReferralPartner::class, 'referral_partner_id');
     }
 }

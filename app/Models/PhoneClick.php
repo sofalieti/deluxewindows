@@ -43,6 +43,7 @@ class PhoneClick extends Model
         'utm_source',
         'utm_medium',
         'utm_campaign',
+        'referral_partner_id',
         'utm_content',
         'utm_term',
         'utm_city',
@@ -205,6 +206,11 @@ class PhoneClick extends Model
     public function googleSheetSender(): BelongsTo
     {
         return $this->belongsTo(User::class, 'google_sheet_sent_by');
+    }
+
+    public function referralPartner(): BelongsTo
+    {
+        return $this->belongsTo(ReferralPartner::class, 'referral_partner_id');
     }
 
     public function wasSentToGoogleSheet(): bool
