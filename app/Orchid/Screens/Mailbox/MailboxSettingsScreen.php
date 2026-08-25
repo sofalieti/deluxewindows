@@ -94,7 +94,8 @@ class MailboxSettingsScreen extends Screen
         } else {
             $bar[] = Button::make('Connect with Google')
                 ->icon('bs.google')
-                ->method('connectGoogle');
+                ->method('connectGoogle')
+                ->novalidate();
         }
 
         $bar[] = Button::make('Test connection')
@@ -123,7 +124,8 @@ class MailboxSettingsScreen extends Screen
 
                 Input::make('setting.google_client_id')
                     ->title('Google Client ID')
-                    ->help('From Google Cloud Console → APIs & Services → Credentials.'),
+                    ->required()
+                    ->help('From Google Cloud Console → APIs & Services → Credentials. Save this, then click Connect with Google.'),
 
                 Input::make('setting.google_client_secret')
                     ->title('Google Client Secret')
@@ -194,11 +196,10 @@ class MailboxSettingsScreen extends Screen
 
     public function connectGoogle(Request $request)
     {
-        $data = $this->validatedSettings($request, requireGoogleApp: true);
-        $this->settings->update($data);
+        $this->settings->update($this->validatedSettings($request));
 
         if (! $this->oauth->hasOAuthAppConfigured()) {
-            Toast::error('Save Google Client ID and Client Secret first.');
+            Toast::error('Enter Google Client ID and Client Secret, click Save, then Connect with Google.');
 
             return;
         }
@@ -237,29 +238,44 @@ class MailboxSettingsScreen extends Screen
     /**
      * @return array<string, mixed>
      */
-    private function validatedSettings(Request $request, bool $requireGoogleApp = false): array
+    private function validatedSettings(Request $request): array
     {
+        $existing = $this->settings->get();
+
         $rules = [
             'setting.enabled' => ['sometimes', 'boolean'],
-            'setting.google_client_id' => [$requireGoogleApp ? 'required' : 'nullable', 'string', 'max:500'],
+            'setting.google_client_id' => ['nullable', 'string', 'max:500'],
             'setting.google_client_secret' => ['nullable', 'string', 'max:500'],
             'setting.username' => ['nullable', 'email', 'max:255'],
             'setting.password' => ['nullable', 'string', 'max:255'],
             'setting.subject_filter' => ['nullable', 'string', 'max:255'],
             'setting.from_filter' => ['nullable', 'string', 'max:255'],
             'setting.folder' => ['nullable', 'string', 'max:255'],
-            'setting.imap_host' => ['required', 'string', 'max:255'],
-            'setting.imap_port' => ['required', 'integer', 'min:1', 'max:65535'],
-            'setting.imap_encryption' => ['required', 'string', 'max:16'],
-            'setting.smtp_host' => ['required', 'string', 'max:255'],
-            'setting.smtp_port' => ['required', 'integer', 'min:1', 'max:65535'],
-            'setting.smtp_encryption' => ['required', 'string', 'max:16'],
+            'setting.imap_host' => ['nullable', 'string', 'max:255'],
+            'setting.imap_port' => ['nullable', 'integer', 'min:1', 'max:65535'],
+            'setting.imap_encryption' => ['nullable', 'string', 'max:16'],
+            'setting.smtp_host' => ['nullable', 'string', 'max:255'],
+            'setting.smtp_port' => ['nullable', 'integer', 'min:1', 'max:65535'],
+            'setting.smtp_encryption' => ['nullable', 'string', 'max:16'],
         ];
 
-        $data = $request->validate($rules)['setting'];
+        $data = $request->validate($rules)['setting'] ?? [];
         $data['auth_mode'] = 'oauth';
 
-        unset($data['google_status'], $data['google_redirect_uri']);
+        unset($data['google_status'], $data['google_redirect_uri'], $data['last_sync_at'], $data['last_error']);
+
+        foreach (['google_client_id', 'google_client_secret', 'password'] as $secretField) {
+            $value = trim((string) ($data[$secretField] ?? ''));
+            if ($value === '' || $value === '••••••••') {
+                unset($data[$secretField]);
+            }
+        }
+
+        foreach (['imap_host', 'imap_port', 'imap_encryption', 'smtp_host', 'smtp_port', 'smtp_encryption', 'folder'] as $field) {
+            if (! array_key_exists($field, $data) || $data[$field] === null || $data[$field] === '') {
+                $data[$field] = $existing->{$field};
+            }
+        }
 
         return $data;
     }
