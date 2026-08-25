@@ -7,15 +7,21 @@ namespace App\Services\Mailbox;
 use App\Models\MailboxSetting;
 use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
-use Laravel\Socialite\Facades\Socialite;
-use Laravel\Socialite\Two\GoogleProvider;
+use Illuminate\Support\Str;
 use Throwable;
 
 class GoogleMailboxOAuthService
 {
     public const SCOPE_MAIL = 'https://mail.google.com/';
+
+    private const AUTHORIZE_URL = 'https://accounts.google.com/o/oauth2/v2/auth';
+
+    private const TOKEN_URL = 'https://oauth2.googleapis.com/token';
+
+    private const USERINFO_URL = 'https://www.googleapis.com/oauth2/v3/userinfo';
 
     public function __construct(
         private readonly MailboxSettingsService $settings,
@@ -45,35 +51,69 @@ class GoogleMailboxOAuthService
             throw new \RuntimeException('Save Google Client ID and Client Secret first.');
         }
 
-        return $this->driver($setting)
-            ->scopes([self::SCOPE_MAIL, 'email', 'profile', 'openid'])
-            ->with([
-                'access_type' => 'offline',
-                'prompt' => 'consent',
-                'include_granted_scopes' => 'true',
-            ])
-            ->redirect();
+        $state = Str::random(40);
+        session(['mailbox.google_oauth_state' => $state]);
+
+        $query = http_build_query([
+            'client_id' => (string) $setting->google_client_id,
+            'redirect_uri' => $this->redirectUri(),
+            'response_type' => 'code',
+            'scope' => implode(' ', [self::SCOPE_MAIL, 'email', 'profile', 'openid']),
+            'access_type' => 'offline',
+            'prompt' => 'consent',
+            'include_granted_scopes' => 'true',
+            'state' => $state,
+        ]);
+
+        return redirect()->away(self::AUTHORIZE_URL.'?'.$query);
     }
 
-    public function handleCallback(): MailboxSetting
+    public function handleCallback(?Request $request = null): MailboxSetting
     {
+        $request ??= request();
         $setting = $this->settings->get();
         if (! $this->hasOAuthAppConfigured($setting)) {
             throw new \RuntimeException('Google OAuth app is not configured.');
         }
 
-        $googleUser = $this->driver($setting)->user();
-        $email = trim((string) ($googleUser->getEmail() ?? ''));
-        if ($email === '') {
-            throw new \RuntimeException('Google did not return an email address.');
+        $expected = (string) session('mailbox.google_oauth_state', '');
+        $state = trim((string) $request->query('state', ''));
+        session()->forget('mailbox.google_oauth_state');
+        if ($expected === '' || $state === '' || ! hash_equals($expected, $state)) {
+            throw new \RuntimeException('Google authorization state mismatch. Try Connect again.');
         }
 
-        $refresh = (string) ($googleUser->refreshToken ?? '');
-        $access = (string) ($googleUser->token ?? '');
-        $expiresIn = (int) ($googleUser->expiresIn ?? 3600);
+        $code = trim((string) $request->query('code', ''));
+        if ($code === '') {
+            throw new \RuntimeException('Google did not return an authorization code.');
+        }
 
+        $response = Http::asForm()->post(self::TOKEN_URL, [
+            'code' => $code,
+            'client_id' => (string) $setting->google_client_id,
+            'client_secret' => (string) $setting->google_client_secret,
+            'redirect_uri' => $this->redirectUri(),
+            'grant_type' => 'authorization_code',
+        ]);
+
+        if (! $response->successful()) {
+            Log::warning('Google mailbox token exchange failed', [
+                'status' => $response->status(),
+                'body' => $response->body(),
+            ]);
+            throw new \RuntimeException('Google did not accept the authorization code. Check Client ID, Secret, and redirect URI.');
+        }
+
+        $access = trim((string) $response->json('access_token'));
+        $refresh = trim((string) $response->json('refresh_token'));
+        $expiresIn = (int) ($response->json('expires_in') ?? 3600);
         if ($access === '') {
             throw new \RuntimeException('Google did not return an access token.');
+        }
+
+        $email = $this->fetchAccountEmail($access);
+        if ($email === '') {
+            throw new \RuntimeException('Google did not return an email address.');
         }
 
         $data = [
@@ -85,7 +125,6 @@ class GoogleMailboxOAuthService
             'last_error' => null,
         ];
 
-        // Google only returns refresh_token on first consent / prompt=consent.
         if ($refresh !== '') {
             $data['google_refresh_token'] = $refresh;
         } elseif (trim((string) $setting->google_refresh_token) === '') {
@@ -140,7 +179,7 @@ class GoogleMailboxOAuthService
             throw new \RuntimeException('Missing Google refresh token. Connect with Google again.');
         }
 
-        $response = Http::asForm()->post('https://oauth2.googleapis.com/token', [
+        $response = Http::asForm()->post(self::TOKEN_URL, [
             'client_id' => (string) $setting->google_client_id,
             'client_secret' => (string) $setting->google_client_secret,
             'refresh_token' => $refresh,
@@ -170,14 +209,19 @@ class GoogleMailboxOAuthService
         return $access;
     }
 
-    private function driver(MailboxSetting $setting): GoogleProvider
+    private function fetchAccountEmail(string $accessToken): string
     {
-        $this->configureServices($setting);
+        $response = Http::withToken($accessToken)->get(self::USERINFO_URL);
+        if (! $response->successful()) {
+            Log::warning('Google mailbox userinfo failed', [
+                'status' => $response->status(),
+                'body' => $response->body(),
+            ]);
 
-        /** @var GoogleProvider $driver */
-        $driver = Socialite::driver('google');
+            return '';
+        }
 
-        return $driver;
+        return strtolower(trim((string) ($response->json('email') ?? '')));
     }
 
     public function configureServices(?MailboxSetting $setting = null): void
@@ -187,7 +231,7 @@ class GoogleMailboxOAuthService
         config([
             'services.google.client_id' => (string) $setting->google_client_id,
             'services.google.client_secret' => (string) $setting->google_client_secret,
-            'services.google.redirect' => route('platform.mailbox.google.callback'),
+            'services.google.redirect' => $this->redirectUri(),
         ]);
     }
 
