@@ -82,19 +82,35 @@ class ImapMailboxService
             $offset = max(0, (int) ($cursors['email_offset'] ?? 0));
             $emailBudget = $maxSeconds < 30 ? 8 : 40;
             $slice = array_slice($emailList, $offset, $emailBudget);
+            $foldersUsed = [];
+            $candidates = 0;
+            $connectedEmail = strtolower($this->oauth->accountEmail($setting));
 
             foreach ($this->foldersToSync($client, $setting) as $folderName) {
-                $folder = $client->getFolder($folderName);
+                try {
+                    $folder = $client->getFolder($folderName);
+                } catch (Throwable) {
+                    $folder = null;
+                }
                 if ($folder === null) {
                     continue;
                 }
+                $foldersUsed[] = $folderName;
 
                 $isSent = $this->looksLikeSentFolder($folderName);
                 $messages = $this->fetchTargetedMessages($folder, $slice, $started, $maxSeconds);
+                $candidates += $messages->count();
 
                 foreach ($messages as $message) {
                     /** @var Message $message */
-                    $result = $this->importMessage($message, $folderName, $clientEmails, $isSent);
+                    $result = $this->importMessage(
+                        $message,
+                        $folderName,
+                        $clientEmails,
+                        $isSent,
+                        $connectedEmail,
+                        true,
+                    );
                     if ($result === 'imported') {
                         $imported++;
                     } else {
@@ -120,16 +136,20 @@ class ImapMailboxService
 
             $setting->folder_cursors = $cursors;
             $setting->last_sync_at = now();
-            $setting->last_error = null;
-            $setting->save();
-            $this->settings->forgetCache();
-
-            $message = 'Matching '.count($emailList).' client emails. Synced: '.$imported.' new, '.$skipped.' skipped.';
+            $message = 'Account '.$connectedEmail.' · folders '.implode(', ', $foldersUsed ?: ['none'])
+                .'. Searched '.count($slice).' of '.count($emailList).' client emails, IMAP found '.$candidates
+                .' · Synced: '.$imported.' new, '.$skipped.' skipped.';
             if ($emailList === []) {
                 $message = 'No client emails found on leads/contacts. Add emails to cards, then sync again.';
             } elseif ($more) {
                 $message .= ' More addresses still to search — run Sync again.';
             }
+            if ($imported === 0 && $candidates === 0 && $emailList !== []) {
+                $message .= ' If this Gmail is not the inbox where clients write, connect that account instead.';
+            }
+            $setting->last_error = $imported === 0 ? $message : null;
+            $setting->save();
+            $this->settings->forgetCache();
 
             return [
                 'ok' => true,
@@ -204,6 +224,8 @@ class ImapMailboxService
         string $folderName,
         array $clientEmails,
         bool $isSent,
+        string $connectedEmail = '',
+        bool $force = false,
     ): string {
         $uid = (int) $message->getUid();
         if ($uid <= 0) {
@@ -227,15 +249,18 @@ class ImapMailboxService
         $subject = $this->attrString($message->getSubject());
         $messageEmails = $this->messageEmails($message);
 
-        if (! $this->matcher->shouldImport($fromName, $fromEmail, $subject, $messageEmails, $clientEmails)) {
+        if (! $force && ! $this->matcher->shouldImport($fromName, $fromEmail, $subject, $messageEmails, $clientEmails)) {
             return 'skipped';
         }
+
+        $fromNormalized = strtolower(trim($fromEmail));
+        $outbound = $isSent || ($connectedEmail !== '' && $fromNormalized === $connectedEmail);
 
         $this->ensureMessageBody($message);
         $this->storeMessage(
             $message,
             $folderName,
-            $isSent ? MailboxMessage::DIRECTION_OUTBOUND : MailboxMessage::DIRECTION_INBOUND,
+            $outbound ? MailboxMessage::DIRECTION_OUTBOUND : MailboxMessage::DIRECTION_INBOUND,
         );
 
         return 'imported';
@@ -252,12 +277,13 @@ class ImapMailboxService
             $found = $found->merge($this->safeSearch($folder, fn ($query) => $query->whereFrom($from)->limit(40)));
         }
         $found = $found->merge($this->safeSearch($folder, fn ($query) => $query->whereSubject('Local Services')->limit(40)));
-        $found = $found->merge($this->safeSearch($folder, fn ($query) => $query->all()->fetchOrderDesc()->limit(80)));
 
         foreach ($emails as $email) {
             if ((microtime(true) - $started) > $maxSeconds - 1) {
                 break;
             }
+            $raw = 'from:'.$email.' OR to:'.$email;
+            $found = $found->merge($this->safeSearch($folder, fn ($query) => $query->where('CUSTOM X-GM-RAW '.$raw)->limit(50)));
             $found = $found->merge($this->safeSearch($folder, fn ($query) => $query->whereFrom($email)->limit(40)));
             $found = $found->merge($this->safeSearch($folder, fn ($query) => $query->whereTo($email)->limit(40)));
         }
@@ -294,12 +320,19 @@ class ImapMailboxService
         try {
             foreach ($client->getFolders(false) as $folder) {
                 $full = trim((string) ($folder->full_name ?? $folder->path ?? $folder->name ?? ''));
-                if ($full !== '' && $this->looksLikeSentFolder($full)) {
+                if ($full === '') {
+                    continue;
+                }
+                if ($this->looksLikeSentFolder($full) || $this->looksLikeAllMail($full)) {
                     $names[] = $full;
                 }
             }
         } catch (Throwable $e) {
             Log::info('Mailbox could not list extra IMAP folders', ['error' => $e->getMessage()]);
+        }
+
+        foreach (['[Gmail]/All Mail', '[Gmail]/Sent Mail'] as $gmailFolder) {
+            $names[] = $gmailFolder;
         }
 
         return array_values(array_unique($names));
@@ -312,6 +345,13 @@ class ImapMailboxService
         return str_contains($normalized, 'sent')
             && ! str_contains($normalized, 'spam')
             && ! str_contains($normalized, 'trash');
+    }
+
+    private function looksLikeAllMail(string $name): bool
+    {
+        $normalized = strtolower($name);
+
+        return str_contains($normalized, 'all mail');
     }
 
     private function ensureMessageBody(Message $message): void

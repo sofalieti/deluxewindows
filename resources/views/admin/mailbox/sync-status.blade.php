@@ -23,6 +23,7 @@
             @endif
             · Messages in mailbox: {{ \App\Models\MailboxMessage::query()->count() }}
             · Client emails in CRM: {{ $clientEmailCount ?? 0 }}
+            · Connected Gmail: {{ $setting->google_connected_email ?: $setting->username ?: '—' }}
             @if (filled($setting->last_error))
                 <div class="text-danger mt-1">{{ $setting->last_error }}</div>
             @endif
