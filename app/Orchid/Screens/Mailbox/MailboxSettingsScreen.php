@@ -92,10 +92,10 @@ class MailboxSettingsScreen extends Screen
                 ->method('disconnectGoogle')
                 ->confirm('Disconnect Google mailbox access?');
         } else {
-            $bar[] = Button::make('Connect with Google')
+            $bar[] = Link::make('Connect with Google')
                 ->icon('bs.google')
-                ->method('connectGoogle')
-                ->novalidate();
+                ->route('platform.mailbox.google.redirect')
+                ->rawClick();
         }
 
         $bar[] = Button::make('Test connection')
@@ -192,19 +192,6 @@ class MailboxSettingsScreen extends Screen
         $data = $this->validatedSettings($request);
         $this->settings->update($data);
         Toast::info('Mailbox settings saved.');
-    }
-
-    public function connectGoogle(Request $request)
-    {
-        $this->settings->update($this->validatedSettings($request));
-
-        if (! $this->oauth->hasOAuthAppConfigured()) {
-            Toast::error('Enter Google Client ID and Client Secret, click Save, then Connect with Google.');
-
-            return;
-        }
-
-        return redirect()->route('platform.mailbox.google.redirect');
     }
 
     public function disconnectGoogle(): void

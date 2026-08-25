@@ -65,7 +65,8 @@ class GoogleMailboxOAuthService
             'state' => $state,
         ]);
 
-        return redirect()->away(self::AUTHORIZE_URL.'?'.$query);
+        return redirect()->away(self::AUTHORIZE_URL.'?'.$query)
+            ->header('Turbo-Visit-Control', 'reload');
     }
 
     public function handleCallback(?Request $request = null): MailboxSetting
