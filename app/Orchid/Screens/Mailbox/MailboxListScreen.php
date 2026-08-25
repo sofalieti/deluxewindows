@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace App\Orchid\Screens\Mailbox;
 
+use App\Jobs\SyncMailboxJob;
 use App\Models\MailboxMessage;
-use App\Services\Mailbox\ImapMailboxService;
+use App\Services\Mailbox\MailboxSettingsService;
 use Illuminate\Http\Request;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\Link;
@@ -17,11 +18,6 @@ use Orchid\Support\Facades\Toast;
 
 class MailboxListScreen extends Screen
 {
-    public function __construct(
-        private readonly ImapMailboxService $imap,
-    ) {
-    }
-
     public function query(): iterable
     {
         $q = trim((string) request()->input('filter.q', ''));
@@ -38,9 +34,12 @@ class MailboxListScreen extends Screen
                 });
             });
 
+        $setting = app(MailboxSettingsService::class)->get();
+
         return [
             'messages' => $messages->paginate(50),
             'filter' => ['q' => $q],
+            'setting' => $setting,
         ];
     }
 
@@ -76,13 +75,15 @@ class MailboxListScreen extends Screen
 
             Button::make('Sync now')
                 ->icon('bs.arrow-repeat')
-                ->method('syncNow'),
+                ->method('syncNow')
+                ->novalidate(),
         ];
     }
 
     public function layout(): iterable
     {
         return [
+            Layout::view('admin.mailbox.sync-status'),
             Layout::rows([
                 Input::make('filter.q')
                     ->title('Search')
@@ -123,12 +124,8 @@ class MailboxListScreen extends Screen
 
     public function syncNow(): void
     {
-        $result = $this->imap->sync();
-        if ($result['ok']) {
-            Toast::success($result['message']);
-        } else {
-            Toast::error($result['message']);
-        }
+        SyncMailboxJob::dispatch()->afterResponse();
+        Toast::info('Sync started in the background. Wait about a minute, then refresh the page.');
     }
 
     public function search(Request $request)

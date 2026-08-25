@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orchid\Screens\Mailbox;
 
+use App\Jobs\SyncMailboxJob;
 use App\Services\Mailbox\GoogleMailboxOAuthService;
 use App\Services\Mailbox\ImapMailboxService;
 use App\Services\Mailbox\MailboxSettingsService;
@@ -105,7 +106,8 @@ class MailboxSettingsScreen extends Screen
 
         $bar[] = Button::make('Sync now')
             ->icon('bs.arrow-repeat')
-            ->method('syncNow');
+            ->method('syncNow')
+            ->novalidate();
 
         return $bar;
     }
@@ -212,12 +214,8 @@ class MailboxSettingsScreen extends Screen
     public function syncNow(Request $request): void
     {
         $this->settings->update($this->validatedSettings($request));
-        $result = $this->imap->sync();
-        if ($result['ok']) {
-            Toast::success($result['message']);
-        } else {
-            Toast::error($result['message']);
-        }
+        SyncMailboxJob::dispatch()->afterResponse();
+        Toast::info('Sync started in the background. Wait about a minute, then refresh the page.');
     }
 
     /**
