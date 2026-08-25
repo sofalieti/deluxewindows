@@ -7,6 +7,8 @@ namespace App\Services\Mailbox;
 use App\Models\MailboxAttachment;
 use App\Models\MailboxMessage;
 use App\Models\MailboxSetting;
+use Carbon\Carbon;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -83,28 +85,24 @@ class ImapMailboxService
                     continue;
                 }
 
-                $lastUid = (int) ($cursors[$folderName] ?? 0);
-                $fromUid = max(1, $lastUid + 1);
-                $toUid = $fromUid + 399;
-                $uidNext = $this->folderUidNext($folder);
-
-                $messages = $folder->messages()
-                    ->leaveUnread()
-                    ->setFetchBody(false)
-                    ->setFetchFlags(false)
-                    ->whereUid($fromUid.':'.$toUid)
-                    ->get();
+                $cursor = $this->normalizeFolderCursor($cursors[$folderName] ?? null);
+                try {
+                    $messages = $this->fetchFolderBatch($folder, $cursor);
+                } catch (Throwable $e) {
+                    Log::warning('Mailbox folder fetch failed', [
+                        'folder' => $folderName,
+                        'error' => $e->getMessage(),
+                    ]);
+                    if (str_contains(strtolower($e->getMessage()), 'could not parse')) {
+                        continue;
+                    }
+                    throw $e;
+                }
 
                 $isSent = $this->looksLikeSentFolder($folderName);
-                $maxUid = $lastUid;
 
                 foreach ($messages as $message) {
                     /** @var Message $message */
-                    $uid = (int) $message->getUid();
-                    if ($uid > $maxUid) {
-                        $maxUid = $uid;
-                    }
-
                     $result = $this->importMessage($message, $folderName, $clientEmails, $isSent);
                     if ($result === 'imported') {
                         $imported++;
@@ -118,14 +116,9 @@ class ImapMailboxService
                     }
                 }
 
-                if ($messages->isEmpty()) {
-                    $cursors[$folderName] = $uidNext > 0 && $toUid + 1 >= $uidNext
-                        ? max($lastUid, $uidNext - 1)
-                        : $toUid;
-                    $more = $more || ($uidNext > 0 && $toUid + 1 < $uidNext);
-                } else {
-                    $cursors[$folderName] = $maxUid;
-                    $more = $more || ($uidNext > 0 ? $maxUid + 1 < $uidNext : $messages->count() >= 400);
+                $cursors[$folderName] = $this->advanceFolderCursor($cursor, $messages->count());
+                if (! ($cursors[$folderName]['done'] ?? false)) {
+                    $more = true;
                 }
             }
 
@@ -252,23 +245,54 @@ class ImapMailboxService
         return 'imported';
     }
 
-    private function folderUidNext(mixed $folder): int
+    /**
+     * @return array{page: int, done: bool}
+     */
+    private function normalizeFolderCursor(mixed $cursor): array
     {
-        try {
-            if (is_object($folder) && method_exists($folder, 'examine')) {
-                $status = $folder->examine();
-                if (is_array($status)) {
-                    return (int) ($status['uidnext'] ?? $status['uidNext'] ?? 0);
-                }
-            }
-            if (is_object($folder) && isset($folder->uidnext)) {
-                return (int) $folder->uidnext;
-            }
-        } catch (Throwable) {
-            return 0;
+        if (is_array($cursor) && isset($cursor['page'])) {
+            return [
+                'page' => max(1, (int) $cursor['page']),
+                'done' => (bool) ($cursor['done'] ?? false),
+            ];
         }
 
-        return 0;
+        return ['page' => 1, 'done' => false];
+    }
+
+    /**
+     * @param  array{page: int, done: bool}  $cursor
+     * @return array{page: int, done: bool}
+     */
+    private function advanceFolderCursor(array $cursor, int $fetched): array
+    {
+        if ($cursor['done']) {
+            return ['page' => 1, 'done' => true];
+        }
+
+        if ($fetched >= 200) {
+            return ['page' => $cursor['page'] + 1, 'done' => false];
+        }
+
+        return ['page' => $cursor['page'], 'done' => true];
+    }
+
+    /**
+     * @param  array{page: int, done: bool}  $cursor
+     */
+    private function fetchFolderBatch(mixed $folder, array $cursor): Collection
+    {
+        $query = $folder->messages()
+            ->leaveUnread()
+            ->setFetchBody(false);
+
+        if ($cursor['done']) {
+            return $query
+                ->whereSince(Carbon::now()->subDays(2)->startOfDay())
+                ->get();
+        }
+
+        return $query->all()->limit(200, $cursor['page'])->get();
     }
 
     /**
