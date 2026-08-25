@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Orchid\Screens\Mailbox;
 
-use App\Jobs\SyncMailboxJob;
 use App\Models\MailboxMessage;
+use App\Services\Mailbox\ImapMailboxService;
 use App\Services\Mailbox\MailboxSettingsService;
 use Illuminate\Http\Request;
 use Orchid\Screen\Actions\Button;
@@ -40,6 +40,7 @@ class MailboxListScreen extends Screen
             'messages' => $messages->paginate(50),
             'filter' => ['q' => $q],
             'setting' => $setting,
+            'clientEmailCount' => count(app(\App\Services\Mailbox\MailboxClientEmailDirectory::class)->normalizedSet()),
         ];
     }
 
@@ -76,7 +77,8 @@ class MailboxListScreen extends Screen
             Button::make('Sync now')
                 ->icon('bs.arrow-repeat')
                 ->method('syncNow')
-                ->novalidate(),
+                ->novalidate()
+                ->rawClick(),
         ];
     }
 
@@ -122,10 +124,18 @@ class MailboxListScreen extends Screen
         ];
     }
 
-    public function syncNow(): void
+    public function syncNow(ImapMailboxService $imap)
     {
-        SyncMailboxJob::dispatch()->afterResponse();
-        Toast::info('Sync started in the background. Wait about a minute, then refresh the page.');
+        $result = $imap->sync(maxSeconds: 12);
+        session()->flash('mailbox_sync_result', $result);
+
+        if ($result['ok']) {
+            Toast::success($result['message']);
+        } else {
+            Toast::error($result['message']);
+        }
+
+        return redirect()->route('platform.mailbox');
     }
 
     public function search(Request $request)

@@ -63,6 +63,18 @@ test('mailbox messages for a client email show on that address', function () {
         ->and(\App\Models\MailboxMessage::query()->forParticipant('nobody@example.com')->count())->toBe(0);
 });
 
+test('client emails are collected from the email column when normalized_email is empty', function () {
+    Contact::query()->create([
+        'full_name' => 'No Normalized',
+        'email' => 'fresh-client@example.com',
+    ]);
+    Contact::query()->where('email', 'fresh-client@example.com')->update(['normalized_email' => null]);
+
+    $set = app(\App\Services\Mailbox\MailboxClientEmailDirectory::class)->normalizedSet();
+
+    expect($set)->toHaveKey('fresh-client@example.com');
+});
+
 test('company and placeholder emails are not treated as clients', function () {
     Contact::query()->create([
         'full_name' => 'Internal',

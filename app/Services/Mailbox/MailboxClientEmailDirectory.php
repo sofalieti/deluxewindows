@@ -24,22 +24,20 @@ final class MailboxClientEmailDirectory
      */
     public function normalizedSet(): array
     {
-        $emails = Contact::query()
-            ->whereNotNull('normalized_email')
-            ->where('normalized_email', '!=', '')
-            ->pluck('normalized_email');
+        $contactEmails = Contact::query()
+            ->get(['email', 'normalized_email'])
+            ->flatMap(fn (Contact $contact) => [$contact->normalized_email, $contact->email]);
 
         $leadEmails = Lead::query()
             ->where(function ($query): void {
                 $query->whereNull('status')
                     ->orWhere('status', '!=', Lead::STATUS_SPAM);
             })
-            ->whereNotNull('normalized_email')
-            ->where('normalized_email', '!=', '')
-            ->pluck('normalized_email');
+            ->get(['email', 'normalized_email'])
+            ->flatMap(fn (Lead $lead) => [$lead->normalized_email, $lead->email]);
 
         $set = [];
-        foreach ($emails->concat($leadEmails) as $email) {
+        foreach ($contactEmails->concat($leadEmails) as $email) {
             $normalized = Contact::normalizeEmail($email);
             if ($normalized !== null && ! $this->isIgnored($normalized)) {
                 $set[$normalized] = true;

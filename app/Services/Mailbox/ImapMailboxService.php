@@ -7,7 +7,6 @@ namespace App\Services\Mailbox;
 use App\Models\MailboxAttachment;
 use App\Models\MailboxMessage;
 use App\Models\MailboxSetting;
-use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
@@ -56,9 +55,10 @@ class ImapMailboxService
      *
      * @return array{ok: bool, imported: int, skipped: int, message: string}
      */
-    public function sync(?MailboxSetting $setting = null): array
+    public function sync(?MailboxSetting $setting = null, int $maxSeconds = 150): array
     {
         $setting ??= $this->settings->get();
+        $maxSeconds = max(5, $maxSeconds);
 
         if (! $setting->enabled) {
             return ['ok' => false, 'imported' => 0, 'skipped' => 0, 'message' => 'Mailbox sync is disabled.'];
@@ -73,11 +73,15 @@ class ImapMailboxService
         $more = false;
 
         try {
-            @set_time_limit(180);
+            @set_time_limit($maxSeconds + 20);
             $started = microtime(true);
             $client = $this->connect($setting);
             $clientEmails = $this->clients->normalizedSet();
             $cursors = is_array($setting->folder_cursors) ? $setting->folder_cursors : [];
+            $emailList = array_keys($clientEmails);
+            $offset = max(0, (int) ($cursors['email_offset'] ?? 0));
+            $emailBudget = $maxSeconds < 30 ? 8 : 40;
+            $slice = array_slice($emailList, $offset, $emailBudget);
 
             foreach ($this->foldersToSync($client, $setting) as $folderName) {
                 $folder = $client->getFolder($folderName);
@@ -85,21 +89,8 @@ class ImapMailboxService
                     continue;
                 }
 
-                $cursor = $this->normalizeFolderCursor($cursors[$folderName] ?? null);
-                try {
-                    $messages = $this->fetchFolderBatch($folder, $cursor);
-                } catch (Throwable $e) {
-                    Log::warning('Mailbox folder fetch failed', [
-                        'folder' => $folderName,
-                        'error' => $e->getMessage(),
-                    ]);
-                    if (str_contains(strtolower($e->getMessage()), 'could not parse')) {
-                        continue;
-                    }
-                    throw $e;
-                }
-
                 $isSent = $this->looksLikeSentFolder($folderName);
+                $messages = $this->fetchTargetedMessages($folder, $slice, $started, $maxSeconds);
 
                 foreach ($messages as $message) {
                     /** @var Message $message */
@@ -110,16 +101,19 @@ class ImapMailboxService
                         $skipped++;
                     }
 
-                    if ((microtime(true) - $started) > 150) {
+                    if ((microtime(true) - $started) > $maxSeconds) {
                         $more = true;
                         break 2;
                     }
                 }
+            }
 
-                $cursors[$folderName] = $this->advanceFolderCursor($cursor, $messages->count());
-                if (! ($cursors[$folderName]['done'] ?? false)) {
-                    $more = true;
-                }
+            $nextOffset = $offset + $emailBudget;
+            if ($nextOffset < count($emailList)) {
+                $cursors['email_offset'] = $nextOffset;
+                $more = true;
+            } else {
+                $cursors['email_offset'] = 0;
             }
 
             $client->disconnect();
@@ -130,9 +124,11 @@ class ImapMailboxService
             $setting->save();
             $this->settings->forgetCache();
 
-            $message = "Synced: {$imported} new, {$skipped} skipped.";
-            if ($more) {
-                $message .= ' History is still importing — run Sync again (or wait for the next scheduled sync).';
+            $message = 'Matching '.count($emailList).' client emails. Synced: '.$imported.' new, '.$skipped.' skipped.';
+            if ($emailList === []) {
+                $message = 'No client emails found on leads/contacts. Add emails to cards, then sync again.';
+            } elseif ($more) {
+                $message .= ' More addresses still to search — run Sync again.';
             }
 
             return [
@@ -246,53 +242,46 @@ class ImapMailboxService
     }
 
     /**
-     * @return array{page: int, done: bool}
+     * @param  list<string>  $emails
      */
-    private function normalizeFolderCursor(mixed $cursor): array
+    private function fetchTargetedMessages(mixed $folder, array $emails, float $started, int $maxSeconds): Collection
     {
-        if (is_array($cursor) && isset($cursor['page'])) {
-            return [
-                'page' => max(1, (int) $cursor['page']),
-                'done' => (bool) ($cursor['done'] ?? false),
-            ];
+        $found = collect();
+
+        foreach (['local-services', 'localservices'] as $from) {
+            $found = $found->merge($this->safeSearch($folder, fn ($query) => $query->whereFrom($from)->limit(40)));
+        }
+        $found = $found->merge($this->safeSearch($folder, fn ($query) => $query->whereSubject('Local Services')->limit(40)));
+        $found = $found->merge($this->safeSearch($folder, fn ($query) => $query->all()->fetchOrderDesc()->limit(80)));
+
+        foreach ($emails as $email) {
+            if ((microtime(true) - $started) > $maxSeconds - 1) {
+                break;
+            }
+            $found = $found->merge($this->safeSearch($folder, fn ($query) => $query->whereFrom($email)->limit(40)));
+            $found = $found->merge($this->safeSearch($folder, fn ($query) => $query->whereTo($email)->limit(40)));
         }
 
-        return ['page' => 1, 'done' => false];
+        return $found->unique(fn (mixed $message): int => (int) $message->getUid())->values();
     }
 
     /**
-     * @param  array{page: int, done: bool}  $cursor
-     * @return array{page: int, done: bool}
+     * @param  callable(\Webklex\PHPIMAP\Query\WhereQuery): mixed  $configure
      */
-    private function advanceFolderCursor(array $cursor, int $fetched): array
+    private function safeSearch(mixed $folder, callable $configure): Collection
     {
-        if ($cursor['done']) {
-            return ['page' => 1, 'done' => true];
+        try {
+            $query = $folder->messages()
+                ->leaveUnread()
+                ->setFetchBody(false);
+            $configure($query);
+
+            return collect($query->get());
+        } catch (Throwable $e) {
+            Log::warning('Mailbox IMAP search failed', ['error' => $e->getMessage()]);
+
+            return collect();
         }
-
-        if ($fetched >= 200) {
-            return ['page' => $cursor['page'] + 1, 'done' => false];
-        }
-
-        return ['page' => $cursor['page'], 'done' => true];
-    }
-
-    /**
-     * @param  array{page: int, done: bool}  $cursor
-     */
-    private function fetchFolderBatch(mixed $folder, array $cursor): Collection
-    {
-        $query = $folder->messages()
-            ->leaveUnread()
-            ->setFetchBody(false);
-
-        if ($cursor['done']) {
-            return $query
-                ->whereSince(Carbon::now()->subDays(2)->startOfDay())
-                ->get();
-        }
-
-        return $query->all()->limit(200, $cursor['page'])->get();
     }
 
     /**
