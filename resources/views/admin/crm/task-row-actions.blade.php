@@ -13,6 +13,13 @@
             ->method('snoozeDay', ['task' => $task->id])
             ->render() !!}
     @endif
+    @if ($task->isClosed())
+        {!! \Orchid\Screen\Actions\Button::make('Reopen')
+            ->icon('bs.arrow-counterclockwise')
+            ->type(\Orchid\Support\Color::PRIMARY)
+            ->method('reopen', ['task' => $task->id])
+            ->render() !!}
+    @endif
     {!! \Orchid\Screen\Actions\Link::make('')
         ->icon('bs.pencil')
         ->route('platform.crm.tasks.edit', $task)

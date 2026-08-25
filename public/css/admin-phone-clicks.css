@@ -108,3 +108,16 @@
 .phone-click-actions .btn {
     white-space: nowrap;
 }
+
+.phone-click-rc {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+}
+
+.phone-click-rc__meta {
+    font-size: 0.75rem;
+    line-height: 1.35;
+    color: #64748b;
+}

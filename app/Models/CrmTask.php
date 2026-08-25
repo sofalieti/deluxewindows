@@ -208,6 +208,11 @@ class CrmTask extends Model
         return $this->status === self::STATUS_OPEN;
     }
 
+    public function isClosed(): bool
+    {
+        return in_array($this->status, [self::STATUS_DONE, self::STATUS_CANCELLED], true);
+    }
+
     public function isOverdue(): bool
     {
         return $this->isOpen()

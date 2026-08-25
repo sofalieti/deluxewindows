@@ -24,6 +24,7 @@ class ImapMailboxService
         private readonly GoogleMailboxOAuthService $oauth,
         private readonly MailboxImportMatcher $matcher,
         private readonly MailboxClientEmailDirectory $clients,
+        private readonly MailboxGmailSearch $gmailSearch,
     ) {
     }
 
@@ -55,7 +56,7 @@ class ImapMailboxService
      *
      * @return array{ok: bool, imported: int, skipped: int, message: string}
      */
-    public function sync(?MailboxSetting $setting = null, int $maxSeconds = 150): array
+    public function sync(?MailboxSetting $setting = null, int $maxSeconds = 150, ?int $lookbackDays = null): array
     {
         $setting ??= $this->settings->get();
         $maxSeconds = max(5, $maxSeconds);
@@ -79,9 +80,7 @@ class ImapMailboxService
             $clientEmails = $this->clients->normalizedSet();
             $cursors = is_array($setting->folder_cursors) ? $setting->folder_cursors : [];
             $emailList = array_keys($clientEmails);
-            $offset = max(0, (int) ($cursors['email_offset'] ?? 0));
-            $emailBudget = $maxSeconds < 30 ? 8 : 40;
-            $slice = array_slice($emailList, $offset, $emailBudget);
+            $lookbackDays = $lookbackDays ?? $this->currentLookbackDays($cursors, $maxSeconds);
             $foldersUsed = [];
             $candidates = 0;
             $connectedEmail = strtolower($this->oauth->accountEmail($setting));
@@ -98,51 +97,53 @@ class ImapMailboxService
                 $foldersUsed[] = $folderName;
 
                 $isSent = $this->looksLikeSentFolder($folderName);
-                $messages = $this->fetchTargetedMessages($folder, $slice, $started, $maxSeconds);
-                $candidates += $messages->count();
+                $found = $this->fetchRecentMatchingMessages($folder, $emailList, $lookbackDays, $started, $maxSeconds);
+                $candidates += $found['targeted']->count() + $found['broad']->count();
 
-                foreach ($messages as $message) {
-                    /** @var Message $message */
-                    $result = $this->importMessage(
-                        $message,
-                        $folderName,
-                        $clientEmails,
-                        $isSent,
-                        $connectedEmail,
-                        true,
-                    );
-                    if ($result === 'imported') {
-                        $imported++;
-                    } else {
-                        $skipped++;
-                    }
+                foreach (['targeted' => true, 'broad' => false] as $bucket => $force) {
+                    foreach ($found[$bucket] as $message) {
+                        /** @var Message $message */
+                        $result = $this->importMessage(
+                            $message,
+                            $folderName,
+                            $clientEmails,
+                            $isSent,
+                            $connectedEmail,
+                            $force,
+                        );
+                        if ($result === 'imported') {
+                            $imported++;
+                        } else {
+                            $skipped++;
+                        }
 
-                    if ((microtime(true) - $started) > $maxSeconds) {
-                        $more = true;
-                        break 2;
+                        if ((microtime(true) - $started) > $maxSeconds) {
+                            $more = true;
+                            break 3;
+                        }
                     }
                 }
             }
 
-            $nextOffset = $offset + $emailBudget;
-            if ($nextOffset < count($emailList)) {
-                $cursors['email_offset'] = $nextOffset;
-                $more = true;
-            } else {
-                $cursors['email_offset'] = 0;
+            unset($cursors['email_offset']);
+            $cursors['lookback_days'] = $lookbackDays;
+            if (! $more && $lookbackDays > 0) {
+                $cursors['lookback_days'] = $this->nextLookbackDays($lookbackDays);
+                $more = $cursors['lookback_days'] !== $lookbackDays;
             }
 
             $client->disconnect();
 
             $setting->folder_cursors = $cursors;
             $setting->last_sync_at = now();
-            $message = 'Account '.$connectedEmail.' · folders '.implode(', ', $foldersUsed ?: ['none'])
-                .'. Searched '.count($slice).' of '.count($emailList).' client emails, IMAP found '.$candidates
+            $window = $lookbackDays > 0 ? 'last '.$lookbackDays.' days' : 'all time';
+            $message = 'Account '.$connectedEmail.' · '.$window.' · folders '.implode(', ', $foldersUsed ?: ['none'])
+                .'. Searched '.count($emailList).' client emails, IMAP found '.$candidates
                 .' · Synced: '.$imported.' new, '.$skipped.' skipped.';
             if ($emailList === []) {
                 $message = 'No client emails found on leads/contacts. Add emails to cards, then sync again.';
             } elseif ($more) {
-                $message .= ' More addresses still to search — run Sync again.';
+                $message .= ' Next pass will look further back.';
             }
             if ($imported === 0 && $candidates === 0 && $emailList !== []) {
                 $message .= ' If this Gmail is not the inbox where clients write, connect that account instead.';
@@ -268,27 +269,105 @@ class ImapMailboxService
 
     /**
      * @param  list<string>  $emails
+     * @return array{targeted: Collection, broad: Collection}
      */
-    private function fetchTargetedMessages(mixed $folder, array $emails, float $started, int $maxSeconds): Collection
-    {
-        $found = collect();
+    private function fetchRecentMatchingMessages(
+        mixed $folder,
+        array $emails,
+        int $lookbackDays,
+        float $started,
+        int $maxSeconds,
+    ): array {
+        $targeted = collect();
+        $since = $lookbackDays > 0 ? now()->subDays($lookbackDays) : null;
+
+        $lsa = $this->gmailSearch->forLocalServices($lookbackDays);
+        $targeted = $targeted->merge($this->safeSearch($folder, function ($query) use ($lsa, $since): void {
+            $query->where($this->gmailSearch->toImapWhere($lsa));
+            $this->preferRecent($query, $since, 80);
+        }));
 
         foreach (['local-services', 'localservices'] as $from) {
-            $found = $found->merge($this->safeSearch($folder, fn ($query) => $query->whereFrom($from)->limit(40)));
+            $targeted = $targeted->merge($this->safeSearch($folder, function ($query) use ($from, $since): void {
+                $query->whereFrom($from);
+                $this->preferRecent($query, $since, 40);
+            }));
         }
-        $found = $found->merge($this->safeSearch($folder, fn ($query) => $query->whereSubject('Local Services')->limit(40)));
 
-        foreach ($emails as $email) {
-            if ((microtime(true) - $started) > $maxSeconds - 1) {
+        foreach (array_chunk($emails, 12) as $batch) {
+            if ((microtime(true) - $started) > $maxSeconds - 2) {
                 break;
             }
-            $raw = 'from:'.$email.' OR to:'.$email;
-            $found = $found->merge($this->safeSearch($folder, fn ($query) => $query->where('CUSTOM X-GM-RAW '.$raw)->limit(50)));
-            $found = $found->merge($this->safeSearch($folder, fn ($query) => $query->whereFrom($email)->limit(40)));
-            $found = $found->merge($this->safeSearch($folder, fn ($query) => $query->whereTo($email)->limit(40)));
+
+            $raw = $this->gmailSearch->forClientEmails($batch, $lookbackDays);
+            $before = $targeted->count();
+            if ($raw !== '') {
+                $targeted = $targeted->merge($this->safeSearch($folder, function ($query) use ($raw, $since): void {
+                    $query->where($this->gmailSearch->toImapWhere($raw));
+                    $this->preferRecent($query, $since, 80);
+                }));
+            }
+
+            if ($targeted->count() === $before) {
+                foreach ($batch as $email) {
+                    if ((microtime(true) - $started) > $maxSeconds - 1) {
+                        break 2;
+                    }
+                    $targeted = $targeted->merge($this->safeSearch($folder, function ($query) use ($email, $since): void {
+                        $query->whereFrom($email);
+                        $this->preferRecent($query, $since, 20);
+                    }));
+                    $targeted = $targeted->merge($this->safeSearch($folder, function ($query) use ($email, $since): void {
+                        $query->whereTo($email);
+                        $this->preferRecent($query, $since, 20);
+                    }));
+                }
+            }
         }
 
-        return $found->unique(fn (mixed $message): int => (int) $message->getUid())->values();
+        $broad = $this->safeSearch($folder, function ($query) use ($since): void {
+            $this->preferRecent($query, $since, 40);
+        });
+
+        $unique = fn (mixed $message): int => (int) $message->getUid();
+
+        return [
+            'targeted' => $targeted->unique($unique)->values(),
+            'broad' => $broad->unique($unique)->values(),
+        ];
+    }
+
+    private function preferRecent(mixed $query, mixed $since, int $limit): void
+    {
+        if ($since !== null && method_exists($query, 'since')) {
+            $query->since($since);
+        }
+        if (method_exists($query, 'setFetchOrderDesc')) {
+            $query->setFetchOrderDesc();
+        }
+        $query->limit($limit);
+    }
+
+    /**
+     * @param  array<string, mixed>  $cursors
+     */
+    private function currentLookbackDays(array $cursors, int $maxSeconds): int
+    {
+        $stored = (int) ($cursors['lookback_days'] ?? 0);
+        if ($maxSeconds < 40) {
+            return $stored > 0 && $stored <= 45 ? $stored : 45;
+        }
+
+        return $stored > 0 || array_key_exists('lookback_days', $cursors) ? $stored : 45;
+    }
+
+    private function nextLookbackDays(int $lookbackDays): int
+    {
+        return match (true) {
+            $lookbackDays <= 45 => 180,
+            $lookbackDays <= 180 => 800,
+            default => 0,
+        };
     }
 
     /**

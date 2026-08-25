@@ -179,6 +179,13 @@ test('completing a task writes completed_by, completed_at and result', function 
         ->and($completed->completed_by)->toBe($user->id)
         ->and($completed->completed_at)->not->toBeNull()
         ->and($completed->result)->toBe('Left voicemail');
+
+    $reopened = app(CrmTaskService::class)->reopen($completed, $user);
+
+    expect($reopened->status)->toBe(CrmTask::STATUS_OPEN)
+        ->and($reopened->completed_by)->toBeNull()
+        ->and($reopened->completed_at)->toBeNull()
+        ->and($reopened->result)->toBe('Left voicemail');
 });
 
 test('work queue shows only the current user tasks without tasks.all and respects traffic visibility', function () {

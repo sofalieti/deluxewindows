@@ -154,15 +154,8 @@ class PhoneClickViewScreen extends Screen
                     Sight::make('created_at', 'Clicked')
                         ->render(fn (PhoneClick $click) => optional($click->created_at)->format('Y-m-d H:i:s')),
                     Sight::make('ringcentral_status', 'RingCentral status')
-                        ->render(function (PhoneClick $click): string {
-                            return match ($click->ringcentral_status) {
-                                PhoneClick::RINGCENTRAL_FOUND => '<span class="badge bg-success text-white">✓ Call found</span>',
-                                PhoneClick::RINGCENTRAL_NO_CALL => '<span class="badge bg-secondary text-white">No call found</span>',
-                                PhoneClick::RINGCENTRAL_ERROR => '<span class="badge bg-danger text-white">Check failed</span>',
-                                PhoneClick::RINGCENTRAL_PENDING => '<span class="badge bg-info text-dark">Checking…</span>',
-                                default => '<span class="badge bg-light text-dark">Not checked</span>',
-                            };
-                        }),
+                        ->render(fn (PhoneClick $click) => '<span class="lead-status-badge lead-status-badge--'
+                            .e($click->ringCentralStatusColor()).'">'.e($click->ringCentralStatusLabel()).'</span>'),
                     Sight::make('ringcentral_checked_at', 'RingCentral checked')
                         ->render(fn (PhoneClick $click) => $click->ringcentral_checked_at
                             ? $click->ringcentral_checked_at

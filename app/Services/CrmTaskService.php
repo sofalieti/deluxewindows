@@ -85,9 +85,28 @@ final class CrmTaskService
         return $task->refresh();
     }
 
+    public function reopen(CrmTask $task, User $user): CrmTask
+    {
+        if ($task->status === CrmTask::STATUS_OPEN) {
+            return $task;
+        }
+
+        $from = $task->statusLabel();
+
+        $task->forceFill([
+            'status' => CrmTask::STATUS_OPEN,
+            'completed_at' => null,
+            'completed_by' => null,
+        ])->save();
+
+        $this->audit($task, 'Reopened task: '.$task->title.' (was '.$from.') by #'.$user->id);
+
+        return $task->refresh();
+    }
+
     public function cancel(CrmTask $task, User $user, ?string $result = null): CrmTask
     {
-        if ($task->status !== CrmTask::STATUS_OPEN) {
+        if ($task->status === CrmTask::STATUS_CANCELLED) {
             return $task;
         }
 

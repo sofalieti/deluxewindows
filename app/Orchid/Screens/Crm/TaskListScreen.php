@@ -109,6 +109,15 @@ class TaskListScreen extends Screen
         Toast::info('Task completed.');
     }
 
+    public function reopen(Request $request, CrmTaskService $tasks): void
+    {
+        $task = $this->findAuthorizedTask($request);
+        $user = Auth::user();
+        abort_unless($user instanceof User, 403);
+        $tasks->reopen($task, $user);
+        Toast::info('Task reopened.');
+    }
+
     public function snoozeDay(Request $request, CrmTaskService $tasks): void
     {
         $task = $this->findAuthorizedTask($request);

@@ -81,6 +81,14 @@ class TaskEditScreen extends Screen
                 ->confirm('Cancel this task?');
         }
 
+        if ($this->task?->exists && $this->task->isClosed()) {
+            $actions[] = Button::make('Reopen')
+                ->icon('bs.arrow-counterclockwise')
+                ->type(Color::PRIMARY)
+                ->method('reopen')
+                ->confirm('Move this task back to Open?');
+        }
+
         return $actions;
     }
 
@@ -100,6 +108,12 @@ class TaskEditScreen extends Screen
                     ->title('Priority')
                     ->options(CrmTask::PRIORITIES)
                     ->required(),
+                Select::make('task.status')
+                    ->title('Status')
+                    ->options(CrmTask::STATUSES)
+                    ->required()
+                    ->canSee((bool) $this->task?->exists)
+                    ->help('A Done or Cancelled task can be moved back to Open.'),
                 DateTimer::make('task.due_at')
                     ->title('Due')
                     ->enableTime()
@@ -154,6 +168,7 @@ class TaskEditScreen extends Screen
             'task.subject_id' => ['nullable', 'integer'],
             'task.description' => ['nullable', 'string', 'max:5000'],
             'task.result' => ['nullable', 'string', 'max:1000'],
+            'task.status' => ['nullable', 'string', Rule::in(array_keys(CrmTask::STATUSES))],
         ]);
 
         $payload = $validated['task'];
@@ -175,6 +190,8 @@ class TaskEditScreen extends Screen
                 'description' => $payload['description'] ?? null,
                 'result' => $payload['result'] ?? $this->task->result,
             ])->save();
+
+            $this->applyStatusChange($tasks, $user, (string) ($payload['status'] ?? $this->task->status));
             Toast::info('Task saved.');
 
             return redirect()->route('platform.crm.tasks.edit', $this->task);
@@ -208,6 +225,18 @@ class TaskEditScreen extends Screen
         return redirect()->route('platform.crm.tasks.edit', $this->task);
     }
 
+    public function reopen(CrmTaskService $tasks)
+    {
+        abort_unless($this->task?->exists, 404);
+        $user = Auth::user();
+        abort_unless($user instanceof User, 403);
+        $this->authorizeTask($this->task);
+        $tasks->reopen($this->task, $user);
+        Toast::info('Task reopened.');
+
+        return redirect()->route('platform.crm.tasks.edit', $this->task);
+    }
+
     public function cancel(CrmTaskService $tasks)
     {
         abort_unless($this->task?->exists, 404);
@@ -218,6 +247,30 @@ class TaskEditScreen extends Screen
         Toast::info('Task cancelled.');
 
         return redirect()->route('platform.crm.tasks.edit', $this->task);
+    }
+
+    private function applyStatusChange(CrmTaskService $tasks, User $user, string $status): void
+    {
+        $task = $this->task?->refresh();
+        if ($task === null || $task->status === $status) {
+            return;
+        }
+
+        if ($status === CrmTask::STATUS_OPEN) {
+            $tasks->reopen($task, $user);
+
+            return;
+        }
+
+        if ($status === CrmTask::STATUS_DONE) {
+            $tasks->complete($task, $user, $task->result);
+
+            return;
+        }
+
+        if ($status === CrmTask::STATUS_CANCELLED) {
+            $tasks->cancel($task, $user, $task->result);
+        }
     }
 
     private function authorizeTask(CrmTask $task): void

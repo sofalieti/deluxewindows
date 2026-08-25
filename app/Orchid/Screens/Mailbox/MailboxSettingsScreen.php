@@ -214,7 +214,7 @@ class MailboxSettingsScreen extends Screen
     public function syncNow(Request $request)
     {
         $this->settings->update($this->validatedSettings($request));
-        $result = $this->imap->sync(maxSeconds: 12);
+        $result = $this->imap->sync(maxSeconds: 25, lookbackDays: 45);
         session()->flash('mailbox_sync_result', $result);
 
         if ($result['ok']) {

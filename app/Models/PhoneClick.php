@@ -312,6 +312,34 @@ class PhoneClick extends Model
         return self::HANDLING_STATUSES[$this->handling_status] ?? (string) $this->handling_status;
     }
 
+    public function ringCentralStatusLabel(): string
+    {
+        $status = (string) ($this->ringcentral_status ?: self::RINGCENTRAL_NOT_CHECKED);
+
+        return match ($status) {
+            self::RINGCENTRAL_FOUND => $this->isConnectedCall()
+                ? (trim((string) ($this->ringcentral_result ?: '')) ?: 'Connected')
+                : (trim((string) ($this->ringcentral_result ?: '')) ?: 'Missed'),
+            self::RINGCENTRAL_NO_CALL => 'No call found',
+            self::RINGCENTRAL_ERROR => 'Check failed',
+            self::RINGCENTRAL_PENDING => 'Checking…',
+            default => 'Not checked',
+        };
+    }
+
+    public function ringCentralStatusColor(): string
+    {
+        $status = (string) ($this->ringcentral_status ?: self::RINGCENTRAL_NOT_CHECKED);
+
+        return match ($status) {
+            self::RINGCENTRAL_FOUND => $this->isConnectedCall() ? 'won' : 'appointment',
+            self::RINGCENTRAL_NO_CALL => 'lost',
+            self::RINGCENTRAL_ERROR => 'spam',
+            self::RINGCENTRAL_PENDING => 'contacted',
+            default => 'new',
+        };
+    }
+
     public function handlingStatusColor(): string
     {
         return match ($this->handling_status) {
