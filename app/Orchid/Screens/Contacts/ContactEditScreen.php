@@ -9,6 +9,8 @@ use App\Models\ContactChange;
 use App\Models\ContactComment;
 use App\Orchid\Screens\Concerns\QueuesCallTranscripts;
 use App\Services\ContactFromLeadService;
+use App\Services\ContactFromPhoneClickService;
+use App\Services\CrmTimelineService;
 use App\Services\RingCentralContactBinder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -30,7 +32,7 @@ class ContactEditScreen extends Screen
 
     public function query(Contact $contact): iterable
     {
-        $contact->load(['leads.comments.user', 'createdBy', 'comments.user']);
+        $contact->load(['leads.comments.user', 'createdBy', 'comments.user', 'phoneClicks', 'tasks.assignee']);
         if ($contact->exists && Schema::hasTable('contact_changes')) {
             $contact->load(['changes.user']);
         }
@@ -50,6 +52,11 @@ class ContactEditScreen extends Screen
                 : collect(),
             'calls' => $contact->exists
                 ? $contact->ringCentralCallsForPhone()
+                : collect(),
+            'phoneClicks' => $contact->exists ? $contact->phoneClicks : collect(),
+            'tasks' => $contact->exists ? $contact->tasks : collect(),
+            'timeline' => $contact->exists
+                ? app(CrmTimelineService::class)->forContact($contact)
                 : collect(),
         ];
     }
@@ -143,6 +150,9 @@ class ContactEditScreen extends Screen
         if ($this->contact?->exists) {
             $tabs['Calls'] = Layout::view('admin.contacts.calls');
             $tabs['Leads'] = Layout::view('admin.contacts.leads');
+            $tabs['Phone clicks'] = Layout::view('admin.contacts.phone-clicks');
+            $tabs['Tasks'] = Layout::view('admin.crm.tasks-table');
+            $tabs['Activity'] = Layout::view('admin.contacts.timeline');
             $tabs['History'] = Layout::view('admin.contacts.history');
             $tabs['Traffic summary'] = Layout::view('admin.contacts.traffic-summary');
         }
@@ -157,7 +167,7 @@ class ContactEditScreen extends Screen
         ];
     }
 
-    public function save(Contact $contact, Request $request, ContactFromLeadService $service)
+    public function save(Contact $contact, Request $request, ContactFromLeadService $service, ContactFromPhoneClickService $clickService)
     {
         $callBinder = app(RingCentralContactBinder::class);
 
@@ -207,7 +217,7 @@ class ContactEditScreen extends Screen
 
         $phoneChanged = $wasNew || trim((string) ($contact->phone ?? '')) !== trim((string) ($values['phone'] ?? ''));
 
-        DB::transaction(function () use ($contact, $values, $wasNew, $changes, $service, $user, $callBinder, $phoneChanged): void {
+        DB::transaction(function () use ($contact, $values, $wasNew, $changes, $service, $clickService, $user, $callBinder, $phoneChanged): void {
             $contact->fill($values);
             if ($wasNew) {
                 $contact->created_by_user_id = $user->id;
@@ -216,6 +226,7 @@ class ContactEditScreen extends Screen
 
             if ($wasNew) {
                 $service->attachExistingMatches($contact, $user->id);
+                $clickService->attachExistingMatches($contact, $user->id);
                 if (Schema::hasTable('contact_changes')) {
                     ContactChange::record(
                         $contact,
@@ -246,6 +257,7 @@ class ContactEditScreen extends Screen
 
             if ($phoneChanged) {
                 $callBinder->rebindContact($contact);
+                $clickService->attachExistingMatches($contact, $user->id);
             }
         });
 

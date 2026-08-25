@@ -6,6 +6,9 @@ use App\Http\Controllers\Admin\GoogleMailboxOAuthController;
 use App\Http\Controllers\Admin\RingCentralRecordingController;
 use App\Http\Controllers\Admin\WebflowImageUploadController;
 use App\Orchid\Screens\Contacts\ContactEditScreen;
+use App\Orchid\Screens\Crm\TaskEditScreen;
+use App\Orchid\Screens\Crm\TaskListScreen;
+use App\Orchid\Screens\Crm\WorkQueueScreen;
 use App\Orchid\Screens\Contacts\ContactListScreen;
 use App\Orchid\Screens\DoorBrands\DoorBrandEditScreen;
 use App\Orchid\Screens\DoorBrands\DoorBrandListScreen;
@@ -74,6 +77,19 @@ Route::screen('promotions', PromotionsScreen::class)
 
 Route::screen('leads', LeadListScreen::class)
     ->name('platform.leads');
+
+Route::screen('crm/work', WorkQueueScreen::class)
+    ->name('platform.crm.work');
+
+Route::screen('crm/tasks/create', TaskEditScreen::class)
+    ->name('platform.crm.tasks.create');
+
+Route::screen('crm/tasks/{task}/edit', TaskEditScreen::class)
+    ->name('platform.crm.tasks.edit')
+    ->whereNumber('task');
+
+Route::screen('crm/tasks', TaskListScreen::class)
+    ->name('platform.crm.tasks');
 
 Route::get('leads/spam', fn () => redirect()->route('platform.leads'))
     ->name('platform.leads.spam');

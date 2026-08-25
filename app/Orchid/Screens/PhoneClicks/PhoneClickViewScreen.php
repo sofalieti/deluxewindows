@@ -6,16 +6,26 @@ namespace App\Orchid\Screens\PhoneClicks;
 
 use App\Jobs\MatchPhoneClickToRingCentral;
 use App\Jobs\SendPhoneClickOfflineConversions;
+use App\Models\Contact;
+use App\Models\CrmNote;
+use App\Models\CrmTask;
+use App\Models\Lead;
 use App\Models\PhoneClick;
+use App\Models\User;
 use App\Orchid\Screens\Concerns\QueuesCallTranscripts;
+use App\Services\ContactFromPhoneClickService;
+use App\Services\CrmTaskAutomation;
 use App\Services\PhoneClickGoogleBridge;
 use App\Services\RingCentralCallLogService;
 use App\Services\TrafficSourceVisibility;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\Link;
+use Orchid\Screen\Fields\Select;
+use Orchid\Screen\Fields\TextArea;
 use Orchid\Screen\Screen;
 use Orchid\Screen\Sight;
 use Orchid\Support\Color;
@@ -37,12 +47,14 @@ class PhoneClickViewScreen extends Screen
             TrafficSourceVisibility::SECTION_PHONE_CLICKS
         );
 
-        $click->load('googleSheetSender');
+        $click->load(['googleSheetSender', 'assignee', 'contact', 'notes.user', 'tasks.assignee']);
         $this->click = $click;
 
         return [
             'click' => $click,
             'matchedCall' => $click->ringCentralCall(),
+            'notes' => $click->notes,
+            'tasks' => $click->tasks,
         ];
     }
 
@@ -108,6 +120,26 @@ class PhoneClickViewScreen extends Screen
                     ->method('markAsSpam', ['phone_click_id' => $this->click->id])
                     ->confirm('Mark this phone click as spam and hide it from the main list?');
             }
+
+            $actions[] = Button::make('Assign to me')
+                ->icon('bs.person-check')
+                ->method('assignToMe');
+
+            $actions[] = Button::make('Create contact')
+                ->icon('bs.person-plus')
+                ->method('createContact')
+                ->canSee($this->click->contact_id === null);
+
+            $actions[] = Button::make('Create lead from click')
+                ->icon('bs.inbox')
+                ->method('createLead');
+
+            $actions[] = Link::make('Add task')
+                ->icon('bs.plus-lg')
+                ->route('platform.crm.tasks.create', [
+                    'subject_type' => PhoneClick::class,
+                    'subject_id' => $this->click->id,
+                ]);
         }
 
         return $actions;
@@ -115,9 +147,7 @@ class PhoneClickViewScreen extends Screen
 
     public function layout(): iterable
     {
-        return [
-            Layout::view('admin.phone-clicks.assets'),
-
+        $details = [
             Layout::columns([
                 Layout::legend('click', [
                     Sight::make('id', 'ID'),
@@ -320,7 +350,47 @@ class PhoneClickViewScreen extends Screen
                         ->render(fn (PhoneClick $click) => e((string) ($click->fbclid ?: '-'))),
                     Sight::make('msclkid', 'MSCLKID')
                         ->render(fn (PhoneClick $click) => e((string) ($click->msclkid ?: '-'))),
+                    Sight::make('handling_status', 'Handling')
+                        ->render(fn (PhoneClick $click) => '<span class="lead-status-badge lead-status-badge--'
+                            .e($click->handlingStatusColor()).'">'.e($click->handlingStatusLabel()).'</span>'),
+                    Sight::make('assignee', 'Assignee')
+                        ->render(fn (PhoneClick $click) => e($click->assignee?->name ?? '—')),
+                    Sight::make('contact', 'Contact')
+                        ->render(fn (PhoneClick $click): string => $click->contact
+                            ? '<a href="'.e(route('platform.contacts.edit', $click->contact)).'">'
+                                .e($click->contact->full_name).'</a>'
+                            : '<span class="text-muted">Not linked</span>'),
                 ]),
+            ]),
+        ];
+
+        return [
+            Layout::view('admin.phone-clicks.assets'),
+            Layout::view('admin.leads.assets'),
+            Layout::tabs([
+                'Details' => Layout::blank($details),
+                'Handling' => Layout::blank([
+                    Layout::rows([
+                        Select::make('handling_status')
+                            ->title('Handling status')
+                            ->options(PhoneClick::HANDLING_STATUSES)
+                            ->value($this->click?->handling_status),
+                        Select::make('assigned_to')
+                            ->title('Assignee')
+                            ->fromModel(User::class, 'name')
+                            ->empty('Unassigned')
+                            ->value($this->click?->assigned_to),
+                        TextArea::make('note')
+                            ->title('Add note')
+                            ->rows(4),
+                    ]),
+                    Layout::view('admin.partials.sticky-save', [
+                        'label' => 'Save handling',
+                        'method' => 'saveHandling',
+                    ]),
+                    Layout::view('admin.crm.notes'),
+                ]),
+                'Tasks' => Layout::view('admin.crm.tasks-table'),
             ]),
         ];
     }
@@ -443,6 +513,109 @@ class PhoneClickViewScreen extends Screen
         }
 
         return redirect()->route('platform.phone-clicks');
+    }
+
+    public function saveHandling(PhoneClick $click, Request $request, CrmTaskAutomation $automation)
+    {
+        $validated = $request->validate([
+            'handling_status' => ['required', 'string', Rule::in(array_keys(PhoneClick::HANDLING_STATUSES))],
+            'assigned_to' => ['nullable', 'integer', 'exists:users,id'],
+            'note' => ['nullable', 'string', 'max:5000'],
+        ]);
+
+        $user = Auth::user();
+        abort_unless($user !== null, 403);
+
+        $from = (string) $click->handling_status;
+        $to = $validated['handling_status'];
+
+        $click->forceFill([
+            'handling_status' => $to,
+            'handled_at' => $from !== $to ? now() : $click->handled_at,
+            'handled_by' => $from !== $to ? $user->id : $click->handled_by,
+            'assigned_to' => $validated['assigned_to'] ?? null,
+            'assigned_at' => ($validated['assigned_to'] ?? null) ? now() : null,
+        ])->save();
+
+        if ($from !== $to) {
+            $automation->onHandlingStatusChanged($click, $from, $to, $user);
+        }
+
+        $note = trim((string) ($validated['note'] ?? ''));
+        if ($note !== '') {
+            CrmNote::query()->create([
+                'subject_type' => $click->getMorphClass(),
+                'subject_id' => $click->id,
+                'user_id' => $user->id,
+                'body' => $note,
+            ]);
+        }
+
+        Toast::info('Handling updated.');
+
+        return redirect()->route('platform.phone-clicks.view', $click);
+    }
+
+    public function assignToMe(PhoneClick $click)
+    {
+        $user = Auth::user();
+        abort_unless($user !== null, 403);
+
+        $click->forceFill([
+            'assigned_to' => $user->id,
+            'assigned_at' => now(),
+        ])->save();
+
+        Toast::info('Phone click assigned to you.');
+
+        return redirect()->route('platform.phone-clicks.view', $click);
+    }
+
+    public function createContact(PhoneClick $click, ContactFromPhoneClickService $service)
+    {
+        $user = Auth::user();
+        abort_unless($user !== null, 403);
+
+        $contact = $service->createOrAttach($click, (int) $user->id);
+        Toast::info('Contact ready.');
+
+        return redirect()->route('platform.contacts.edit', $contact);
+    }
+
+    public function createLead(PhoneClick $click)
+    {
+        $user = Auth::user();
+        abort_unless($user !== null, 403);
+
+        $phone = $click->ringCentralClientPhone() ?: (string) $click->phone;
+        $lead = Lead::query()->create([
+            'full_name' => $click->contact?->full_name ?: ('Phone click #'.$click->id),
+            'email' => $click->contact?->email ?: 'phone-click-'.$click->id.'@click.local',
+            'phone' => $phone !== '' ? $phone : '0000000000',
+            'city' => $click->contact?->city,
+            'page_url' => $click->page_url,
+            'utm_source' => $click->utm_source,
+            'utm_medium' => $click->utm_medium,
+            'utm_campaign' => $click->utm_campaign,
+            'contact_id' => $click->contact_id,
+            'assigned_to' => $user->id,
+            'assigned_at' => now(),
+            'status' => Lead::STATUS_NEW,
+            'meta' => [
+                'via' => 'phone-click',
+                'phone_click_id' => $click->id,
+            ],
+        ]);
+
+        if ($click->contact_id === null && $lead->contact_id !== null) {
+            $click->contact_id = $lead->contact_id;
+            $click->save();
+        }
+
+        app(\App\Services\CrmTaskAutomation::class)->onLeadCreated($lead);
+        Toast::info('Lead created from phone click.');
+
+        return redirect()->route('platform.leads.edit', $lead);
     }
 
     public function restoreFromSpam(Request $request): void

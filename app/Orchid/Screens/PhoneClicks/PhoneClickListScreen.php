@@ -39,8 +39,22 @@ class PhoneClickListScreen extends Screen
             'clicks' => PhoneClick::query()
                 ->visibleTo($user)
                 ->notSpam()
+                ->with('assignee')
                 ->defaultSort('id', 'desc')
                 ->paginate(50, pageName: 'page'),
+            'unhandledClicks' => PhoneClick::query()
+                ->visibleTo($user)
+                ->needsHandling()
+                ->with('assignee')
+                ->defaultSort('id', 'desc')
+                ->paginate(50, pageName: 'unhandled_page'),
+            'mineClicks' => PhoneClick::query()
+                ->visibleTo($user)
+                ->notSpam()
+                ->where('assigned_to', $user?->id)
+                ->with('assignee')
+                ->defaultSort('id', 'desc')
+                ->paginate(50, pageName: 'mine_page'),
             'spamClicks' => PhoneClick::query()
                 ->visibleTo($user)
                 ->onlySpam()
@@ -123,6 +137,8 @@ class PhoneClickListScreen extends Screen
 
             Layout::tabs([
                 'Phone clicks' => Layout::table('clicks', $this->clickColumns(spamTab: false)),
+                'Unhandled' => Layout::table('unhandledClicks', $this->clickColumns(spamTab: false)),
+                'Mine' => Layout::table('mineClicks', $this->clickColumns(spamTab: false)),
                 'Spam' => Layout::table('spamClicks', $this->clickColumns(spamTab: true)),
             ]),
         ];
@@ -153,6 +169,17 @@ class PhoneClickListScreen extends Screen
                 ->render(fn (PhoneClick $click) => view('admin.phone-clicks.traffic-cell', [
                     'click' => $click,
                 ])),
+
+            TD::make('handling_status', 'Handling')
+                ->cantHide()
+                ->width('200px')
+                ->render(fn (PhoneClick $click) => view('admin.phone-clicks.handling-status-cell', [
+                    'click' => $click,
+                ])),
+
+            TD::make('assigned_to', 'Assignee')
+                ->width('120px')
+                ->render(fn (PhoneClick $click) => e($click->assignee?->name ?? '—')),
 
             TD::make('ringcentral_status', 'RingCentral')
                 ->sort()
@@ -250,6 +277,36 @@ class PhoneClickListScreen extends Screen
             });
 
         return $columns;
+    }
+
+    public function changeHandlingStatus(Request $request): void
+    {
+        $validated = $request->validate([
+            'click' => ['required', 'integer', 'exists:phone_clicks,id'],
+            'handling_status' => ['required', 'string', \Illuminate\Validation\Rule::in(array_keys(PhoneClick::HANDLING_STATUSES))],
+        ]);
+
+        $user = Auth::user();
+        abort_unless($user !== null, 403);
+
+        $click = PhoneClick::query()->findOrFail((int) $validated['click']);
+        $from = (string) $click->handling_status;
+        $to = $validated['handling_status'];
+
+        if ($from === $to) {
+            Toast::info('Handling status unchanged.');
+
+            return;
+        }
+
+        $click->forceFill([
+            'handling_status' => $to,
+            'handled_at' => now(),
+            'handled_by' => $user->id,
+        ])->save();
+
+        app(\App\Services\CrmTaskAutomation::class)->onHandlingStatusChanged($click, $from, $to, $user);
+        Toast::info('Handling status: '.$click->handlingStatusLabel());
     }
 
     public function sendToGoogle(Request $request, PhoneClickGoogleBridge $bridge): void

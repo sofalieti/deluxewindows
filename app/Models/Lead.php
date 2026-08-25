@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Collection;
 use Orchid\Filters\Filterable;
 use Orchid\Filters\Types\Like;
@@ -69,6 +70,8 @@ class Lead extends Model
         'user_agent',
         'meta',
         'status',
+        'assigned_to',
+        'assigned_at',
     ];
 
     /**
@@ -97,6 +100,7 @@ class Lead extends Model
     {
         return [
             'meta' => 'array',
+            'assigned_at' => 'datetime',
         ];
     }
 
@@ -138,6 +142,21 @@ class Lead extends Model
     public function referralReward(): \Illuminate\Database\Eloquent\Relations\HasOne
     {
         return $this->hasOne(ReferralReward::class);
+    }
+
+    public function assignee(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'assigned_to');
+    }
+
+    public function tasks(): MorphMany
+    {
+        return $this->morphMany(CrmTask::class, 'subject')->latest();
+    }
+
+    public function notes(): MorphMany
+    {
+        return $this->morphMany(CrmNote::class, 'subject')->latest();
     }
 
     public function comments(): HasMany

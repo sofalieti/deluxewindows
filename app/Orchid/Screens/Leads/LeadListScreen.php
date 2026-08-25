@@ -39,8 +39,16 @@ class LeadListScreen extends Screen
 
         $leads = Lead::filters(LeadFiltersLayout::class)
             ->visibleTo($user)
+            ->with('assignee')
             ->defaultSort('id', 'desc')
             ->where('status', '!=', Lead::STATUS_SPAM);
+
+        $mineLeads = Lead::query()
+            ->visibleTo($user)
+            ->with('assignee')
+            ->where('status', '!=', Lead::STATUS_SPAM)
+            ->where('assigned_to', $user?->id)
+            ->defaultSort('id', 'desc');
 
         $spamLeads = Lead::query()
             ->visibleTo($user)
@@ -49,14 +57,17 @@ class LeadListScreen extends Screen
 
         if ($contactId > 0) {
             $leads->where('contact_id', $contactId);
+            $mineLeads->where('contact_id', $contactId);
             $spamLeads->where('contact_id', $contactId);
         }
 
         $leadsPage = $leads->paginate(50, pageName: 'page');
+        $minePage = $mineLeads->paginate(50, pageName: 'mine_page');
         $spamPage = $spamLeads->paginate(50, pageName: 'spam_page');
 
         $this->callStatsByPhone = app(RingCentralPhoneCallStatsService::class)->statsForPhones(
             collect($leadsPage->items())
+                ->concat($minePage->items())
                 ->concat($spamPage->items())
                 ->pluck('phone')
                 ->all()
@@ -64,6 +75,7 @@ class LeadListScreen extends Screen
 
         return [
             'leads' => $leadsPage,
+            'mineLeads' => $minePage,
             'spamLeads' => $spamPage,
             'contactFilter' => $this->contactFilter,
         ];
@@ -122,6 +134,7 @@ class LeadListScreen extends Screen
 
             Layout::tabs([
                 'Leads' => Layout::table('leads', $this->leadColumns(spamTab: false)),
+                'Mine' => Layout::table('mineLeads', $this->leadColumns(spamTab: false)),
                 'Spam' => Layout::table('spamLeads', $this->leadColumns(spamTab: true)),
             ]),
         ];
@@ -152,6 +165,10 @@ class LeadListScreen extends Screen
             ->render(fn (Lead $lead) => view('admin.leads.status-cell', [
                 'lead' => $lead,
             ]));
+
+        $columns[] = TD::make('assigned_to', 'Assignee')
+            ->width('120px')
+            ->render(fn (Lead $lead) => e($lead->assignee?->name ?? '—'));
 
         $columns[] = TD::make('full_name', 'Name')
             ->width('200px')
@@ -237,6 +254,7 @@ class LeadListScreen extends Screen
 
         LeadChange::recordStatusChange($lead, $from, $to, (int) $user->id);
         app(\App\Services\ReferralRewardService::class)->syncEligibleForLead($lead->refresh());
+        app(\App\Services\CrmTaskAutomation::class)->onLeadStatusChanged($lead, $from, $to);
 
         Toast::info('Status updated: '.$lead->statusLabel());
     }

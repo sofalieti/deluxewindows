@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Schema;
 use Orchid\Filters\Filterable;
@@ -56,6 +57,21 @@ class Contact extends Model
     public function leads(): HasMany
     {
         return $this->hasMany(Lead::class)->latest();
+    }
+
+    public function phoneClicks(): HasMany
+    {
+        return $this->hasMany(PhoneClick::class)->latest();
+    }
+
+    public function tasks(): HasMany
+    {
+        return $this->hasMany(CrmTask::class)->latest();
+    }
+
+    public function notes(): MorphMany
+    {
+        return $this->morphMany(CrmNote::class, 'subject')->latest();
     }
 
     public function comments(): HasMany

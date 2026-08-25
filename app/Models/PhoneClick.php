@@ -10,6 +10,7 @@ use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Facades\Schema;
 use Orchid\Filters\Filterable;
 use Orchid\Filters\Types\Like;
@@ -31,6 +32,42 @@ class PhoneClick extends Model
     public const RINGCENTRAL_NO_CALL = 'no_call';
 
     public const RINGCENTRAL_ERROR = 'error';
+
+    public const HANDLING_NEW = 'new';
+
+    public const HANDLING_IN_PROGRESS = 'in_progress';
+
+    public const HANDLING_REACHED = 'reached';
+
+    public const HANDLING_NO_ANSWER = 'no_answer';
+
+    public const HANDLING_CONVERTED = 'converted';
+
+    public const HANDLING_NOT_INTERESTED = 'not_interested';
+
+    public const HANDLING_JUNK = 'junk';
+
+    /**
+     * @var array<string, string>
+     */
+    public const HANDLING_STATUSES = [
+        self::HANDLING_NEW => 'New',
+        self::HANDLING_IN_PROGRESS => 'In progress',
+        self::HANDLING_REACHED => 'Reached',
+        self::HANDLING_NO_ANSWER => 'No answer',
+        self::HANDLING_CONVERTED => 'Converted',
+        self::HANDLING_NOT_INTERESTED => 'Not interested',
+        self::HANDLING_JUNK => 'Junk',
+    ];
+
+    /**
+     * @var list<string>
+     */
+    public const HANDLING_FINAL = [
+        self::HANDLING_CONVERTED,
+        self::HANDLING_NOT_INTERESTED,
+        self::HANDLING_JUNK,
+    ];
 
     protected $fillable = [
         'phone',
@@ -90,6 +127,13 @@ class PhoneClick extends Model
         'google_ads_sheet_url',
         'bing_ads_conversion_sent_at',
         'bing_ads_conversion_error',
+        'handling_status',
+        'handled_at',
+        'handled_by',
+        'assigned_to',
+        'assigned_at',
+        'contact_id',
+        'normalized_phone',
     ];
 
     /**
@@ -125,13 +169,24 @@ class PhoneClick extends Model
             'google_ads_conversion_sent_at' => 'datetime',
             'google_ads_sheet_exported_at' => 'datetime',
             'bing_ads_conversion_sent_at' => 'datetime',
+            'handled_at' => 'datetime',
+            'assigned_at' => 'datetime',
         ];
     }
 
     protected static function booted(): void
     {
+        static::creating(function (PhoneClick $click): void {
+            if ($click->handling_status === null || $click->handling_status === '') {
+                $click->handling_status = self::HANDLING_NEW;
+            }
+        });
+
         static::saving(function (PhoneClick $click): void {
             $click->traffic_source = $click->trafficSourceKey();
+            $click->normalized_phone = Contact::normalizePhone(
+                $click->ringCentralClientPhone() ?: $click->phone
+            );
         });
     }
 
@@ -211,6 +266,78 @@ class PhoneClick extends Model
     public function referralPartner(): BelongsTo
     {
         return $this->belongsTo(ReferralPartner::class, 'referral_partner_id');
+    }
+
+    public function contact(): BelongsTo
+    {
+        return $this->belongsTo(Contact::class);
+    }
+
+    public function assignee(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'assigned_to');
+    }
+
+    public function handler(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'handled_by');
+    }
+
+    public function tasks(): MorphMany
+    {
+        return $this->morphMany(CrmTask::class, 'subject')->latest();
+    }
+
+    public function notes(): MorphMany
+    {
+        return $this->morphMany(CrmNote::class, 'subject')->latest();
+    }
+
+    /**
+     * @param  Builder<PhoneClick>  $query
+     * @return Builder<PhoneClick>
+     */
+    public function scopeNeedsHandling(Builder $query): Builder
+    {
+        return $query->notSpam()
+            ->where('handling_status', self::HANDLING_NEW)
+            ->whereIn('ringcentral_status', [
+                self::RINGCENTRAL_FOUND,
+                self::RINGCENTRAL_NO_CALL,
+            ]);
+    }
+
+    public function handlingStatusLabel(): string
+    {
+        return self::HANDLING_STATUSES[$this->handling_status] ?? (string) $this->handling_status;
+    }
+
+    public function handlingStatusColor(): string
+    {
+        return match ($this->handling_status) {
+            self::HANDLING_NEW => 'new',
+            self::HANDLING_IN_PROGRESS => 'contacted',
+            self::HANDLING_REACHED => 'quoted',
+            self::HANDLING_NO_ANSWER => 'appointment',
+            self::HANDLING_CONVERTED => 'sold',
+            self::HANDLING_NOT_INTERESTED => 'lost',
+            self::HANDLING_JUNK => 'spam',
+            default => 'new',
+        };
+    }
+
+    public function hasFinalHandlingStatus(): bool
+    {
+        return in_array((string) $this->handling_status, self::HANDLING_FINAL, true);
+    }
+
+    public function isConnectedCall(): bool
+    {
+        return app(\App\Services\RingCentralPhoneCallStatsService::class)
+            ->isConnectedResult(
+                (string) ($this->ringcentral_result ?? ''),
+                (int) ($this->ringcentral_duration ?? 0)
+            );
     }
 
     public function wasSentToGoogleSheet(): bool

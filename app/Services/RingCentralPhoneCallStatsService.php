@@ -133,23 +133,28 @@ class RingCentralPhoneCallStatsService
 
     public function isConnectedCall(RingCentralCall $call): bool
     {
-        $result = strtolower(trim((string) ($call->result ?? '')));
-        if ($result === '') {
-            return ((int) $call->duration) >= 20;
+        return $this->isConnectedResult((string) ($call->result ?? ''), (int) $call->duration);
+    }
+
+    public function isConnectedResult(string $result, int $duration): bool
+    {
+        $normalized = strtolower(trim($result));
+        if ($normalized === '') {
+            return $duration >= 20;
         }
 
         foreach (['missed', 'voicemail', 'no answer', 'busy', 'rejected', 'blocked', 'hang up', 'cancelled', 'canceled'] as $missed) {
-            if (str_contains($result, $missed)) {
+            if (str_contains($normalized, $missed)) {
                 return false;
             }
         }
 
         foreach (['accepted', 'call connected', 'answered', 'connected', 'received'] as $connected) {
-            if (str_contains($result, $connected)) {
+            if (str_contains($normalized, $connected)) {
                 return true;
             }
         }
 
-        return ((int) $call->duration) >= 20;
+        return $duration >= 20;
     }
 }

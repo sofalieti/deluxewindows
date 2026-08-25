@@ -117,6 +117,17 @@ class PlatformProvider extends OrchidServiceProvider
                 ->permission('platform.marketing')
                 ->title('Marketing'),
 
+            Menu::make('My work')
+                ->icon('bs.clipboard-check')
+                ->route('platform.crm.work')
+                ->permission('platform.crm.tasks')
+                ->title('Work'),
+
+            Menu::make('Tasks')
+                ->icon('bs.list-task')
+                ->route('platform.crm.tasks')
+                ->permission('platform.crm.tasks'),
+
             Menu::make('Leads')
                 ->icon('bs.inbox')
                 ->route('platform.leads')
@@ -272,6 +283,10 @@ class PlatformProvider extends OrchidServiceProvider
             ItemPermission::group('Referrals')
                 ->addPermission('platform.referral.admin', 'Manage referral partners, applications & rewards')
                 ->addPermission('platform.referral.portal', 'Partner portal (own referral data only)'),
+
+            ItemPermission::group('Work')
+                ->addPermission('platform.crm.tasks', 'Work queue and own tasks')
+                ->addPermission('platform.crm.tasks.all', 'See all managers’ tasks'),
 
             ItemPermission::group('Contacts')
                 ->addPermission('platform.contacts', 'Manage Contacts'),

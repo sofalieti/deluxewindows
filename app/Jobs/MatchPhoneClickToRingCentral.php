@@ -139,6 +139,7 @@ class MatchPhoneClickToRingCentral implements ShouldQueue
                     // Outside the assignment try: sync afterCommit jobs must not roll back FOUND.
                     SendPhoneClickOfflineConversions::dispatch($click->id)->afterCommit();
                     SendPhoneClickToGoogleSheet::dispatch($click->id)->afterCommit();
+                    app(\App\Services\CrmTaskAutomation::class)->onPhoneClickMatched($click->refresh());
 
                     return;
                 }
@@ -204,6 +205,7 @@ class MatchPhoneClickToRingCentral implements ShouldQueue
             // same bridge as the admin "Google" button — excluding Bing traffic.
             if ($status === PhoneClick::RINGCENTRAL_NO_CALL) {
                 SendPhoneClickToGoogleSheet::dispatch($click->id)->afterCommit();
+                app(\App\Services\CrmTaskAutomation::class)->onPhoneClickMatched($click->refresh());
             }
 
             return;

@@ -96,6 +96,7 @@ class PhoneClickController extends Controller
             ]);
 
             app(\App\Services\ReferralAttributionService::class)->attributePhoneClick($click);
+            app(\App\Services\ContactFromPhoneClickService::class)->attachNewClick($click);
         } catch (\Throwable $e) {
             Log::warning('Phone click save failed', [
                 'error' => $e->getMessage(),

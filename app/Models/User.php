@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Orchid\Filters\Types\Like;
 use Orchid\Filters\Types\Where;
@@ -13,6 +14,21 @@ class User extends Authenticatable
     public function referralPartner(): HasOne
     {
         return $this->hasOne(ReferralPartner::class);
+    }
+
+    public function assignedLeads(): HasMany
+    {
+        return $this->hasMany(Lead::class, 'assigned_to');
+    }
+
+    public function assignedPhoneClicks(): HasMany
+    {
+        return $this->hasMany(PhoneClick::class, 'assigned_to');
+    }
+
+    public function assignedTasks(): HasMany
+    {
+        return $this->hasMany(CrmTask::class, 'assigned_to');
     }
 
     /**

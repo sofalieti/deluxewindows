@@ -64,5 +64,11 @@ return Application::configure(basePath: dirname(__DIR__))
             ->withoutOverlapping()
             ->when(fn () => filled(config('services.openai.api_key'))
                 && \Illuminate\Support\Facades\Schema::hasColumn('ringcentral_calls', 'transcript_status'));
+
+        $schedule->command('crm:task-digest')
+            ->dailyAt('07:15')
+            ->timezone('America/Los_Angeles')
+            ->withoutOverlapping()
+            ->when(fn () => \Illuminate\Support\Facades\Schema::hasTable('crm_tasks'));
     })
     ->create();

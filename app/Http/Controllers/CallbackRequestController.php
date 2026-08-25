@@ -211,6 +211,7 @@ class CallbackRequestController extends Controller
         app(\App\Services\ReferralAttributionService::class)->attributeLead($lead);
 
         app(ContactFromLeadService::class)->attachNewLead($lead);
+        app(\App\Services\CrmTaskAutomation::class)->onLeadCreated($lead->refresh());
 
         $notifyRecipients = (array) config('services.lead_notifications.to', []);
         if ($notifyRecipients !== []) {

@@ -6,6 +6,7 @@ namespace App\Orchid\Screens\Leads;
 
 use App\Models\Contact;
 use App\Models\Lead;
+use App\Models\User;
 use App\Models\LeadChange;
 use App\Models\LeadComment;
 use App\Orchid\Screens\Concerns\QueuesCallTranscripts;
@@ -40,7 +41,7 @@ class LeadEditScreen extends Screen
             TrafficSourceVisibility::SECTION_LEADS
         );
 
-        $lead->load(['comments.user', 'changes.user', 'contact', 'referralPartner', 'referralReward']);
+        $lead->load(['comments.user', 'changes.user', 'contact', 'referralPartner', 'referralReward', 'assignee', 'tasks.assignee']);
 
         $this->lead = $lead;
 
@@ -50,6 +51,7 @@ class LeadEditScreen extends Screen
             'changes' => $lead->changes,
             'contact_id' => $lead->contact_id,
             'calls' => $lead->ringCentralCallsForPhone(),
+            'tasks' => $lead->tasks,
         ];
     }
 
@@ -88,6 +90,14 @@ class LeadEditScreen extends Screen
             Button::make('Link selected contact')
                 ->icon('bs.link-45deg')
                 ->method('linkContact'),
+
+            Button::make('Assign to me')
+                ->icon('bs.person-check')
+                ->method('assignToMe'),
+
+            Link::make('Add task')
+                ->icon('bs.plus-lg')
+                ->route('platform.crm.tasks.create', ['subject_type' => Lead::class, 'subject_id' => $this->lead?->id]),
         ];
 
         if ($this->lead?->contact_id !== null) {
@@ -136,6 +146,10 @@ class LeadEditScreen extends Screen
                                 ->title('Status')
                                 ->options(Lead::STATUSES)
                                 ->required(),
+                            Select::make('lead.assigned_to')
+                                ->title('Assignee')
+                                ->fromModel(User::class, 'name')
+                                ->empty('Unassigned'),
                             Select::make('contact_id')
                                 ->title('Link to existing contact')
                                 ->fromModel(Contact::class, 'full_name')
@@ -253,6 +267,8 @@ class LeadEditScreen extends Screen
 
                 'Calls' => Layout::view('admin.leads.calls'),
 
+                'Tasks' => Layout::view('admin.crm.tasks-table'),
+
                 'History' => Layout::view('admin.leads.history'),
             ]),
 
@@ -273,6 +289,7 @@ class LeadEditScreen extends Screen
             'lead.page_url' => ['nullable', 'string', 'max:1000'],
             'lead.message' => ['nullable', 'string', 'max:3000'],
             'lead.status' => ['required', 'string', Rule::in(array_keys(Lead::STATUSES))],
+            'lead.assigned_to' => ['nullable', 'integer', 'exists:users,id'],
         ]);
 
         $user = Auth::user();
@@ -286,6 +303,7 @@ class LeadEditScreen extends Screen
             'page_url' => trim((string) ($validated['lead']['page_url'] ?? '')),
             'message' => trim((string) ($validated['lead']['message'] ?? '')),
             'status' => $validated['lead']['status'],
+            'assigned_to' => $validated['lead']['assigned_to'] ?? null,
         ];
         $labels = [
             'full_name' => 'Name',
@@ -294,13 +312,17 @@ class LeadEditScreen extends Screen
             'city' => 'City',
             'page_url' => 'Page',
             'message' => 'Message',
+            'assigned_to' => 'Assignee',
         ];
         $changes = [];
 
         foreach ($newValues as $field => $newValue) {
-            $oldValue = trim((string) ($lead->{$field} ?? ''));
-            if ($oldValue !== $newValue) {
-                $changes[$field] = [$oldValue, $newValue];
+            $oldValue = $field === 'assigned_to'
+                ? ($lead->assigned_to !== null ? (string) $lead->assigned_to : '')
+                : trim((string) ($lead->{$field} ?? ''));
+            $compareNew = $newValue === null ? '' : (string) $newValue;
+            if ($oldValue !== $compareNew) {
+                $changes[$field] = [$oldValue, $compareNew];
             }
         }
 
@@ -312,6 +334,13 @@ class LeadEditScreen extends Screen
 
         DB::transaction(function () use ($lead, $newValues, $changes, $labels, $user): void {
             foreach ($newValues as $field => $value) {
+                if ($field === 'assigned_to') {
+                    $lead->assigned_to = $value ?: null;
+                    $lead->assigned_at = $value ? now() : null;
+
+                    continue;
+                }
+
                 $lead->{$field} = $value !== '' || in_array($field, ['full_name', 'phone', 'email', 'status'], true)
                     ? $value
                     : null;
@@ -337,6 +366,13 @@ class LeadEditScreen extends Screen
         });
 
         app(\App\Services\ReferralRewardService::class)->syncEligibleForLead($lead->refresh());
+        if (isset($changes['status'])) {
+            app(\App\Services\CrmTaskAutomation::class)->onLeadStatusChanged(
+                $lead,
+                $changes['status'][0],
+                $changes['status'][1]
+            );
+        }
 
         Toast::info(count($changes) === 1 ? 'Lead updated.' : count($changes).' lead fields updated.');
 
@@ -361,6 +397,7 @@ class LeadEditScreen extends Screen
                 $lead->save();
                 LeadChange::recordStatusChange($lead, $from, $to, (int) $user->id);
                 app(\App\Services\ReferralRewardService::class)->syncEligibleForLead($lead->refresh());
+                app(\App\Services\CrmTaskAutomation::class)->onLeadStatusChanged($lead, $from, $to);
             }
         }
 
@@ -408,6 +445,30 @@ class LeadEditScreen extends Screen
         $contact = Contact::query()->findOrFail((int) $validated['contact_id']);
         $service->attachToContact($lead, $contact, (int) $user->id);
         Toast::info('Lead linked to '.$contact->full_name.'.');
+
+        return redirect()->route('platform.leads.edit', $lead);
+    }
+
+    public function assignToMe(Lead $lead)
+    {
+        $user = Auth::user();
+        abort_unless($user !== null, 403);
+
+        $lead->forceFill([
+            'assigned_to' => $user->id,
+            'assigned_at' => now(),
+        ])->save();
+
+        LeadChange::record(
+            $lead,
+            'assigned_to',
+            null,
+            (string) $user->id,
+            'Assigned to '.$user->name,
+            (int) $user->id,
+        );
+
+        Toast::info('Lead assigned to you.');
 
         return redirect()->route('platform.leads.edit', $lead);
     }
