@@ -4,12 +4,10 @@ declare(strict_types=1);
 
 namespace App\Services\Mailbox;
 
-use App\Models\MailboxAttachment;
 use App\Models\MailboxMessage;
 use App\Models\MailboxSetting;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Throwable;
 use Webklex\PHPIMAP\Client;
@@ -25,6 +23,7 @@ class ImapMailboxService
         private readonly MailboxImportMatcher $matcher,
         private readonly MailboxClientEmailDirectory $clients,
         private readonly MailboxGmailSearch $gmailSearch,
+        private readonly MailboxFolderPicker $folders,
     ) {
     }
 
@@ -82,27 +81,39 @@ class ImapMailboxService
             $emailList = array_keys($clientEmails);
             $lookbackDays = $lookbackDays ?? $this->currentLookbackDays($cursors, $maxSeconds);
             $foldersUsed = [];
+            $listedFolders = [];
             $candidates = 0;
             $connectedEmail = strtolower($this->oauth->accountEmail($setting));
+            [$syncFolders, $listedFolders] = $this->foldersToSync($client, $setting);
 
-            foreach ($this->foldersToSync($client, $setting) as $folderName) {
-                try {
-                    $folder = $client->getFolder($folderName);
-                } catch (Throwable) {
-                    $folder = null;
-                }
-                if ($folder === null) {
-                    continue;
-                }
+            foreach ($syncFolders as $folderName => $folder) {
                 $foldersUsed[] = $folderName;
+                $isSent = $this->folders->isSent($folderName);
+                $knownUids = MailboxMessage::query()
+                    ->where('folder', $folderName)
+                    ->pluck('imap_uid')
+                    ->flip()
+                    ->all();
 
-                $isSent = $this->looksLikeSentFolder($folderName);
-                $found = $this->fetchRecentMatchingMessages($folder, $emailList, $lookbackDays, $started, $maxSeconds);
+                $found = $this->fetchRecentMatchingMessages(
+                    $folder,
+                    $emailList,
+                    $lookbackDays,
+                    $started,
+                    $maxSeconds,
+                    $maxSeconds < 60,
+                );
                 $candidates += $found['targeted']->count() + $found['broad']->count();
 
                 foreach (['targeted' => true, 'broad' => false] as $bucket => $force) {
-                    foreach ($found[$bucket] as $message) {
+                    foreach ($this->newestFirst($found[$bucket]) as $message) {
                         /** @var Message $message */
+                        $uid = (int) $message->getUid();
+                        if ($uid > 0 && isset($knownUids[$uid])) {
+                            $skipped++;
+                            continue;
+                        }
+
                         $result = $this->importMessage(
                             $message,
                             $folderName,
@@ -113,6 +124,9 @@ class ImapMailboxService
                         );
                         if ($result === 'imported') {
                             $imported++;
+                            if ($uid > 0) {
+                                $knownUids[$uid] = true;
+                            }
                         } else {
                             $skipped++;
                         }
@@ -140,10 +154,13 @@ class ImapMailboxService
             $message = 'Account '.$connectedEmail.' · '.$window.' · folders '.implode(', ', $foldersUsed ?: ['none'])
                 .'. Searched '.count($emailList).' client emails, IMAP found '.$candidates
                 .' · Synced: '.$imported.' new, '.$skipped.' skipped.';
+            if ($listedFolders !== []) {
+                $message .= ' IMAP sees: '.implode(', ', array_slice($listedFolders, 0, 12));
+            }
             if ($emailList === []) {
                 $message = 'No client emails found on leads/contacts. Add emails to cards, then sync again.';
             } elseif ($more) {
-                $message .= ' Next pass will look further back.';
+                $message .= ' Refresh and Sync again to import the next batch.';
             }
             if ($imported === 0 && $candidates === 0 && $emailList !== []) {
                 $message .= ' If this Gmail is not the inbox where clients write, connect that account instead.';
@@ -277,24 +294,19 @@ class ImapMailboxService
         int $lookbackDays,
         float $started,
         int $maxSeconds,
+        bool $shortRun,
     ): array {
         $targeted = collect();
         $since = $lookbackDays > 0 ? now()->subDays($lookbackDays) : null;
+        $limit = $shortRun ? 30 : 80;
 
         $lsa = $this->gmailSearch->forLocalServices($lookbackDays);
-        $targeted = $targeted->merge($this->safeSearch($folder, function ($query) use ($lsa, $since): void {
+        $targeted = $targeted->merge($this->safeSearch($folder, function ($query) use ($lsa, $since, $limit): void {
             $query->where($this->gmailSearch->toImapWhere($lsa));
-            $this->preferRecent($query, $since, 80);
+            $this->preferRecent($query, $since, $limit);
         }));
 
-        foreach (['local-services', 'localservices'] as $from) {
-            $targeted = $targeted->merge($this->safeSearch($folder, function ($query) use ($from, $since): void {
-                $query->whereFrom($from);
-                $this->preferRecent($query, $since, 40);
-            }));
-        }
-
-        foreach (array_chunk($emails, 12) as $batch) {
+        foreach (array_chunk($emails, 20) as $batch) {
             if ((microtime(true) - $started) > $maxSeconds - 2) {
                 break;
             }
@@ -302,32 +314,41 @@ class ImapMailboxService
             $raw = $this->gmailSearch->forClientEmails($batch, $lookbackDays);
             $before = $targeted->count();
             if ($raw !== '') {
-                $targeted = $targeted->merge($this->safeSearch($folder, function ($query) use ($raw, $since): void {
+                $targeted = $targeted->merge($this->safeSearch($folder, function ($query) use ($raw, $since, $limit): void {
                     $query->where($this->gmailSearch->toImapWhere($raw));
-                    $this->preferRecent($query, $since, 80);
+                    $this->preferRecent($query, $since, $limit);
                 }));
             }
 
             if ($targeted->count() === $before) {
+                foreach (['local-services', 'localservices'] as $from) {
+                    $targeted = $targeted->merge($this->safeSearch($folder, function ($query) use ($from, $since): void {
+                        $query->whereFrom($from);
+                        $this->preferRecent($query, $since, 20);
+                    }));
+                }
                 foreach ($batch as $email) {
                     if ((microtime(true) - $started) > $maxSeconds - 1) {
                         break 2;
                     }
                     $targeted = $targeted->merge($this->safeSearch($folder, function ($query) use ($email, $since): void {
                         $query->whereFrom($email);
-                        $this->preferRecent($query, $since, 20);
+                        $this->preferRecent($query, $since, 15);
                     }));
                     $targeted = $targeted->merge($this->safeSearch($folder, function ($query) use ($email, $since): void {
                         $query->whereTo($email);
-                        $this->preferRecent($query, $since, 20);
+                        $this->preferRecent($query, $since, 15);
                     }));
                 }
             }
         }
 
-        $broad = $this->safeSearch($folder, function ($query) use ($since): void {
-            $this->preferRecent($query, $since, 40);
-        });
+        $broad = collect();
+        if (! $shortRun) {
+            $broad = $this->safeSearch($folder, function ($query) use ($since): void {
+                $this->preferRecent($query, $since, 40);
+            });
+        }
 
         $unique = fn (mixed $message): int => (int) $message->getUid();
 
@@ -376,9 +397,15 @@ class ImapMailboxService
     private function safeSearch(mixed $folder, callable $configure): Collection
     {
         try {
-            $query = $folder->messages()
+            $query = $folder->query()
                 ->leaveUnread()
                 ->setFetchBody(false);
+            if (method_exists($query, 'setFetchFlags')) {
+                $query->setFetchFlags(false);
+            }
+            if (method_exists($query, 'setFetchAttachment')) {
+                $query->setFetchAttachment(false);
+            }
             $configure($query);
 
             return collect($query->get());
@@ -390,47 +417,83 @@ class ImapMailboxService
     }
 
     /**
-     * @return list<string>
+     * @return array{0: array<string, mixed>, 1: list<string>}
      */
     private function foldersToSync(Client $client, MailboxSetting $setting): array
     {
-        $names = [trim((string) ($setting->folder ?: 'INBOX')) ?: 'INBOX'];
+        $inbox = trim((string) ($setting->folder ?: 'INBOX')) ?: 'INBOX';
+        $wanted = [];
+        $listed = [];
 
         try {
-            foreach ($client->getFolders(false) as $folder) {
-                $full = trim((string) ($folder->full_name ?? $folder->path ?? $folder->name ?? ''));
+            foreach ($this->walkFolders($client->getFolders()) as $folder) {
+                $full = $this->folders->name($folder);
                 if ($full === '') {
                     continue;
                 }
-                if ($this->looksLikeSentFolder($full) || $this->looksLikeAllMail($full)) {
-                    $names[] = $full;
+                $listed[] = $full;
+                if ($this->folders->shouldSync($full, $inbox)) {
+                    $wanted[$full] = $folder;
                 }
             }
         } catch (Throwable $e) {
             Log::info('Mailbox could not list extra IMAP folders', ['error' => $e->getMessage()]);
         }
 
-        foreach (['[Gmail]/All Mail', '[Gmail]/Sent Mail'] as $gmailFolder) {
-            $names[] = $gmailFolder;
+        if ($wanted === []) {
+            try {
+                $fallback = $client->getFolder($inbox);
+                if ($fallback !== null) {
+                    $wanted[$inbox] = $fallback;
+                }
+            } catch (Throwable) {
+                // listed names still help diagnose empty IMAP.
+            }
         }
 
-        return array_values(array_unique($names));
+        return [$wanted, array_values(array_unique($listed))];
     }
 
-    private function looksLikeSentFolder(string $name): bool
+    /**
+     * @return list<mixed>
+     */
+    private function walkFolders(mixed $folders): array
     {
-        $normalized = strtolower($name);
+        $out = [];
+        if (! is_iterable($folders)) {
+            return $out;
+        }
 
-        return str_contains($normalized, 'sent')
-            && ! str_contains($normalized, 'spam')
-            && ! str_contains($normalized, 'trash');
+        foreach ($folders as $folder) {
+            $out[] = $folder;
+            $children = is_object($folder) ? ($folder->children ?? null) : null;
+            if (is_iterable($children)) {
+                $out = array_merge($out, $this->walkFolders($children));
+            }
+        }
+
+        return $out;
     }
 
-    private function looksLikeAllMail(string $name): bool
+    private function newestFirst(Collection $messages): Collection
     {
-        $normalized = strtolower($name);
+        return $messages
+            ->sortByDesc(function (mixed $message): int {
+                try {
+                    $date = $message->getDate();
+                    if ($date instanceof \Webklex\PHPIMAP\Attribute) {
+                        $carbon = $date->toDate();
+                        if ($carbon instanceof \DateTimeInterface) {
+                            return $carbon->getTimestamp();
+                        }
+                    }
+                } catch (Throwable) {
+                    // Fall back to UID, which Gmail assigns in arrival order.
+                }
 
-        return str_contains($normalized, 'all mail');
+                return (int) $message->getUid();
+            })
+            ->values();
     }
 
     private function ensureMessageBody(Message $message): void
@@ -490,9 +553,6 @@ class ImapMailboxService
         $snippetSource = $text !== '' ? $text : strip_tags($html);
         $snippet = Str::limit(trim(preg_replace('/\s+/', ' ', $snippetSource) ?? ''), 480);
 
-        $attachments = $message->getAttachments();
-        $hasAttachments = $attachments->count() > 0;
-
         $participants = [];
         foreach ($this->messageEmails($message) as $email) {
             $normalized = \App\Models\Contact::normalizeEmail($email);
@@ -517,29 +577,10 @@ class ImapMailboxService
             'snippet' => $snippet !== '' ? $snippet : null,
             'body_text' => $text !== '' ? $text : null,
             'body_html' => $html !== '' ? $html : null,
-            'has_attachments' => $hasAttachments,
+            'has_attachments' => false,
             'raw_headers' => null,
             'is_read_local' => false,
         ]);
-
-        if ($hasAttachments) {
-            foreach ($attachments as $attachment) {
-                $filename = (string) ($attachment->getName() ?: 'attachment.bin');
-                $safeName = Str::slug(pathinfo($filename, PATHINFO_FILENAME)) ?: 'file';
-                $ext = pathinfo($filename, PATHINFO_EXTENSION);
-                $relative = 'mailbox/'.$record->id.'/'.$safeName.($ext !== '' ? '.'.$ext : '');
-
-                Storage::disk('local')->put($relative, $attachment->getContent());
-
-                MailboxAttachment::query()->create([
-                    'mailbox_message_id' => $record->id,
-                    'filename' => $filename,
-                    'mime' => (string) ($attachment->getMimeType() ?: 'application/octet-stream'),
-                    'size' => (int) ($attachment->getSize() ?: 0),
-                    'disk_path' => $relative,
-                ]);
-            }
-        }
 
         return $record;
     }
