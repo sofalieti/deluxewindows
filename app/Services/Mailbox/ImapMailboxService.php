@@ -7,7 +7,6 @@ namespace App\Services\Mailbox;
 use App\Models\MailboxAttachment;
 use App\Models\MailboxMessage;
 use App\Models\MailboxSetting;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -22,6 +21,8 @@ class ImapMailboxService
     public function __construct(
         private readonly MailboxSettingsService $settings,
         private readonly GoogleMailboxOAuthService $oauth,
+        private readonly MailboxImportMatcher $matcher,
+        private readonly MailboxClientEmailDirectory $clients,
     ) {
     }
 
@@ -67,96 +68,85 @@ class ImapMailboxService
 
         $imported = 0;
         $skipped = 0;
+        $more = false;
 
         try {
+            @set_time_limit(180);
+            $started = microtime(true);
             $client = $this->connect($setting);
-            $folderName = $setting->folder ?: 'INBOX';
-            $folder = $client->getFolder($folderName);
-            if ($folder === null) {
-                throw new \RuntimeException('Folder not found: '.$folderName);
-            }
+            $clientEmails = $this->clients->normalizedSet();
+            $cursors = is_array($setting->folder_cursors) ? $setting->folder_cursors : [];
 
-            $subjectFilter = trim((string) ($setting->subject_filter ?: 'Deluxewindows'));
-            $fromFilter = trim((string) ($setting->from_filter ?: 'notify.deluxewindows.com'));
-            // IMAP SINCE is inclusive by calendar day — start from yesterday.
-            $since = Carbon::now()->subDay()->startOfDay();
-
-            // leaveUnread / FT_PEEK: fetch without setting \Seen
-            $query = $folder->messages()
-                ->leaveUnread()
-                ->setFetchBody(true)
-                ->setFetchFlags(false)
-                ->whereSince($since);
-
-            if ($subjectFilter !== '') {
-                $query->whereSubject($subjectFilter);
-            }
-
-            if ($fromFilter !== '') {
-                $query->whereFrom($fromFilter);
-            }
-
-            $messages = $query->get();
-
-            foreach ($messages as $message) {
-                /** @var Message $message */
-                $uid = (int) $message->getUid();
-                if ($uid <= 0) {
-                    $skipped++;
+            foreach ($this->foldersToSync($client, $setting) as $folderName) {
+                $folder = $client->getFolder($folderName);
+                if ($folder === null) {
                     continue;
                 }
 
-                $exists = MailboxMessage::query()
-                    ->where('folder', $folderName)
-                    ->where('imap_uid', $uid)
-                    ->exists();
+                $lastUid = (int) ($cursors[$folderName] ?? 0);
+                $fromUid = max(1, $lastUid + 1);
+                $toUid = $fromUid + 399;
+                $uidNext = $this->folderUidNext($folder);
 
-                if ($exists) {
-                    $skipped++;
-                    continue;
-                }
+                $messages = $folder->messages()
+                    ->leaveUnread()
+                    ->setFetchBody(false)
+                    ->setFetchFlags(false)
+                    ->whereUid($fromUid.':'.$toUid)
+                    ->get();
 
-                $subject = $this->attrString($message->getSubject());
-                if ($subjectFilter !== '' && stripos($subject, $subjectFilter) === false) {
-                    $skipped++;
-                    continue;
-                }
+                $isSent = $this->looksLikeSentFolder($folderName);
+                $maxUid = $lastUid;
 
-                [$fromEmail] = $this->firstAddress($message->getFrom());
-                if ($fromFilter !== '' && stripos($fromEmail, $fromFilter) === false) {
-                    $skipped++;
-                    continue;
-                }
-
-                try {
-                    $dateAttr = $message->getDate();
-                    if ($dateAttr instanceof \Webklex\PHPIMAP\Attribute) {
-                        $messageDate = $dateAttr->toDate();
-                        if ($messageDate->lt($since)) {
-                            $skipped++;
-                            continue;
-                        }
+                foreach ($messages as $message) {
+                    /** @var Message $message */
+                    $uid = (int) $message->getUid();
+                    if ($uid > $maxUid) {
+                        $maxUid = $uid;
                     }
-                } catch (Throwable) {
-                    // If date cannot be parsed, still keep the message when IMAP SINCE matched.
+
+                    $result = $this->importMessage($message, $folderName, $clientEmails, $isSent);
+                    if ($result === 'imported') {
+                        $imported++;
+                    } else {
+                        $skipped++;
+                    }
+
+                    if ((microtime(true) - $started) > 150) {
+                        $more = true;
+                        break 2;
+                    }
                 }
 
-                $this->storeMessage($message, $folderName);
-                $imported++;
+                if ($messages->isEmpty()) {
+                    $cursors[$folderName] = $uidNext > 0 && $toUid + 1 >= $uidNext
+                        ? max($lastUid, $uidNext - 1)
+                        : $toUid;
+                    $more = $more || ($uidNext > 0 && $toUid + 1 < $uidNext);
+                } else {
+                    $cursors[$folderName] = $maxUid;
+                    $more = $more || ($uidNext > 0 ? $maxUid + 1 < $uidNext : $messages->count() >= 400);
+                }
             }
 
             $client->disconnect();
 
+            $setting->folder_cursors = $cursors;
             $setting->last_sync_at = now();
             $setting->last_error = null;
             $setting->save();
             $this->settings->forgetCache();
 
+            $message = "Synced: {$imported} new, {$skipped} skipped.";
+            if ($more) {
+                $message .= ' History is still importing — run Sync again (or wait for the next scheduled sync).';
+            }
+
             return [
                 'ok' => true,
                 'imported' => $imported,
                 'skipped' => $skipped,
-                'message' => "Synced: {$imported} new, {$skipped} skipped.",
+                'message' => $message,
             ];
         } catch (Throwable $e) {
             Log::warning('Mailbox IMAP sync failed', ['error' => $e->getMessage()]);
@@ -216,7 +206,133 @@ class ImapMailboxService
             && trim((string) $setting->password) !== '';
     }
 
-    private function storeMessage(Message $message, string $folderName): MailboxMessage
+    /**
+     * @param  array<string, true>  $clientEmails
+     * @return 'imported'|'skipped'
+     */
+    private function importMessage(
+        Message $message,
+        string $folderName,
+        array $clientEmails,
+        bool $isSent,
+    ): string {
+        $uid = (int) $message->getUid();
+        if ($uid <= 0) {
+            return 'skipped';
+        }
+
+        $exists = MailboxMessage::query()
+            ->where('folder', $folderName)
+            ->where('imap_uid', $uid)
+            ->exists();
+        if ($exists) {
+            return 'skipped';
+        }
+
+        $messageId = $this->attrString($message->getMessageId());
+        if ($messageId !== '' && MailboxMessage::query()->where('message_id', $messageId)->exists()) {
+            return 'skipped';
+        }
+
+        [$fromEmail, $fromName] = $this->firstAddress($message->getFrom());
+        $subject = $this->attrString($message->getSubject());
+        $messageEmails = $this->messageEmails($message);
+
+        if (! $this->matcher->shouldImport($fromName, $fromEmail, $subject, $messageEmails, $clientEmails)) {
+            return 'skipped';
+        }
+
+        $this->ensureMessageBody($message);
+        $this->storeMessage(
+            $message,
+            $folderName,
+            $isSent ? MailboxMessage::DIRECTION_OUTBOUND : MailboxMessage::DIRECTION_INBOUND,
+        );
+
+        return 'imported';
+    }
+
+    private function folderUidNext(mixed $folder): int
+    {
+        try {
+            if (is_object($folder) && method_exists($folder, 'examine')) {
+                $status = $folder->examine();
+                if (is_array($status)) {
+                    return (int) ($status['uidnext'] ?? $status['uidNext'] ?? 0);
+                }
+            }
+            if (is_object($folder) && isset($folder->uidnext)) {
+                return (int) $folder->uidnext;
+            }
+        } catch (Throwable) {
+            return 0;
+        }
+
+        return 0;
+    }
+
+    /**
+     * @return list<string>
+     */
+    private function foldersToSync(Client $client, MailboxSetting $setting): array
+    {
+        $names = [trim((string) ($setting->folder ?: 'INBOX')) ?: 'INBOX'];
+
+        try {
+            foreach ($client->getFolders(false) as $folder) {
+                $full = trim((string) ($folder->full_name ?? $folder->path ?? $folder->name ?? ''));
+                if ($full !== '' && $this->looksLikeSentFolder($full)) {
+                    $names[] = $full;
+                }
+            }
+        } catch (Throwable $e) {
+            Log::info('Mailbox could not list extra IMAP folders', ['error' => $e->getMessage()]);
+        }
+
+        return array_values(array_unique($names));
+    }
+
+    private function looksLikeSentFolder(string $name): bool
+    {
+        $normalized = strtolower($name);
+
+        return str_contains($normalized, 'sent')
+            && ! str_contains($normalized, 'spam')
+            && ! str_contains($normalized, 'trash');
+    }
+
+    private function ensureMessageBody(Message $message): void
+    {
+        try {
+            if (method_exists($message, 'parseAll')) {
+                $message->parseAll();
+            } elseif (method_exists($message, 'parse')) {
+                $message->parse();
+            }
+        } catch (Throwable) {
+            // Header-only fetch still stores subject/from; body may stay empty.
+        }
+    }
+
+    /**
+     * @return list<string>
+     */
+    private function messageEmails(Message $message): array
+    {
+        $emails = [];
+        foreach ([$message->getFrom(), $message->getTo(), $message->getCc()] as $addresses) {
+            foreach ($this->addressList($addresses) as $item) {
+                $mail = trim((string) ($item['mail'] ?? ''));
+                if ($mail !== '') {
+                    $emails[] = $mail;
+                }
+            }
+        }
+
+        return array_values(array_unique($emails));
+    }
+
+    private function storeMessage(Message $message, string $folderName, string $direction = MailboxMessage::DIRECTION_INBOUND): MailboxMessage
     {
         [$fromEmail, $fromName] = $this->firstAddress($message->getFrom());
         $to = $this->addressesToString($message->getTo());
@@ -245,8 +361,16 @@ class ImapMailboxService
         $attachments = $message->getAttachments();
         $hasAttachments = $attachments->count() > 0;
 
+        $participants = [];
+        foreach ($this->messageEmails($message) as $email) {
+            $normalized = \App\Models\Contact::normalizeEmail($email);
+            if ($normalized !== null) {
+                $participants[$normalized] = true;
+            }
+        }
+
         $record = MailboxMessage::query()->create([
-            'direction' => MailboxMessage::DIRECTION_INBOUND,
+            'direction' => $direction,
             'folder' => $folderName,
             'imap_uid' => (int) $message->getUid(),
             'message_id' => $messageId !== '' ? $messageId : null,
@@ -256,6 +380,7 @@ class ImapMailboxService
             'from_name' => $fromName !== '' ? $fromName : null,
             'to' => $to !== '' ? $to : null,
             'cc' => $cc !== '' ? $cc : null,
+            'participant_emails' => array_keys($participants),
             'sent_at' => $sentAt,
             'snippet' => $snippet !== '' ? $snippet : null,
             'body_text' => $text !== '' ? $text : null,

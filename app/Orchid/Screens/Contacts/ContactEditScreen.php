@@ -7,6 +7,7 @@ namespace App\Orchid\Screens\Contacts;
 use App\Models\Contact;
 use App\Models\ContactChange;
 use App\Models\ContactComment;
+use App\Models\MailboxMessage;
 use App\Orchid\Screens\Concerns\QueuesCallTranscripts;
 use App\Services\ContactFromLeadService;
 use App\Services\ContactFromPhoneClickService;
@@ -57,6 +58,13 @@ class ContactEditScreen extends Screen
             'tasks' => $contact->exists ? $contact->tasks : collect(),
             'timeline' => $contact->exists
                 ? app(CrmTimelineService::class)->forContact($contact)
+                : collect(),
+            'mailboxMessages' => $contact->exists
+                ? MailboxMessage::query()
+                    ->forParticipant($contact->email)
+                    ->orderByDesc('sent_at')
+                    ->limit(100)
+                    ->get()
                 : collect(),
         ];
     }
@@ -151,6 +159,7 @@ class ContactEditScreen extends Screen
             $tabs['Calls'] = Layout::view('admin.contacts.calls');
             $tabs['Leads'] = Layout::view('admin.contacts.leads');
             $tabs['Phone clicks'] = Layout::view('admin.contacts.phone-clicks');
+            $tabs['Emails'] = Layout::view('admin.mailbox.client-messages');
             $tabs['Tasks'] = Layout::view('admin.crm.tasks-table');
             $tabs['Activity'] = Layout::view('admin.contacts.timeline');
             $tabs['History'] = Layout::view('admin.contacts.history');

@@ -50,7 +50,8 @@ class MailboxSettingsScreen extends Screen
                 'password' => $setting->password ? '••••••••' : '',
                 'folder' => $setting->folder,
                 'subject_filter' => $setting->subject_filter,
-                'from_filter' => $setting->from_filter ?: 'notify.deluxewindows.com',
+                'from_filter' => $setting->from_filter,
+                'import_rules' => 'Clients (leads/contacts) + Local Services by Google',
                 'last_sync_at' => optional($setting->last_sync_at)->format('Y-m-d H:i:s') ?: '—',
                 'last_error' => $setting->last_error ?: '—',
             ],
@@ -139,18 +140,15 @@ class MailboxSettingsScreen extends Screen
                     ->placeholder('Run scheduled IMAP sync')
                     ->sendTrueOrFalse(),
 
-                Input::make('setting.subject_filter')
-                    ->title('Subject filter')
-                    ->help('Only import messages whose subject contains this text.'),
-
-                Input::make('setting.from_filter')
-                    ->title('From filter')
-                    ->help('Only import from this sender/domain for now (e.g. notify.deluxewindows.com).'),
+                Input::make('setting.import_rules')
+                    ->title('What is imported')
+                    ->readonly()
+                    ->help('Inbox and Sent for all time: incoming and outgoing mail to lead/contact emails, plus every message from Local Services by Google. History imports in batches — press Sync now until it says it is finished. Nothing is deleted or marked read on Gmail.'),
 
                 Input::make('setting.folder')
-                    ->title('IMAP folder')
+                    ->title('IMAP inbox folder')
                     ->value('INBOX'),
-            ])->title('Sync filters'),
+            ])->title('Sync rules'),
 
             Layout::rows([
                 Input::make('setting.username')
@@ -249,7 +247,13 @@ class MailboxSettingsScreen extends Screen
         $data = $request->validate($rules)['setting'] ?? [];
         $data['auth_mode'] = 'oauth';
 
-        unset($data['google_status'], $data['google_redirect_uri'], $data['last_sync_at'], $data['last_error']);
+        unset(
+            $data['google_status'],
+            $data['google_redirect_uri'],
+            $data['last_sync_at'],
+            $data['last_error'],
+            $data['import_rules'],
+        );
 
         foreach (['google_client_id', 'google_client_secret', 'password'] as $secretField) {
             $value = trim((string) ($data[$secretField] ?? ''));

@@ -11,7 +11,7 @@ class MailboxSyncCommand extends Command
 {
     protected $signature = 'mailbox:sync';
 
-    protected $description = 'Sync Deluxewindows-matching emails from IMAP (read-only, never mark seen or delete)';
+    protected $description = 'Sync client and Local Services emails from IMAP (read-only, never mark seen or delete)';
 
     public function handle(ImapMailboxService $imap): int
     {

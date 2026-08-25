@@ -41,6 +41,7 @@ class MailboxMessage extends Model
         'from_name',
         'to',
         'cc',
+        'participant_emails',
         'sent_at',
         'snippet',
         'body_text',
@@ -57,11 +58,33 @@ class MailboxMessage extends Model
             'sent_at' => 'datetime',
             'has_attachments' => 'boolean',
             'is_read_local' => 'boolean',
+            'participant_emails' => 'array',
         ];
     }
 
     public function attachments(): HasMany
     {
         return $this->hasMany(MailboxAttachment::class);
+    }
+
+    /**
+     * @param  \Illuminate\Database\Eloquent\Builder<MailboxMessage>  $query
+     * @return \Illuminate\Database\Eloquent\Builder<MailboxMessage>
+     */
+    public function scopeForParticipant($query, ?string $email)
+    {
+        $normalized = Contact::normalizeEmail($email);
+        if ($normalized === null) {
+            return $query->whereRaw('0 = 1');
+        }
+
+        $like = '%'.addcslashes($normalized, '%_\\').'%';
+
+        return $query->where(function ($inner) use ($normalized, $like): void {
+            $inner->whereJsonContains('participant_emails', $normalized)
+                ->orWhereRaw('LOWER(from_email) = ?', [$normalized])
+                ->orWhere('to', 'like', $like)
+                ->orWhere('cc', 'like', $like);
+        });
     }
 }

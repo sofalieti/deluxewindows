@@ -51,7 +51,7 @@ class MailboxListScreen extends Screen
 
     public function description(): ?string
     {
-        return 'Emails synced from IMAP since yesterday. Currently only from notify.deluxewindows.com.';
+        return 'Incoming and outgoing mail for CRM client addresses, plus Local Services by Google. Full history, never deleted on the server.';
     }
 
     public function permission(): ?iterable

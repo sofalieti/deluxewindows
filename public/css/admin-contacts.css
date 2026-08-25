@@ -78,3 +78,27 @@
 .contact-comments-sidebar .contact-comment {
     padding: 0.75rem 0;
 }
+
+.mailbox-client-row {
+    padding: 0.85rem 0;
+}
+
+.mailbox-client-row--border {
+    border-bottom: 1px solid #e9ecef;
+}
+
+.mailbox-client-row__main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.mailbox-client-row__when {
+    white-space: nowrap;
+}
+
+.mailbox-client-row__meta,
+.mailbox-client-row__snippet {
+    margin-top: 0.25rem;
+}

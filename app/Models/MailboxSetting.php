@@ -30,6 +30,7 @@ class MailboxSetting extends Model
         'subject_filter',
         'from_filter',
         'last_sync_at',
+        'folder_cursors',
         'last_error',
     ];
 
@@ -45,6 +46,7 @@ class MailboxSetting extends Model
             'google_access_token' => 'encrypted',
             'google_token_expires_at' => 'datetime',
             'last_sync_at' => 'datetime',
+            'folder_cursors' => 'array',
         ];
     }
 

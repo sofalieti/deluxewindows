@@ -6,6 +6,7 @@ namespace App\Orchid\Screens\Leads;
 
 use App\Models\Contact;
 use App\Models\Lead;
+use App\Models\MailboxMessage;
 use App\Models\User;
 use App\Models\LeadChange;
 use App\Models\LeadComment;
@@ -52,6 +53,11 @@ class LeadEditScreen extends Screen
             'contact_id' => $lead->contact_id,
             'calls' => $lead->ringCentralCallsForPhone(),
             'tasks' => $lead->tasks,
+            'mailboxMessages' => MailboxMessage::query()
+                ->forParticipant($lead->email)
+                ->orderByDesc('sent_at')
+                ->limit(100)
+                ->get(),
         ];
     }
 
@@ -266,6 +272,8 @@ class LeadEditScreen extends Screen
                 ]),
 
                 'Calls' => Layout::view('admin.leads.calls'),
+
+                'Emails' => Layout::view('admin.mailbox.client-messages'),
 
                 'Tasks' => Layout::view('admin.crm.tasks-table'),
 
