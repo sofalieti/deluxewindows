@@ -84,9 +84,14 @@ class ImapMailboxService
             $listedFolders = [];
             $candidates = 0;
             $connectedEmail = strtolower($this->oauth->accountEmail($setting));
-            [$syncFolders, $listedFolders] = $this->foldersToSync($client, $setting);
+            [$syncFolders, $listedFolders] = $this->foldersToSync($client, $setting, $maxSeconds < 60);
 
             foreach ($syncFolders as $folderName => $folder) {
+                if ((microtime(true) - $started) > $maxSeconds) {
+                    $more = true;
+                    break;
+                }
+
                 $foldersUsed[] = $folderName;
                 $isSent = $this->folders->isSent($folderName);
                 $knownUids = MailboxMessage::query()
@@ -121,6 +126,7 @@ class ImapMailboxService
                             $isSent,
                             $connectedEmail,
                             $force,
+                            $maxSeconds >= 90,
                         );
                         if ($result === 'imported') {
                             $imported++;
@@ -129,11 +135,6 @@ class ImapMailboxService
                             }
                         } else {
                             $skipped++;
-                        }
-
-                        if ((microtime(true) - $started) > $maxSeconds) {
-                            $more = true;
-                            break 3;
                         }
                     }
                 }
@@ -244,6 +245,7 @@ class ImapMailboxService
         bool $isSent,
         string $connectedEmail = '',
         bool $force = false,
+        bool $fetchBody = false,
     ): string {
         $uid = (int) $message->getUid();
         if ($uid <= 0) {
@@ -274,7 +276,9 @@ class ImapMailboxService
         $fromNormalized = strtolower(trim($fromEmail));
         $outbound = $isSent || ($connectedEmail !== '' && $fromNormalized === $connectedEmail);
 
-        $this->ensureMessageBody($message);
+        if ($fetchBody) {
+            $this->ensureMessageBody($message);
+        }
         $this->storeMessage(
             $message,
             $folderName,
@@ -298,48 +302,44 @@ class ImapMailboxService
     ): array {
         $targeted = collect();
         $since = $lookbackDays > 0 ? now()->subDays($lookbackDays) : null;
-        $limit = $shortRun ? 30 : 80;
+        $limit = $shortRun ? 80 : 120;
 
-        $lsa = $this->gmailSearch->forLocalServices($lookbackDays);
-        $targeted = $targeted->merge($this->safeSearch($folder, function ($query) use ($lsa, $since, $limit): void {
-            $query->where($this->gmailSearch->toImapWhere($lsa));
-            $this->preferRecent($query, $since, $limit);
-        }));
-
-        foreach (array_chunk($emails, 20) as $batch) {
-            if ((microtime(true) - $started) > $maxSeconds - 2) {
-                break;
+        $chunks = array_chunk($emails, 30);
+        if ($chunks === []) {
+            $chunks = [[]];
+        }
+        foreach ($chunks as $index => $batch) {
+            $raw = $index === 0
+                ? $this->gmailSearch->forSyncTargets($batch, $lookbackDays)
+                : $this->gmailSearch->forClientEmails($batch, $lookbackDays);
+            if ($raw === '') {
+                continue;
             }
+            $targeted = $targeted->merge($this->safeSearch($folder, function ($query) use ($raw, $since, $limit): void {
+                $query->where($this->gmailSearch->toImapWhere($raw));
+                $this->preferRecent($query, $since, $limit);
+            }));
+        }
 
-            $raw = $this->gmailSearch->forClientEmails($batch, $lookbackDays);
-            $before = $targeted->count();
-            if ($raw !== '') {
-                $targeted = $targeted->merge($this->safeSearch($folder, function ($query) use ($raw, $since, $limit): void {
-                    $query->where($this->gmailSearch->toImapWhere($raw));
-                    $this->preferRecent($query, $since, $limit);
+        if ($targeted->isEmpty() && (microtime(true) - $started) < $maxSeconds - 2) {
+            foreach (['local-services', 'localservices'] as $from) {
+                $targeted = $targeted->merge($this->safeSearch($folder, function ($query) use ($from, $since): void {
+                    $query->whereFrom($from);
+                    $this->preferRecent($query, $since, 30);
                 }));
             }
-
-            if ($targeted->count() === $before) {
-                foreach (['local-services', 'localservices'] as $from) {
-                    $targeted = $targeted->merge($this->safeSearch($folder, function ($query) use ($from, $since): void {
-                        $query->whereFrom($from);
-                        $this->preferRecent($query, $since, 20);
-                    }));
+            foreach (array_slice($emails, 0, $shortRun ? 15 : 40) as $email) {
+                if ((microtime(true) - $started) > $maxSeconds - 1) {
+                    break;
                 }
-                foreach ($batch as $email) {
-                    if ((microtime(true) - $started) > $maxSeconds - 1) {
-                        break 2;
-                    }
-                    $targeted = $targeted->merge($this->safeSearch($folder, function ($query) use ($email, $since): void {
-                        $query->whereFrom($email);
-                        $this->preferRecent($query, $since, 15);
-                    }));
-                    $targeted = $targeted->merge($this->safeSearch($folder, function ($query) use ($email, $since): void {
-                        $query->whereTo($email);
-                        $this->preferRecent($query, $since, 15);
-                    }));
-                }
+                $targeted = $targeted->merge($this->safeSearch($folder, function ($query) use ($email, $since): void {
+                    $query->whereFrom($email);
+                    $this->preferRecent($query, $since, 15);
+                }));
+                $targeted = $targeted->merge($this->safeSearch($folder, function ($query) use ($email, $since): void {
+                    $query->whereTo($email);
+                    $this->preferRecent($query, $since, 15);
+                }));
             }
         }
 
@@ -419,7 +419,7 @@ class ImapMailboxService
     /**
      * @return array{0: array<string, mixed>, 1: list<string>}
      */
-    private function foldersToSync(Client $client, MailboxSetting $setting): array
+    private function foldersToSync(Client $client, MailboxSetting $setting, bool $shortRun = false): array
     {
         $inbox = trim((string) ($setting->folder ?: 'INBOX')) ?: 'INBOX';
         $wanted = [];
@@ -449,6 +449,27 @@ class ImapMailboxService
             } catch (Throwable) {
                 // listed names still help diagnose empty IMAP.
             }
+        }
+
+        $hasAllMail = false;
+        foreach (array_keys($wanted) as $name) {
+            if ($this->folders->isAllMail($name)) {
+                $hasAllMail = true;
+                break;
+            }
+        }
+        if ($hasAllMail) {
+            $wanted = array_filter(
+                $wanted,
+                fn (mixed $folder, string $name): bool => $this->folders->isAllMail($name) || $this->folders->isSent($name),
+                ARRAY_FILTER_USE_BOTH,
+            );
+        }
+
+        uksort($wanted, fn (string $left, string $right): int => $this->folders->priority($right) <=> $this->folders->priority($left));
+
+        if ($shortRun && ! $hasAllMail && count($wanted) > 3) {
+            $wanted = array_slice($wanted, 0, 3, true);
         }
 
         return [$wanted, array_values(array_unique($listed))];

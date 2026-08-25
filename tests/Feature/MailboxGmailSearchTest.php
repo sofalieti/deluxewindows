@@ -17,6 +17,15 @@ test('gmail search prefers recent mail and quotes the raw query for IMAP', funct
         );
 });
 
+test('sync target query combines client addresses and local services', function () {
+    $search = new MailboxGmailSearch;
+    $raw = $search->forSyncTargets(['jane@example.com'], 45);
+
+    expect($raw)->toStartWith('newer_than:45d ')
+        ->and($raw)->toContain('from:jane@example.com')
+        ->and($raw)->toContain('from:local-services');
+});
+
 test('all-time gmail search omits newer_than so older history can still be pulled later', function () {
     $search = new MailboxGmailSearch;
 

@@ -12,5 +12,8 @@ test('gmail sent and all mail folders are selected for sync', function () {
         ->and($picker->shouldSync('INBOX.Sent'))->toBeTrue()
         ->and($picker->shouldSync('[Gmail]/Spam'))->toBeFalse()
         ->and($picker->shouldSync('[Gmail]/Trash'))->toBeFalse()
-        ->and($picker->shouldSync('[Gmail]/Drafts'))->toBeFalse();
+        ->and($picker->shouldSync('[Gmail]/Drafts'))->toBeFalse()
+        ->and($picker->shouldSync('Google Leads'))->toBeTrue()
+        ->and($picker->shouldSync('Forms'))->toBeTrue()
+        ->and($picker->shouldSync('Manufacturers/Anlin'))->toBeFalse();
 });

@@ -28,6 +28,23 @@ final class MailboxGmailSearch
         return $this->withLookback(implode(' OR ', $parts), $lookbackDays);
     }
 
+    /**
+     * @param  list<string>  $emails
+     */
+    public function forSyncTargets(array $emails, int $lookbackDays): string
+    {
+        $parts = array_filter([
+            $this->forClientEmails($emails, 0),
+            $this->forLocalServices(0),
+        ]);
+
+        if ($parts === []) {
+            return '';
+        }
+
+        return $this->withLookback(implode(' OR ', $parts), $lookbackDays);
+    }
+
     public function forLocalServices(int $lookbackDays): string
     {
         return $this->withLookback(

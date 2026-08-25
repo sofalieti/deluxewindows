@@ -22,10 +22,23 @@ final class MailboxFolderPicker
         return '';
     }
 
+    public function isSkipped(string $name): bool
+    {
+        $normalized = strtolower($name);
+
+        foreach (['spam', 'trash', 'junk', 'draft', 'chat', 'scheduled', 'snoozed', 'bin', 'deleted'] as $skip) {
+            if (str_contains($normalized, $skip)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public function shouldSync(string $name, string $inbox = 'INBOX'): bool
     {
         $name = trim($name);
-        if ($name === '') {
+        if ($name === '' || $this->isSkipped($name)) {
             return false;
         }
 
@@ -33,7 +46,41 @@ final class MailboxFolderPicker
             return true;
         }
 
-        return $this->isSent($name) || $this->isAllMail($name);
+        if ($this->isSent($name) || $this->isAllMail($name)) {
+            return true;
+        }
+
+        $normalized = strtolower($name);
+        foreach (['lead', 'google', 'form', 'quote', 'client'] as $hint) {
+            if (str_contains($normalized, $hint)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public function priority(string $name): int
+    {
+        $normalized = strtolower($name);
+
+        if ($this->isAllMail($name)) {
+            return 100;
+        }
+        if (strcasecmp($name, 'INBOX') === 0) {
+            return 90;
+        }
+        if (str_contains($normalized, 'google') && str_contains($normalized, 'lead')) {
+            return 85;
+        }
+        if ($this->isSent($name)) {
+            return 70;
+        }
+        if (str_contains($normalized, 'lead') || str_contains($normalized, 'form')) {
+            return 60;
+        }
+
+        return 10;
     }
 
     public function isSent(string $name): bool
