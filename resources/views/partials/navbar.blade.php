@@ -862,7 +862,7 @@
                   id="w-node-_632206d9-3c73-e5be-be34-15992c2e8416-2c2e830e"
                   class="primary-button-2 w-inline-block"
                   data-open-estimate-modal
-                  ><div>Request a Free Estimate</div></a
+                  ><div>{{ hero_is_new() ? 'Book a consultation' : 'Request a Free Estimate' }}</div></a
                 >
                 <div
                   class="hamburger-menu-2 w-nav-button"
@@ -917,7 +917,7 @@
                     src="/webflow-assets/images/686acba4611e759fd8169f9d_photo_2025-07-06-22.14.41.avif"
                     preset="nav_logo"
                     class="image-24" /></a
-                ><a href="tel:{{ site_phone_tel() }}" class="link-15" aria-label="Call {{ site_phone_display() }}"
+                >@if(hero_is_new())<button type="button" class="mobile-header-book" data-open-estimate-modal>Book a consultation</button>@endif<a href="tel:{{ site_phone_tel() }}" class="link-15" aria-label="Call {{ site_phone_display() }}"
                   ><img
                     src="/webflow-assets/images/687559a123cece2e95a41a6f_phone_enabled_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg"
                     alt=""
@@ -1337,21 +1337,28 @@
         </div>
       </div>
 
-      <a href="#" class="mobile-fab-estimate" data-open-estimate-modal aria-label="Request a Free Estimate">
+      @unless(hero_is_new())
+        {{-- Replaced by the sticky bottom CTA bar in the "new" hero variant. --}}
+        <a href="#" class="mobile-fab-estimate" data-open-estimate-modal aria-label="Request a Free Estimate">
           <svg class="mobile-fab-estimate__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14H7v-2h5v2zm5-4H7v-2h10v2zm0-4H7V7h10v2z"/>
           </svg>
           <span class="mobile-fab-estimate__label">Free Estimate</span>
         </a>
+      @endunless
 
         <div class="mobile-estimate-modal" id="mobileEstimateModal" aria-hidden="true">
           <div class="mobile-estimate-modal__backdrop" data-close-estimate-modal></div>
           <div class="mobile-estimate-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="mobileEstimateTitle">
             <button type="button" class="mobile-estimate-modal__close" data-close-estimate-modal aria-label="Close form">×</button>
-            <h3 id="mobileEstimateTitle" class="mobile-estimate-modal__title">Request a Free Estimate</h3>
-            <div class="mobile-estimate-modal__promo promo-offer-context--modal w-richtext" data-estimate-modal-promo>
-              {!! promotion_home_html() !!}
-            </div>
+            <h3 id="mobileEstimateTitle" class="mobile-estimate-modal__title">
+              {{ hero_is_new() ? 'Book your in-home consultation' : 'Request a Free Estimate' }}
+            </h3>
+            @unless(hero_is_new())
+              <div class="mobile-estimate-modal__promo promo-offer-context--modal w-richtext" data-estimate-modal-promo>
+                {!! promotion_home_html() !!}
+              </div>
+            @endunless
             <div class="mobile-estimate-modal__form-wrap w-form">
               <form id="wf-form-Mobile-Estimate-Modal" name="wf-form-Mobile-Estimate-Modal" method="get" class="mobile-estimate-modal__form js-laravel-lead-form">
                 <input type="text" name="Name" placeholder="Full name*" required class="w-input" />
@@ -1364,7 +1371,7 @@
                     type="submit"
                     data-wait="Please wait..."
                     class="inside-input-button text-light w-button"
-                    value="Send Request"
+                    value="{{ hero_is_new() ? 'Book consultation' : 'Send Request' }}"
                   />
                 </div>
               </form>

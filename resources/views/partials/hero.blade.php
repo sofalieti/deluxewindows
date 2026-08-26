@@ -229,7 +229,16 @@
   }
 @endphp
 
-      <div class="div-block-59">
+      <div class="div-block-59 @if(hero_is_new()) div-block-59--hero-new @endif">
+        @if(hero_is_new())
+          @include('partials.hero-new-mobile', [
+            'heroNewEyebrow' => match (promotion_category()) {
+              'doors' => 'Door Replacement · Bay Area',
+              'windows' => 'Window Replacement · Bay Area',
+              default => 'Window & Door Replacement · Bay Area',
+            },
+          ])
+        @endif
         @if(!empty($doorLandingHero))
           {{-- Doors campaign landing uses the standard site hero with a local CSS background. --}}
           <div data-parallax="1" class="div-block-61 door-landing-hero-bg"></div>
@@ -249,39 +258,33 @@
           {{-- Fallback for hero-based templates without image: solid blue background only --}}
           <div class="div-block-61"></div>
         @else
-          {{-- Homepage: solid blue placeholder on desktop; mobile image.
-               Video loads immediately on desktop (not lazy). --}}
-        <div class="code-embed-5 w-embed w-script">
+          {{-- Homepage: full-resolution AVIF photo (WebP fallback for old browsers). --}}
+        <div class="code-embed-5 w-embed">
           <div id="hero-bg-wrapper" class="video-bg-container">
-            <img
-              src="{{ thumbnail_url('/webflow-assets/images/69ce36fd76a6aaff9c68df7e_01.webp', 'hero_mobile') }}"
-              srcset="{{ thumbnail_url('/webflow-assets/images/69ce36fd76a6aaff9c68df7e_01.webp', 'hero_mobile') }} 768w, {{ thumbnail_url('/webflow-assets/images/69ce36fd76a6aaff9c68df7e_01.webp', 'hero_bg') }} 1920w"
-              sizes="100vw"
-              alt=""
-              fetchpriority="high"
-              decoding="async"
-              class="hero-bg-image"
-            />
+            <picture>
+              {{-- Phones get a portrait crop of the facade; the wide frame would show mostly sky. --}}
+              <source
+                type="image/avif"
+                media="(max-width: 767px)"
+                srcset="/webflow-assets/images/hero-home-bay-area-mobile-1200.avif 1200w, /webflow-assets/images/hero-home-bay-area-mobile-1600.avif 1600w"
+                sizes="100vw"
+              />
+              <source
+                type="image/avif"
+                srcset="/webflow-assets/images/hero-home-bay-area-1280.avif 1280w, /webflow-assets/images/hero-home-bay-area-2560.avif 2560w, /webflow-assets/images/hero-home-bay-area-3840.avif 3840w"
+                sizes="100vw"
+              />
+              <img
+                src="/webflow-assets/images/hero-home-bay-area-1920.webp"
+                alt=""
+                width="3840"
+                height="2160"
+                fetchpriority="high"
+                decoding="async"
+                class="hero-bg-image"
+              />
+            </picture>
           </div>
-
-          <script>
-            (function () {
-              if (window.innerWidth <= 767) return;
-              var wrapper = document.getElementById("hero-bg-wrapper");
-              if (!wrapper) return;
-              var video = document.createElement("video");
-              video.autoplay = true;
-              video.loop = true;
-              video.muted = true;
-              video.playsInline = true;
-              video.setAttribute("playsinline", "");
-              var source = document.createElement("source");
-              source.src = "/webflow-assets/videos/687ca10e41cc245f5cdacfd5_0719_2-copy.mp4";
-              source.type = "video/mp4";
-              video.appendChild(source);
-              wrapper.appendChild(video);
-            })();
-          </script>
         </div>
         @endif
         <div class="w-layout-blockcontainer container-default w-container">

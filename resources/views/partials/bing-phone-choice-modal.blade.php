@@ -27,12 +27,15 @@
         <button type="button" class="bing-phone-choice__btn bing-phone-choice__btn--secondary" data-bing-phone-action="callback">
           Request a callback
         </button>
+        @if(config('hero.phone_modal_sms'))
         <button type="button" class="bing-phone-choice__btn bing-phone-choice__btn--secondary" data-bing-phone-action="text">
           Text us (SMS / WhatsApp)
         </button>
+        @endif
       </div>
     </div>
 
+    @if(config('hero.phone_modal_sms'))
     <div class="bing-phone-choice__panel" data-bing-phone-panel="text" hidden>
       <h2 class="bing-phone-choice__title">Text us</h2>
       <p class="bing-phone-choice__hours">Choose how you’d like us to message you. We’ll need your phone number next.</p>
@@ -48,6 +51,7 @@
         </button>
       </div>
     </div>
+    @endif
 
     <div class="bing-phone-choice__panel" data-bing-phone-panel="contact" hidden>
       <h2 class="bing-phone-choice__title" data-bing-phone-contact-title>Leave your phone number</h2>

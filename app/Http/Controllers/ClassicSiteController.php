@@ -493,6 +493,7 @@ class ClassicSiteController extends Controller
             'fbclid' => trim((string) $request->input('fbclid')),
             'msclkid' => trim((string) $request->input('msclkid')),
             'form_id' => trim((string) ($request->input('form_id') ?: $request->input('Form ID'))),
+            'hero_variant' => trim((string) $request->input('hero_variant')),
         ];
 
         $validated = validator($payload, [
@@ -519,6 +520,7 @@ class ClassicSiteController extends Controller
             'fbclid' => 'nullable|string|max:255',
             'msclkid' => 'nullable|string|max:255',
             'form_id' => 'nullable|string|max:255',
+            'hero_variant' => 'nullable|string|max:20',
         ])->validate();
 
         $spam = app(\App\Services\LeadSpamGuard::class)->inspect([
@@ -569,6 +571,7 @@ class ClassicSiteController extends Controller
             'fbclid' => $validated['fbclid'],
             'msclkid' => $validated['msclkid'],
             'form_id' => $formId,
+            'hero_variant' => $validated['hero_variant'] !== '' ? $validated['hero_variant'] : hero_variant(),
             'first_touch' => $firstTouch,
         ];
 

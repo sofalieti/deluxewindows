@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Services\HeroVariantService;
 use App\Services\Media\ImageThumbnailService;
 use App\Services\PromotionControlService;
 use App\Services\PromotionSettingsService;
@@ -26,6 +27,64 @@ if (! function_exists('site_phone_tel')) {
         } catch (\Throwable) {
             return PromotionControlService::DEFAULT_PHONE_TEL;
         }
+    }
+}
+
+if (! function_exists('hero_variant_default')) {
+    /** Site-wide variant chosen on the admin dashboard, falling back to config. */
+    function hero_variant_default(): string
+    {
+        try {
+            return app(HeroVariantService::class)->variant();
+        } catch (\Throwable) {
+            $allowed = (array) config('hero.variants', ['old', 'new']);
+
+            return in_array((string) config('hero.variant'), $allowed, true)
+                ? (string) config('hero.variant')
+                : 'new';
+        }
+    }
+}
+
+if (! function_exists('hero_variant')) {
+    /**
+     * Active hero block version: ?hero= override, then cookie, then the admin setting.
+     */
+    function hero_variant(): string
+    {
+        /** @var list<string> $allowed */
+        $allowed = (array) config('hero.variants', ['old', 'new']);
+        $default = hero_variant_default();
+
+        try {
+            $request = request();
+        } catch (\Throwable) {
+            return $default;
+        }
+
+        $override = strtolower(trim((string) $request->query('hero', '')));
+        if (in_array($override, $allowed, true)) {
+            return $override;
+        }
+
+        // ?hero=default drops the personal override, starting with this request.
+        if ($override === 'default') {
+            return $default;
+        }
+
+        $cookie = strtolower(trim((string) $request->cookie((string) config('hero.cookie', 'hero_variant'), '')));
+        if (in_array($cookie, $allowed, true)) {
+            return $cookie;
+        }
+
+        return $default;
+    }
+}
+
+if (! function_exists('hero_is_new')) {
+    function hero_is_new(): bool
+    {
+        return hero_variant() === 'new';
     }
 }
 

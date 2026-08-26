@@ -83,6 +83,7 @@
         page_url: window.location.href,
         source_label: sourceOverride || sourceLabel(anchor),
         geo_location: storageGet('lead_param_geo_location') || '',
+        hero_variant: String((document.body && document.body.dataset.heroVariant) || ''),
       });
     }
 
@@ -92,6 +93,7 @@
       window.gtag('event', 'phone_click', {
         send_to: 'G-JHYBB0THJM',
         source_label: String(payload.source_label || ''),
+        hero_variant: String(payload.hero_variant || ''),
         page_location: String(payload.page_url || window.location.href),
         landing_page: String(payload.landing_page || ''),
         first_landing_page: String(payload.first_landing_page || ''),

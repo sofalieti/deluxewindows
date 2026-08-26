@@ -1,0 +1,372 @@
+/* Redesigned mobile hero (variant "new") + sticky bottom CTA bar.
+   Everything here is mobile-only; the desktop hero is untouched. */
+
+.hero-nm {
+  display: none;
+}
+
+.mobile-sticky-cta,
+.mobile-header-book {
+  display: none;
+}
+
+@media (max-width: 991px) {
+  /* The old mobile hero (headline, phone plaques, promo badge, background art)
+     is replaced wholesale by .hero-nm. */
+  .div-block-59--hero-new {
+    min-height: 0;
+    padding: 0;
+    background-color: #fff;
+  }
+
+  .div-block-59--hero-new .width-100-mobile-landscape,
+  .div-block-59--hero-new .inner-container._660px._100-tablet,
+  .div-block-59--hero-new .div-block-61,
+  .div-block-59--hero-new .code-embed-5,
+  .div-block-59--hero-new .video-bg-container,
+  .div-block-59--hero-new .service-area-hero__image {
+    display: none !important;
+  }
+
+  .div-block-59--hero-new .w-layout-blockcontainer.container-default {
+    padding: 0;
+    max-width: none;
+  }
+
+  .hero-nm {
+    display: block;
+    background-color: #fff;
+    padding: 22px 18px 26px;
+  }
+
+  /* site-custom.css centers every paragraph inside .div-block-59 with !important,
+     so each element of this block has to claim its alignment by class. */
+  .classic-public-page .div-block-59 .hero-nm .hero-nm__eyebrow,
+  .classic-public-page .div-block-59 .hero-nm .hero-nm__title,
+  .classic-public-page .div-block-59 .hero-nm .hero-nm__sub,
+  .classic-public-page .div-block-59 .hero-nm .hero-nm__fact-value,
+  .classic-public-page .div-block-59 .hero-nm .hero-nm__fact-note,
+  .classic-public-page .div-block-59 .hero-nm .hero-nm__form-title,
+  .classic-public-page .div-block-59 .hero-nm .hero-nm__form-copy,
+  .classic-public-page .div-block-59 .hero-nm .hero-nm__form-note,
+  .classic-public-page .div-block-59 .hero-nm .hero-nm__label {
+    text-align: left !important;
+  }
+
+  .classic-public-page .div-block-59 .hero-nm .hero-nm__cta,
+  .classic-public-page .div-block-59 .hero-nm .hero-nm__submit {
+    text-align: center !important;
+  }
+
+  .hero-nm__eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 14px;
+    color: #5c6b7f;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .hero-nm__eyebrow-rule {
+    flex: 0 0 auto;
+    width: 26px;
+    height: 2px;
+    background-color: #2f6fb5;
+  }
+
+  .hero-nm__title {
+    margin: 0 0 14px;
+    color: #16273b;
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  .hero-nm__title-accent {
+    color: #2f6fb5;
+  }
+
+  .hero-nm__sub {
+    margin: 0 0 22px;
+    color: #56657a;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .hero-nm__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+
+  .hero-nm__cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-height: 54px;
+    padding: 14px 18px;
+    border: 0;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .hero-nm__cta--book {
+    background-color: #e8912a;
+    color: #fff;
+    width: 100%;
+  }
+
+  .hero-nm__cta--book:active {
+    background-color: #d5811c;
+  }
+
+  .hero-nm__cta--call {
+    background-color: #1b4b82;
+    color: #fff;
+  }
+
+  .hero-nm__cta--call:active {
+    background-color: #16406e;
+  }
+
+  .hero-nm__facts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid #dfe4ea;
+    border-radius: 4px;
+    margin-bottom: 22px;
+    overflow: hidden;
+  }
+
+  .hero-nm__fact {
+    padding: 14px 14px 16px;
+    border-right: 1px solid #dfe4ea;
+    border-bottom: 1px solid #dfe4ea;
+  }
+
+  .hero-nm__fact:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .hero-nm__fact:nth-last-child(-n + 2) {
+    border-bottom: 0;
+  }
+
+  .hero-nm__fact-value {
+    margin: 0 0 5px;
+    color: #16273b;
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+  }
+
+  .hero-nm__fact-note {
+    margin: 0;
+    color: #8b97a6;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    line-height: 1.45;
+    text-transform: uppercase;
+  }
+
+  .hero-nm__form-card {
+    background-color: #1b4b82;
+    border-radius: 4px;
+    padding: 20px 18px 22px;
+  }
+
+  .hero-nm__form-title {
+    margin: 0 0 8px;
+    color: #fff;
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+
+  .hero-nm__form-copy {
+    margin: 0 0 18px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .hero-nm__form {
+    margin: 0;
+  }
+
+  .hero-nm__label {
+    display: block;
+    margin-bottom: 5px;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .hero-nm__input {
+    width: 100%;
+    min-height: 48px;
+    margin-bottom: 14px;
+    padding: 12px 14px;
+    background-color: #fff;
+    border: 1px solid #cfd8e3;
+    border-radius: 4px;
+    color: #16273b;
+    font-size: 16px;
+    line-height: 1.3;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  .hero-nm__input:focus {
+    border-color: #e8912a;
+    outline: 0;
+  }
+
+  .hero-nm__submit {
+    display: block;
+    width: 100%;
+    min-height: 54px;
+    margin-top: 4px;
+    padding: 14px 18px;
+    background-color: #e8912a;
+    border: 0;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .hero-nm__submit:active {
+    background-color: #d5811c;
+  }
+
+  .hero-nm__form-note {
+    margin: 14px 0 0;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  .hero-nm__form-wrap .w-form-done,
+  .hero-nm__form-wrap .w-form-fail {
+    margin-top: 14px;
+    padding: 14px;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+
+  /* Sticky bottom CTA bar — replaces the round scroll-in FAB in this variant. */
+  .mobile-sticky-cta {
+    display: flex;
+    position: fixed;
+    z-index: 950;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    gap: 10px;
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+    background-color: #1b4b82;
+    box-shadow: 0 -6px 18px rgba(11, 30, 51, 0.22);
+  }
+
+  .mobile-sticky-cta__btn {
+    display: flex;
+    flex: 1 1 0;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 12px 10px;
+    border: 0;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .mobile-sticky-cta__btn--call {
+    background-color: #fff;
+    color: #16406e;
+  }
+
+  .mobile-sticky-cta__btn--book {
+    flex: 1.25 1 0;
+    background-color: #e8912a;
+    color: #fff;
+  }
+
+  .mobile-sticky-cta__btn--book:active {
+    background-color: #d5811c;
+  }
+
+  /* Mobile header: the consultation button takes the phone link's slot,
+     since the hero and the sticky bar both expose the number. */
+  .mobile-header-book {
+    display: block;
+    margin-left: auto;
+    padding: 9px 14px;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 4px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.2;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+
+  .mobile-header-book:active {
+    background-color: rgba(255, 255, 255, 0.14);
+  }
+
+  body[data-hero-variant='new'] .link-15 {
+    display: none !important;
+  }
+
+  /* Keep the sticky bar from covering the end of the page. */
+  body[data-hero-variant='new'] {
+    padding-bottom: 72px !important;
+  }
+
+  body[data-hero-variant='new'] .mobile-fab-estimate {
+    display: none !important;
+  }
+}
+
+@media (max-width: 479px) {
+  .hero-nm {
+    padding: 18px 14px 22px;
+  }
+
+  .hero-nm__title {
+    font-size: 30px;
+  }
+
+  .hero-nm__fact-value {
+    font-size: 17px;
+  }
+
+  .mobile-sticky-cta__btn {
+    font-size: 14px;
+  }
+}

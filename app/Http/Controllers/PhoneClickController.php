@@ -92,6 +92,9 @@ class PhoneClickController extends Controller
                 'meta' => [
                     'via' => 'site-tel-click',
                     'request_id' => (string) $request->headers->get('x-request-id', ''),
+                    'hero_variant' => trim((string) $request->input('hero_variant')) !== ''
+                        ? trim((string) $request->input('hero_variant'))
+                        : hero_variant(),
                 ],
             ]);
 

@@ -8,12 +8,26 @@
     <link
       rel="preload"
       as="image"
-      href="{{ thumbnail_url('/webflow-assets/images/69ce36fd76a6aaff9c68df7e_01.webp', 'hero_mobile') }}"
-      imagesrcset="{{ thumbnail_url('/webflow-assets/images/69ce36fd76a6aaff9c68df7e_01.webp', 'hero_mobile') }} 768w"
+      href="/webflow-assets/images/hero-home-bay-area-2560.avif"
+      type="image/avif"
+      imagesrcset="/webflow-assets/images/hero-home-bay-area-2560.avif 2560w, /webflow-assets/images/hero-home-bay-area-3840.avif 3840w"
       imagesizes="100vw"
-      media="(max-width: 767px)"
+      media="(min-width: 768px)"
       fetchpriority="high"
     />
+    @unless(hero_is_new())
+      {{-- The new mobile hero hides the photo entirely, so it is only preloaded for the old one. --}}
+      <link
+        rel="preload"
+        as="image"
+        href="/webflow-assets/images/hero-home-bay-area-mobile-1200.avif"
+        type="image/avif"
+        imagesrcset="/webflow-assets/images/hero-home-bay-area-mobile-1200.avif 1200w, /webflow-assets/images/hero-home-bay-area-mobile-1600.avif 1600w"
+        imagesizes="100vw"
+        media="(max-width: 767px)"
+        fetchpriority="high"
+      />
+    @endunless
     <style rel="stylesheet" type="text/css">
       @charset "utf-8";
 
@@ -1001,12 +1015,6 @@
         background-color: #1a5f9c;
         background-size: cover;
         background-position: center center;
-      }
-
-      .video-bg-container video {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
       }
     </style>
     <style rel="stylesheet" type="text/css">

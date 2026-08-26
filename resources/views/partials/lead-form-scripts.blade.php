@@ -148,6 +148,7 @@
         : {};
 
       const payload = Object.assign({}, attribution, {
+        hero_variant: String((document.body && document.body.dataset.heroVariant) || ''),
         Name: firstValue(['Name', 'full_name', 'name']),
         Email: firstValue(['Email', 'email']),
         Phone: firstValue(['Phone', 'phone']),
@@ -176,6 +177,7 @@
         currency: 'USD',
         value: 1,
         form_id: String(payload.form_id || payload['Form ID'] || ''),
+        hero_variant: String(payload.hero_variant || ''),
         page_location: String(payload.page_url || payload.Page || window.location.href),
         landing_page: String(payload.landing_page || ''),
         utm_source: String(payload.utm_source || ''),

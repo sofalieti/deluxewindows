@@ -83,6 +83,7 @@
       'webflow-assets/css/fonts.css',
       'webflow-assets/css/promo-offer.css',
       'webflow-overrides/site-custom.css',
+      'webflow-overrides/hero-new-mobile.css',
     ]) }}" rel="stylesheet" type="text/css" />
     <script type="text/javascript">
       document.documentElement.className = document.documentElement.className
@@ -106,7 +107,7 @@
     <link href="https://core.service.elfsight.com/" rel="preconnect" crossorigin="" />
   </head>
 
-  <body class="classic-public-page @yield('bodyClass')">
+  <body class="classic-public-page @yield('bodyClass')" data-hero-variant="{{ hero_variant() }}">
     <div class="page-wrapper @yield('pageWrapperClass')">
       @include('partials.navbar')
 
@@ -119,6 +120,10 @@
 
       @include('partials.footer')
     </div>
+
+    @if(hero_is_new())
+      @include('partials.mobile-sticky-cta')
+    @endif
 
     <div id="menuDimmer"></div>
 

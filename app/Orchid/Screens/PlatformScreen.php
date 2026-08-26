@@ -4,11 +4,21 @@ declare(strict_types=1);
 
 namespace App\Orchid\Screens;
 
+use App\Services\HeroVariantService;
+use Illuminate\Http\Request;
+use Orchid\Screen\Actions\Button;
+use Orchid\Screen\Fields\Switcher;
 use Orchid\Screen\Screen;
+use Orchid\Support\Color;
 use Orchid\Support\Facades\Layout;
+use Orchid\Support\Facades\Toast;
 
 class PlatformScreen extends Screen
 {
+    public function __construct(
+        private readonly HeroVariantService $hero,
+    ) {}
+
     /**
      * Fetch data to be displayed on the screen.
      *
@@ -16,7 +26,11 @@ class PlatformScreen extends Screen
      */
     public function query(): iterable
     {
-        return [];
+        return [
+            'hero' => [
+                'is_new' => $this->hero->variant() === 'new',
+            ],
+        ];
     }
 
     /**
@@ -24,7 +38,7 @@ class PlatformScreen extends Screen
      */
     public function name(): ?string
     {
-        return 'Get Started';
+        return 'Dashboard';
     }
 
     /**
@@ -32,7 +46,9 @@ class PlatformScreen extends Screen
      */
     public function description(): ?string
     {
-        return 'Welcome to your Orchid application.';
+        return $this->hero->variant() === 'new'
+            ? 'The site is serving the new hero block.'
+            : 'The site is serving the old promo hero block.';
     }
 
     /**
@@ -54,7 +70,33 @@ class PlatformScreen extends Screen
     {
         return [
             Layout::view('platform::partials.update-assets'),
+
+            Layout::rows([
+                Switcher::make('hero.is_new')
+                    ->sendTrueOrFalse()
+                    ->title('Hero block')
+                    ->placeholder('Use the new hero block')
+                    ->help('On — new hero: consultation-first layout, sticky bottom CTA, no discount badge. Off — old promo hero with the % OFF badge and round estimate button. Applies to the homepage, city landing pages and county hubs at once.'),
+
+                Button::make('Save hero block')
+                    ->method('saveHeroVariant')
+                    ->type(Color::PRIMARY)
+                    ->icon('bs.check-lg'),
+            ])
+                ->title('Hero block (site-wide)'),
+
+            Layout::view('admin.dashboard.hero-preview'),
+
             Layout::view('platform::partials.welcome'),
         ];
+    }
+
+    public function saveHeroVariant(Request $request): void
+    {
+        $variant = $this->hero->update($request->boolean('hero.is_new') ? 'new' : 'old');
+
+        Toast::info($variant === 'new'
+            ? 'The site now serves the new hero block.'
+            : 'The site now serves the old promo hero block.');
     }
 }

@@ -1,4 +1,10 @@
-      <div class="div-block-59 service-area-hero">
+      <div class="div-block-59 service-area-hero @if(hero_is_new()) div-block-59--hero-new @endif">
+        @if(hero_is_new())
+          @include('partials.hero-new-mobile', [
+            'heroNewEyebrow' => 'Window & Door Replacement · '.$countyName,
+            'heroNewCountyLabel' => 'In the trade, '.$countyName,
+          ])
+        @endif
         @if($heroImage)
         <img
           src="{{ thumbnail_url($heroImage, 'hero_bg') }}"
