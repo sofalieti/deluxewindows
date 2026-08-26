@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Schema;
 
 class MailboxEmailStatsService
 {
+    public function __construct(
+        private readonly MailboxImportMatcher $matcher,
+    ) {
+    }
+
     /**
      * @param  iterable<int, string|null>  $emails
      * @return array<string, array{inbound: int, outbound: int, last_direction: ?string}>
@@ -53,7 +58,7 @@ class MailboxEmailStatsService
             })
             ->orderByDesc('sent_at')
             ->orderByDesc('id')
-            ->get(['direction', 'sent_at', 'from_email', 'participant_emails', 'to', 'cc']);
+            ->get(['direction', 'sent_at', 'from_email', 'from_name', 'subject', 'participant_emails', 'to', 'cc']);
 
         foreach ($messages as $message) {
             foreach ($keys as $email) {
@@ -61,14 +66,20 @@ class MailboxEmailStatsService
                     continue;
                 }
 
-                $direction = (string) $message->direction;
+                $direction = $this->matcher->resolveDirectionForEmail(
+                    (string) ($message->from_name ?? ''),
+                    (string) ($message->from_email ?? ''),
+                    (string) ($message->subject ?? ''),
+                    $email,
+                );
+
                 if ($direction === MailboxMessage::DIRECTION_INBOUND) {
                     $stats[$email]['inbound']++;
-                } elseif ($direction === MailboxMessage::DIRECTION_OUTBOUND) {
+                } else {
                     $stats[$email]['outbound']++;
                 }
 
-                if ($stats[$email]['last_direction'] === null && $direction !== '') {
+                if ($stats[$email]['last_direction'] === null) {
                     $stats[$email]['last_direction'] = $direction;
                 }
             }

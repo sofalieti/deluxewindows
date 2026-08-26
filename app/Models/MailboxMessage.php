@@ -69,22 +69,47 @@ class MailboxMessage extends Model
 
     /**
      * @param  \Illuminate\Database\Eloquent\Builder<MailboxMessage>  $query
+     * @param  list<string|null>|iterable<int, string|null>  $emails
+     * @return \Illuminate\Database\Eloquent\Builder<MailboxMessage>
+     */
+    public function scopeForParticipants($query, iterable $emails)
+    {
+        $normalized = [];
+        foreach ($emails as $email) {
+            $key = Contact::normalizeEmail($email);
+            if ($key !== null) {
+                $normalized[$key] = true;
+            }
+        }
+        $keys = array_keys($normalized);
+        if ($keys === []) {
+            return $query->whereRaw('0 = 1');
+        }
+
+        return $query->where(function ($outer) use ($keys): void {
+            foreach ($keys as $index => $email) {
+                $like = '%'.addcslashes($email, '%_\\').'%';
+                $clause = function ($inner) use ($email, $like): void {
+                    $inner->whereJsonContains('participant_emails', $email)
+                        ->orWhereRaw('LOWER(from_email) = ?', [$email])
+                        ->orWhere('to', 'like', $like)
+                        ->orWhere('cc', 'like', $like);
+                };
+                if ($index === 0) {
+                    $outer->where($clause);
+                } else {
+                    $outer->orWhere($clause);
+                }
+            }
+        });
+    }
+
+    /**
+     * @param  \Illuminate\Database\Eloquent\Builder<MailboxMessage>  $query
      * @return \Illuminate\Database\Eloquent\Builder<MailboxMessage>
      */
     public function scopeForParticipant($query, ?string $email)
     {
-        $normalized = Contact::normalizeEmail($email);
-        if ($normalized === null) {
-            return $query->whereRaw('0 = 1');
-        }
-
-        $like = '%'.addcslashes($normalized, '%_\\').'%';
-
-        return $query->where(function ($inner) use ($normalized, $like): void {
-            $inner->whereJsonContains('participant_emails', $normalized)
-                ->orWhereRaw('LOWER(from_email) = ?', [$normalized])
-                ->orWhere('to', 'like', $like)
-                ->orWhere('cc', 'like', $like);
-        });
+        return $query->forParticipants([$email]);
     }
 }

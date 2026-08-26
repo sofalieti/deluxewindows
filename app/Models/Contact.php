@@ -52,11 +52,176 @@ class Contact extends Model
             $contact->normalized_email = self::normalizeEmail($contact->email);
             $contact->normalized_phone = self::normalizePhone($contact->phone);
         });
+
+        static::saved(function (Contact $contact): void {
+            $contact->syncPrimaryEmailRow();
+        });
     }
 
     public function leads(): HasMany
     {
         return $this->hasMany(Lead::class)->latest();
+    }
+
+    public function emailAddresses(): HasMany
+    {
+        return $this->hasMany(ContactEmail::class)
+            ->orderByDesc('is_primary')
+            ->orderBy('id');
+    }
+
+    /**
+     * @return list<string>
+     */
+    public function allNormalizedEmails(): array
+    {
+        $set = [];
+
+        $primary = self::normalizeEmail($this->email);
+        if ($primary !== null) {
+            $set[$primary] = true;
+        }
+
+        if ($this->relationLoaded('emailAddresses')) {
+            $rows = $this->emailAddresses;
+        } elseif ($this->exists && Schema::hasTable('contact_emails')) {
+            $rows = $this->emailAddresses()->get(['normalized_email']);
+        } else {
+            $rows = collect();
+        }
+
+        foreach ($rows as $row) {
+            $normalized = self::normalizeEmail($row->normalized_email ?? $row->email ?? null);
+            if ($normalized !== null) {
+                $set[$normalized] = true;
+            }
+        }
+
+        return array_keys($set);
+    }
+
+    /**
+     * @return list<string>
+     */
+    public function additionalEmailsList(): array
+    {
+        if (! $this->exists || ! Schema::hasTable('contact_emails')) {
+            return [];
+        }
+
+        $primary = self::normalizeEmail($this->email);
+
+        return $this->emailAddresses()
+            ->where('is_primary', false)
+            ->orderBy('id')
+            ->get(['email', 'normalized_email'])
+            ->map(function (ContactEmail $row) use ($primary): ?string {
+                $normalized = self::normalizeEmail($row->normalized_email ?: $row->email);
+                if ($normalized === null || $normalized === $primary) {
+                    return null;
+                }
+
+                return trim((string) $row->email);
+            })
+            ->filter()
+            ->values()
+            ->all();
+    }
+
+    /**
+     * Replace non-primary emails. Primary stays on contacts.email.
+     *
+     * @param  list<string>|array<int, string|null>  $emails
+     */
+    public function syncAdditionalEmails(array $emails): void
+    {
+        if (! $this->exists || ! Schema::hasTable('contact_emails')) {
+            return;
+        }
+
+        $primary = self::normalizeEmail($this->email);
+        $wanted = [];
+        foreach ($emails as $email) {
+            $normalized = self::normalizeEmail($email);
+            if ($normalized === null || $normalized === $primary || isset($wanted[$normalized])) {
+                continue;
+            }
+            $wanted[$normalized] = trim((string) $email);
+        }
+
+        $this->emailAddresses()
+            ->where('is_primary', false)
+            ->whereNotIn('normalized_email', array_keys($wanted) ?: ['__none__'])
+            ->delete();
+
+        foreach ($wanted as $normalized => $email) {
+            $this->emailAddresses()->updateOrCreate(
+                [
+                    'contact_id' => $this->id,
+                    'normalized_email' => $normalized,
+                ],
+                [
+                    'email' => $email,
+                    'is_primary' => false,
+                ],
+            );
+        }
+    }
+
+    public function addEmailAddress(?string $email, bool $asPrimary = false): bool
+    {
+        if (! $this->exists || ! Schema::hasTable('contact_emails')) {
+            return false;
+        }
+
+        $normalized = self::normalizeEmail($email);
+        if ($normalized === null) {
+            return false;
+        }
+
+        if (in_array($normalized, $this->allNormalizedEmails(), true)) {
+            return false;
+        }
+
+        if ($asPrimary || self::normalizeEmail($this->email) === null) {
+            $this->email = trim((string) $email);
+            $this->save();
+
+            return true;
+        }
+
+        $this->emailAddresses()->create([
+            'email' => trim((string) $email),
+            'normalized_email' => $normalized,
+            'is_primary' => false,
+        ]);
+
+        return true;
+    }
+
+    public function syncPrimaryEmailRow(): void
+    {
+        if (! $this->exists || ! Schema::hasTable('contact_emails')) {
+            return;
+        }
+
+        $normalized = self::normalizeEmail($this->email);
+        $this->emailAddresses()->update(['is_primary' => false]);
+
+        if ($normalized === null) {
+            return;
+        }
+
+        $this->emailAddresses()->updateOrCreate(
+            [
+                'contact_id' => $this->id,
+                'normalized_email' => $normalized,
+            ],
+            [
+                'email' => trim((string) $this->email),
+                'is_primary' => true,
+            ],
+        );
     }
 
     public function phoneClicks(): HasMany

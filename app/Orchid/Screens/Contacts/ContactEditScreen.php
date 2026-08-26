@@ -33,7 +33,7 @@ class ContactEditScreen extends Screen
 
     public function query(Contact $contact): iterable
     {
-        $contact->load(['leads.comments.user', 'createdBy', 'comments.user', 'phoneClicks', 'tasks.assignee']);
+        $contact->load(['leads.comments.user', 'createdBy', 'comments.user', 'phoneClicks', 'tasks.assignee', 'emailAddresses']);
         if ($contact->exists && Schema::hasTable('contact_changes')) {
             $contact->load(['changes.user']);
         }
@@ -45,6 +45,9 @@ class ContactEditScreen extends Screen
 
         return [
             'contact' => $contact,
+            'additional_emails' => $contact->exists
+                ? implode("\n", $contact->additionalEmailsList())
+                : '',
             'leads' => $contact->leads,
             'comments' => $comments,
             'trafficSummary' => $contact->trafficSummary(),
@@ -61,7 +64,7 @@ class ContactEditScreen extends Screen
                 : collect(),
             'mailboxMessages' => $contact->exists
                 ? MailboxMessage::query()
-                    ->forParticipant($contact->email)
+                    ->forParticipants($contact->allNormalizedEmails())
                     ->orderByDesc('sent_at')
                     ->limit(100)
                     ->get()
@@ -108,9 +111,14 @@ class ContactEditScreen extends Screen
                     ->type('tel')
                     ->maxlength(50),
                 Input::make('contact.email')
-                    ->title('Email')
+                    ->title('Primary email')
                     ->type('email')
                     ->maxlength(255),
+                TextArea::make('additional_emails')
+                    ->title('Additional emails')
+                    ->rows(3)
+                    ->help('One email per line. All addresses are linked to this contact for mailbox and lead matching.')
+                    ->placeholder("other@example.com\nalt@example.com"),
                 Input::make('contact.city')
                     ->title('City')
                     ->maxlength(100),
@@ -187,7 +195,23 @@ class ContactEditScreen extends Screen
             'contact.city' => ['nullable', 'string', 'max:100'],
             'contact.address' => ['nullable', 'string', 'max:2000'],
             'contact.additional_information' => ['nullable', 'string', 'max:10000'],
+            'additional_emails' => ['nullable', 'string', 'max:5000'],
         ]);
+
+        $additionalRaw = preg_split('/[\r\n,;]+/', (string) ($validated['additional_emails'] ?? '')) ?: [];
+        $additionalEmails = [];
+        foreach ($additionalRaw as $line) {
+            $candidate = trim($line);
+            if ($candidate === '') {
+                continue;
+            }
+            if (! filter_var($candidate, FILTER_VALIDATE_EMAIL)) {
+                Toast::error('Invalid additional email: '.$candidate);
+
+                return redirect()->back()->withInput();
+            }
+            $additionalEmails[] = $candidate;
+        }
 
         $user = Auth::user();
         abort_unless($user !== null, 403);
@@ -207,6 +231,21 @@ class ContactEditScreen extends Screen
             'additional_information' => 'Additional information',
         ];
 
+        $oldAdditional = $wasNew ? [] : $contact->additionalEmailsList();
+        $oldAdditionalNormalized = collect($oldAdditional)
+            ->map(fn (string $email) => Contact::normalizeEmail($email))
+            ->filter()
+            ->sort()
+            ->values()
+            ->all();
+        $newAdditionalNormalized = collect($additionalEmails)
+            ->map(fn (string $email) => Contact::normalizeEmail($email))
+            ->filter()
+            ->sort()
+            ->values()
+            ->all();
+        $additionalChanged = $oldAdditionalNormalized !== $newAdditionalNormalized;
+
         $changes = [];
         if (! $wasNew) {
             foreach ($labels as $field => $label) {
@@ -217,7 +256,7 @@ class ContactEditScreen extends Screen
                 }
             }
 
-            if ($changes === []) {
+            if ($changes === [] && ! $additionalChanged) {
                 Toast::info('No changes to save.');
 
                 return redirect()->route('platform.contacts.edit', $contact);
@@ -226,12 +265,26 @@ class ContactEditScreen extends Screen
 
         $phoneChanged = $wasNew || trim((string) ($contact->phone ?? '')) !== trim((string) ($values['phone'] ?? ''));
 
-        DB::transaction(function () use ($contact, $values, $wasNew, $changes, $service, $clickService, $user, $callBinder, $phoneChanged): void {
+        DB::transaction(function () use (
+            $contact,
+            $values,
+            $wasNew,
+            $changes,
+            $service,
+            $clickService,
+            $user,
+            $callBinder,
+            $phoneChanged,
+            $additionalEmails,
+            $additionalChanged,
+            $oldAdditional,
+        ): void {
             $contact->fill($values);
             if ($wasNew) {
                 $contact->created_by_user_id = $user->id;
             }
             $contact->save();
+            $contact->syncAdditionalEmails($additionalEmails);
 
             if ($wasNew) {
                 $service->attachExistingMatches($contact, $user->id);
@@ -262,17 +315,32 @@ class ContactEditScreen extends Screen
                         (int) $user->id,
                     );
                 }
+                if ($additionalChanged) {
+                    ContactChange::record(
+                        $contact,
+                        'additional_emails',
+                        $oldAdditional !== [] ? implode(', ', $oldAdditional) : null,
+                        $additionalEmails !== [] ? implode(', ', $additionalEmails) : null,
+                        'Additional emails updated',
+                        (int) $user->id,
+                    );
+                }
             }
 
             if ($phoneChanged) {
                 $callBinder->rebindContact($contact);
                 $clickService->attachExistingMatches($contact, $user->id);
             }
+
+            if ($additionalChanged || isset($changes['email'])) {
+                $service->attachExistingMatches($contact, $user->id);
+            }
         });
 
+        $changedCount = count($changes) + ($additionalChanged ? 1 : 0);
         Toast::info($wasNew
             ? 'Contact saved.'
-            : (count($changes) === 1 ? 'Contact updated.' : count($changes).' contact fields updated.'));
+            : ($changedCount === 1 ? 'Contact updated.' : $changedCount.' contact fields updated.'));
 
         return redirect()->route('platform.contacts.edit', $contact);
     }

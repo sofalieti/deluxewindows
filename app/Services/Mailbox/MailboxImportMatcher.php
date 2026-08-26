@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Services\Mailbox;
 
 use App\Models\Contact;
+use App\Models\MailboxMessage;
 
 final class MailboxImportMatcher
 {
@@ -24,6 +25,47 @@ final class MailboxImportMatcher
         }
 
         return $this->matchesClient($messageEmails, $clientEmails);
+    }
+
+    /**
+     * Inbound only when the client wrote it, or Local Services by Google.
+     * Everything else (us, other mailboxes, third parties CC'd with the client) is outbound.
+     *
+     * @param  array<string, true>  $clientEmails
+     */
+    public function resolveDirection(
+        string $fromName,
+        string $fromEmail,
+        string $subject,
+        array $clientEmails,
+    ): string {
+        if ($this->isLocalServicesByGoogle($fromName, $fromEmail, $subject)) {
+            return MailboxMessage::DIRECTION_INBOUND;
+        }
+
+        $from = Contact::normalizeEmail($fromEmail);
+        if ($from !== null && isset($clientEmails[$from])) {
+            return MailboxMessage::DIRECTION_INBOUND;
+        }
+
+        return MailboxMessage::DIRECTION_OUTBOUND;
+    }
+
+    /**
+     * Direction relative to one client address (for lead list mail stats).
+     */
+    public function resolveDirectionForEmail(
+        string $fromName,
+        string $fromEmail,
+        string $subject,
+        ?string $clientEmail,
+    ): string {
+        $email = Contact::normalizeEmail($clientEmail);
+        if ($email === null) {
+            return MailboxMessage::DIRECTION_OUTBOUND;
+        }
+
+        return $this->resolveDirection($fromName, $fromEmail, $subject, [$email => true]);
     }
 
     public function isLocalServicesByGoogle(string $fromName, string $fromEmail, string $subject): bool

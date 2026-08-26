@@ -19,7 +19,7 @@ class ContactListScreen extends Screen
     public function query(): iterable
     {
         $contacts = Contact::filters()
-            ->with('leads')
+            ->with(['leads', 'emailAddresses'])
             ->withCount('leads')
             ->withMax('leads', 'created_at')
             ->defaultSort('id', 'desc')
@@ -70,7 +70,7 @@ class ContactListScreen extends Screen
                     ->render(function (Contact $contact): string {
                         $name = trim((string) $contact->full_name);
                         $phone = trim((string) $contact->phone);
-                        $email = trim((string) ($contact->email ?? ''));
+                        $emails = $contact->allNormalizedEmails();
 
                         $html = '<a class="fw-semibold" href="'.e(route('platform.contacts.edit', $contact)).'">'
                             .e($name !== '' ? $name : 'Contact #'.$contact->id)
@@ -79,7 +79,7 @@ class ContactListScreen extends Screen
                         if ($phone !== '') {
                             $html .= '<div class="small mt-1"><a href="tel:'.e($phone).'">'.e($phone).'</a></div>';
                         }
-                        if ($email !== '') {
+                        foreach ($emails as $email) {
                             $html .= '<div class="small mt-1"><a href="mailto:'.e($email).'">'.e($email).'</a></div>';
                         }
 

@@ -90,3 +90,60 @@ test('company and placeholder emails are not treated as clients', function () {
 
     expect($clients)->toBe([]);
 });
+
+test('additional contact emails are included in the mailbox client directory', function () {
+    $contact = Contact::query()->create([
+        'full_name' => 'Multi Mail',
+        'email' => 'primary@example.com',
+        'phone' => '6505553000',
+    ]);
+    $contact->syncAdditionalEmails(['alt@example.com', 'third@example.com']);
+
+    $set = app(MailboxClientEmailDirectory::class)->normalizedSet();
+
+    expect($set)->toHaveKey('primary@example.com')
+        ->and($set)->toHaveKey('alt@example.com')
+        ->and($set)->toHaveKey('third@example.com');
+});
+
+test('mailbox messages match any contact email address', function () {
+    $contact = Contact::query()->create([
+        'full_name' => 'Multi Mail',
+        'email' => 'primary@example.com',
+    ]);
+    $contact->syncAdditionalEmails(['alt@example.com']);
+
+    $message = \App\Models\MailboxMessage::query()->create([
+        'direction' => \App\Models\MailboxMessage::DIRECTION_INBOUND,
+        'folder' => 'INBOX',
+        'imap_uid' => 202,
+        'subject' => 'From alt',
+        'from_email' => 'alt@example.com',
+        'to' => 'info@deluxewindows.com',
+        'participant_emails' => ['alt@example.com', 'info@deluxewindows.com'],
+    ]);
+
+    $found = \App\Models\MailboxMessage::query()
+        ->forParticipants($contact->allNormalizedEmails())
+        ->pluck('id');
+
+    expect($found->all())->toContain($message->id);
+});
+
+test('direction is inbound only for client from or local services', function () {
+    $matcher = new MailboxImportMatcher;
+    $clients = ['jane@example.com' => true];
+
+    expect($matcher->resolveDirection('Jane', 'jane@example.com', 'Hi', $clients))
+        ->toBe(\App\Models\MailboxMessage::DIRECTION_INBOUND)
+        ->and($matcher->resolveDirection('Local Services by Google', 'noreply@google.com', 'New lead', $clients))
+        ->toBe(\App\Models\MailboxMessage::DIRECTION_INBOUND)
+        ->and($matcher->resolveDirection('Us', 'info@deluxewindows.com', 'Quote', $clients))
+        ->toBe(\App\Models\MailboxMessage::DIRECTION_OUTBOUND)
+        ->and($matcher->resolveDirection('Spouse', 'spouse@example.com', 'About Jane', $clients))
+        ->toBe(\App\Models\MailboxMessage::DIRECTION_OUTBOUND)
+        ->and($matcher->resolveDirectionForEmail('Jane', 'jane@example.com', 'Hi', 'jane@example.com'))
+        ->toBe(\App\Models\MailboxMessage::DIRECTION_INBOUND)
+        ->and($matcher->resolveDirectionForEmail('Other Client', 'other@example.com', 'Hi', 'jane@example.com'))
+        ->toBe(\App\Models\MailboxMessage::DIRECTION_OUTBOUND);
+});

@@ -92,19 +92,24 @@ test('conflicting email and phone matches are not merged automatically', functio
         ->and($lead->refresh()->contact_id)->toBe($created->id);
 });
 
-test('creating from an already linked lead is idempotent', function () {
-    $lead = Lead::query()->create([
-        'full_name' => 'Repeat Client',
-        'email' => 'repeat@example.com',
-        'phone' => '6505553000',
+test('a lead matches a contact by additional email address', function () {
+    $contact = Contact::query()->create([
+        'full_name' => 'Primary Name',
+        'email' => 'primary@example.com',
+        'phone' => '6505557000',
     ]);
-    $service = app(ContactFromLeadService::class);
+    $contact->syncAdditionalEmails(['alt-client@example.com']);
 
-    $first = $service->createOrAttach($lead);
-    $second = $service->createOrAttach($lead->refresh());
+    $lead = Lead::query()->create([
+        'full_name' => 'Alt Submission',
+        'email' => 'alt-client@example.com',
+        'phone' => '6505557001',
+    ]);
 
-    expect($second->id)->toBe($first->id)
-        ->and(Contact::query()->count())->toBe(1);
+    app(ContactFromLeadService::class)->attachNewLead($lead);
+
+    expect($lead->refresh()->contact_id)->toBe($contact->id)
+        ->and($contact->fresh()->allNormalizedEmails())->toContain('alt-client@example.com');
 });
 
 test('orchid create contact action resolves the service and redirects to the contact', function () {

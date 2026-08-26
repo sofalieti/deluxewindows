@@ -94,7 +94,6 @@ class ImapMailboxService
                 }
 
                 $foldersUsed[] = $folderName;
-                $isSent = $this->folders->isSent($folderName);
                 $knownUids = MailboxMessage::query()
                     ->where('folder', $folderName)
                     ->pluck('imap_uid')
@@ -124,8 +123,6 @@ class ImapMailboxService
                             $message,
                             $folderName,
                             $clientEmails,
-                            $isSent,
-                            $connectedEmail,
                             $force,
                         );
                         if ($result === 'imported') {
@@ -145,6 +142,8 @@ class ImapMailboxService
                 $more = true;
             }
 
+            $directionsFixed = $this->backfillDirections($clientEmails);
+
             unset($cursors['email_offset']);
             $cursors['lookback_days'] = $lookbackDays;
             if (! $more && $lookbackDays > 0) {
@@ -160,7 +159,8 @@ class ImapMailboxService
             $message = 'Account '.$connectedEmail.' · '.$window.' · folders '.implode(', ', $foldersUsed ?: ['none'])
                 .'. Searched '.count($emailList).' client emails, IMAP found '.$candidates
                 .' · Synced: '.$imported.' new, '.$skipped.' skipped'
-                .($bodiesFilled > 0 ? ', '.$bodiesFilled.' bodies filled' : '').'.';
+                .($bodiesFilled > 0 ? ', '.$bodiesFilled.' bodies filled' : '')
+                .($directionsFixed > 0 ? ', '.$directionsFixed.' directions fixed' : '').'.';
             if ($listedFolders !== []) {
                 $message .= ' IMAP sees: '.implode(', ', array_slice($listedFolders, 0, 12));
             }
@@ -172,7 +172,7 @@ class ImapMailboxService
             if ($imported === 0 && $candidates === 0 && $emailList !== [] && $bodiesFilled === 0) {
                 $message .= ' If this Gmail is not the inbox where clients write, connect that account instead.';
             }
-            $setting->last_error = ($imported === 0 && $bodiesFilled === 0) ? $message : null;
+            $setting->last_error = ($imported === 0 && $bodiesFilled === 0 && $directionsFixed === 0) ? $message : null;
             $setting->save();
             $this->settings->forgetCache();
 
@@ -248,8 +248,6 @@ class ImapMailboxService
         Message $message,
         string $folderName,
         array $clientEmails,
-        bool $isSent,
-        string $connectedEmail = '',
         bool $force = false,
     ): string {
         $uid = (int) $message->getUid();
@@ -278,14 +276,11 @@ class ImapMailboxService
             return 'skipped';
         }
 
-        $fromNormalized = strtolower(trim($fromEmail));
-        $outbound = $isSent || ($connectedEmail !== '' && $fromNormalized === $connectedEmail);
-
         $this->ensureMessageBody($message);
         $this->storeMessage(
             $message,
             $folderName,
-            $outbound ? MailboxMessage::DIRECTION_OUTBOUND : MailboxMessage::DIRECTION_INBOUND,
+            $this->matcher->resolveDirection($fromName, $fromEmail, $subject, $clientEmails),
         );
 
         return 'imported';
@@ -355,6 +350,38 @@ class ImapMailboxService
         }
 
         return $filled;
+    }
+
+    /**
+     * Recalculate inbound/outbound for stored messages (client-from or Local Services = inbound).
+     *
+     * @param  array<string, true>  $clientEmails
+     */
+    private function backfillDirections(array $clientEmails): int
+    {
+        $fixed = 0;
+
+        MailboxMessage::query()
+            ->orderBy('id')
+            ->chunkById(100, function ($rows) use ($clientEmails, &$fixed): void {
+                foreach ($rows as $row) {
+                    /** @var MailboxMessage $row */
+                    $direction = $this->matcher->resolveDirection(
+                        (string) ($row->from_name ?? ''),
+                        (string) ($row->from_email ?? ''),
+                        (string) ($row->subject ?? ''),
+                        $clientEmails,
+                    );
+                    if ($row->direction === $direction) {
+                        continue;
+                    }
+                    $row->direction = $direction;
+                    $row->save();
+                    $fixed++;
+                }
+            });
+
+        return $fixed;
     }
 
     /**

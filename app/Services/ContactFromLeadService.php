@@ -8,6 +8,7 @@ use App\Models\Contact;
 use App\Models\Lead;
 use App\Models\LeadChange;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 final class ContactFromLeadService
 {
@@ -86,6 +87,11 @@ final class ContactFromLeadService
             ->where(function ($query) use ($email, $phone): void {
                 if ($email !== null) {
                     $query->where('normalized_email', $email);
+                    if (Schema::hasTable('contact_emails')) {
+                        $query->orWhereHas('emailAddresses', function ($emails) use ($email): void {
+                            $emails->where('normalized_email', $email);
+                        });
+                    }
                 }
                 if ($phone !== null) {
                     $method = $email !== null ? 'orWhere' : 'where';
@@ -100,22 +106,22 @@ final class ContactFromLeadService
 
     private function linkMatchingLeads(Contact $contact, ?int $userId): void
     {
-        $email = $contact->normalized_email;
+        $emails = $contact->allNormalizedEmails();
         $phone = $contact->normalized_phone;
 
-        if ($email === null && $phone === null) {
+        if ($emails === [] && $phone === null) {
             return;
         }
 
         Lead::query()
             ->whereNull('contact_id')
             ->where('status', '!=', Lead::STATUS_SPAM)
-            ->where(function ($query) use ($email, $phone): void {
-                if ($email !== null) {
-                    $query->where('normalized_email', $email);
+            ->where(function ($query) use ($emails, $phone): void {
+                if ($emails !== []) {
+                    $query->whereIn('normalized_email', $emails);
                 }
                 if ($phone !== null) {
-                    $method = $email !== null ? 'orWhere' : 'where';
+                    $method = $emails !== [] ? 'orWhere' : 'where';
                     $query->{$method}('normalized_phone', $phone);
                 }
             })
@@ -132,11 +138,14 @@ final class ContactFromLeadService
     {
         $oldContactId = $lead->contact_id;
         if ((int) $oldContactId === (int) $contact->id) {
+            $contact->addEmailAddress((string) ($lead->email ?? ''));
+
             return;
         }
 
         $lead->contact()->associate($contact);
         $lead->save();
+        $contact->addEmailAddress((string) ($lead->email ?? ''));
 
         LeadChange::record(
             $lead,
