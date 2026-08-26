@@ -13,10 +13,19 @@
 @media (max-width: 991px) {
   /* The old mobile hero (headline, phone plaques, promo badge, background art)
      is replaced wholesale by .hero-nm. */
-  .div-block-59--hero-new {
-    min-height: 0;
+  /* Both classes and !important on purpose: plain .div-block-59 forces
+     min-height: 100svh !important, which left a viewport-tall empty gap
+     between .hero-nm and the block that follows it. */
+  .div-block-59.div-block-59--hero-new {
+    min-height: 0 !important;
     padding: 0;
     background-color: #fff;
+  }
+
+  /* The old hero container inherits the section min-height and keeps the gap
+     alive even though everything inside it is hidden. */
+  .div-block-59.div-block-59--hero-new > .w-layout-blockcontainer.container-default {
+    min-height: 0;
   }
 
   .div-block-59--hero-new .width-100-mobile-landscape,
