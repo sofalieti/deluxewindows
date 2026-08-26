@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Collection;
 use Orchid\Filters\Filterable;
@@ -162,6 +163,11 @@ class Lead extends Model
     public function comments(): HasMany
     {
         return $this->hasMany(LeadComment::class)->latest();
+    }
+
+    public function latestComment(): HasOne
+    {
+        return $this->hasOne(LeadComment::class)->latestOfMany();
     }
 
     public function changes(): HasMany

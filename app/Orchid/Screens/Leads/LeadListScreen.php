@@ -7,8 +7,10 @@ namespace App\Orchid\Screens\Leads;
 use App\Models\Contact;
 use App\Models\Lead;
 use App\Models\LeadChange;
+use App\Models\LeadComment;
 use App\Models\User;
 use App\Orchid\Layouts\Leads\LeadFiltersLayout;
+use App\Services\Mailbox\MailboxEmailStatsService;
 use App\Services\RingCentralPhoneCallStatsService;
 use App\Services\TrafficSourceVisibility;
 use Illuminate\Http\Request;
@@ -28,6 +30,9 @@ class LeadListScreen extends Screen
     /** @var array<string, array{inbound: int, outbound: int, connected: bool, connected_count: int}> */
     private array $callStatsByPhone = [];
 
+    /** @var array<string, array{inbound: int, outbound: int, last_direction: ?string}> */
+    private array $mailStatsByEmail = [];
+
     public function query(): iterable
     {
         $contactId = (int) request()->input('filter.contact_id', 0);
@@ -40,19 +45,20 @@ class LeadListScreen extends Screen
 
         $leads = Lead::filters(LeadFiltersLayout::class)
             ->visibleTo($user)
-            ->with('assignee')
+            ->with(['assignee', 'latestComment.user'])
             ->defaultSort('id', 'desc')
             ->where('status', '!=', Lead::STATUS_SPAM);
 
         $mineLeads = Lead::query()
             ->visibleTo($user)
-            ->with('assignee')
+            ->with(['assignee', 'latestComment.user'])
             ->where('status', '!=', Lead::STATUS_SPAM)
             ->where('assigned_to', $user?->id)
             ->defaultSort('id', 'desc');
 
         $spamLeads = Lead::query()
             ->visibleTo($user)
+            ->with(['assignee', 'latestComment.user'])
             ->where('status', Lead::STATUS_SPAM)
             ->defaultSort('id', 'desc');
 
@@ -66,12 +72,15 @@ class LeadListScreen extends Screen
         $minePage = $mineLeads->paginate(50, pageName: 'mine_page');
         $spamPage = $spamLeads->paginate(50, pageName: 'spam_page');
 
+        $pageLeads = collect($leadsPage->items())
+            ->concat($minePage->items())
+            ->concat($spamPage->items());
+
         $this->callStatsByPhone = app(RingCentralPhoneCallStatsService::class)->statsForPhones(
-            collect($leadsPage->items())
-                ->concat($minePage->items())
-                ->concat($spamPage->items())
-                ->pluck('phone')
-                ->all()
+            $pageLeads->pluck('phone')->all()
+        );
+        $this->mailStatsByEmail = app(MailboxEmailStatsService::class)->statsForEmails(
+            $pageLeads->pluck('email')->all()
         );
 
         return [
@@ -147,6 +156,7 @@ class LeadListScreen extends Screen
     private function leadColumns(bool $spamTab): array
     {
         $callStats = app(RingCentralPhoneCallStatsService::class);
+        $mailStats = app(MailboxEmailStatsService::class);
         $assignees = User::query()->orderBy('name')->pluck('name', 'id');
 
         $columns = [
@@ -201,6 +211,18 @@ class LeadListScreen extends Screen
             ->width('110px')
             ->render(fn (Lead $lead) => view('admin.partials.call-stats-cell', [
                 'stats' => $callStats->lookup($this->callStatsByPhone, $lead->phone),
+            ]));
+
+        $columns[] = TD::make('mail', 'Mail')
+            ->width('100px')
+            ->render(fn (Lead $lead) => view('admin.leads.mail-stats-cell', [
+                'stats' => $mailStats->lookup($this->mailStatsByEmail, $lead->email),
+            ]));
+
+        $columns[] = TD::make('note', 'Note')
+            ->width('220px')
+            ->render(fn (Lead $lead) => view('admin.leads.note-cell', [
+                'lead' => $lead,
             ]));
 
         $columns[] = TD::make('message', 'Message')
@@ -290,5 +312,36 @@ class LeadListScreen extends Screen
         );
 
         Toast::info('Assignee updated: '.$toName);
+    }
+
+    public function addNote(Request $request): void
+    {
+        $validated = $request->validate([
+            'lead' => ['required', 'integer', 'exists:leads,id'],
+            'note' => ['required', 'string', 'min:1', 'max:5000'],
+        ]);
+
+        $user = Auth::user();
+        abort_unless($user !== null, 403);
+
+        $lead = Lead::query()->findOrFail((int) $validated['lead']);
+        $body = trim($validated['note']);
+
+        LeadComment::query()->create([
+            'lead_id' => $lead->id,
+            'user_id' => $user->id,
+            'body' => $body,
+        ]);
+
+        LeadChange::record(
+            $lead,
+            'comment',
+            null,
+            Str::limit($body, 300),
+            'Added a comment',
+            (int) $user->id,
+        );
+
+        Toast::info('Note saved.');
     }
 }

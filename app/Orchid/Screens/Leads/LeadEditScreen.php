@@ -117,158 +117,161 @@ class LeadEditScreen extends Screen
 
     public function layout(): iterable
     {
+        $detailsLeft = Layout::blank([
+            Layout::rows([
+                Input::make('lead.full_name')
+                    ->title('Name')
+                    ->required()
+                    ->maxlength(255),
+                Input::make('lead.phone')
+                    ->title('Phone')
+                    ->type('tel')
+                    ->required()
+                    ->maxlength(50),
+                Input::make('lead.email')
+                    ->title('Email')
+                    ->type('email')
+                    ->required()
+                    ->maxlength(255),
+                Input::make('lead.city')
+                    ->title('City')
+                    ->maxlength(100),
+                Input::make('lead.page_url')
+                    ->title('Page')
+                    ->maxlength(1000),
+                TextArea::make('lead.message')
+                    ->title('Message')
+                    ->rows(6)
+                    ->maxlength(3000),
+                Select::make('lead.status')
+                    ->title('Status')
+                    ->options(Lead::STATUSES)
+                    ->required(),
+                Select::make('lead.assigned_to')
+                    ->title('Assignee')
+                    ->fromModel(User::class, 'name')
+                    ->empty('Unassigned'),
+                Select::make('contact_id')
+                    ->title('Link to existing contact')
+                    ->fromModel(Contact::class, 'full_name')
+                    ->empty('Select contact'),
+            ])->title('Lead details'),
+
+            Layout::legend('lead', [
+                Sight::make('id', 'ID'),
+                Sight::make('created_at', 'Received')
+                    ->render(fn (Lead $lead) => optional($lead->created_at)->format('Y-m-d H:i')),
+                Sight::make('status', 'Current status')
+                    ->render(fn (Lead $lead) => '<span class="lead-status-badge lead-status-badge--'.e($lead->statusColor()).'">'.e($lead->statusLabel()).'</span>'),
+                Sight::make('contact', 'Contact')
+                    ->render(fn (Lead $lead): string => $lead->contact
+                        ? '<a href="'.e(route('platform.contacts.edit', $lead->contact)).'">'
+                            .e($lead->contact->full_name).' (#'.e((string) $lead->contact->id).')</a>'
+                        : '<span class="text-muted">Not linked</span>'),
+                Sight::make('traffic_source', 'Last traffic source')
+                    ->render(function (Lead $lead): string {
+                        $detail = $lead->trafficSourceDetail();
+
+                        return '<span class="badge bg-'.e($lead->trafficSourceColor()).' text-white">'
+                            .e($lead->trafficSourceLabel())
+                            .'</span>'
+                            .($detail !== '' ? ' <span class="text-muted">'.e($detail).'</span>' : '');
+                    }),
+                Sight::make('first_traffic_source', 'First traffic source')
+                    ->render(function (Lead $lead): string {
+                        $detail = $lead->firstTrafficSourceDetail();
+
+                        return '<span class="badge bg-'.e($lead->firstTrafficSourceColor()).' text-white">'
+                            .e($lead->firstTrafficSourceLabel())
+                            .'</span>'
+                            .($detail !== '' ? ' <span class="text-muted">'.e($detail).'</span>' : '');
+                    }),
+                Sight::make('spam_reason', 'Spam reason')
+                    ->render(fn (Lead $lead) => e($lead->metaValue('spam_reason', '-'))),
+                Sight::make('ip_address', 'IP')
+                    ->render(fn (Lead $lead) => e((string) ($lead->ip_address ?? '-'))),
+                Sight::make('form_id', 'Form ID')
+                    ->render(fn (Lead $lead) => e($lead->metaValue('form_id', '-'))),
+                Sight::make('landing_page', 'Landing page')
+                    ->render(fn (Lead $lead) => e($lead->metaValue('landing_page', '-'))),
+                Sight::make('referrer', 'Referrer')
+                    ->render(fn (Lead $lead) => e($lead->metaValue('referrer', '-'))),
+                Sight::make('geo_location', 'Geo')
+                    ->render(fn (Lead $lead) => e($lead->metaValue('geo_location', '-'))),
+                Sight::make('utm_source', 'UTM source')
+                    ->render(fn (Lead $lead) => e(trim((string) ($lead->utm_source ?? '')) !== '' ? (string) $lead->utm_source : '-')),
+                Sight::make('utm_medium', 'UTM medium')
+                    ->render(fn (Lead $lead) => e(trim((string) ($lead->utm_medium ?? '')) !== '' ? (string) $lead->utm_medium : '-')),
+                Sight::make('utm_campaign', 'UTM campaign')
+                    ->render(fn (Lead $lead) => e(trim((string) ($lead->utm_campaign ?? '')) !== '' ? (string) $lead->utm_campaign : '-')),
+                Sight::make('referral_partner', 'Referral partner')
+                    ->render(function (Lead $lead): string {
+                        $partner = $lead->referralPartner;
+                        if ($partner === null) {
+                            return '<span class="text-muted">—</span>';
+                        }
+
+                        $reward = $lead->referralReward;
+                        $rewardLabel = $reward
+                            ? ' · reward: '.e(\App\Models\ReferralReward::STATUSES[$reward->status] ?? $reward->status)
+                            : '';
+
+                        return '<span class="badge bg-primary text-white">'
+                            .e($partner->name).' ('.e($partner->code).')</span>'
+                            .$rewardLabel;
+                    }),
+                Sight::make('utm_content', 'UTM content')
+                    ->render(fn (Lead $lead) => e($lead->metaValue('utm_content', '-'))),
+                Sight::make('utm_term', 'UTM term')
+                    ->render(fn (Lead $lead) => e($lead->metaValue('utm_term', '-'))),
+                Sight::make('utm_city', 'UTM city')
+                    ->render(function (Lead $lead) {
+                        $regions = app(\App\Services\ServiceAreaRegions::class);
+
+                        return e($regions->utmCityLabel(
+                            $lead->metaValue('utm_city', ''),
+                            $regions->platformFromAttribution([
+                                'utm_source' => $lead->utm_source,
+                                'gclid' => $lead->metaValue('gclid'),
+                                'msclkid' => $lead->metaValue('msclkid'),
+                            ])
+                        ));
+                    }),
+                Sight::make('utm_redirect', 'UTM redirect')
+                    ->render(fn (Lead $lead) => e($lead->metaValue('utm_redirect', '-'))),
+                Sight::make('matchtype', 'Match type')
+                    ->render(fn (Lead $lead) => e($lead->metaValue('matchtype', '-'))),
+                Sight::make('device', 'Device')
+                    ->render(fn (Lead $lead) => e($lead->metaValue('device', '-'))),
+                Sight::make('creative', 'Creative')
+                    ->render(fn (Lead $lead) => e($lead->metaValue('creative', '-'))),
+                Sight::make('gclid', 'GCLID')
+                    ->render(fn (Lead $lead) => e($lead->metaValue('gclid', '-'))),
+                Sight::make('fbclid', 'FBCLID')
+                    ->render(fn (Lead $lead) => e($lead->metaValue('fbclid', '-'))),
+                Sight::make('msclkid', 'MSCLKID')
+                    ->render(fn (Lead $lead) => e($lead->metaValue('msclkid', '-'))),
+            ]),
+        ]);
+
+        $commentsRight = Layout::blank([
+            Layout::rows([
+                TextArea::make('comment')
+                    ->title('New comment')
+                    ->rows(4)
+                    ->placeholder('Write a note for your team…'),
+            ])->title('Comments'),
+            Layout::view('admin.partials.comment-actions'),
+            Layout::view('admin.leads.comments'),
+        ]);
+
         return [
             Layout::view('admin.leads.assets'),
 
             Layout::tabs([
-                'Details' => Layout::blank([
-                    Layout::columns([
-                        Layout::rows([
-                            Input::make('lead.full_name')
-                                ->title('Name')
-                                ->required()
-                                ->maxlength(255),
-                            Input::make('lead.phone')
-                                ->title('Phone')
-                                ->type('tel')
-                                ->required()
-                                ->maxlength(50),
-                            Input::make('lead.email')
-                                ->title('Email')
-                                ->type('email')
-                                ->required()
-                                ->maxlength(255),
-                            Input::make('lead.city')
-                                ->title('City')
-                                ->maxlength(100),
-                            Input::make('lead.page_url')
-                                ->title('Page')
-                                ->maxlength(1000),
-                            TextArea::make('lead.message')
-                                ->title('Message')
-                                ->rows(6)
-                                ->maxlength(3000),
-                            Select::make('lead.status')
-                                ->title('Status')
-                                ->options(Lead::STATUSES)
-                                ->required(),
-                            Select::make('lead.assigned_to')
-                                ->title('Assignee')
-                                ->fromModel(User::class, 'name')
-                                ->empty('Unassigned'),
-                            Select::make('contact_id')
-                                ->title('Link to existing contact')
-                                ->fromModel(Contact::class, 'full_name')
-                                ->empty('Select contact'),
-                        ])->title('Lead details'),
-
-                        Layout::legend('lead', [
-                            Sight::make('id', 'ID'),
-                            Sight::make('created_at', 'Received')
-                                ->render(fn (Lead $lead) => optional($lead->created_at)->format('Y-m-d H:i')),
-                            Sight::make('status', 'Current status')
-                                ->render(fn (Lead $lead) => '<span class="lead-status-badge lead-status-badge--'.e($lead->statusColor()).'">'.e($lead->statusLabel()).'</span>'),
-                            Sight::make('contact', 'Contact')
-                                ->render(fn (Lead $lead): string => $lead->contact
-                                    ? '<a href="'.e(route('platform.contacts.edit', $lead->contact)).'">'
-                                        .e($lead->contact->full_name).' (#'.e((string) $lead->contact->id).')</a>'
-                                    : '<span class="text-muted">Not linked</span>'),
-                            Sight::make('traffic_source', 'Last traffic source')
-                                ->render(function (Lead $lead): string {
-                                    $detail = $lead->trafficSourceDetail();
-
-                                    return '<span class="badge bg-'.e($lead->trafficSourceColor()).' text-white">'
-                                        .e($lead->trafficSourceLabel())
-                                        .'</span>'
-                                        .($detail !== '' ? ' <span class="text-muted">'.e($detail).'</span>' : '');
-                                }),
-                            Sight::make('first_traffic_source', 'First traffic source')
-                                ->render(function (Lead $lead): string {
-                                    $detail = $lead->firstTrafficSourceDetail();
-
-                                    return '<span class="badge bg-'.e($lead->firstTrafficSourceColor()).' text-white">'
-                                        .e($lead->firstTrafficSourceLabel())
-                                        .'</span>'
-                                        .($detail !== '' ? ' <span class="text-muted">'.e($detail).'</span>' : '');
-                                }),
-                            Sight::make('spam_reason', 'Spam reason')
-                                ->render(fn (Lead $lead) => e($lead->metaValue('spam_reason', '-'))),
-                            Sight::make('ip_address', 'IP')
-                                ->render(fn (Lead $lead) => e((string) ($lead->ip_address ?? '-'))),
-                            Sight::make('form_id', 'Form ID')
-                                ->render(fn (Lead $lead) => e($lead->metaValue('form_id', '-'))),
-                            Sight::make('landing_page', 'Landing page')
-                                ->render(fn (Lead $lead) => e($lead->metaValue('landing_page', '-'))),
-                            Sight::make('referrer', 'Referrer')
-                                ->render(fn (Lead $lead) => e($lead->metaValue('referrer', '-'))),
-                            Sight::make('geo_location', 'Geo')
-                                ->render(fn (Lead $lead) => e($lead->metaValue('geo_location', '-'))),
-                            Sight::make('utm_source', 'UTM source')
-                                ->render(fn (Lead $lead) => e(trim((string) ($lead->utm_source ?? '')) !== '' ? (string) $lead->utm_source : '-')),
-                            Sight::make('utm_medium', 'UTM medium')
-                                ->render(fn (Lead $lead) => e(trim((string) ($lead->utm_medium ?? '')) !== '' ? (string) $lead->utm_medium : '-')),
-                            Sight::make('utm_campaign', 'UTM campaign')
-                                ->render(fn (Lead $lead) => e(trim((string) ($lead->utm_campaign ?? '')) !== '' ? (string) $lead->utm_campaign : '-')),
-                            Sight::make('referral_partner', 'Referral partner')
-                                ->render(function (Lead $lead): string {
-                                    $partner = $lead->referralPartner;
-                                    if ($partner === null) {
-                                        return '<span class="text-muted">—</span>';
-                                    }
-
-                                    $reward = $lead->referralReward;
-                                    $rewardLabel = $reward
-                                        ? ' · reward: '.e(\App\Models\ReferralReward::STATUSES[$reward->status] ?? $reward->status)
-                                        : '';
-
-                                    return '<span class="badge bg-primary text-white">'
-                                        .e($partner->name).' ('.e($partner->code).')</span>'
-                                        .$rewardLabel;
-                                }),
-                            Sight::make('utm_content', 'UTM content')
-                                ->render(fn (Lead $lead) => e($lead->metaValue('utm_content', '-'))),
-                            Sight::make('utm_term', 'UTM term')
-                                ->render(fn (Lead $lead) => e($lead->metaValue('utm_term', '-'))),
-                            Sight::make('utm_city', 'UTM city')
-                                ->render(function (Lead $lead) {
-                                    $regions = app(\App\Services\ServiceAreaRegions::class);
-
-                                    return e($regions->utmCityLabel(
-                                        $lead->metaValue('utm_city', ''),
-                                        $regions->platformFromAttribution([
-                                            'utm_source' => $lead->utm_source,
-                                            'gclid' => $lead->metaValue('gclid'),
-                                            'msclkid' => $lead->metaValue('msclkid'),
-                                        ])
-                                    ));
-                                }),
-                            Sight::make('utm_redirect', 'UTM redirect')
-                                ->render(fn (Lead $lead) => e($lead->metaValue('utm_redirect', '-'))),
-                            Sight::make('matchtype', 'Match type')
-                                ->render(fn (Lead $lead) => e($lead->metaValue('matchtype', '-'))),
-                            Sight::make('device', 'Device')
-                                ->render(fn (Lead $lead) => e($lead->metaValue('device', '-'))),
-                            Sight::make('creative', 'Creative')
-                                ->render(fn (Lead $lead) => e($lead->metaValue('creative', '-'))),
-                            Sight::make('gclid', 'GCLID')
-                                ->render(fn (Lead $lead) => e($lead->metaValue('gclid', '-'))),
-                            Sight::make('fbclid', 'FBCLID')
-                                ->render(fn (Lead $lead) => e($lead->metaValue('fbclid', '-'))),
-                            Sight::make('msclkid', 'MSCLKID')
-                                ->render(fn (Lead $lead) => e($lead->metaValue('msclkid', '-'))),
-                        ]),
-                    ]),
-                ]),
-
-                'Comments' => Layout::blank([
-                    Layout::rows([
-                        TextArea::make('comment')
-                            ->title('New comment')
-                            ->rows(4)
-                            ->placeholder('Write a note for your team…'),
-                    ])->title('Add comment'),
-                    Layout::view('admin.partials.comment-actions'),
-                    Layout::view('admin.leads.comments'),
+                'Details' => Layout::columns([
+                    $detailsLeft,
+                    $commentsRight,
                 ]),
 
                 'Calls' => Layout::view('admin.leads.calls'),

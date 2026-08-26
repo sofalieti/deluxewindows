@@ -3,14 +3,14 @@
     $comments = $comments ?? collect();
 @endphp
 
-<div class="bg-white rounded shadow-sm p-4 mb-3 lead-comments">
-    <h6 class="text-muted text-uppercase mb-3 lead-comments__title">Comment history</h6>
+<div class="bg-white rounded shadow-sm p-4 contact-panel contact-comments-sidebar">
+    <h6 class="text-muted text-uppercase mb-3 contact-panel__title">Comment history</h6>
 
     @forelse ($comments as $comment)
-        <div class="border-bottom py-3 {{ $loop->last ? 'border-0' : '' }}">
-            <div class="d-flex justify-content-between align-items-baseline gap-2 mb-1">
+        <div class="contact-comment {{ $loop->last ? '' : 'border-bottom' }}">
+            <div class="d-flex justify-content-between align-items-start gap-3 mb-2">
                 <strong>{{ $comment->user?->name ?? 'Unknown user' }}</strong>
-                <span class="text-muted small">{{ optional($comment->created_at)->format('Y-m-d H:i') }}</span>
+                <span class="small text-muted">{{ optional($comment->created_at)->format('Y-m-d H:i') }}</span>
             </div>
             <div class="text-break">{!! nl2br(e($comment->body)) !!}</div>
         </div>
