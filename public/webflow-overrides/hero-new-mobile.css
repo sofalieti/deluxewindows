@@ -22,24 +22,15 @@
     background-color: #fff;
   }
 
-  /* The old hero container inherits the section min-height and keeps the gap
-     alive even though everything inside it is hidden. */
-  .div-block-59.div-block-59--hero-new > .w-layout-blockcontainer.container-default {
-    min-height: 0;
-  }
-
-  .div-block-59--hero-new .width-100-mobile-landscape,
-  .div-block-59--hero-new .inner-container._660px._100-tablet,
+  /* The old hero markup stays in the document for the desktop breakpoint, but
+     .hero-nm replaces all of it here. Emptying the container was not enough:
+     its inner flex row still added ~32px above the next section on tablets. */
+  .div-block-59--hero-new > .w-layout-blockcontainer.container-default,
   .div-block-59--hero-new .div-block-61,
   .div-block-59--hero-new .code-embed-5,
   .div-block-59--hero-new .video-bg-container,
   .div-block-59--hero-new .service-area-hero__image {
     display: none !important;
-  }
-
-  .div-block-59--hero-new .w-layout-blockcontainer.container-default {
-    padding: 0;
-    max-width: none;
   }
 
   .hero-nm {
