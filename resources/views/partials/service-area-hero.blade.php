@@ -4,6 +4,9 @@
           @include('partials.hero-new-mobile', [
             'heroNewAreaLabel' => $areaLabel,
             'heroNewEyebrow' => 'Window & Door Replacement · '.$cityLabel,
+            // Mirrors the desktop H1, city highlighted the same way.
+            'heroNewTitleLead' => 'Windows & Doors in',
+            'heroNewTitleAccent' => (!empty($countyName) ? $cityName.', '.$countyName : $cityLabel).'.',
             'heroNewCountyLabel' => 'In the trade, '.(!empty($countyName) ? $countyName : $areaLabel),
             'heroNewCityPlaceholder' => $cityName ?: null,
             'localPhone' => $localPhone ?? null,

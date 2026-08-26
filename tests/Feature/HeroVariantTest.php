@@ -55,6 +55,23 @@ test('city landing pages follow the active hero variant', function () {
     expect($old)->not->toContain('data-hero-new');
 });
 
+test('the mobile hero headline follows the page it sits on', function () {
+    $home = get('/')->assertOk()->getContent();
+
+    expect($home)->toContain('The same crew has been doing this for');
+
+    $city = get('/window-replacement/san-francisco')->assertOk()->getContent();
+
+    expect($city)->toContain('Windows &amp; Doors in')
+        ->and($city)->toContain('San Francisco, San Francisco County.')
+        ->and($city)->not->toContain('The same crew has been doing this for');
+
+    $landing = get('/new-construction')->assertOk()->getContent();
+
+    expect($landing)->toContain('Building a New Home? Get Every Window &amp; Door from One Team')
+        ->and($landing)->not->toContain('The same crew has been doing this for');
+});
+
 test('dashboard renders the hero switch', function () {
     $user = User::factory()->create([
         'permissions' => ['platform.index' => true],

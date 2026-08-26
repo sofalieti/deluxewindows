@@ -227,6 +227,9 @@
   if (isset($heroMiniDescriptionOverride)) {
       $heroMiniDescription = (string) $heroMiniDescriptionOverride;
   }
+  // Everything except the homepage shows its own headline in the desktop hero,
+  // so the mobile block repeats it instead of the generic homepage line.
+  $heroUsesPageHeadline = $brandLikeHero || !empty($windowHeroImage) || !empty($doorHero);
 @endphp
 
       <div class="div-block-59 @if(hero_is_new()) div-block-59--hero-new @endif">
@@ -237,6 +240,12 @@
               'windows' => 'Window Replacement · Bay Area',
               default => 'Window & Door Replacement · Bay Area',
             },
+            'heroNewTitleLead' => $heroUsesPageHeadline ? $heroHeadlineText : null,
+            // Page headlines are single sentences — nothing to highlight separately.
+            'heroNewTitleAccent' => $heroUsesPageHeadline ? '' : null,
+            'heroNewSub' => $heroUsesPageHeadline && $heroMiniDescription !== ''
+              ? strip_tags($heroMiniDescription)
+              : null,
           ])
         @endif
         @if(!empty($doorLandingHero))

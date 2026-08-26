@@ -2,6 +2,9 @@
         @if(hero_is_new())
           @include('partials.hero-new-mobile', [
             'heroNewEyebrow' => 'Window & Door Replacement · '.$countyName,
+            // Mirrors the desktop H1, county highlighted the same way.
+            'heroNewTitleLead' => 'Windows & Doors in',
+            'heroNewTitleAccent' => $countyName.'.',
             'heroNewCountyLabel' => 'In the trade, '.$countyName,
           ])
         @endif
