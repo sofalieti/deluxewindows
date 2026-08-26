@@ -7,6 +7,7 @@ namespace App\Orchid\Screens\Leads;
 use App\Models\Contact;
 use App\Models\Lead;
 use App\Models\LeadChange;
+use App\Models\User;
 use App\Orchid\Layouts\Leads\LeadFiltersLayout;
 use App\Services\RingCentralPhoneCallStatsService;
 use App\Services\TrafficSourceVisibility;
@@ -146,11 +147,15 @@ class LeadListScreen extends Screen
     private function leadColumns(bool $spamTab): array
     {
         $callStats = app(RingCentralPhoneCallStatsService::class);
+        $assignees = User::query()->orderBy('name')->pluck('name', 'id');
 
         $columns = [
             TD::make('created_at', 'Date')
                 ->sort()
-                ->render(fn (Lead $lead) => optional($lead->created_at)->format('Y-m-d H:i')),
+                ->width('140px')
+                ->render(fn (Lead $lead) => view('admin.leads.date-cell', [
+                    'lead' => $lead,
+                ])),
         ];
 
         if ($spamTab) {
@@ -164,11 +169,8 @@ class LeadListScreen extends Screen
             ->width('200px')
             ->render(fn (Lead $lead) => view('admin.leads.status-cell', [
                 'lead' => $lead,
+                'assignees' => $assignees,
             ]));
-
-        $columns[] = TD::make('assigned_to', 'Assignee')
-            ->width('120px')
-            ->render(fn (Lead $lead) => e($lead->assignee?->name ?? '—'));
 
         $columns[] = TD::make('full_name', 'Name')
             ->width('200px')
@@ -201,21 +203,6 @@ class LeadListScreen extends Screen
                 'stats' => $callStats->lookup($this->callStatsByPhone, $lead->phone),
             ]));
 
-        $columns[] = TD::make('city', 'City')
-            ->width('165px')
-            ->render(function (Lead $lead) use ($spamTab): string {
-                $city = trim((string) ($lead->city ?? ''));
-
-                if ($spamTab) {
-                    return e($city !== '' ? $city : '-');
-                }
-
-                return e($city !== '' ? $city : '-')
-                    .'<div class="small text-muted mt-1">('
-                    .e($lead->trafficSourceLabel())
-                    .')</div>';
-            });
-
         $columns[] = TD::make('message', 'Message')
             ->render(function (Lead $lead): string {
                 $message = trim((string) ($lead->message ?? ''));
@@ -244,8 +231,6 @@ class LeadListScreen extends Screen
         $to = $validated['status'];
 
         if ($from === $to) {
-            Toast::info('Status unchanged.');
-
             return;
         }
 
@@ -257,5 +242,53 @@ class LeadListScreen extends Screen
         app(\App\Services\CrmTaskAutomation::class)->onLeadStatusChanged($lead, $from, $to);
 
         Toast::info('Status updated: '.$lead->statusLabel());
+    }
+
+    public function changeAssignee(Request $request): void
+    {
+        $assignedRaw = $request->input('assigned_to');
+        if ($assignedRaw === '' || $assignedRaw === null) {
+            $request->merge(['assigned_to' => null]);
+        }
+
+        $validated = $request->validate([
+            'lead' => ['required', 'integer', 'exists:leads,id'],
+            'assigned_to' => ['nullable', 'integer', 'exists:users,id'],
+        ]);
+
+        $user = Auth::user();
+        abort_unless($user !== null, 403);
+
+        $lead = Lead::query()->findOrFail((int) $validated['lead']);
+        $from = $lead->assigned_to !== null ? (string) $lead->assigned_to : '';
+        $to = isset($validated['assigned_to']) && $validated['assigned_to'] !== null
+            ? (string) $validated['assigned_to']
+            : '';
+
+        if ($from === $to) {
+            return;
+        }
+
+        $fromName = $from !== ''
+            ? (User::query()->find((int) $from)?->name ?? $from)
+            : 'Unassigned';
+        $toName = $to !== ''
+            ? (User::query()->find((int) $to)?->name ?? $to)
+            : 'Unassigned';
+
+        $lead->assigned_to = $to !== '' ? (int) $to : null;
+        $lead->assigned_at = $to !== '' ? now() : null;
+        $lead->save();
+
+        LeadChange::record(
+            $lead,
+            'assigned_to',
+            $from !== '' ? $from : null,
+            $to !== '' ? $to : null,
+            'Assignee: '.$fromName.' → '.$toName,
+            (int) $user->id,
+        );
+
+        Toast::info('Assignee updated: '.$toName);
     }
 }

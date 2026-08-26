@@ -70,6 +70,7 @@ class ImapMailboxService
 
         $imported = 0;
         $skipped = 0;
+        $bodiesFilled = 0;
         $more = false;
 
         try {
@@ -126,7 +127,6 @@ class ImapMailboxService
                             $isSent,
                             $connectedEmail,
                             $force,
-                            $maxSeconds >= 90,
                         );
                         if ($result === 'imported') {
                             $imported++;
@@ -138,6 +138,11 @@ class ImapMailboxService
                         }
                     }
                 }
+            }
+
+            $bodiesFilled = $this->backfillEmptyBodies($client, $started, $maxSeconds);
+            if ($bodiesFilled > 0 && (microtime(true) - $started) > $maxSeconds) {
+                $more = true;
             }
 
             unset($cursors['email_offset']);
@@ -154,7 +159,8 @@ class ImapMailboxService
             $window = $lookbackDays > 0 ? 'last '.$lookbackDays.' days' : 'all time';
             $message = 'Account '.$connectedEmail.' · '.$window.' · folders '.implode(', ', $foldersUsed ?: ['none'])
                 .'. Searched '.count($emailList).' client emails, IMAP found '.$candidates
-                .' · Synced: '.$imported.' new, '.$skipped.' skipped.';
+                .' · Synced: '.$imported.' new, '.$skipped.' skipped'
+                .($bodiesFilled > 0 ? ', '.$bodiesFilled.' bodies filled' : '').'.';
             if ($listedFolders !== []) {
                 $message .= ' IMAP sees: '.implode(', ', array_slice($listedFolders, 0, 12));
             }
@@ -163,10 +169,10 @@ class ImapMailboxService
             } elseif ($more) {
                 $message .= ' Refresh and Sync again to import the next batch.';
             }
-            if ($imported === 0 && $candidates === 0 && $emailList !== []) {
+            if ($imported === 0 && $candidates === 0 && $emailList !== [] && $bodiesFilled === 0) {
                 $message .= ' If this Gmail is not the inbox where clients write, connect that account instead.';
             }
-            $setting->last_error = $imported === 0 ? $message : null;
+            $setting->last_error = ($imported === 0 && $bodiesFilled === 0) ? $message : null;
             $setting->save();
             $this->settings->forgetCache();
 
@@ -245,7 +251,6 @@ class ImapMailboxService
         bool $isSent,
         string $connectedEmail = '',
         bool $force = false,
-        bool $fetchBody = false,
     ): string {
         $uid = (int) $message->getUid();
         if ($uid <= 0) {
@@ -276,9 +281,7 @@ class ImapMailboxService
         $fromNormalized = strtolower(trim($fromEmail));
         $outbound = $isSent || ($connectedEmail !== '' && $fromNormalized === $connectedEmail);
 
-        if ($fetchBody) {
-            $this->ensureMessageBody($message);
-        }
+        $this->ensureMessageBody($message);
         $this->storeMessage(
             $message,
             $folderName,
@@ -286,6 +289,72 @@ class ImapMailboxService
         );
 
         return 'imported';
+    }
+
+    /**
+     * Re-fetch IMAP bodies for rows saved without content (header-only imports).
+     */
+    private function backfillEmptyBodies(Client $client, float $started, int $maxSeconds): int
+    {
+        $empties = MailboxMessage::query()
+            ->whereNotNull('imap_uid')
+            ->where(function ($query): void {
+                $query->whereNull('body_text')->orWhere('body_text', '');
+            })
+            ->where(function ($query): void {
+                $query->whereNull('body_html')->orWhere('body_html', '');
+            })
+            ->orderByDesc('id')
+            ->limit(50)
+            ->get(['id', 'folder', 'imap_uid']);
+
+        if ($empties->isEmpty()) {
+            return 0;
+        }
+
+        $filled = 0;
+        foreach ($empties->groupBy('folder') as $folderName => $rows) {
+            if ((microtime(true) - $started) > $maxSeconds - 3) {
+                break;
+            }
+
+            try {
+                $folder = $client->getFolder((string) $folderName);
+            } catch (Throwable) {
+                $folder = null;
+            }
+            if ($folder === null) {
+                continue;
+            }
+
+            foreach ($rows as $row) {
+                if ((microtime(true) - $started) > $maxSeconds - 2) {
+                    break 2;
+                }
+
+                try {
+                    $imapMessage = $folder->query()
+                        ->leaveUnread()
+                        ->getMessageByUid((int) $row->imap_uid);
+                    if (! $imapMessage instanceof Message) {
+                        continue;
+                    }
+                    $this->ensureMessageBody($imapMessage);
+                    if ($this->applyBodyToRecord($row, $imapMessage)) {
+                        $filled++;
+                    }
+                } catch (Throwable $e) {
+                    Log::info('Mailbox body backfill failed', [
+                        'id' => $row->id,
+                        'folder' => $folderName,
+                        'uid' => $row->imap_uid,
+                        'error' => $e->getMessage(),
+                    ]);
+                }
+            }
+        }
+
+        return $filled;
     }
 
     /**
@@ -520,7 +589,10 @@ class ImapMailboxService
     private function ensureMessageBody(Message $message): void
     {
         try {
-            if (method_exists($message, 'parseAll')) {
+            // Search uses setFetchBody(false); parseBody() loads content for getTextBody/getHTMLBody.
+            if (method_exists($message, 'parseBody')) {
+                $message->parseBody();
+            } elseif (method_exists($message, 'parseAll')) {
                 $message->parseAll();
             } elseif (method_exists($message, 'parse')) {
                 $message->parse();
@@ -528,6 +600,27 @@ class ImapMailboxService
         } catch (Throwable) {
             // Header-only fetch still stores subject/from; body may stay empty.
         }
+    }
+
+    private function applyBodyToRecord(MailboxMessage $record, Message $message): bool
+    {
+        $text = (string) ($message->getTextBody() ?? '');
+        $html = (string) ($message->getHTMLBody() ?? '');
+        if ($text === '' && $html === '') {
+            return false;
+        }
+
+        $snippetSource = $text !== '' ? $text : strip_tags($html);
+        $snippet = Str::limit(trim(preg_replace('/\s+/', ' ', $snippetSource) ?? ''), 480);
+
+        $record->body_text = $text !== '' ? $text : null;
+        $record->body_html = $html !== '' ? $html : null;
+        if ($snippet !== '' && blank($record->snippet)) {
+            $record->snippet = $snippet;
+        }
+        $record->save();
+
+        return true;
     }
 
     /**

@@ -126,7 +126,7 @@ class MailboxListScreen extends Screen
 
     public function syncNow(ImapMailboxService $imap)
     {
-        $result = $imap->sync(maxSeconds: 40, lookbackDays: 45);
+        $result = $imap->sync(maxSeconds: 120, lookbackDays: 45);
         session()->flash('mailbox_sync_result', $result);
 
         if ($result['ok']) {
