@@ -17,7 +17,7 @@ class MailboxEmailStatsService
 
     /**
      * @param  iterable<int, string|null>  $emails
-     * @return array<string, array{inbound: int, outbound: int, last_direction: ?string}>
+     * @return array<string, array{inbound: int, outbound: int, last_direction: ?string, last_at: ?int}>
      */
     public function statsForEmails(iterable $emails): array
     {
@@ -81,6 +81,7 @@ class MailboxEmailStatsService
 
                 if ($stats[$email]['last_direction'] === null) {
                     $stats[$email]['last_direction'] = $direction;
+                    $stats[$email]['last_at'] = optional($message->sent_at)->getTimestamp();
                 }
             }
         }
@@ -89,8 +90,32 @@ class MailboxEmailStatsService
     }
 
     /**
-     * @param  array<string, array{inbound: int, outbound: int, last_direction: ?string}>  $stats
-     * @return array{inbound: int, outbound: int, last_direction: ?string}
+     * @param  array<string, array{inbound: int, outbound: int, last_direction: ?string, last_at: ?int}>  $stats
+     * @param  list<string|null>  $emails
+     * @return array{inbound: int, outbound: int, last_direction: ?string, last_at: ?int}
+     */
+    public function aggregate(array $stats, iterable $emails): array
+    {
+        $merged = $this->emptyStats();
+
+        foreach ($emails as $email) {
+            $row = $this->lookup($stats, $email);
+            $merged['inbound'] += $row['inbound'];
+            $merged['outbound'] += $row['outbound'];
+
+            $lastAt = $row['last_at'] ?? null;
+            if ($lastAt !== null && (($merged['last_at'] ?? null) === null || $lastAt > $merged['last_at'])) {
+                $merged['last_at'] = $lastAt;
+                $merged['last_direction'] = $row['last_direction'];
+            }
+        }
+
+        return $merged;
+    }
+
+    /**
+     * @param  array<string, array{inbound: int, outbound: int, last_direction: ?string, last_at: ?int}>  $stats
+     * @return array{inbound: int, outbound: int, last_direction: ?string, last_at: ?int}
      */
     public function lookup(array $stats, ?string $email): array
     {
@@ -100,7 +125,7 @@ class MailboxEmailStatsService
     }
 
     /**
-     * @return array{inbound: int, outbound: int, last_direction: ?string}
+     * @return array{inbound: int, outbound: int, last_direction: ?string, last_at: ?int}
      */
     public function emptyStats(): array
     {
@@ -108,6 +133,7 @@ class MailboxEmailStatsService
             'inbound' => 0,
             'outbound' => 0,
             'last_direction' => null,
+            'last_at' => null,
         ];
     }
 

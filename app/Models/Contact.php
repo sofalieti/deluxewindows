@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Schema;
@@ -242,6 +243,11 @@ class Contact extends Model
     public function comments(): HasMany
     {
         return $this->hasMany(ContactComment::class)->latest();
+    }
+
+    public function latestComment(): HasOne
+    {
+        return $this->hasOne(ContactComment::class)->latestOfMany();
     }
 
     public function changes(): HasMany

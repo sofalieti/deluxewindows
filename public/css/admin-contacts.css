@@ -102,3 +102,16 @@
 .mailbox-client-row__snippet {
     margin-top: 0.25rem;
 }
+
+.contact-leads-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    min-width: 5.5rem;
+}
+
+.contact-leads-cell__last {
+    font-size: 0.72rem;
+    color: #64748b;
+    line-height: 1.3;
+}
