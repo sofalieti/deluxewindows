@@ -164,7 +164,7 @@ test('a phone click is not linked when two contacts share the same phone', funct
         ->and($click->refresh()->contact_id)->toBeNull();
 });
 
-test('completing a task writes completed_by, completed_at and result', function () {
+test('completing a task writes completed_by, completed_at, result and history', function () {
     $user = User::factory()->create();
     $task = app(CrmTaskService::class)->create([
         'title' => 'Call the client back',
@@ -178,14 +178,64 @@ test('completing a task writes completed_by, completed_at and result', function 
     expect($completed->status)->toBe(CrmTask::STATUS_DONE)
         ->and($completed->completed_by)->toBe($user->id)
         ->and($completed->completed_at)->not->toBeNull()
-        ->and($completed->result)->toBe('Left voicemail');
+        ->and($completed->result)->toBe('Left voicemail')
+        ->and($completed->events)->toHaveCount(1)
+        ->and($completed->events->first()->action)->toBe(\App\Models\CrmTaskEvent::ACTION_COMPLETED)
+        ->and($completed->events->first()->user_id)->toBe($user->id)
+        ->and($completed->events->first()->comment)->toBe('Left voicemail');
 
     $reopened = app(CrmTaskService::class)->reopen($completed, $user);
 
     expect($reopened->status)->toBe(CrmTask::STATUS_OPEN)
         ->and($reopened->completed_by)->toBeNull()
         ->and($reopened->completed_at)->toBeNull()
-        ->and($reopened->result)->toBe('Left voicemail');
+        ->and($reopened->result)->toBe('Left voicemail')
+        ->and($reopened->events()->count())->toBe(2)
+        ->and($reopened->events()->orderBy('id')->first()->action)->toBe(\App\Models\CrmTaskEvent::ACTION_COMPLETED)
+        ->and($reopened->events()->orderByDesc('id')->first()->action)->toBe(\App\Models\CrmTaskEvent::ACTION_REOPENED);
+});
+
+test('closing a task without a comment is rejected', function () {
+    $user = User::factory()->create();
+    $task = app(CrmTaskService::class)->create([
+        'title' => 'Needs a comment',
+        'type' => CrmTask::TYPE_CALL,
+        'assigned_to' => $user->id,
+        'created_by' => $user->id,
+    ]);
+
+    expect(fn () => app(CrmTaskService::class)->complete($task, $user, '   '))
+        ->toThrow(InvalidArgumentException::class, 'A comment is required when closing a task.');
+});
+
+test('task list complete modal requires a comment', function () {
+    $manager = crmManager();
+    $task = app(CrmTaskService::class)->create([
+        'title' => 'Modal close needs comment',
+        'type' => CrmTask::TYPE_CALL,
+        'assigned_to' => $manager->id,
+        'due_at' => now()->addHour(),
+    ]);
+
+    $this->withoutMiddleware(Access::class)
+        ->actingAs($manager)
+        ->post(route('platform.crm.tasks', ['method' => 'complete', 'task' => $task->id]), [
+            'result' => '',
+        ])
+        ->assertSessionHasErrors('result');
+
+    expect($task->refresh()->status)->toBe(CrmTask::STATUS_OPEN);
+
+    $this->withoutMiddleware(Access::class)
+        ->actingAs($manager)
+        ->post(route('platform.crm.tasks', ['method' => 'complete', 'task' => $task->id]), [
+            'result' => 'Spoke with homeowner',
+        ])
+        ->assertRedirect();
+
+    expect($task->refresh()->status)->toBe(CrmTask::STATUS_DONE)
+        ->and($task->result)->toBe('Spoke with homeowner')
+        ->and($task->events()->count())->toBe(1);
 });
 
 test('work queue shows only the current user tasks without tasks.all and respects traffic visibility', function () {

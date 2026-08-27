@@ -24,7 +24,8 @@ beforeEach(function () {
         'client_secret' => 'test-secret',
         'jwt' => 'test-jwt',
         'account_id' => '~',
-        'match_window_minutes' => 10,
+        'match_window_seconds' => 60,
+        'lookup_window_minutes' => 10,
         'clock_tolerance_seconds' => 30,
         'retry_delay_seconds' => 120,
     ]);

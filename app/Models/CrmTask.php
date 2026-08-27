@@ -7,6 +7,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Orchid\Filters\Filterable;
 use Orchid\Filters\Types\Where;
@@ -143,6 +144,11 @@ class CrmTask extends Model
     public function completedBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'completed_by');
+    }
+
+    public function events(): HasMany
+    {
+        return $this->hasMany(CrmTaskEvent::class);
     }
 
     /**

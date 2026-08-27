@@ -3,10 +3,13 @@
 @endphp
 <div class="d-inline-flex gap-1 flex-wrap">
     @if ($task->isOpen())
-        {!! \Orchid\Screen\Actions\Button::make('Done')
+        {!! \Orchid\Screen\Actions\ModalToggle::make('Done')
             ->icon('bs.check-lg')
             ->type(\Orchid\Support\Color::SUCCESS)
-            ->method('complete', ['task' => $task->id])
+            ->modal('completeTaskModal')
+            ->modalTitle('Complete task')
+            ->method('complete')
+            ->asyncParameters(['task' => $task->id])
             ->render() !!}
         {!! \Orchid\Screen\Actions\Button::make('+1 day')
             ->icon('bs.clock')

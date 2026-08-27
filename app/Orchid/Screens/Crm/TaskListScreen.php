@@ -6,10 +6,10 @@ namespace App\Orchid\Screens\Crm;
 
 use App\Models\CrmTask;
 use App\Models\User;
+use App\Orchid\Layouts\Crm\CloseTaskModalLayout;
 use App\Services\CrmTaskService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
 use Orchid\Screen\TD;
@@ -69,6 +69,10 @@ class TaskListScreen extends Screen
                 'Overdue' => Layout::table('overdueTasks', $this->columns()),
                 'Done' => Layout::table('doneTasks', $this->columns()),
             ]),
+            Layout::modal('completeTaskModal', CloseTaskModalLayout::class)
+                ->title('Complete task')
+                ->applyButton('Complete')
+                ->deferred('loadTaskForCloseModal'),
         ];
     }
 
@@ -100,12 +104,26 @@ class TaskListScreen extends Screen
         ];
     }
 
-    public function complete(Request $request, CrmTaskService $tasks): void
+    public function loadTaskForCloseModal(CrmTask $task): iterable
     {
-        $task = $this->findAuthorizedTask($request);
+        $this->authorizeTask($task);
+
+        return [
+            'task' => $task->id,
+        ];
+    }
+
+    public function complete(Request $request, CrmTask $task, CrmTaskService $tasks): void
+    {
+        $this->authorizeTask($task);
         $user = Auth::user();
         abort_unless($user instanceof User, 403);
-        $tasks->complete($task, $user);
+
+        $validated = $request->validate([
+            'result' => ['required', 'string', 'min:1', 'max:1000'],
+        ]);
+
+        $tasks->complete($task, $user, $validated['result']);
         Toast::info('Task completed.');
     }
 
@@ -131,15 +149,20 @@ class TaskListScreen extends Screen
         $validated = $request->validate([
             'task' => ['required', 'integer', 'exists:crm_tasks,id'],
         ]);
-        $user = Auth::user();
-        abort_unless($user instanceof User, 403);
 
         $task = CrmTask::query()->findOrFail((int) $validated['task']);
+        $this->authorizeTask($task);
+
+        return $task;
+    }
+
+    private function authorizeTask(CrmTask $task): void
+    {
+        $user = Auth::user();
+        abort_unless($user instanceof User, 403);
         abort_unless(
             $user->hasAccess(CrmTask::PERMISSION_ALL) || (int) $task->assigned_to === (int) $user->id,
             403
         );
-
-        return $task;
     }
 }

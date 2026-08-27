@@ -8,6 +8,7 @@ use App\Models\CrmTask;
 use App\Models\Lead;
 use App\Models\PhoneClick;
 use App\Models\User;
+use App\Orchid\Layouts\Crm\CloseTaskModalLayout;
 use App\Services\CrmTaskService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -96,6 +97,10 @@ class WorkQueueScreen extends Screen
                 'Unhandled clicks' => Layout::table('unhandledClicks', $this->clickColumns()),
                 'New leads' => Layout::table('newLeads', $this->leadColumns()),
             ]),
+            Layout::modal('completeTaskModal', CloseTaskModalLayout::class)
+                ->title('Complete task')
+                ->applyButton('Complete')
+                ->deferred('loadTaskForCloseModal'),
         ];
     }
 
@@ -159,17 +164,40 @@ class WorkQueueScreen extends Screen
         ];
     }
 
-    public function complete(Request $request, CrmTaskService $tasks): void
+    public function loadTaskForCloseModal(CrmTask $task): iterable
+    {
+        $this->authorizeTask($task);
+
+        return [
+            'task' => $task->id,
+        ];
+    }
+
+    public function complete(Request $request, CrmTask $task, CrmTaskService $tasks): void
+    {
+        $this->authorizeTask($task);
+        $user = Auth::user();
+        abort_unless($user instanceof User, 403);
+
+        $validated = $request->validate([
+            'result' => ['required', 'string', 'min:1', 'max:1000'],
+        ]);
+
+        $tasks->complete($task, $user, $validated['result']);
+        Toast::info('Task completed.');
+    }
+
+    public function reopen(Request $request, CrmTaskService $tasks): void
     {
         $validated = $request->validate([
             'task' => ['required', 'integer', 'exists:crm_tasks,id'],
         ]);
+        $task = CrmTask::query()->findOrFail((int) $validated['task']);
+        $this->authorizeTask($task);
         $user = Auth::user();
         abort_unless($user instanceof User, 403);
-        $task = CrmTask::query()->findOrFail((int) $validated['task']);
-        abort_unless((int) $task->assigned_to === (int) $user->id || $user->hasAccess(CrmTask::PERMISSION_ALL), 403);
-        $tasks->complete($task, $user);
-        Toast::info('Task completed.');
+        $tasks->reopen($task, $user);
+        Toast::info('Task reopened.');
     }
 
     public function snoozeDay(Request $request, CrmTaskService $tasks): void
@@ -177,12 +205,20 @@ class WorkQueueScreen extends Screen
         $validated = $request->validate([
             'task' => ['required', 'integer', 'exists:crm_tasks,id'],
         ]);
-        $user = Auth::user();
-        abort_unless($user instanceof User, 403);
         $task = CrmTask::query()->findOrFail((int) $validated['task']);
-        abort_unless((int) $task->assigned_to === (int) $user->id || $user->hasAccess(CrmTask::PERMISSION_ALL), 403);
+        $this->authorizeTask($task);
         $from = $task->due_at?->copy() ?? now();
         $tasks->snooze($task, $from->addDay());
         Toast::info('Task moved +1 day.');
+    }
+
+    private function authorizeTask(CrmTask $task): void
+    {
+        $user = Auth::user();
+        abort_unless($user instanceof User, 403);
+        abort_unless(
+            (int) $task->assigned_to === (int) $user->id || $user->hasAccess(CrmTask::PERMISSION_ALL),
+            403
+        );
     }
 }

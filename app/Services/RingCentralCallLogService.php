@@ -39,11 +39,10 @@ class RingCentralCallLogService
 
         $clickAt = $this->clickTimeUtc($click);
         $tolerance = max(0, (int) config('services.ringcentral.clock_tolerance_seconds', 30));
-        $windowMinutes = max(3, (int) config('services.ringcentral.match_window_minutes', 10));
         $dateFrom = $clickAt->subSeconds($tolerance);
-        $deadline = $clickAt->addMinutes($windowMinutes);
+        $windowEnd = $clickAt->addSeconds($this->matchWindowSeconds());
         $currentTime = CarbonImmutable::now('UTC');
-        $dateTo = $currentTime->lessThan($deadline) ? $currentTime : $deadline;
+        $dateTo = $currentTime->lessThan($windowEnd) ? $currentTime : $windowEnd;
 
         // Prefer already-synced journal (works even when API phoneNumber= is empty).
         $fromJournal = $this->findMatchingCallInJournal($click, $targetPhones, $clickAt, $dateFrom, $dateTo);
@@ -64,6 +63,14 @@ class RingCentralCallLogService
         }
 
         return $this->pickBestCallMatch($matches);
+    }
+
+    /**
+     * How long after a click a call may start and still be credited to it.
+     */
+    public function matchWindowSeconds(): int
+    {
+        return max(15, (int) config('services.ringcentral.match_window_seconds', 90));
     }
 
     /**

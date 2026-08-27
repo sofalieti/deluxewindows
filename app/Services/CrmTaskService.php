@@ -7,12 +7,14 @@ namespace App\Services;
 use App\Models\Contact;
 use App\Models\CrmNote;
 use App\Models\CrmTask;
+use App\Models\CrmTaskEvent;
 use App\Models\Lead;
 use App\Models\LeadChange;
 use App\Models\PhoneClick;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
+use InvalidArgumentException;
 
 final class CrmTaskService
 {
@@ -67,31 +69,35 @@ final class CrmTaskService
         return $task;
     }
 
-    public function complete(CrmTask $task, User $user, ?string $result = null): CrmTask
+    public function complete(CrmTask $task, User $user, string $result): CrmTask
     {
         if ($task->status === CrmTask::STATUS_DONE) {
             return $task;
         }
 
+        $comment = $this->requireComment($result);
+
         $task->forceFill([
             'status' => CrmTask::STATUS_DONE,
             'completed_at' => now(),
             'completed_by' => $user->id,
-            'result' => $result !== null && trim($result) !== '' ? trim($result) : $task->result,
+            'result' => $comment,
         ])->save();
 
-        $this->audit($task, 'Completed task: '.$task->title.($task->result ? ' — '.$task->result : ''));
+        $this->recordEvent($task, CrmTaskEvent::ACTION_COMPLETED, $user->id, $comment);
+        $this->audit($task, 'Completed task: '.$task->title.' — '.$comment);
 
         return $task->refresh();
     }
 
-    public function reopen(CrmTask $task, User $user): CrmTask
+    public function reopen(CrmTask $task, User $user, ?string $comment = null): CrmTask
     {
         if ($task->status === CrmTask::STATUS_OPEN) {
             return $task;
         }
 
         $from = $task->statusLabel();
+        $note = $comment !== null && trim($comment) !== '' ? trim($comment) : null;
 
         $task->forceFill([
             'status' => CrmTask::STATUS_OPEN,
@@ -99,25 +105,29 @@ final class CrmTaskService
             'completed_by' => null,
         ])->save();
 
+        $this->recordEvent($task, CrmTaskEvent::ACTION_REOPENED, $user->id, $note);
         $this->audit($task, 'Reopened task: '.$task->title.' (was '.$from.') by #'.$user->id);
 
         return $task->refresh();
     }
 
-    public function cancel(CrmTask $task, User $user, ?string $result = null): CrmTask
+    public function cancel(CrmTask $task, User $user, string $result): CrmTask
     {
         if ($task->status === CrmTask::STATUS_CANCELLED) {
             return $task;
         }
 
+        $comment = $this->requireComment($result);
+
         $task->forceFill([
             'status' => CrmTask::STATUS_CANCELLED,
             'completed_at' => now(),
             'completed_by' => $user->id,
-            'result' => $result !== null && trim($result) !== '' ? trim($result) : $task->result,
+            'result' => $comment,
         ])->save();
 
-        $this->audit($task, 'Cancelled task: '.$task->title);
+        $this->recordEvent($task, CrmTaskEvent::ACTION_CANCELLED, $user->id, $comment);
+        $this->audit($task, 'Cancelled task: '.$task->title.' — '.$comment);
 
         return $task->refresh();
     }
@@ -163,13 +173,17 @@ final class CrmTaskService
         }
 
         $count = 0;
-        $query->get()->each(function (CrmTask $task) use ($result, &$count): void {
+        $comment = trim((string) ($result ?? 'Closed automatically')) ?: 'Closed automatically';
+        $userId = Auth::id();
+
+        $query->get()->each(function (CrmTask $task) use ($comment, $userId, &$count): void {
             $task->forceFill([
                 'status' => CrmTask::STATUS_DONE,
                 'completed_at' => now(),
-                'completed_by' => Auth::id(),
-                'result' => $result ?? 'Closed automatically',
+                'completed_by' => $userId,
+                'result' => $comment,
             ])->save();
+            $this->recordEvent($task, CrmTaskEvent::ACTION_AUTO_COMPLETED, $userId, $comment);
             $this->audit($task, 'Auto-closed task: '.$task->title);
             $count++;
         });
@@ -186,6 +200,27 @@ final class CrmTaskService
             ->where('type', $type)
             ->latest('id')
             ->first();
+    }
+
+    private function requireComment(string $result): string
+    {
+        $comment = trim($result);
+        if ($comment === '') {
+            throw new InvalidArgumentException('A comment is required when closing a task.');
+        }
+
+        return $comment;
+    }
+
+    private function recordEvent(CrmTask $task, string $action, ?int $userId, ?string $comment): void
+    {
+        CrmTaskEvent::query()->create([
+            'crm_task_id' => $task->id,
+            'user_id' => $userId,
+            'action' => $action,
+            'comment' => $comment,
+            'created_at' => now(),
+        ]);
     }
 
     private function audit(CrmTask $task, string $summary): void

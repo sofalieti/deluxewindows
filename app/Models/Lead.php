@@ -39,6 +39,10 @@ class Lead extends Model
 
     public const STATUS_LOST = 'lost';
 
+    public const STATUS_UNQUALIFIED_BELOW_MIN = 'unqualified_below_min';
+
+    public const STATUS_NON_SALES_INQUIRY = 'non_sales_inquiry';
+
     public const STATUS_SPAM = 'spam';
 
     /**
@@ -52,6 +56,8 @@ class Lead extends Model
         self::STATUS_WON => 'Won',
         self::STATUS_SOLD => 'Sold',
         self::STATUS_LOST => 'Lost',
+        self::STATUS_UNQUALIFIED_BELOW_MIN => 'Unqualified: below minimum requirement',
+        self::STATUS_NON_SALES_INQUIRY => 'Non-Sales Inquiry',
         self::STATUS_SPAM => 'Spam',
     ];
 
@@ -193,6 +199,8 @@ class Lead extends Model
             self::STATUS_WON => 'won',
             self::STATUS_SOLD => 'sold',
             self::STATUS_LOST => 'lost',
+            self::STATUS_UNQUALIFIED_BELOW_MIN => 'unqualified_below_min',
+            self::STATUS_NON_SALES_INQUIRY => 'non_sales_inquiry',
             self::STATUS_SPAM => 'spam',
             default => 'new',
         };

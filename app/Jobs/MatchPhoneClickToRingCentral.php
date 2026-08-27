@@ -80,8 +80,11 @@ class MatchPhoneClickToRingCentral implements ShouldQueue
                     return;
                 }
 
-                $windowMinutes = max(3, (int) config('services.ringcentral.match_window_minutes', 10));
-                $deadline = CarbonImmutable::parse($click->created_at)->addMinutes($windowMinutes);
+                // Polling deadline, not the match window: a call that started inside
+                // the (much shorter) match window only reaches the RingCentral log
+                // once it ends, so we keep asking well past that window.
+                $lookupMinutes = max(3, (int) config('services.ringcentral.lookup_window_minutes', 10));
+                $deadline = CarbonImmutable::parse($click->created_at)->addMinutes($lookupMinutes);
 
                 $click->forceFill([
                     'ringcentral_status' => PhoneClick::RINGCENTRAL_PENDING,

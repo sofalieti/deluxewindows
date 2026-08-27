@@ -9,12 +9,14 @@ use App\Models\CrmTask;
 use App\Models\Lead;
 use App\Models\PhoneClick;
 use App\Models\User;
+use App\Orchid\Layouts\Crm\CloseTaskModalLayout;
 use App\Services\CrmTaskService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\Link;
+use Orchid\Screen\Actions\ModalToggle;
 use Orchid\Screen\Fields\DateTimer;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Select;
@@ -30,7 +32,7 @@ class TaskEditScreen extends Screen
 
     public function query(?CrmTask $task): iterable
     {
-        $this->task = $task?->exists ? $task : new CrmTask([
+        $this->task = $task?->exists ? $task->load(['events.user', 'completedBy']) : new CrmTask([
             'status' => CrmTask::STATUS_OPEN,
             'type' => CrmTask::TYPE_FOLLOWUP,
             'priority' => CrmTask::PRIORITY_NORMAL,
@@ -43,6 +45,9 @@ class TaskEditScreen extends Screen
 
         return [
             'task' => $this->task,
+            'events' => $this->task->exists
+                ? $this->task->events()->with('user')->latest('id')->get()
+                : collect(),
         ];
     }
 
@@ -70,15 +75,18 @@ class TaskEditScreen extends Screen
         ];
 
         if ($this->task?->exists && $this->task->isOpen()) {
-            $actions[] = Button::make('Mark done')
+            $actions[] = ModalToggle::make('Mark done')
                 ->icon('bs.check-lg')
                 ->type(Color::SUCCESS)
+                ->modal('completeTaskModal')
+                ->modalTitle('Complete task')
                 ->method('complete');
-            $actions[] = Button::make('Cancel task')
+            $actions[] = ModalToggle::make('Cancel task')
                 ->icon('bs.x-lg')
                 ->type(Color::DANGER)
-                ->method('cancel')
-                ->confirm('Cancel this task?');
+                ->modal('cancelTaskModal')
+                ->modalTitle('Cancel task')
+                ->method('cancel');
         }
 
         if ($this->task?->exists && $this->task->isClosed()) {
@@ -94,7 +102,7 @@ class TaskEditScreen extends Screen
 
     public function layout(): iterable
     {
-        return [
+        $layouts = [
             Layout::rows([
                 Input::make('task.title')
                     ->title('Title')
@@ -113,7 +121,7 @@ class TaskEditScreen extends Screen
                     ->options(CrmTask::STATUSES)
                     ->required()
                     ->canSee((bool) $this->task?->exists)
-                    ->help('A Done or Cancelled task can be moved back to Open.'),
+                    ->help('Changing to Done or Cancelled requires a comment in the Result field below.'),
                 DateTimer::make('task.due_at')
                     ->title('Due')
                     ->enableTime()
@@ -141,21 +149,42 @@ class TaskEditScreen extends Screen
                     ->title('Description')
                     ->rows(5),
                 TextArea::make('task.result')
-                    ->title('Result')
+                    ->title('Result / close comment')
                     ->rows(3)
-                    ->canSee((bool) $this->task?->exists),
-            ]),
-            Layout::view('admin.partials.sticky-save', [
-                'label' => 'Save task',
-                'method' => 'save',
+                    ->canSee((bool) $this->task?->exists)
+                    ->help('Required when marking the task Done or Cancelled.'),
             ]),
         ];
+
+        if ($this->task?->exists) {
+            $layouts[] = Layout::view('admin.crm.task-history');
+            $layouts[] = Layout::modal('completeTaskModal', CloseTaskModalLayout::class)
+                ->title('Complete task')
+                ->applyButton('Complete');
+            $layouts[] = Layout::modal('cancelTaskModal', CloseTaskModalLayout::class)
+                ->title('Cancel task')
+                ->applyButton('Cancel task');
+        }
+
+        $layouts[] = Layout::view('admin.partials.sticky-save', [
+            'label' => 'Save task',
+            'method' => 'save',
+        ]);
+
+        return $layouts;
     }
 
     public function save(Request $request, CrmTaskService $tasks)
     {
         $user = Auth::user();
         abort_unless($user instanceof User, 403);
+
+        $closing = $this->task?->exists
+            && $this->task->isOpen()
+            && in_array((string) $request->input('task.status'), [
+                CrmTask::STATUS_DONE,
+                CrmTask::STATUS_CANCELLED,
+            ], true);
 
         $validated = $request->validate([
             'task.title' => ['required', 'string', 'max:255'],
@@ -167,8 +196,10 @@ class TaskEditScreen extends Screen
             'task.subject_type' => ['nullable', 'string', Rule::in(['', Lead::class, PhoneClick::class, Contact::class])],
             'task.subject_id' => ['nullable', 'integer'],
             'task.description' => ['nullable', 'string', 'max:5000'],
-            'task.result' => ['nullable', 'string', 'max:1000'],
+            'task.result' => [$closing ? 'required' : 'nullable', 'string', 'max:1000'],
             'task.status' => ['nullable', 'string', Rule::in(array_keys(CrmTask::STATUSES))],
+        ], [
+            'task.result.required' => 'A comment is required when closing a task.',
         ]);
 
         $payload = $validated['task'];
@@ -213,13 +244,20 @@ class TaskEditScreen extends Screen
         return redirect()->route('platform.crm.tasks.edit', $task);
     }
 
-    public function complete(CrmTaskService $tasks)
+    public function complete(Request $request, CrmTaskService $tasks)
     {
         abort_unless($this->task?->exists, 404);
         $user = Auth::user();
         abort_unless($user instanceof User, 403);
         $this->authorizeTask($this->task);
-        $tasks->complete($this->task, $user, $this->task->result);
+
+        $validated = $request->validate([
+            'result' => ['required', 'string', 'min:1', 'max:1000'],
+        ], [
+            'result.required' => 'A comment is required when closing a task.',
+        ]);
+
+        $tasks->complete($this->task, $user, $validated['result']);
         Toast::info('Task completed.');
 
         return redirect()->route('platform.crm.tasks.edit', $this->task);
@@ -237,13 +275,20 @@ class TaskEditScreen extends Screen
         return redirect()->route('platform.crm.tasks.edit', $this->task);
     }
 
-    public function cancel(CrmTaskService $tasks)
+    public function cancel(Request $request, CrmTaskService $tasks)
     {
         abort_unless($this->task?->exists, 404);
         $user = Auth::user();
         abort_unless($user instanceof User, 403);
         $this->authorizeTask($this->task);
-        $tasks->cancel($this->task, $user);
+
+        $validated = $request->validate([
+            'result' => ['required', 'string', 'min:1', 'max:1000'],
+        ], [
+            'result.required' => 'A comment is required when closing a task.',
+        ]);
+
+        $tasks->cancel($this->task, $user, $validated['result']);
         Toast::info('Task cancelled.');
 
         return redirect()->route('platform.crm.tasks.edit', $this->task);
@@ -262,14 +307,21 @@ class TaskEditScreen extends Screen
             return;
         }
 
+        $comment = trim((string) $task->result);
+        if ($comment === '') {
+            throw \Illuminate\Validation\ValidationException::withMessages([
+                'task.result' => 'A comment is required when closing a task.',
+            ]);
+        }
+
         if ($status === CrmTask::STATUS_DONE) {
-            $tasks->complete($task, $user, $task->result);
+            $tasks->complete($task, $user, $comment);
 
             return;
         }
 
         if ($status === CrmTask::STATUS_CANCELLED) {
-            $tasks->cancel($task, $user, $task->result);
+            $tasks->cancel($task, $user, $comment);
         }
     }
 

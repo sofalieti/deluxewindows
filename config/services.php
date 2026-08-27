@@ -154,7 +154,12 @@ return [
         'client_secret' => env('RINGCENTRAL_CLIENT_SECRET'),
         'jwt' => env('RINGCENTRAL_JWT'),
         'account_id' => env('RINGCENTRAL_ACCOUNT_ID', '~'),
-        'match_window_minutes' => (int) env('RINGCENTRAL_MATCH_WINDOW_MINUTES', 10),
+        // A call is credited to a phone click only when it starts within this
+        // window after the click.
+        'match_window_seconds' => (int) env('RINGCENTRAL_MATCH_WINDOW_SECONDS', 60),
+        // How long we keep asking RingCentral about a click. It has to outlast the
+        // match window, because a call shows up in the log only after it ends.
+        'lookup_window_minutes' => (int) env('RINGCENTRAL_LOOKUP_WINDOW_MINUTES', 10),
         'clock_tolerance_seconds' => (int) env('RINGCENTRAL_CLOCK_TOLERANCE_SECONDS', 30),
         'retry_delay_seconds' => (int) env('RINGCENTRAL_RETRY_DELAY_SECONDS', 120),
     ],

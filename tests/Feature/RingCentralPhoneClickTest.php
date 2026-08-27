@@ -21,7 +21,8 @@ beforeEach(function () {
         'client_secret' => 'test-client-secret',
         'jwt' => 'test-personal-jwt',
         'account_id' => '~',
-        'match_window_minutes' => 10,
+        'match_window_seconds' => 60,
+        'lookup_window_minutes' => 10,
         'clock_tolerance_seconds' => 30,
         'retry_delay_seconds' => 120,
     ]);
@@ -184,6 +185,101 @@ test('a missing call is retried and becomes no call at the end of the window', f
     );
     Queue::assertNotPushed(MatchPhoneClickToRingCentral::class);
     Queue::assertNotPushed(SendPhoneClickOfflineConversions::class);
+});
+
+test('a call that starts after the match window is not credited to the click', function () {
+    Queue::fake();
+    CarbonImmutable::setTestNow('2026-07-30 16:10:00 UTC');
+    $click = PhoneClick::query()->create([
+        'phone' => '+16504614446',
+        'ringcentral_status' => PhoneClick::RINGCENTRAL_PENDING,
+    ]);
+    $click->forceFill([
+        'created_at' => CarbonImmutable::parse('2026-07-30 16:00:00 UTC'),
+        'updated_at' => CarbonImmutable::parse('2026-07-30 16:00:00 UTC'),
+    ])->saveQuietly();
+
+    fakeRingCentralCallLog([[
+        'id' => 'late-call',
+        'sessionId' => 'late-session',
+        // 2 minutes after the click — well outside the one-minute match window.
+        'startTime' => '2026-07-30T16:02:00.000Z',
+        'duration' => 55,
+        'type' => 'Voice',
+        'direction' => 'Inbound',
+        'result' => 'Accepted',
+        'from' => ['phoneNumber' => '+14155550444'],
+        'to' => ['phoneNumber' => '+16504614446'],
+    ]]);
+
+    (new MatchPhoneClickToRingCentral($click->id))
+        ->handle(app(RingCentralCallLogService::class));
+
+    expect($click->refresh()->ringcentral_status)->toBe(PhoneClick::RINGCENTRAL_NO_CALL)
+        ->and($click->ringcentral_call_id)->toBeNull();
+});
+
+test('a call that starts just over a minute after the click is not credited', function () {
+    Queue::fake();
+    CarbonImmutable::setTestNow('2026-07-30 16:10:00 UTC');
+    $click = PhoneClick::query()->create([
+        'phone' => '+16504614446',
+        'ringcentral_status' => PhoneClick::RINGCENTRAL_PENDING,
+    ]);
+    $click->forceFill([
+        'created_at' => CarbonImmutable::parse('2026-07-30 16:00:00 UTC'),
+        'updated_at' => CarbonImmutable::parse('2026-07-30 16:00:00 UTC'),
+    ])->saveQuietly();
+
+    fakeRingCentralCallLog([[
+        'id' => 'ten-seconds-late-call',
+        'sessionId' => 'ten-seconds-late-session',
+        'startTime' => '2026-07-30T16:01:10.000Z',
+        'duration' => 180,
+        'type' => 'Voice',
+        'direction' => 'Inbound',
+        'result' => 'Accepted',
+        'from' => ['phoneNumber' => '+14155550777'],
+        'to' => ['phoneNumber' => '+16504614446'],
+    ]]);
+
+    (new MatchPhoneClickToRingCentral($click->id))
+        ->handle(app(RingCentralCallLogService::class));
+
+    expect($click->refresh()->ringcentral_status)->toBe(PhoneClick::RINGCENTRAL_NO_CALL)
+        ->and($click->ringcentral_call_id)->toBeNull();
+});
+
+test('a call inside the match window is still found on a later lookup', function () {
+    Queue::fake();
+    // Lookups start 3 minutes after the click, long after the match window.
+    CarbonImmutable::setTestNow('2026-07-30 16:03:00 UTC');
+    $click = PhoneClick::query()->create([
+        'phone' => '+16504614446',
+        'ringcentral_status' => PhoneClick::RINGCENTRAL_PENDING,
+    ]);
+    $click->forceFill([
+        'created_at' => CarbonImmutable::parse('2026-07-30 16:00:00 UTC'),
+        'updated_at' => CarbonImmutable::parse('2026-07-30 16:00:00 UTC'),
+    ])->saveQuietly();
+
+    fakeRingCentralCallLog([[
+        'id' => 'in-window-call',
+        'sessionId' => 'in-window-session',
+        'startTime' => '2026-07-30T16:00:50.000Z',
+        'duration' => 240,
+        'type' => 'Voice',
+        'direction' => 'Inbound',
+        'result' => 'Accepted',
+        'from' => ['phoneNumber' => '+14155550555'],
+        'to' => ['phoneNumber' => '+16504614446'],
+    ]]);
+
+    (new MatchPhoneClickToRingCentral($click->id))
+        ->handle(app(RingCentralCallLogService::class));
+
+    expect($click->refresh()->ringcentral_status)->toBe(PhoneClick::RINGCENTRAL_FOUND)
+        ->and($click->ringcentral_call_id)->toBe('in-window-call');
 });
 
 test('a legacy future checked timestamp does not stop RingCentral retries', function () {
