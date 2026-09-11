@@ -81,6 +81,12 @@
             </div>
           </div>
 
+          @if($materialComparison)
+            @include('partials.window-material-comparison', [
+              'comparison' => $materialComparison,
+            ])
+          @endif
+
           {{-- Brands for this material — directly above gallery --}}
           @if($brandTypes->count() > 0)
           <div class="window-brands-section window-brands-section--above-gallery">
@@ -399,6 +405,19 @@
     </script>
 
     <script src="/webflow-assets/js/dw-gallery-pan.js"></script>
+
+    @if($materialComparison)
+      @php
+        $materialComparisonJsPath = public_path('webflow-overrides/window-material-comparison.js');
+        $materialComparisonJsVersion = file_exists($materialComparisonJsPath)
+          ? (string) filemtime($materialComparisonJsPath)
+          : '1';
+      @endphp
+      <script
+        src="/webflow-overrides/window-material-comparison.js?v={{ $materialComparisonJsVersion }}"
+        defer
+      ></script>
+    @endif
 
     <script>
       (function () {

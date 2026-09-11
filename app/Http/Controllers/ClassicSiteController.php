@@ -19,6 +19,7 @@ use App\Models\Webflow\WindowTypeWebflowItem;
 use App\Services\ContactFromLeadService;
 use App\Services\PromotionControlService;
 use App\Services\PromotionSettingsService;
+use App\Services\WindowMaterialComparisonService;
 use App\Services\Webflow\WebflowRichTextNormalizer;
 use App\Support\WebflowItemOrder;
 use Illuminate\Http\Request;
@@ -69,8 +70,10 @@ class ClassicSiteController extends Controller
         return view('home', compact('homeWindows'));
     }
 
-    public function windowBySlug(string $slug)
-    {
+    public function windowBySlug(
+        string $slug,
+        WindowMaterialComparisonService $comparisonService
+    ) {
         $slug = strtolower(trim($slug));
 
         $window = WindowsWebflowItem::query()
@@ -125,6 +128,9 @@ class ClassicSiteController extends Controller
 
         // Learn More — referenced collections, fallback to Marvin lines on original template
         $learnMoreWindows = $this->resolveLearnMoreWindows($window);
+        $materialComparison = $comparisonService->forSlug(
+            (string) ($fieldData['slug'] ?? $slug)
+        );
 
         $controls = app(PromotionControlService::class);
         $windowPricing = $controls->windowTypePricing(
@@ -152,6 +158,7 @@ class ClassicSiteController extends Controller
             'brandTypes' => $brandTypes,
             'brandsTitle' => $brandsTitle,
             'learnMoreWindows' => $learnMoreWindows,
+            'materialComparison' => $materialComparison,
         ]);
     }
 

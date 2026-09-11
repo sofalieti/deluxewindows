@@ -1,0 +1,320 @@
+{
+  "version": 1,
+  "disclaimer": "Frame material is only one part of window performance. Exact U-factor, SHGC, sound control, security, warranty, lead time and installed price depend on the product series, glazing, size, hardware and installation conditions.",
+  "sources": [
+    {
+      "label": "U.S. Department of Energy — Window Selection",
+      "url": "https://www.energy.gov/cmei/femp/purchasing-energy-efficient-residential-windows-doors-and-skylights"
+    },
+    {
+      "label": "NFRC Consumer Guide — Non-metal Frames",
+      "url": "https://efficientwindows.org/ftypes-nonmetal/"
+    },
+    {
+      "label": "NFRC Consumer Guide — Metal Frames",
+      "url": "https://efficientwindows.org/ftypes-metal/"
+    },
+    {
+      "label": "NFRC Consumer Guide — Window Durability",
+      "url": "https://efficientwindows.org/existing-durable/"
+    }
+  ],
+  "criteria": [
+    {
+      "key": "affordability",
+      "label": "Upfront affordability",
+      "description": "Relative frame-material cost before project-specific options.",
+      "low_label": "Premium investment",
+      "high_label": "Budget friendly"
+    },
+    {
+      "key": "insulation",
+      "label": "Insulation potential",
+      "description": "The frame's potential to limit heat transfer when properly designed.",
+      "low_label": "Needs thermal improvement",
+      "high_label": "Excellent"
+    },
+    {
+      "key": "maintenance",
+      "label": "Maintenance ease",
+      "description": "How little routine refinishing and upkeep the frame typically needs.",
+      "low_label": "Regular upkeep",
+      "high_label": "Very low upkeep"
+    },
+    {
+      "key": "durability",
+      "label": "Long-term durability",
+      "description": "Resistance to age, weather and dimensional change in a quality product.",
+      "low_label": "Product dependent",
+      "high_label": "Exceptional"
+    },
+    {
+      "key": "strength",
+      "label": "Structural strength",
+      "description": "Frame rigidity and ability to support larger or heavier glazing.",
+      "low_label": "Moderate",
+      "high_label": "Exceptional"
+    },
+    {
+      "key": "sightlines",
+      "label": "Slim sightline potential",
+      "description": "Ability to use narrow profiles for more visible glass.",
+      "low_label": "Broader frames",
+      "high_label": "Ultra slim"
+    },
+    {
+      "key": "design",
+      "label": "Design flexibility",
+      "description": "Range of colors, finishes, textures and architectural applications.",
+      "low_label": "More limited",
+      "high_label": "Highly customizable"
+    },
+    {
+      "key": "moisture",
+      "label": "Moisture & coastal fit",
+      "description": "Resistance to moisture and coastal exposure with the correct finish.",
+      "low_label": "Needs protection",
+      "high_label": "Excellent"
+    },
+    {
+      "key": "repairability",
+      "label": "Repairability",
+      "description": "Practicality of repairing or refinishing frame components.",
+      "low_label": "Usually replaced",
+      "high_label": "Highly repairable"
+    },
+    {
+      "key": "environment",
+      "label": "Environmental profile",
+      "description": "Relative longevity, recycled-content potential and end-of-life options.",
+      "low_label": "More trade-offs",
+      "high_label": "Strong potential"
+    }
+  ],
+  "materials": {
+    "vinyl-windows": {
+      "name": "Vinyl Windows",
+      "short_name": "Vinyl",
+      "url": "/windows/vinyl-windows",
+      "tagline": "Practical comfort with minimal upkeep.",
+      "best_for": "Value-focused replacements, rentals and homeowners who want low maintenance.",
+      "default_peers": ["fiberglass-windows", "wood-clad-windows"],
+      "pros": [
+        "Strong value across a wide range of product lines.",
+        "Good insulation and moisture resistance.",
+        "No routine painting or exterior refinishing.",
+        "Broad availability and short learning curve for maintenance."
+      ],
+      "cons": [
+        "Frames are often wider than fiberglass, aluminum or steel.",
+        "Color and finish choices can be more limited on entry-level lines.",
+        "Thermal movement makes engineering and installation quality important.",
+        "Damaged frame sections are usually replaced rather than repaired."
+      ],
+      "values": {
+        "affordability": {"rating": 5, "label": "Most budget friendly", "detail": "Usually the lowest-cost material category, with many series and option levels."},
+        "insulation": {"rating": 4, "label": "Very good", "detail": "Multi-chamber PVC frames insulate well; foam-filled designs can improve performance."},
+        "maintenance": {"rating": 5, "label": "Very low", "detail": "No painting is normally required; periodic cleaning and hardware care are typical."},
+        "durability": {"rating": 4, "label": "Very good", "detail": "Resists moisture and decay, while quality and reinforcement affect long-term stability."},
+        "strength": {"rating": 3, "label": "Good", "detail": "Adequate for most residential openings; larger units may use internal reinforcement."},
+        "sightlines": {"rating": 2, "label": "Usually broader", "detail": "PVC profiles generally need more frame width than stronger metal or fiberglass frames."},
+        "design": {"rating": 3, "label": "Good", "detail": "Many common colors and styles are available, but premium finish options vary by line."},
+        "moisture": {"rating": 5, "label": "Excellent", "detail": "PVC does not rot and performs well around moisture when drainage and installation are correct."},
+        "repairability": {"rating": 2, "label": "Limited", "detail": "Hardware and glass can be serviced, but damaged welded frame sections are difficult to repair."},
+        "environment": {"rating": 2, "label": "Mixed", "detail": "Long service and energy savings help, but PVC production and end-of-life recycling remain trade-offs."}
+      }
+    },
+    "fiberglass-windows": {
+      "name": "Fiberglass Windows",
+      "short_name": "Fiberglass",
+      "url": "/windows/fiberglass-windows",
+      "tagline": "High stability and performance in a refined frame.",
+      "best_for": "High-performance homes, larger glass areas and owners prioritizing longevity.",
+      "default_peers": ["vinyl-windows", "aluminum-clad-windows"],
+      "pros": [
+        "Dimensionally stable through temperature changes.",
+        "Strong frame material that can support larger glazing.",
+        "Excellent insulation potential with insulated cavities.",
+        "Low maintenance with paintable options on many lines."
+      ],
+      "cons": [
+        "Higher initial cost than most vinyl products.",
+        "Fewer manufacturers and product lines in some markets.",
+        "Finish repairs require compatible products and preparation.",
+        "Damaged structural sections are not as easy to repair as wood."
+      ],
+      "values": {
+        "affordability": {"rating": 3, "label": "Mid-to-premium", "detail": "Typically costs more than vinyl but less than many custom wood, clad or steel systems."},
+        "insulation": {"rating": 5, "label": "Excellent", "detail": "Low-conductivity frames with insulated cavities can deliver excellent thermal performance."},
+        "maintenance": {"rating": 4, "label": "Low", "detail": "Factory finishes need little upkeep; paintable products may eventually need refinishing."},
+        "durability": {"rating": 5, "label": "Exceptional", "detail": "Strong dimensional stability helps resist swelling, shrinking, warping and cracking."},
+        "strength": {"rating": 4, "label": "Very strong", "detail": "Stronger profiles can support substantial glazing with less reinforcement than vinyl."},
+        "sightlines": {"rating": 4, "label": "Slim", "detail": "Strength permits relatively narrow frames while maintaining rigidity."},
+        "design": {"rating": 4, "label": "Very good", "detail": "Available in smooth, textured and paintable finishes, including convincing wood-look interiors."},
+        "moisture": {"rating": 5, "label": "Excellent", "detail": "Does not rot and remains stable in damp conditions when seals and installation are sound."},
+        "repairability": {"rating": 2, "label": "Limited", "detail": "Surface damage may be refinished, but major frame damage usually requires specialist replacement."},
+        "environment": {"rating": 3, "label": "Balanced", "detail": "Long life and energy performance are strengths; composite construction can complicate recycling."}
+      }
+    },
+    "wood-windows": {
+      "name": "Wood Windows",
+      "short_name": "Wood",
+      "url": "/windows/wood-windows",
+      "tagline": "Authentic character with exceptional finish flexibility.",
+      "best_for": "Historic homes, traditional architecture and interiors where natural material matters.",
+      "default_peers": ["wood-clad-windows", "vinyl-windows"],
+      "pros": [
+        "Natural warmth and an authentic premium appearance.",
+        "Excellent paint, stain and custom-shape flexibility.",
+        "Good inherent insulating properties.",
+        "Individual components can often be repaired or restored."
+      ],
+      "cons": [
+        "Needs regular finish inspection and maintenance.",
+        "Moisture exposure can cause swelling, decay or finish failure.",
+        "Usually costs more than vinyl or standard aluminum.",
+        "Performance depends heavily on detailing and ongoing care."
+      ],
+      "values": {
+        "affordability": {"rating": 2, "label": "Premium", "detail": "Material, craftsmanship and finishing generally place wood above mass-market frame options."},
+        "insulation": {"rating": 4, "label": "Very good", "detail": "Wood is naturally less conductive than metal and can support efficient complete-window designs."},
+        "maintenance": {"rating": 2, "label": "Regular", "detail": "Paint or stain and exposed joints need periodic inspection and renewal."},
+        "durability": {"rating": 3, "label": "Care dependent", "detail": "Well-maintained wood can last for decades, but neglected moisture problems shorten service life."},
+        "strength": {"rating": 3, "label": "Good", "detail": "Suitable for many residential designs, with profile size and species affecting rigidity."},
+        "sightlines": {"rating": 3, "label": "Moderate", "detail": "Traditional profiles balance glass area with joinery and architectural detailing."},
+        "design": {"rating": 5, "label": "Exceptional", "detail": "Can be shaped, painted or stained in an extensive range of architectural treatments."},
+        "moisture": {"rating": 2, "label": "Needs protection", "detail": "Correct flashing, drainage and maintained coatings are essential, especially near the coast."},
+        "repairability": {"rating": 5, "label": "Excellent", "detail": "Skilled repair can address localized decay, joinery, finishes and individual components."},
+        "environment": {"rating": 4, "label": "Strong potential", "detail": "Renewable sourcing, repairability and long life can be advantages when responsibly specified."}
+      }
+    },
+    "wood-clad-windows": {
+      "name": "Wood Clad Windows",
+      "short_name": "Wood Clad",
+      "url": "/windows/wood-clad-windows",
+      "tagline": "Real wood indoors with a protected exterior.",
+      "best_for": "Premium homes seeking wood interiors without routine exterior wood refinishing.",
+      "default_peers": ["vinyl-windows", "aluminum-clad-windows"],
+      "pros": [
+        "Natural wood appearance and finish options indoors.",
+        "Exterior cladding reduces weather exposure and maintenance.",
+        "Good insulation and premium architectural detailing.",
+        "Works well in traditional and contemporary homes."
+      ],
+      "cons": [
+        "Higher initial cost than vinyl and many aluminum systems.",
+        "Hidden water intrusion can damage the wood core if detailing fails.",
+        "Exterior cladding can make localized repairs more involved.",
+        "Performance and color range vary with the cladding material."
+      ],
+      "values": {
+        "affordability": {"rating": 2, "label": "Premium", "detail": "Combining a wood core, exterior protection and premium finishing raises initial cost."},
+        "insulation": {"rating": 4, "label": "Very good", "detail": "The wood structure provides good insulating potential in a well-designed complete unit."},
+        "maintenance": {"rating": 4, "label": "Low outside", "detail": "Cladding limits exterior refinishing, though interior wood and seals still need inspection."},
+        "durability": {"rating": 4, "label": "Very good", "detail": "Exterior protection improves weather resistance when joints, drainage and installation remain sound."},
+        "strength": {"rating": 4, "label": "Very good", "detail": "Composite construction supports substantial glazing and detailed architectural profiles."},
+        "sightlines": {"rating": 3, "label": "Moderate", "detail": "Profiles are often more substantial than all-metal systems but can be highly refined."},
+        "design": {"rating": 5, "label": "Exceptional", "detail": "Wood interiors offer broad stain, paint, species and trim choices with durable exterior colors."},
+        "moisture": {"rating": 4, "label": "Very good", "detail": "Cladding shields the core, but water management is critical because trapped moisture can be hidden."},
+        "repairability": {"rating": 3, "label": "Moderate", "detail": "Interior wood can be refinished, while concealed or clad areas can require specialist work."},
+        "environment": {"rating": 3, "label": "Balanced", "detail": "Long service and a renewable wood core help, while mixed materials complicate end-of-life separation."}
+      }
+    },
+    "aluminum-windows": {
+      "name": "Aluminum Windows",
+      "short_name": "Aluminum",
+      "url": "/windows/aluminum-windows",
+      "tagline": "Slim, strong frames for expansive contemporary glass.",
+      "best_for": "Modern architecture, large openings and projects prioritizing narrow sightlines.",
+      "default_peers": ["vinyl-windows", "steel-windows"],
+      "pros": [
+        "Slim profiles maximize glass area and views.",
+        "Strong, lightweight frames work well for larger openings.",
+        "Durable factory finishes require little routine maintenance.",
+        "Aluminum is widely recyclable at end of life."
+      ],
+      "cons": [
+        "Metal conducts heat and needs an effective thermal break.",
+        "Poorly specified frames can increase condensation risk.",
+        "Coastal installations need appropriate finishes and hardware.",
+        "Usually costs more than entry-level vinyl."
+      ],
+      "values": {
+        "affordability": {"rating": 3, "label": "Mid range", "detail": "Standard systems can be competitive, while thermally improved architectural lines cost more."},
+        "insulation": {"rating": 2, "label": "Thermal break essential", "detail": "Aluminum is conductive; whole-window performance depends heavily on thermal-break design."},
+        "maintenance": {"rating": 5, "label": "Very low", "detail": "Quality anodized or baked finishes generally need cleaning rather than repainting."},
+        "durability": {"rating": 5, "label": "Exceptional", "detail": "Rigid frames and durable finishes provide long service when corrosion exposure is addressed."},
+        "strength": {"rating": 4, "label": "Very strong", "detail": "High strength-to-weight ratio supports large units and demanding configurations."},
+        "sightlines": {"rating": 5, "label": "Very slim", "detail": "Extruded metal profiles can deliver narrow frames and expansive glass."},
+        "design": {"rating": 4, "label": "Very good", "detail": "Well suited to modern forms with many durable powder-coat and anodized finishes."},
+        "moisture": {"rating": 4, "label": "Very good", "detail": "Does not rot, but coastal salt exposure requires suitable coatings, fasteners and maintenance."},
+        "repairability": {"rating": 3, "label": "Moderate", "detail": "Hardware and finishes can be serviced; bent or damaged extrusions often need specialist replacement."},
+        "environment": {"rating": 4, "label": "Strong potential", "detail": "Aluminum is highly recyclable, although primary production has substantial embodied energy."}
+      }
+    },
+    "aluminum-clad-windows": {
+      "name": "Aluminum Clad Windows",
+      "short_name": "Aluminum Clad",
+      "url": "/windows/aluminum-clad-windows",
+      "tagline": "Premium wood interiors protected by a durable metal shell.",
+      "best_for": "Design-led homes needing rich interiors, broad exterior colors and strong weather protection.",
+      "default_peers": ["wood-clad-windows", "fiberglass-windows"],
+      "pros": [
+        "Real wood interiors with extensive paint and stain choices.",
+        "Durable aluminum exterior reduces routine refinishing.",
+        "Broad exterior color and architectural profile options.",
+        "Good balance of insulation, strength and weather protection."
+      ],
+      "cons": [
+        "One of the more expensive residential frame systems.",
+        "Installation and water management details must protect the wood core.",
+        "Dents or coating damage may require specialist repair.",
+        "Mixed-material construction is harder to separate for recycling."
+      ],
+      "values": {
+        "affordability": {"rating": 2, "label": "Premium", "detail": "Wood craftsmanship plus an engineered aluminum exterior places these systems in a premium tier."},
+        "insulation": {"rating": 4, "label": "Very good", "detail": "The protected wood core limits conduction better than a typical all-aluminum frame."},
+        "maintenance": {"rating": 4, "label": "Low outside", "detail": "Factory-finished aluminum avoids routine exterior painting; interior wood care varies by finish."},
+        "durability": {"rating": 5, "label": "Exceptional", "detail": "Extruded cladding protects the wood core when seams, flashing and drainage are correctly detailed."},
+        "strength": {"rating": 4, "label": "Very strong", "detail": "Layered construction supports large sizes and robust architectural profiles."},
+        "sightlines": {"rating": 4, "label": "Slim to moderate", "detail": "Exterior cladding creates crisp profiles, though the wood structure adds some depth."},
+        "design": {"rating": 5, "label": "Exceptional", "detail": "Combines rich interior woods with a broad palette of durable exterior colors."},
+        "moisture": {"rating": 4, "label": "Very good", "detail": "The shell protects against weather, but correct detailing must prevent water behind the cladding."},
+        "repairability": {"rating": 3, "label": "Moderate", "detail": "Interior surfaces are refinishable; exterior cladding and concealed damage need specialist work."},
+        "environment": {"rating": 3, "label": "Balanced", "detail": "Long life and recyclable aluminum help, while mixed construction makes recovery more complex."}
+      }
+    },
+    "steel-windows": {
+      "name": "Steel Windows",
+      "short_name": "Steel",
+      "url": "/windows/steel-windows",
+      "tagline": "Architectural strength with the narrowest visual profile.",
+      "best_for": "Luxury renovations, landmark designs and openings demanding exceptional strength.",
+      "default_peers": ["aluminum-windows", "aluminum-clad-windows"],
+      "pros": [
+        "Exceptional strength enables very narrow sightlines.",
+        "Distinctive architectural appearance with lasting visual value.",
+        "Well suited to large openings and custom configurations.",
+        "Steel is recyclable and components may be repairable by specialists."
+      ],
+      "cons": [
+        "Typically the highest initial cost of these materials.",
+        "Thermal breaks are important because steel conducts heat.",
+        "Protective finishes must remain intact to control corrosion.",
+        "Specialized fabrication can increase lead time and repair cost."
+      ],
+      "values": {
+        "affordability": {"rating": 1, "label": "Luxury investment", "detail": "Specialized fabrication, finishing and installation generally make steel the costliest option."},
+        "insulation": {"rating": 2, "label": "Thermal design critical", "detail": "Steel is conductive, so modern thermal breaks and high-performance glazing are important."},
+        "maintenance": {"rating": 3, "label": "Moderate", "detail": "Modern coatings are durable but should be inspected, especially in wet or coastal exposure."},
+        "durability": {"rating": 5, "label": "Exceptional", "detail": "Properly protected steel offers excellent rigidity and a very long potential service life."},
+        "strength": {"rating": 5, "label": "Exceptional", "detail": "Very high strength supports large glass areas and slender custom profiles."},
+        "sightlines": {"rating": 5, "label": "Ultra slim", "detail": "Steel's strength creates the narrow profiles associated with premium architectural windows."},
+        "design": {"rating": 4, "label": "Distinctive", "detail": "Excellent for custom industrial, historic and contemporary designs, with a more focused aesthetic."},
+        "moisture": {"rating": 3, "label": "Finish dependent", "detail": "Galvanizing and quality coatings are essential to resist corrosion, especially near salt air."},
+        "repairability": {"rating": 4, "label": "Specialist repairable", "detail": "Skilled metalworkers can repair some sections and finishes, though the work is specialized."},
+        "environment": {"rating": 4, "label": "Strong potential", "detail": "Long life and high recyclability are benefits, balanced against energy-intensive production."}
+      }
+    }
+  }
+}
