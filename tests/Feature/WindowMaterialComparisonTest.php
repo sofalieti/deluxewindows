@@ -63,6 +63,21 @@ test('comparison partial renders an accessible server-side initial state', funct
         ->and(substr_count($html, 'data-wmc-criterion='))->toBe(10);
 });
 
+test('comparison is placed after the gallery and collapses to one peer on mobile', function () {
+    $template = File::get(resource_path('views/windows/show.blade.php'));
+    $css = File::get(public_path('webflow-overrides/window-detail.css'));
+
+    $galleryPosition = strpos($template, 'id="dw-gallery"');
+    $comparisonPosition = strpos($template, "partials.window-material-comparison");
+
+    expect($galleryPosition)->toBeInt()
+        ->and($comparisonPosition)->toBeInt()
+        ->and($comparisonPosition)->toBeGreaterThan($galleryPosition)
+        ->and($css)->toContain('.wmc__material-header[data-slot="peer-2"]')
+        ->and($css)->toContain('.wmc__value[data-slot="peer-2"]')
+        ->and($css)->toContain('.wmc__tradeoff-card[data-slot="peer-2"]');
+});
+
 test('comparison partial escapes visible and embedded dataset content', function () {
     $comparison = app(WindowMaterialComparisonService::class)->forSlug('vinyl-windows');
     $unsafe = '<script>alert("comparison")</script>';

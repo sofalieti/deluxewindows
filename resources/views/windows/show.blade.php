@@ -81,12 +81,6 @@
             </div>
           </div>
 
-          @if($materialComparison)
-            @include('partials.window-material-comparison', [
-              'comparison' => $materialComparison,
-            ])
-          @endif
-
           {{-- Brands for this material — directly above gallery --}}
           @if($brandTypes->count() > 0)
           <div class="window-brands-section window-brands-section--above-gallery">
@@ -156,6 +150,12 @@
               @endif
             </div>
           </div>
+
+          @if($materialComparison)
+            @include('partials.window-material-comparison', [
+              'comparison' => $materialComparison,
+            ])
+          @endif
         </div>
       </section>
 

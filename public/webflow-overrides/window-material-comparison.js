@@ -31,6 +31,7 @@
 
     var materials = payload.materials || {};
     var selects = Array.from(root.querySelectorAll("[data-wmc-select]"));
+    var mobileQuery = window.matchMedia("(max-width: 767px)");
     if (selects.length !== 2) return;
 
     function updateDisabledOptions() {
@@ -40,7 +41,9 @@
         });
 
         Array.from(select.options).forEach(function (option) {
-          option.disabled = Boolean(other && option.value === other.value);
+          option.disabled = Boolean(
+            !mobileQuery.matches && other && option.value === other.value
+          );
         });
       });
     }
@@ -86,6 +89,19 @@
       }
     }
 
+    function normalizeDesktopSelections() {
+      if (mobileQuery.matches || selects[0].value !== selects[1].value) return;
+
+      var replacement = Array.from(selects[1].options).find(function (option) {
+        return option.value !== selects[0].value;
+      });
+      if (!replacement) return;
+
+      selects[1].value = replacement.value;
+      selects[1].dataset.previousValue = replacement.value;
+      updateSlot(selects[1].dataset.slot, materials[replacement.value]);
+    }
+
     selects.forEach(function (select) {
       select.dataset.previousValue = select.value;
 
@@ -95,7 +111,10 @@
           return candidate !== select;
         });
 
-        if (!material || (other && other.value === select.value)) {
+        if (
+          !material ||
+          (!mobileQuery.matches && other && other.value === select.value)
+        ) {
           select.value = select.dataset.previousValue;
           return;
         }
@@ -105,6 +124,17 @@
         updateDisabledOptions();
       });
     });
+
+    function handleViewportChange() {
+      normalizeDesktopSelections();
+      updateDisabledOptions();
+    }
+
+    if (typeof mobileQuery.addEventListener === "function") {
+      mobileQuery.addEventListener("change", handleViewportChange);
+    } else {
+      mobileQuery.addListener(handleViewportChange);
+    }
 
     updateDisabledOptions();
   }
