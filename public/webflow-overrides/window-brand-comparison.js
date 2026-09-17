@@ -88,6 +88,11 @@
       );
       if (tradeoffs) {
         setText(tradeoffs, "[data-wbc-tradeoff-name]", brand.name);
+        var tradeoffLink = tradeoffs.querySelector("[data-wbc-tradeoff-link]");
+        if (tradeoffLink) {
+          tradeoffLink.href = brand.url;
+          tradeoffLink.textContent = "View " + brand.name + " details";
+        }
         replaceList(tradeoffs.querySelector("[data-wbc-pros]"), brand.pros);
         replaceList(
           tradeoffs.querySelector("[data-wbc-considerations]"),

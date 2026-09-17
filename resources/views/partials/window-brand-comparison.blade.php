@@ -130,6 +130,11 @@
         @if($slot !== 'current') aria-live="polite" @endif
       >
         <h3><span data-wbc-tradeoff-name>{{ $brand['name'] }}</span>: Pros &amp; Considerations</h3>
+        <a
+          class="wbc__tradeoff-link"
+          data-wbc-tradeoff-link
+          href="{{ $brand['url'] }}"
+        >View {{ $brand['name'] }} details</a>
         <div class="wbc__tradeoff-columns">
           <div>
             <h4 class="wbc__pros-heading">Pros</h4>

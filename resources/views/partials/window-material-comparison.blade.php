@@ -123,6 +123,11 @@
         @if($slot !== 'current') aria-live="polite" @endif
       >
         <h3><span data-wmc-tradeoff-name>{{ $material['short_name'] }}</span>: Pros &amp; Cons</h3>
+        <a
+          class="wmc__tradeoff-link"
+          data-wmc-tradeoff-link
+          href="{{ $material['url'] }}"
+        >View {{ $material['short_name'] }} details</a>
         <div class="wmc__tradeoff-columns">
           <div>
             <h4 class="wmc__pros-heading">Pros</h4>

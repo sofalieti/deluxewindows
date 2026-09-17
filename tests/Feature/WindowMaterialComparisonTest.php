@@ -57,6 +57,7 @@ test('comparison partial renders an accessible server-side initial state', funct
         ->toContain('Wood Clad: Pros &amp; Cons')
         ->toContain('Frame material is only one part of window performance.')
         ->toContain('type="application/json"')
+        ->toContain('data-wmc-tradeoff-link')
         ->toContain('aria-live="polite"')
         ->not->toContain('<h1')
         ->and(substr_count($html, 'data-wmc-select'))->toBe(2)

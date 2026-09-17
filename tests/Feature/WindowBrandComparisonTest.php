@@ -73,6 +73,7 @@ test('brand comparison partial renders a safe server-side initial state', functi
         ->toContain('Milgard: Pros &amp; Considerations')
         ->toContain('This is a brand-level guide')
         ->toContain('type="application/json"')
+        ->toContain('data-wbc-tradeoff-link')
         ->toContain('aria-live="polite"')
         ->not->toContain('<h1')
         ->and(substr_count($html, 'data-wbc-select'))->toBe(2)

@@ -84,6 +84,11 @@
       );
       if (tradeoffs) {
         setText(tradeoffs, "[data-wmc-tradeoff-name]", material.short_name);
+        var tradeoffLink = tradeoffs.querySelector("[data-wmc-tradeoff-link]");
+        if (tradeoffLink) {
+          tradeoffLink.href = material.url;
+          tradeoffLink.textContent = "View " + material.short_name + " details";
+        }
         replaceList(tradeoffs.querySelector("[data-wmc-pros]"), material.pros);
         replaceList(tradeoffs.querySelector("[data-wmc-cons]"), material.cons);
       }
