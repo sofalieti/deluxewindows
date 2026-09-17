@@ -4,6 +4,22 @@
 @section('bodyClass', 'body-18 height-auto')
 @section('htmlClass', '')
 
+@section('head')
+    @if($brandComparison ?? null)
+      @php
+        $brandComparisonCssPath = public_path('webflow-overrides/window-brand-comparison.css');
+        $brandComparisonCssVersion = file_exists($brandComparisonCssPath)
+          ? (string) filemtime($brandComparisonCssPath)
+          : '1';
+      @endphp
+      <link
+        href="/webflow-overrides/window-brand-comparison.css?v={{ $brandComparisonCssVersion }}"
+        rel="stylesheet"
+        type="text/css"
+      />
+    @endif
+@endsection
+
 @section('content')
       @include('partials.hero', [
         'brandHero' => true,
@@ -65,6 +81,12 @@
           </div>
         </div>
         <div class="image-wrapper border-radius-image-default"></div>
+
+        @if($brandComparison ?? null)
+          @include('partials.window-brand-comparison', [
+            'comparison' => $brandComparison,
+          ])
+        @endif
       </div>
 
       @if($windowTypes->count() > 0)
@@ -268,6 +290,16 @@
 @section('bodyScripts')
     <script src="/webflow-assets/js/jquery-3.5.1.min.js" type="text/javascript"></script>
     <script src="/webflow-assets/js/webflow-brands.js" type="text/javascript"></script>
+
+    @if($brandComparison ?? null)
+      @php
+        $brandComparisonJsPath = public_path('webflow-overrides/window-brand-comparison.js');
+        $brandComparisonJsVersion = file_exists($brandComparisonJsPath)
+          ? (string) filemtime($brandComparisonJsPath)
+          : '1';
+      @endphp
+      <script src="/webflow-overrides/window-brand-comparison.js?v={{ $brandComparisonJsVersion }}"></script>
+    @endif
 
     <style>
       .scroll-block {

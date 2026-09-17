@@ -19,6 +19,7 @@ use App\Models\Webflow\WindowTypeWebflowItem;
 use App\Services\ContactFromLeadService;
 use App\Services\PromotionControlService;
 use App\Services\PromotionSettingsService;
+use App\Services\WindowBrandComparisonService;
 use App\Services\WindowMaterialComparisonService;
 use App\Services\Webflow\WebflowRichTextNormalizer;
 use App\Support\WebflowItemOrder;
@@ -905,8 +906,10 @@ class ClassicSiteController extends Controller
         return view('brand.index', compact('brands'));
     }
 
-    public function brandBySlug(string $slug)
-    {
+    public function brandBySlug(
+        string $slug,
+        WindowBrandComparisonService $comparisonService
+    ) {
         $slug = strtolower(trim($slug));
 
         $brand = BrandsWebflowItem::query()
@@ -981,6 +984,9 @@ class ClassicSiteController extends Controller
         $brandHeroFormHtml = $brandPricing
             ? $controls->pricingHtmlFromMap($brandPricing, 'per window installed')
             : null;
+        $brandComparison = $comparisonService->forSlug(
+            (string) ($fieldData['slug'] ?? $slug)
+        );
 
         return view('brands.show', [
             'brandFieldData' => $fieldData,
@@ -996,6 +1002,7 @@ class ClassicSiteController extends Controller
             'doorsTitle' => $doorsTitle,
             'brandHeroFormHtml' => $brandHeroFormHtml,
             'brandPromotionPricing' => $brandPricing,
+            'brandComparison' => $brandComparison,
         ]);
     }
 

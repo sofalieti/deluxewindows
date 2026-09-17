@@ -1,0 +1,414 @@
+{
+  "version": 1,
+  "verified_at": "2026-09-17",
+  "disclaimer": "This is a brand-level guide, not a product certification or quote. Exact U-factor, SHGC, sound performance, warranty coverage, lead time and installed price depend on the selected series, glazing, size, options, ownership, installation and current manufacturer terms.",
+  "criteria": [
+    {
+      "key": "affordability",
+      "type": "score",
+      "label": "Price accessibility",
+      "description": "Relative portfolio position, not an installed-price quote."
+    },
+    {
+      "key": "materials",
+      "type": "text",
+      "label": "Frame materials",
+      "description": "Materials represented in the brand's window portfolio."
+    },
+    {
+      "key": "breadth",
+      "type": "score",
+      "label": "Product breadth",
+      "description": "Range of series, materials and common operating styles."
+    },
+    {
+      "key": "replacement",
+      "type": "score",
+      "label": "Replacement fit",
+      "description": "Strength of the portfolio for residential replacement projects."
+    },
+    {
+      "key": "architectural",
+      "type": "score",
+      "label": "Architectural fit",
+      "description": "Suitability for design-led and new-construction projects."
+    },
+    {
+      "key": "customization",
+      "type": "score",
+      "label": "Customization",
+      "description": "Breadth of finishes, configurations and made-to-order options."
+    },
+    {
+      "key": "large_openings",
+      "type": "score",
+      "label": "Large openings",
+      "description": "Portfolio strength for expansive glass and oversized systems."
+    },
+    {
+      "key": "energy",
+      "type": "text",
+      "label": "Energy options",
+      "description": "Available efficiency features; exact performance is series-specific."
+    },
+    {
+      "key": "warranty",
+      "type": "text",
+      "label": "Warranty profile",
+      "description": "High-level coverage only; current documents control."
+    }
+  ],
+  "brands": {
+    "marvin": {
+      "name": "Marvin",
+      "url": "/brands/marvin",
+      "tagline": "Premium, design-led windows across fiberglass, wood and aluminum systems.",
+      "best_for": "Custom homes, major renovations and projects where architectural flexibility matters.",
+      "default_peers": ["andersen", "milgard"],
+      "pros": [
+        "Broad premium material and collection choices.",
+        "Extensive finish, size and architectural options.",
+        "Strong solutions for both traditional and modern design."
+      ],
+      "considerations": [
+        "Portfolio sits primarily in premium price tiers.",
+        "Specifications and warranty terms vary by collection.",
+        "Custom configurations can require more planning."
+      ],
+      "sources": [
+        {"label": "Marvin collection comparison", "url": "https://www.marvin.com/products/collections/compare-collections"},
+        {"label": "Marvin replacement and warranty overview", "url": "https://www.marvin.com/replacement"}
+      ],
+      "values": {
+        "affordability": {"rating": 1, "label": "Premium investment", "detail": "The portfolio emphasizes premium materials, detailing and custom capability."},
+        "materials": {"label": "Fiberglass, wood, aluminum", "detail": "Material combinations vary across Essential, Elevate, Ultimate, Modern and other collections."},
+        "breadth": {"rating": 4, "label": "Very broad", "detail": "Multiple distinct collections cover streamlined through highly customized projects."},
+        "replacement": {"rating": 4, "label": "Very strong", "detail": "Replacement-ready collections and dealer-supported options cover many existing-home needs."},
+        "architectural": {"rating": 5, "label": "Exceptional", "detail": "A major focus on custom architecture, historic character and modern design."},
+        "customization": {"rating": 5, "label": "Exceptional", "detail": "Extensive finish, hardware, divided-lite, casing and configuration choices."},
+        "large_openings": {"rating": 5, "label": "Exceptional", "detail": "Premium collections support dramatic sizes, combinations and complementary door systems."},
+        "energy": {"label": "High-performance packages", "detail": "Low-E, multi-pane and collection-specific performance options are available."},
+        "warranty": {"label": "Transferable limited coverage", "detail": "Glass, components and finishes have different periods and collection-specific terms."}
+      }
+    },
+    "milgard": {
+      "name": "Milgard",
+      "url": "/brands/milgard",
+      "tagline": "A West Coast-focused portfolio balancing value, materials and familiar styles.",
+      "best_for": "Bay Area replacement projects needing a practical balance of choice and price.",
+      "default_peers": ["anlin", "simonton"],
+      "pros": [
+        "Strong presence and product familiarity in western markets.",
+        "Vinyl, fiberglass and aluminum options.",
+        "Good range from value-focused to upgraded series."
+      ],
+      "considerations": [
+        "Features differ substantially between series.",
+        "The most architectural options are not available in every material.",
+        "Warranty eligibility depends on product and ownership terms."
+      ],
+      "sources": [
+        {"label": "Milgard windows", "url": "https://www.milgard.com/windows"},
+        {"label": "Milgard warranty", "url": "https://www.milgard.com/warranty"}
+      ],
+      "values": {
+        "affordability": {"rating": 4, "label": "Accessible to mid-range", "detail": "The lineup spans practical vinyl products through upgraded fiberglass and aluminum."},
+        "materials": {"label": "Vinyl, fiberglass, aluminum", "detail": "Material choice covers common replacement and contemporary applications."},
+        "breadth": {"rating": 4, "label": "Very broad", "detail": "Several recognizable series offer varied frame profiles and price positions."},
+        "replacement": {"rating": 5, "label": "Excellent", "detail": "A strong fit for common West Coast residential replacement configurations."},
+        "architectural": {"rating": 3, "label": "Good", "detail": "Fiberglass and aluminum lines expand the portfolio beyond mainstream replacement."},
+        "customization": {"rating": 4, "label": "Very good", "detail": "Useful color, glass, grid and hardware choices vary by series."},
+        "large_openings": {"rating": 3, "label": "Good", "detail": "Larger configurations are available, though not the sole focus of the brand."},
+        "energy": {"label": "Series-specific Low-E options", "detail": "ENERGY STAR configurations and upgraded glazing are available by series and region."},
+        "warranty": {"label": "Lifetime limited programs", "detail": "Coverage depends on series, purchaser status, installation date and current documents."}
+      }
+    },
+    "anlin": {
+      "name": "Anlin",
+      "url": "/brands/anlin",
+      "tagline": "California-made vinyl windows centered on replacement comfort and coverage.",
+      "best_for": "Homeowners wanting premium vinyl designed for western climates.",
+      "default_peers": ["milgard", "simonton"],
+      "pros": [
+        "Focused expertise in vinyl replacement windows.",
+        "Products and glass packages aimed at western climates.",
+        "Comprehensive warranty positioning on eligible products."
+      ],
+      "considerations": [
+        "Vinyl-only focus limits material choice.",
+        "Premium options can price above value vinyl brands.",
+        "Architectural and oversized offerings are less broad than specialist brands."
+      ],
+      "sources": [
+        {"label": "Anlin windows", "url": "https://anlin.com/windows/"},
+        {"label": "Anlin warranty", "url": "https://anlin.com/warranty/"}
+      ],
+      "values": {
+        "affordability": {"rating": 3, "label": "Mid-to-premium vinyl", "detail": "Positioned above basic vinyl, with comfort and warranty features contributing to cost."},
+        "materials": {"label": "Vinyl", "detail": "The window portfolio is specialized around vinyl frame systems."},
+        "breadth": {"rating": 2, "label": "Focused", "detail": "A concentrated set of vinyl families rather than a multi-material catalog."},
+        "replacement": {"rating": 5, "label": "Excellent", "detail": "Replacement windows for existing western homes are a core use case."},
+        "architectural": {"rating": 2, "label": "Limited", "detail": "The portfolio favors residential replacement over custom architectural systems."},
+        "customization": {"rating": 3, "label": "Good", "detail": "Color, grid, glass and hardware choices are available within a focused material range."},
+        "large_openings": {"rating": 2, "label": "Standard residential", "detail": "Best aligned with common openings rather than highly oversized window walls."},
+        "energy": {"label": "Western-climate glass packages", "detail": "Low-E and multi-pane packages are offered; exact ratings vary by configuration."},
+        "warranty": {"label": "Transferable limited programs", "detail": "Parts, labor and glass provisions depend on product, purchaser and current terms."}
+      }
+    },
+    "andersen": {
+      "name": "Andersen",
+      "url": "/brands/andersen",
+      "tagline": "A broad national portfolio spanning composite, wood and architectural systems.",
+      "best_for": "Homeowners wanting recognized series choices from practical composite to premium custom.",
+      "default_peers": ["marvin", "jeld-wen"],
+      "pros": [
+        "Wide range of series, materials and price positions.",
+        "Strong traditional and contemporary design coverage.",
+        "Extensive dealer, documentation and support ecosystem."
+      ],
+      "considerations": [
+        "Series differ significantly in construction and options.",
+        "Premium collections can represent a substantial investment.",
+        "Warranty periods vary by glass, components and series."
+      ],
+      "sources": [
+        {"label": "Andersen windows", "url": "https://www.andersenwindows.com/windows-and-doors/windows/"},
+        {"label": "Andersen warranty", "url": "https://www.andersenwindows.com/support/warranty"}
+      ],
+      "values": {
+        "affordability": {"rating": 2, "label": "Mid-to-premium", "detail": "Entry composite series broaden access, while architectural collections are premium."},
+        "materials": {"label": "Composite, wood, clad wood, aluminum", "detail": "Fibrex composite and wood-based systems vary across the brand's series."},
+        "breadth": {"rating": 5, "label": "Exceptional", "detail": "Series cover mainstream residential, replacement and high-design applications."},
+        "replacement": {"rating": 4, "label": "Very strong", "detail": "Several series and installation paths suit existing-home projects."},
+        "architectural": {"rating": 5, "label": "Exceptional", "detail": "A-Series and E-Series support demanding architectural specifications."},
+        "customization": {"rating": 5, "label": "Exceptional", "detail": "Broad finish, hardware, grille, glass and custom-size choices at higher tiers."},
+        "large_openings": {"rating": 4, "label": "Very strong", "detail": "Architectural windows and coordinated large door systems support expansive designs."},
+        "energy": {"label": "Broad certified configurations", "detail": "Glazing and frame choices support region- and series-specific efficient configurations."},
+        "warranty": {"label": "Owner-to-Owner limited coverage", "detail": "Transferable terms and durations differ across glass, components and series."}
+      }
+    },
+    "jeld-wen": {
+      "name": "JELD-WEN",
+      "url": "/brands/jeld-wen",
+      "tagline": "Wide material and style coverage across value, builder and upgraded products.",
+      "best_for": "Projects needing broad availability and choices across vinyl, wood and clad wood.",
+      "default_peers": ["ply-gem", "andersen"],
+      "pros": [
+        "Broad assortment across multiple frame materials.",
+        "Options for replacement, renovation and new construction.",
+        "Accessible products alongside upgraded wood collections."
+      ],
+      "considerations": [
+        "Quality tier and features depend strongly on the selected series.",
+        "Not every product is available in every region.",
+        "Warranty terms differ by material and manufacturing date."
+      ],
+      "sources": [
+        {"label": "JELD-WEN windows", "url": "https://www.jeld-wen.com/en-us/products/windows"},
+        {"label": "JELD-WEN support", "url": "https://www.jeld-wen.com/en-us/support"}
+      ],
+      "values": {
+        "affordability": {"rating": 5, "label": "Wide price access", "detail": "The catalog includes entry-level vinyl as well as higher-tier wood products."},
+        "materials": {"label": "Vinyl, wood, clad wood", "detail": "Material coverage supports varied budgets and architectural styles."},
+        "breadth": {"rating": 5, "label": "Exceptional", "detail": "A large catalog spans operating styles, materials and project types."},
+        "replacement": {"rating": 4, "label": "Very strong", "detail": "Vinyl and wood choices serve many common renovation and replacement needs."},
+        "architectural": {"rating": 4, "label": "Very strong", "detail": "Clad-wood products extend the brand into more design-focused work."},
+        "customization": {"rating": 4, "label": "Very good", "detail": "Options are broad, though the available range depends heavily on series."},
+        "large_openings": {"rating": 3, "label": "Good", "detail": "Larger configurations exist, but specialist window-wall systems are not the main focus."},
+        "energy": {"label": "Broad Low-E configurations", "detail": "Efficient vinyl and wood configurations are offered by region and series."},
+        "warranty": {"label": "Material-specific limited coverage", "detail": "Vinyl, wood, glass and components follow different product and date-specific terms."}
+      }
+    },
+    "ply-gem": {
+      "name": "Ply Gem",
+      "url": "/brands/ply-gem",
+      "tagline": "Value-oriented breadth for replacement, new construction and builder projects.",
+      "best_for": "Budget-conscious projects wanting multiple materials and many standard series choices.",
+      "default_peers": ["jeld-wen", "simonton"],
+      "pros": [
+        "Strong value and broad standard-product availability.",
+        "Multiple material choices across project categories.",
+        "Extensive lineup for builders and replacement work."
+      ],
+      "considerations": [
+        "Specifications vary widely across numerous series.",
+        "Premium custom detailing is not the portfolio's main emphasis.",
+        "Warranty coverage must be checked for the exact product."
+      ],
+      "sources": [
+        {"label": "Ply Gem windows", "url": "https://www.plygem.com/windows/"},
+        {"label": "Ply Gem support", "url": "https://www.plygem.com/support/"}
+      ],
+      "values": {
+        "affordability": {"rating": 5, "label": "Very accessible", "detail": "Many collections target value and mainstream residential budgets."},
+        "materials": {"label": "Vinyl, aluminum, aluminum-clad wood", "detail": "Portfolio materials vary by region and collection."},
+        "breadth": {"rating": 5, "label": "Exceptional", "detail": "Numerous series support replacement, new construction and light commercial work."},
+        "replacement": {"rating": 5, "label": "Excellent", "detail": "Value-focused vinyl and regional series cover many replacement needs."},
+        "architectural": {"rating": 3, "label": "Good", "detail": "Clad and aluminum choices add range beyond standard vinyl offerings."},
+        "customization": {"rating": 4, "label": "Very good", "detail": "A broad selection of common colors, grids, glass and operating styles is available."},
+        "large_openings": {"rating": 3, "label": "Good", "detail": "Supports many residential sizes without specializing exclusively in window walls."},
+        "energy": {"label": "Series-specific efficient glazing", "detail": "Low-E and ENERGY STAR configurations are offered across selected regional series."},
+        "warranty": {"label": "Varies by product line", "detail": "Coverage, transfer rules and durations must be confirmed for the exact series."}
+      }
+    },
+    "simonton": {
+      "name": "Simonton",
+      "url": "/brands/simonton",
+      "tagline": "A deep vinyl portfolio built around practical replacement value.",
+      "best_for": "Mainstream residential replacement where vinyl choice and affordability lead.",
+      "default_peers": ["milgard", "alside"],
+      "pros": [
+        "Focused experience and broad selection within vinyl.",
+        "Strong fit for common replacement applications.",
+        "Competitive value across multiple product tiers."
+      ],
+      "considerations": [
+        "No broad wood, fiberglass or aluminum window portfolio.",
+        "Architectural customization is more limited than premium brands.",
+        "Warranty details remain product and purchaser specific."
+      ],
+      "sources": [
+        {"label": "Simonton windows", "url": "https://www.simonton.com/windows/"},
+        {"label": "Simonton warranty", "url": "https://www.simonton.com/warranties/"}
+      ],
+      "values": {
+        "affordability": {"rating": 4, "label": "Very accessible", "detail": "Vinyl-focused series cover practical and upgraded replacement budgets."},
+        "materials": {"label": "Vinyl", "detail": "The portfolio concentrates on vinyl windows and patio doors."},
+        "breadth": {"rating": 4, "label": "Broad within vinyl", "detail": "Many series and styles are available despite the single-material focus."},
+        "replacement": {"rating": 5, "label": "Excellent", "detail": "Residential vinyl replacement is a core strength of the catalog."},
+        "architectural": {"rating": 2, "label": "Limited", "detail": "Less suited to projects requiring premium natural materials or bespoke metal systems."},
+        "customization": {"rating": 3, "label": "Good", "detail": "Useful mainstream finish, grid, glass and hardware options vary by series."},
+        "large_openings": {"rating": 2, "label": "Standard residential", "detail": "Designed primarily around conventional residential openings."},
+        "energy": {"label": "Vinyl and glazing packages", "detail": "Low-E, gas-fill and multi-pane choices vary by series and climate region."},
+        "warranty": {"label": "Limited lifetime programs", "detail": "Exact glass, frame, labor and transfer provisions depend on product and date."}
+      }
+    },
+    "alside": {
+      "name": "Alside",
+      "url": "/brands/alside",
+      "tagline": "Mainstream vinyl replacement windows with a practical price-performance focus.",
+      "best_for": "Homeowners comparing value and mid-tier vinyl replacement products.",
+      "default_peers": ["simonton", "anlin"],
+      "pros": [
+        "Good price-to-feature positioning in vinyl.",
+        "Series aimed directly at replacement projects.",
+        "Multiple efficiency and aesthetic upgrade packages."
+      ],
+      "considerations": [
+        "Vinyl-only window focus limits material choice.",
+        "Series and regional availability affect options.",
+        "Large custom architectural systems are outside the core focus."
+      ],
+      "sources": [
+        {"label": "Alside windows", "url": "https://www.alside.com/product-catalog/windows-patio-doors/"},
+        {"label": "Alside warranties", "url": "https://www.alside.com/support/warranties/"}
+      ],
+      "values": {
+        "affordability": {"rating": 4, "label": "Accessible", "detail": "Mainstream and upgraded vinyl series offer several practical price points."},
+        "materials": {"label": "Vinyl", "detail": "The residential window offering is centered on vinyl systems."},
+        "breadth": {"rating": 3, "label": "Good within vinyl", "detail": "Several replacement-focused families cover popular styles and feature levels."},
+        "replacement": {"rating": 5, "label": "Excellent", "detail": "The product range is strongly aligned with residential replacement."},
+        "architectural": {"rating": 2, "label": "Limited", "detail": "Less appropriate for bespoke wood, fiberglass or architectural metal specifications."},
+        "customization": {"rating": 3, "label": "Good", "detail": "Common colors, grids, glass and hardware choices are available by series."},
+        "large_openings": {"rating": 2, "label": "Standard residential", "detail": "Best suited to typical openings rather than oversized glass walls."},
+        "energy": {"label": "ENERGY STAR configurations", "detail": "Low-E and insulated-glass upgrades are offered on eligible series and regions."},
+        "warranty": {"label": "Lifetime limited documents", "detail": "Coverage differs for vinyl, glass, finishes, labor and ownership conditions."}
+      }
+    },
+    "western-window-systems": {
+      "name": "Western Window Systems",
+      "url": "/brands/western-window-systems",
+      "tagline": "Architectural aluminum systems designed around expansive indoor-outdoor openings.",
+      "best_for": "Modern custom homes, window walls and projects prioritizing large glass areas.",
+      "default_peers": ["all-weather-architectural-aluminum", "italwindows"],
+      "pros": [
+        "Specialized expertise in large contemporary openings.",
+        "Slim aluminum profiles and coordinated moving-glass systems.",
+        "High degree of size, configuration and finish customization."
+      ],
+      "considerations": [
+        "Premium architectural positioning.",
+        "Aluminum thermal performance depends on system and glazing.",
+        "Complex installations require careful design and coordination."
+      ],
+      "sources": [
+        {"label": "Western products", "url": "https://www.westernwindowsystems.com/"},
+        {"label": "Western warranty", "url": "https://www.westernao.com/warranty"}
+      ],
+      "values": {
+        "affordability": {"rating": 1, "label": "Premium investment", "detail": "Custom sizes, large glass and architectural hardware place systems in premium tiers."},
+        "materials": {"label": "Aluminum", "detail": "The portfolio centers on aluminum frame and moving-glass systems."},
+        "breadth": {"rating": 4, "label": "Broad architectural range", "detail": "Windows, multi-slide, folding and other coordinated systems cover modern openings."},
+        "replacement": {"rating": 2, "label": "Project specific", "detail": "Can be used in renovation, but major structural openings are a more natural fit."},
+        "architectural": {"rating": 5, "label": "Exceptional", "detail": "Purpose-built for modern architecture and indoor-outdoor design."},
+        "customization": {"rating": 5, "label": "Exceptional", "detail": "Extensive dimensions, configurations, finishes and glass choices."},
+        "large_openings": {"rating": 5, "label": "Exceptional", "detail": "Expansive openings are a defining portfolio specialty."},
+        "energy": {"label": "Thermally improved options", "detail": "Thermal breaks and upgraded glazing are available in selected systems."},
+        "warranty": {"label": "Limited product and glass coverage", "detail": "Workmanship, components, glass and coastal conditions follow separate current terms."}
+      }
+    },
+    "all-weather-architectural-aluminum": {
+      "name": "All Weather Architectural Aluminum",
+      "url": "/brands/all-weather-architectural-aluminum",
+      "tagline": "California-built custom aluminum windows and doors for modern architecture.",
+      "best_for": "Bay Area custom projects needing made-to-order aluminum and expansive glass.",
+      "default_peers": ["western-window-systems", "italwindows"],
+      "pros": [
+        "Made-to-order architectural aluminum systems.",
+        "Strong California and West Coast project relevance.",
+        "Large-opening and thermally broken product options."
+      ],
+      "considerations": [
+        "Premium pricing relative to standard residential windows.",
+        "One primary frame-material family.",
+        "Warranty and coastal finish provisions require close review."
+      ],
+      "sources": [
+        {"label": "All Weather products", "url": "https://www.allweatheraa.com/products/"},
+        {"label": "All Weather warranties", "url": "https://www.allweatheraa.com/warranties/"}
+      ],
+      "values": {
+        "affordability": {"rating": 2, "label": "Premium", "detail": "Made-to-order architectural systems cost more than mainstream residential products."},
+        "materials": {"label": "Aluminum", "detail": "The company specializes in architectural-grade aluminum windows and doors."},
+        "breadth": {"rating": 3, "label": "Focused architectural range", "detail": "A targeted set of custom window and door systems rather than a mass-market catalog."},
+        "replacement": {"rating": 2, "label": "Project specific", "detail": "Best suited to substantial remodels and designed openings rather than routine swaps."},
+        "architectural": {"rating": 5, "label": "Exceptional", "detail": "Custom fabrication directly supports architect-led residential and commercial design."},
+        "customization": {"rating": 5, "label": "Exceptional", "detail": "Made-to-order sizes, configurations, finishes and functions are central to the offering."},
+        "large_openings": {"rating": 5, "label": "Exceptional", "detail": "Engineered for expansive glazing and narrow contemporary profiles."},
+        "energy": {"label": "Thermally broken systems", "detail": "Selected aluminum systems combine thermal breaks with project-specific glazing."},
+        "warranty": {"label": "10-year residential limited profile", "detail": "Parts, labor, paint, hardware and coastal conditions carry separate limitations."}
+      }
+    },
+    "italwindows": {
+      "name": "Italwindows",
+      "url": "/brands/italwindows",
+      "tagline": "European-style custom systems emphasizing slim profiles and modern detailing.",
+      "best_for": "Contemporary projects seeking European configurations in aluminum, steel or wood.",
+      "default_peers": ["western-window-systems", "marvin"],
+      "pros": [
+        "Distinct European design and operating configurations.",
+        "Multiple premium frame-material possibilities.",
+        "Strong emphasis on slim profiles and custom fabrication."
+      ],
+      "considerations": [
+        "Public series and warranty documentation is less standardized.",
+        "Premium custom work requires detailed quoting and specification.",
+        "Availability and service details should be confirmed project by project."
+      ],
+      "sources": [
+        {"label": "Italwindows official site", "url": "https://italwindows.com/"}
+      ],
+      "values": {
+        "affordability": {"rating": 2, "label": "Premium custom", "detail": "European-style fabrication and project customization generally command premium pricing."},
+        "materials": {"label": "Aluminum, steel, wood", "detail": "Available systems span several premium materials and hybrid approaches."},
+        "breadth": {"rating": 2, "label": "Specialist", "detail": "The local catalog is less standardized than larger national brand portfolios."},
+        "replacement": {"rating": 2, "label": "Project specific", "detail": "Best suited to designed renovations rather than straightforward commodity replacement."},
+        "architectural": {"rating": 5, "label": "Exceptional", "detail": "European detailing and configurations align strongly with contemporary architecture."},
+        "customization": {"rating": 5, "label": "Exceptional", "detail": "Custom dimensions, finishes, operation and glazing are central to the positioning."},
+        "large_openings": {"rating": 5, "label": "Exceptional", "detail": "Slim profiles and large glass surfaces are a key design focus."},
+        "energy": {"label": "Project-engineered packages", "detail": "Thermal breaks, multi-pane glazing and Low-E options depend on the specified system."},
+        "warranty": {"label": "Confirm with project quote", "detail": "Public brand-wide terms are not sufficiently standardized; contract documents should control."}
+      }
+    }
+  }
+}
