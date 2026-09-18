@@ -1,5 +1,15 @@
 (function () {
+  if (window.__dwYelpReviewsInit) {
+    return;
+  }
+  window.__dwYelpReviewsInit = true;
+
   function initBlock(root) {
+    if (root.getAttribute('data-yelp-ready') === '1') {
+      return;
+    }
+    root.setAttribute('data-yelp-ready', '1');
+
     var initial = parseInt(root.getAttribute('data-initial') || '8', 10);
     if (!Number.isFinite(initial) || initial < 1) {
       initial = 8;
@@ -82,6 +92,13 @@
       return;
     }
 
+    if (backdrop.parentNode !== document.body) {
+      document.body.appendChild(backdrop);
+    }
+    if (drawer.parentNode !== document.body) {
+      document.body.appendChild(drawer);
+    }
+
     var lastFocus = null;
 
     function isOpen() {
@@ -130,18 +147,35 @@
       }
     }
 
-    badge.addEventListener('click', function () {
-      if (isOpen()) {
-        closeDrawer();
-      } else {
-        openDrawer();
-      }
-    });
+    document.addEventListener(
+      'click',
+      function (event) {
+        var target = event.target;
+        if (!target || typeof target.closest !== 'function') {
+          return;
+        }
+        if (target.closest('[data-yelp-badge]')) {
+          event.preventDefault();
+          event.stopPropagation();
+          if (isOpen()) {
+            closeDrawer();
+          } else {
+            openDrawer();
+          }
+          return;
+        }
+        if (target.closest('[data-yelp-drawer-close]')) {
+          event.preventDefault();
+          closeDrawer();
+          return;
+        }
+        if (target.closest('[data-yelp-drawer-backdrop]')) {
+          closeDrawer();
+        }
+      },
+      true
+    );
 
-    if (closeBtn) {
-      closeBtn.addEventListener('click', closeDrawer);
-    }
-    backdrop.addEventListener('click', closeDrawer);
     document.addEventListener('keydown', function (event) {
       if (event.key === 'Escape' && isOpen()) {
         event.preventDefault();

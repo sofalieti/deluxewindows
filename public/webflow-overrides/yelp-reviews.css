@@ -419,12 +419,12 @@
 .dw-yelp-badge {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
   max-width: 100%;
   margin: 0;
-  padding: 4px 6px;
+  padding: 2px 4px;
   border: 0;
-  border-radius: 10px;
+  border-radius: 8px;
   background: transparent;
   color: #fff;
   cursor: pointer;
@@ -432,6 +432,9 @@
   font: inherit;
   appearance: none;
   -webkit-appearance: none;
+  position: relative;
+  z-index: 3;
+  pointer-events: auto;
 }
 
 .dw-yelp-badge:hover,
@@ -444,34 +447,12 @@
   box-shadow: 0 0 0 2px #fff;
 }
 
-.dw-yelp-badge__burst {
-  display: block;
-  width: 28px;
-  height: 28px;
-  flex: 0 0 auto;
-  color: #ff1a1a;
-}
-
-.dw-yelp-badge__copy {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 2px;
-  min-width: 0;
-}
-
 .dw-yelp-badge__brand {
   color: #fff;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1;
-}
-
-.dw-yelp-badge__row {
-  display: flex;
-  align-items: center;
-  gap: 6px;
 }
 
 .dw-yelp-badge__rating {
@@ -482,12 +463,8 @@
   line-height: 1;
 }
 
-.dw-yelp-badge__count {
-  color: rgba(255, 255, 255, 0.82);
-  font-size: 12px;
-  font-weight: 600;
-  line-height: 1.2;
-  white-space: nowrap;
+.dw-yelp-badge .dw-yelp-stars {
+  flex: 0 0 auto;
 }
 
 .classic-public-page .trust-badges-bar .dw-yelp-badge,
@@ -495,15 +472,6 @@
 .classic-public-page .trust-badges-bar .dw-yelp-badge__rating {
   text-align: left !important;
   color: #fff !important;
-}
-
-.classic-public-page .trust-badges-bar .dw-yelp-badge__count {
-  text-align: left !important;
-  color: rgba(255, 255, 255, 0.82) !important;
-}
-
-.classic-public-page .trust-badges-bar .dw-yelp-badge__burst {
-  color: #ff1a1a !important;
 }
 
 /* Left-sliding reviews drawer. */
@@ -549,8 +517,8 @@
 }
 
 .dw-yelp-drawer.is-open {
-  transform: translateX(0);
-  visibility: visible;
+  transform: translateX(0) !important;
+  visibility: visible !important;
 }
 
 .dw-yelp-drawer,

@@ -11,20 +11,11 @@
   $yelpJsVersion = is_file($yelpJsPath) ? (string) filemtime($yelpJsPath) : '1';
   $overallFill = max(0, min(100, ((float) $yelpBusiness['rating'] / 5) * 100));
 @endphp
-@once
+@once('dw-yelp-reviews-css')
     <link href="/webflow-overrides/yelp-reviews.css?v={{ $yelpCssVersion }}" rel="stylesheet" type="text/css" />
 @endonce
 
-      <div
-        data-animation="default"
-        data-collapse="tiny"
-        data-duration="400"
-        data-easing="ease"
-        data-easing2="ease"
-        role="banner"
-        class="navbar w-nav trust-badges-bar"
-        id="trustBadgesBar"
-      >
+      <div class="trust-badges-bar" id="trustBadgesBar">
         <div class="w-layout-blockcontainer container-default w-container">
           <div class="w-layout-grid grid grid-543">
             <div class="dw-yelp-badge-slot">
@@ -37,19 +28,11 @@
                 aria-haspopup="dialog"
                 aria-label="Open Yelp reviews, {{ $yelpBusiness['rating_label'] }} out of 5 from {{ $yelpBusiness['reviews_label'] }} reviews"
               >
-                <svg class="dw-yelp-badge__burst" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                  <path fill="currentColor" d="M13.7 1.4c-.5-1.5-2.9-1.5-3.4 0L8.8 6.1 3.8 5.4c-1.6-.2-2.4 1.8-1.1 2.9l4 3.3-1.8 4.8c-.6 1.5 1.2 2.8 2.5 1.8L12 15.4l4.6 2.8c1.3 1 3.1-.3 2.5-1.8l-1.8-4.8 4-3.3c1.3-1.1.5-3.1-1.1-2.9l-5 .7-1.5-4.7z"/>
-                </svg>
-                <span class="dw-yelp-badge__copy">
-                  <span class="dw-yelp-badge__brand">Yelp</span>
-                  <span class="dw-yelp-badge__row">
-                    <span class="dw-yelp-stars dw-yelp-stars--sm dw-yelp-stars--on-dark" style="--dw-yelp-fill: {{ $overallFill }}%;" aria-hidden="true">
-                      <span class="dw-yelp-stars__base"></span>
-                      <span class="dw-yelp-stars__fill"></span>
-                    </span>
-                    <span class="dw-yelp-badge__rating">{{ $yelpBusiness['rating_label'] }}</span>
-                  </span>
-                  <span class="dw-yelp-badge__count">{{ $yelpBusiness['reviews_label'] }} reviews</span>
+                <span class="dw-yelp-badge__rating">{{ $yelpBusiness['rating_label'] }}</span>
+                <span class="dw-yelp-badge__brand">Yelp</span>
+                <span class="dw-yelp-stars dw-yelp-stars--sm dw-yelp-stars--on-dark" style="--dw-yelp-fill: {{ $overallFill }}%;" aria-hidden="true">
+                  <span class="dw-yelp-stars__base"></span>
+                  <span class="dw-yelp-stars__fill"></span>
                 </span>
               </button>
             </div>
@@ -67,7 +50,6 @@
             </div>
           </div>
         </div>
-        <div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-3"></div>
       </div>
 
       <div class="dw-yelp-drawer__backdrop" data-yelp-drawer-backdrop></div>
@@ -109,22 +91,11 @@
           Read all reviews on Yelp
         </a>
       </aside>
-@push('scripts')
-@once
+@once('dw-yelp-reviews-js')
     <script src="/webflow-overrides/yelp-reviews.js?v={{ $yelpJsVersion }}" defer></script>
 @endonce
-@endpush
 @else
-      <div
-        data-animation="default"
-        data-collapse="tiny"
-        data-duration="400"
-        data-easing="ease"
-        data-easing2="ease"
-        role="banner"
-        class="navbar w-nav trust-badges-bar"
-        id="trustBadgesBar"
-      >
+      <div class="trust-badges-bar" id="trustBadgesBar">
         <div class="w-layout-blockcontainer container-default w-container">
           <div class="w-layout-grid grid grid-543">
             <div></div>
@@ -142,6 +113,5 @@
             </div>
           </div>
         </div>
-        <div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-3"></div>
       </div>
 @endif

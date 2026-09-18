@@ -14,7 +14,7 @@
   $yelpJsVersion = is_file($yelpJsPath) ? (string) filemtime($yelpJsPath) : '1';
   $overallFill = max(0, min(100, ((float) $yelpBusiness['rating'] / 5) * 100));
 @endphp
-@once
+@once('dw-yelp-reviews-css')
     <link href="/webflow-overrides/yelp-reviews.css?v={{ $yelpCssVersion }}" rel="stylesheet" type="text/css" />
 @endonce
 
@@ -68,9 +68,7 @@
           </p>
         </div>
       </section>
-@push('scripts')
-@once
+@once('dw-yelp-reviews-js')
     <script src="/webflow-overrides/yelp-reviews.js?v={{ $yelpJsVersion }}" defer></script>
 @endonce
-@endpush
 @endif
