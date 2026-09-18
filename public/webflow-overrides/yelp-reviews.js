@@ -60,6 +60,7 @@
   function setupClamp(review) {
     var text = review.querySelector('[data-yelp-text]');
     var btn = review.querySelector('[data-yelp-read-more]');
+    var photos = review.querySelector('[data-yelp-photos]');
     if (!text || !btn || btn.getAttribute('data-ready') === '1') {
       return;
     }
@@ -70,13 +71,19 @@
 
     btn.setAttribute('data-ready', '1');
     var overflowing = text.scrollHeight > text.clientHeight + 4;
-    if (!overflowing) {
+    var hasPhotos = !!(photos && photos.children.length);
+    if (!overflowing && !hasPhotos) {
       text.classList.remove('is-clamped');
+      review.classList.remove('is-collapsed');
       return;
     }
 
+    review.classList.add('is-collapsed');
+    text.classList.add('is-clamped');
     btn.classList.add('is-visible');
+    btn.hidden = false;
     btn.addEventListener('click', function () {
+      review.classList.remove('is-collapsed');
       text.classList.remove('is-clamped');
       btn.classList.remove('is-visible');
       btn.hidden = true;

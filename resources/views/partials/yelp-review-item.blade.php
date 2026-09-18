@@ -1,5 +1,5 @@
               @php $reviewFill = max(0, min(100, ($review['rating'] / 5) * 100)); @endphp
-              <li class="dw-yelp__review" data-yelp-review>
+              <li class="dw-yelp__review is-collapsed" data-yelp-review>
                 <div class="dw-yelp__review-top">
                   <div class="dw-yelp__avatar">
                     @if($review['photo_url'])
@@ -24,9 +24,9 @@
                   </span>
                 </div>
                 <p class="dw-yelp__text is-clamped" data-yelp-text>{{ $review['text'] }}</p>
-                <button type="button" class="dw-yelp__read-more" data-yelp-read-more>Read more</button>
+                <button type="button" class="dw-yelp__read-more" data-yelp-read-more hidden>Show more</button>
                 @if($review['review_photos'] !== [])
-                  <div class="dw-yelp__photos">
+                  <div class="dw-yelp__photos" data-yelp-photos>
                     @foreach($review['review_photos'] as $photoUrl)
                       <a href="{{ $review['yelp_review_url'] !== '' ? $review['yelp_review_url'] : $photoUrl }}" target="_blank" rel="noopener noreferrer">
                         <img src="{{ $photoUrl }}" alt="" loading="lazy" />

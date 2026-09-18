@@ -258,7 +258,7 @@
 .dw-yelp__text.is-clamped {
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 4;
   overflow: hidden;
 }
 
@@ -283,6 +283,10 @@
   flex-wrap: wrap;
   gap: 8px;
   margin-top: 12px;
+}
+
+.dw-yelp__review.is-collapsed [data-yelp-photos] {
+  display: none;
 }
 
 .dw-yelp__photos a {
@@ -396,10 +400,6 @@
 
   .dw-yelp__text {
     font-size: 15px;
-  }
-
-  .dw-yelp__text.is-clamped {
-    -webkit-line-clamp: 6;
   }
 
   .dw-yelp__photos a {
