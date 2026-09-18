@@ -20,6 +20,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(\App\Services\PromotionSettingsService::class);
         $this->app->singleton(PageMetadataRepository::class);
         $this->app->singleton(SchemaBuilder::class);
+        $this->app->singleton(\App\Services\YelpReviewsService::class);
     }
 
     /**

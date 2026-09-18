@@ -129,10 +129,10 @@
         </div>
       </section>
 
-      <div class="w-embed w-script">
-        <script src="https://static.elfsight.com/platform/platform.js" async></script>
-        <div class="elfsight-app-9b5ea9e5-b8e2-46ee-a99c-1e6552b85f66" data-elfsight-app-lazy></div>
-      </div>
+      @include('partials.yelp-reviews', [
+        'yelpShowHeading' => false,
+        'yelpInitialCount' => 6,
+      ])
 
       @include('partials.about-contact-section')
 

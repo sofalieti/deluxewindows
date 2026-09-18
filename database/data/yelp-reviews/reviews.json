@@ -1,0 +1,1527 @@
+{
+    "business":  {
+                     "name":  "Deluxe Windows",
+                     "yelp_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3",
+                     "rating":  4.5,
+                     "reviews_number":  257,
+                     "recommended_reviews_count":  205,
+                     "non_recommended_reviews_count":  51,
+                     "removed_reviews_count":  6,
+                     "claimed":  true,
+                     "closed":  true,
+                     "address":  "1801 Creekside Ln Burlingame CA 94010",
+                     "street":  "1801 Creekside Ln",
+                     "city":  "Burlingame",
+                     "region":  "CA",
+                     "zip_code":  "94010",
+                     "country":  "United States",
+                     "phone":  "(650) 461-4446",
+                     "collected_at":  "2026-09-18T06:00:25Z",
+                     "collected_reviews_min_rating":  1,
+                     "collected_reviews_count":  105,
+                     "collected_reviews_3plus_count":  89,
+                     "collected_with_avatar_count":  48,
+                     "collected_with_review_photos_count":  3,
+                     "rating_histogram_collected":  {
+                                                        "5":  80,
+                                                        "3":  3,
+                                                        "4":  6,
+                                                        "1":  14,
+                                                        "2":  2
+                                                    },
+                     "source_note":  "Yelp listing is blocked by captcha. This is the complete public review feed (105 of 205 recommended / 257 total)."
+                 },
+    "reviews":  [
+                    {
+                        "id":  "58a99664-4643-4882-9a39-235151890bc5",
+                        "author":  "Natasha C.",
+                        "rating":  5,
+                        "published_at":  "2026-09-04T00:00:00Z",
+                        "published_at_unix":  1788480000,
+                        "text":  "I was referred to Felix at Deluxe Windows and have had a phenomenal experience. From the quote, to the window choice, to the communication, and the install (Thanks George!), the team has been amazing!! I am SO happy with their windows and HIGHLY recommend their team for you. We had about 3 people stop by when they were installing my windows to ask for their business. They installed 7 windows in 1.5 days, tidied up, took care of the waste and explained what I then needed to do regarding paint etc. Fantastic service and SO pleased!",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=PbXM9nEWnN4zzoHTjNehbg",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "a7c5ec79-0eb4-42b8-ab90-c731666add91",
+                        "author":  "Rhonda L.",
+                        "rating":  5,
+                        "published_at":  "2026-05-15T00:00:00Z",
+                        "published_at_unix":  1778803200,
+                        "text":  "Replacing condo windows on a busy boulevard in San Francisco is complex with many moving parts. I outlined the scope of the job gathering and researching the following entities before committing dollars to the project: Review CC\u0026R Restrictions and getting HOA approval Identifying restrictions and window standards with the San Francisco Planning Department Identifying a Window Vendor with a bonded and insured Licensed Contractor with favorable reviews in the installation of the windows. I gathered quotes from (4) window companies comparing apples to apples after reading every review. What the other companies did not disclose was the complexity of installing fire rate windows except for Deluxe Window. Felix is not just a salesman but one with decades of knowledge and experience in the field. Felix disclosed that I would need scaffolding to install (3) fire rated windows and that the custom order would take 16 weeks for build. Also, that I would need written permission from my neighbor to add the scaffolds to reach my unit on the fourth floor. I appreciated the honesty with potential road blocks that can be resolved and dealt with early on in the project with open communication. None of the other companies that came out to quote me disclosed this information. Deluxe estimates were in line and comparable. Throughout the project, I was in constant communication with Darja who sent email outlining steps to guide me through the process from billing, materials, deadlines and installation. 16 weeks sounds like a long time to build windows but Fyre Tec windows are quality worth the wait. I also went with Anlin single hung windows for the ease of cleaning and life time warranty transfers. My installation took three days to complete with installer George paying close attention to details in water proofing, sealant, foam installation, caulking and trimming the frames. The City Building Inspector signed off to continue work and the second appointment to get final sign off of the permit went through without a hitch. The project was work but Deluxe Windows and the company\u0027s competent staff mentioned above help make this into a successful work in progress to final completion. The Deluxe staff were there to answer every and all of my questions. The windows look fabulous and sound proofing has helped minimize the busy street noise.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=PpJtxQp5UXBGIJCoUhqEuA",
+                        "photo":  "photos/a7c5ec79-0eb4-42b8-ab90-c731666add91.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/VjoS3gUq5BxM3diQr5RD2w/180s.jpg",
+                        "review_photos":  [
+                                              {
+                                                  "file":  "review-photos/PpJtxQp5UXBGIJCoUhqEuA-1.jpg",
+                                                  "original_url":  "https://s3-media0.fl.yelpcdn.com/bphoto/7EJrnY8hqPft2fS8yG8XdQ/258s.jpg"
+                                              },
+                                              {
+                                                  "file":  "review-photos/PpJtxQp5UXBGIJCoUhqEuA-2.jpg",
+                                                  "original_url":  "https://s3-media0.fl.yelpcdn.com/bphoto/WBrbSioMZ8L7E37CEMspow/258s.jpg"
+                                              },
+                                              {
+                                                  "file":  "review-photos/PpJtxQp5UXBGIJCoUhqEuA-3.jpg",
+                                                  "original_url":  "https://s3-media0.fl.yelpcdn.com/bphoto/oCwvQ87cMU6LrFvQv2BVMA/258s.jpg"
+                                              }
+                                          ]
+                    },
+                    {
+                        "id":  "52226dca-9754-4dd4-9160-68fb46c101d6",
+                        "author":  "Daniel T.",
+                        "rating":  5,
+                        "published_at":  "2026-04-27T00:00:00Z",
+                        "published_at_unix":  1777248000,
+                        "text":  "100% would recommend Deluxe! They did an incredible job installing new windows in our Tiburon home.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=Bo3D-2MmYLPTvxJ89ghJPQ",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "b5188f70-d860-46ff-a75d-4626b70d8547",
+                        "author":  "Amy A.",
+                        "rating":  5,
+                        "published_at":  "2026-04-20T00:00:00Z",
+                        "published_at_unix":  1776643200,
+                        "text":  "I recently had the pleasure of working with Deluxe Windows, and I couldn\u0027t be happier with the results. From start to finish, the team was incredibly skilled and professional. Their attention to detail and craftsmanship really stood out, making the entire process smooth and stress-free. One of the things that impressed me most was their efficiency. With just two installers, they managed to install 13 windows and one sliding door in only a day and a half! Despite working quickly, the quality was top-notch, and everything was completed perfectly. On top of their excellent work, Deluxe Windows also offered very competitive pricing, making the whole experience feel like an incredible value. I highly recommend them to anyone looking for high-quality window installation coupled with outstanding service.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=WoLbwojkD3D1BOxVNWhq5Q",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "35fc928b-c4b7-452d-8a5c-e5d2567f0272",
+                        "author":  "Cheryl",
+                        "rating":  5,
+                        "published_at":  "2026-04-17T00:00:00Z",
+                        "published_at_unix":  1776384000,
+                        "text":  "My windows were installed a couple weeks after I contracted with Deluxe. The work was done quickly with great quality. The windows are beautiful and I appreciate the reduced sun intensity from the slightly tinted windows.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=IuU_QmD2DGWKQbSRgoGARA",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "37b56ef7-bd1e-4d70-9780-ac8cb12dd26b",
+                        "author":  "Sean O.",
+                        "rating":  5,
+                        "published_at":  "2026-03-26T00:00:00Z",
+                        "published_at_unix":  1774483200,
+                        "text":  "Straightforward, honest pricing, good communication, excellent product and service. Would repeat and recommend.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=9s5YV_j9pbwoCJthEJgk6w",
+                        "photo":  "photos/37b56ef7-bd1e-4d70-9780-ac8cb12dd26b.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/e-k70wrly-dI1ZEcELu71Q/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "1f6fd050-8f11-4203-bc29-9850b44f13f6",
+                        "author":  "Leon B.",
+                        "rating":  5,
+                        "published_at":  "2026-03-10T00:00:00Z",
+                        "published_at_unix":  1773100800,
+                        "text":  "I typically do not write reviews and have not written one in a long time, but with Deluxe Windows and doors, I could not have passed by the opportunity to boast about my experience. It\u0027s funny, as they say everything can be realized in comparison, and it\u0027s certainly true. I have recently had to change out my HVAC, two AC units, two coils and furnaces... Everything that could have gone wrong with that experience did. They overpromised and underdelivered, with change orders and price that was well above the quote... Over the years, I have done various things for the home, but no other company stood out enough for me to go out of my way to provide an opinion. With Deluxe Windows, the experience felt right from the first call. I went on Google searched for a few places, but liked their website. It was clean, informational, and showed starting prices, which was not the case with many others, leaving you wondering what you are getting yourself into... I called and got Yanek on the phone, who happened to be one of the owners. I loved that I got a person on the phone who knew something about the product and service, rather than getting the \"lead farm\" experience, where you call and they get your info, and sell it to the highest bidder, often selling it to a service who might have bad reviews and iffy at best. I had explained to Yanek what I was looking for, and within 5 minutes, had received more information about my own patio doors that I was trying to replace, then I had know to date. I had found out that I had Aluminum Doors, (not something I knew of the bat), I had found out that there are numerous manufacturers, but not all produce Aluminum. I had not replaced windows in my home since I had purchased it, which are still in decent shape, but the patio doors, being in high use, gave out over time. Locks and hinges were broken, seals were broken, screens were barely staying on rollers. I needed 6 new doors, but wanted them to match what I currently had. Felix provide me with a couple of brands, right over the phone that I should research, on their site, which I did, which allowed me to be more informed for when he was going to come to my house to measure the doors and provide an estimate. I had scheduled a free in home estimate, which went like a breeze. Felix had arrived on time, and spent 15 minutes measuring the the doors. As it turns out, something I did not really know, most windows and doors do not come in standard sizes and generally are made to order. Next day, I received a written estimate for Milgard Aluminum doors. Milgard is a great brand as I found out after doing research, and I wanted to install something that would have a great warranty and something that would last. I had then called another company and had gotten another Estimate that was a bit higher than that of DW. Of course I had also negotiated a bit with Yanek, and got a bit more of a better deal, and had decided to go with them. Doors were ordered, took couple weeks. Got permits and scheduled the install. The installation guys were super knowledgeable, efficient, and did a great job. One day and all 6 doors were installed. Second day, they did the trim and I was done. All in all, super professional service, highly knowledgeable and great value! Couldn\u0027t recommend it more.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=4Jd1dY0BQ0kHqu-JQKRgsQ",
+                        "photo":  "photos/1f6fd050-8f11-4203-bc29-9850b44f13f6.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/gih8WOCnch1YvMAg2KWeCw/180s.jpg",
+                        "review_photos":  [
+                                              {
+                                                  "file":  "review-photos/4Jd1dY0BQ0kHqu-JQKRgsQ-1.jpg",
+                                                  "original_url":  "https://s3-media0.fl.yelpcdn.com/bphoto/BiozdUH9r8ONvDOHsze2XA/258s.jpg"
+                                              },
+                                              {
+                                                  "file":  "review-photos/4Jd1dY0BQ0kHqu-JQKRgsQ-2.jpg",
+                                                  "original_url":  "https://s3-media0.fl.yelpcdn.com/bphoto/qqpKVpGGMlNEdpIfLwtl1g/258s.jpg"
+                                              }
+                                          ]
+                    },
+                    {
+                        "id":  "68e50cc3-98ca-4ed5-9462-b8f926eef773",
+                        "author":  "Zaida A.",
+                        "rating":  5,
+                        "published_at":  "2025-07-19T00:00:00Z",
+                        "published_at_unix":  1752883200,
+                        "text":  "This is the first review I\u0027ve ever written regarding home services. My parents who are elderly needed all their windows and doors replaced for their home. I did my research to get them the best of the best. I called several companies and by far, Deluxe Windows stood out. Other companies did not get back to me in a timely manner, and their customer service could not compare. Their staff was incredible throughout the entire process! The sales team, office personnel, engineers and the installers were extremely professional, knowledgeable and friendly. When there job was finished the office called to follow up a couple of weeks later and asked how my entire service went! Wow! They went above beyond and they deserve a 20 star rating! I\u0027ve referred them to a few of my neighbors who saw the work done at my parents and were very impressed. One of my neighbors is the beginning stages with Deluxe Windows, and they have shared that already they are very impressed! Will definitely be using them in my own home in the near future as I will be changing out my own windows! They are at the top of their game, so much so that I had to write this review!",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=jO-msBlzY-c7eu2G3vT_jw",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "055d210d-bf75-4fe4-aeaa-930ae3472b95",
+                        "author":  "Miriam D.",
+                        "rating":  5,
+                        "published_at":  "2025-06-17T00:00:00Z",
+                        "published_at_unix":  1750118400,
+                        "text":  "I really appreciate the quality work deluxe windows has done. Everything was very smooth and quick if you need windows, this is your go to place. You can thank me later.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=PI9UmqjsC-HcKHBI8Z8_Ow",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+                                              {
+                                                  "file":  "review-photos/PI9UmqjsC-HcKHBI8Z8_Ow-1.jpg",
+                                                  "original_url":  "https://s3-media0.fl.yelpcdn.com/bphoto/KjnUV7e-o2tJEy3dLOP9mA/258s.jpg"
+                                              }
+                                          ]
+                    },
+                    {
+                        "id":  "4911087d-5ecc-4ef2-b9b2-6707ea9e3978",
+                        "author":  "Declan B.",
+                        "rating":  5,
+                        "published_at":  "2025-06-05T00:00:00Z",
+                        "published_at_unix":  1749081600,
+                        "text":  "Customer service is great. I had a bunch of questions and they always got back to me quickly. The team was on time, really polite and made me feel comfortable asking anything. The windows turned out great and the whole process felt smooth and professional.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=nHGD37jtaDMZI7ouINzH8A",
+                        "photo":  "photos/4911087d-5ecc-4ef2-b9b2-6707ea9e3978.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/Qe4rbm486pR8RyvXP-TIjw/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "15a1c6f3-a971-455c-8e58-5c4c83b07d25",
+                        "author":  "Cherie W.",
+                        "rating":  5,
+                        "published_at":  "2025-05-28T00:00:00Z",
+                        "published_at_unix":  1748390400,
+                        "text":  "They installed our 10 foot slider door. We are very satisfied with their quality of work, highly recommend them.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=trmAPqMC_08bUcE1mhoevQ",
+                        "photo":  "photos/15a1c6f3-a971-455c-8e58-5c4c83b07d25.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/b7r7yw9aV1p5Kh0rQta4kw/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "3e3fd248-36c4-4930-9a08-275285bc3f10",
+                        "author":  "Mike K.",
+                        "rating":  5,
+                        "published_at":  "2025-05-08T00:00:00Z",
+                        "published_at_unix":  1746662400,
+                        "text":  "I\u0027m late to updating this review but last year I did bring Yanek and Deluxe Windows back to replace four more windows. Yanek made it easy and painless. Yanek came by to take gross window measurements; I went to Burlingame to select the exact windows and options; one of his experts come in and to do the precise measurements. Finally, once the windows were manufactured, he had a trio of experienced installers come in and spend the day installing. These were not easy windows to install - 2nd floor, all installed from indoors, and a couple, due to the age of the house and non-square openings, were a challenge but they did it well, sealed everything up, cleaned up, and were on their way. All the work Yanek and his teams have done for us has been wonderful. We\u0027re not done; they\u0027ll be back!",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=uMTLd7Aq_FSIwgePHoI2GQ",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "70928908-c9d0-492a-a0aa-5a7f6a534247",
+                        "author":  "Myra D.",
+                        "rating":  5,
+                        "published_at":  "2024-03-12T00:00:00Z",
+                        "published_at_unix":  1710201600,
+                        "text":  "Yanek replaced all the windows in an apartment and got it well done in one day. I will use his window services again.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=zA3Z7LPsc1GBrEOhB5sTFw",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "61887dbd-dbe3-4e3e-a5ad-716115d6d929",
+                        "author":  "lesle l.",
+                        "rating":  5,
+                        "published_at":  "2024-03-09T00:00:00Z",
+                        "published_at_unix":  1709942400,
+                        "text":  "Reasonably prices, quick and efficient installation used them for all my windows in my old house ​",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=UFC8d_qoj7bo_3HlzcvcAQ",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "798ccd2e-3a71-4635-a900-841a81c35722",
+                        "author":  "Tristan K.",
+                        "rating":  3,
+                        "published_at":  "2023-12-30T00:00:00Z",
+                        "published_at_unix":  1703894400,
+                        "text":  "When I wrote my previous review, Deluxe Windows was just finishing up their installation. There was just one little thing left - one of the windows had been shipped to us missing a window handle. The team assured me that they would order the hardware and have it sent to me soon. I checked in with the team regularly and was never given a clear update on what was happening or when the handle would arrive. After 2 months, I called and was told that the handle had arrived, but was the wrong color - they would order another replacement. After another month of radio silence, I called and was told that the replacement had arrived, but was again the wrong color. After another few weeks with no information and an unreturned call and message, I took it upon myself to look for the handle on my own. I found one in 20 minutes, ordered it, and it arrived a week later. I don\u0027t have a problem ordering and paying for the replacement handle. and everything I\u0027ve said previously about the quality of the install team and the value/prices remains true. But the lack of communication and accountability by Deluxe Windows to follow through on their promise - especially after the size of project that we did with them - has left a bad taste.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=EFSw7-MGEejoxiIr9dPe9A",
+                        "photo":  "photos/798ccd2e-3a71-4635-a900-841a81c35722.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/eH-dbDIcXfUdcD_i9Qn2JQ/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "751e07be-5b64-4c62-95f9-9cfff3a28d48",
+                        "author":  "penny s.",
+                        "rating":  5,
+                        "published_at":  "2023-12-15T00:00:00Z",
+                        "published_at_unix":  1702598400,
+                        "text":  "Great company... Recently had two sliding glass doors replaced and two windows also. I am very pleased with the work done. Very professional! Yes, I would have them work for me again.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=DbyhmCNzgiNNsrHs22xBHQ",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "3f1197c9-2d6a-4383-8b32-6102fc03cd13",
+                        "author":  "T. P.",
+                        "rating":  5,
+                        "published_at":  "2023-12-14T00:00:00Z",
+                        "published_at_unix":  1702512000,
+                        "text":  "Deluxe Windows gave the best quotation amongst the 5 different companies I reached out to. They were easy to work with. I was able to go to their offices and view the different types of windows. They explained the pros and cons of each type of window for the project. They were efficient in installing the windows and helped us to solve any problematic areas. The job was done quickly but professionally. Yanek and his team are great to work with.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=izfFZ9UkAJpiUoV9GvcVEw",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "1a032404-dc21-4186-8d81-995b0a0384d4",
+                        "author":  "Derek J.",
+                        "rating":  4,
+                        "published_at":  "2023-11-21T00:00:00Z",
+                        "published_at_unix":  1700524800,
+                        "text":  "I am happy with the windows I purchased from Deluxe Windows and Doors. After Yanek, one of the owners whom I met, came to the condo and made the measurements, I received a quote and within six weeks his installation crew came over and replaced the old windows. His crew were excellent and quick, clean, and efficient. Could not be happier. Yanek was great and pleasant to work with, as well as being very knowledgeable. He explained the type of window options, each process very well, and helped select the proper product. Wonderful company and would recommend to anyone. There was least amount of disruption during the removal/installation process.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=1WW-MEkUQpbLrS8ePyDILg",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "8e689c73-cdeb-414f-b218-50db17f877e5",
+                        "author":  "J N.",
+                        "rating":  5,
+                        "published_at":  "2023-11-06T00:00:00Z",
+                        "published_at_unix":  1699228800,
+                        "text":  "Yanek was extremely responsive and easy to work with. I highly recommend if you need to buy windows.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=J8U41or1bWPUehnuNqSuAQ",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "dcf01ea3-6ae7-4a00-a5d8-768b1920be21",
+                        "author":  "Mary G.",
+                        "rating":  1,
+                        "published_at":  "2023-10-22T00:00:00Z",
+                        "published_at_unix":  1697932800,
+                        "text":  "I have been refraining from writing a bad review, but this company has pushed me over the top. They do not even deserve 1 star! Please be warned and take your business elsewhere. In February 2023 ordered a French door from Deluxe Windows to replace an existing one. I met with Yanek, the manager, who seemed professional and even came to my home to double check the measurements. I was told it would take 6-8 weeks for the door to be delivered. After 12 weeks I had not heard anything and contacted them. I spoke to Yanek who said the door would arrive soon and they would inspect it to make sure it was ready to install. The door was finally installed in early June and I immediately noticed problems. The door was extremely hard to close and lock. I contacted Deluxe Doors and they sent a technician who told me that these doors are made this way and you have to slam the door and hold it in place for the locking mechanism to work. Seriously!? It was really a pain and I struggled every time I opened and closed it. I could not open both sides of the door and it was nearly impossible to close. I was away for most of the summer and contacted Deluxe Windows again in early August. They did not respond to my multiple voicemail messages or emails. I finally got a call from someone named John who said he would stop by my house. I was at work at the time and I am a teacher so I cannot leave work on a last minute notice. John said that he or someone else would contact me and look at the door, but no one from the company has contacted me. I have been avoiding using the French door due to all the problems. It has been very disappointing as it\u0027s the only way to get to the backyard directly from the house. Then today a part of the door fell apart and I had to tie it closed with a piece of twine. This is unsafe and makes me anxious to have my home accessible. I hope that Yanek will read this review and respond, but he has not responded to my phone calls or emails, so I am not optimistic.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=t5NyMX_7qDzXuCrC7W1OOA",
+                        "photo":  "photos/dcf01ea3-6ae7-4a00-a5d8-768b1920be21.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/HwgJUoSMa0X7ZjPGitda6w/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "cb5b7a47-d6dc-4a65-a730-ac3382809ea8",
+                        "author":  "Patricia D.",
+                        "rating":  5,
+                        "published_at":  "2023-10-04T00:00:00Z",
+                        "published_at_unix":  1696377600,
+                        "text":  "I am extremely happy with the patio door and windows installed by Deluxe Windows. The installers were very skilled, efficient, and polite and cleaned up after the installation. I would not hesitate to recommend Yanek and his crew for the installation of updated windows at a reasonable cost. Highly recommended. I am looking forward to a cozier winter with fewer drafts. The updated windows also help to ameliorate outdoor noise.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=ZMWUWNn6266UTLGOEJNS-Q",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "843cafd0-7a15-4df1-a342-db216a9629d8",
+                        "author":  "Gloria R.",
+                        "rating":  1,
+                        "published_at":  "2023-06-15T00:00:00Z",
+                        "published_at_unix":  1686787200,
+                        "text":  "Overall, had a very bad experience with this company. Someone came out to measure windows and never heard from them again. Trying to get a hold of someone to call me back was hard. Then requesting full deposit back was even harder. At the end they did not give my full deposit back and did not do any the work.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=jyM024fhdcFW5smXggFgEQ",
+                        "photo":  "photos/843cafd0-7a15-4df1-a342-db216a9629d8.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/aXM7QkHpxqOF4vtDnh1KAw/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "8a22dbbe-758b-4e66-b216-d0f33bbd6188",
+                        "author":  "Matthew M.",
+                        "rating":  5,
+                        "published_at":  "2023-06-05T00:00:00Z",
+                        "published_at_unix":  1685923200,
+                        "text":  "They replaced 3 old windows in our home to match the new windows in our addition. Service was prompt and they completed the replacement in 1/2 day. Good value and prompt service.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=_9M1-Qpv9L25Y9CTt6csHg",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "6ea60cee-79a5-463d-a892-40480521d41c",
+                        "author":  "Naz G.",
+                        "rating":  5,
+                        "published_at":  "2023-04-04T00:00:00Z",
+                        "published_at_unix":  1680566400,
+                        "text":  "Yanek and his crew did a wonderful job installing 40 windows in 2 days. Caulking and trim was all done with precision. Great work all around Professional, quality, on time, variety of products, cleanliness, friendly, communicate well with clients",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=XIO66gmO_T8BMFZo89jq8w",
+                        "photo":  "photos/6ea60cee-79a5-463d-a892-40480521d41c.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/CV12muHTfv7rihVeiMQpHA/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "cfe1bafa-7ef8-454d-8dfe-464de347bea1",
+                        "author":  "A N.",
+                        "rating":  1,
+                        "published_at":  "2023-03-08T00:00:00Z",
+                        "published_at_unix":  1678233600,
+                        "text":  "The installers put a deep gouge on my hardwood floors. They did not put any protective covering under the window that they had it leaning against the wall. I even have a picture of this and sent it to Yanik when I discovered the gouge. All I got was a sorry. One of the installer also rudely us to leave the room and not get in the way. We were standing 5 feet behind them and they were not working with the windows at that point. They just didn\u0027t want us watching them work. Another thing is, they have no incentive to not do any paint damage or drywall damage. It\u0027s not in their scope to fix it but when they were leaving, the guy gave me a business card of his other side business that will fix all the damage and do all the touch-up work. Can you say conflict of interest?",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=lGUg_Peiuz9mZG1WRkLctw",
+                        "photo":  "photos/cfe1bafa-7ef8-454d-8dfe-464de347bea1.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/0ZDiAQCZb2e8y9ASnZjKDg/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "5eb075b6-b52a-49f1-aaed-f73507125f5d",
+                        "author":  "Adriana R.",
+                        "rating":  2,
+                        "published_at":  "2023-02-21T00:00:00Z",
+                        "published_at_unix":  1676937600,
+                        "text":  "Called in to ask some questions about windows. Super rude person on the phone. Doesn\u0027t seem to be interested.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=AVEEoJA1dOkSNFomkn1P0Q",
+                        "photo":  "photos/5eb075b6-b52a-49f1-aaed-f73507125f5d.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/RgTEZ7TYeJXnbvN0zkoeoQ/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "686909fd-a383-48bf-ad09-80b9944cf2b0",
+                        "author":  "Vadim L.",
+                        "rating":  1,
+                        "published_at":  "2023-02-08T00:00:00Z",
+                        "published_at_unix":  1675814400,
+                        "text":  "I got a bi-fold door more than August 2021 and am still trying to get the proper door lock for the door, which means my door deadbolt doesn\u0027t properly lock and has been a safety issue for more than 1.5 years. The shopping experience went well, but after you buy something don\u0027t expect any customer service with issues from the manufacturer this dealer works with. I bought a bi-fold door, which was ordered from Milgard who partners with another manufacturer Western Windows Systems to make the doors. The very expensive door came with the wrong door handle and the wrong lock. After contacting Deluxe Windows, they were able to put an order for the proper door handle pretty quickly. The lock has been another story. First Deluxe Windows put an order through Milgard for a new lock, 3 separate times and each time the wrong one came. This was over 6 months. Then I was told to work with Milgard directly, who sent me the wrong lock 3 times until their process changed and they told me I now had to have the issue resolved with Western. It\u0027s been the same story. I still don\u0027t have the right lock - and the people whose job it is to help you are all sales people so they literally have zero incentive to resolve your issue so there\u0027s no customer service whatsoever. The 1 star is because the sale was actually great, but for such an expensive door I would expect much, much better customer service and it\u0027s just a joke that I\u0027ve had more than 6 locks sent to me without resolving the issue. Next time, I would refuse to pay the full invoice until the issue is resolved. Didn\u0027t know better, but also didn\u0027t know we had a door with the wrong parts.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=ifdvp-5SLrOqZBcyY0Zg8Q",
+                        "photo":  "photos/686909fd-a383-48bf-ad09-80b9944cf2b0.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/dlH24wcp1VHsPwh0VlJfyg/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "8a1bad03-bafe-4076-9c44-8bb2a7e15034",
+                        "author":  "Kurt S.",
+                        "rating":  3,
+                        "published_at":  "2023-01-06T00:00:00Z",
+                        "published_at_unix":  1672963200,
+                        "text":  "OK prices, but be prepared for poor communications. This company isn\u0027t great at returning calls or emails. If do reach someone, and that person isn\u0027t \"the right guy\" .... they won\u0027t take a message. Instead, they tell you to keep calling back until you get lucky. Odd. On the other hand, sometimes they show up at your door out of the blue to fix something, heheh.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=i-AcyBTg0NNmyzMVpq-o-A",
+                        "photo":  "photos/8a1bad03-bafe-4076-9c44-8bb2a7e15034.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/siR_WYFnbvh1RWSmUSgOKA/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "c74bb911-cdf9-4aef-a1be-75c9066258ee",
+                        "author":  "Ty D.",
+                        "rating":  5,
+                        "published_at":  "2022-10-06T00:00:00Z",
+                        "published_at_unix":  1665014400,
+                        "text":  "Excellent experience, the delivery of the windows went well and the two installer removed the windows and installed new one\u0027s with ease and professionalism. I highly recommend Deluxe because they delivered as promised!",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=GBDoVY8Gn9Le9HYOBdFhYg",
+                        "photo":  "photos/c74bb911-cdf9-4aef-a1be-75c9066258ee.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/sQigLKb2wjwERII9296spA/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "0154ee1d-08cc-4b75-8073-b24f2f2fa21b",
+                        "author":  "WilliamLeo L.",
+                        "rating":  5,
+                        "published_at":  "2022-10-03T00:00:00Z",
+                        "published_at_unix":  1664755200,
+                        "text":  "We are very pleased with the Quality of Products. Service and the Staff at Deluxe Windows. They replaced 7 windows and an old Sliding glass door, Their pricing and installation gets 5 stars.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=g2o4gI6BjSCqkhlDlIoLTg",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "633a96a0-b9dd-4151-9f76-91fc6b8664d4",
+                        "author":  "Esteban M.",
+                        "rating":  5,
+                        "published_at":  "2022-08-01T00:00:00Z",
+                        "published_at_unix":  1659312000,
+                        "text":  "We did a major renovation of a 100 year old house during COVID and decided to replace both our front and rear windows. Yan provided the most competitive price estimate. We ended up getting Jeld Wen wood clad windows for the front of the house and Milgard vinyl windows for the back of the house. Due to COVID supply chain issues, there was a delay in receiving the windows, but when the windows came they were correct and fit properly. Yan\u0027s team is helpful and we are happy with our experience. We have been using the Windows for about 8 months and they have performed well thus far.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=EboSe5LEpKj67pia3SOuxw",
+                        "photo":  "photos/633a96a0-b9dd-4151-9f76-91fc6b8664d4.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/MJqcSB6ZaRnZoK2cs0tB2Q/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "f50c3aff-f7e9-46ed-8baa-32e146960fa3",
+                        "author":  "Aaron J.",
+                        "rating":  5,
+                        "published_at":  "2022-07-24T00:00:00Z",
+                        "published_at_unix":  1658620800,
+                        "text":  "Highly professional. Great, fast work. Incredibly responsive. There was an issue with one of the windows when it arrived from the factory and these guys handled it quickly and professionally. Very competitive prices and fantastic quality inventory. Strongly recommended.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=PlLXjSiKZvFT9OvmOq7tSw",
+                        "photo":  "photos/f50c3aff-f7e9-46ed-8baa-32e146960fa3.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/zCaOZuDb0EIjWxmw04A3BA/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "1554156d-e624-457e-9e47-3293a8849f68",
+                        "author":  "Dan W.",
+                        "rating":  1,
+                        "published_at":  "2022-07-22T00:00:00Z",
+                        "published_at_unix":  1658448000,
+                        "text":  "We ordered 17 windows and 1 sliding door over a year ago and the screens have yet to arrive. They continue to make excuses and blame the manufacturer for delays in material delivery, but I\u0027m pretty sure at this point they forgot and do not intend to ever complete the job. The bay window they installed leaks and they have taken the position of ignoring the issue and blaming the manufacturer. Poor communication, delays, and faulty construction have been the standard for our experience with Yanek and Deluxe Window. Do not use this company under any circumstances, or make sure their Subcontract guarantees payment only if the work is completed within a given timeframe.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=Sz9L58m0Pwl81JEY1Qn3TA",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "cfa9e49d-bb34-4061-b225-647f6f7b5e8b",
+                        "author":  "Z S.",
+                        "rating":  5,
+                        "published_at":  "2022-06-08T00:00:00Z",
+                        "published_at_unix":  1654646400,
+                        "text":  "We replaced 13 windows on a rental property. Yanek arrived on time to give an estimate. He explained the different options from different manufacturers and the leadtime challenges because of supply chain issues. His pricing was the most competitive out of 3 estimates we had received. We placed our order and 11 weeks later Yanek contacted us to schedule the installation. The installation took one day. The windows look great.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=NcfBsMlPVNBfWojJskXzFw",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "0543f5c5-fc16-4ba5-9f24-6a3ae94d2767",
+                        "author":  "Thomas K.",
+                        "rating":  5,
+                        "published_at":  "2022-06-05T00:00:00Z",
+                        "published_at_unix":  1654387200,
+                        "text":  "These guys replaced 5 single pane windows in my home when I moved in last year. The estimate was prompt and I was quoted a fair price after going to their office and selecting windows. I went with double pane windows to muffle some of the street noise. My living room and master bedroom windows were HUGE and they did a perfect job installing them. I am happy with the quality of work. Definitely recommend!",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=OvYDxC8TjRIemYqEF3X43g",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "9250c0bc-0041-4bf1-a2cf-987a9d3c5e35",
+                        "author":  "Kurt S.",
+                        "rating":  4,
+                        "published_at":  "2022-05-21T00:00:00Z",
+                        "published_at_unix":  1653091200,
+                        "text":  "These guys source great window and door products and install them for a low price. I was consistently impressed by the quality of work, especially when it came to the installation, which was not an easy one. Their installers are much more experienced than the average team, and paid a lot of attention to detail. Our new sets of sliding glass doors look terrific, and they trimmed them in just right. The only downside to Deluxe Windows is that they are *terrible* responding to texts, emails and voicemail messages. This happens over and over. Sometimes I had to reach out four or five times over several weeks to get any response at all. In the end, they did deliver on their promises.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=ALAaoajlVSFUWb8_2UGkaw",
+                        "photo":  "photos/9250c0bc-0041-4bf1-a2cf-987a9d3c5e35.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/_zGrr2F8lcRVonnMBzx8wg/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "4590445f-6b32-4d9c-8f5d-100a7c02ef1d",
+                        "author":  "Ambrose C.",
+                        "rating":  1,
+                        "published_at":  "2022-05-06T00:00:00Z",
+                        "published_at_unix":  1651795200,
+                        "text":  "I was really refraining myself from putting a bad review but this company has just pushed me over the top to do it. First of, it took over 8 months to get my door replaced. The crew that replaced my door with a Milgard door were very rude. Well I let that go. Then I was so unhappy with the quality of the Milgard door. The door lock does not work smoothly we have to slam the door and hold it in place so it can be locked. The bug screen net broke within 2 months and the bug screen lock does not work. The bug screen does not even roll smoothly. We brought this to the attention of deluxe windows and they said they would order a replacement bug screen. 7 months and no screen showed up. Finally after cancelling several appointments made to repair the door a technician shows up only to tell us that Milgard doors are made like this you have to slam the door and hold it in place for the locking mechanism to work. Seriously!! ?? The bug screen is still not repaired after so many reminders and with regard to the smooth rolling of the bug screen the tech said that\u0027s how Milgard screens are made they get jammed in the strip they have on the door and so it won\u0027t run smoothly. This is the worst company to do business with because you really don\u0027t get any response at all and if you do its just a waste of time. Just save your time and money and go somewhere else.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=XauvkRIMoYeDqUAIqXJotQ",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "b8f7b19a-bda1-423a-bab3-a0c8c288d11e",
+                        "author":  "Natallia V.",
+                        "rating":  5,
+                        "published_at":  "2022-04-26T00:00:00Z",
+                        "published_at_unix":  1650931200,
+                        "text":  "Great service: high quality with good price, nice people; big variety of styles and options; highly recommend!",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=gjMGufl2E2i7TqCD7IiOWw",
+                        "photo":  "photos/b8f7b19a-bda1-423a-bab3-a0c8c288d11e.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/9CPDaR9xgCM0kPi7JodEIA/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "1053d5d8-4a8d-4460-846e-31668731e34f",
+                        "author":  "Lenore K.",
+                        "rating":  5,
+                        "published_at":  "2022-04-19T00:00:00Z",
+                        "published_at_unix":  1650326400,
+                        "text":  "The sales representative was very patient and informative. Once the windows arrived the installation crew was very quick and the inspection passed without a problem. Very happy with the product and service!",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=ce3FIEvGF3AqdODhM-OUNg",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "c85bd754-dab6-47ef-b948-a800e18f9c68",
+                        "author":  "Sal E.",
+                        "rating":  5,
+                        "published_at":  "2022-03-30T00:00:00Z",
+                        "published_at_unix":  1648598400,
+                        "text":  "We love our new windows! When we bought our house, it came with single-pane windows and after living here for a few years paying high utility bills during the winter and summer months, it was time for new energy-efficient windows. We did shop around and met with other companies and we\u0027re so happy we went with Deluxe Windows. The whole process was easy and straightforward from beginning to end. We first met with Yanek for the consultation and he was very knowledgeable in helping us decide which windows were best for our home. It took about 2 months from when we signed the contract for the windows to get installed. Although it took a while for the windows to arrive, once the installation day came, we were impressed with the efficiency of the crew on how quickly they worked. Even my neighbors commented how great our new windows look and mentioned to me how quickly they removed our old windows and installed the new ones in just a few hours! I highly recommend using their services.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=PrEVDyol7epf3w0ofShvPw",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "dad94dfd-f1e5-49d3-ac0e-a3eae1d1647f",
+                        "author":  "Gigi K.",
+                        "rating":  1,
+                        "published_at":  "2022-01-22T00:00:00Z",
+                        "published_at_unix":  1642809600,
+                        "text":  "If I can give a negative five star review, I would. Let me preface this by saying that I understand that the pandemic has caused supply shortages and jobs aren\u0027t easy right now but I really cannot understand the lack of responsiveness from this company. I seriously have stress and difficulty sleeping because of them right now. Back in July 2021, we had moved into our new home and we needed new windows. I found Deluxe Windows on Yelp and asked them for a quote. Yanek came and measured our windows and gave us a quote. On the day that he provided a quote, he sent a sincere email saying that he really wanted to work on our windows and also phoned me twice in the hour to try and get a hold of me. Seeing that he was sincere and that he was so communicative, we decided to go forward with it. We went to the showroom and even paid extra for better windows. Couple days later, someone came and measured our windows again and then took a 50% down deposit. After this is when everything went wrong, I tried contacting Yanek every couple weeks and I never got a response via email. I would call him and he would return calls either. At this point in October, I was convinced we had been scammed. I tried one last shot and messaged on their Yelp contact and luckily someone responded to me right away and indicated that Yanek will respond soon. So I waited, and all I got was \"we\u0027re working on it, and that manufacturers have delayed.\" I expressed I understand that manufacturers are delaying but I would appreciate more communication. For another month, I got no response for email or phone call I sent. Finally in November 2021, Yanek asked if I would want the windows installed without the screens. We decided to go forward with it and wait for the screens as we weren\u0027t getting any responses. Installation was fine, but then we were hit with another problem. $8000 later, our windows are dysfunctional. Not only do they not have screens but they are too heavy to stay open. So if you pull them up, they gradually slide down and close. We\u0027re still missing one window too and I haven\u0027t heard back from the company. I repeatedly email again and I didn\u0027t hear back so I contacted via Yelp again. I got some warranty page and was told to contact the manufacturer but there\u0027s no contact info for the manufacturer anywhere listed and the company is not helping me in any way. Seriously, I\u0027ve never been this stressed out but now I\u0027ve spent thousands of dollars and I\u0027ve received a dysfunctional product from a company that constantly ghosts me and refuses to provide any customer service. Trust me when I tell you to save yourself a headache and go somewhere else for your windows.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=nidGPpgDNQFFc9ZNlUj1QQ",
+                        "photo":  "photos/dad94dfd-f1e5-49d3-ac0e-a3eae1d1647f.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/1VuZajDO21NkKML7NCmW6g/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "9f8c3963-35e8-44c7-aa45-1bca42cfd33a",
+                        "author":  "Mercedes B.",
+                        "rating":  5,
+                        "published_at":  "2021-08-30T00:00:00Z",
+                        "published_at_unix":  1630281600,
+                        "text":  "Yanek was so great to work with. Great windows and great service. We changed our minds a few times and Yanek made it all happen. I will definitely use Yanek again.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=JLxVakxOqxtvze-Nj2FTSQ",
+                        "photo":  "photos/9f8c3963-35e8-44c7-aa45-1bca42cfd33a.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/LzPa2uRWivqDxhX5c0NC_g/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "38d19678-fd5c-4886-861f-d0a55af46b52",
+                        "author":  "Wilson K.",
+                        "rating":  5,
+                        "published_at":  "2021-07-09T00:00:00Z",
+                        "published_at_unix":  1625788800,
+                        "text":  "Very responsive on my request. They have the knowledge and expertise to help on your windows project.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=gAZhrZT7ME700-qBb4e2tw",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "ece03a42-d7c0-4545-b01a-41ac199381ce",
+                        "author":  "Mary H.",
+                        "rating":  5,
+                        "published_at":  "2021-04-29T00:00:00Z",
+                        "published_at_unix":  1619654400,
+                        "text":  "This is a belated review. I needed to replace my living and dining room windows and Deluxe Windows came to the rescue. I worked with Yanek and set on Amerimax windows. I had my windows installed in less than 4 weeks from the time they were put into production. I had to keep the same style of windows to match the other unit in the HOA. The crew who came out to do the work were very professional and courteous. And apparently they are also fearless when it comes to heights. I am on the 3rd story but they stood on my window ledge and a scaffolding contraption like they were walking on the sidewalk. I definitely recommend this business.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=q_BMj4OqNb8zlb8O03j-CQ",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "a5a736fa-4dcf-40be-931c-5b557a7b0ae5",
+                        "author":  "Gregg H.",
+                        "rating":  5,
+                        "published_at":  "2021-04-25T00:00:00Z",
+                        "published_at_unix":  1619308800,
+                        "text":  "Pricing was competitive and they were extremely helpful in choosing the best window type for our home. Installation was a breeze - told to expect 2 days and the team got it done in one. We did retrofit and there was minimal touch up needed for the existing frame, so very pleased with the quality of job done. Yanek and his team are terrific!",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=fvaQpwx2PSXDfAebTaE1hg",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "9b83dfde-fbf7-43e8-917f-2a4bd10ff70e",
+                        "author":  "Jason C.",
+                        "rating":  5,
+                        "published_at":  "2021-04-06T00:00:00Z",
+                        "published_at_unix":  1617667200,
+                        "text":  "Deluxe Windows did a terrific job! I had 9 windows and 1 sliding door replaced and they did a great job. Competive prices. Yanek was easy to work with and schedule. He was flexible with my renovation timeline as our project hit a lot of snags, but he was able to accommodate the extra time. I would recommend.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=nxi-UN2DsvqD6MNdF__GrA",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "73d0d451-46a3-4228-9b04-2412352ab374",
+                        "author":  "Plamen M.",
+                        "rating":  5,
+                        "published_at":  "2021-02-12T00:00:00Z",
+                        "published_at_unix":  1613088000,
+                        "text":  "Yanek and his team did a great job installing a new French patio door for us and replaced all our windows. Everything from the quote to installation went perfectly. His team did a fantastic job and cleaned up after themselves. Would highly recommend them.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=KrygHasDe0gGEtU9DNycsw",
+                        "photo":  "photos/73d0d451-46a3-4228-9b04-2412352ab374.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/Jm3Lm_lwurjReFv1WaFlYA/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "592323cc-0985-4184-a5f4-ed6ece8453b0",
+                        "author":  "James B.",
+                        "rating":  2,
+                        "published_at":  "2021-02-02T00:00:00Z",
+                        "published_at_unix":  1612224000,
+                        "text":  "Originally I thought I was getting good value for the price paid, but out of a dozen plus windows I\u0027ve had 2 fail in a major way. While this isn\u0027t necessarily the fault of this company, the almost lack of response most certainly is. The initial window was a pane failure and it took almost a year to replace between the lack of response from deluxe as well as the actual window company (Amerimax) sending an incorrect window. Now I\u0027ve another window fail that is causing a substantial amount of water to enter and there has been little follow up from my multiple emails. My first email was November 19 and there is still no resolution in sight. In fact no one has even called to make an appointment to come out to check on the window and I feel if I wasn\u0027t following up this would have been dropped completely. Window failures aren\u0027t likely the norm, but how a company handles these I think speaks volumes about their product and how they do business. Right now I\u0027m not a fan of Amerimax (window brand) and unfortunately how Deluxe is handling this latest issue isn\u0027t instilling be with confidence either. I get that these are difficult times and things fall through the cracks, but customer support and follow through aren\u0027t things to be taken lightly.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=g-zwSLzeGjmzMyfXOZt9tw",
+                        "photo":  "photos/592323cc-0985-4184-a5f4-ed6ece8453b0.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/TkSKcrVVXpI7CwMujLgrkw/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "8a775e22-fde3-4240-ab17-494d5cb917e0",
+                        "author":  "Sorina C.",
+                        "rating":  5,
+                        "published_at":  "2021-01-27T00:00:00Z",
+                        "published_at_unix":  1611705600,
+                        "text":  "Great experience. Yanek was very knowledgeable and patient helping us chose the right windows for our home. Installation was on time and went very smoothly. Everyone wore masks which we really appreciated in a time of covid. One window had a manufacturing defect and needed to be replaced. Deluxe windows handled this proactively, chasing the manufacturer to make sure the replacement is delivered on time and kept us updated on status. Replacement was as smooth and painless and the original installation. Great communication and service. Definitely recommend.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=PzmRuD8nWgpiWHBko9kVkA",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "db99d9da-a422-4131-8278-966651ab642f",
+                        "author":  "A K.",
+                        "rating":  4,
+                        "published_at":  "2021-01-22T00:00:00Z",
+                        "published_at_unix":  1611273600,
+                        "text":  "Deluxe was easy to work with in the beginning of my project. Yanuk was very helpful in sourcing and knew the materials, scheduling a measure \u0026 working with me on a complicated contract that involved 40 windows \u0026 9 different types. Due to a manufacturer delay from Jeld-wan (window maker) on the delivery of the windows we had to install with the mismatched hardware. This was made clear to me by Deluxe prior to the install. On the install day they left what they believed to be the right parts but they were not. I had ordered specialty hardware to match my 1909 Edwardian hardware. It was very confusing \u0026 frustrating dealing with the manufacturer, Jeld-Wan (the people who make the windows \u0026 Deluxe). The windows were installed in October. The wrong parts arrived again from the manufacturer December 2, and a rep came out to recount the hardware \u0026 inspect. Jan 18th Deluxe helped me contact Jeld-Wan \u0026 get the order correct. The rep from Jeld-wan suggested not signing off on the project until all the parts were there in full but that would have delayed installation for months. In the end the manufacturer confirmed that the paperwork submitted by Deluxe was correct. It was a frustrating experience because once the windows are in all problems get transferred to the manufacturer but they can\u0027t help you unless the vendor confirms. I\u0027m an interior designer \u0026 have installed many windows for clients in the past and usually the person you buy the product from handles the windows. Everything is a learning experience. But this was complicated \u0026 frustrating but Yanuk (Deluxe) did try to work with me making tickets for the vendor \u0026 confirming orders throughout the 4 month process. Did I get upset, yes. Did it take a long time, yes. In the end did I get 40 well installed windows with beautiful brass hardware, yes.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=O76-ey0oc0Bh6dW4H4ZAyg",
+                        "photo":  "photos/db99d9da-a422-4131-8278-966651ab642f.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/QUQHlbnnFtM2VzKzQ7Wd2Q/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "42b9697e-b2f4-4200-b07d-3a39ea04d4dd",
+                        "author":  "Chia Wei Chris F.",
+                        "rating":  5,
+                        "published_at":  "2020-12-16T00:00:00Z",
+                        "published_at_unix":  1608076800,
+                        "text":  "Great service all around, crew was on time and finished ahead of schedule.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=d3xasLYFN7W29NekLewVlw",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "58f076e0-dd1e-4d38-ad6e-711834a0ae85",
+                        "author":  "Michael C.",
+                        "rating":  5,
+                        "published_at":  "2020-12-15T00:00:00Z",
+                        "published_at_unix":  1607990400,
+                        "text":  "Yanek came by our house and did the measurements and then after 5 weeks the installers came and installed six windows and one patio door in one day. Great work and just make sure to follow-up with them after 4 weeks on the status of the windows. Overall, great experience!",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=V3PXH-i8ElsXZh0g5bXrSA",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "82454bf2-39a5-405f-be96-6b1338e896c1",
+                        "author":  "Juan G.",
+                        "rating":  5,
+                        "published_at":  "2020-10-29T00:00:00Z",
+                        "published_at_unix":  1603929600,
+                        "text":  "Deluxe Windows did a fantastic job with our window replacement project, we are very happy with the service we received and our new window. Yanek was very responsive and gave me a quote right away with different options for what we wanted. He scheduled a follow up in-person appointment to take all the measurement and gave me a detailed quote that accommodated all of our HOA requirements. He kept in constant communication while the window was ordered and then quickly scheduled the installation around our schedule once the window was ready. Installation was very quick for the amount of work required and the personal was very timely and professional, leaving the job site very clean and the installed window looks amazing. They had to break the stucco to get the old window out and the new one in, since our HOA doesn\u0027t allow retrofits and they did an amazing job patching all the stucco back up, to the point that another contractor that came a few day later remarked on how good the stucco work was. Can\u0027t say enough good things about Deluxe Windows, highly recommended!",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=Sde-SgCvghrGoXF5yOEuEw",
+                        "photo":  "photos/82454bf2-39a5-405f-be96-6b1338e896c1.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/1zFM7uKbCy-3O6mHnaxmIg/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "de8933ea-9597-4308-ac4f-1689372486a5",
+                        "author":  "T J.",
+                        "rating":  5,
+                        "published_at":  "2020-10-27T00:00:00Z",
+                        "published_at_unix":  1603756800,
+                        "text":  "My husband and I are extremely happy with our 15 new windows and 3 new doors. Yanek and his team were knowledgeable, friendly, punctual and easy to work with. They completed the project in 2 days and their price was very reasonable. We will always go back to Deluxe Windows if we ever need a new window or door in the future. Would highly recommend!",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=vzIIPvJ-pPBrz9ucIIfWLw",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "81b52be7-d226-4ffe-a593-2c8654dda8ce",
+                        "author":  "Nallely G.",
+                        "rating":  5,
+                        "published_at":  "2020-10-16T00:00:00Z",
+                        "published_at_unix":  1602806400,
+                        "text":  "After looking around for months I am so happy that I found Deluxe windows. I couldn\u0027t be any happier with the service, the product, And everything in between.the safety measurements that they took during installation with Covid made me feel really safe. I can\u0027t recommend this place enough, so happy with this company.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=C-TINt6CMTv_dSg_2La4Gw",
+                        "photo":  "photos/81b52be7-d226-4ffe-a593-2c8654dda8ce.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/razYbCLPSJTX3nN4TnHEmw/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "2b6d7fb6-672e-44d2-9940-664534a0da20",
+                        "author":  "Teresa A.",
+                        "rating":  4,
+                        "published_at":  "2020-09-30T00:00:00Z",
+                        "published_at_unix":  1601424000,
+                        "text":  "Had 9 windows and a sliding door replaced with new construction. Yanek was very helpful and honest with us throughout the whole process. The window installation and stucco looks great. Love the windows we picked (Millard Fiberglass). The fiberglass was a bit more expensive than vinyl, but it was totally worth it. Excellent quality. The only reason I am not giving 5 stars is because the interior finish work done on the window casing was not up to par. Lots of caulking to fill gaps and mistakes.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=VRgWyLjB6goI4zByLWLVhw",
+                        "photo":  "photos/2b6d7fb6-672e-44d2-9940-664534a0da20.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/M0p_K4FbufuWzEw9mH5GsQ/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "afaa090c-4fe7-4538-b2e8-0a0d567cc478",
+                        "author":  "Chris N.",
+                        "rating":  1,
+                        "published_at":  "2020-09-29T00:00:00Z",
+                        "published_at_unix":  1601337600,
+                        "text":  "Stay away from this company. None of the windows were properly installed and water has rotted the wood framing of my home. The worst part is that he is avoiding me and won\u0027t return my calls. Do yourself a favor and stay away from this guy.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=cVB-ehpQK4b4akeVrEAdOw",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "ec50f1e3-6910-4cf6-9ea9-a6c59ded2986",
+                        "author":  "Remko V.",
+                        "rating":  5,
+                        "published_at":  "2020-08-12T00:00:00Z",
+                        "published_at_unix":  1597190400,
+                        "text":  "We worked with Deluxe Windows to replace some old doors and a window. Yanek clearly explained the options, and always responded quickly to all our questions. The work itself was delayed by COVID, but promptly executed by Gary and team once allowed again, with all necessary health-safety precautions. The new window needed a minor repair by the manufacturer before the installation work could be completed, and Gary was responsive to complete the installation work immediately after the repair was done.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=u_sHOARza5sC_do1u1MwyA",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "54708c54-60ee-4dfe-a2a3-4b1b866fa69c",
+                        "author":  "Angelina N.",
+                        "rating":  5,
+                        "published_at":  "2020-07-25T00:00:00Z",
+                        "published_at_unix":  1595635200,
+                        "text":  "Just completed retro install of 18 windows/New construction of 1 sliding door and they all turn out beautiful. Great pricing of Milgard windows, knowledgeable in product info and great customer service from Yanek. Efficient/fast install and clean work from his crew. I highly recommend Yanek @ Deluxe Windows. Thank you!",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=nTqY_VydgiAVW9BnfsMSBw",
+                        "photo":  "photos/54708c54-60ee-4dfe-a2a3-4b1b866fa69c.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/uMxQ8Kzeid2fZFh_nBCrBA/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "a017612b-fada-4311-8d6d-ad194e4c22b7",
+                        "author":  "Erika A.",
+                        "rating":  5,
+                        "published_at":  "2020-07-16T00:00:00Z",
+                        "published_at_unix":  1594857600,
+                        "text":  "I found them through Yelp. After comparing quotes with other companies, they had the most competitive price, and they carried Milgard, the brand I wanted to choose for my project. They replaced two sliding doors and one window in my condo. They finished the job in two days. The crew who came were skilled, respectful, and efficient. The installation turned out to be a success and I would recommend them hands down to anyone looking for their next window replacement job. One thing I would suggest to them to improve on, it would be to get back timely over text messages. Anytime I would call, they would answer me right away, but these days text messages are just as important as phone calls. Besides that, I had a great experience and would highly recommend their services. I am very satisfied overall. Thank you!",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=B__OpUrfefAhW3Rq_VjWPQ",
+                        "photo":  "photos/a017612b-fada-4311-8d6d-ad194e4c22b7.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/PrIlMANfBN4N2MoFjoRq0A/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "b11d7211-9cc1-4a7c-9314-2e0de4187740",
+                        "author":  "Timo A.",
+                        "rating":  5,
+                        "published_at":  "2020-07-07T00:00:00Z",
+                        "published_at_unix":  1594080000,
+                        "text":  "Deluxe Windows took care of retrofit window replacement for our house in June 2020. Yanek was able to come over for consultation quickly and provided us with a quote the day after. The initial quote was very reasonable and they were very accommodating to the changes we requested. The process was very fast: the new windows were in place in one month from when I first contacted the company. Everyone we interacted with was friendly and professional, and the whole project went smoothly and without glitches. So far, we are very happy with the Milgard windows we got.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=aGNoFNIUADakQFkLmkS6Tw",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "751852a8-61f2-4ed8-bffd-06f73e158121",
+                        "author":  "Al J.",
+                        "rating":  5,
+                        "published_at":  "2020-06-13T00:00:00Z",
+                        "published_at_unix":  1592006400,
+                        "text":  "Excellent and fast service! The people who work there are super kind and prompt. I was able to get my broken window fixed in a couple of hours at a very reasonable price.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=fnsrC8iQXPweR3WPF1BfLQ",
+                        "photo":  "photos/751852a8-61f2-4ed8-bffd-06f73e158121.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/a8zhwA2LnteCX5jXSvzilw/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "05fb5647-c5fc-41fc-8d33-64d4202687b0",
+                        "author":  "Julia P.",
+                        "rating":  5,
+                        "published_at":  "2020-05-26T00:00:00Z",
+                        "published_at_unix":  1590451200,
+                        "text":  "Yanek and his crew just finished replacing all the doors and windows in our Belmont home, and they did a spectacular job. I was a bit apprehensive, simply because we have so many large doors and windows, but in pretty much every way they exceeded expectations. The french doors and windows were done in about 2 days, and the stucco repair is good. Gary did this and the moldings to a very high level of quality. I was really impressed with the sales process also - Yanek the sales guy was professional, gave us helpful information, and also spotted errors in the quotes given by a couple of other firms. I\u0027d also spotted the errors earlier in my research, so it gave me confidence he knew what he was talking about - he used to be an installer. They also followed up quickly when i had questions and they followup up promptly when i found a defect in the screen door. He gave us a great price too. So, all in all this has been a great experience for us.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=4CIqdYYv2813zpJIs7iXDg",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "5e13e1a0-c30e-44a0-99da-32d1ae187905",
+                        "author":  "Mary Ann D.",
+                        "rating":  1,
+                        "published_at":  "2020-05-21T00:00:00Z",
+                        "published_at_unix":  1590019200,
+                        "text":  "I arranged to have Deluxe Windows come to my house to quote a small job- new construction replacement of a window \u0026 sliding glass door. First of all, unlike the other 4 companies we asked for quotes, Deluxe gave a non-specific time of \"between 11 \u0026 12:00.\" When no one had called or shown up by 12:30, I called to check on the status of their arrival. No apology or explanation. Just that they\u0027d check on it. Well, when 1:30 rolled around, and still no call or person, I phoned to politely cancel. He hung up on me!!! Guess I dodged a bullet on this one!",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=RRxasXiP61Uwhq3jNvpmgg",
+                        "photo":  "photos/5e13e1a0-c30e-44a0-99da-32d1ae187905.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/O01_oajtftR4nOdv1Me39Q/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "542283e3-264a-40d5-9030-07324ede0056",
+                        "author":  "Natalia F.",
+                        "rating":  5,
+                        "published_at":  "2020-05-05T00:00:00Z",
+                        "published_at_unix":  1588636800,
+                        "text":  "I was doing a complete remodeling and needed the new windows. I had to replace 30 year old aluminum windows. They were a mix of new construction and replacements. I was set on Milgard windows and Yanek has the best pricing for them. He went to the property multiple times and discussed options and design. He is highly knowledgeable and can answer your questions. Despite his busy schedule, communication via email or phone calls are a breeze with their company.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=2tkV4m0tKcDaG-3Q1WWwvQ",
+                        "photo":  "photos/542283e3-264a-40d5-9030-07324ede0056.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/IcpvwHlk3Az-UDmaC0Mc0A/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "fb1cbe68-38e6-44ff-a1a7-45e4493bec44",
+                        "author":  "David H.",
+                        "rating":  5,
+                        "published_at":  "2020-05-05T00:00:00Z",
+                        "published_at_unix":  1588636800,
+                        "text":  "Deluxe Windows is the best combination of price, value, and workmanship. I had 7 old casement windows changed for sliding windows. Yanek came to check out the situation and subsequently generated an estimate. An estimator came and carefully measured the dimensions of the existing windows. The actual replacement took one day. Yanek and workers are courteous and responsive. They are knowledgeable and easy to work with. It was worthwhile visiting their showroom to compare the function and features of windows from different manufacturers. The workers were diligent in the installation and cleaned up afterwards.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=2dlCmfWQzOCTazVeOoZEGg",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "ebc0c63a-3939-4c9a-933b-202d6c3f866d",
+                        "author":  "Stacy H.",
+                        "rating":  5,
+                        "published_at":  "2020-03-13T00:00:00Z",
+                        "published_at_unix":  1584057600,
+                        "text":  "Deluxe windows provide the best service, fast, professional and efficient. The owner Yanek is very easy to communicate with and friendly, great customer service. The installation crew provides safe, fast and non-messy services. I am very satisfied with it and will definitely recommend them to all my clients and friends! Great job!!!!",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=UKeg27e9ZwcUcSrmEMu65w",
+                        "photo":  "photos/ebc0c63a-3939-4c9a-933b-202d6c3f866d.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/AbhjblPdIskXBSC3izwozw/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "d3649013-2810-473e-a00e-b380e33e2283",
+                        "author":  "tina s.",
+                        "rating":  5,
+                        "published_at":  "2020-02-24T00:00:00Z",
+                        "published_at_unix":  1582502400,
+                        "text":  "We had the windows in our living room replaced recently by the wonderful team at Deluxe Windows. This included double hung, awning, custom picture windows (6 in total) so several kinds. After an initial consultation with Yanek at their office in Burlingame, we decided on Milgard Windows which were displayed in their showroom. Upon receipt of the windows, Yanek promptly scheduled an appt and within one day, the old windows came out and new ones were in. Super fast and efficient and tidy. We couldn\u0027t be happier. Thank you to the team at Deluxe Windows for such great customer service!",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=G4ZhR2UuaP6zEh6IdwvVwg",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "8c6fb11c-ef75-4494-96b4-de347c0a51b4",
+                        "author":  "Natarajan V.",
+                        "rating":  5,
+                        "published_at":  "2020-02-15T00:00:00Z",
+                        "published_at_unix":  1581724800,
+                        "text":  "We hired Deluxe to replace all the single pane windows and patio doors with either double or triple pane windows/doors. They did an excellent job. The quoted prices were very reasonable, they were very responsive. The work was completed within budget and on time. I would recommend them wholeheartedly.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=lDvx20GXA5XFSRUH12rD5w",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "c1f2537f-4121-4216-9343-b60f688d73f6",
+                        "author":  "Lucy R.",
+                        "rating":  5,
+                        "published_at":  "2020-02-10T00:00:00Z",
+                        "published_at_unix":  1581292800,
+                        "text":  "Super responsive via text and email, they were great to work with. We had new windows installed in 2 bedrooms and our living room and installation was seamless.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=mKqCxStiEwhNSZ_gXc_B3Q",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "b69edd2c-6ce1-40cb-ac68-66ee65949dd5",
+                        "author":  "Kyle L.",
+                        "rating":  5,
+                        "published_at":  "2019-09-23T00:00:00Z",
+                        "published_at_unix":  1569196800,
+                        "text":  "Very knowledgable on the variety of window options and which will fit your goals and budget. We did quite a bit of shopping and found Deluxe Windows to have very competitive prices as well. Installation was fast and quality. Would recommend and use again.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=NvPgpe4AESR-QQK4IBFbqQ",
+                        "photo":  "photos/b69edd2c-6ce1-40cb-ac68-66ee65949dd5.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/dmdGTA2Q0Wmqul46xIGZbQ/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "25f1058e-d32c-4722-b5fa-5f6646214766",
+                        "author":  "Wil M.",
+                        "rating":  5,
+                        "published_at":  "2019-09-10T00:00:00Z",
+                        "published_at_unix":  1568073600,
+                        "text":  "I hired deluxe window for two sets of casement window replacements and a sliding door In the rear of the house. I spoke with Lana and scheduled an appointment with Yanek for an estimate, Garrick was the installer. The whole process was smooth, Yanek came for the estimate, provided some good advises, gave a decent estimate, waited for the window, and Garrick came and installed the windows about a month later. The entire process was pretty quick and we are pretty happy with the overall job.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=ZuRfCF_XhghhEVZeIkQmZA",
+                        "photo":  "photos/25f1058e-d32c-4722-b5fa-5f6646214766.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/91FGX_7p6tUO16PONNVIAA/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "aa63d927-0d2c-41d1-864d-b45e77594e2d",
+                        "author":  "Tanya B.",
+                        "rating":  5,
+                        "published_at":  "2019-09-07T00:00:00Z",
+                        "published_at_unix":  1567814400,
+                        "text":  "It was easy to work with Yanek and his team. It was a fast and problem-free installation. I installed Amerimax.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=gnV40tQbpDYraKPxA_7Lwg",
+                        "photo":  "photos/aa63d927-0d2c-41d1-864d-b45e77594e2d.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/c9AncRo3R_vzNZDVARNvLQ/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "90c6406e-ccda-4c80-b3e5-0f72dd9da8bb",
+                        "author":  "Natascha N.",
+                        "rating":  5,
+                        "published_at":  "2019-08-27T00:00:00Z",
+                        "published_at_unix":  1566864000,
+                        "text":  "Deluxe Windows just replaced most of the windows in my mom\u0027s house. They did everything they said they would. Paul was good about keeping me updated on the arrival date of my window order, and despite a small delay, scheduled installation promptly once the order arrived. The installers did everything in one day; the windows look great, and they cleaned up after themselves. All in all, I am very satisfied. Excellent job!",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=sg2GSdyV94oaYRNgSgQN1Q",
+                        "photo":  "photos/90c6406e-ccda-4c80-b3e5-0f72dd9da8bb.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/qOTLZzzKsXOq78s_1cW8fA/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "bd8bfb4e-1e91-467c-9c8e-dae0352b0c2e",
+                        "author":  "Bonnie K.",
+                        "rating":  5,
+                        "published_at":  "2019-06-24T00:00:00Z",
+                        "published_at_unix":  1561334400,
+                        "text":  "Paul and his team were professional, responsive and most importantly for us kind. We were a very small job but they treated us with wonderful customer service. And the quality of work was great. We are hoping to slowly replace more windows and will 100% be going back to Deluxe Windows.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=vamhPiZG0eZ5Eb2g9yoRkg",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "7df26edf-1bca-4b7d-a147-353480f56dcd",
+                        "author":  "Angie L.",
+                        "rating":  5,
+                        "published_at":  "2019-06-19T00:00:00Z",
+                        "published_at_unix":  1560902400,
+                        "text":  "This is a 100% real purchase. I rarely write reviews. But I do give credit where credit is due. In this instance, I could not hesitate in giving Yanek and his team a brilliant review. Yanek and his crew are exceptional. I received a reasonable quote after emailing a few vendors and happened to be near Deluxe Windows and thought I\u0027d drop by for a better look. Yanek\u0027s no pressure approach was unique. He showed me the best, the worst and somewhere in between and helped us decide what windows and doors that would be best for us. This had been the first time I did this (my instinct is always to do more research) but I was so impressed with Janek and his ability to be flexible and his no pressure sales that I put down a deposit. Over the coming weeks I became more and more nervous that I had made the wrong decision. I hadn\u0027t. Janek worked with me to schedule a time for installation and I actually received an earlier slot than was expected. Ultimate workmanship from the crew that came was first class. A few little niggles post-installation were handled with great customer care and everything was completed to the highest standard. I cannot really explain some of the negative reviews which had me skeptical too. But I cannot offer anything but my highest recommendation for Janek and Deluxe Windows.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=Hekb7XHlRwD7oq9OZLrjYQ",
+                        "photo":  "photos/7df26edf-1bca-4b7d-a147-353480f56dcd.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/v1G9gR0mS1zEsiLyW12LZQ/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "63cae2c5-a2a6-47ff-9de3-93f853c7191b",
+                        "author":  "Mariuca N.",
+                        "rating":  1,
+                        "published_at":  "2019-06-13T00:00:00Z",
+                        "published_at_unix":  1560384000,
+                        "text":  "I would have noted them with a minus if there was a way! Terrible service once you payed. Misleading info about the windows they sell ; over three month delay for installation of windows that differ from what you were shown in their show-room.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=0snRKrbWUjUrtgi0iB7Tsg",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "9c300648-1d11-4b80-b2ac-4f50063555cc",
+                        "author":  "James L.",
+                        "rating":  1,
+                        "published_at":  "2019-04-25T00:00:00Z",
+                        "published_at_unix":  1556150400,
+                        "text":  "Summary = Misleading pricing, Failed city inspection, Unresponsive communication, No respect for client\u0027s time I just finished a project with Deluxe Windows. 10 windows in San Francisco. Took me 5 months to finish. Here is a shortlist of issues I ran into -I was quoted one price. This was revised after the permit, at which I had no way to change vendors. The latter price was higher than other vendors. -When they installed my windows, two had defects and all had missing parts -The first city inspection failed. The inspector was appalled by the mistakes that were made. -This led to 4 more subsequent visits - of which two times they came without the proper equipment or staff -Unresponsive communication throughout - I had to call/email several times to get a response. Of course, the only time they were prompt was to ask for payment. The installers were nice and polite, but overall this has been terrible experience and involved so many wasted hours. Having spoken to other homeowners since, there are much better vendors with better pricing.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=iGvgtXsQTk9fzwpSfYBTFg",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "fae43c46-2bda-454c-9f93-21cfa09d3a4a",
+                        "author":  "Stu W.",
+                        "rating":  5,
+                        "published_at":  "2019-02-26T00:00:00Z",
+                        "published_at_unix":  1551139200,
+                        "text":  "We recently replace seven windows with Deluxe Windows and could not be more pleased with the entire process. After our initial estimate, we made a lot of changes to what we wanted as we learned more and more about our options. Yanek (whom we worked with) was always patient and provided us with all of the information (and pricing) we needed to make our decision. He responded to us quickly via phone or email. When the gentleman came to take the final measurements, he was able to show us exactly how various windows would look in our house (i.e. width/depth of replacement windows vs. the original ones). With his help it was easy to decide on our final order. It took a few months for the windows to be delivered (which Yanek made us aware of - so no surprises for us). The installation team completed everything in one day and they were very professional. Milgard (the company we selected) sent some incorrect hardware, but they told us exactly what the problem was before finishing up, and Yanek has already been in contact with Milgard. I would recommend Deluxe Windows to anyone looking to replace their windows. Yanek is patient and wonderful to work with (and we changed our minds a lot).",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=z2uQFDUNv7OoARRAv_94bA",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "4477f1d1-f9cc-4783-8df1-00452426e864",
+                        "author":  "Luis B.",
+                        "rating":  1,
+                        "published_at":  "2019-01-13T00:00:00Z",
+                        "published_at_unix":  1547337600,
+                        "text":  "Never again. Deluxe Windows installed a bay window (actually, two bay windows - one initial install and one replacement for that same install) in my house. Both installations leaked in the exact same places. The window manufacturer replaced the first window under warranty stating that doing so would rule out it being a problem with the window itself. As mentioned, the replacement installation with a brand new window leaked in the exact same places. The window manufacturer reviewed the install and said it was due to improper installation. As of the date I am writing this, the window continues to leak and has been doing so since early November of 2017. Interactions with Deluxe Windows were pretty decent and timely up until the problems started to arise. After that, it has been common for me to send numerous emails or leave numerous voice messages before getting a response (sometimes several weeks later). Attention / sense of urgency to the problem by Deluxe Windows has been lax at best (hence the window still leaking over a year later). There are other things I could go into here but I don\u0027t want to turn this into a novel. Deluxe Windows has, without question, provided me with the worst customer service that I\u0027ve ever experienced. I very much wish I had selected a different vendor for this job.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=k9e7rc-QqULmkLtMrXu54g",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "fecff892-b3b6-449a-98fd-8e728afa74b7",
+                        "author":  "Chad G.",
+                        "rating":  5,
+                        "published_at":  "2019-01-03T00:00:00Z",
+                        "published_at_unix":  1546473600,
+                        "text":  "I am very happy with our experience with Deluxe Windows. We had an unanticipated breakage of a large ~6\u0027x8\u0027 picture window and needed to get quotes done and the work contracted in a timely manner. I was very impressed with the professionalism of Deluxe Windows from the instant I met Paul, he was very intent on providing a great customer service experience. I got bids from 8 different companies, and Deluxe Windows was among the lowest for the product I wanted (Milgard). The prices were so good, that I decided to replace another large picture window simultaneously and ended up ordering two. It took several weeks for Milgard to build and deliver the windows, but Paul promptly scheduled installation upon their arrival. The team arrived around 3pm and I was nervous they were going to run out of sunlight, but they worked with incredible efficiency and attention to detail and were finished with both windows by 7pm. I am very happy with the quality of the work, and will likely have Deluxe Windows replace our last two old windows in the future.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=Yf1j7LN7fTbi_nKEiXsvJw",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "944cbc36-2b8a-4271-aa41-7562ec04ccdb",
+                        "author":  "Fernanda M.",
+                        "rating":  3,
+                        "published_at":  "2018-12-02T00:00:00Z",
+                        "published_at_unix":  1543708800,
+                        "text":  "UPDATE: I received a call from Paul, the business owner to apologize for our bad experience. That was a nice gesture and it shows that they care a bit about the business and their clients. I updated the review from 1 to 3 stars. It\u0027s possible that it was just a bad experience with a single salesman but that does not necessarily mean that their business deserves a 1 star review.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=wrp9MT54lPhVb-45qntOQQ",
+                        "photo":  "photos/944cbc36-2b8a-4271-aa41-7562ec04ccdb.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/vS39D1DKKSDDUuOk7wOpaA/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "b6f4278a-b5f9-405f-b2fb-95b10ca17302",
+                        "author":  "Alex B.",
+                        "rating":  5,
+                        "published_at":  "2018-11-26T00:00:00Z",
+                        "published_at_unix":  1543190400,
+                        "text":  "Very good prices and service. I was happy with the whole experience and final product. Well recommended.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=_iRrvzASHnsZqOgyS8XbOA",
+                        "photo":  "photos/b6f4278a-b5f9-405f-b2fb-95b10ca17302.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/XA4IvjDPEI23LzA9TmnBnQ/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "d6372783-17e3-4780-a27b-66882ac5a578",
+                        "author":  "Arthur K.",
+                        "rating":  5,
+                        "published_at":  "2018-11-25T00:00:00Z",
+                        "published_at_unix":  1543104000,
+                        "text":  "Great service. I ordered windows three weeks ago. Large order but everything went smoothly. Very honest price and quick and efficient work. Highly recommended.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=RhRSis2J5Y2K7S-qwIHuCw",
+                        "photo":  "photos/d6372783-17e3-4780-a27b-66882ac5a578.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/3bDJVMW8VgbxoGeyKXo7Hg/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "fbda53d6-f070-4fe9-b066-feb8a1bf82f6",
+                        "author":  "Mo M.",
+                        "rating":  5,
+                        "published_at":  "2018-11-09T00:00:00Z",
+                        "published_at_unix":  1541721600,
+                        "text":  "Great company willing to work with customer! Yanek made everything right! Very satisfied with response and work. Thank you again!",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=ktASCI_qVbHfhSGfrjGmvw",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "ceff75f6-64db-40f6-9c3c-7895bf3f6d32",
+                        "author":  "Markus P.",
+                        "rating":  5,
+                        "published_at":  "2018-11-06T00:00:00Z",
+                        "published_at_unix":  1541462400,
+                        "text":  "Just had a nice experience! Had new windows installed by Deluxe Windows. So professional, friendly \u0026 efficient. The whole process was much quicker than I expected. It only took 2 weeks to order and 1 day to install. Yanek was a pleasure to deal with in person and via email, text \u0026 phone calls to make all of the plans. Gary, the installer, was professional. I highly recommend this company!",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=eNG37H_5DC4cG3aOMPZ-ng",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "993af96c-d381-4749-844c-53267c6116fc",
+                        "author":  "Eduardo A.",
+                        "rating":  5,
+                        "published_at":  "2018-10-23T00:00:00Z",
+                        "published_at_unix":  1540252800,
+                        "text":  "De Luxe windows did a wonderful job replacing all my windows. A total of 11 windows. Very professional and the price was reasonable. Yanek was thorough in explaining the difference between retrofit and new installation to me. Would definitely recommend them",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=uR2zStEiM_kmRs3uU7XWfQ",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "c98d0730-5cb7-4239-982e-b547503d29fa",
+                        "author":  "Jie S.",
+                        "rating":  5,
+                        "published_at":  "2018-09-15T00:00:00Z",
+                        "published_at_unix":  1536969600,
+                        "text":  "We purchased/installed 4 large windows using Deluxe Windows. They are very professional. Paul is very nice and helpful.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=CNd6Sygk0oKxPkl6ROaJqg",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "b7df01d4-2c90-4372-ba01-d78fffe2d1b1",
+                        "author":  "Richard L.",
+                        "rating":  5,
+                        "published_at":  "2018-09-10T00:00:00Z",
+                        "published_at_unix":  1536537600,
+                        "text":  "We had 7 windows installed, overall good experience. The quoting process was pretty easy with an initial house visit, followed by a visit to the showroom and deposit payment and then another sizing validation visit. The windows did take longer to arrive than originally thought, but once they arrived the installation was quick. Our original concern with installation was the potential for additional work in having to replace the original frame and repainting outside (not that we were against it, but it just adds to my list of to dos). That was mitigated as the installation was done from inside with no damage to the outside original frame, they did have a to remove a portion of the frame inside the house but they easily replaced it. Overall took less than 5 hours for our installation with clean up and removal of all old windows and debris.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=0Sa8ngE34U6JTOgS2UDVDQ",
+                        "photo":  "photos/b7df01d4-2c90-4372-ba01-d78fffe2d1b1.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/twb9EElTtspCZktI_8oyGA/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "6ffa21e1-4cdd-447c-a0c2-0a3ec1af0c5a",
+                        "author":  "Xiao S.",
+                        "rating":  5,
+                        "published_at":  "2018-08-22T00:00:00Z",
+                        "published_at_unix":  1534896000,
+                        "text":  "Yanek helped me install three windows. He came multiple times to ensure that all windows are correctly measured and installed. The process was pretty smooth. As there are many options regarding the Amerimax windows Yanek recommended, we had a few round trips of questions and Yanek was patient to answer them. I\u0027d work with them again!",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=QUrLb6Fh7iagAfBTLhdL1g",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "037b55b0-5c75-4fb3-ac51-a80383e77e88",
+                        "author":  "Mohi P.",
+                        "rating":  5,
+                        "published_at":  "2018-08-10T00:00:00Z",
+                        "published_at_unix":  1533859200,
+                        "text":  "Initial Meeting: I contacted several companies in the Bay Area to replace five windows and install a french door (replacing my sliding patio door). The fastest responses came from Deluxe windows and their quotes were quite competitive. After exchanging several emails, Yanek invited me for a face to face meeting. While Deluxe Windows was closed on Saturdays, he made an exception for me to meet me on Saturday morning. During my meeting, he showed me all the options available and also provided his thoughts/recommendations. Never during the process, I felt compelled to go with any particular brand. (NOTE: Some of the other window companies were hard on selling only one brand). Based on this meeting, I realized the value Amerimax windows can offer over Milgard for almost the same pricing. I decided to go with retrofit vinyl windows from Amerimax and Vinyl French Patio doors from Milgard. I was happy with this experience so I decided to choose Deluxe Windows for next steps. I was asked to provide a small deposit to move forward with next steps. Measurements: Yanek was able to arrange for his technician to come over on the same day. Alex came over to take all the measurements. At this point in the process, I had to put down 50% of the agreed costs. The estimate for the French door went up slightly (by a few hundred dollars) as after taking measurements, Yanek and Alex found that they had to place a custom order for me for the French Patio doors because of the size of my opening and the product offerings from Milgard. Fabrication: The window and patio door fabrication took about 4 weeks. During this time, Yanek always responded to any questions I had as I was waiting for the windows to arrive. Installation: Yanek and team were flexible with the scheduling for the installation. I had to go out of town for a last minute trip and so my installation was scheduled a week after the windows were available. Instructions were sent prior to the installation to help me prepare for the day of the window installation. I had to take down all my binds and keep about 2 -3 feet of space around the window to help with the installation. The installation took 1.5 days. The two technicians who came to install were very professional, took all measure to keep the working space very clean. They laid down drop cloths everywhere, took the windows out one by one. They were fun to talk to. They were tired after working nonstop for 10 hours on day one and requested if they could complete the following day. The completed the final steps in the process on the second day and even replaced a small area in the exterior window trim where they identified. I would rate their professionalism an A+. Overall I am very happy that I chose Deluxe Windows and I plan on using them again for a few more window projects in my house later. I highly recommend them for your window needs.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=EmYHY36CNVlQzRUXl4a5Fw",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "de9881b0-3a5d-4ac3-a50c-c97f38329f4d",
+                        "author":  "Olga S.",
+                        "rating":  5,
+                        "published_at":  "2018-08-07T00:00:00Z",
+                        "published_at_unix":  1533600000,
+                        "text":  "Professional, courteous and timely service, great prices. They replaced all my windows and patio slider with new construction installation. I recommend them to all my clients and friends. Thank you Janek and Gary!",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=INVWelM6db1AYawCw_yeIQ",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "233a9941-ef66-496e-b9e5-3d57c1c541c1",
+                        "author":  "Kristin C.",
+                        "rating":  5,
+                        "published_at":  "2018-06-07T00:00:00Z",
+                        "published_at_unix":  1528329600,
+                        "text":  "Just got back from choosing windows with Deluxe Windows. Paul was really helpful both when he came out to measure and today when we were deciding which type of windows to purchase. He stepped us through all of the different options of brands, types of windows, and what that meant in terms of the different components of a window (seals, locks, glass width, spacers, etc). He helped us compare prices for a variety of of combinations of options and settle on what we wanted to go with. Paul helped us think through the timeline of our remodel and choose the best time to install the windows too. Then he called his boss to negotiate an even better price for us. I look forward to updating this review once our new windows are in, but so far Deluxe Windows has been wonderful to work with.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=tNFeMEIdyANFtX4UmktVpQ",
+                        "photo":  "photos/233a9941-ef66-496e-b9e5-3d57c1c541c1.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/03yJX_yByRf4qybfCW95JQ/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "6ad82b17-f687-4a08-8224-683e513d7fa8",
+                        "author":  "Albert L.",
+                        "rating":  5,
+                        "published_at":  "2018-05-10T00:00:00Z",
+                        "published_at_unix":  1525910400,
+                        "text":  "Deluxe windows did a great job replacing our five original single pane windows with brand new Milgard Tuscany double hung windows. The quote was good, checked out the showroom, made a deposit, and a couple weeks later windows arrived. They were very professional, installation went well and the windows look amazing, so definitely recommend them!",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=vYAhwpXgLn3sMqjba0R8ww",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "de61a06e-f9fe-4d1b-a0bd-87d2dbcf71e0",
+                        "author":  "Liang Z.",
+                        "rating":  5,
+                        "published_at":  "2018-04-29T00:00:00Z",
+                        "published_at_unix":  1524960000,
+                        "text":  "We have two new construction and three retrofit windows installed by Delux window. We worked with Paul who helped us selected and purchased the windows, and later arranged all the install work. He is patient and listening, has very good people skills. Their installers are professional and courteous. After discovering we have termite damages from old leakage problem, which was expected from us, they helped us fixed them thoroughly. They used tools to get things done fast and efficient. They also explained to me how things supposed to be done, which made sense. By looking from the side, I\u0027m pretty confident that we will not have the leakage problems with these windows anymore as they have put into protections every step out of the way. The stucco guy also did beautiful job. All in all, I\u0027m very happy with the result.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=1u4gRkg_48Jm1P5TeqcqvQ",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "2108299e-1d64-454b-92f8-588fe46b3e65",
+                        "author":  "Pakshi R.",
+                        "rating":  5,
+                        "published_at":  "2018-04-01T00:00:00Z",
+                        "published_at_unix":  1522540800,
+                        "text":  "We got all our windows replaced by Deluxe. It was a good experience end-to-end. Step 1. We called the company and asked a for a quote for Milgard Vinyls. Yanek came and measured the windows. He walked with us through the neighborhood to show which houses have full replacement Vs Retrofit (which reduces the glass surface/ viewing area). Step 2. We received a quote by email. After a week, I was about to place the order on phone. To which, the owner (Yanek) asked us to not decide based on the pictures on the internet and invited to the store to physically see and interact with the windows before selecting one. So we made an appointment. Step 3. Store Visit: We showed up at the store and looked at several manufacturers (Milgard, Amerimax, and one more)... and picked Amerimax. It looked identical to Milgard in every way and was $1.5-2k cheaper (they were running a promo apparently). We placed an order then and there. Paid an advance. Step 4. Alex (the measurement guy) came and took measurements. He was polite and explained the options for the bathroom window... original window was placed on top of stone finish (on window sill). He said, cutting it could result in damage... He offered to two choices: cut the stone and install it on drywall; or install it above the stone like the old one was... The latter means, if I choose to remodel the bathroom, then I have to replace the window again. So I decided to get the stone cut. He took measurements suitably. Part 2 of the payment: In order to proceed further you\u0027d pay up to 50 or 60% of the estimate.. only then they\u0027d place the order with the window company. In other words, they do not take on bad debt risk for the windows. Only if your check cashes, they\u0027d order. Step 5. Wait... Wait and Wait. 2 months - it is how long it takes to make 17 windows. 3 days per window. Step 6. Installation... was professional... we had a crew headed by Gary, his son and a friend. They were seasoned and very professional. Got the work done in a week (worked through MLK day). They initially wore shoe covers when walking on carpet... eventually they found that inefficient and installed a plastic shrink wrap type material that stuck to carpet (came off easily at the end), which protected the carpet. For one of the window, they had to modify the framing and drywall because the previous window was not installed right. They did it for a reasonable additional fee. Did all the trims and sill plates, caulking etc. right. They were pleasant, professional and the only thing they asked was \"could we heat our food in your microwave/ oven?\" (reasonable). Step 7. Best part is they left the scaffolding for two additional days for us to go touch up and paint the new outside trims. I practically begged them to paint it for us... they would not (not sure if it is a union thing or something). So this is the next best thing. I asked them to strengthen the scaffolding in a few places so that I could confidently walk 30\u0027 above ground... they did. So we could wrap up everything on our own. Step 8. They were done and gone. We settled the final bill. Then came the bill for scaffolding separately. I realized they never gave me an estimate for scaffolding. Yanek had told me that it would be a separate bill - Just not how much. I do not have a sense for if the amount was reasonable. I did not negotiate, because they did a good job overall and left the scaffolding for additional couple days. NOTE: Make sure you ask for scaffolding estimate upfront (i.e. after step 4). Unexpected cost escalations: 1. One of the door handle was not available in the color we wanted... the next best thing we could chose was slightly more expensive (like $20 more). 2. Sill plates: Original sill plates (from circa 1978) were damaged when removing the windows. Yanek offered to replace them at a fixed rate per window. 3. Framing and dry wall repair: This was circumstantial - based on how the previous window was installed. I saw the problem and approved it. All in all, these were reasonable. The only thing I was actually surprised by is that I completely forgot to ask for a scaffolding estimate. And they did not provide one. I was NOT taken by surprise that there was a bill. Yanek had mentioned earlier on that we have a choice to get scaffolding from either his shop or any other place (like home depot perhaps). I asked him to give a quote. but forgot about it. Thats all. Overall very happy. I will post an update an year later, circa March \u002719.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=uIvksrIhStEwWeQu59FH-g",
+                        "photo":  "photos/2108299e-1d64-454b-92f8-588fe46b3e65.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/2kwXcs0DqCRNE2NG7_qLGQ/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "efc33d89-de69-48c5-b59f-76ca9cdfdad0",
+                        "author":  "Peter T.",
+                        "rating":  5,
+                        "published_at":  "2018-03-06T00:00:00Z",
+                        "published_at_unix":  1520294400,
+                        "text":  "Paul and his team made the entire window buying/installing process very easy. I replaced all my home windows that were outdated. Paul came to take measurements of the windows and told me what to expect. He also informed me that a couple of my windows were not up to code and needed to be cut down. They took care of the all permitting with the city so it was one less hassle for me. I visited their showroom to pick which window brand to go with. I ended up choosing Amerimax windows. After a month with the windows, I am enjoying them greatly. The installation took two days, no issues there. I would definitely recommend this company to everyone I know that are looking for a affordable and professional window company.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=uPP6ryJHHcnzzElv3pt5Ew",
+                        "photo":  "photos/efc33d89-de69-48c5-b59f-76ca9cdfdad0.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/2M4ppRRnCMLzHO8wPvFn1Q/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "a2539166-5bb2-4d28-959f-0f2ddf7a374d",
+                        "author":  "Jen R.",
+                        "rating":  4,
+                        "published_at":  "2018-02-18T00:00:00Z",
+                        "published_at_unix":  1518912000,
+                        "text":  "Workmanship was excellent! Scheduling was a bit difficult with start and stop. The attention was detail was just fantastic. I have beautiful new windows in my house 25 of them.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=lJfxhUFcw3a1etIYqr93FQ",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "193f644b-22aa-495e-8d16-a9102cbb8762",
+                        "author":  "j k.",
+                        "rating":  5,
+                        "published_at":  "2018-02-10T00:00:00Z",
+                        "published_at_unix":  1518220800,
+                        "text":  "Made several appointments with different installers for replacement of window and doors. Yanek from Deluxe Windows came by and explained the differences between manufacturers. He asked me to stop by their local showroom to see in person what the differences are. The fact that they have a local showroom was a deciding factor. Decided on 2 Amerimax sliding french doors and a Milgard window. They weren\u0027t the cheapest, but they were very thorough. Installed the doors and windows and worked with me to get the alarm wires through the frames for the alarm connections. Installation was clean and complete. Been through several rain with no leaks. Overall great job done first time around!",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=Z8jMlZ0yrJpRd_u0XC_OSA",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "7b4926ef-82f7-4713-9d5d-83f353e56e0c",
+                        "author":  "Alex H.",
+                        "rating":  5,
+                        "published_at":  "2018-02-10T00:00:00Z",
+                        "published_at_unix":  1518220800,
+                        "text":  "overall experience went well. they came to measure our windows, gave us suggestions and options, then we went to the showroom to confirm what we wanted, which was the milgard vinyls and placed the order. installation went well too, service was good. they basically replaced all of our windows and the price was competitive to others. they were missing 2 handles but that might have been due to the manufacturer and we eventually got the parts. i would use them again and would refer them if anyone needed windows replaced.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=ty7Jrk8hLvBwlVBnOWXOcw",
+                        "photo":  "photos/7b4926ef-82f7-4713-9d5d-83f353e56e0c.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/wFbInqKWP4tXadB4lQ-mUg/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "04d7c87e-8f01-4e4a-ab27-4cccfdc120a3",
+                        "author":  "Erika R.",
+                        "rating":  1,
+                        "published_at":  "2018-01-24T00:00:00Z",
+                        "published_at_unix":  1516752000,
+                        "text":  "I had 22 windows installed by Alex 1 year ago which turned out fine but I am giving only 1 star because I had a couple of screens rip and an issue with a window. My husband and I called Alex several times with no response at all. I called Amerimax and they told me I need to go through Deluxe Windows to purchase the new screens, they do not sell directly. Supporting customers after the sale is just as important as the original installation.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=tm8hbWwne1wFarqScbffOg",
+                        "photo":  "photos/04d7c87e-8f01-4e4a-ab27-4cccfdc120a3.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/QMO1urLCQj6-P9XI72yOKA/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "39d1c7fa-6ac5-4bf9-bfcc-de675360ad75",
+                        "author":  "Barry G.",
+                        "rating":  4,
+                        "published_at":  "2017-11-25T00:00:00Z",
+                        "published_at_unix":  1511568000,
+                        "text":  "We used Deluxe Windows for a major window replacement project at our home. They gave us lots of window options and thoroughly explained the process. The process took a little longer than we had anticipated but DW did a professional job. I would use them again",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=s8c3e9VBYLtA7BeQOHXfRA",
+                        "photo":  "photos/39d1c7fa-6ac5-4bf9-bfcc-de675360ad75.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/femWZQoqne3fMBnlz-zm8A/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "975e8d9e-6491-4ad1-85c1-ceffaa6174ad",
+                        "author":  "Lee V.",
+                        "rating":  5,
+                        "published_at":  "2017-11-08T00:00:00Z",
+                        "published_at_unix":  1510099200,
+                        "text":  "I am a very satisfied, repeat customer. I have replaced ten windows over the past few years and both the service and quality of the windows have been outstanding. Although I always get quotes from other companies, Deluxe always offers and delivers better products at a better price.",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=BFZzx67xVgXbOUhbIsqYAA",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "431b7c57-bd41-4630-9593-f318847e32f5",
+                        "author":  "Keny T.",
+                        "rating":  1,
+                        "published_at":  "2017-10-31T00:00:00Z",
+                        "published_at_unix":  1509408000,
+                        "text":  "Bad service , I ordered 3 windows..but size are not correct.... they don\u0027t change those and keep installed",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=m8I_FHRC26HQL8vx10KNMA",
+                        "photo":  null,
+                        "photo_original_url":  null,
+                        "review_photos":  [
+
+                                          ]
+                    },
+                    {
+                        "id":  "b1f3343d-f907-4493-b26f-663eb543d2a9",
+                        "author":  "Alina E.",
+                        "rating":  5,
+                        "published_at":  "2017-09-01T00:00:00Z",
+                        "published_at_unix":  1504224000,
+                        "text":  "Renewed my windows recently. The price and quality exceed what I expected. Sales and installers are friendly and helpful. They gave useful advice to get what I want. Highly recommended!",
+                        "yelp_review_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3?hrid=7dc0_Tj020kx685CiQDeHA",
+                        "photo":  "photos/b1f3343d-f907-4493-b26f-663eb543d2a9.jpg",
+                        "photo_original_url":  "https://s3-media0.fl.yelpcdn.com/photo/FgySNECmfYg6p3-hmys_sg/180s.jpg",
+                        "review_photos":  [
+
+                                          ]
+                    }
+                ]
+}

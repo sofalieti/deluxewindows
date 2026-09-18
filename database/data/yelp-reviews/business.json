@@ -1,0 +1,32 @@
+{
+    "name":  "Deluxe Windows",
+    "yelp_url":  "https://www.yelp.com/biz/deluxe-windows-burlingame-3",
+    "rating":  4.5,
+    "reviews_number":  257,
+    "recommended_reviews_count":  205,
+    "non_recommended_reviews_count":  51,
+    "removed_reviews_count":  6,
+    "claimed":  true,
+    "closed":  true,
+    "address":  "1801 Creekside Ln Burlingame CA 94010",
+    "street":  "1801 Creekside Ln",
+    "city":  "Burlingame",
+    "region":  "CA",
+    "zip_code":  "94010",
+    "country":  "United States",
+    "phone":  "(650) 461-4446",
+    "collected_at":  "2026-09-18T06:00:25Z",
+    "collected_reviews_min_rating":  1,
+    "collected_reviews_count":  105,
+    "collected_reviews_3plus_count":  89,
+    "collected_with_avatar_count":  48,
+    "collected_with_review_photos_count":  3,
+    "rating_histogram_collected":  {
+                                       "5":  80,
+                                       "3":  3,
+                                       "4":  6,
+                                       "1":  14,
+                                       "2":  2
+                                   },
+    "source_note":  "Yelp listing is blocked by captcha. This is the complete public review feed (105 of 205 recommended / 257 total)."
+}
