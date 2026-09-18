@@ -2,9 +2,9 @@
   var CLAMP_LINES = 4;
 
   function initBlock(root) {
-    var initial = parseInt(root.getAttribute('data-initial') || '6', 10);
+    var initial = parseInt(root.getAttribute('data-initial') || '8', 10);
     if (!Number.isFinite(initial) || initial < 1) {
-      initial = 6;
+      initial = 8;
     }
 
     var reviews = Array.prototype.slice.call(root.querySelectorAll('[data-yelp-review]'));

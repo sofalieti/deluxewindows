@@ -131,7 +131,7 @@
 
       @include('partials.yelp-reviews', [
         'yelpShowHeading' => false,
-        'yelpInitialCount' => 6,
+        'yelpInitialCount' => 8,
       ])
 
       @include('partials.about-contact-section')
