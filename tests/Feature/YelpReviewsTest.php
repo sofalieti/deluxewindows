@@ -32,6 +32,20 @@ test('yelp reviews partial renders rating, stars and review links', function () 
         ->not->toContain('elfsight-app-');
 });
 
+test('trust badges bar shows a Yelp rating badge and left reviews drawer', function () {
+    $html = view('partials.trust-badges')->render();
+
+    expect($html)
+        ->toContain('data-yelp-badge')
+        ->toContain('data-yelp-drawer')
+        ->toContain('dw-yelp-stars')
+        ->toContain('4.5')
+        ->toContain('257')
+        ->toContain('View on Yelp')
+        ->not->toContain('elfsight-app-e3dc666e')
+        ->not->toContain('elfsightcdn.com');
+});
+
 test('content review blocks no longer mount Elfsight widgets', function () {
     $files = [
         resource_path('views/partials/reviews.blade.php'),

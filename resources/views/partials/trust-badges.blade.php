@@ -27,18 +27,21 @@
       >
         <div class="w-layout-blockcontainer container-default w-container">
           <div class="w-layout-grid grid grid-543">
-            <div>
+            <div class="dw-yelp-badge-slot">
               <button
                 type="button"
                 class="dw-yelp-badge"
                 data-yelp-badge
                 aria-controls="dw-yelp-drawer"
                 aria-expanded="false"
+                aria-haspopup="dialog"
+                aria-label="Open Yelp reviews, {{ $yelpBusiness['rating_label'] }} out of 5 from {{ $yelpBusiness['reviews_label'] }} reviews"
               >
                 <svg class="dw-yelp-badge__burst" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                   <path fill="currentColor" d="M13.7 1.4c-.5-1.5-2.9-1.5-3.4 0L8.8 6.1 3.8 5.4c-1.6-.2-2.4 1.8-1.1 2.9l4 3.3-1.8 4.8c-.6 1.5 1.2 2.8 2.5 1.8L12 15.4l4.6 2.8c1.3 1 3.1-.3 2.5-1.8l-1.8-4.8 4-3.3c1.3-1.1.5-3.1-1.1-2.9l-5 .7-1.5-4.7z"/>
                 </svg>
                 <span class="dw-yelp-badge__copy">
+                  <span class="dw-yelp-badge__brand">Yelp</span>
                   <span class="dw-yelp-badge__row">
                     <span class="dw-yelp-stars dw-yelp-stars--sm dw-yelp-stars--on-dark" style="--dw-yelp-fill: {{ $overallFill }}%;" aria-hidden="true">
                       <span class="dw-yelp-stars__base"></span>
@@ -46,7 +49,7 @@
                     </span>
                     <span class="dw-yelp-badge__rating">{{ $yelpBusiness['rating_label'] }}</span>
                   </span>
-                  <span class="dw-yelp-badge__count">{{ $yelpBusiness['reviews_label'] }} Yelp reviews</span>
+                  <span class="dw-yelp-badge__count">{{ $yelpBusiness['reviews_label'] }} reviews</span>
                 </span>
               </button>
             </div>
@@ -67,16 +70,18 @@
         <div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-3"></div>
       </div>
 
-      <div class="dw-yelp-drawer__backdrop" data-yelp-drawer-backdrop hidden></div>
+      <div class="dw-yelp-drawer__backdrop" data-yelp-drawer-backdrop></div>
       <aside
         id="dw-yelp-drawer"
         class="dw-yelp-drawer"
         data-yelp-drawer
         data-yelp-reviews
         data-initial="6"
-        hidden
+        role="dialog"
+        aria-modal="true"
         aria-hidden="true"
         aria-labelledby="dw-yelp-drawer-title"
+        tabindex="-1"
       >
         <div class="dw-yelp-drawer__header">
           <div>

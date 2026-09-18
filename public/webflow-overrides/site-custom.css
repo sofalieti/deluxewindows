@@ -2344,6 +2344,7 @@ a.link-block.odsf {
 @media screen and (max-width: 767px) {
   .classic-public-page .section > .container-default,
   .classic-public-page .section_breadcrumbs > .container-default,
+  .classic-public-page .section-122 > .container-default,
   .classic-public-page .new-section > .container-default,
   .classic-public-page .section-card > .container-default,
   .classic-public-page .sectionmain > .container-default,
@@ -2364,6 +2365,8 @@ a.link-block.odsf {
   .classic-public-page .section:not(.section_breadcrumbs) h4,
   .classic-public-page .section:not(.section_breadcrumbs) h5,
   .classic-public-page .section:not(.section_breadcrumbs) p,
+  .classic-public-page .section-122 h2,
+  .classic-public-page .section-122 p,
   .classic-public-page .new-section h1,
   .classic-public-page .new-section h2,
   .classic-public-page .new-section h3,

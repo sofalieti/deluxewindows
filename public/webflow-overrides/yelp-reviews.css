@@ -1,6 +1,8 @@
-/* Yelp-style reviews block (content sections, not the hero trust bar). */
+/* Yelp-style reviews: content grid, hero trust-bar badge, and left drawer. */
 
-.dw-yelp {
+.dw-yelp,
+.dw-yelp-drawer,
+.dw-yelp-badge {
   --dw-yelp-red: #d32323;
   --dw-yelp-star: #f15c4c;
   --dw-yelp-ink: #2b273c;
@@ -8,20 +10,26 @@
   --dw-yelp-line: #eeeeee;
   --dw-yelp-blue: #0073bb;
   --dw-yelp-bg: #fff;
+}
+
+.dw-yelp {
   color: var(--dw-yelp-ink);
 }
 
 .dw-yelp .w-layout-blockcontainer {
-  max-width: 1200px;
+  max-width: var(--core--sizing--container-default--default, 1248px);
 }
 
-.dw-yelp,
-.dw-yelp h2,
-.dw-yelp p {
+.dw-yelp__review,
+.dw-yelp__review p,
+.dw-yelp__scorecard,
+.dw-yelp__scorecard p,
+.dw-yelp__footnote {
   text-align: left !important;
 }
 
-.dw-yelp [hidden] {
+.dw-yelp [hidden],
+.dw-yelp-drawer [hidden] {
   display: none !important;
 }
 
@@ -44,7 +52,7 @@
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.15;
-  text-align: left !important;
+  text-align: center !important;
 }
 
 .dw-yelp__scorecard {
@@ -155,6 +163,10 @@
 .dw-yelp-stars--sm .dw-yelp-stars__base,
 .dw-yelp-stars--sm .dw-yelp-stars__fill {
   background-size: 88px 16px;
+}
+
+.dw-yelp-stars--on-dark .dw-yelp-stars__base {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='110' height='20' viewBox='0 0 110 20'><g fill='%23ffffff' fill-opacity='0.38'><path d='M10 1.5l2.4 4.9 5.4.8-3.9 3.8.9 5.4L10 13.8 5.2 16.4l.9-5.4L2.2 7.2l5.4-.8z'/><path d='M32 1.5l2.4 4.9 5.4.8-3.9 3.8.9 5.4L32 13.8l-4.8 2.6.9-5.4-3.9-3.8 5.4-.8z'/><path d='M54 1.5l2.4 4.9 5.4.8-3.9 3.8.9 5.4L54 13.8l-4.8 2.6.9-5.4-3.9-3.8 5.4-.8z'/><path d='M76 1.5l2.4 4.9 5.4.8-3.9 3.8.9 5.4L76 13.8l-4.8 2.6.9-5.4-3.9-3.8 5.4-.8z'/><path d='M98 1.5l2.4 4.9 5.4.8-3.9 3.8.9 5.4L98 13.8l-4.8 2.6.9-5.4-3.9-3.8 5.4-.8z'/></g></svg>");
 }
 
 .dw-yelp__list {
@@ -358,6 +370,10 @@
 }
 
 @media screen and (max-width: 767px) {
+  .dw-yelp__heading {
+    text-align: left !important;
+  }
+
   .dw-yelp__scorecard {
     padding: 16px;
   }
@@ -389,5 +405,263 @@
   .dw-yelp__photos a {
     width: 72px;
     height: 72px;
+  }
+}
+
+/* Compact Yelp badge in the navy trust bar under the hero. */
+.trust-badges-bar .dw-yelp-badge-slot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 0;
+}
+
+.dw-yelp-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 100%;
+  margin: 0;
+  padding: 4px 6px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.dw-yelp-badge:hover,
+.dw-yelp-badge:focus-visible {
+  background: rgba(255, 255, 255, 0.1);
+  outline: none;
+}
+
+.dw-yelp-badge:focus-visible {
+  box-shadow: 0 0 0 2px #fff;
+}
+
+.dw-yelp-badge__burst {
+  display: block;
+  width: 28px;
+  height: 28px;
+  flex: 0 0 auto;
+  color: #ff1a1a;
+}
+
+.dw-yelp-badge__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  min-width: 0;
+}
+
+.dw-yelp-badge__brand {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.dw-yelp-badge__row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dw-yelp-badge__rating {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.dw-yelp-badge__count {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.classic-public-page .trust-badges-bar .dw-yelp-badge,
+.classic-public-page .trust-badges-bar .dw-yelp-badge__brand,
+.classic-public-page .trust-badges-bar .dw-yelp-badge__rating {
+  text-align: left !important;
+  color: #fff !important;
+}
+
+.classic-public-page .trust-badges-bar .dw-yelp-badge__count {
+  text-align: left !important;
+  color: rgba(255, 255, 255, 0.82) !important;
+}
+
+.classic-public-page .trust-badges-bar .dw-yelp-badge__burst {
+  color: #ff1a1a !important;
+}
+
+/* Left-sliding reviews drawer. */
+.dw-yelp-drawer__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2600;
+  background: rgba(8, 20, 36, 0.55);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.28s ease, visibility 0.28s ease;
+}
+
+.dw-yelp-drawer__backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.dw-yelp-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2610;
+  display: flex;
+  flex-direction: column;
+  width: min(420px, 92vw);
+  height: 100%;
+  height: 100dvh;
+  padding: 18px 16px 24px;
+  overflow: auto;
+  background: #f4f7fb;
+  box-shadow: 16px 0 40px rgba(8, 20, 36, 0.28);
+  box-sizing: border-box;
+  color: var(--dw-yelp-ink);
+  text-align: left !important;
+  transform: translateX(-105%);
+  visibility: hidden;
+  transition: transform 0.32s ease, visibility 0.32s ease;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+.dw-yelp-drawer.is-open {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.dw-yelp-drawer,
+.dw-yelp-drawer h2,
+.dw-yelp-drawer p {
+  text-align: left !important;
+}
+
+.dw-yelp-drawer__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.dw-yelp-drawer__title {
+  margin: 0 0 8px;
+  color: var(--dw-yelp-ink);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.dw-yelp-drawer__score {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
+  margin: 0;
+  color: var(--dw-yelp-muted);
+  font-size: 14px;
+}
+
+.dw-yelp-drawer__score strong {
+  color: var(--dw-yelp-ink);
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.dw-yelp-drawer__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--dw-yelp-ink);
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(15, 42, 72, 0.12);
+}
+
+.dw-yelp-drawer__close:hover,
+.dw-yelp-drawer__close:focus-visible {
+  background: #eef3f8;
+  outline: none;
+}
+
+.dw-yelp-drawer__list,
+.dw-yelp-drawer .dw-yelp__list {
+  display: grid;
+  grid-template-columns: 1fr !important;
+  gap: 12px;
+  flex: 1 1 auto;
+}
+
+.dw-yelp-drawer .dw-yelp__more {
+  width: 100%;
+  margin-top: 16px;
+}
+
+.dw-yelp-drawer__yelp-link {
+  display: inline-block;
+  margin-top: 14px;
+  color: var(--dw-yelp-blue);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.dw-yelp-drawer__yelp-link:hover {
+  text-decoration: underline;
+}
+
+body.dw-yelp-drawer-open {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dw-yelp-drawer,
+  .dw-yelp-drawer__backdrop {
+    transition: none;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .dw-yelp-drawer {
+    border-radius: 0 16px 16px 0;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .dw-yelp-drawer {
+    width: min(100vw, 100%);
   }
 }
