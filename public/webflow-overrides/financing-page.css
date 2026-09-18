@@ -1,7 +1,12 @@
+.financing-page h1.display-9.mid {
+    color: #14161c !important;
+    -webkit-text-fill-color: #14161c !important;
+}
+
 .financing-intro {
     max-width: 40rem;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .financing-intro .paragraph-50 {
@@ -26,11 +31,6 @@
 
 @media screen and (max-width: 767px) {
     .financing-intro {
-        text-align: left;
-    }
-
-    .section.hero-v8 .financing-intro + *,
-    .section.hero-v8 .text-center {
         text-align: left;
     }
 }

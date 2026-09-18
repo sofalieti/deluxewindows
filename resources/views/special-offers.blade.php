@@ -4,6 +4,21 @@
 @extends('layouts.classic')
 
 @section('wfPage', '687a4292617b9b4ed5cfe680')
+@section('bodyClass', 'body-18 height-auto special-offers-page')
+
+@section('head')
+    @php
+      $specialOffersCssPath = public_path('webflow-overrides/special-offers-page.css');
+      $specialOffersCssVersion = file_exists($specialOffersCssPath)
+        ? (string) filemtime($specialOffersCssPath)
+        : '1';
+    @endphp
+    <link
+      href="/webflow-overrides/special-offers-page.css?v={{ $specialOffersCssVersion }}"
+      rel="stylesheet"
+      type="text/css"
+    />
+@endsection
 
 @section('content')
       <section class="section_breadcrumbs section-121">
@@ -16,13 +31,11 @@
         </div>
       </section>
 
-      <section class="section hero-v8">
+      <section class="section pd-top-80px top-none">
         <div class="w-layout-blockcontainer container-default w-container">
-          <div class="inner-container _600px center page-intro-hero">
-            <div class="text-center">
-              <div class="inner-container _500px---mbl center">
-                <h1 class="display-9 mid">Limited-Time Window &amp; Doors Replacement Offers<br /></h1>
-              </div>
+          <div class="mg-top-extra-large">
+            <div class="title-left---content-right">
+              <h1 class="display-9 mid">Limited-Time Window &amp; Doors Replacement Offers</h1>
             </div>
           </div>
         </div>

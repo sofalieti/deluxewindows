@@ -11,7 +11,7 @@
           <div class="container-default-2 w-container">
             <div class="header-container-wrapper-2">
               <div class="div-block-17 phone3">
-                <div class="link-block odsf">
+                <a href="/special-offers" class="link-block odsf">
                   <img
                     src="/webflow-assets/images/offer-icon.svg"
                     width="18"
@@ -23,7 +23,7 @@
                   <div class="text-block-17">
                     <span class="link-10">Special Offers</span>
                   </div>
-                </div>
+                </a>
               </div>
               <div class="div-block-17">
                 <div class="link-block">

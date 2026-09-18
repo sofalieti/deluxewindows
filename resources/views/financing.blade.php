@@ -1,10 +1,21 @@
 @extends('layouts.classic')
 
 @section('wfPage', '6841ddf8ace3d9d9facb1672')
+@section('bodyClass', 'body-18 height-auto financing-page')
 @section('pageWrapperClass', 'full-height-page')
 
 @section('head')
-<link rel="stylesheet" href="{{ asset('webflow-overrides/financing-page.css') }}" />
+    @php
+      $financingCssPath = public_path('webflow-overrides/financing-page.css');
+      $financingCssVersion = file_exists($financingCssPath)
+        ? (string) filemtime($financingCssPath)
+        : '1';
+    @endphp
+    <link
+      href="/webflow-overrides/financing-page.css?v={{ $financingCssVersion }}"
+      rel="stylesheet"
+      type="text/css"
+    />
 @endsection
 
 @section('content')
@@ -18,17 +29,17 @@
         </div>
       </section>
 
-      <section class="section hero-v8">
+      <section class="section pd-top-80px top-none">
         <div class="w-layout-blockcontainer container-default w-container">
-          <div class="inner-container _700px center page-intro-hero">
-            <div class="text-center">
+          <div class="mg-top-extra-large">
+            <div class="title-left---content-right">
               <h1 class="display-9 mid">{{ $pageMetadata->h1 }}</h1>
-              <div class="mg-top-small financing-intro">
-                <p class="paragraph-50">
-                  Flexible monthly payment plans for qualifying Bay Area window and door projects —
-                  so you can upgrade now and pay over time. Terms depend on credit approval and project scope.
-                </p>
-              </div>
+            </div>
+            <div class="mg-top-small financing-intro">
+              <p class="paragraph-50">
+                Flexible monthly payment plans for qualifying Bay Area window and door projects —
+                so you can upgrade now and pay over time. Terms depend on credit approval and project scope.
+              </p>
             </div>
           </div>
 

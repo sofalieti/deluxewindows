@@ -124,8 +124,14 @@
   display: block;
 }
 
+a.link-block.odsf {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
 .odsf .link-10 {
-  cursor: default;
+  cursor: pointer;
   text-decoration: none;
 }
 
