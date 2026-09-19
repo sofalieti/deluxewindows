@@ -1016,6 +1016,12 @@
         background-size: cover;
         background-position: center center;
       }
+
+      .video-bg-container video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     </style>
     <style rel="stylesheet" type="text/css">
       @charset "utf-8";

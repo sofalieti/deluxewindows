@@ -267,8 +267,8 @@
           {{-- Fallback for hero-based templates without image: solid blue background only --}}
           <div class="div-block-61"></div>
         @else
-          {{-- Homepage: full-resolution AVIF photo (WebP fallback for old browsers). --}}
-        <div class="code-embed-5 w-embed">
+          {{-- Homepage: photo as LCP/poster. Desktop plays the original background video. --}}
+        <div class="code-embed-5 w-embed w-script">
           <div id="hero-bg-wrapper" class="video-bg-container">
             <picture>
               {{-- Phones get a portrait crop of the facade; the wide frame would show mostly sky. --}}
@@ -294,6 +294,30 @@
               />
             </picture>
           </div>
+          <script>
+            (function () {
+              if (window.innerWidth <= 767) return;
+              if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+              var wrapper = document.getElementById("hero-bg-wrapper");
+              if (!wrapper) return;
+              var video = document.createElement("video");
+              video.autoplay = true;
+              video.loop = true;
+              video.muted = true;
+              video.playsInline = true;
+              video.setAttribute("playsinline", "");
+              video.setAttribute("muted", "");
+              video.setAttribute("aria-hidden", "true");
+              var source = document.createElement("source");
+              source.src = "/webflow-assets/videos/687ca10e41cc245f5cdacfd5_0719_2-copy.mp4";
+              source.type = "video/mp4";
+              video.appendChild(source);
+              video.addEventListener("playing", function () {
+                wrapper.classList.add("has-video");
+              }, { once: true });
+              wrapper.appendChild(video);
+            })();
+          </script>
         </div>
         @endif
         <div class="w-layout-blockcontainer container-default w-container">
