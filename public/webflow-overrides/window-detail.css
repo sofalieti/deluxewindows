@@ -276,6 +276,9 @@
 
 .window-detail-page .wmc__intro-cta {
   flex: 0 0 auto;
+  appearance: none;
+  border: 0;
+  cursor: pointer;
 }
 
 .window-detail-page .wmc__comparison {
@@ -334,25 +337,43 @@
   text-transform: uppercase;
 }
 
+.window-detail-page .wmc__name-row {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+}
+
 .window-detail-page .wmc__material-name {
   margin: 0;
+  color: var(--components--titles-paragraphs--text-titles, inherit);
+  font-family: var(--core--font-family--headlines), Objectivity, sans-serif;
   font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
   line-height: 1.2;
 }
 
 .window-detail-page .wmc__select {
+  box-sizing: border-box;
   width: 100%;
-  min-height: 42px;
-  margin: -6px 0 0;
-  padding: 6px 34px 6px 10px;
+  height: 48px;
+  margin: 0;
+  padding: 0 34px 0 10px;
   border: 1px solid #aebdcd;
   border-radius: 8px;
   background-color: #fff;
-  color: var(--wmc-ink);
-  font: inherit;
-  font-size: 20px;
-  font-weight: 700;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='%23172033' d='M1.2 1.5L6 6.3l4.8-4.8' stroke='%23172033' stroke-width='1.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  appearance: none;
+  -webkit-appearance: none;
   cursor: pointer;
+}
+
+.window-detail-page .wmc__select option {
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .window-detail-page .wmc__select:hover {
@@ -592,7 +613,7 @@
   }
 
   .window-detail-page .wmc__select {
-    font-size: 17px;
+    font-size: 24px;
   }
 
   .window-detail-page .wmc__best-for {
@@ -658,15 +679,20 @@
     font-size: 9px;
   }
 
+  .window-detail-page .wmc__name-row {
+    min-height: 40px;
+  }
+
   .window-detail-page .wmc__material-name {
     font-size: 17px;
   }
 
   .window-detail-page .wmc__select {
-    min-height: 35px;
+    height: 40px;
+    min-height: 40px;
     margin: 0;
-    padding: 4px 28px 4px 8px;
-    font-size: 15px;
+    padding: 0 28px 0 8px;
+    font-size: 17px;
   }
 
   .window-detail-page .wmc__tagline,

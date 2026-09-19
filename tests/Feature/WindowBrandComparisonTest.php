@@ -74,7 +74,9 @@ test('brand comparison partial renders a safe server-side initial state', functi
         ->toContain('This is a brand-level guide')
         ->toContain('type="application/json"')
         ->toContain('data-wbc-tradeoff-link')
+        ->toContain('data-open-estimate-modal')
         ->toContain('aria-live="polite"')
+        ->not->toContain('href="#contact"')
         ->not->toContain('<h1')
         ->and(substr_count($html, 'data-wbc-select'))->toBe(2)
         ->and(substr_count($html, 'data-wbc-criterion='))->toBe(9);

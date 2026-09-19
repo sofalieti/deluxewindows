@@ -27,8 +27,9 @@ test('yelp reviews partial renders rating, stars and review links', function () 
         ->toContain('4.5')
         ->toContain('257')
         ->toContain('https://www.yelp.com/biz/deluxe-windows-burlingame-3')
-        ->toContain('View on Yelp')
+        ->toContain('dw-yelp__person')
         ->toContain('dw-yelp-stars')
+        ->not->toContain('View on Yelp')
         ->not->toContain('elfsight-app-');
 });
 
@@ -41,7 +42,8 @@ test('trust badges bar shows a Yelp rating badge and left reviews drawer', funct
         ->toContain('dw-yelp-stars')
         ->toContain('4.5')
         ->toContain('257')
-        ->toContain('View on Yelp')
+        ->toContain('dw-yelp__person')
+        ->not->toContain('View on Yelp')
         ->not->toContain('elfsight-app-e3dc666e')
         ->not->toContain('elfsightcdn.com');
 });

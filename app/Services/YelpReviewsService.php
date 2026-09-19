@@ -180,7 +180,7 @@ class YelpReviewsService
             'photo_url' => $photoUrl,
             'review_photos' => $reviewPhotos,
             'published_at_unix' => $date?->timestamp ?? $unix,
-            'published_label' => $date?->diffForHumans() ?? '',
+            'published_label' => $date?->diffForHumans(['short' => true]) ?? '',
             'published_iso' => $date?->toIso8601String() ?? $publishedAt,
         ];
     }

@@ -27,9 +27,9 @@
         Choose alternatives that match your project priorities.
       </p>
     </div>
-    <a href="#contact" class="primary-button w-inline-block wbc__intro-cta">
+    <button type="button" class="primary-button w-inline-block wbc__intro-cta" data-open-estimate-modal>
       <span>Get Expert Advice</span>
-    </a>
+    </button>
   </div>
 
   <div class="wbc__comparison" role="group" aria-label="Window brand comparison">
@@ -44,24 +44,28 @@
         >
           @if($slot === 'current')
             <span class="wbc__current-label">Current brand</span>
-            <h3 class="wbc__brand-name" data-wbc-name>{{ $brand['name'] }}</h3>
+            <div class="wbc__name-row">
+              <h3 class="wbc__brand-name" data-wbc-name>{{ $brand['name'] }}</h3>
+            </div>
           @else
             <label class="wbc__select-label" for="wbc-{{ $slot }}-select">Compare with</label>
-            <select
-              id="wbc-{{ $slot }}-select"
-              class="wbc__select"
-              data-wbc-select
-              data-slot="{{ $slot }}"
-              aria-label="Choose window brand for comparison column {{ $loop->index }}"
-            >
-              @foreach($brands as $optionSlug => $option)
-                @continue($optionSlug === $currentSlug)
-                <option
-                  value="{{ $optionSlug }}"
-                  @selected($optionSlug === $peerSlugs[$slot === 'peer-1' ? 0 : 1])
-                >{{ $option['name'] }}</option>
-              @endforeach
-            </select>
+            <div class="wbc__name-row">
+              <select
+                id="wbc-{{ $slot }}-select"
+                class="wbc__select wbc__brand-name"
+                data-wbc-select
+                data-slot="{{ $slot }}"
+                aria-label="Choose window brand for comparison column {{ $loop->index }}"
+              >
+                @foreach($brands as $optionSlug => $option)
+                  @continue($optionSlug === $currentSlug)
+                  <option
+                    value="{{ $optionSlug }}"
+                    @selected($optionSlug === $peerSlugs[$slot === 'peer-1' ? 0 : 1])
+                  >{{ $option['name'] }}</option>
+                @endforeach
+              </select>
+            </div>
           @endif
           <p class="wbc__tagline" data-wbc-tagline>{{ $brand['tagline'] }}</p>
           <p class="wbc__best-for">

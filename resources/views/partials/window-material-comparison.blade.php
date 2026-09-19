@@ -29,9 +29,9 @@
         Change either alternative to match the options on your shortlist.
       </p>
     </div>
-    <a href="#contact" class="primary-button w-inline-block wmc__intro-cta">
+    <button type="button" class="primary-button w-inline-block wmc__intro-cta" data-open-estimate-modal>
       <span>Get Expert Advice</span>
-    </a>
+    </button>
   </div>
 
   <div class="wmc__comparison" role="group" aria-label="Window material comparison">
@@ -46,26 +46,30 @@
         >
           @if($slot === 'current')
             <span class="wmc__current-label">Your current choice</span>
-            <h3 class="wmc__material-name" data-wmc-name>{{ $material['short_name'] }}</h3>
+            <div class="wmc__name-row">
+              <h3 class="wmc__material-name" data-wmc-name>{{ $material['short_name'] }}</h3>
+            </div>
           @else
             <label class="wmc__select-label" for="wmc-{{ $slot }}-select">
               Compare with
             </label>
-            <select
-              id="wmc-{{ $slot }}-select"
-              class="wmc__select"
-              data-wmc-select
-              data-slot="{{ $slot }}"
-              aria-label="Choose material for comparison column {{ $loop->index }}"
-            >
-              @foreach($materials as $optionSlug => $option)
-                @continue($optionSlug === $currentSlug)
-                <option
-                  value="{{ $optionSlug }}"
-                  @selected($optionSlug === $peerSlugs[$slot === 'peer-1' ? 0 : 1])
-                >{{ $option['short_name'] }}</option>
-              @endforeach
-            </select>
+            <div class="wmc__name-row">
+              <select
+                id="wmc-{{ $slot }}-select"
+                class="wmc__select wmc__material-name"
+                data-wmc-select
+                data-slot="{{ $slot }}"
+                aria-label="Choose material for comparison column {{ $loop->index }}"
+              >
+                @foreach($materials as $optionSlug => $option)
+                  @continue($optionSlug === $currentSlug)
+                  <option
+                    value="{{ $optionSlug }}"
+                    @selected($optionSlug === $peerSlugs[$slot === 'peer-1' ? 0 : 1])
+                  >{{ $option['short_name'] }}</option>
+                @endforeach
+              </select>
+            </div>
           @endif
           <p class="wmc__tagline" data-wmc-tagline>{{ $material['tagline'] }}</p>
           <p class="wmc__best-for">

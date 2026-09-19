@@ -58,7 +58,9 @@ test('comparison partial renders an accessible server-side initial state', funct
         ->toContain('Frame material is only one part of window performance.')
         ->toContain('type="application/json"')
         ->toContain('data-wmc-tradeoff-link')
+        ->toContain('data-open-estimate-modal')
         ->toContain('aria-live="polite"')
+        ->not->toContain('href="#contact"')
         ->not->toContain('<h1')
         ->and(substr_count($html, 'data-wmc-select'))->toBe(2)
         ->and(substr_count($html, 'data-wmc-criterion='))->toBe(10);
