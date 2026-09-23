@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\CrmNote;
 use App\Models\PromotionControl;
 use App\Models\RingCentralCall;
 use App\Models\RingCentralCallSyncState;
@@ -451,6 +452,87 @@ test('RingCentral calls screen has main excluded and other tabs', function () {
         ->assertSee('Other numbers')
         ->assertSee('+14155550001')
         ->assertSee('+14155550002');
+});
+
+test('RingCentral call notes can be added from the calls list', function () {
+    $user = User::factory()->create();
+    $user->forceFill([
+        'permissions' => ['platform.leads' => true],
+    ])->save();
+
+    $call = RingCentralCall::query()->create([
+        'ringcentral_call_id' => 'note-call',
+        'direction' => 'Inbound',
+        'started_at' => CarbonImmutable::parse('2026-07-31T18:00:00Z'),
+        'duration' => 20,
+        'business_phone' => '+16504614446',
+        'from_phone' => '+14155550003',
+        'to_phone' => '+16504614446',
+        'external_phone' => '+14155550003',
+        'synced_at' => now(),
+    ]);
+
+    $this->withoutMiddleware(Access::class)
+        ->actingAs($user)
+        ->post(route('platform.ringcentral-calls', ['method' => 'addNote']), [
+            'subject_id' => $call->id,
+            'note' => 'Discussed replacement window measurements.',
+        ])
+        ->assertRedirect();
+
+    $note = CrmNote::query()->sole();
+
+    expect($note->subject_type)->toBe($call->getMorphClass())
+        ->and($note->subject_id)->toBe($call->id)
+        ->and($note->user_id)->toBe($user->id)
+        ->and($note->body)->toBe('Discussed replacement window measurements.');
+
+    $this->withoutMiddleware(Access::class)
+        ->actingAs($user)
+        ->get(route('platform.ringcentral-calls'))
+        ->assertOk()
+        ->assertSee('Discussed replacement window measurements.');
+});
+
+test('RingCentral call handling status can be changed from the calls list', function () {
+    $user = User::factory()->create();
+    $user->forceFill([
+        'permissions' => ['platform.leads' => true],
+    ])->save();
+
+    $call = RingCentralCall::query()->create([
+        'ringcentral_call_id' => 'status-call',
+        'direction' => 'Inbound',
+        'started_at' => CarbonImmutable::parse('2026-07-31T18:00:00Z'),
+        'duration' => 20,
+        'business_phone' => '+16504614446',
+        'from_phone' => '+14155550004',
+        'to_phone' => '+16504614446',
+        'external_phone' => '+14155550004',
+        'synced_at' => now(),
+    ]);
+
+    expect($call->refresh()->handling_status)->toBe(RingCentralCall::HANDLING_NEW);
+
+    $this->withoutMiddleware(Access::class)
+        ->actingAs($user)
+        ->post(route('platform.ringcentral-calls', ['method' => 'changeHandlingStatus']), [
+            'call' => $call->id,
+            'handling_status' => RingCentralCall::HANDLING_REACHED,
+        ])
+        ->assertRedirect();
+
+    $call->refresh();
+
+    expect($call->handling_status)->toBe(RingCentralCall::HANDLING_REACHED)
+        ->and($call->handled_by)->toBe($user->id)
+        ->and($call->handled_at)->not->toBeNull();
+
+    $this->withoutMiddleware(Access::class)
+        ->actingAs($user)
+        ->get(route('platform.ringcentral-calls'))
+        ->assertOk()
+        ->assertSee('Reached');
 });
 
 test('RingCentral call started_at is stored as UTC and shown in Pacific time', function () {

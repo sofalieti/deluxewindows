@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Orchid\Screens\PhoneClicks;
 
 use App\Jobs\MatchPhoneClickToRingCentral;
+use App\Models\CrmNote;
 use App\Models\PhoneClick;
 use App\Services\Ads\GoogleAdsOfflineSheetExporter;
 use App\Services\Ads\OfflineConversionStatsService;
@@ -39,25 +40,26 @@ class PhoneClickListScreen extends Screen
             'clicks' => PhoneClick::query()
                 ->visibleTo($user)
                 ->notSpam()
-                ->with('assignee')
+                ->with(['assignee', 'latestNote.user'])
                 ->defaultSort('id', 'desc')
                 ->paginate(50, pageName: 'page'),
             'unhandledClicks' => PhoneClick::query()
                 ->visibleTo($user)
                 ->needsHandling()
-                ->with('assignee')
+                ->with(['assignee', 'latestNote.user'])
                 ->defaultSort('id', 'desc')
                 ->paginate(50, pageName: 'unhandled_page'),
             'mineClicks' => PhoneClick::query()
                 ->visibleTo($user)
                 ->notSpam()
                 ->where('assigned_to', $user?->id)
-                ->with('assignee')
+                ->with(['assignee', 'latestNote.user'])
                 ->defaultSort('id', 'desc')
                 ->paginate(50, pageName: 'mine_page'),
             'spamClicks' => PhoneClick::query()
                 ->visibleTo($user)
                 ->onlySpam()
+                ->with('latestNote.user')
                 ->defaultSort('id', 'desc')
                 ->paginate(50, pageName: 'spam_page'),
             'conversionStats' => $stats,
@@ -189,6 +191,13 @@ class PhoneClickListScreen extends Screen
                     'click' => $click,
                 ])),
 
+            TD::make('notes', 'Notes')
+                ->cantHide()
+                ->width('240px')
+                ->render(fn (PhoneClick $click) => view('admin.partials.call-note-cell', [
+                    'subject' => $click,
+                ])),
+
             TD::make('id', 'View')
                 ->align(TD::ALIGN_CENTER)
                 ->width('70px')
@@ -228,6 +237,30 @@ class PhoneClickListScreen extends Screen
             });
 
         return $columns;
+    }
+
+    public function addNote(Request $request): void
+    {
+        $validated = $request->validate([
+            'subject_id' => ['required', 'integer', 'exists:phone_clicks,id'],
+            'note' => ['required', 'string', 'min:1', 'max:5000'],
+        ]);
+
+        $user = Auth::user();
+        abort_unless($user !== null, 403);
+
+        $click = PhoneClick::query()
+            ->visibleTo($user)
+            ->findOrFail((int) $validated['subject_id']);
+
+        CrmNote::query()->create([
+            'subject_type' => $click->getMorphClass(),
+            'subject_id' => $click->id,
+            'user_id' => $user->id,
+            'body' => trim($validated['note']),
+        ]);
+
+        Toast::success('Phone click note saved.');
     }
 
     public function changeHandlingStatus(Request $request): void

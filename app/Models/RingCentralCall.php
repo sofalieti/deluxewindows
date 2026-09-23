@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Orchid\Filters\Filterable;
 use Orchid\Filters\Types\Like;
 use Orchid\Filters\Types\Where;
@@ -33,6 +35,33 @@ class RingCentralCall extends Model
 
     public const TRANSCRIPT_SKIPPED = 'skipped';
 
+    public const HANDLING_NEW = 'new';
+
+    public const HANDLING_IN_PROGRESS = 'in_progress';
+
+    public const HANDLING_REACHED = 'reached';
+
+    public const HANDLING_NO_ANSWER = 'no_answer';
+
+    public const HANDLING_CONVERTED = 'converted';
+
+    public const HANDLING_NOT_INTERESTED = 'not_interested';
+
+    public const HANDLING_JUNK = 'junk';
+
+    /**
+     * @var array<string, string>
+     */
+    public const HANDLING_STATUSES = [
+        self::HANDLING_NEW => 'New',
+        self::HANDLING_IN_PROGRESS => 'In progress',
+        self::HANDLING_REACHED => 'Reached',
+        self::HANDLING_NO_ANSWER => 'No answer',
+        self::HANDLING_CONVERTED => 'Converted',
+        self::HANDLING_NOT_INTERESTED => 'Not interested',
+        self::HANDLING_JUNK => 'Junk',
+    ];
+
     protected $fillable = [
         'ringcentral_call_id',
         'session_id',
@@ -50,6 +79,9 @@ class RingCentralCall extends Model
         'external_phone',
         'recording_id',
         'contact_id',
+        'handling_status',
+        'handled_at',
+        'handled_by',
         'transcript_status',
         'transcript_queued_at',
         'transcript_processed_at',
@@ -65,6 +97,7 @@ class RingCentralCall extends Model
         'direction' => Where::class,
         'result' => Like::class,
         'external_phone' => Like::class,
+        'handling_status' => Where::class,
     ];
 
     protected $allowedSorts = [
@@ -73,6 +106,7 @@ class RingCentralCall extends Model
         'duration',
         'direction',
         'result',
+        'handling_status',
     ];
 
     protected function casts(): array
@@ -82,6 +116,7 @@ class RingCentralCall extends Model
             'raw' => 'array',
             'transcript_summary' => 'array',
             'transcript_meta' => 'array',
+            'handled_at' => 'datetime',
             'transcript_queued_at' => 'datetime',
             'transcript_processed_at' => 'datetime',
         ];
@@ -114,6 +149,21 @@ class RingCentralCall extends Model
     public function contact(): BelongsTo
     {
         return $this->belongsTo(Contact::class);
+    }
+
+    public function handler(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'handled_by');
+    }
+
+    public function notes(): MorphMany
+    {
+        return $this->morphMany(CrmNote::class, 'subject')->latest();
+    }
+
+    public function latestNote(): MorphOne
+    {
+        return $this->morphOne(CrmNote::class, 'subject')->latestOfMany();
     }
 
     public function scopeVisible(Builder $query): Builder
@@ -167,6 +217,25 @@ class RingCentralCall extends Model
         $seconds = max(0, (int) $this->duration);
 
         return sprintf('%d:%02d', intdiv($seconds, 60), $seconds % 60);
+    }
+
+    public function handlingStatusLabel(): string
+    {
+        return self::HANDLING_STATUSES[$this->handling_status] ?? (string) $this->handling_status;
+    }
+
+    public function handlingStatusColor(): string
+    {
+        return match ($this->handling_status) {
+            self::HANDLING_NEW => 'new',
+            self::HANDLING_IN_PROGRESS => 'contacted',
+            self::HANDLING_REACHED => 'quoted',
+            self::HANDLING_NO_ANSWER => 'appointment',
+            self::HANDLING_CONVERTED => 'sold',
+            self::HANDLING_NOT_INTERESTED => 'lost',
+            self::HANDLING_JUNK => 'spam',
+            default => 'new',
+        };
     }
 
     public function resolvedRecordingId(): ?string

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\CrmNote;
 use App\Models\PhoneClick;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -62,4 +63,39 @@ test('leads spam tab renders', function () {
         ->assertSee('Spam')
         ->assertSee('honeypot')
         ->assertSee('Spam Person');
+});
+
+test('phone click notes can be added from the list', function () {
+    $user = User::factory()->create();
+    $user->forceFill([
+        'permissions' => adminTrafficPermissions(),
+    ])->save();
+
+    $click = PhoneClick::query()->create([
+        'phone' => '+16504614446',
+        'source_label' => 'header-phone',
+        'page_url' => 'https://example.com/windows',
+        'ringcentral_status' => PhoneClick::RINGCENTRAL_PENDING,
+    ]);
+
+    $this->withoutMiddleware(\Orchid\Platform\Http\Middleware\Access::class)
+        ->actingAs($user)
+        ->post(route('platform.phone-clicks', ['method' => 'addNote']), [
+            'subject_id' => $click->id,
+            'note' => 'Customer asked for a callback tomorrow.',
+        ])
+        ->assertRedirect();
+
+    $note = CrmNote::query()->sole();
+
+    expect($note->subject_type)->toBe($click->getMorphClass())
+        ->and($note->subject_id)->toBe($click->id)
+        ->and($note->user_id)->toBe($user->id)
+        ->and($note->body)->toBe('Customer asked for a callback tomorrow.');
+
+    $this->withoutMiddleware(\Orchid\Platform\Http\Middleware\Access::class)
+        ->actingAs($user)
+        ->get(route('platform.phone-clicks'))
+        ->assertOk()
+        ->assertSee('Customer asked for a callback tomorrow.');
 });

@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Support\Facades\Schema;
 use Orchid\Filters\Filterable;
 use Orchid\Filters\Types\Like;
@@ -291,6 +292,11 @@ class PhoneClick extends Model
     public function notes(): MorphMany
     {
         return $this->morphMany(CrmNote::class, 'subject')->latest();
+    }
+
+    public function latestNote(): MorphOne
+    {
+        return $this->morphOne(CrmNote::class, 'subject')->latestOfMany();
     }
 
     /**

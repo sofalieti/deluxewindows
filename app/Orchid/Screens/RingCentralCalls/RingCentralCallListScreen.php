@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orchid\Screens\RingCentralCalls;
 
+use App\Models\CrmNote;
 use App\Models\RingCentralCall;
 use App\Models\RingCentralCallSyncState;
 use App\Models\RingCentralExcludedNumber;
@@ -59,13 +60,13 @@ class RingCentralCallListScreen extends Screen
             'mainCalls' => RingCentralCall::query()
                 ->visible()
                 ->onMonitoredLines($this->monitoredPhones)
-                ->with('contact')
+                ->with(['contact', 'latestNote.user'])
                 ->defaultSort('started_at', 'desc')
                 ->paginate(50, pageName: 'main_page'),
             'otherCalls' => RingCentralCall::query()
                 ->visible()
                 ->onOtherLines($this->monitoredPhones)
-                ->with('contact')
+                ->with(['contact', 'latestNote.user'])
                 ->defaultSort('started_at', 'desc')
                 ->paginate(50, pageName: 'other_page'),
             'excludedNumbers' => RingCentralExcludedNumber::query()
@@ -187,6 +188,13 @@ class RingCentralCallListScreen extends Screen
             TD::make('result', 'Result')
                 ->render(fn (RingCentralCall $call): string => e((string) ($call->result ?: 'Unknown'))
                     .'<div class="small text-muted">'.e($call->durationLabel()).'</div>'),
+            TD::make('handling_status', 'Status')
+                ->sort()
+                ->cantHide()
+                ->width('180px')
+                ->render(fn (RingCentralCall $call) => view('admin.ringcentral-calls.handling-status-cell', [
+                    'call' => $call,
+                ])),
             TD::make('recording', 'Recording')
                 ->width('240px')
                 ->render(function (RingCentralCall $call): string {
@@ -208,6 +216,12 @@ class RingCentralCallListScreen extends Screen
 
                     return $html;
                 }),
+            TD::make('notes', 'Notes')
+                ->cantHide()
+                ->width('240px')
+                ->render(fn (RingCentralCall $call) => view('admin.partials.call-note-cell', [
+                    'subject' => $call,
+                ])),
         ];
 
         if ($showExclude) {
@@ -221,6 +235,65 @@ class RingCentralCallListScreen extends Screen
         }
 
         return $columns;
+    }
+
+    public function addNote(Request $request): void
+    {
+        $validated = $request->validate([
+            'subject_id' => ['required', 'integer', 'exists:ringcentral_calls,id'],
+            'note' => ['required', 'string', 'min:1', 'max:5000'],
+        ]);
+
+        $user = Auth::user();
+        abort_unless($user !== null, 403);
+
+        $call = RingCentralCall::query()
+            ->visible()
+            ->findOrFail((int) $validated['subject_id']);
+
+        CrmNote::query()->create([
+            'subject_type' => $call->getMorphClass(),
+            'subject_id' => $call->id,
+            'user_id' => $user->id,
+            'body' => trim($validated['note']),
+        ]);
+
+        Toast::success('RingCentral call note saved.');
+    }
+
+    public function changeHandlingStatus(Request $request): void
+    {
+        $validated = $request->validate([
+            'call' => ['required', 'integer', 'exists:ringcentral_calls,id'],
+            'handling_status' => [
+                'required',
+                'string',
+                \Illuminate\Validation\Rule::in(array_keys(RingCentralCall::HANDLING_STATUSES)),
+            ],
+        ]);
+
+        $user = Auth::user();
+        abort_unless($user !== null, 403);
+
+        $call = RingCentralCall::query()
+            ->visible()
+            ->findOrFail((int) $validated['call']);
+        $from = (string) $call->handling_status;
+        $to = $validated['handling_status'];
+
+        if ($from === $to) {
+            Toast::info('Handling status unchanged.');
+
+            return;
+        }
+
+        $call->forceFill([
+            'handling_status' => $to,
+            'handled_at' => now(),
+            'handled_by' => $user->id,
+        ])->save();
+
+        Toast::success('Handling status: '.$call->handlingStatusLabel());
     }
 
     public function syncNow(RingCentralCallSyncService $sync): void
