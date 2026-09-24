@@ -148,8 +148,9 @@ class LeadListScreen extends Screen
     {
         try {
             $result = $exporter->exportPending();
-        } catch (RuntimeException $e) {
-            Toast::error($e->getMessage());
+        } catch (\Throwable $e) {
+            report($e);
+            Toast::error(Str::limit($e->getMessage(), 300));
 
             return;
         }
@@ -173,8 +174,9 @@ class LeadListScreen extends Screen
 
         try {
             $sent = $exporter->exportLead($lead);
-        } catch (RuntimeException $e) {
-            Toast::error($e->getMessage());
+        } catch (\Throwable $e) {
+            report($e);
+            Toast::error(Str::limit($e->getMessage(), 300));
 
             return;
         }

@@ -7,6 +7,7 @@ namespace App\Services\Ads;
 use App\Models\Lead;
 use Carbon\CarbonImmutable;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Schema;
 use RuntimeException;
 
 /**
@@ -61,6 +62,8 @@ final class AppointmentSheetExporter
             throw new RuntimeException($error);
         }
 
+        $this->assertExportColumn();
+
         $leads = $this->pendingLeads()->get();
         $this->appendLeads($leads);
 
@@ -101,6 +104,8 @@ final class AppointmentSheetExporter
         if ($error !== null) {
             throw new RuntimeException($error);
         }
+
+        $this->assertExportColumn();
 
         $this->appendLeads(collect([$lead]));
 
@@ -155,15 +160,38 @@ final class AppointmentSheetExporter
             : '';
 
         return [
-            trim((string) $lead->full_name),
-            trim((string) $lead->phone),
-            trim((string) $lead->email),
-            trim((string) $lead->city),
-            trim((string) $lead->message),
-            trim((string) $lead->page_url),
-            trim((string) $lead->utm_source),
+            $this->cell($lead->full_name),
+            $this->cell($lead->phone),
+            $this->cell($lead->email),
+            $this->cell($lead->city),
+            $this->cell($lead->message),
+            $this->cell($lead->page_url),
+            $this->cell($lead->utm_source),
             $created,
             (string) $lead->id,
         ];
+    }
+
+    private function assertExportColumn(): void
+    {
+        if (! Schema::hasColumn('leads', 'appointments_sheet_exported_at')) {
+            throw new RuntimeException('Run php artisan migrate. The leads table is missing appointments_sheet_exported_at.');
+        }
+    }
+
+    private function cell(mixed $value): string
+    {
+        $text = trim((string) ($value ?? ''));
+        if ($text === '') {
+            return '';
+        }
+
+        if (function_exists('mb_scrub')) {
+            return mb_scrub($text, 'UTF-8');
+        }
+
+        $clean = mb_convert_encoding($text, 'UTF-8', 'UTF-8');
+
+        return is_string($clean) ? $clean : '';
     }
 }

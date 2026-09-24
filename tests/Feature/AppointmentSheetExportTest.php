@@ -31,6 +31,11 @@ beforeEach(function () {
 test('appointment export appends only new appointment leads', function () {
     Http::fake([
         'https://oauth2.test/token' => Http::response(['access_token' => 'drive-access', 'expires_in' => 3600]),
+        'https://sheets.test/v4/spreadsheets/appointments-sheet?*' => Http::response([
+            'sheets' => [
+                ['properties' => ['sheetId' => 0, 'title' => 'Sheet1']],
+            ],
+        ], 200),
         'https://sheets.test/v4/spreadsheets/appointments-sheet/values/A1' => Http::response([
             'values' => [['DE']],
         ], 200),

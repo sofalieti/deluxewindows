@@ -439,16 +439,19 @@ final class GoogleAdsOfflineSheetExporter
     /**
      * @param  list<list<string>>  $grid
      */
-    private function writeValues(string $spreadsheetId, array $grid, ?int $columns = null): void
+    private function writeValues(string $spreadsheetId, array $grid, ?int $columns = null, ?string $sheetTitle = null): void
     {
         $base = (string) config('services.google_drive.sheets_api_base_url');
         $endCol = $this->columnLetter($columns ?? count(self::HEADER_ROW));
         $endRow = max(1, count($grid));
-        $range = 'Sheet1!A1:'.$endCol.$endRow;
+        $range = $sheetTitle === null
+            ? 'Sheet1!A1:'.$endCol.$endRow
+            : $this->quotedSheet($sheetTitle).'!A1:'.$endCol.$endRow;
+        $encodedRange = $sheetTitle === null ? $range : rawurlencode($range);
 
         $response = $this->http()
             ->withToken($this->accessToken())
-            ->put($base.'/spreadsheets/'.$spreadsheetId.'/values/'.$range.'?valueInputOption=RAW', [
+            ->put($base.'/spreadsheets/'.$spreadsheetId.'/values/'.$encodedRange.'?valueInputOption=RAW', [
                 'range' => $range,
                 'majorDimension' => 'ROWS',
                 'values' => $grid,
@@ -456,9 +459,10 @@ final class GoogleAdsOfflineSheetExporter
 
         if (! $response->successful()) {
             $fallbackRange = 'A1:'.$endCol.$endRow;
+            $encodedFallback = $sheetTitle === null ? $fallbackRange : rawurlencode($fallbackRange);
             $fallback = $this->http()
                 ->withToken($this->accessToken())
-                ->put($base.'/spreadsheets/'.$spreadsheetId.'/values/'.$fallbackRange.'?valueInputOption=RAW', [
+                ->put($base.'/spreadsheets/'.$spreadsheetId.'/values/'.$encodedFallback.'?valueInputOption=RAW', [
                     'range' => $fallbackRange,
                     'majorDimension' => 'ROWS',
                     'values' => $grid,
@@ -484,23 +488,79 @@ final class GoogleAdsOfflineSheetExporter
             return;
         }
 
+        $sheetTitle = $this->firstSheetTitle($spreadsheetId);
+
         if (! $this->sheetHasAnyValues($spreadsheetId)) {
-            $this->writeValues($spreadsheetId, array_merge([$header], $rows), count($header));
+            $this->writeValues($spreadsheetId, array_merge([$header], $rows), count($header), $sheetTitle);
 
             return;
         }
 
-        $this->appendValues($spreadsheetId, $rows, count($header));
+        $this->appendValues($spreadsheetId, $rows, count($header), $sheetTitle);
     }
 
     /**
      * @param  list<list<string>>  $rows
      */
-    private function appendValues(string $spreadsheetId, array $rows, ?int $columns = null): void
+    private function firstSheetTitle(string $spreadsheetId): string
+    {
+        $base = (string) config('services.google_drive.sheets_api_base_url');
+        $response = $this->http()
+            ->withToken($this->accessToken())
+            ->get($base.'/spreadsheets/'.$spreadsheetId, [
+                'fields' => 'sheets.properties(sheetId,title)',
+            ]);
+
+        if (! $response->successful()) {
+            throw new RuntimeException($this->sheetsError('Open spreadsheet', $response->status(), $response->body()));
+        }
+
+        $sheets = $response->json('sheets');
+        if (! is_array($sheets)) {
+            return 'Sheet1';
+        }
+
+        foreach ($sheets as $sheet) {
+            $properties = is_array($sheet['properties'] ?? null) ? $sheet['properties'] : [];
+            if ((int) ($properties['sheetId'] ?? -1) === 0) {
+                $title = trim((string) ($properties['title'] ?? ''));
+
+                return $title !== '' ? $title : 'Sheet1';
+            }
+        }
+
+        $first = trim((string) data_get($sheets, '0.properties.title', ''));
+
+        return $first !== '' ? $first : 'Sheet1';
+    }
+
+    private function quotedSheet(string $title): string
+    {
+        return "'".str_replace("'", "''", $title)."'";
+    }
+
+    private function sheetsError(string $action, int $status, string $body): string
+    {
+        if ($status === 403 || $status === 404) {
+            return $action.' failed (HTTP '.$status.'). Share the spreadsheet with the Google service account as Editor.';
+        }
+
+        $snippet = trim(preg_replace('/\s+/', ' ', $body) ?? '');
+        if (strlen($snippet) > 240) {
+            $snippet = substr($snippet, 0, 240).'…';
+        }
+
+        return $action.' failed HTTP '.$status.($snippet !== '' ? ': '.$snippet : '.');
+    }
+
+    private function appendValues(string $spreadsheetId, array $rows, ?int $columns = null, ?string $sheetTitle = null): void
     {
         $base = (string) config('services.google_drive.sheets_api_base_url');
         $endCol = $this->columnLetter($columns ?? count(self::HEADER_ROW));
-        $url = $base.'/spreadsheets/'.$spreadsheetId.'/values/Sheet1!A:'.$endCol.':append'
+        $range = $sheetTitle === null
+            ? 'Sheet1!A:'.$endCol
+            : rawurlencode($this->quotedSheet($sheetTitle).'!A:'.$endCol);
+        $url = $base.'/spreadsheets/'.$spreadsheetId.'/values/'.$range.':append'
             .'?valueInputOption=RAW&insertDataOption=INSERT_ROWS';
 
         $response = $this->http()
@@ -511,10 +571,11 @@ final class GoogleAdsOfflineSheetExporter
             ]);
 
         if (! $response->successful()) {
+            $fallbackRange = $sheetTitle === null ? 'A:'.$endCol : rawurlencode('A:'.$endCol);
             $fallback = $this->http()
                 ->withToken($this->accessToken())
                 ->post(
-                    $base.'/spreadsheets/'.$spreadsheetId.'/values/A:'.$endCol.':append?valueInputOption=RAW&insertDataOption=INSERT_ROWS',
+                    $base.'/spreadsheets/'.$spreadsheetId.'/values/'.$fallbackRange.':append?valueInputOption=RAW&insertDataOption=INSERT_ROWS',
                     [
                         'majorDimension' => 'ROWS',
                         'values' => $rows,
@@ -522,9 +583,7 @@ final class GoogleAdsOfflineSheetExporter
                 );
 
             if (! $fallback->successful()) {
-                throw new RuntimeException(
-                    'Sheets append failed HTTP '.$response->status().': '.$response->body()
-                );
+                throw new RuntimeException($this->sheetsError('Sheets append', $response->status(), $response->body()));
             }
         }
     }
