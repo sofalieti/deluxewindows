@@ -11,6 +11,7 @@ use App\Models\User;
 use App\Models\LeadChange;
 use App\Models\LeadComment;
 use App\Orchid\Screens\Concerns\QueuesCallTranscripts;
+use App\Services\Ads\AppointmentSheetExporter;
 use App\Services\ContactFromLeadService;
 use App\Services\TrafficSourceVisibility;
 use Illuminate\Http\Request;
@@ -383,6 +384,14 @@ class LeadEditScreen extends Screen
                 $changes['status'][0],
                 $changes['status'][1]
             );
+            $sheetError = app(AppointmentSheetExporter::class)->onStatusChanged(
+                $lead,
+                (string) $changes['status'][0],
+                (string) $changes['status'][1]
+            );
+            if ($sheetError !== null) {
+                Toast::warning('Lead saved. Sheet export failed: '.$sheetError);
+            }
         }
 
         Toast::info(count($changes) === 1 ? 'Lead updated.' : count($changes).' lead fields updated.');
@@ -409,6 +418,10 @@ class LeadEditScreen extends Screen
                 LeadChange::recordStatusChange($lead, $from, $to, (int) $user->id);
                 app(\App\Services\ReferralRewardService::class)->syncEligibleForLead($lead->refresh());
                 app(\App\Services\CrmTaskAutomation::class)->onLeadStatusChanged($lead, $from, $to);
+                $sheetError = app(AppointmentSheetExporter::class)->onStatusChanged($lead, $from, $to);
+                if ($sheetError !== null) {
+                    Toast::warning('Status saved. Sheet export failed: '.$sheetError);
+                }
             }
         }
 

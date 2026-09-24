@@ -309,7 +309,16 @@ class LeadListScreen extends Screen
         app(\App\Services\ReferralRewardService::class)->syncEligibleForLead($lead->refresh());
         app(\App\Services\CrmTaskAutomation::class)->onLeadStatusChanged($lead, $from, $to);
 
-        Toast::info('Status updated: '.$lead->statusLabel());
+        $alreadyInSheet = $lead->appointments_sheet_exported_at !== null;
+        $sheetError = app(AppointmentSheetExporter::class)->onStatusChanged($lead, $from, $to);
+        $lead->refresh();
+        if ($sheetError !== null) {
+            Toast::warning('Status updated. Sheet export failed: '.$sheetError);
+        } elseif ($to === Lead::STATUS_APPOINTMENT && ! $alreadyInSheet && $lead->appointments_sheet_exported_at !== null) {
+            Toast::info('Status updated: '.$lead->statusLabel().'. Sent to the appointments sheet.');
+        } else {
+            Toast::info('Status updated: '.$lead->statusLabel());
+        }
     }
 
     public function changeAssignee(Request $request): void

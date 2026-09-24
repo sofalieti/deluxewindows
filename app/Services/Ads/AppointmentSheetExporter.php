@@ -70,6 +70,27 @@ final class AppointmentSheetExporter
         ];
     }
 
+    /**
+     * Send the lead when its status has just become Appointment.
+     * Returns an error message when the sheet write fails, otherwise null.
+     */
+    public function onStatusChanged(Lead $lead, string $from, string $to): ?string
+    {
+        if ($to !== Lead::STATUS_APPOINTMENT || $from === $to || $lead->appointments_sheet_exported_at !== null) {
+            return null;
+        }
+
+        try {
+            $this->exportLead($lead);
+
+            return null;
+        } catch (RuntimeException $e) {
+            report($e);
+
+            return $e->getMessage();
+        }
+    }
+
     public function exportLead(Lead $lead): bool
     {
         if ($lead->status !== Lead::STATUS_APPOINTMENT || $lead->appointments_sheet_exported_at !== null) {
