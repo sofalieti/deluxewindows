@@ -47,11 +47,29 @@ test('appointment export appends only new appointment leads', function () {
         'phone' => '(650) 555-1212',
         'email' => 'ada@example.com',
         'city' => 'San Mateo',
+        'utm_source' => 'google',
+        'utm_medium' => 'cpc',
         'status' => Lead::STATUS_APPOINTMENT,
+        'meta' => ['gclid' => 'gclid-ada'],
+    ]);
+    Lead::query()->create([
+        'full_name' => 'No Click Id',
+        'status' => Lead::STATUS_APPOINTMENT,
+    ]);
+    $bing = Lead::query()->create([
+        'full_name' => 'Bing Client',
+        'utm_source' => 'bing',
+        'utm_medium' => 'cpc',
+        'status' => Lead::STATUS_APPOINTMENT,
+        'meta' => [
+            'gclid' => 'stale-google-gclid',
+            'msclkid' => 'msclkid-bing',
+        ],
     ]);
     Lead::query()->create([
         'full_name' => 'Not Yet',
         'status' => Lead::STATUS_NEW,
+        'meta' => ['gclid' => 'gclid-not-appointment'],
     ]);
     Lead::query()->create([
         'full_name' => 'Already Sent',
@@ -72,8 +90,12 @@ test('appointment export appends only new appointment leads', function () {
             && str_contains($request->url(), '/spreadsheets/appointments-sheet/values/')
             && str_contains($request->url(), 'append')
             && (($request['values'][0][0] ?? null) === 'Ada Client')
-            && (($request['values'][0][1] ?? null) === '(650) 555-1212');
+            && (($request['values'][0][1] ?? null) === '(650) 555-1212')
+            && in_array('gclid-ada', $request['values'][0], true);
     });
+
+    $bing->refresh();
+    expect($bing->appointments_sheet_exported_at)->toBeNull();
 
     $again = app(AppointmentSheetExporter::class)->exportPending();
     expect($again['count'])->toBe(0);

@@ -23,6 +23,7 @@ final class AppointmentSheetExporter
         'Message',
         'Page',
         'Source',
+        'GCLID',
         'Created',
         'Lead ID',
     ];
@@ -64,7 +65,7 @@ final class AppointmentSheetExporter
 
         $this->assertExportColumn();
 
-        $leads = $this->pendingLeads()->get();
+        $leads = $this->eligibleLeads($this->pendingLeads()->get());
         $this->appendLeads($leads);
 
         return [
@@ -96,7 +97,7 @@ final class AppointmentSheetExporter
 
     public function exportLead(Lead $lead): bool
     {
-        if ($lead->status !== Lead::STATUS_APPOINTMENT || $lead->appointments_sheet_exported_at !== null) {
+        if ($lead->status !== Lead::STATUS_APPOINTMENT || $lead->appointments_sheet_exported_at !== null || ! $this->shouldExport($lead)) {
             return false;
         }
 
@@ -121,6 +122,37 @@ final class AppointmentSheetExporter
             ->where('status', Lead::STATUS_APPOINTMENT)
             ->whereNull('appointments_sheet_exported_at')
             ->orderBy('id');
+    }
+
+    public function shouldExport(Lead $lead): bool
+    {
+        return $this->resolvedGclid($lead) !== null && ! $this->isBingLead($lead);
+    }
+
+    /**
+     * @param  Collection<int, Lead>  $leads
+     * @return Collection<int, Lead>
+     */
+    private function eligibleLeads(Collection $leads): Collection
+    {
+        return $leads->filter(fn (Lead $lead): bool => $this->shouldExport($lead))->values();
+    }
+
+    public function resolvedGclid(Lead $lead): ?string
+    {
+        $last = $lead->metaValue('gclid');
+        if ($last !== '') {
+            return $last;
+        }
+
+        $first = data_get($lead->meta, 'first_touch.gclid');
+        if ($first === null || is_array($first)) {
+            return null;
+        }
+
+        $first = trim((string) $first);
+
+        return $first !== '' ? $first : null;
     }
 
     /**
@@ -167,6 +199,7 @@ final class AppointmentSheetExporter
             $this->cell($lead->message),
             $this->cell($lead->page_url),
             $this->cell($lead->utm_source),
+            (string) $this->resolvedGclid($lead),
             $created,
             (string) $lead->id,
         ];
@@ -193,5 +226,27 @@ final class AppointmentSheetExporter
         $clean = mb_convert_encoding($text, 'UTF-8', 'UTF-8');
 
         return is_string($clean) ? $clean : '';
+    }
+
+    private function isBingLead(Lead $lead): bool
+    {
+        if (($lead->traffic_source ?? '') === 'microsoft_ads') {
+            return true;
+        }
+
+        if ($lead->metaValue('msclkid') !== '') {
+            return true;
+        }
+
+        $firstMsclkid = data_get($lead->meta, 'first_touch.msclkid');
+        if (is_string($firstMsclkid) && trim($firstMsclkid) !== '') {
+            return true;
+        }
+
+        $source = strtolower(trim((string) $lead->utm_source));
+
+        return $source === 'msn'
+            || str_contains($source, 'bing')
+            || str_contains($source, 'microsoft');
     }
 }

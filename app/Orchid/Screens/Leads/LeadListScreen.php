@@ -129,7 +129,7 @@ class LeadListScreen extends Screen
             Button::make('Export appointments')
                 ->icon('bs.file-earmark-spreadsheet')
                 ->method('exportAppointments')
-                ->confirm('Append leads with status Appointment into the appointments spreadsheet?'),
+                ->confirm('Append appointment leads that have a Google GCLID into the appointments spreadsheet?'),
         ];
 
         if ($this->contactFilter !== null) {
@@ -181,7 +181,15 @@ class LeadListScreen extends Screen
             return;
         }
 
-        Toast::success($sent ? 'Appointment sent to the sheet.' : 'This lead is already in the sheet.');
+        if ($sent) {
+            Toast::success('Appointment sent to the sheet.');
+
+            return;
+        }
+
+        Toast::info($exporter->shouldExport($lead)
+            ? 'This lead is already in the sheet.'
+            : 'Only appointment leads with a Google GCLID are sent. Bing is skipped.');
     }
 
     public function layout(): iterable

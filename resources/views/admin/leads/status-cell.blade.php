@@ -25,7 +25,7 @@
         </select>
     </div>
 
-    @if ($lead->status === \App\Models\Lead::STATUS_APPOINTMENT && $lead->appointments_sheet_exported_at === null)
+    @if ($lead->status === \App\Models\Lead::STATUS_APPOINTMENT && $lead->appointments_sheet_exported_at === null && app(\App\Services\Ads\AppointmentSheetExporter::class)->shouldExport($lead))
         <div class="mt-1">
             {!! \Orchid\Screen\Actions\Button::make('To sheet')
                 ->icon('bs.file-earmark-spreadsheet')
