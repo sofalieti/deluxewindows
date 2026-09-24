@@ -390,7 +390,8 @@
         : null;
       if (!anchor) return;
 
-      if (isBingAdsVisitor() && modalEl()) {
+      var isMobile = window.matchMedia && window.matchMedia('(max-width: 991px)').matches;
+      if (!isMobile && isBingAdsVisitor() && modalEl()) {
         event.preventDefault();
         event.stopPropagation();
         bindModal();

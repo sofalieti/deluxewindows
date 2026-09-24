@@ -10,6 +10,7 @@ use App\Models\LeadChange;
 use App\Models\LeadComment;
 use App\Models\User;
 use App\Orchid\Layouts\Leads\LeadFiltersLayout;
+use App\Services\Ads\AppointmentSheetExporter;
 use App\Services\Mailbox\MailboxEmailStatsService;
 use App\Services\RingCentralPhoneCallStatsService;
 use App\Services\TrafficSourceVisibility;
@@ -17,7 +18,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
+use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\Link;
+use RuntimeException;
 use Orchid\Screen\Screen;
 use Orchid\Screen\TD;
 use Orchid\Support\Facades\Layout;
@@ -122,18 +125,61 @@ class LeadListScreen extends Screen
 
     public function commandBar(): iterable
     {
-        if ($this->contactFilter === null) {
-            return [];
+        $actions = [
+            Button::make('Export appointments')
+                ->icon('bs.file-earmark-spreadsheet')
+                ->method('exportAppointments')
+                ->confirm('Append leads with status Appointment into the appointments spreadsheet?'),
+        ];
+
+        if ($this->contactFilter !== null) {
+            $actions[] = Link::make('Open contact')
+                ->icon('bs.person-vcard')
+                ->route('platform.contacts.edit', $this->contactFilter);
+            $actions[] = Link::make('All leads')
+                ->icon('bs.arrow-left')
+                ->route('platform.leads');
         }
 
-        return [
-            Link::make('Open contact')
-                ->icon('bs.person-vcard')
-                ->route('platform.contacts.edit', $this->contactFilter),
-            Link::make('All leads')
-                ->icon('bs.arrow-left')
-                ->route('platform.leads'),
-        ];
+        return $actions;
+    }
+
+    public function exportAppointments(AppointmentSheetExporter $exporter): void
+    {
+        try {
+            $result = $exporter->exportPending();
+        } catch (RuntimeException $e) {
+            Toast::error($e->getMessage());
+
+            return;
+        }
+
+        if ($result['count'] === 0) {
+            Toast::info('No new appointment leads to export.');
+
+            return;
+        }
+
+        Toast::success('Sent '.$result['count'].' appointment lead(s) to the sheet.');
+    }
+
+    public function sendAppointment(Request $request, AppointmentSheetExporter $exporter): void
+    {
+        $validated = $request->validate([
+            'lead' => ['required', 'integer', 'exists:leads,id'],
+        ]);
+
+        $lead = Lead::query()->findOrFail((int) $validated['lead']);
+
+        try {
+            $sent = $exporter->exportLead($lead);
+        } catch (RuntimeException $e) {
+            Toast::error($e->getMessage());
+
+            return;
+        }
+
+        Toast::success($sent ? 'Appointment sent to the sheet.' : 'This lead is already in the sheet.');
     }
 
     public function layout(): iterable

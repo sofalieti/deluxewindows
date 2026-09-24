@@ -82,6 +82,10 @@ return [
         'folder_id' => env('GOOGLE_DRIVE_FOLDER_ID', '1rCfaF8tk29fPPdO0zljjRXyMIp4PLALv'),
         // Optional: pin one workbook. If empty, find/create "Google Ads Offline Conversions" in the folder.
         'spreadsheet_id' => env('GOOGLE_DRIVE_SPREADSHEET_ID'),
+        'appointments_spreadsheet_id' => env(
+            'GOOGLE_DRIVE_APPOINTMENTS_SPREADSHEET_ID',
+            '1He1uAQ__aYOjGA5PE3kuKBMEGnUu7j1LS2r0MVlGk0E'
+        ),
         'service_account_json' => env('GOOGLE_DRIVE_SERVICE_ACCOUNT_JSON'),
         'client_id' => env('GOOGLE_DRIVE_CLIENT_ID', env('GOOGLE_ADS_CLIENT_ID')),
         'client_secret' => env('GOOGLE_DRIVE_CLIENT_SECRET', env('GOOGLE_ADS_CLIENT_SECRET')),

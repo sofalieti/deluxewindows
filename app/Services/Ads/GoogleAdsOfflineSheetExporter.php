@@ -420,13 +420,29 @@ final class GoogleAdsOfflineSheetExporter
             || $second === 'Google Click ID';
     }
 
+    private function sheetHasAnyValues(string $spreadsheetId): bool
+    {
+        $base = (string) config('services.google_drive.sheets_api_base_url');
+        $response = $this->http()
+            ->withToken($this->accessToken())
+            ->get($base.'/spreadsheets/'.$spreadsheetId.'/values/A1');
+
+        if (! $response->successful()) {
+            return true;
+        }
+
+        $values = $response->json('values');
+
+        return is_array($values) && $values !== [];
+    }
+
     /**
      * @param  list<list<string>>  $grid
      */
-    private function writeValues(string $spreadsheetId, array $grid): void
+    private function writeValues(string $spreadsheetId, array $grid, ?int $columns = null): void
     {
         $base = (string) config('services.google_drive.sheets_api_base_url');
-        $endCol = $this->columnLetter(count(self::HEADER_ROW));
+        $endCol = $this->columnLetter($columns ?? count(self::HEADER_ROW));
         $endRow = max(1, count($grid));
         $range = 'Sheet1!A1:'.$endCol.$endRow;
 
@@ -457,12 +473,34 @@ final class GoogleAdsOfflineSheetExporter
     }
 
     /**
+     * Append rows to an existing workbook. Writes the header first when the sheet is empty.
+     *
+     * @param  list<string>  $header
      * @param  list<list<string>>  $rows
      */
-    private function appendValues(string $spreadsheetId, array $rows): void
+    public function appendLabeledRows(string $spreadsheetId, array $header, array $rows): void
+    {
+        if ($rows === []) {
+            return;
+        }
+
+        if (! $this->sheetHasAnyValues($spreadsheetId)) {
+            $this->writeValues($spreadsheetId, array_merge([$header], $rows), count($header));
+
+            return;
+        }
+
+        $this->appendValues($spreadsheetId, $rows, count($header));
+    }
+
+    /**
+     * @param  list<list<string>>  $rows
+     */
+    private function appendValues(string $spreadsheetId, array $rows, ?int $columns = null): void
     {
         $base = (string) config('services.google_drive.sheets_api_base_url');
-        $url = $base.'/spreadsheets/'.$spreadsheetId.'/values/Sheet1!A:G:append'
+        $endCol = $this->columnLetter($columns ?? count(self::HEADER_ROW));
+        $url = $base.'/spreadsheets/'.$spreadsheetId.'/values/Sheet1!A:'.$endCol.':append'
             .'?valueInputOption=RAW&insertDataOption=INSERT_ROWS';
 
         $response = $this->http()
@@ -476,7 +514,7 @@ final class GoogleAdsOfflineSheetExporter
             $fallback = $this->http()
                 ->withToken($this->accessToken())
                 ->post(
-                    $base.'/spreadsheets/'.$spreadsheetId.'/values/A:G:append?valueInputOption=RAW&insertDataOption=INSERT_ROWS',
+                    $base.'/spreadsheets/'.$spreadsheetId.'/values/A:'.$endCol.':append?valueInputOption=RAW&insertDataOption=INSERT_ROWS',
                     [
                         'majorDimension' => 'ROWS',
                         'values' => $rows,

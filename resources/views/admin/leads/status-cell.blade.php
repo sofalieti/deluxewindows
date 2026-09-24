@@ -25,6 +25,17 @@
         </select>
     </div>
 
+    @if ($lead->status === \App\Models\Lead::STATUS_APPOINTMENT && $lead->appointments_sheet_exported_at === null)
+        <div class="mt-1">
+            {!! \Orchid\Screen\Actions\Button::make('To sheet')
+                ->icon('bs.file-earmark-spreadsheet')
+                ->method('sendAppointment', ['lead' => $lead->id])
+                ->confirm('Add this appointment lead to the Google sheet?') !!}
+        </div>
+    @elseif ($lead->appointments_sheet_exported_at !== null)
+        <div class="small text-muted mt-1">In sheet</div>
+    @endif
+
     <div class="lead-assignee-form">
         <select
             class="lead-assignee-select"
