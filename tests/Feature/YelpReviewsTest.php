@@ -19,49 +19,25 @@ test('yelp reviews payload exposes the official rating and three-star-plus revie
     }
 });
 
-test('yelp reviews partial renders rating, stars and review links', function () {
-    $html = view('partials.yelp-reviews')->render();
-
-    expect($html)
-        ->toContain('data-yelp-reviews')
-        ->toContain('4.5')
-        ->toContain('257')
-        ->toContain('https://www.yelp.com/biz/deluxe-windows-burlingame-3')
-        ->toContain('dw-yelp__person')
-        ->toContain('dw-yelp-stars')
-        ->not->toContain('View on Yelp')
-        ->not->toContain('elfsight-app-');
-});
-
-test('trust badges bar shows a Yelp rating badge and left reviews drawer', function () {
+test('trust badges bar mounts the original Elfsight reviews widget', function () {
     $html = view('partials.trust-badges')->render();
 
     expect($html)
-        ->toContain('data-yelp-badge')
-        ->toContain('data-yelp-drawer')
-        ->toContain('dw-yelp-stars')
-        ->toContain('4.5')
-        ->toContain('257')
-        ->toContain('dw-yelp__person')
-        ->not->toContain('View on Yelp')
-        ->not->toContain('elfsight-app-e3dc666e')
-        ->not->toContain('elfsightcdn.com');
+        ->toContain('elfsight-app-e3dc666e-7803-4c6a-94c1-0e4f1155d816')
+        ->toContain('elfsightcdn.com')
+        ->not->toContain('data-yelp-drawer');
 });
 
-test('content review blocks no longer mount Elfsight widgets', function () {
-    $files = [
-        resource_path('views/partials/reviews.blade.php'),
-        resource_path('views/testimonials.blade.php'),
-        resource_path('views/about.blade.php'),
-        resource_path('views/window-replacement/show.blade.php'),
-    ];
+test('content pages mount the original Elfsight Yelp review widgets', function () {
+    expect(File::get(resource_path('views/partials/reviews.blade.php')))
+        ->toContain('elfsight-app-b6b258cb-48f2-4f37-a4c4-f938938bbe24');
 
-    foreach ($files as $file) {
-        $contents = File::get($file);
-        expect($contents)
-            ->toContain('partials.yelp-reviews')
-            ->not->toContain('elfsight-app-b6b258cb')
-            ->not->toContain('elfsight-app-9b5ea9e5')
-            ->not->toContain('elfsight-app-54d8cb68');
-    }
+    expect(File::get(resource_path('views/about.blade.php')))
+        ->toContain('elfsight-app-9b5ea9e5-b8e2-46ee-a99c-1e6552b85f66');
+
+    expect(File::get(resource_path('views/testimonials.blade.php')))
+        ->toContain('elfsight-app-9b5ea9e5-b8e2-46ee-a99c-1e6552b85f66');
+
+    expect(File::get(resource_path('views/window-replacement/show.blade.php')))
+        ->toContain('elfsight-app-54d8cb68-4afb-4ebe-b139-2bd0bc687876');
 });

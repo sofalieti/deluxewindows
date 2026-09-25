@@ -308,10 +308,15 @@
               video.setAttribute("playsinline", "");
               video.setAttribute("muted", "");
               video.setAttribute("aria-hidden", "true");
-              var source = document.createElement("source");
-              source.src = "/webflow-assets/videos/687ca10e41cc245f5cdacfd5_0719_2-copy.mp4";
-              source.type = "video/mp4";
-              video.appendChild(source);
+              [
+                ["/webflow-assets/videos/hero-home-desktop.webm", "video/webm"],
+                ["/webflow-assets/videos/hero-home-desktop.mp4", "video/mp4"]
+              ].forEach(function (item) {
+                var source = document.createElement("source");
+                source.src = item[0];
+                source.type = item[1];
+                video.appendChild(source);
+              });
               video.addEventListener("playing", function () {
                 wrapper.classList.add("has-video");
               }, { once: true });

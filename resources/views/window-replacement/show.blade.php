@@ -46,7 +46,14 @@
 
     @include('partials.guarantee')
 
-    @include('partials.reviews')
+    <section>
+      <div class="w-layout-blockcontainer container-default w-container">
+        <div class="w-embed w-script">
+          <script src="https://elfsightcdn.com/platform.js" async></script>
+          <div class="elfsight-app-54d8cb68-4afb-4ebe-b139-2bd0bc687876" data-elfsight-app-lazy></div>
+        </div>
+      </div>
+    </section>
 
     @include('partials.county-hub-bottom-cta', [
       'ctaLocationLabel' => $cityName,
