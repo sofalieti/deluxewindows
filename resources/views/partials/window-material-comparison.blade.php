@@ -166,26 +166,5 @@
     @endforeach
   </div>
 
-  <div class="wmc__footnote">
-    <p>{{ $comparison['disclaimer'] }}</p>
-    <details>
-      <summary>How we compare materials</summary>
-      <p>
-        Ratings are relative guides, not product certifications. Higher ratings indicate a
-        more favorable material characteristic. Review the NFRC label for exact whole-window
-        performance.
-      </p>
-      <ul>
-        @foreach($comparison['sources'] as $source)
-          <li>
-            <a href="{{ $source['url'] }}" target="_blank" rel="noopener noreferrer">
-              {{ $source['label'] }}
-            </a>
-          </li>
-        @endforeach
-      </ul>
-    </details>
-  </div>
-
   <script type="application/json" data-wmc-data>{!! $comparisonJson !!}</script>
 </div>
