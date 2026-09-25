@@ -59,6 +59,8 @@ test('comparison partial renders an accessible server-side initial state', funct
         ->toContain('type="application/json"')
         ->toContain('data-wmc-tradeoff-link')
         ->toContain('data-open-estimate-modal')
+        ->toContain('data-wmc-expand')
+        ->toContain('Compare all points')
         ->toContain('aria-live="polite"')
         ->not->toContain('href="#contact"')
         ->not->toContain('<h1')

@@ -83,7 +83,19 @@
       @endforeach
     </div>
 
-    <div class="wmc__criteria">
+    <div class="wmc__expand">
+      <button
+        type="button"
+        class="wmc__expand-btn"
+        data-wmc-expand
+        aria-expanded="false"
+        aria-controls="wmc-criteria"
+      >
+        Compare all points
+      </button>
+    </div>
+
+    <div class="wmc__criteria" id="wmc-criteria">
       @foreach($comparison['criteria'] as $criterion)
         <div class="wmc__criterion-row" data-wmc-criterion="{{ $criterion['key'] }}">
           <div class="wmc__criterion-title">

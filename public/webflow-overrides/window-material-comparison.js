@@ -141,6 +141,15 @@
       mobileQuery.addListener(handleViewportChange);
     }
 
+    var expandButton = root.querySelector("[data-wmc-expand]");
+    if (expandButton) {
+      expandButton.addEventListener("click", function () {
+        var open = root.classList.toggle("is-expanded");
+        expandButton.setAttribute("aria-expanded", open ? "true" : "false");
+        expandButton.textContent = open ? "Hide full comparison" : "Compare all points";
+      });
+    }
+
     updateDisabledOptions();
   }
 
