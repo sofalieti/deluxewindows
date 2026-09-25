@@ -75,6 +75,8 @@ test('brand comparison partial renders a safe server-side initial state', functi
         ->toContain('type="application/json"')
         ->toContain('data-wbc-tradeoff-link')
         ->toContain('data-open-estimate-modal')
+        ->toContain('data-wbc-expand')
+        ->toContain('Compare all points')
         ->toContain('aria-live="polite"')
         ->not->toContain('href="#contact"')
         ->not->toContain('<h1')

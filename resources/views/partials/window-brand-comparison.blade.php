@@ -85,7 +85,19 @@
       @endforeach
     </div>
 
-    <div class="wbc__criteria">
+    <div class="wbc__expand">
+      <button
+        type="button"
+        class="wbc__expand-btn"
+        data-wbc-expand
+        aria-expanded="false"
+        aria-controls="wbc-criteria"
+      >
+        Compare all points
+      </button>
+    </div>
+
+    <div class="wbc__criteria" id="wbc-criteria">
       @foreach($comparison['criteria'] as $criterion)
         <div
           class="wbc__criterion-row"
