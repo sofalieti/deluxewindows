@@ -107,19 +107,6 @@
           required
         />
 
-        <label class="hero-nm__label" for="hero-nm-email">Email*</label>
-        <input
-          id="hero-nm-email"
-          class="hero-nm__input"
-          type="email"
-          name="Email"
-          data-name="Email"
-          maxlength="256"
-          autocomplete="email"
-          placeholder="example@email.com"
-          required
-        />
-
         <label class="hero-nm__label" for="hero-nm-city">City</label>
         <input
           id="hero-nm-city"

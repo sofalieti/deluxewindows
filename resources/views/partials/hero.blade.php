@@ -477,6 +477,8 @@
                           placeholder="{{ site_phone_display() }}"
                           type="tel"
                           id="phone"
+                          autocomplete="tel"
+                          inputmode="tel"
                           required=""
                         />
                         <div class="input-line-icon-wrapper"><div class="filled-icons-font"></div></div>

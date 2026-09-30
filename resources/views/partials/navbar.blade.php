@@ -1361,9 +1361,9 @@
             @endunless
             <div class="mobile-estimate-modal__form-wrap w-form">
               <form id="wf-form-Mobile-Estimate-Modal" name="wf-form-Mobile-Estimate-Modal" method="get" class="mobile-estimate-modal__form js-laravel-lead-form">
-                <input type="text" name="Name" placeholder="Full name*" required class="w-input" />
-                <input type="email" name="Email" placeholder="Email*" required class="w-input" />
-                <input type="tel" name="Phone" placeholder="{{ site_phone_display() }}" required class="w-input" />
+                <input type="text" name="Name" placeholder="Full name*" required class="w-input" autocomplete="name" />
+                <input type="email" name="Email" placeholder="Email*" required class="w-input" autocomplete="email" />
+                <input type="tel" name="Phone" placeholder="{{ site_phone_display() }}" required class="w-input" autocomplete="tel" inputmode="tel" />
                 <input type="text" name="Subject" placeholder="City" class="w-input" />
                 <textarea name="Message" maxlength="5000" placeholder="Tell us about your project" class="w-input"></textarea>
                 <div class="primary-button space-between-v1">

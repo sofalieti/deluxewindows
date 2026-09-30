@@ -2595,6 +2595,10 @@ a.link-block.odsf {
   width: 100%;
 }
 
+.lead-form-email-mobile-hidden {
+  display: none !important;
+}
+
 .lead-form-submit-host > input[type="submit"],
 .lead-form-submit-host > button[type="submit"] {
   width: 100%;

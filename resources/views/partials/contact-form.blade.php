@@ -13,12 +13,12 @@
       </div>
       <div class="input-wrapper">
         <input class="input w-input" type="email" name="email" placeholder="Email Address *"
-          value="{{ old('email') }}" required maxlength="255" />
+          value="{{ old('email') }}" required maxlength="255" autocomplete="email" />
         @error('email')<span class="contact-form-error">{{ $message }}</span>@enderror
       </div>
       <div class="input-wrapper">
         <input class="input w-input" type="tel" name="phone" placeholder="Phone Number *"
-          value="{{ old('phone') }}" required maxlength="50" />
+          value="{{ old('phone') }}" required maxlength="50" autocomplete="tel" inputmode="tel" />
         @error('phone')<span class="contact-form-error">{{ $message }}</span>@enderror
       </div>
       <div class="input-wrapper">

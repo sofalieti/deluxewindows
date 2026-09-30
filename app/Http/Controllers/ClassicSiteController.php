@@ -506,7 +506,7 @@ class ClassicSiteController extends Controller
 
         $validated = validator($payload, [
             'full_name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
+            'email' => 'nullable|email|max:255',
             'phone' => 'required|string|max:50',
             'city' => 'nullable|string|max:100',
             'message' => 'nullable|string|max:3000',
@@ -530,6 +530,9 @@ class ClassicSiteController extends Controller
             'form_id' => 'nullable|string|max:255',
             'hero_variant' => 'nullable|string|max:20',
         ])->validate();
+
+        // Empty email is allowed (mobile forms hide the field). DB column is NOT NULL.
+        $validated['email'] = trim((string) ($validated['email'] ?? ''));
 
         $spam = app(\App\Services\LeadSpamGuard::class)->inspect([
             'full_name' => $validated['full_name'],
