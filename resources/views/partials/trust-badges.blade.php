@@ -18,7 +18,12 @@
             </div>
             <div class="div-block-65">
               <div class="text-block-46" aria-hidden="true">&#10003;</div>
-              <div class="text-block-47">40% Off — Limited Time</div>
+              <a
+                class="text-block-47 trust-badges-license-link"
+                href="https://www.cslb.ca.gov/onlineservices/checklicenseII/LicenseDetail.aspx?LicNum=695262"
+                target="_blank"
+                rel="noopener noreferrer"
+              >CA Lic. #695262</a>
             </div>
           </div>
         </div>

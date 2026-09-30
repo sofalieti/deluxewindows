@@ -37,9 +37,9 @@
               <div class="code-embed-11 dsafsdf w-embed">{{ $cityName }} Service Summary</div>
               <div class="code-embed-10 w-embed">Service Area    <span style="float:right;">{{ $cityLabel }}</span></div>
               <div class="code-embed-10 w-embed">County    <span style="float:right;">{{ $countyName }}</span></div>
-              <div class="code-embed-10 w-embed">Starting Price    <span style="float:right; font-weight: bold; color:#e87722;">From $549/window</span></div>
+              <div class="code-embed-10 w-embed">Starting Price    <span style="float:right; font-weight: bold; color:#e87722;">From $499/window</span></div>
               <div class="code-embed-10 w-embed">Current Offer    <span style="float:right; font-weight: bold; color:#e87722;">{{ promotion_percent_label() }}</span></div>
-              <div class="code-embed-10 w-embed">Yelp Rating    <span style="float:right;">★★★★★ 4.9</span></div>
+              <div class="code-embed-10 w-embed">Yelp Rating    <span style="float:right;">★★★★★ 4.5</span></div>
               <div class="code-embed-10 w-embed">Installation Time<span style="float:right;">1–2 Days</span></div>
               <div class="code-embed-10 lastcode w-embed">Estimates <span style="float:right; font-weight: bold; color:#e87722;">Free</span></div>
               <a href="/contacts" class="primary-button-2 custom w-inline-block"><div>Request a Free Estimate</div></a>

@@ -89,7 +89,7 @@
                   </div>
                   <div class="mg-top-small"><h3 class="display-5 mid">Solving Your Problems</h3></div>
                   <div class="mg-top-extra-small">
-                    <p class="paragraph-5">With our 20+ years of experience we have seen it all. From small to large projects, we will guide you through your window and door installation process.<br /></p>
+                    <p class="paragraph-5">With our 30+ years of experience we have seen it all. From small to large projects, we will guide you through your window and door installation process.<br /></p>
                   </div>
                 </div>
                 <div class="value-wrapper">
