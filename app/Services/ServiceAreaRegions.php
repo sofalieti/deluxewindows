@@ -182,6 +182,31 @@ final class ServiceAreaRegions
     }
 
     /**
+     * All local numbers we advertise by Bay Area region.
+     *
+     * @return list<array{key: string, label: string, phone_display: string, phone_tel: string}>
+     */
+    public function regions(): array
+    {
+        $out = [];
+
+        foreach (array_keys($this->data()['regions']) as $key) {
+            if (! is_string($key) || $key === '') {
+                continue;
+            }
+
+            $region = $this->region($key);
+            if ($region === null || $region['phone_tel'] === '') {
+                continue;
+            }
+
+            $out[] = $region;
+        }
+
+        return $out;
+    }
+
+    /**
      * @return array<string, array<string, string|null>>
      */
     public function cities(): array

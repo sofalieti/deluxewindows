@@ -8,6 +8,19 @@ use App\Services\ServiceAreaRegions;
 use function Pest\Laravel\get;
 use function Pest\Laravel\postJson;
 
+test('service area regions list every local number with a label', function () {
+    $regions = app(ServiceAreaRegions::class)->regions();
+
+    expect($regions)->toHaveCount(5)
+        ->and(collect($regions)->pluck('phone_display')->all())->toBe([
+            '(415) 651-2321',
+            '(650) 461-4446',
+            '(510) 244-6500',
+            '(925) 430-5135',
+            '(408) 516-1200',
+        ]);
+});
+
 test('every city maps to a region with a well formed local number', function () {
     $regions = app(ServiceAreaRegions::class);
     $cities = $regions->cities();

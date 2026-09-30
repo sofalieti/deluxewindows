@@ -1,3 +1,8 @@
+@php
+  $showroomAddress = '1676 Gilbreth Rd, Burlingame, CA 94010';
+  $showroomMapsUrl = 'https://www.google.com/maps/search/?api=1&query='.rawurlencode($showroomAddress);
+  $areaPhones = app(\App\Services\ServiceAreaRegions::class)->regions();
+@endphp
       <section id="contact" class="section hero-v4">
         <div class="w-layout-blockcontainer container-default w-container">
           <h2 class="heading-31">Contact Us</h2>
@@ -9,12 +14,12 @@
                 </div>
               </div>
               <div class="mg-top-default">
-                <div class="w-layout-grid grid-2-columns contact-links-grid-v1">
+                <div class="w-layout-grid grid-2-columns contact-links-grid-v1 contacts-page-details">
                   <div class="contact-link---icon-left">
                     <img
                       src="/webflow-assets/images/6841ddf8ace3d9d9facb1950_phone-icon-property-x-webflow-template.svg"
                       loading="eager"
-                      alt="Phone Icon - Property X Webflow Template"
+                      alt=""
                       class="contact-icon"
                     />
                     <div>
@@ -24,6 +29,43 @@
                       </div>
                     </div>
                   </div>
+
+                  <div class="contact-link---icon-left">
+                    <img
+                      src="/webflow-assets/images/6841ddf8ace3d9d9facb1875_location-black-icon-property-x-webflow-template.svg"
+                      loading="eager"
+                      alt=""
+                      class="contact-icon"
+                    />
+                    <div>
+                      <div class="div-block"><div class="text-block-3">Our showroom address</div></div>
+                      <div class="mg-top-tiny">
+                        <a
+                          href="{{ $showroomMapsUrl }}"
+                          class="link mid w-inline-block"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        ><div>{{ $showroomAddress }}</div></a>
+                      </div>
+                    </div>
+                  </div>
+
+                  @if(count($areaPhones) > 0)
+                    <div class="contacts-area-phones">
+                      <div class="text-block-3">Local numbers by area</div>
+                      <ul class="contacts-area-phones__list" role="list">
+                        @foreach($areaPhones as $areaPhone)
+                          <li class="contacts-area-phones__item">
+                            <span class="contacts-area-phones__label">{{ $areaPhone['label'] }}</span>
+                            <a
+                              href="tel:{{ $areaPhone['phone_tel'] }}"
+                              class="contacts-area-phones__number link mid"
+                            >{{ $areaPhone['phone_display'] }}</a>
+                          </li>
+                        @endforeach
+                      </ul>
+                    </div>
+                  @endif
                 </div>
               </div>
             </div>
@@ -58,7 +100,7 @@
                       <div id="w-node-_72a3ee2c-7bdf-4667-09bd-bdd093d9fa48-93d9fa34">
                         <label for="Phone-2">Phone number*</label>
                         <div class="input-wrapper">
-                          <input class="input icon-left w-input" maxlength="256" name="Phone" data-name="Phone" placeholder="{{ site_phone_display() }}" type="tel" id="phone" required="" />
+                          <input class="input icon-left w-input" maxlength="256" name="Phone" data-name="Phone" placeholder="{{ site_phone_display() }}" type="tel" id="phone" required="" autocomplete="tel" inputmode="tel" />
                           <div class="input-line-icon-wrapper"><div class="filled-icons-font">&#xE873;</div></div>
                         </div>
                       </div>

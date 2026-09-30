@@ -2599,6 +2599,50 @@ a.link-block.odsf {
   display: none !important;
 }
 
+/* Contacts page — showroom + regional phones */
+.contacts-page-details {
+  grid-template-columns: 1fr !important;
+  gap: 22px !important;
+}
+
+.contacts-area-phones {
+  grid-column: 1 / -1;
+}
+
+.contacts-area-phones__list {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.contacts-area-phones__item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.contacts-area-phones__item:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.contacts-area-phones__label {
+  color: #475569;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.contacts-area-phones__number {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
 /* Hide lead-form email fields on phones (JS only drops `required`). */
 @media (max-width: 767px) {
   form.form-3 .div-block-29:has(input[name="Email"]),
