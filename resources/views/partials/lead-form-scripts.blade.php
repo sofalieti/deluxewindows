@@ -347,82 +347,59 @@
         && hasField(['Phone', 'phone']);
     }
 
-    function emailFieldWrap(input) {
-      const preferred = input.closest('.div-block-29, .hero-nm__field');
-      if (preferred) {
-        return preferred;
-      }
-
-      const wrap = input.closest('.input-wrapper');
-      if (wrap) {
-        const parent = wrap.parentElement;
-        if (
-          parent
-          && parent.tagName !== 'FORM'
-          && !parent.querySelector('input[name="Phone"], input[name="phone"], input[name="Name"], input[name="full_name"], input[name="name"]')
-        ) {
-          return parent;
-        }
-        if (!wrap.querySelector('input[name="Phone"], input[name="phone"], input[name="Name"], input[name="full_name"], input[name="name"]')) {
-          return wrap;
-        }
-      }
-
-      return null;
-    }
-
     function adaptLeadFormsForViewport() {
-      const mobile = window.matchMedia('(max-width: 767px)').matches;
+      try {
+        const mobile = window.matchMedia('(max-width: 767px)').matches;
 
-      document.querySelectorAll('form').forEach(function (form) {
-        if (!isLeadForm(form)) return;
+        document.querySelectorAll('form').forEach(function (form) {
+          if (!isLeadForm(form)) return;
 
-        form.querySelectorAll('input[name="Email"], input[name="email"], input[type="email"]').forEach(function (input) {
-          const wrap = emailFieldWrap(input);
-          const label = input.id
-            ? form.querySelector('label[for="' + input.id + '"]')
-            : null;
-
-          if (mobile) {
-            if (input.hasAttribute('required') && input.dataset.wasRequired !== '0') {
-              input.dataset.wasRequired = '1';
+          form.querySelectorAll('input[name="Email"], input[name="email"]').forEach(function (input) {
+            if (mobile) {
+              if (input.hasAttribute('required') && input.dataset.wasRequired !== '0') {
+                input.dataset.wasRequired = '1';
+              }
+              input.removeAttribute('required');
+              input.setAttribute('tabindex', '-1');
+              input.setAttribute('aria-hidden', 'true');
+            } else {
+              if (input.dataset.wasRequired === '1') {
+                input.setAttribute('required', '');
+              }
+              input.removeAttribute('tabindex');
+              input.removeAttribute('aria-hidden');
             }
-            input.removeAttribute('required');
-            input.setAttribute('tabindex', '-1');
-            input.setAttribute('aria-hidden', 'true');
-            input.classList.add('lead-form-email-mobile-hidden');
-            if (wrap) wrap.classList.add('lead-form-email-mobile-hidden');
-            if (label) label.classList.add('lead-form-email-mobile-hidden');
-          } else {
-            if (input.dataset.wasRequired === '1') {
-              input.setAttribute('required', '');
-            }
-            input.removeAttribute('tabindex');
-            input.removeAttribute('aria-hidden');
-            input.classList.remove('lead-form-email-mobile-hidden');
-            if (wrap) wrap.classList.remove('lead-form-email-mobile-hidden');
-            if (label) label.classList.remove('lead-form-email-mobile-hidden');
-          }
-        });
+          });
 
-        // Browser / OS contact autofill on phones (Safari, Chrome Android).
-        form.querySelectorAll('input[name="Phone"], input[name="phone"], input[type="tel"]').forEach(function (input) {
+          // Browser / OS contact autofill on phones (Safari, Chrome Android).
           if (!mobile) return;
-          if (!input.getAttribute('autocomplete')) {
-            input.setAttribute('autocomplete', 'tel');
-          }
-          input.setAttribute('inputmode', 'tel');
+          form.querySelectorAll('input[name="Phone"], input[name="phone"], input[type="tel"]').forEach(function (input) {
+            if (!input.getAttribute('autocomplete')) {
+              input.setAttribute('autocomplete', 'tel');
+            }
+            input.setAttribute('inputmode', 'tel');
+          });
         });
-      });
+      } catch (_) {
+        // Never block the rest of the page if form adaptation fails.
+      }
     }
 
-    adaptLeadFormsForViewport();
+    function scheduleLeadFormAdapt() {
+      adaptLeadFormsForViewport();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', scheduleLeadFormAdapt, { once: true });
+    } else {
+      scheduleLeadFormAdapt();
+    }
     if (typeof window.matchMedia === 'function') {
       const mq = window.matchMedia('(max-width: 767px)');
       if (typeof mq.addEventListener === 'function') {
-        mq.addEventListener('change', adaptLeadFormsForViewport);
+        mq.addEventListener('change', scheduleLeadFormAdapt);
       } else if (typeof mq.addListener === 'function') {
-        mq.addListener(adaptLeadFormsForViewport);
+        mq.addListener(scheduleLeadFormAdapt);
       }
     }
 

@@ -2599,6 +2599,23 @@ a.link-block.odsf {
   display: none !important;
 }
 
+/* Hide lead-form email fields on phones (JS only drops `required`). */
+@media (max-width: 767px) {
+  form.form-3 .div-block-29:has(input[name="Email"]),
+  form.form-3 .div-block-29:has(input[name="email"]),
+  form .input-wrapper:has(> input[name="Email"]),
+  form .input-wrapper:has(> input[name="email"]),
+  form.mobile-estimate-modal__form > input[name="Email"],
+  form.mobile-estimate-modal__form > input[name="email"],
+  form.contact-form-fields .input-wrapper:has(input[name="email"]),
+  form.js-laravel-lead-form > input[name="Email"],
+  form.js-laravel-lead-form > input[name="email"],
+  form label.field-label-2[for="Email-2"],
+  form label[for="email"]:not([for="email-banner"]) {
+    display: none !important;
+  }
+}
+
 .lead-form-submit-host > input[type="submit"],
 .lead-form-submit-host > button[type="submit"] {
   width: 100%;

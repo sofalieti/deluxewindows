@@ -76,7 +76,7 @@
                       </div>
                     </div>
                     <div class="text-area-wrapper">
-                      <label for="Message-2">Listing short description</label>
+                      <label for="Message-2">Description</label>
                       <div class="input-wrapper-2">
                         <textarea id="message" name="Message" maxlength="5000" data-name="Message" placeholder="Write your message here..." required="" class="text-area-2 icon-left w-input"></textarea>
                         <div class="text-area-icon-wrapper-2">

@@ -79,7 +79,7 @@
                       </div>
                     </div>
                     <div id="w-node-_824fa87e-09e3-541d-f82c-49c3ae0a3f69-ec241dd4" class="text-area-wrapper">
-                      <label for="Message-2">Listing short description</label>
+                      <label for="Message-2">Description</label>
                       <div class="input-wrapper">
                         <textarea id="message" name="Message" maxlength="5000" data-name="Message" placeholder="Write your message here..." required="" class="text-area icon-left w-input"></textarea>
                         <div class="text-area-icon-wrapper">

@@ -308,11 +308,15 @@
   // Keep mobile menu button stable when Webflow mutates styles.
   (function () {
     const MOBILE = "(max-width: 991px)";
+    let applying = false;
+    let scheduled = false;
 
     function enforceMobileMenuButtonLock() {
       if (!window.matchMedia(MOBILE).matches) return;
       const btn = document.querySelector(".navbar-3 .menu-button.w-nav-button");
       if (!btn) return;
+
+      applying = true;
       btn.style.width = "44px";
       btn.style.height = "44px";
       btn.style.margin = "0";
@@ -338,21 +342,38 @@
         icon.style.color = "#0f172a";
         icon.style.transform = "none";
       }
+      // Release after this turn so our own style writes do not re-enter the observer.
+      queueMicrotask(() => {
+        applying = false;
+      });
     }
 
     function apply() {
-      enforceMobileMenuButtonLock();
+      if (applying || scheduled) return;
+      scheduled = true;
+      requestAnimationFrame(() => {
+        scheduled = false;
+        enforceMobileMenuButtonLock();
+      });
     }
 
     onReady(apply);
     window.addEventListener("resize", apply, { passive: true });
 
-    const mo = new MutationObserver(() => apply());
-    mo.observe(document.documentElement, {
-      subtree: true,
-      childList: true,
-      attributes: true,
-      attributeFilter: ["class", "style"],
+    onReady(() => {
+      const btn = document.querySelector(".navbar-3 .menu-button.w-nav-button");
+      if (!btn) return;
+      const mo = new MutationObserver(() => {
+        if (applying) return;
+        apply();
+      });
+      // Observe only the button — watching documentElement caused a style/class feedback loop
+      // that could freeze clicks (menu + estimate) on first paint.
+      mo.observe(btn, {
+        attributes: true,
+        attributeFilter: ["style", "class"],
+        subtree: true,
+      });
     });
   })();
 
