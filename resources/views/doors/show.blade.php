@@ -27,6 +27,23 @@
 
       @include('partials.trust-badges')
 
+      {{-- Brands for this material — directly under hero --}}
+      @if($doorBrands->count() > 0)
+      <div class="door-brands-section door-brands-section--under-hero">
+        <div class="w-layout-blockcontainer container-default-3 w-container">
+          @include('partials.brand-strip', [
+            'title' => $brandsTitle,
+            'items' => collect($doorBrands)->map(fn ($brand) => [
+              'href' => '/brands/'.($brand['slug'] ?? ''),
+              'image' => (string) ($brand['image'] ?? ''),
+              'alt' => (string) ($brand['name'] ?? ''),
+            ])->values()->all(),
+            'wrapperClass' => 'door-brands-section__list',
+          ])
+        </div>
+      </div>
+      @endif
+
       <section class="section_breadcrumbs section-121">
         <div class="w-layout-blockcontainer container-default breadcrumbs-container w-container">
           <div class="breadcrumbs-wrapper">
@@ -68,21 +85,6 @@
               </div>
             </div>
           </div>
-
-          {{-- Brands for this material — directly above gallery --}}
-          @if($doorBrands->count() > 0)
-          <div class="door-brands-section door-brands-section--above-gallery">
-            @include('partials.brand-strip', [
-              'title' => $brandsTitle,
-              'items' => collect($doorBrands)->map(fn ($brand) => [
-                'href' => '/brands/'.($brand['slug'] ?? ''),
-                'image' => (string) ($brand['image'] ?? ''),
-                'alt' => (string) ($brand['name'] ?? ''),
-              ])->values()->all(),
-              'wrapperClass' => 'mg-top-large door-brands-section__list',
-            ])
-          </div>
-          @endif
 
           @php
             $allGalleryImages = collect();

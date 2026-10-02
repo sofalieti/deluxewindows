@@ -19,6 +19,23 @@
 
       @include('partials.trust-badges')
 
+      {{-- Brands for this material — directly under hero --}}
+      @if($brandTypes->count() > 0)
+      <div class="window-brands-section window-brands-section--under-hero">
+        <div class="w-layout-blockcontainer container-default w-container">
+          @include('partials.brand-strip', [
+            'title' => $brandsTitle,
+            'items' => collect($brandTypes)->map(fn ($bt) => [
+              'href' => '/window-type/'.$bt['slug'],
+              'image' => (string) ($bt['image'] ?? ''),
+              'alt' => (string) ($bt['name'] ?? ''),
+            ])->values()->all(),
+            'wrapperClass' => 'window-brands-section__list',
+          ])
+        </div>
+      </div>
+      @endif
+
       {{-- Breadcrumbs --}}
       <section class="section_breadcrumbs section-121">
         <div class="w-layout-blockcontainer container-default breadcrumbs-container w-container">
@@ -80,21 +97,6 @@
               </div>
             </div>
           </div>
-
-          {{-- Brands for this material — directly above gallery --}}
-          @if($brandTypes->count() > 0)
-          <div class="window-brands-section window-brands-section--above-gallery">
-            @include('partials.brand-strip', [
-              'title' => $brandsTitle,
-              'items' => collect($brandTypes)->map(fn ($bt) => [
-                'href' => '/window-type/'.$bt['slug'],
-                'image' => (string) ($bt['image'] ?? ''),
-                'alt' => (string) ($bt['name'] ?? ''),
-              ])->values()->all(),
-              'wrapperClass' => 'mg-top-large window-brands-section__list',
-            ])
-          </div>
-          @endif
 
           {{-- Custom gallery (replaces Webflow lightbox grid) --}}
           @php

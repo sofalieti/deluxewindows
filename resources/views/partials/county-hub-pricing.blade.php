@@ -43,7 +43,7 @@
                       <div class="rl_pricing18_plan-content">
                         <div class="rl_pricing18_plan-content-top">
                           <div class="rl_pricing18_price-wrapper top-2 top-3">
-                            <div class="rl-heading-style-h6">Wood / Wood Clad</div>
+                            <div class="rl-heading-style-h6">Wood Clad / Fiberglass / Aluminum</div>
                             <div class="rl_pricing18_spacing-block-4"></div>
                             <div class="rl-heading-style-h1"><code class="code-5">$915</code> $549</div>
                             <div class="rl_pricing18_spacing-block-4"></div>
@@ -51,7 +51,7 @@
                           </div>
                           <div class="rl_pricing18_spacing-block-5"></div>
                           <div class="rl_pricing18_feature-list">
-                            @foreach(['Natural warmth & character', 'Ideal for historic homes', 'Custom finishes & stain', '20-year glass warranty', 'Brands: Andersen, Marvin, Jeld-Wen'] as $feature)
+                            @foreach(['Stronger frames & better thermal options', 'Ideal for coastal and large openings', 'Custom finishes available', 'Brands: Andersen, Marvin, Milgard Ultra, WWS', 'Aluminum-clad options in this tier'] as $feature)
                             <div class="rl_pricing18_feature">
                               <div class="rl_pricing18_icon-wrapper"><div class="rl_pricing18_icon w-embed">{!! $checkIcon !!}</div></div>
                               <div class="rl-text-style-regular">{{ $feature }}</div>
@@ -66,15 +66,15 @@
                       <div class="rl_pricing18_plan-content">
                         <div class="rl_pricing18_plan-content-top">
                           <div class="rl_pricing18_price-wrapper top-2 top-4">
-                            <div class="rl-heading-style-h6">Fiberglass / Aluminum</div>
+                            <div class="rl-heading-style-h6">Wood / Steel</div>
                             <div class="rl_pricing18_spacing-block-4"></div>
-                            <div class="rl-heading-style-h1"><code class="code-5">$915</code> $549</div>
+                            <div class="rl-heading-style-h1"><code class="code-5">$982</code> $589</div>
                             <div class="rl_pricing18_spacing-block-4"></div>
                             <div class="rl-text-style-regular top-3">per window, installed</div>
                           </div>
                           <div class="rl_pricing18_spacing-block-5"></div>
                           <div class="rl_pricing18_feature-list">
-                            @foreach(['Highest strength & durability', 'Best thermal performance', 'Modern slim-frame aesthetics', 'Ideal for coastal climates', 'Brands: Milgard Ultra, Marvin, WWS'] as $feature)
+                            @foreach(['Premium architectural look', 'Ideal for historic & design-forward homes', 'Custom finishes & profiles', 'Highest strength options (steel)', 'Brands: Andersen, Marvin, Jeld-Wen, Italwindows'] as $feature)
                             <div class="rl_pricing18_feature">
                               <div class="rl_pricing18_icon-wrapper"><div class="rl_pricing18_icon w-embed">{!! $checkIcon !!}</div></div>
                               <div class="rl-text-style-regular">{{ $feature }}</div>

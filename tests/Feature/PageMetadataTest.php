@@ -57,7 +57,22 @@ test('site-wide organization schema is rich and separate from page schemas', fun
 
     expect($org['@type'])->toBe('HomeAndConstructionBusiness')
         ->and($org['@id'])->toBe('https://www.deluxewindows.com/#organization')
-        ->and($org)->toHaveKeys(['aggregateRating', 'openingHoursSpecification', 'areaServed', 'priceRange', 'description'])
+        ->and($org)->toHaveKeys([
+            'aggregateRating',
+            'openingHoursSpecification',
+            'areaServed',
+            'priceRange',
+            'description',
+            'address',
+            'telephone',
+            'identifier',
+        ])
+        ->and($org['address']['@type'])->toBe('PostalAddress')
+        ->and($org['address']['streetAddress'])->toBe('1676 Gilbreth Rd')
+        ->and($org['address']['addressLocality'])->toBe('Burlingame')
+        ->and($org['address']['postalCode'])->toBe('94010')
+        ->and($org['identifier']['value'])->toBe('695262')
+        ->and($org['identifier']['url'])->toContain('LicNum=695262')
         ->and($org['aggregateRating']['ratingValue'])->toBe('4.9')
         ->and(collect($pageSchemas)->pluck('@type'))->not->toContain('HomeAndConstructionBusiness');
 });
