@@ -19,7 +19,20 @@
 
       @include('partials.trust-badges')
 
-      {{-- Brands for this material — directly under hero --}}
+      {{-- Breadcrumbs --}}
+      <section class="section_breadcrumbs section-121">
+        <div class="w-layout-blockcontainer container-default breadcrumbs-container w-container">
+          <div class="breadcrumbs-wrapper">
+            <a href="/" class="breadcrumb-link">Home</a>
+            <div class="breadcrumb-div">/</div>
+            <a href="/windows" class="breadcrumb-link hidden-link">Windows</a>
+            <div class="breadcrumb-div hidden-txt">/</div>
+            <div class="breadcrumb-text">{{ $title }}</div>
+          </div>
+        </div>
+      </section>
+
+      {{-- Brands for this material — under hero & breadcrumbs --}}
       @if($brandTypes->count() > 0)
       <div class="window-brands-section window-brands-section--under-hero">
         <div class="w-layout-blockcontainer container-default w-container">
@@ -35,19 +48,6 @@
         </div>
       </div>
       @endif
-
-      {{-- Breadcrumbs --}}
-      <section class="section_breadcrumbs section-121">
-        <div class="w-layout-blockcontainer container-default breadcrumbs-container w-container">
-          <div class="breadcrumbs-wrapper">
-            <a href="/" class="breadcrumb-link">Home</a>
-            <div class="breadcrumb-div">/</div>
-            <a href="/windows" class="breadcrumb-link hidden-link">Windows</a>
-            <div class="breadcrumb-div hidden-txt">/</div>
-            <div class="breadcrumb-text">{{ $title }}</div>
-          </div>
-        </div>
-      </section>
 
       {{-- Main product section --}}
       <section class="section pd-120px top-none">

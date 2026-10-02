@@ -27,7 +27,19 @@
 
       @include('partials.trust-badges')
 
-      {{-- Brands for this material — directly under hero --}}
+      <section class="section_breadcrumbs section-121">
+        <div class="w-layout-blockcontainer container-default breadcrumbs-container w-container">
+          <div class="breadcrumbs-wrapper">
+            <a href="/" class="breadcrumb-link">Home</a>
+            <div class="breadcrumb-div">/</div>
+            <a href="/doors" class="breadcrumb-link hidden-link">Doors</a>
+            <div class="breadcrumb-div hidden-txt">/</div>
+            <div class="breadcrumb-text">{{ $title }}</div>
+          </div>
+        </div>
+      </section>
+
+      {{-- Brands for this material — under hero & breadcrumbs --}}
       @if($doorBrands->count() > 0)
       <div class="door-brands-section door-brands-section--under-hero">
         <div class="w-layout-blockcontainer container-default-3 w-container">
@@ -43,18 +55,6 @@
         </div>
       </div>
       @endif
-
-      <section class="section_breadcrumbs section-121">
-        <div class="w-layout-blockcontainer container-default breadcrumbs-container w-container">
-          <div class="breadcrumbs-wrapper">
-            <a href="/" class="breadcrumb-link">Home</a>
-            <div class="breadcrumb-div">/</div>
-            <a href="/doors" class="breadcrumb-link hidden-link">Doors</a>
-            <div class="breadcrumb-div hidden-txt">/</div>
-            <div class="breadcrumb-text">{{ $title }}</div>
-          </div>
-        </div>
-      </section>
 
       <section class="section-5 pd-120px top-none mobile-content-section">
         <div class="w-layout-blockcontainer container-default-3 w-container">
