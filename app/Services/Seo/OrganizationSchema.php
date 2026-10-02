@@ -35,11 +35,6 @@ final class OrganizationSchema
         return self::SHOWROOM_STREET.', '.self::SHOWROOM_CITY.', '.self::SHOWROOM_REGION.' '.self::SHOWROOM_POSTAL;
     }
 
-    public static function cslbLicenseUrl(): string
-    {
-        return 'https://www.cslb.ca.gov/onlineservices/checklicenseII/LicenseDetail.aspx?LicNum='.self::CSLB_LICENSE;
-    }
-
     /**
      * @return array<string, mixed>
      */
@@ -69,7 +64,6 @@ final class OrganizationSchema
                 '@type' => 'PropertyValue',
                 'name' => 'CSLB License',
                 'value' => self::CSLB_LICENSE,
-                'url' => self::cslbLicenseUrl(),
             ],
             'aggregateRating' => [
                 '@type' => 'AggregateRating',
@@ -107,7 +101,7 @@ final class OrganizationSchema
     {
         return rtrim((string) config(
             'services.sitemap.base_url',
-            'https://www.deluxewindows.com'
+            'https://deluxewindows.com'
         ), '/');
     }
 }

@@ -56,7 +56,7 @@ test('site-wide organization schema is rich and separate from page schemas', fun
     $pageSchemas = app(SchemaBuilder::class)->build($metadata);
 
     expect($org['@type'])->toBe('HomeAndConstructionBusiness')
-        ->and($org['@id'])->toBe('https://www.deluxewindows.com/#organization')
+        ->and($org['@id'])->toBe('https://deluxewindows.com/#organization')
         ->and($org)->toHaveKeys([
             'aggregateRating',
             'openingHoursSpecification',
@@ -72,7 +72,7 @@ test('site-wide organization schema is rich and separate from page schemas', fun
         ->and($org['address']['addressLocality'])->toBe('Burlingame')
         ->and($org['address']['postalCode'])->toBe('94010')
         ->and($org['identifier']['value'])->toBe('695262')
-        ->and($org['identifier']['url'])->toContain('LicNum=695262')
+        ->and($org['identifier'])->not->toHaveKey('url')
         ->and($org['aggregateRating']['ratingValue'])->toBe('4.9')
         ->and(collect($pageSchemas)->pluck('@type'))->not->toContain('HomeAndConstructionBusiness');
 });
@@ -87,7 +87,7 @@ test('representative public page families resolve metadata and schema from files
     expect($metadata->key)->not->toBe('fallback')
         ->and($metadata->title)->not->toBeEmpty()
         ->and($metadata->description)->not->toBeEmpty()
-        ->and($metadata->canonical)->toStartWith('https://www.deluxewindows.com')
+        ->and($metadata->canonical)->toStartWith('https://deluxewindows.com')
         ->and(collect($schemas)->pluck('@type'))->toContain('BreadcrumbList')
         ->and(collect($schemas)->pluck('@type'))->toContain($expectedType);
 })->with([
@@ -226,7 +226,7 @@ test('missing metadata fails safely without emitting file-derived schema', funct
         ->and($metadata->faq)->toBe([])
         ->and(collect($schemas)->pluck('@type'))->not->toContain('FAQPage')
         ->and($metadata->canonical)->toBe(
-            'https://www.deluxewindows.com/missing-page-metadata-test'
+            'https://deluxewindows.com/missing-page-metadata-test'
         );
 });
 

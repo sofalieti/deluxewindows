@@ -239,7 +239,7 @@ class SchemaBuilder
     {
         return rtrim((string) config(
             'services.sitemap.base_url',
-            'https://www.deluxewindows.com'
+            'https://deluxewindows.com'
         ), '/');
     }
 }

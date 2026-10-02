@@ -88,12 +88,7 @@
                 </div>
                 <p id="w-node-_49f8c755-3225-d40d-f9ab-cc9f4b368c44-ec09a603" class="paragraph">
                   ©2026 Deluxe Windows, Inc. <br />
-                  <a
-                    class="footer-item-link footer-license-link"
-                    href="https://www.cslb.ca.gov/onlineservices/checklicenseII/LicenseDetail.aspx?LicNum=695262"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >CA Lic. #695262</a><br />
+                  CA Lic. #695262<br />
                   All rights reserved.<br />
                 </p>
               </div>

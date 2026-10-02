@@ -1777,18 +1777,6 @@ a.link-block.odsf {
   min-width: 0;
 }
 
-.trust-badges-bar a.trust-badges-license-link {
-  color: #ffffff !important;
-  -webkit-text-fill-color: #ffffff !important;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-.trust-badges-bar a.trust-badges-license-link:hover {
-  color: #ffffff !important;
-  opacity: 0.88;
-}
-
 .trust-badges-bar .w-embed {
   display: flex;
   justify-content: center;
