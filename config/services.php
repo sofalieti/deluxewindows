@@ -178,7 +178,7 @@ return [
     ],
 
     'sitemap' => [
-        'base_url' => env('SITEMAP_BASE_URL', 'https://deluxewindows.com'),
+        'base_url' => env('SITEMAP_BASE_URL', 'https://www.deluxewindows.com'),
         'excluded_paths' => [
             '/checkout',
             '/order-confirmation',

@@ -56,7 +56,7 @@ test('site-wide organization schema is rich and separate from page schemas', fun
     $pageSchemas = app(SchemaBuilder::class)->build($metadata);
 
     expect($org['@type'])->toBe('HomeAndConstructionBusiness')
-        ->and($org['@id'])->toBe('https://deluxewindows.com/#organization')
+        ->and($org['@id'])->toBe('https://www.deluxewindows.com/#organization')
         ->and($org)->toHaveKeys([
             'aggregateRating',
             'openingHoursSpecification',
@@ -87,7 +87,7 @@ test('representative public page families resolve metadata and schema from files
     expect($metadata->key)->not->toBe('fallback')
         ->and($metadata->title)->not->toBeEmpty()
         ->and($metadata->description)->not->toBeEmpty()
-        ->and($metadata->canonical)->toStartWith('https://deluxewindows.com')
+        ->and($metadata->canonical)->toStartWith('https://www.deluxewindows.com')
         ->and(collect($schemas)->pluck('@type'))->toContain('BreadcrumbList')
         ->and(collect($schemas)->pluck('@type'))->toContain($expectedType);
 })->with([
@@ -226,7 +226,7 @@ test('missing metadata fails safely without emitting file-derived schema', funct
         ->and($metadata->faq)->toBe([])
         ->and(collect($schemas)->pluck('@type'))->not->toContain('FAQPage')
         ->and($metadata->canonical)->toBe(
-            'https://deluxewindows.com/missing-page-metadata-test'
+            'https://www.deluxewindows.com/missing-page-metadata-test'
         );
 });
 

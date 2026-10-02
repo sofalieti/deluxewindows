@@ -101,7 +101,7 @@ final class OrganizationSchema
     {
         return rtrim((string) config(
             'services.sitemap.base_url',
-            'https://deluxewindows.com'
+            'https://www.deluxewindows.com'
         ), '/');
     }
 }
