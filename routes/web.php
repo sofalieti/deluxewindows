@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ClassicSiteController::class, 'home']);
 Route::get('/home-concept', [ClassicSiteController::class, 'homeConcept']);
+Route::get('/home-concept/{variant}', [ClassicSiteController::class, 'homeConcept'])
+    ->where('variant', '[a-z]+');
 Route::get('/windows', [ClassicSiteController::class, 'windowsIndex']);
 Route::get('/doors', [ClassicSiteController::class, 'doorsIndex']);
 Route::get('/new-construction', [ClassicSiteController::class, 'newConstruction']);

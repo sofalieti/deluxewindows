@@ -1,0 +1,37 @@
+{
+    "version":  1,
+    "key":  "home-concept/editorial",
+    "path":  "/home-concept/editorial",
+    "seo":  {
+                "title":  "Concept A — Editorial | Deluxe Windows",
+                "description":  "Design concept A for the Deluxe Windows home page: editorial layout, serif display type, numbered sections, material index and a ticket-style quote form.",
+                "canonical":  "https://www.deluxewindows.com/home-concept/editorial",
+                "og":  {
+                           "title":  "Concept A — Editorial | Deluxe Windows",
+                           "description":  "Design concept A for the Deluxe Windows home page: editorial layout, serif display type, numbered sections, material index and a ticket-style quote form.",
+                           "image":  "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
+                           "type":  "website"
+                       },
+                "h1":  "Windows that pay for themselves, installed by the people who own the company.",
+                "primary_keyword":  "home concept editorial",
+                "target_keywords":  [
+                                        "home concept editorial",
+                                        "deluxe windows redesign"
+                                    ],
+                "search_intent":  "internal",
+                "priority":  "P3",
+                "robots":  "noindex,nofollow",
+                "twitter":  {
+                                "title":  "Concept A — Editorial | Deluxe Windows",
+                                "description":  "Design concept A for the Deluxe Windows home page: editorial layout, serif display type, numbered sections, material index and a ticket-style quote form.",
+                                "image":  "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
+                                "card":  "summary_large_image"
+                            }
+            },
+    "faq":  [
+
+            ],
+    "schema":  {
+                   "primary_type":  "WebPage"
+               }
+}

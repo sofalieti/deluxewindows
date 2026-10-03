@@ -1,0 +1,37 @@
+{
+    "version":  1,
+    "key":  "home-concept/noir",
+    "path":  "/home-concept/noir",
+    "seo":  {
+                "title":  "Concept B — Noir | Deluxe Windows",
+                "description":  "Design concept B for the Deluxe Windows home page: dark cinematic layout with champagne accents, full-bleed imagery, glass panels and a calm quote experience.",
+                "canonical":  "https://www.deluxewindows.com/home-concept/noir",
+                "og":  {
+                           "title":  "Concept B — Noir | Deluxe Windows",
+                           "description":  "Design concept B for the Deluxe Windows home page: dark cinematic layout with champagne accents, full-bleed imagery, glass panels and a calm quote experience.",
+                           "image":  "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
+                           "type":  "website"
+                       },
+                "h1":  "Light, framed beautifully.",
+                "primary_keyword":  "home concept noir",
+                "target_keywords":  [
+                                        "home concept noir",
+                                        "deluxe windows redesign"
+                                    ],
+                "search_intent":  "internal",
+                "priority":  "P3",
+                "robots":  "noindex,nofollow",
+                "twitter":  {
+                                "title":  "Concept B — Noir | Deluxe Windows",
+                                "description":  "Design concept B for the Deluxe Windows home page: dark cinematic layout with champagne accents, full-bleed imagery, glass panels and a calm quote experience.",
+                                "image":  "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
+                                "card":  "summary_large_image"
+                            }
+            },
+    "faq":  [
+
+            ],
+    "schema":  {
+                   "primary_type":  "WebPage"
+               }
+}

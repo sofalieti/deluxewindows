@@ -1,0 +1,37 @@
+{
+    "version":  1,
+    "key":  "home-concept/poster",
+    "path":  "/home-concept/poster",
+    "seo":  {
+                "title":  "Concept E — Poster | Deluxe Windows",
+                "description":  "Design concept E for the Deluxe Windows home page: bold poster-style bento grid, sunset palette, oversized display type, sticker badges and a playful marquee.",
+                "canonical":  "https://www.deluxewindows.com/home-concept/poster",
+                "og":  {
+                           "title":  "Concept E — Poster | Deluxe Windows",
+                           "description":  "Design concept E for the Deluxe Windows home page: bold poster-style bento grid, sunset palette, oversized display type, sticker badges and a playful marquee.",
+                           "image":  "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
+                           "type":  "website"
+                       },
+                "h1":  "Big windows. Small bills. Zero drama.",
+                "primary_keyword":  "home concept poster",
+                "target_keywords":  [
+                                        "home concept poster",
+                                        "deluxe windows redesign"
+                                    ],
+                "search_intent":  "internal",
+                "priority":  "P3",
+                "robots":  "noindex,nofollow",
+                "twitter":  {
+                                "title":  "Concept E — Poster | Deluxe Windows",
+                                "description":  "Design concept E for the Deluxe Windows home page: bold poster-style bento grid, sunset palette, oversized display type, sticker badges and a playful marquee.",
+                                "image":  "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
+                                "card":  "summary_large_image"
+                            }
+            },
+    "faq":  [
+
+            ],
+    "schema":  {
+                   "primary_type":  "WebPage"
+               }
+}

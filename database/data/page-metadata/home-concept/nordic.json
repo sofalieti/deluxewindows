@@ -1,0 +1,37 @@
+{
+    "version":  1,
+    "key":  "home-concept/nordic",
+    "path":  "/home-concept/nordic",
+    "seo":  {
+                "title":  "Concept D — Nordic | Deluxe Windows",
+                "description":  "Design concept D for the Deluxe Windows home page: airy Scandinavian layout, soft sage and sand palette, rounded cards, tabbed materials and gentle motion.",
+                "canonical":  "https://www.deluxewindows.com/home-concept/nordic",
+                "og":  {
+                           "title":  "Concept D — Nordic | Deluxe Windows",
+                           "description":  "Design concept D for the Deluxe Windows home page: airy Scandinavian layout, soft sage and sand palette, rounded cards, tabbed materials and gentle motion.",
+                           "image":  "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
+                           "type":  "website"
+                       },
+                "h1":  "A calmer, warmer, quieter home starts at the window.",
+                "primary_keyword":  "home concept nordic",
+                "target_keywords":  [
+                                        "home concept nordic",
+                                        "deluxe windows redesign"
+                                    ],
+                "search_intent":  "internal",
+                "priority":  "P3",
+                "robots":  "noindex,nofollow",
+                "twitter":  {
+                                "title":  "Concept D — Nordic | Deluxe Windows",
+                                "description":  "Design concept D for the Deluxe Windows home page: airy Scandinavian layout, soft sage and sand palette, rounded cards, tabbed materials and gentle motion.",
+                                "image":  "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
+                                "card":  "summary_large_image"
+                            }
+            },
+    "faq":  [
+
+            ],
+    "schema":  {
+                   "primary_type":  "WebPage"
+               }
+}

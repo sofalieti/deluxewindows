@@ -1,0 +1,37 @@
+{
+    "version":  1,
+    "key":  "home-concept/swiss",
+    "path":  "/home-concept/swiss",
+    "seo":  {
+                "title":  "Concept C — Swiss Grid | Deluxe Windows",
+                "description":  "Design concept C for the Deluxe Windows home page: Swiss grid system, visible rules, monospace data labels, tabular pricing and a bold single signal color.",
+                "canonical":  "https://www.deluxewindows.com/home-concept/swiss",
+                "og":  {
+                           "title":  "Concept C — Swiss Grid | Deluxe Windows",
+                           "description":  "Design concept C for the Deluxe Windows home page: Swiss grid system, visible rules, monospace data labels, tabular pricing and a bold single signal color.",
+                           "image":  "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
+                           "type":  "website"
+                       },
+                "h1":  "Replacement windows. Priced like a spreadsheet, installed like a promise.",
+                "primary_keyword":  "home concept swiss grid",
+                "target_keywords":  [
+                                        "home concept swiss grid",
+                                        "deluxe windows redesign"
+                                    ],
+                "search_intent":  "internal",
+                "priority":  "P3",
+                "robots":  "noindex,nofollow",
+                "twitter":  {
+                                "title":  "Concept C — Swiss Grid | Deluxe Windows",
+                                "description":  "Design concept C for the Deluxe Windows home page: Swiss grid system, visible rules, monospace data labels, tabular pricing and a bold single signal color.",
+                                "image":  "/webflow-assets/images/684da952cef202b8dda5788c_Meta-cover-2.jpg",
+                                "card":  "summary_large_image"
+                            }
+            },
+    "faq":  [
+
+            ],
+    "schema":  {
+                   "primary_type":  "WebPage"
+               }
+}

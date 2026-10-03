@@ -21,12 +21,12 @@ test('all SEO assignments are unique concise and English only', function () {
             JSON_THROW_ON_ERROR
         ));
 
-    expect($records)->toHaveCount(299);
+    expect($records)->toHaveCount(303);
 
     foreach (['title', 'description', 'h1', 'primary_keyword'] as $field) {
         $values = $records->pluck("seo.{$field}");
-        expect($values->filter())->toHaveCount(299)
-            ->and($values->unique())->toHaveCount(299);
+        expect($values->filter())->toHaveCount(303)
+            ->and($values->unique())->toHaveCount(303);
     }
 
     foreach ($records as $record) {

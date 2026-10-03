@@ -38,19 +38,25 @@ class ClassicSiteController extends Controller
     }
 
     /**
-     * Design concept of the home page (same blocks, new layout). Not indexed.
+     * Home page design concepts (same blocks & menu, five different designs). Not indexed.
      */
-    public function homeConcept()
+    public function homeConcept(string $variant = '')
     {
-        return view('home-concept', ['homeWindows' => $this->homeWindowItems()]);
+        if (! in_array($variant, \App\Support\HomeConceptContent::VARIANTS, true)) {
+            return redirect('/home-concept/'.\App\Support\HomeConceptContent::VARIANTS[0]);
+        }
+
+        $c = \App\Support\HomeConceptContent::build($this->homeWindowItems(null), $variant);
+
+        return view('home-concept.'.$variant, ['c' => $c]);
     }
 
     /**
      * @return \Illuminate\Support\Collection<int, array{name: string, slug: string, image: string, summary: string}>
      */
-    private function homeWindowItems(): \Illuminate\Support\Collection
+    private function homeWindowItems(?int $limit = 4): \Illuminate\Support\Collection
     {
-        return WebflowItemOrder::sort(
+        $items = WebflowItemOrder::sort(
             WindowsWebflowItem::query()
                 ->where('is_archived', false)
                 ->where('is_draft', false)
@@ -68,8 +74,13 @@ class ClassicSiteController extends Controller
 
                     return ($fd['slug'] ?? '') !== '';
                 })
-        )
-            ->take(4)
+        );
+
+        if ($limit !== null) {
+            $items = $items->take($limit);
+        }
+
+        return $items
             ->map(function ($w) {
                 $fd = is_array($w->field_data) ? $w->field_data : [];
                 $wSlug = $fd['slug'] ?? '';
