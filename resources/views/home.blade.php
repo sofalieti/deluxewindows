@@ -1071,12 +1071,8 @@
 @endsection
 
 @section('content')
-    @include('partials.hero')
-
-    @if(home_brands_is_new())
-      {{-- ?new-brands=true: logos as an overlay card on the hero edge, visible on every breakpoint. --}}
-      @include('partials.brands-overlay')
-    @endif
+    {{-- ?new-brands=true: white brand logos inside the top of the hero instead of the strip below. --}}
+    @include('partials.hero', ['heroBrandsOverlay' => home_brands_is_new()])
 
     @include('partials.trust-badges')
 

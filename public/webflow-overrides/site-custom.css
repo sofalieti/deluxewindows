@@ -1961,179 +1961,162 @@ a.link-block.odsf {
   }
 }
 
-/* Home brands — overlay card variant (?new-brands=true).
-   Sits on the hero's bottom edge; every logo visible as a static grid. */
-.div-block-59:has(+ .home-brands-card) {
-  padding-bottom: 72px !important;
-}
-
-.home-brands-card {
-  position: relative;
+/* Home hero brands row (?new-brands=true).
+   Pinned to the top of the hero; logos knocked out to white over the photo.
+   The hero container gets top padding so centered content never collides. */
+.hero-brands {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 3;
-  margin-top: -56px;
-  background: transparent;
+  pointer-events: none;
 }
 
-.home-brands-card .container-default {
+.hero-brands .container-default {
   padding-left: 15px;
   padding-right: 15px;
 }
 
-.home-brands-card__inner {
-  background: #ffffff;
-  border: 1px solid #e1e8ee;
-  border-radius: 18px;
-  box-shadow: 0 22px 48px -20px rgba(8, 68, 111, 0.35), 0 4px 14px rgba(8, 68, 111, 0.08);
-  padding: 18px 28px 22px;
-}
-
-.home-brands-card__label {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 0 0 14px;
-  color: #51606d;
-  font-size: 13px;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-}
-
-.home-brands-card__label a {
-  color: #08446f;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.home-brands-card__count {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 30px;
-  height: 30px;
-  padding: 0 8px;
-  border-radius: 999px;
-  background: #08446f;
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 14px;
-  letter-spacing: 0;
-}
-
-.home-brands-card__grid {
+.hero-brands__list {
   list-style: none;
   margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(11, minmax(0, 1fr));
+  padding: 14px 0 12px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
   align-items: center;
   gap: 8px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+  pointer-events: auto;
 }
 
-.home-brands-card__item {
+.hero-brands__item {
+  flex: 1 1 0;
   min-width: 0;
+  display: flex;
+  justify-content: center;
 }
 
-.home-brands-card__link {
+.hero-brands__link {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 56px;
-  padding: 8px 4px;
-  border-radius: 10px;
+  width: 100%;
+  min-height: 36px;
+  padding: 4px 2px;
   text-decoration: none;
-  transition: background-color 160ms ease, transform 160ms ease;
+  opacity: 0.86;
+  transition: opacity 160ms ease, transform 160ms ease;
 }
 
-.home-brands-card__link:hover {
-  background: #f3f7fa;
+.hero-brands__link:hover {
+  opacity: 1;
   transform: translateY(-1px);
 }
 
-.home-brands-card__logo {
+.hero-brands__logo {
   display: block;
   width: auto;
   height: auto;
   max-width: 100%;
-  max-height: 34px;
+  max-height: 26px;
   object-fit: contain;
-  mix-blend-mode: darken;
+  /* Knock every logo (SVG or raster) out to pure white. */
+  filter: brightness(0) invert(1) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35));
+  mix-blend-mode: normal;
+}
+
+/* Reserve room under the row so the hero copy/form stay clear of it. */
+.div-block-59:has(> .hero-brands) > .w-layout-blockcontainer.container-default {
+  padding-top: 74px !important;
 }
 
 @media (max-width: 1279px) {
-  .home-brands-card__grid {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: 6px 14px;
+  .hero-brands__logo {
+    max-height: 22px;
   }
 }
 
 @media (max-width: 991px) {
-  .div-block-59:has(+ .home-brands-card) {
-    padding-bottom: 64px !important;
+  .hero-brands__list {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2px 6px;
+    padding: 10px 0 8px;
   }
 
-  .home-brands-card {
-    margin-top: -44px;
+  .hero-brands__item {
+    flex: 0 0 16.6667%;
   }
 
-  .home-brands-card__inner {
-    padding: 16px 20px 18px;
-    border-radius: 16px;
+  .hero-brands__link {
+    min-height: 34px;
   }
 
-  .home-brands-card__logo {
-    max-height: 30px;
+  .hero-brands__logo {
+    max-height: 20px;
+  }
+
+  .div-block-59:has(> .hero-brands) > .w-layout-blockcontainer.container-default {
+    padding-top: 92px !important;
+  }
+
+  /* New mobile hero (variant "new") is white with no photo: keep the row in
+     flow above it and show the logos in their natural dark colours. */
+  .div-block-59--hero-new > .hero-brands {
+    position: static;
+    background: #ffffff;
+  }
+
+  .div-block-59--hero-new > .hero-brands .hero-brands__list {
+    border-bottom-color: #e1e8ee;
+  }
+
+  .div-block-59--hero-new > .hero-brands .hero-brands__logo {
+    filter: none;
+    mix-blend-mode: darken;
   }
 }
 
 @media (max-width: 767px) {
-  .home-brands-card__grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 4px 10px;
+  .hero-brands__item {
+    flex: 0 0 25%;
   }
 
-  .home-brands-card__label {
-    font-size: 12px;
+  .hero-brands__link {
+    min-height: 32px;
   }
 
-  .home-brands-card__link {
-    min-height: 50px;
+  .hero-brands__logo {
+    max-height: 18px;
   }
 
-  .home-brands-card__logo {
-    max-height: 26px;
+  .div-block-59:has(> .hero-brands) > .w-layout-blockcontainer.container-default {
+    padding-top: 118px !important;
   }
 }
 
 @media (max-width: 479px) {
-  .div-block-59:has(+ .home-brands-card) {
-    padding-bottom: 56px !important;
+  .hero-brands .container-default {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
-  .home-brands-card {
-    margin-top: -36px;
+  .hero-brands__list {
+    padding: 8px 0 6px;
   }
 
-  .home-brands-card .container-default {
-    padding-left: 12px;
-    padding-right: 12px;
+  .hero-brands__link {
+    min-height: 30px;
   }
 
-  .home-brands-card__inner {
-    padding: 14px 14px 16px;
+  .hero-brands__logo {
+    max-height: 16px;
   }
 
-  .home-brands-card__grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 2px 8px;
-  }
-
-  .home-brands-card__link {
-    min-height: 46px;
-    padding: 6px 2px;
-  }
-
-  .home-brands-card__logo {
-    max-height: 24px;
+  .div-block-59:has(> .hero-brands) > .w-layout-blockcontainer.container-default {
+    padding-top: 112px !important;
   }
 }
 

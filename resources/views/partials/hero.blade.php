@@ -233,6 +233,11 @@
 @endphp
 
       <div class="div-block-59 @if(hero_is_new()) div-block-59--hero-new @endif">
+        @if(!empty($heroBrandsOverlay))
+          {{-- Home ?new-brands=true: brand logos pinned to the top of the hero
+               (white over the photo; dark, in flow, on the white mobile hero). --}}
+          @include('partials.hero-brands')
+        @endif
         @if(hero_is_new())
           @include('partials.hero-new-mobile', [
             'heroNewEyebrow' => match (promotion_category()) {
