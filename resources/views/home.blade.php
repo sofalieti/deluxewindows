@@ -1073,9 +1073,16 @@
 @section('content')
     @include('partials.hero')
 
+    @if(home_brands_is_new())
+      {{-- ?new-brands=true: logos as an overlay card on the hero edge, visible on every breakpoint. --}}
+      @include('partials.brands-overlay')
+    @endif
+
     @include('partials.trust-badges')
 
-    @include('partials.brands')
+    @unless(home_brands_is_new())
+      @include('partials.brands')
+    @endunless
 
     @include('partials.windows', ['homeWindows' => $homeWindows])
 

@@ -37,22 +37,44 @@
 <main>
 
 <section class="nd-hero">
+  <div class="nd-hero__bg" aria-hidden="true">
+    <picture>
+      <source type="image/avif" media="(max-width: 767px)" srcset="/webflow-assets/images/hero-home-bay-area-mobile-1200.avif 1200w, /webflow-assets/images/hero-home-bay-area-mobile-1600.avif 1600w" sizes="100vw" />
+      <source type="image/avif" srcset="/webflow-assets/images/hero-home-bay-area-1280.avif 1280w, /webflow-assets/images/hero-home-bay-area-2560.avif 2560w" sizes="100vw" />
+      <img src="/webflow-assets/images/hero-home-bay-area-1920.webp" alt="" width="3840" height="2160" fetchpriority="high" decoding="async" />
+    </picture>
+  </div>
   <div class="nd-wrap nd-hero__grid">
     <div class="nd-hero__copy" data-hc-reveal>
       <span class="nd-chip"><i></i>{{ $c['discountLabel'] }} · ends {{ $c['promoEnd'] ? $c['promoEnd']->format('M j') : 'soon' }}</span>
-      <h1 class="nd-h1">A calmer, brighter home starts at the window.</h1>
-      <p class="nd-lede">Replacement windows and doors for the Bay Area, installed in a day or two by our own employee-owners. Eleven brands, honest advice, written quotes — from $499 per window.</p>
-      <div class="nd-hero__cta"><a href="#quote" class="nd-btn" data-hc-quote>Get my free estimate</a><a href="#windows" class="nd-btn nd-btn--ghost">See windows &amp; prices</a></div>
+      <h1 class="nd-h1">Looking to replace your windows in the Bay Area?</h1>
+      <p class="nd-lede">Replacement windows and doors, installed in a day or two by our own employee-owners. Eleven brands, honest advice, written quotes — from $499 per window.</p>
+      <p class="nd-hero__phone">Call <a href="tel:{{ $c['phoneTel'] }}">{{ $c['phoneDisplay'] }}</a></p>
       <ul class="nd-hero__trust">
         <li><b>{{ $c['yelpRating'] }}★</b><span>{{ $c['yelpCount'] }} Yelp reviews</span></li>
         <li><b>30+</b><span>years in the Bay</span></li>
         <li><b>100%</b><span>employee-owned</span></li>
+        <li><b>1–2</b><span>days to install</span></li>
       </ul>
     </div>
-    <div class="nd-hero__art">
-      <figure class="nd-hero__main"><x-img :src="$c['images']['hero']" preset="hero_bg" loading="eager" alt="Bright living room with new windows" /></figure>
-      <figure class="nd-hero__small nd-hero__small--a"><x-img :src="$c['images']['samples']" preset="card" loading="lazy" alt="Window corner samples" /><figcaption>Real corner samples at your consultation</figcaption></figure>
-      <div class="nd-hero__small nd-hero__small--b"><b>1–2 days</b><span>typical install</span></div>
+    <div class="nd-hero__formcard w-form" data-hc-reveal>
+      <div class="nd-hero__promo">
+        <span class="nd-eyebrow">Free in-home estimate</span>
+        <p class="nd-hero__promo-title">Get Deluxe {{ $c['promoName'] !== '' ? $c['promoName'] : 'Sale' }}</p>
+        <p class="nd-hero__promo-pct">{{ $c['discountLabel'] }}<small>on windows &amp; doors</small></p>
+      </div>
+      <form id="nd-hero-form" name="nd-hero-form" method="get" class="nd-form nd-form--hero" data-form-id="Home Concept Nordic Hero Form" aria-label="Request a free estimate">
+        <input type="hidden" name="Form ID" value="Home Concept Nordic Hero Form" />
+        <label class="nd-field nd-field--wide"><span>Full name*</span><input type="text" name="Name" autocomplete="name" required maxlength="256" placeholder="Full name" /></label>
+        <label class="nd-field"><span>Email*</span><input type="email" name="Email" autocomplete="email" required maxlength="256" placeholder="example@email.com" /></label>
+        <label class="nd-field"><span>Phone*</span><input type="tel" name="Phone" autocomplete="tel" inputmode="tel" required maxlength="256" placeholder="{{ $c['phoneDisplay'] }}" /></label>
+        <label class="nd-field nd-field--wide"><span>City</span><input type="text" name="Subject" autocomplete="address-level2" maxlength="256" placeholder="San Francisco" /></label>
+        <label class="nd-field nd-field--wide"><span>Description</span><textarea name="Message" maxlength="5000" rows="3" placeholder="Write your message here..."></textarea></label>
+        <button type="submit" class="nd-submit" data-wait="Please wait...">Request a Free Estimate</button>
+        <p class="nd-fine">Offer valid through {{ $c['promoEnd'] ? $c['promoEnd']->format('F j, Y') : 'the end of the promotion' }}. A real person calls within one business day.</p>
+      </form>
+      <div class="w-form-done hc-state hc-state--ok" tabindex="-1" role="region" aria-label="Form success">Thank you! Your submission has been received. A specialist will reach out within one business day.</div>
+      <div class="w-form-fail hc-state hc-state--err" tabindex="-1" role="region" aria-label="Form failure">Oops! Something went wrong. Please call <a href="tel:{{ $c['phoneTel'] }}">{{ $c['phoneDisplay'] }}</a>.</div>
     </div>
   </div>
 </section>

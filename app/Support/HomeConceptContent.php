@@ -129,6 +129,7 @@ final class HomeConceptContent
             'variants' => self::VARIANTS,
             'discountPercent' => $promo->globalDiscountPercent(),
             'discountLabel' => $promo->globalDiscountLabel(),
+            'promoName' => $promo->globalPromotionName(),
             'promoEnd' => $promo->endDate(),
             'phoneDisplay' => site_phone_display(),
             'phoneTel' => site_phone_tel(),
