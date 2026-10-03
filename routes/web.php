@@ -8,6 +8,7 @@ use App\Http\Controllers\VisitController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ClassicSiteController::class, 'home']);
+Route::get('/home-concept', [ClassicSiteController::class, 'homeConcept']);
 Route::get('/windows', [ClassicSiteController::class, 'windowsIndex']);
 Route::get('/doors', [ClassicSiteController::class, 'doorsIndex']);
 Route::get('/new-construction', [ClassicSiteController::class, 'newConstruction']);

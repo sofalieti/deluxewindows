@@ -34,7 +34,23 @@ class ClassicSiteController extends Controller
 {
     public function home()
     {
-        $homeWindows = WebflowItemOrder::sort(
+        return view('home', ['homeWindows' => $this->homeWindowItems()]);
+    }
+
+    /**
+     * Design concept of the home page (same blocks, new layout). Not indexed.
+     */
+    public function homeConcept()
+    {
+        return view('home-concept', ['homeWindows' => $this->homeWindowItems()]);
+    }
+
+    /**
+     * @return \Illuminate\Support\Collection<int, array{name: string, slug: string, image: string, summary: string}>
+     */
+    private function homeWindowItems(): \Illuminate\Support\Collection
+    {
+        return WebflowItemOrder::sort(
             WindowsWebflowItem::query()
                 ->where('is_archived', false)
                 ->where('is_draft', false)
@@ -67,8 +83,6 @@ class ClassicSiteController extends Controller
             })
             ->filter()
             ->values();
-
-        return view('home', compact('homeWindows'));
     }
 
     public function windowBySlug(
