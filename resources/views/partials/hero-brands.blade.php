@@ -1,18 +1,22 @@
 {{--
   Home hero brands row — variant "new" (?new-brands=true).
-  Rendered inside the hero, pinned to its top edge; logos are knocked out to
-  white over the hero photo/video and stay visible on every breakpoint.
+  Sits right under the hero headline; logos are knocked out to white over the
+  photo (dark on the white mobile hero) and scroll as a marquee exactly like
+  the original strip (same keyframes, three copies for a seamless loop).
 --}}
+@php($heroBrandItems = brand_strip_items())
 <div class="hero-brands" aria-label="Brands we install">
-  <div class="w-layout-blockcontainer container-default w-container">
+  <div class="hero-brands__viewport">
     <ul class="hero-brands__list">
-      @foreach(brand_strip_items() as $item)
-        <li class="hero-brands__item">
-          <a href="{{ $item['href'] }}" class="hero-brands__link" title="{{ $item['alt'] }}">
-            <x-img :src="$item['image']" preset="brand_grid" :alt="$item['alt']" loading="eager" class="hero-brands__logo" />
-          </a>
-        </li>
-      @endforeach
+      @for($copy = 0; $copy < 3; $copy++)
+        @foreach($heroBrandItems as $item)
+          <li class="hero-brands__item" @if($copy > 0) aria-hidden="true" @endif>
+            <a href="{{ $item['href'] }}" class="hero-brands__link" title="{{ $item['alt'] }}" @if($copy > 0) tabindex="-1" @endif>
+              <x-img :src="$item['image']" preset="brand_grid" :alt="$copy === 0 ? $item['alt'] : ''" loading="eager" class="hero-brands__logo" />
+            </a>
+          </li>
+        @endforeach
+      @endfor
     </ul>
   </div>
 </div>
