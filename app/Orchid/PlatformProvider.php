@@ -200,8 +200,8 @@ class PlatformProvider extends OrchidServiceProvider
                 ->route('platform.referral.my-rewards')
                 ->permission('platform.referral.portal'),
 
-            Menu::make('My link')
-                ->icon('bs.link-45deg')
+            Menu::make('Share kit & QR')
+                ->icon('bs.qr-code')
                 ->route('platform.referral.my-link')
                 ->permission('platform.referral.portal'),
 

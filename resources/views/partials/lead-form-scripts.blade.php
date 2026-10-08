@@ -307,7 +307,93 @@
       }
     }
 
+    const referralOffer = @json([
+      'reward' => (int) config('referral.reward_amount', 150),
+      'credit' => (int) config('referral.friend_credit_amount', 150),
+      'join' => url('/referrals').'#apply',
+      'login' => route('platform.referral.my-dashboard'),
+    ]);
+
+    function escapeHtml(value) {
+      return String(value || '').replace(/[&<>"']/g, function (ch) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch];
+      });
+    }
+
+    function ensureReferralPromoStyles() {
+      if (document.getElementById('lead-ref-promo-css')) return;
+      const style = document.createElement('style');
+      style.id = 'lead-ref-promo-css';
+      style.textContent = [
+        '.lead-thanks{display:grid;gap:12px;text-align:left;color:#14263a;font-size:15px;line-height:1.5}',
+        '.lead-thanks__head{padding:14px 16px;border-radius:12px;background:#edf9f2;border:1px solid #9fd8bb;color:#1c5c3d}',
+        '.lead-thanks__head b{display:block;font-size:17px;color:#14402b}',
+        '.lead-ref-promo{padding:16px;border-radius:14px;background:#fff;border:2px dashed #e87722;box-shadow:0 14px 30px -20px rgba(8,68,111,.55)}',
+        '.lead-ref-promo__kicker{margin:0 0 4px;color:#cf6514;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}',
+        '.lead-ref-promo__title{margin:0 0 6px;color:#08446f;font-size:20px;font-weight:800;line-height:1.15}',
+        '.lead-ref-promo__text{margin:0 0 12px;color:#4a5a6a;font-size:14px}',
+        '.lead-ref-promo__list{margin:0 0 14px;padding:0;list-style:none;display:grid;gap:4px;font-size:13.5px;color:#14263a}',
+        '.lead-ref-promo__list li:before{content:"\\2713  ";color:#1f8a5b;font-weight:800}',
+        '.lead-ref-promo__btn{display:block;padding:12px 16px;border-radius:999px;background:#e87722;color:#fff !important;font-weight:700;text-align:center;text-decoration:none}',
+        '.lead-ref-promo__btn:hover{background:#cf6514}',
+        '.lead-ref-promo__login{margin:10px 0 0;font-size:12.5px;color:#4a5a6a;text-align:center}',
+        '.lead-ref-promo__login a{color:#0b5a92;font-weight:700}'
+      ].join('');
+      document.head.appendChild(style);
+    }
+
+    function rememberReferralPrefill(form) {
+      try {
+        const value = function (names) {
+          for (let i = 0; i < names.length; i++) {
+            const el = form.elements.namedItem(names[i]);
+            if (el && typeof el.value === 'string' && el.value.trim()) return el.value.trim();
+          }
+          return '';
+        };
+        sessionStorage.setItem('dwReferralPrefill', JSON.stringify({
+          full_name: value(['Name', 'full_name', 'name']),
+          email: value(['Email', 'email']),
+          phone: value(['Phone', 'phone']),
+        }));
+      } catch (_) {
+        // Prefill is a convenience only.
+      }
+    }
+
+    function referralThanksHtml(form, keepText) {
+      const nameField = form.elements.namedItem('Name') || form.elements.namedItem('full_name') || form.elements.namedItem('name');
+      const first = nameField && typeof nameField.value === 'string' ? nameField.value.trim().split(/\s+/)[0] : '';
+      const reward = referralOffer.reward;
+      const credit = referralOffer.credit;
+      const head = keepText
+        ? escapeHtml(keepText)
+        : '<b>Thank you' + (first ? ', ' + escapeHtml(first) : '') + '! Your request is in.</b>'
+          + 'A specialist will call you within one business day to set up your free estimate.';
+
+      return '<div class="lead-thanks">'
+        + '<div class="lead-thanks__head" role="status">' + head + '</div>'
+        + '<div class="lead-ref-promo">'
+        + '<p class="lead-ref-promo__kicker">While you wait · Give $' + credit + ', get $' + reward + '</p>'
+        + '<p class="lead-ref-promo__title">Know a neighbor who needs windows?</p>'
+        + '<p class="lead-ref-promo__text">Join our referral program — they get <b>$' + credit + ' off</b>, you get <b>$' + reward
+        + '</b> by Zelle or Venmo after their install. Free, no limits, no fine print.</p>'
+        + '<ul class="lead-ref-promo__list">'
+        + '<li>Your personal link &amp; QR code</li>'
+        + '<li>Printable poster, flyers &amp; business cards</li>'
+        + '<li>Dashboard to track every referral and payout</li>'
+        + '</ul>'
+        + '<a class="lead-ref-promo__btn" href="' + escapeHtml(referralOffer.join) + '">Get my referral link →</a>'
+        + '<p class="lead-ref-promo__login">Already a partner? <a href="' + escapeHtml(referralOffer.login) + '">Log in to your dashboard</a></p>'
+        + '</div>'
+        + '</div>';
+    }
+
     function showState(form, ok) {
+      if (ok) {
+        ensureReferralPromoStyles();
+        rememberReferralPrefill(form);
+      }
       const wrapper = form.closest('.w-form');
       if (!wrapper) {
         let status = form.parentElement
@@ -321,15 +407,21 @@
         }
         if (status) {
           status.className = ok ? 'contact-form-success' : 'contact-form-error';
-          status.textContent = ok
-            ? 'Thank you! Your submission has been received!'
-            : 'Oops! Something went wrong while submitting the form.';
+          if (ok) {
+            status.innerHTML = referralThanksHtml(form, '');
+          } else {
+            status.textContent = 'Oops! Something went wrong while submitting the form.';
+          }
         }
         if (ok) form.hidden = true;
         return;
       }
       const done = wrapper.querySelector('.w-form-done');
       const fail = wrapper.querySelector('.w-form-fail');
+      if (ok && done && !done.querySelector('.lead-thanks')) {
+        const keepText = done.hasAttribute('data-keep-done') ? done.textContent.trim() : '';
+        done.innerHTML = referralThanksHtml(form, keepText);
+      }
       if (done) done.style.display = ok ? 'block' : 'none';
       if (fail) fail.style.display = ok ? 'none' : 'block';
       if (ok) form.style.display = 'none';

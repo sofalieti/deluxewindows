@@ -36,7 +36,7 @@ class ReferralRewardListScreen extends Screen
 
     public function description(): ?string
     {
-        return 'Eligible $150 rewards after Sold. Approve, mark paid, or reject.';
+        return 'Rewards become eligible when the referred lead is Sold. Pay after installation, then mark paid.';
     }
 
     public function permission(): ?iterable
@@ -51,6 +51,10 @@ class ReferralRewardListScreen extends Screen
                 TD::make('id', 'ID'),
                 TD::make('partner', 'Partner')
                     ->render(fn (ReferralReward $r) => e($r->partner?->name.' ('.$r->partner?->code.')')),
+                TD::make('pay_to', 'Pay to')
+                    ->render(fn (ReferralReward $r) => trim((string) $r->partner?->payout_details) !== ''
+                        ? e($r->partner->payout_details)
+                        : '<span class="text-danger">not set</span>'),
                 TD::make('lead', 'Lead')
                     ->render(function (ReferralReward $r) {
                         if (! $r->lead) {
@@ -80,7 +84,7 @@ class ReferralRewardListScreen extends Screen
                             $html .= Button::make('Mark paid')
                                 ->type(Color::PRIMARY)
                                 ->method('markPaid', ['reward' => $r->id])
-                                ->confirm('Mark this $150 reward as paid?')
+                                ->confirm('Mark this '.$r->amountLabel().' reward as paid?')
                                 ->render().' ';
                             $html .= Button::make('Reject')
                                 ->type(Color::DANGER)

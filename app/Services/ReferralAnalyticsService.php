@@ -106,6 +106,45 @@ class ReferralAnalyticsService
     }
 
     /**
+     * Visits / calls / leads / sold per share channel (utm_medium).
+     *
+     * @return list<array{channel: string, label: string, visits: int, phone_clicks: int, leads: int, sold: int}>
+     */
+    public function partnerChannels(ReferralPartner $partner): array
+    {
+        $count = fn ($query) => $query
+            ->select('utm_medium', DB::raw('COUNT(*) as total'))
+            ->groupBy('utm_medium')
+            ->pluck('total', 'utm_medium');
+
+        $visits = $count($partner->visits());
+        $clicks = $count($partner->phoneClicks());
+        $leads = $count($partner->leads()->where('status', '!=', Lead::STATUS_SPAM));
+        $sold = $count($partner->leads()->where('status', Lead::STATUS_SOLD));
+
+        $labels = (array) config('referral.channels', []);
+        $keys = collect($visits->keys())
+            ->merge($clicks->keys())
+            ->merge($leads->keys())
+            ->map(fn ($key) => (string) $key)
+            ->unique()
+            ->values();
+
+        return $keys
+            ->map(fn (string $key) => [
+                'channel' => $key,
+                'label' => $labels[$key] ?? ($key !== '' ? ucfirst($key) : 'Unknown'),
+                'visits' => (int) ($visits[$key] ?? 0),
+                'phone_clicks' => (int) ($clicks[$key] ?? 0),
+                'leads' => (int) ($leads[$key] ?? 0),
+                'sold' => (int) ($sold[$key] ?? 0),
+            ])
+            ->sortByDesc(fn (array $row) => [$row['leads'], $row['visits']])
+            ->values()
+            ->all();
+    }
+
+    /**
      * @return array<string, int|float|string>
      */
     public function partnerMetrics(ReferralPartner $partner): array

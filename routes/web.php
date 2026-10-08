@@ -18,6 +18,8 @@ Route::get('/referrals', [ReferralController::class, 'landing']);
 Route::post('/referrals/apply', [ReferralController::class, 'apply'])->name('referrals.apply');
 Route::get('/r/{code}', [ReferralController::class, 'redirect'])
     ->where('code', '[A-Za-z0-9\-]+');
+Route::get('/invite/{code}', [ReferralController::class, 'invite'])
+    ->where('code', '[A-Za-z0-9\-]+');
 
 Route::permanentRedirect('/windows/martin-elevate', '/brand-collections/brand-marvin-elevate-collection');
 Route::permanentRedirect('/windows/martin-vivid', '/brand-collections/brand-marvin-vivid-collection');

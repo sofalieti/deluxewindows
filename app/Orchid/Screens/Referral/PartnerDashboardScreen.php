@@ -33,6 +33,8 @@ class PartnerDashboardScreen extends Screen
                 'paid' => (string) $metrics['paid'],
             ],
             'link' => $partner->referralUrl(),
+            'channels' => $analytics->partnerChannels($partner),
+            'payoutMissing' => trim((string) $partner->payout_details) === '',
         ];
     }
 
@@ -54,8 +56,8 @@ class PartnerDashboardScreen extends Screen
     public function commandBar(): iterable
     {
         return [
-            Link::make('Copy my link page')
-                ->icon('bs.link-45deg')
+            Link::make('Share kit & QR codes')
+                ->icon('bs.qr-code')
                 ->route('platform.referral.my-link'),
         ];
     }
@@ -74,6 +76,7 @@ class PartnerDashboardScreen extends Screen
                 'Paid' => 'metrics.paid',
             ]),
             Layout::view('admin.referral.partner-link-card'),
+            Layout::view('admin.referral.partner-channels'),
         ];
     }
 }

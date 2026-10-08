@@ -1966,12 +1966,26 @@ a.link-block.odsf {
    knocked out to white over the photo and scroll as a marquee (same keyframes
    and direction as the original strip). No borders, no backgrounds. */
 .hero-brands {
-  width: 100%;
+  /* width:0 + min-width:100% keeps the used width at 100% of the column while
+     contributing zero to intrinsic sizing, so the max-content marquee list can
+     never inflate the hero's flex column and push a horizontal page scroll. */
+  width: 0;
+  min-width: 100%;
+  max-width: 100%;
   margin-top: 26px;
+  overflow-x: clip;
+}
+
+/* Belt and braces: the hero copy column is a flex item with min-width:auto. */
+.div-block-59 .hero-page .width-100-mobile-landscape:has(.hero-brands),
+.div-block-59 .hero-page .width-100-mobile-landscape:has(.hero-brands) .inner-container {
+  min-width: 0;
 }
 
 .hero-brands__viewport {
   overflow: hidden;
+  contain: inline-size;
+  width: 100%;
   /* Soft fade at both ends instead of a hard cut. */
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
   mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);

@@ -3,16 +3,16 @@
   "key": "referrals",
   "path": "/referrals",
   "seo": {
-    "title": "Referral Partner Program | Earn $150 | Deluxe Windows",
-    "description": "Join the Deluxe Windows referral partner program. Share your unique link and earn $150 for every referred customer who becomes a sold Bay Area project.",
+    "title": "Referral Program: Give $150, Get $150 | Deluxe Windows",
+    "description": "Refer a Bay Area neighbor to Deluxe Windows: they get $150 off new windows or doors, you get $150 by Zelle or Venmo after install. Simple rules, no fine print.",
     "canonical": "https://www.deluxewindows.com/referrals",
     "og": {
-      "title": "Referral Partner Program | Earn $150 | Deluxe Windows",
-      "description": "Join the Deluxe Windows referral partner program. Share your unique link and earn $150 for every referred customer who becomes a sold Bay Area project.",
-      "image": "/webflow-assets/images/new-construction/hero.avif",
+      "title": "Referral Program: Give $150, Get $150 | Deluxe Windows",
+      "description": "Refer a Bay Area neighbor to Deluxe Windows: they get $150 off new windows or doors, you get $150 by Zelle or Venmo after install. Simple rules, no fine print.",
+      "image": "/webflow-assets/images/new-construction/after-with-windows.avif",
       "type": "website"
     },
-    "h1": "Earn $150 for Every Customer You Refer",
+    "h1": "Give $150. Get $150.",
     "primary_keyword": "window referral program",
     "target_keywords": [
       "window referral program",
@@ -24,9 +24,9 @@
     "priority": "P2",
     "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     "twitter": {
-      "title": "Referral Partner Program | Earn $150 | Deluxe Windows",
-      "description": "Join the Deluxe Windows referral partner program. Share your unique link and earn $150 for every referred customer who becomes a sold Bay Area project.",
-      "image": "/webflow-assets/images/new-construction/hero.avif",
+      "title": "Referral Program: Give $150, Get $150 | Deluxe Windows",
+      "description": "Refer a Bay Area neighbor to Deluxe Windows: they get $150 off new windows or doors, you get $150 by Zelle or Venmo after install. Simple rules, no fine print.",
+      "image": "/webflow-assets/images/new-construction/after-with-windows.avif",
       "card": "summary_large_image"
     }
   },

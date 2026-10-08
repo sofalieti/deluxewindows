@@ -37,6 +37,10 @@ class ReferralAttributionService
         }
 
         $meta['referral_partner_code'] = $partner->code;
+        if ($model instanceof Lead && ! isset($meta['referral_friend_credit_cents'])) {
+            // Two-sided offer: the referred homeowner was promised this credit.
+            $meta['referral_friend_credit_cents'] = (int) config('referral.friend_credit_amount', 150) * 100;
+        }
         $model->forceFill([
             'referral_partner_id' => $partner->id,
             'meta' => $meta,

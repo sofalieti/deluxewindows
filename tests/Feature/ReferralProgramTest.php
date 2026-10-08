@@ -9,15 +9,17 @@ use App\Models\ReferralPartner;
 use App\Models\ReferralReward;
 use App\Models\SiteVisit;
 use App\Models\User;
+use App\Services\ReferralAnalyticsService;
 use App\Services\ReferralAttributionService;
 use App\Services\ReferralPartnerService;
 use App\Services\ReferralRewardService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
+use Orchid\Platform\Http\Middleware\Access;
 
 uses(RefreshDatabase::class);
 
-test('referral short link redirects with partner utm params', function () {
+test('referral short link sends active partner traffic to the personal invite page', function () {
     ReferralPartner::query()->create([
         'code' => 'alex-smith',
         'name' => 'Alex Smith',
@@ -26,7 +28,150 @@ test('referral short link redirects with partner utm params', function () {
     ]);
 
     $this->get('/r/alex-smith')
-        ->assertRedirect('/?utm_source=referral&utm_medium=partner&utm_campaign=alex-smith');
+        ->assertRedirect(url('/invite/alex-smith?utm_source=referral&utm_medium=partner&utm_campaign=alex-smith'));
+
+    $this->get('/r/alex-smith?via=poster')
+        ->assertRedirect(url('/invite/alex-smith?utm_source=referral&utm_medium=poster&utm_campaign=alex-smith'));
+
+    $this->get('/r/alex-smith?via=<script>')
+        ->assertRedirect(url('/invite/alex-smith?utm_source=referral&utm_medium=partner&utm_campaign=alex-smith'));
+});
+
+test('referral short link for unknown or paused partner falls back to home with utm', function () {
+    ReferralPartner::query()->create([
+        'code' => 'paused-pat',
+        'name' => 'Paused Pat',
+        'email' => 'pat@example.com',
+        'status' => ReferralPartner::STATUS_PAUSED,
+    ]);
+
+    $this->get('/r/paused-pat')
+        ->assertRedirect(url('/?utm_source=referral&utm_medium=partner&utm_campaign=paused-pat'));
+    $this->get('/invite/paused-pat')->assertRedirect('/');
+});
+
+test('invite page is personalised and not indexed', function () {
+    ReferralPartner::query()->create([
+        'code' => 'maria-lopez',
+        'name' => 'Maria Lopez',
+        'email' => 'maria@example.com',
+        'status' => ReferralPartner::STATUS_ACTIVE,
+    ]);
+
+    $this->get('/invite/maria-lopez')
+        ->assertOk()
+        ->assertSee('Maria', false)
+        ->assertSee('Referral Invite Form', false)
+        ->assertSee('noindex,follow', false);
+});
+
+test('referral landing renders the two-sided offer', function () {
+    $this->get('/referrals')
+        ->assertOk()
+        ->assertSee('Give $150', false)
+        ->assertSee('dwReferralPrefill', false)
+        ->assertSee('Get my referral link', false);
+});
+
+test('referred lead records the friend credit', function () {
+    ReferralPartner::query()->create([
+        'code' => 'credit-check',
+        'name' => 'Credit Check',
+        'email' => 'cc@example.com',
+        'status' => ReferralPartner::STATUS_ACTIVE,
+    ]);
+
+    $lead = Lead::query()->create([
+        'full_name' => 'Friend',
+        'email' => 'friend@example.com',
+        'phone' => '6505550101',
+        'utm_source' => 'referral',
+        'utm_medium' => 'poster',
+        'utm_campaign' => 'credit-check',
+        'status' => Lead::STATUS_NEW,
+        'meta' => [],
+    ]);
+
+    app(ReferralAttributionService::class)->attributeLead($lead);
+
+    expect($lead->refresh()->metaValue('referral_friend_credit_cents', '0'))->toBe('15000');
+});
+
+test('partner can open own print kit and save payout details', function () {
+    $user = User::factory()->create([
+        'permissions' => [ReferralPartnerService::PERMISSION_PORTAL => true],
+    ]);
+    $partner = ReferralPartner::query()->create([
+        'user_id' => $user->id,
+        'code' => 'kit-owner',
+        'name' => 'Kit Owner',
+        'email' => $user->email,
+        'status' => ReferralPartner::STATUS_ACTIVE,
+    ]);
+    $other = ReferralPartner::query()->create([
+        'code' => 'someone-else',
+        'name' => 'Someone Else',
+        'email' => 'else@example.com',
+        'status' => ReferralPartner::STATUS_ACTIVE,
+    ]);
+
+    foreach (['poster', 'flyer', 'cards'] as $format) {
+        $this->withoutMiddleware(Access::class)
+            ->actingAs($user)
+            ->get(route('platform.referral.print', ['format' => $format]))
+            ->assertOk()
+            ->assertSee('data-rf-qr="'.e($partner->shareUrl($format === 'cards' ? 'card' : $format)).'"', false);
+    }
+
+    $this->withoutMiddleware(Access::class)
+        ->actingAs($user)
+        ->get(route('platform.referral.print', ['format' => 'poster', 'partner' => $other->id]))
+        ->assertForbidden();
+
+    $this->withoutMiddleware(Access::class)
+        ->actingAs($user)
+        ->post(route('platform.referral.my-link', ['method' => 'savePayout']), [
+            'payout' => ['method' => 'Zelle', 'handle' => '650-555-0101'],
+        ]);
+
+    expect($partner->refresh()->payout_details)->toBe('Zelle: 650-555-0101');
+});
+
+test('partner channel analytics groups by utm medium', function () {
+    $partner = ReferralPartner::query()->create([
+        'code' => 'channels',
+        'name' => 'Channels',
+        'email' => 'ch@example.com',
+        'status' => ReferralPartner::STATUS_ACTIVE,
+    ]);
+
+    foreach (['poster', 'poster', 'nextdoor'] as $medium) {
+        SiteVisit::query()->create([
+            'page_url' => 'https://www.deluxewindows.com/invite/channels',
+            'utm_source' => 'referral',
+            'utm_medium' => $medium,
+            'utm_campaign' => 'channels',
+            'referral_partner_id' => $partner->id,
+            'meta' => [],
+        ]);
+    }
+    Lead::query()->create([
+        'full_name' => 'Poster Lead',
+        'email' => 'pl@example.com',
+        'phone' => '6505550202',
+        'utm_medium' => 'poster',
+        'status' => Lead::STATUS_SOLD,
+        'referral_partner_id' => $partner->id,
+        'meta' => [],
+    ]);
+
+    $rows = collect(app(ReferralAnalyticsService::class)->partnerChannels($partner))->keyBy('channel');
+
+    expect($rows['poster']['visits'])->toBe(2)
+        ->and($rows['poster']['leads'])->toBe(1)
+        ->and($rows['poster']['sold'])->toBe(1)
+        ->and($rows['poster']['label'])->toBe('Poster')
+        ->and($rows['nextdoor']['visits'])->toBe(1);
 });
 
 test('attribution stamps referral_partner_id on lead phone click and visit', function () {

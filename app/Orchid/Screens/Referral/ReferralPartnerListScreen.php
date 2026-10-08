@@ -60,7 +60,12 @@ class ReferralPartnerListScreen extends Screen
                     ->render(fn (ReferralPartner $p) => Link::make('Open')
                         ->href($p->referralUrl())
                         ->target('_blank')
+                        ->render().' '.Link::make('Poster')
+                        ->href(route('platform.referral.print', ['format' => 'poster', 'partner' => $p->id]))
+                        ->target('_blank')
                         ->render()),
+                TD::make('payout_details', 'Pay to')
+                    ->render(fn (ReferralPartner $p) => e($p->payout_details ?: '—')),
                 TD::make('actions', '')
                     ->render(function (ReferralPartner $p) {
                         if ($p->status === ReferralPartner::STATUS_ACTIVE) {

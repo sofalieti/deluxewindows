@@ -109,6 +109,37 @@ class ReferralPartner extends Model
         return url('/r/'.$this->code);
     }
 
+    /** Short link tagged with a share channel (utm_medium), e.g. ?via=poster. */
+    public function shareUrl(string $channel = 'partner'): string
+    {
+        $channel = static::normalizeChannel($channel);
+
+        return $channel === 'partner'
+            ? $this->referralUrl()
+            : $this->referralUrl().'?via='.$channel;
+    }
+
+    public function inviteUrl(string $channel = 'partner'): string
+    {
+        return url('/invite/'.$this->code.'?utm_source=referral&utm_medium='
+            .rawurlencode(static::normalizeChannel($channel))
+            .'&utm_campaign='.rawurlencode($this->code));
+    }
+
+    public function firstName(): string
+    {
+        $first = trim((string) strtok(trim((string) $this->name), ' '));
+
+        return $first !== '' ? $first : 'A neighbor';
+    }
+
+    public static function normalizeChannel(?string $channel): string
+    {
+        $channel = strtolower(trim((string) $channel));
+
+        return array_key_exists($channel, (array) config('referral.channels', [])) ? $channel : 'partner';
+    }
+
     public function campaignUrl(): string
     {
         return url('/?utm_source=referral&utm_medium=partner&utm_campaign='.rawurlencode($this->code));

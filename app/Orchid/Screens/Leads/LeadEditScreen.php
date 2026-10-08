@@ -217,9 +217,16 @@ class LeadEditScreen extends Screen
                             ? ' · reward: '.e(\App\Models\ReferralReward::STATUSES[$reward->status] ?? $reward->status)
                             : '';
 
+                        $creditCents = (int) $lead->metaValue('referral_friend_credit_cents', '0');
+                        $creditLabel = $creditCents > 0
+                            ? '<br><strong class="text-success">Apply referral credit: $'
+                                .number_format($creditCents / 100).' off the invoice</strong>'
+                            : '';
+
                         return '<span class="badge bg-primary text-white">'
                             .e($partner->name).' ('.e($partner->code).')</span>'
-                            .$rewardLabel;
+                            .$rewardLabel
+                            .$creditLabel;
                     }),
                 Sight::make('utm_content', 'UTM content')
                     ->render(fn (Lead $lead) => e($lead->metaValue('utm_content', '-'))),

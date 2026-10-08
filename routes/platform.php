@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\Admin\GoogleMailboxOAuthController;
+use App\Http\Controllers\Admin\ReferralPrintController;
 use App\Http\Controllers\Admin\RingCentralRecordingController;
 use App\Http\Controllers\Admin\WebflowImageUploadController;
 use App\Orchid\Screens\Contacts\ContactEditScreen;
@@ -153,6 +154,10 @@ Route::screen('referral/my-rewards', PartnerRewardListScreen::class)
 
 Route::screen('referral/my-link', PartnerLinkScreen::class)
     ->name('platform.referral.my-link');
+
+Route::get('referral/print/{format}', [ReferralPrintController::class, 'show'])
+    ->name('platform.referral.print')
+    ->where('format', 'poster|flyer|cards');
 
 Route::get('ringcentral-calls/{call}/recording', [RingCentralRecordingController::class, 'forCall'])
     ->name('platform.ringcentral-calls.recording')
