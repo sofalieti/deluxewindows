@@ -48,5 +48,8 @@
       </svg>
     </span>
   </a>
+  @if(!empty($showBrands))
+    @include('partials.hero-brands', ['heroBrandsPlacement' => 'promo'])
+  @endif
   <p class="hero-mobile-promo__owned">We are – 100% employee owned &amp; over 30 years in business!</p>
 </div>

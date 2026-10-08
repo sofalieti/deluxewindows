@@ -2017,14 +2017,17 @@ a.link-block.odsf {
 
 .hero-brands__item {
   flex: 0 0 auto;
-  min-width: 0;
 }
 
+/* Fixed logo box: item width never depends on the image's intrinsic size
+   (SVGs / max-height-scaled rasters made mobile Safari under-size the item,
+   so neighbours overlapped on the narrowest phones). */
 .hero-brands__link {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 44px;
+  width: 150px;
+  height: 36px;
   padding: 0;
   text-decoration: none;
   opacity: 0.9;
@@ -2037,14 +2040,19 @@ a.link-block.odsf {
 
 .hero-brands__logo {
   display: block;
-  width: auto;
-  height: auto;
-  max-width: 170px;
-  max-height: 36px;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
   object-fit: contain;
   /* Knock every logo (SVG or raster) out to pure white. */
   filter: brightness(0) invert(1) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.4));
   mix-blend-mode: normal;
+}
+
+.hero-brands--promo,
+.hero-brands--nm {
+  display: none;
 }
 
 /* Lift the headline block a little so headline + phones + brands sit
@@ -2056,53 +2064,83 @@ a.link-block.odsf {
 }
 
 @media (max-width: 991px) {
-  .hero-brands {
-    margin-top: 20px;
+  /* Mobile: the row moves under the call button. */
+  .hero-brands--desktop {
+    display: none;
+  }
+
+  .hero-brands--promo,
+  .hero-brands--nm {
+    display: block;
   }
 
   .hero-brands__list {
-    gap: 0 32px;
+    gap: 0 28px;
     animation-duration: 24s;
   }
 
   .hero-brands__link {
-    min-height: 40px;
+    width: 118px;
+    height: 30px;
   }
 
-  .hero-brands__logo {
-    max-width: 140px;
-    max-height: 30px;
+  /* The promo column is only 240px wide; let the marquee span the screen. */
+  .hero-mobile-promo .hero-brands--promo {
+    align-self: center;
+    width: min(calc(100vw - 24px), 440px);
+    min-width: 0;
+    max-width: none;
+    margin: 4px 0 0;
   }
 
-  /* New mobile hero (variant "new") is white: natural dark logos, left-aligned. */
-  .hero-nm .hero-brands {
-    margin: 18px 0 2px;
+  /* Lift the rest of the mobile hero a little to make room for the row. */
+  .hero-mobile-promo-slot--mobile:has(.hero-brands--promo) {
+    margin-top: 8px;
+  }
+
+  .div-block-59 .heading-4 + .hero-mobile-promo-slot--mobile:has(.hero-brands--promo) {
+    margin-top: 8px;
+  }
+
+  .hero-mobile-promo:has(.hero-brands--promo) {
+    gap: 8px;
+  }
+
+  .hero-mobile-promo:has(.hero-brands--promo) .hero-mobile-promo__owned {
+    margin-top: 0;
+  }
+
+  /* New mobile hero (variant "new") is white: natural dark logos. */
+  .hero-nm .hero-brands--nm {
+    margin: 14px 0 0;
   }
 
   .hero-nm .hero-brands__logo {
     filter: none;
     mix-blend-mode: darken;
-    max-height: 28px;
   }
 }
 
 @media (max-width: 479px) {
-  .hero-brands {
-    margin-top: 16px;
-  }
-
   .hero-brands__list {
-    gap: 0 26px;
+    gap: 0 22px;
     animation-duration: 20s;
   }
 
   .hero-brands__link {
-    min-height: 36px;
+    width: 100px;
+    height: 26px;
+  }
+}
+
+@media (max-width: 374px) {
+  .hero-brands__list {
+    gap: 0 18px;
   }
 
-  .hero-brands__logo {
-    max-width: 120px;
-    max-height: 26px;
+  .hero-brands__link {
+    width: 86px;
+    height: 22px;
   }
 }
 

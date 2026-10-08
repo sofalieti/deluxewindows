@@ -369,12 +369,13 @@
                       'alwaysVisible' => false,
                     ])
                     @if(!empty($heroBrandsOverlay))
-                      {{-- Home ?new-brands=true: white brand logos marquee right under the headline. --}}
-                      @include('partials.hero-brands')
+                      {{-- Home ?new-brands=true: white brand logos marquee right under the headline (desktop). --}}
+                      @include('partials.hero-brands', ['heroBrandsPlacement' => 'desktop'])
                     @endif
                     <div class="hero-mobile-promo-slot hero-mobile-promo-slot--mobile">
                       @include('partials.hero-mobile-promo', [
                         'buttonLabel' => 'Request a Free Estimate',
+                        'showBrands' => !empty($heroBrandsOverlay),
                       ])
                     </div>
                     @endif

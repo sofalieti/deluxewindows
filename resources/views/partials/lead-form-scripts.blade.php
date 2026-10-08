@@ -307,12 +307,12 @@
       }
     }
 
-    const referralOffer = @json([
+    const referralOffer = {{ \Illuminate\Support\Js::from([
       'reward' => (int) config('referral.reward_amount', 150),
       'credit' => (int) config('referral.friend_credit_amount', 150),
       'join' => url('/referrals').'#apply',
       'login' => route('platform.referral.my-dashboard'),
-    ]);
+    ]) }};
 
     function escapeHtml(value) {
       return String(value || '').replace(/[&<>"']/g, function (ch) {

@@ -42,11 +42,6 @@
 
   <p class="hero-nm__sub">{{ $sub }}</p>
 
-  @if(!empty($heroBrandsOverlay))
-    {{-- Home ?new-brands=true: brand logos under the headline (dark on this white hero). --}}
-    @include('partials.hero-brands')
-  @endif
-
   <div class="hero-nm__actions">
     <button type="button" class="hero-nm__cta hero-nm__cta--book" data-open-estimate-modal>
       Book a consultation
@@ -61,6 +56,11 @@
       Call <span data-area-phone-number>{{ $phoneDisplay }}</span>
     </a>
   </div>
+
+  @if(!empty($heroBrandsOverlay))
+    {{-- Home ?new-brands=true: brand logos under the call button (dark on this white hero). --}}
+    @include('partials.hero-brands', ['heroBrandsPlacement' => 'nm'])
+  @endif
 
   <div class="hero-nm__facts">
     @foreach($facts as $fact)
