@@ -24,16 +24,6 @@
   ];
 @endphp
 
-<section class="section_breadcrumbs section-121">
-  <div class="w-layout-blockcontainer container-default breadcrumbs-container w-container">
-    <div class="breadcrumbs-wrapper">
-      <a href="/" class="breadcrumb-link">Home</a>
-      <div class="breadcrumb-div">/</div>
-      <div class="breadcrumb-text">Referrals</div>
-    </div>
-  </div>
-</section>
-
 {{-- 1. Hero: the whole offer in one line --}}
 <section class="rf-hero" aria-labelledby="rf-hero-heading">
   <div class="rf-hero__media" aria-hidden="true">
@@ -75,7 +65,7 @@
       </div>
       <div class="rf-notify">
         <span class="rf-notify__icon">$</span>
-        <span class="rf-notify__text"><b>{{ $payoutMethods[0] ?? 'Zelle' }}</b> · Deluxe Windows sent you ${{ $reward }}.00<small>“Thanks for the referral — the Smiths love their new windows.”</small></span>
+        <span class="rf-notify__text"><b>{{ $payoutMethods[0] ?? 'Zelle' }}</b><span>Deluxe Windows sent you ${{ $reward }}.00</span><small>“Thanks for the referral — the Smiths love their new windows.”</small></span>
       </div>
     </div>
   </div>
@@ -91,6 +81,7 @@
     </div>
     <div class="rf-wins">
       <article class="rf-win">
+        <figure class="rf-win__media"><img src="/webflow-assets/images/home-concept/home-concept-hero.jpg" alt="Bay Area home with new windows at dusk" width="1024" height="576" loading="lazy" decoding="async" /></figure>
         <span class="rf-win__tag">You</span>
         <h3>${{ $reward }} for each installed project</h3>
         <ul>
@@ -100,6 +91,7 @@
         </ul>
       </article>
       <article class="rf-win rf-win--featured">
+        <figure class="rf-win__media"><img src="/webflow-assets/images/home-concept/home-concept-consult.jpg" alt="Homeowners comparing window frame samples with a Deluxe Windows specialist" width="1024" height="768" loading="lazy" decoding="async" /></figure>
         <span class="rf-win__tag">Your neighbor</span>
         <h3>${{ $friendCredit }} off + a contractor you vouched for</h3>
         <ul>
@@ -109,6 +101,7 @@
         </ul>
       </article>
       <article class="rf-win">
+        <figure class="rf-win__media"><img src="/webflow-assets/images/home-concept/home-concept-after.jpg" alt="Single-story home with new black-frame windows and entry door" width="1024" height="576" loading="lazy" decoding="async" /></figure>
         <span class="rf-win__tag">Your block</span>
         <h3>Quieter, warmer, better-looking homes</h3>
         <ul>
@@ -161,6 +154,10 @@
       <h2 class="display-8 mid">Why your neighbors will thank you</h2>
       <p class="rf-head__lead">A referral is only worth sharing if the company makes you look good. Here's what your neighbor gets with us.</p>
       <a href="/about" class="rf-link">More about Deluxe Windows →</a>
+      <figure class="rf-why__photo">
+        <img src="/webflow-assets/images/home-concept/home-concept-installer.jpg" alt="Deluxe Windows installer fitting a new vinyl window" width="1024" height="768" loading="lazy" decoding="async" />
+        <figcaption>Our own crew — never subcontracted</figcaption>
+      </figure>
     </div>
     <ul class="rf-why__grid">
       <li><b>30+ years</b><span>Installing windows and doors across the Bay Area</span></li>
@@ -210,7 +207,7 @@
       <div class="rf-poster">
         <span class="rf-poster__eyebrow">Hey neighbors!</span>
         <b class="rf-poster__title">New windows?<br />Get ${{ $friendCredit }} off.</b>
-        <span class="rf-poster__qr"><i></i><i></i><i></i><i></i></span>
+        <span class="rf-poster__qr" data-rf-qr="{{ url('/referrals') }}"></span>
         <span class="rf-poster__cta">Scan for the details</span>
         <span class="rf-poster__by">Recommended by Alex · Deluxe Windows</span>
       </div>
@@ -226,10 +223,22 @@
       <h2 class="display-8 mid">Share it where neighbors already ask for recommendations</h2>
     </div>
     <div class="rf-channels">
-      <article><h3>Nextdoor</h3><p>“Anyone know a good window contractor?” comes up every week. Reply with your link.</p></article>
-      <article><h3>Text &amp; group chats</h3><p>The highest-converting channel. One message to the friend who just bought a house.</p></article>
-      <article><h3>Instagram &amp; Facebook</h3><p>Before/after of your own windows + your link in stories. Neighbors trust real homes.</p></article>
-      <article><h3>Posters with QR</h3><p>Building lobbies, HOA boards, coffee shops, hardware stores — places people wait and have a phone in hand.</p></article>
+      <article>
+        <span class="rf-channels__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/><path d="M10 19.5v-5h4v5"/></svg></span>
+        <h3>Nextdoor</h3><p>“Anyone know a good window contractor?” comes up every week. Reply with your link.</p>
+      </article>
+      <article>
+        <span class="rf-channels__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5.5h16v10H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></svg></span>
+        <h3>Text &amp; group chats</h3><p>The highest-converting channel. One message to the friend who just bought a house.</p>
+      </article>
+      <article>
+        <span class="rf-channels__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4.5"/><circle cx="12" cy="12" r="3.6"/><circle cx="16.6" cy="7.4" r=".6"/></svg></span>
+        <h3>Instagram &amp; Facebook</h3><p>Before/after of your own windows + your link in stories. Neighbors trust real homes.</p>
+      </article>
+      <article>
+        <span class="rf-channels__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><path d="M14 14h2.5v2.5H14zM17.5 17.5H20V20h-2.5zM14 20h2M20 14v1.5"/></svg></span>
+        <h3>Posters with QR</h3><p>Building lobbies, HOA boards, coffee shops, hardware stores — places people wait and have a phone in hand.</p>
+      </article>
     </div>
     <div class="rf-who">
       <h3>Great fit for</h3>
@@ -361,5 +370,11 @@
     range.addEventListener('input', update);
     update();
   })();
+</script>
+<script src="/js/referral-qr.js?v={{ filemtime(public_path('js/referral-qr.js')) }}" defer></script>
+<script>
+  window.addEventListener('DOMContentLoaded', function () {
+    if (window.DeluxeReferralQr) window.DeluxeReferralQr.render(document.querySelector('.rf-kit__poster'));
+  });
 </script>
 @endsection
