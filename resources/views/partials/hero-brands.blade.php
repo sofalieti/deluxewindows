@@ -14,7 +14,7 @@
         @foreach($heroBrandItems as $item)
           <li class="hero-brands__item" @if($copy > 0) aria-hidden="true" @endif>
             <a href="{{ $item['href'] }}" class="hero-brands__link" title="{{ $item['alt'] }}" @if($copy > 0) tabindex="-1" @endif>
-              <x-img :src="$item['image']" preset="brand_grid" :alt="$copy === 0 ? $item['alt'] : ''" loading="lazy" class="hero-brands__logo" />
+              <x-img :src="$item['hero_image'] ?? $item['image']" preset="brand_grid" :alt="$copy === 0 ? $item['alt'] : ''" loading="lazy" class="hero-brands__logo" />
             </a>
           </li>
         @endforeach
