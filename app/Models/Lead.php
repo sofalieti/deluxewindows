@@ -43,6 +43,8 @@ class Lead extends Model
 
     public const STATUS_NON_SALES_INQUIRY = 'non_sales_inquiry';
 
+    public const STATUS_TRANSFERED_TO_FELIX = 'transfered_to_felix';
+
     public const STATUS_SPAM = 'spam';
 
     /**
@@ -76,6 +78,7 @@ class Lead extends Model
         self::STATUS_LOST => 'Lost',
         self::STATUS_UNQUALIFIED_BELOW_MIN => 'Unqualified: below minimum requirement',
         self::STATUS_NON_SALES_INQUIRY => 'Non-Sales Inquiry',
+        self::STATUS_TRANSFERED_TO_FELIX => 'Transfered to Felix',
         self::STATUS_SPAM => 'Spam',
     ];
 
@@ -219,6 +222,7 @@ class Lead extends Model
             self::STATUS_LOST => 'lost',
             self::STATUS_UNQUALIFIED_BELOW_MIN => 'unqualified_below_min',
             self::STATUS_NON_SALES_INQUIRY => 'non_sales_inquiry',
+            self::STATUS_TRANSFERED_TO_FELIX => 'transfered_to_felix',
             self::STATUS_SPAM => 'spam',
             default => 'new',
         };
@@ -227,6 +231,19 @@ class Lead extends Model
     public function isSpam(): bool
     {
         return $this->status === self::STATUS_SPAM;
+    }
+
+    /**
+     * Still New and nobody has left a comment.
+     *
+     * @param  Builder<Lead>  $query
+     * @return Builder<Lead>
+     */
+    public function scopeUnprocessed(Builder $query): Builder
+    {
+        return $query
+            ->where('status', self::STATUS_NEW)
+            ->whereDoesntHave('comments');
     }
 
     /**

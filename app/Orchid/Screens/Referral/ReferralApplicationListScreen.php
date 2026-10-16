@@ -9,6 +9,7 @@ use App\Services\ReferralPartnerService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Orchid\Screen\Actions\Button;
+use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
 use Orchid\Screen\TD;
 use Orchid\Support\Color;
@@ -47,13 +48,23 @@ class ReferralApplicationListScreen extends Screen
             Layout::table('applications', [
                 TD::make('created_at', 'Submitted')
                     ->render(fn (ReferralApplication $app) => e(optional($app->created_at)->format('Y-m-d H:i'))),
-                TD::make('full_name', 'Name'),
+                TD::make('full_name', 'Name')
+                    ->render(fn (ReferralApplication $app) => Link::make($app->full_name)
+                        ->route('platform.referral.applications.view', $app)
+                        ->render()),
                 TD::make('email', 'Email'),
                 TD::make('phone', 'Phone'),
                 TD::make('status', 'Status')
                     ->render(fn (ReferralApplication $app) => e(ReferralApplication::STATUSES[$app->status] ?? $app->status)),
                 TD::make('message', 'Note')
-                    ->render(fn (ReferralApplication $app) => e(\Illuminate\Support\Str::limit((string) $app->message, 80))),
+                    ->render(function (ReferralApplication $app) {
+                        $preview = \Illuminate\Support\Str::limit(trim((string) $app->message), 80);
+                        $label = $preview !== '' ? $preview : 'Open application';
+
+                        return Link::make($label)
+                            ->route('platform.referral.applications.view', $app)
+                            ->render();
+                    }),
                 TD::make('actions', '')
                     ->render(function (ReferralApplication $app) {
                         if (! $app->isPending()) {

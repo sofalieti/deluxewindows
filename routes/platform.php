@@ -6,11 +6,12 @@ use App\Http\Controllers\Admin\GoogleMailboxOAuthController;
 use App\Http\Controllers\Admin\ReferralPrintController;
 use App\Http\Controllers\Admin\RingCentralRecordingController;
 use App\Http\Controllers\Admin\WebflowImageUploadController;
+use App\Orchid\Screens\Analytics\CallAnalyticsScreen;
 use App\Orchid\Screens\Contacts\ContactEditScreen;
+use App\Orchid\Screens\Contacts\ContactListScreen;
 use App\Orchid\Screens\Crm\TaskEditScreen;
 use App\Orchid\Screens\Crm\TaskListScreen;
 use App\Orchid\Screens\Crm\WorkQueueScreen;
-use App\Orchid\Screens\Contacts\ContactListScreen;
 use App\Orchid\Screens\DoorBrands\DoorBrandEditScreen;
 use App\Orchid\Screens\DoorBrands\DoorBrandListScreen;
 use App\Orchid\Screens\Examples\ExampleActionsScreen;
@@ -31,11 +32,8 @@ use App\Orchid\Screens\Mailbox\MailboxViewScreen;
 use App\Orchid\Screens\Marketing\ContentDatasetsScreen;
 use App\Orchid\Screens\PhoneClicks\PhoneClickListScreen;
 use App\Orchid\Screens\PhoneClicks\PhoneClickViewScreen;
-use App\Orchid\Screens\Visits\VisitListScreen;
-use App\Orchid\Screens\Visits\VisitViewScreen;
 use App\Orchid\Screens\PlatformScreen;
 use App\Orchid\Screens\Promotions\PromotionsScreen;
-use App\Orchid\Screens\Analytics\CallAnalyticsScreen;
 use App\Orchid\Screens\Referral\PartnerDashboardScreen;
 use App\Orchid\Screens\Referral\PartnerLeadListScreen;
 use App\Orchid\Screens\Referral\PartnerLinkScreen;
@@ -43,6 +41,7 @@ use App\Orchid\Screens\Referral\PartnerRewardListScreen;
 use App\Orchid\Screens\Referral\PartnerTrafficScreen;
 use App\Orchid\Screens\Referral\ReferralAnalyticsScreen;
 use App\Orchid\Screens\Referral\ReferralApplicationListScreen;
+use App\Orchid\Screens\Referral\ReferralApplicationViewScreen;
 use App\Orchid\Screens\Referral\ReferralPartnerListScreen;
 use App\Orchid\Screens\Referral\ReferralRewardListScreen;
 use App\Orchid\Screens\RingCentralCalls\RingCentralCallListScreen;
@@ -53,6 +52,8 @@ use App\Orchid\Screens\System\QueueScreen;
 use App\Orchid\Screens\User\UserEditScreen;
 use App\Orchid\Screens\User\UserListScreen;
 use App\Orchid\Screens\User\UserProfileScreen;
+use App\Orchid\Screens\Visits\VisitListScreen;
+use App\Orchid\Screens\Visits\VisitViewScreen;
 use App\Orchid\Screens\Webflow\WebflowCollectionEditScreen;
 use App\Orchid\Screens\Webflow\WebflowCollectionListScreen;
 use Illuminate\Support\Facades\Route;
@@ -130,6 +131,10 @@ Route::screen('analytics/calls', CallAnalyticsScreen::class)
 
 Route::screen('referral/applications', ReferralApplicationListScreen::class)
     ->name('platform.referral.applications');
+
+Route::screen('referral/applications/{application}', ReferralApplicationViewScreen::class)
+    ->name('platform.referral.applications.view')
+    ->whereNumber('application');
 
 Route::screen('referral/partners', ReferralPartnerListScreen::class)
     ->name('platform.referral.partners');

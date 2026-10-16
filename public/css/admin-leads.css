@@ -178,6 +178,11 @@
     background: #4f46e5;
 }
 
+.lead-status-badge--transfered_to_felix {
+    color: #ffffff;
+    background: #0f766e;
+}
+
 .lead-qty {
     display: inline-block;
     max-width: 9.5rem;
@@ -268,6 +273,12 @@
 .lead-status-select--non_sales_inquiry {
     color: #ffffff;
     background-color: #4f46e5;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 16 16'%3E%3Cpath fill='%23ffffff' d='M4.5 6l3.5 3.5L11.5 6'/%3E%3C/svg%3E");
+}
+
+.lead-status-select--transfered_to_felix {
+    color: #ffffff;
+    background-color: #0f766e;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 16 16'%3E%3Cpath fill='%23ffffff' d='M4.5 6l3.5 3.5L11.5 6'/%3E%3C/svg%3E");
 }
 

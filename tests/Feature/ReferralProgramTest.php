@@ -348,3 +348,28 @@ test('referral landing accepts an application', function () {
 
     expect(ReferralApplication::query()->where('email', 'applicant@example.com')->exists())->toBeTrue();
 });
+
+test('admin can open a referral application and read the full note', function () {
+    $admin = User::factory()->create([
+        'permissions' => [
+            ReferralPartnerService::PERMISSION_ADMIN => true,
+        ],
+    ]);
+    $note = "I'm a realtor in San Mateo.\nI can share this with about 40 past clients and the HOA board.";
+    $application = ReferralApplication::query()->create([
+        'full_name' => 'Riley Realtor',
+        'email' => 'riley@example.com',
+        'phone' => '6505551212',
+        'message' => $note,
+        'status' => ReferralApplication::STATUS_PENDING,
+    ]);
+
+    $this->withoutMiddleware(Access::class)
+        ->actingAs($admin)
+        ->get(route('platform.referral.applications.view', $application))
+        ->assertOk()
+        ->assertSee('How will you share?')
+        ->assertSee('Riley Realtor')
+        ->assertSee('I can share this with about 40 past clients and the HOA board.')
+        ->assertSee('I&#039;m a realtor in San Mateo.', false);
+});

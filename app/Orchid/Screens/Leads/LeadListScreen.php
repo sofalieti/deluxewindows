@@ -20,7 +20,6 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\Link;
-use RuntimeException;
 use Orchid\Screen\Screen;
 use Orchid\Screen\TD;
 use Orchid\Support\Facades\Layout;
@@ -65,19 +64,28 @@ class LeadListScreen extends Screen
             ->where('status', Lead::STATUS_SPAM)
             ->defaultSort('id', 'desc');
 
+        $unprocessedLeads = Lead::query()
+            ->visibleTo($user)
+            ->with(['assignee', 'latestComment.user'])
+            ->unprocessed()
+            ->defaultSort('id', 'desc');
+
         if ($contactId > 0) {
             $leads->where('contact_id', $contactId);
             $mineLeads->where('contact_id', $contactId);
             $spamLeads->where('contact_id', $contactId);
+            $unprocessedLeads->where('contact_id', $contactId);
         }
 
         $leadsPage = $leads->paginate(50, pageName: 'page');
         $minePage = $mineLeads->paginate(50, pageName: 'mine_page');
         $spamPage = $spamLeads->paginate(50, pageName: 'spam_page');
+        $unprocessedPage = $unprocessedLeads->paginate(50, pageName: 'unprocessed_page');
 
         $pageLeads = collect($leadsPage->items())
             ->concat($minePage->items())
-            ->concat($spamPage->items());
+            ->concat($spamPage->items())
+            ->concat($unprocessedPage->items());
 
         $this->callStatsByPhone = app(RingCentralPhoneCallStatsService::class)->statsForPhones(
             $pageLeads->pluck('phone')->all()
@@ -90,6 +98,7 @@ class LeadListScreen extends Screen
             'leads' => $leadsPage,
             'mineLeads' => $minePage,
             'spamLeads' => $spamPage,
+            'unprocessedLeads' => $unprocessedPage,
             'contactFilter' => $this->contactFilter,
         ];
     }
@@ -113,7 +122,7 @@ class LeadListScreen extends Screen
             return 'Showing leads linked to contact #'.$this->contactFilter->id.'.'.$sourceNote;
         }
 
-        return 'Form submissions from the website. Spam is under the Spam tab.'.$sourceNote;
+        return 'Form submissions from the website. Untouched New leads are under Unprocessed. Spam is under the Spam tab.'.$sourceNote;
     }
 
     public function permission(): ?iterable
@@ -200,6 +209,7 @@ class LeadListScreen extends Screen
 
             Layout::tabs([
                 'Leads' => Layout::table('leads', $this->leadColumns(spamTab: false)),
+                'Unprocessed' => Layout::table('unprocessedLeads', $this->leadColumns(spamTab: false)),
                 'Mine' => Layout::table('mineLeads', $this->leadColumns(spamTab: false)),
                 'Spam' => Layout::table('spamLeads', $this->leadColumns(spamTab: true)),
             ]),

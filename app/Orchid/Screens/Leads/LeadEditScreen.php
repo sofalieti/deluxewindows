@@ -51,6 +51,7 @@ class LeadEditScreen extends Screen
             'lead' => $lead,
             'comments' => $lead->comments,
             'changes' => $lead->changes,
+            'statusChanges' => $lead->changes->where('field', 'status')->values(),
             'contact_id' => $lead->contact_id,
             'calls' => $lead->ringCentralCallsForPhone(),
             'tasks' => $lead->tasks,
@@ -289,6 +290,8 @@ class LeadEditScreen extends Screen
                 'Emails' => Layout::view('admin.mailbox.client-messages'),
 
                 'Tasks' => Layout::view('admin.crm.tasks-table'),
+
+                'Status history' => Layout::view('admin.leads.status-history'),
 
                 'History' => Layout::view('admin.leads.history'),
             ]),
