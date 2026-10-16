@@ -205,6 +205,14 @@ final class AppointmentSheetExporter
         ];
     }
 
+    /**
+     * @return list<string>
+     */
+    public function leadRow(Lead $lead): array
+    {
+        return $this->row($lead);
+    }
+
     private function assertExportColumn(): void
     {
         if (! Schema::hasColumn('leads', 'appointments_sheet_exported_at')) {

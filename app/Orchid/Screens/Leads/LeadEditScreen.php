@@ -12,6 +12,7 @@ use App\Models\MailboxMessage;
 use App\Models\User;
 use App\Orchid\Screens\Concerns\QueuesCallTranscripts;
 use App\Services\Ads\AppointmentSheetExporter;
+use App\Services\Ads\FelixSheetExporter;
 use App\Services\ContactFromLeadService;
 use App\Services\TrafficSourceVisibility;
 use Illuminate\Http\Request;
@@ -396,7 +397,7 @@ class LeadEditScreen extends Screen
                 $changes['status'][0],
                 $changes['status'][1]
             );
-            $sheetError = app(AppointmentSheetExporter::class)->onStatusChanged(
+            $sheetError = $this->exportStatusSheets(
                 $lead,
                 (string) $changes['status'][0],
                 (string) $changes['status'][1]
@@ -430,7 +431,7 @@ class LeadEditScreen extends Screen
                 LeadChange::recordStatusChange($lead, $from, $to, (int) $user->id);
                 app(\App\Services\ReferralRewardService::class)->syncEligibleForLead($lead->refresh());
                 app(\App\Services\CrmTaskAutomation::class)->onLeadStatusChanged($lead, $from, $to);
-                $sheetError = app(AppointmentSheetExporter::class)->onStatusChanged($lead, $from, $to);
+                $sheetError = $this->exportStatusSheets($lead, $from, $to);
                 if ($sheetError !== null) {
                     Toast::warning('Status saved. Sheet export failed: '.$sheetError);
                 }
@@ -507,5 +508,15 @@ class LeadEditScreen extends Screen
         Toast::info('Lead assigned to you.');
 
         return redirect()->route('platform.leads.edit', $lead);
+    }
+
+    private function exportStatusSheets(Lead $lead, string $from, string $to): ?string
+    {
+        $errors = array_values(array_filter([
+            app(AppointmentSheetExporter::class)->onStatusChanged($lead, $from, $to),
+            app(FelixSheetExporter::class)->onStatusChanged($lead, $from, $to),
+        ]));
+
+        return $errors === [] ? null : implode(' ', $errors);
     }
 }

@@ -347,6 +347,46 @@ final class GoogleAdsOfflineSheetExporter
         return $id !== '' ? $id : null;
     }
 
+    /**
+     * Find a workbook by name in the shared Drive folder, or create an empty one.
+     */
+    public function findOrCreatePlainSpreadsheet(string $title): string
+    {
+        $existing = $this->findSpreadsheetInFolder($title);
+        if ($existing !== null) {
+            return $existing;
+        }
+
+        return $this->createEmptySpreadsheet($title);
+    }
+
+    private function createEmptySpreadsheet(string $title): string
+    {
+        $folderId = trim((string) config('services.google_drive.folder_id'));
+        $base = (string) config('services.google_drive.drive_api_base_url');
+
+        $response = $this->http()
+            ->withToken($this->accessToken())
+            ->post($base.'/files?supportsAllDrives=true', [
+                'name' => $title,
+                'mimeType' => self::SHEET_MIME,
+                'parents' => [$folderId],
+            ]);
+
+        if (! $response->successful()) {
+            throw new RuntimeException(
+                'Drive create failed HTTP '.$response->status().': '.$response->body()
+            );
+        }
+
+        $id = trim((string) $response->json('id'));
+        if ($id === '') {
+            throw new RuntimeException('Drive create returned no spreadsheet id.');
+        }
+
+        return $id;
+    }
+
     private function createSpreadsheet(string $title): string
     {
         $folderId = trim((string) config('services.google_drive.folder_id'));

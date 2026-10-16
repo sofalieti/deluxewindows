@@ -86,6 +86,9 @@ return [
             'GOOGLE_DRIVE_APPOINTMENTS_SPREADSHEET_ID',
             '1He1uAQ__aYOjGA5PE3kuKBMEGnUu7j1LS2r0MVlGk0E'
         ),
+        // Empty: find or create "Deluxe Windows Transfered to Felix" in the Drive folder.
+        'felix_spreadsheet_id' => env('GOOGLE_DRIVE_FELIX_SPREADSHEET_ID'),
+        'felix_spreadsheet_title' => 'Deluxe Windows Transfered to Felix',
         'service_account_json' => env('GOOGLE_DRIVE_SERVICE_ACCOUNT_JSON'),
         'client_id' => env('GOOGLE_DRIVE_CLIENT_ID', env('GOOGLE_ADS_CLIENT_ID')),
         'client_secret' => env('GOOGLE_DRIVE_CLIENT_SECRET', env('GOOGLE_ADS_CLIENT_SECRET')),

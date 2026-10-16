@@ -32,6 +32,15 @@
                 ->method('sendAppointment', ['lead' => $lead->id])
                 ->confirm('Add this appointment lead to the Google sheet?') !!}
         </div>
+    @elseif ($lead->status === \App\Models\Lead::STATUS_TRANSFERED_TO_FELIX && $lead->felix_sheet_exported_at === null)
+        <div class="mt-1">
+            {!! \Orchid\Screen\Actions\Button::make('To Felix sheet')
+                ->icon('bs.file-earmark-spreadsheet')
+                ->method('sendFelix', ['lead' => $lead->id])
+                ->confirm('Add this lead to the Felix Google sheet?') !!}
+        </div>
+    @elseif ($lead->felix_sheet_exported_at !== null)
+        <div class="small text-muted mt-1">In Felix sheet</div>
     @elseif ($lead->appointments_sheet_exported_at !== null)
         <div class="small text-muted mt-1">In sheet</div>
     @endif

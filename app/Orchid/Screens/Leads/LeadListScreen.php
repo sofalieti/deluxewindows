@@ -11,6 +11,7 @@ use App\Models\LeadComment;
 use App\Models\User;
 use App\Orchid\Layouts\Leads\LeadFiltersLayout;
 use App\Services\Ads\AppointmentSheetExporter;
+use App\Services\Ads\FelixSheetExporter;
 use App\Services\Mailbox\MailboxEmailStatsService;
 use App\Services\RingCentralPhoneCallStatsService;
 use App\Services\TrafficSourceVisibility;
@@ -139,6 +140,10 @@ class LeadListScreen extends Screen
                 ->icon('bs.file-earmark-spreadsheet')
                 ->method('exportAppointments')
                 ->confirm('Append appointment leads that have a Google GCLID into the appointments spreadsheet?'),
+            Button::make('Export Felix')
+                ->icon('bs.file-earmark-spreadsheet')
+                ->method('exportFelix')
+                ->confirm('Append Transfered to Felix leads into the Felix spreadsheet?'),
         ];
 
         if ($this->contactFilter !== null) {
@@ -173,6 +178,26 @@ class LeadListScreen extends Screen
         Toast::success('Sent '.$result['count'].' appointment lead(s) to the sheet.');
     }
 
+    public function exportFelix(FelixSheetExporter $exporter): void
+    {
+        try {
+            $result = $exporter->exportPending();
+        } catch (\Throwable $e) {
+            report($e);
+            Toast::error(Str::limit($e->getMessage(), 300));
+
+            return;
+        }
+
+        if ($result['count'] === 0) {
+            Toast::info('No new Felix leads to export.');
+
+            return;
+        }
+
+        Toast::success('Sent '.$result['count'].' Felix lead(s) to the sheet.');
+    }
+
     public function sendAppointment(Request $request, AppointmentSheetExporter $exporter): void
     {
         $validated = $request->validate([
@@ -199,6 +224,26 @@ class LeadListScreen extends Screen
         Toast::info($exporter->shouldExport($lead)
             ? 'This lead is already in the sheet.'
             : 'Only appointment leads with a Google GCLID are sent. Bing is skipped.');
+    }
+
+    public function sendFelix(Request $request, FelixSheetExporter $exporter): void
+    {
+        $validated = $request->validate([
+            'lead' => ['required', 'integer', 'exists:leads,id'],
+        ]);
+
+        $lead = Lead::query()->findOrFail((int) $validated['lead']);
+
+        try {
+            $sent = $exporter->exportLead($lead);
+        } catch (\Throwable $e) {
+            report($e);
+            Toast::error(Str::limit($e->getMessage(), 300));
+
+            return;
+        }
+
+        Toast::info($sent ? 'Lead sent to the Felix sheet.' : 'This lead is already in the Felix sheet.');
     }
 
     public function layout(): iterable
@@ -335,12 +380,14 @@ class LeadListScreen extends Screen
         app(\App\Services\CrmTaskAutomation::class)->onLeadStatusChanged($lead, $from, $to);
 
         $alreadyInSheet = $lead->appointments_sheet_exported_at !== null;
-        $sheetError = app(AppointmentSheetExporter::class)->onStatusChanged($lead, $from, $to);
+        $sheetError = $this->exportStatusSheets($lead, $from, $to);
         $lead->refresh();
         if ($sheetError !== null) {
             Toast::warning('Status updated. Sheet export failed: '.$sheetError);
         } elseif ($to === Lead::STATUS_APPOINTMENT && ! $alreadyInSheet && $lead->appointments_sheet_exported_at !== null) {
             Toast::info('Status updated: '.$lead->statusLabel().'. Sent to the appointments sheet.');
+        } elseif ($to === Lead::STATUS_TRANSFERED_TO_FELIX && $lead->felix_sheet_exported_at !== null) {
+            Toast::info('Status updated: '.$lead->statusLabel().'. Sent to the Felix sheet.');
         } else {
             Toast::info('Status updated: '.$lead->statusLabel());
         }
@@ -423,5 +470,15 @@ class LeadListScreen extends Screen
         );
 
         Toast::info('Note saved.');
+    }
+
+    private function exportStatusSheets(Lead $lead, string $from, string $to): ?string
+    {
+        $errors = array_values(array_filter([
+            app(AppointmentSheetExporter::class)->onStatusChanged($lead, $from, $to),
+            app(FelixSheetExporter::class)->onStatusChanged($lead, $from, $to),
+        ]));
+
+        return $errors === [] ? null : implode(' ', $errors);
     }
 }
