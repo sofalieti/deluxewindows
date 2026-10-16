@@ -7,6 +7,7 @@
     $pageUrl = trim((string) ($lead->page_url ?? ''));
     $createdAt = optional($lead->created_at)->format('M j, Y \a\t g:i A');
 
+    $opening = $lead->openingSummary();
     $formId = trim((string) ($meta['form_id'] ?? ''));
     $device = trim((string) ($meta['device'] ?? ''));
     $referrer = trim((string) ($meta['referrer'] ?? ''));
@@ -87,6 +88,12 @@
               <tr>
                 <td style="padding:10px 0;border-top:1px solid #eef1f4;font-size:13px;color:#8a97a6;">Form</td>
                 <td style="padding:10px 0;border-top:1px solid #eef1f4;font-size:14px;color:#33404d;">{{ $formId }}</td>
+              </tr>
+              @endif
+              @if($opening !== '')
+              <tr>
+                <td style="padding:10px 0;border-top:1px solid #eef1f4;font-size:13px;color:#8a97a6;">Quantity</td>
+                <td style="padding:10px 0;border-top:1px solid #eef1f4;font-size:14px;color:#33404d;font-weight:600;">{{ $opening }}</td>
               </tr>
               @endif
               @if($pageUrl !== '')

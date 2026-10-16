@@ -222,6 +222,11 @@ class LeadListScreen extends Screen
                 ->render(fn (Lead $lead) => view('admin.leads.date-cell', [
                     'lead' => $lead,
                 ])),
+            TD::make('opening_count', 'Qty')
+                ->width('150px')
+                ->render(fn (Lead $lead) => view('admin.leads.qty-cell', [
+                    'lead' => $lead,
+                ])),
         ];
 
         if ($spamTab) {

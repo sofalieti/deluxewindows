@@ -6,10 +6,10 @@ namespace App\Orchid\Screens\Leads;
 
 use App\Models\Contact;
 use App\Models\Lead;
-use App\Models\MailboxMessage;
-use App\Models\User;
 use App\Models\LeadChange;
 use App\Models\LeadComment;
+use App\Models\MailboxMessage;
+use App\Models\User;
 use App\Orchid\Screens\Concerns\QueuesCallTranscripts;
 use App\Services\Ads\AppointmentSheetExporter;
 use App\Services\ContactFromLeadService;
@@ -162,6 +162,8 @@ class LeadEditScreen extends Screen
                 Sight::make('id', 'ID'),
                 Sight::make('created_at', 'Received')
                     ->render(fn (Lead $lead) => optional($lead->created_at)->format('Y-m-d H:i')),
+                Sight::make('opening_count', 'Quantity')
+                    ->render(fn (Lead $lead) => e($lead->openingSummary() !== '' ? $lead->openingSummary() : '—')),
                 Sight::make('status', 'Current status')
                     ->render(fn (Lead $lead) => '<span class="lead-status-badge lead-status-badge--'.e($lead->statusColor()).'">'.e($lead->statusLabel()).'</span>'),
                 Sight::make('contact', 'Contact')

@@ -178,9 +178,13 @@
     background: #4f46e5;
 }
 
-.lead-status-badge--spam {
-    color: #ffffff;
-    background: #dc2626;
+.lead-qty {
+    display: inline-block;
+    max-width: 9.5rem;
+    color: #16273b;
+    font-size: 0.78rem;
+    font-weight: 700;
+    line-height: 1.35;
 }
 
 .lead-status-select {

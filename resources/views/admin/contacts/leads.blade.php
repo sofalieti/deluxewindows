@@ -22,6 +22,9 @@
                 </div>
                 <span class="small text-muted">{{ optional($lead->created_at)->format('Y-m-d H:i') }}</span>
             </div>
+            @if ($lead->openingSummary() !== '')
+                <div class="small mt-1">{{ $lead->openingSummary() }}</div>
+            @endif
             @if (filled($lead->message))
                 <div class="small mt-2 text-break">{{ \Illuminate\Support\Str::words($lead->message, 18, '…') }}</div>
             @endif

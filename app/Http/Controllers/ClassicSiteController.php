@@ -29,6 +29,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Validation\Rule;
 
 class ClassicSiteController extends Controller
 {
@@ -527,6 +528,8 @@ class ClassicSiteController extends Controller
             'msclkid' => trim((string) $request->input('msclkid')),
             'form_id' => trim((string) ($request->input('form_id') ?: $request->input('Form ID'))),
             'hero_variant' => trim((string) $request->input('hero_variant')),
+            'opening_count' => trim((string) $request->input('opening_count')),
+            'opening_kind' => ($openingKind = trim((string) $request->input('opening_kind'))) !== '' ? $openingKind : null,
         ];
 
         $validated = validator($payload, [
@@ -554,6 +557,8 @@ class ClassicSiteController extends Controller
             'msclkid' => 'nullable|string|max:255',
             'form_id' => 'nullable|string|max:255',
             'hero_variant' => 'nullable|string|max:20',
+            'opening_count' => ['required', 'string', Rule::in(array_keys(Lead::OPENING_COUNTS))],
+            'opening_kind' => ['nullable', 'string', Rule::in(array_keys(Lead::OPENING_KINDS))],
         ])->validate();
 
         // Empty email is allowed (mobile forms hide the field). DB column is NOT NULL.
@@ -608,6 +613,10 @@ class ClassicSiteController extends Controller
             'msclkid' => $validated['msclkid'],
             'form_id' => $formId,
             'hero_variant' => $validated['hero_variant'] !== '' ? $validated['hero_variant'] : hero_variant(),
+            'opening_count' => $validated['opening_count'],
+            'opening_kind' => ($validated['opening_kind'] ?? '') !== ''
+                ? $validated['opening_kind']
+                : Lead::openingKindFromUrl($pageUrl),
             'first_touch' => $firstTouch,
         ];
 

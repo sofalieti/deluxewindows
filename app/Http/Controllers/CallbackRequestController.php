@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
 
 /**
@@ -71,6 +72,8 @@ class CallbackRequestController extends Controller
             'gclid' => trim((string) $request->input('gclid')),
             'fbclid' => trim((string) $request->input('fbclid')),
             'msclkid' => trim((string) $request->input('msclkid')),
+            'opening_count' => trim((string) $request->input('opening_count')),
+            'opening_kind' => ($openingKind = trim((string) $request->input('opening_kind'))) !== '' ? $openingKind : null,
         ];
 
         $validator = Validator::make($payload, [
@@ -93,6 +96,8 @@ class CallbackRequestController extends Controller
             'gclid' => 'nullable|string|max:255',
             'fbclid' => 'nullable|string|max:255',
             'msclkid' => 'nullable|string|max:255',
+            'opening_count' => ['required', 'string', Rule::in(array_keys(Lead::OPENING_COUNTS))],
+            'opening_kind' => ['nullable', 'string', Rule::in(array_keys(Lead::OPENING_KINDS))],
         ]);
 
         if ($validator->fails()) {
@@ -159,6 +164,10 @@ class CallbackRequestController extends Controller
             'fbclid' => $validated['fbclid'],
             'msclkid' => $validated['msclkid'],
             'form_id' => $formId,
+            'opening_count' => $validated['opening_count'],
+            'opening_kind' => ($validated['opening_kind'] ?? '') !== ''
+                ? $validated['opening_kind']
+                : Lead::openingKindFromUrl($pageUrl),
             'first_touch' => $firstTouch,
         ];
 

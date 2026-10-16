@@ -407,6 +407,21 @@ class Contact extends Model
             ->all();
     }
 
+    /** Earliest linked lead, when the list query uses withMin('leads', 'created_at'). */
+    public function firstLeadAt(): ?\Illuminate\Support\Carbon
+    {
+        $raw = $this->attributes['leads_min_created_at'] ?? null;
+        if (is_string($raw) && $raw !== '') {
+            return $this->asDateTime($raw);
+        }
+
+        if ($this->relationLoaded('leads') && $this->leads->isNotEmpty()) {
+            return $this->leads->min('created_at');
+        }
+
+        return null;
+    }
+
     public static function normalizeEmail(mixed $email): ?string
     {
         $value = strtolower(trim((string) $email));

@@ -3374,4 +3374,89 @@ body.bing-phone-choice-open {
   overflow: hidden;
 }
 
+/* Compact opening-count picker injected into every lead form. */
+.qty-pick {
+  margin: 0 0 12px;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.qty-pick__label {
+  display: block;
+  margin: 0 0 6px;
+  padding: 0;
+  color: #56657a;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.qty-pick__options {
+  display: flex;
+  gap: 6px;
+}
+
+.qty-pick__opt {
+  flex: 1 1 0;
+  margin: 0;
+}
+
+.qty-pick__opt input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.qty-pick__opt span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 6px 8px;
+  border: 1px solid #c5d0dc;
+  border-radius: 4px;
+  background: #fff;
+  color: #16273b;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.qty-pick__opt input:checked + span {
+  border-color: #1b4b82;
+  background: #1b4b82;
+  color: #fff;
+}
+
+.qty-pick__opt input:focus-visible + span {
+  outline: 2px solid #2f6fb5;
+  outline-offset: 2px;
+}
+
+.qty-pick.is-invalid .qty-pick__opt span {
+  border-color: #dc2626;
+}
+
+.hero-nm .qty-pick__label {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.hero-nm .qty-pick__opt span {
+  border-color: rgba(255, 255, 255, 0.45);
+  background: transparent;
+  color: #fff;
+}
+
+.hero-nm .qty-pick__opt input:checked + span {
+  border-color: #e8912a;
+  background: #e8912a;
+  color: #fff;
+}
+
 

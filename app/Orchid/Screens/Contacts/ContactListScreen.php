@@ -32,7 +32,7 @@ class ContactListScreen extends Screen
         $contacts = Contact::filters()
             ->with(['leads', 'emailAddresses', 'latestComment.user'])
             ->withCount('leads')
-            ->withMax('leads', 'created_at')
+            ->withMin('leads', 'created_at')
             ->defaultSort('id', 'desc')
             ->paginate(50);
 

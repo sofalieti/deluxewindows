@@ -48,6 +48,24 @@ class Lead extends Model
     /**
      * @var array<string, string>
      */
+    public const OPENING_COUNTS = [
+        '1-3' => '1–3',
+        '4-10' => '4–10',
+        '11+' => '11+',
+    ];
+
+    /**
+     * @var array<string, string>
+     */
+    public const OPENING_KINDS = [
+        'windows' => 'Windows',
+        'doors' => 'Doors',
+        'both' => 'Windows & doors',
+    ];
+
+    /**
+     * @var array<string, string>
+     */
     public const STATUSES = [
         self::STATUS_NEW => 'New',
         self::STATUS_CONTACTED => 'Contacted',
@@ -234,6 +252,34 @@ class Lead extends Model
     /**
      * Read a scalar value from the JSON meta column.
      */
+    public static function openingKindFromUrl(?string $url): string
+    {
+        $path = trim((string) parse_url((string) $url, PHP_URL_PATH), '/');
+
+        if (preg_match('/^(doors|door-brands|door-types)(\/|$)/', $path) === 1) {
+            return 'doors';
+        }
+
+        if (preg_match('/^(windows|brands|brand-collections|window-type|window-replacement)(\/|$)/', $path) === 1) {
+            return 'windows';
+        }
+
+        return 'both';
+    }
+
+    public function openingSummary(): string
+    {
+        $count = $this->metaValue('opening_count');
+        if (! array_key_exists($count, self::OPENING_COUNTS)) {
+            return '';
+        }
+
+        $kind = $this->metaValue('opening_kind');
+        $kindLabel = self::OPENING_KINDS[$kind] ?? self::OPENING_KINDS['both'];
+
+        return $kindLabel.' · '.self::OPENING_COUNTS[$count];
+    }
+
     public function metaValue(string $key, string $default = ''): string
     {
         $value = data_get($this->meta, $key);

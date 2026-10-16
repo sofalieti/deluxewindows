@@ -154,6 +154,8 @@
         Phone: firstValue(['Phone', 'phone']),
         Subject: firstValue(['Subject', 'city', 'City', 'Company']),
         Message: firstValue(['Message', 'message', 'Description', 'description']),
+        opening_count: firstValue(['opening_count']),
+        opening_kind: firstValue(['opening_kind']),
         'Form ID': formId,
         form_id: formId,
         Page: pageUrl,
@@ -219,6 +221,8 @@
       body.append('Phone', String(payload.Phone || ''));
       body.append('Subject', String(payload.Subject || ''));
       body.append('Message', String(payload.Message || ''));
+      body.append('Opening count', String(payload.opening_count || ''));
+      body.append('Opening kind', String(payload.opening_kind || ''));
       body.append('landing_page', String(payload.landing_page || pagePath));
       body.append('referrer', String(payload.referrer || ''));
       body.append('geo_location', String(payload.geo_location || ''));
@@ -427,6 +431,61 @@
       if (ok) form.style.display = 'none';
     }
 
+    function openingKindFromPath(pathname) {
+      const path = '/' + String(pathname || '/').replace(/^\/+|\/+$/g, '');
+      if (/^\/(doors|door-brands|door-types)(\/|$)/.test(path)) return 'doors';
+      if (/^\/(windows|brands|brand-collections|window-type|window-replacement)(\/|$)/.test(path)) return 'windows';
+      return 'both';
+    }
+
+    function openingKindLabel(kind) {
+      if (kind === 'doors') return 'Doors';
+      if (kind === 'windows') return 'Windows';
+      return 'Windows & doors';
+    }
+
+    function mountOpeningQty(form) {
+      if (!(form instanceof HTMLFormElement) || form.querySelector('[data-qty-pick]')) {
+        return;
+      }
+
+      const submit = form.querySelector('input[type="submit"], button[type="submit"]');
+      if (!submit) return;
+
+      const kind = openingKindFromPath(window.location.pathname);
+      const field = document.createElement('fieldset');
+      field.className = 'qty-pick';
+      field.dataset.qtyPick = '1';
+      field.innerHTML =
+        '<legend class="qty-pick__label">' + openingKindLabel(kind) + '</legend>'
+        + '<input type="hidden" name="opening_kind" value="' + kind + '">'
+        + '<div class="qty-pick__options">'
+        + '<label class="qty-pick__opt"><input type="radio" name="opening_count" value="1-3"><span>1–3</span></label>'
+        + '<label class="qty-pick__opt"><input type="radio" name="opening_count" value="4-10"><span>4–10</span></label>'
+        + '<label class="qty-pick__opt"><input type="radio" name="opening_count" value="11+"><span>11+</span></label>'
+        + '</div>';
+
+      field.addEventListener('change', function () {
+        field.classList.remove('is-invalid');
+      });
+
+      const anchor = submit.closest('.primary-button') || submit;
+      anchor.parentNode.insertBefore(field, anchor);
+    }
+
+    function selectedOpeningCount(form) {
+      const picked = form.querySelector('input[name="opening_count"]:checked');
+      const box = form.querySelector('[data-qty-pick]');
+      if (picked) {
+        if (box) box.classList.remove('is-invalid');
+        return picked.value;
+      }
+      if (box) {
+        box.classList.add('is-invalid');
+      }
+      return '';
+    }
+
     function isLeadForm(form) {
       const hasField = function (names) {
         return names.some(function (name) {
@@ -548,6 +607,10 @@
 
     async function submitLead(form) {
       const submitBtn = form.querySelector('input[type="submit"], button[type="submit"]');
+      if (!selectedOpeningCount(form)) {
+        form.dataset.laravelLeadSubmitting = '0';
+        return;
+      }
       setSubmitLoading(submitBtn, true);
       try {
         const payload = toPayload(form, await getGeoLocation());
@@ -597,6 +660,13 @@
       form.dataset.laravelLeadSubmitting = '1';
       submitLead(form);
     }, true);
+
+    document.querySelectorAll('form').forEach(function (form) {
+      if (form.matches('[data-no-lead]')) return;
+      if (isLeadForm(form) || form.matches('[data-bing-phone-contact-form]')) {
+        mountOpeningQty(form);
+      }
+    });
 
     captureTracking();
   })();

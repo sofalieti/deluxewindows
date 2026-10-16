@@ -21,6 +21,7 @@ test('callback request creates a bing phone callback lead', function () {
         'msclkid' => 'ms-click-123',
         'first_msclkid' => 'ms-click-123',
         'landing_page' => '/',
+        'opening_count' => '4-10',
     ])
         ->assertOk()
         ->assertJson(['ok' => true, 'spam' => false, 'channel' => 'callback']);
@@ -38,7 +39,8 @@ test('callback request creates a bing phone callback lead', function () {
         ->and($lead->meta['channel'] ?? null)->toBe('callback')
         ->and($lead->meta['form_id'] ?? null)->toBe('bing-phone-callback')
         ->and($lead->meta['msclkid'] ?? null)->toBe('ms-click-123')
-        ->and($lead->status)->not->toBe(Lead::STATUS_SPAM);
+        ->and($lead->status)->not->toBe(Lead::STATUS_SPAM)
+        ->and($lead->openingSummary())->toBe('Windows · 4–10');
 });
 
 test('sms channel stores customer phone for us to text them', function () {
@@ -47,6 +49,7 @@ test('sms channel stores customer phone for us to text them', function () {
         'channel' => 'sms',
         'utm_source' => 'bing',
         'msclkid' => 'ms-sms',
+        'opening_count' => '1-3',
     ])
         ->assertOk()
         ->assertJson(['ok' => true, 'channel' => 'sms']);
@@ -67,6 +70,7 @@ test('whatsapp channel stores customer phone for us to message them', function (
         'channel' => 'whatsapp',
         'utm_source' => 'bing',
         'msclkid' => 'ms-wa',
+        'opening_count' => '11+',
     ])
         ->assertOk()
         ->assertJson(['ok' => true, 'channel' => 'whatsapp']);
@@ -86,6 +90,7 @@ test('callback request requires a phone number', function () {
         'channel' => 'sms',
         'utm_source' => 'bing',
         'msclkid' => 'ms-no-phone',
+        'opening_count' => '1-3',
     ])->assertStatus(422);
 
     assertDatabaseCount('leads', 0);
