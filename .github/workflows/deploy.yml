@@ -36,7 +36,6 @@ jobs:
             fi
             composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
             "$PHP_BIN" artisan migrate --force
-            "$PHP_BIN" artisan leads:export-felix-sheet
             "$PHP_BIN" artisan optimize:clear
             find . -user root -exec chown www-root:www-root {} +
             if systemctl list-unit-files deluxe-windows-queue.service --no-legend | grep -q deluxe-windows-queue; then
