@@ -477,6 +477,48 @@ final class GoogleAdsOfflineSheetExporter
     }
 
     /**
+     * @return list<list<string>>
+     */
+    public function readRows(string $spreadsheetId): array
+    {
+        $base = (string) config('services.google_drive.sheets_api_base_url');
+        $title = $this->firstSheetTitle($spreadsheetId);
+        $range = rawurlencode($this->quotedSheet($title).'!A:J');
+        $response = $this->http()
+            ->withToken($this->accessToken())
+            ->get($base.'/spreadsheets/'.$spreadsheetId.'/values/'.$range);
+
+        if (! $response->successful()) {
+            return [];
+        }
+
+        $values = $response->json('values');
+        if (! is_array($values)) {
+            return [];
+        }
+
+        $rows = [];
+        foreach ($values as $row) {
+            if (! is_array($row)) {
+                continue;
+            }
+            $rows[] = array_map(static fn ($cell): string => trim((string) $cell), $row);
+        }
+
+        return $rows;
+    }
+
+    /**
+     * @param  list<string>  $header
+     * @param  list<list<string>>  $rows
+     */
+    public function replaceLabeledRows(string $spreadsheetId, array $header, array $rows): void
+    {
+        $title = $this->firstSheetTitle($spreadsheetId);
+        $this->writeValues($spreadsheetId, array_merge([$header], $rows), count($header), $title);
+    }
+
+    /**
      * @param  list<list<string>>  $grid
      */
     private function writeValues(string $spreadsheetId, array $grid, ?int $columns = null, ?string $sheetTitle = null): void

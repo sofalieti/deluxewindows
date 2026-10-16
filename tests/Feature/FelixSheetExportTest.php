@@ -14,7 +14,7 @@ beforeEach(function () {
         'folder_id' => 'folder-test-id',
         'spreadsheet_id' => null,
         'appointments_spreadsheet_id' => 'appointments-sheet',
-        'felix_spreadsheet_id' => null,
+        'felix_spreadsheet_id' => 'felix-sheet',
         'felix_spreadsheet_title' => 'Deluxe Windows Transfered to Felix',
         'service_account_json' => null,
         'client_id' => 'drive-client',
@@ -29,26 +29,31 @@ beforeEach(function () {
     Cache::flush();
 });
 
-test('felix export creates a workbook and writes every felix lead with a gclid column', function () {
-    Http::fake([
-        'https://oauth2.test/token' => Http::response(['access_token' => 'drive-access', 'expires_in' => 3600]),
-        'https://drive.test/v3/files*' => function ($request) {
-            if ($request->method() === 'GET') {
-                return Http::response(['files' => []]);
-            }
+test('felix export fills the existing workbook and skips lead ids already in it', function () {
+    $sheet = [];
+    Http::fake(function ($request) use (&$sheet) {
+        $url = $request->url();
+        if (str_contains($url, 'oauth2.test/token')) {
+            return Http::response(['access_token' => 'drive-access', 'expires_in' => 3600]);
+        }
+        if (str_contains($url, '/spreadsheets/felix-sheet?')) {
+            return Http::response([
+                'sheets' => [
+                    ['properties' => ['sheetId' => 0, 'title' => 'Sheet1']],
+                ],
+            ]);
+        }
+        if ($request->method() === 'GET' && str_contains($url, '/values/')) {
+            return Http::response(['values' => $sheet]);
+        }
+        if (in_array($request->method(), ['PUT', 'POST'], true) && str_contains($url, '/values/')) {
+            $sheet = $request['values'];
 
-            return Http::response(['id' => 'felix-sheet']);
-        },
-        'https://sheets.test/v4/spreadsheets/felix-sheet?*' => Http::response([
-            'sheets' => [
-                ['properties' => ['sheetId' => 0, 'title' => 'Sheet1']],
-            ],
-        ], 200),
-        'https://sheets.test/v4/spreadsheets/felix-sheet/values/A1' => Http::response([
-            'values' => [],
-        ], 200),
-        'https://sheets.test/v4/spreadsheets/felix-sheet/values/*' => Http::response(['updates' => ['updatedRows' => 3]], 200),
-    ]);
+            return Http::response(['updates' => ['updatedRows' => count($request['values'] ?? [])]]);
+        }
+
+        return Http::response('unexpected '.$request->method().' '.$url, 500);
+    });
 
     $withClick = Lead::query()->create([
         'full_name' => 'Felix Client',
@@ -95,4 +100,6 @@ test('felix export creates a workbook and writes every felix lead with a gclid c
             && ($values[2][0] ?? null) === 'No Click'
             && ($values[2][7] ?? null) === '';
     });
+
+    expect(app(FelixSheetExporter::class)->exportPending()['count'])->toBe(0);
 });

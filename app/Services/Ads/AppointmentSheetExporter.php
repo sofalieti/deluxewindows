@@ -65,11 +65,12 @@ final class AppointmentSheetExporter
 
         $this->assertExportColumn();
 
-        $leads = $this->eligibleLeads($this->pendingLeads()->get());
-        $this->appendLeads($leads);
+        $leads = $this->eligibleLeads(
+            Lead::query()->where('status', Lead::STATUS_APPOINTMENT)->orderBy('id')->get()
+        );
 
         return [
-            'count' => $leads->count(),
+            'count' => $this->syncMissing($leads),
             'spreadsheet_url' => $this->spreadsheetUrl(),
         ];
     }
@@ -80,7 +81,7 @@ final class AppointmentSheetExporter
      */
     public function onStatusChanged(Lead $lead, string $from, string $to): ?string
     {
-        if ($to !== Lead::STATUS_APPOINTMENT || $from === $to || $lead->appointments_sheet_exported_at !== null) {
+        if ($to !== Lead::STATUS_APPOINTMENT || $from === $to) {
             return null;
         }
 
@@ -97,7 +98,7 @@ final class AppointmentSheetExporter
 
     public function exportLead(Lead $lead): bool
     {
-        if ($lead->status !== Lead::STATUS_APPOINTMENT || $lead->appointments_sheet_exported_at !== null || ! $this->shouldExport($lead)) {
+        if ($lead->status !== Lead::STATUS_APPOINTMENT || ! $this->shouldExport($lead)) {
             return false;
         }
 
@@ -108,9 +109,9 @@ final class AppointmentSheetExporter
 
         $this->assertExportColumn();
 
-        $this->appendLeads(collect([$lead]));
+        $written = $this->syncMissing(collect([$lead]), rewriteSheet: false);
 
-        return true;
+        return $written > 0;
     }
 
     /**
@@ -158,6 +159,79 @@ final class AppointmentSheetExporter
     /**
      * @param  Collection<int, Lead>  $leads
      */
+    private function syncMissing(Collection $leads, bool $rewriteSheet = true): int
+    {
+        $spreadsheetId = $this->spreadsheetId();
+        $existing = $this->sheets->readRows($spreadsheetId);
+        $header = $existing[0] ?? [];
+        $headerMatches = $header === self::HEADER;
+
+        if (! $headerMatches) {
+            if (! $rewriteSheet) {
+                $leads = $this->eligibleLeads(
+                    Lead::query()->where('status', Lead::STATUS_APPOINTMENT)->orderBy('id')->get()
+                );
+            }
+
+            $this->sheets->replaceLabeledRows(
+                $spreadsheetId,
+                self::HEADER,
+                $leads->map(fn (Lead $lead): array => $this->row($lead))->all(),
+            );
+            $this->markExported($leads);
+
+            return $leads->count();
+        }
+
+        $present = $this->leadIdsInSheet($existing);
+        $missing = $leads
+            ->filter(fn (Lead $lead): bool => ! isset($present[(string) $lead->id]))
+            ->values();
+        $this->appendLeads($missing);
+
+        return $missing->count();
+    }
+
+    /**
+     * @param  list<list<string>>  $rows
+     * @return array<string, true>
+     */
+    private function leadIdsInSheet(array $rows): array
+    {
+        $header = $rows[0] ?? [];
+        $index = array_search('Lead ID', $header, true);
+        if ($index === false) {
+            return [];
+        }
+
+        $ids = [];
+        foreach (array_slice($rows, 1) as $row) {
+            $id = trim((string) ($row[$index] ?? ''));
+            if ($id !== '') {
+                $ids[$id] = true;
+            }
+        }
+
+        return $ids;
+    }
+
+    /**
+     * @param  Collection<int, Lead>  $leads
+     */
+    private function markExported(Collection $leads): void
+    {
+        if ($leads->isEmpty()) {
+            return;
+        }
+
+        Lead::query()
+            ->whereIn('id', $leads->pluck('id')->all())
+            ->update(['appointments_sheet_exported_at' => now()]);
+    }
+
+    /**
+     * @param  Collection<int, Lead>  $leads
+     */
     private function appendLeads(Collection $leads): void
     {
         if ($leads->isEmpty()) {
@@ -170,11 +244,7 @@ final class AppointmentSheetExporter
         }
 
         $this->sheets->appendLabeledRows($this->spreadsheetId(), self::HEADER, $rows);
-
-        $now = now();
-        Lead::query()
-            ->whereIn('id', $leads->pluck('id')->all())
-            ->update(['appointments_sheet_exported_at' => $now]);
+        $this->markExported($leads);
     }
 
     /**

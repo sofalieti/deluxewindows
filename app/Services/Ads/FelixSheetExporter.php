@@ -29,29 +29,20 @@ final class FelixSheetExporter
 
     public function spreadsheetId(): string
     {
-        $configured = trim((string) config('services.google_drive.felix_spreadsheet_id'));
-        if ($configured !== '') {
-            return $configured;
-        }
-
-        return $this->sheets->findOrCreatePlainSpreadsheet($this->spreadsheetTitle());
+        return trim((string) config('services.google_drive.felix_spreadsheet_id'));
     }
 
     public function spreadsheetUrl(): string
     {
-        $configured = trim((string) config('services.google_drive.felix_spreadsheet_id'));
-        if ($configured !== '') {
-            return 'https://docs.google.com/spreadsheets/d/'.$configured.'/edit';
-        }
+        $id = $this->spreadsheetId();
 
-        return '';
+        return $id === '' ? '' : 'https://docs.google.com/spreadsheets/d/'.$id.'/edit';
     }
 
     public function configurationError(): ?string
     {
-        if (trim((string) config('services.google_drive.folder_id')) === ''
-            && trim((string) config('services.google_drive.felix_spreadsheet_id')) === '') {
-            return 'Set GOOGLE_DRIVE_FOLDER_ID or GOOGLE_DRIVE_FELIX_SPREADSHEET_ID in .env.';
+        if ($this->spreadsheetId() === '') {
+            return 'Set GOOGLE_DRIVE_FELIX_SPREADSHEET_ID in .env.';
         }
 
         return $this->sheets->configurationError();
@@ -69,19 +60,20 @@ final class FelixSheetExporter
 
         $this->assertExportColumn();
 
-        $spreadsheetId = $this->spreadsheetId();
-        $leads = $this->pendingLeads()->get();
-        $this->appendLeads($spreadsheetId, $leads);
+        $leads = Lead::query()
+            ->where('status', Lead::STATUS_TRANSFERED_TO_FELIX)
+            ->orderBy('id')
+            ->get();
 
         return [
-            'count' => $leads->count(),
-            'spreadsheet_url' => 'https://docs.google.com/spreadsheets/d/'.$spreadsheetId.'/edit',
+            'count' => $this->syncMissing($leads),
+            'spreadsheet_url' => $this->spreadsheetUrl(),
         ];
     }
 
     public function onStatusChanged(Lead $lead, string $from, string $to): ?string
     {
-        if ($to !== Lead::STATUS_TRANSFERED_TO_FELIX || $from === $to || $lead->felix_sheet_exported_at !== null) {
+        if ($to !== Lead::STATUS_TRANSFERED_TO_FELIX || $from === $to) {
             return null;
         }
 
@@ -98,7 +90,7 @@ final class FelixSheetExporter
 
     public function exportLead(Lead $lead): bool
     {
-        if ($lead->status !== Lead::STATUS_TRANSFERED_TO_FELIX || $lead->felix_sheet_exported_at !== null) {
+        if ($lead->status !== Lead::STATUS_TRANSFERED_TO_FELIX) {
             return false;
         }
 
@@ -108,9 +100,8 @@ final class FelixSheetExporter
         }
 
         $this->assertExportColumn();
-        $this->appendLeads($this->spreadsheetId(), collect([$lead]));
 
-        return true;
+        return $this->syncMissing(collect([$lead]), rewriteSheet: false) > 0;
     }
 
     /**
@@ -127,7 +118,53 @@ final class FelixSheetExporter
     /**
      * @param  Collection<int, Lead>  $leads
      */
-    private function appendLeads(string $spreadsheetId, Collection $leads): void
+    private function syncMissing(Collection $leads, bool $rewriteSheet = true): int
+    {
+        $spreadsheetId = $this->spreadsheetId();
+        $existing = $this->sheets->readRows($spreadsheetId);
+        $header = $existing[0] ?? [];
+
+        if ($header !== AppointmentSheetExporter::HEADER) {
+            if (! $rewriteSheet) {
+                $leads = Lead::query()
+                    ->where('status', Lead::STATUS_TRANSFERED_TO_FELIX)
+                    ->orderBy('id')
+                    ->get();
+            }
+
+            $this->sheets->replaceLabeledRows(
+                $spreadsheetId,
+                AppointmentSheetExporter::HEADER,
+                $leads->map(fn (Lead $lead): array => $this->rows->leadRow($lead))->all(),
+            );
+            $this->markExported($leads);
+
+            return $leads->count();
+        }
+
+        $index = array_search('Lead ID', $header, true);
+        $present = [];
+        if ($index !== false) {
+            foreach (array_slice($existing, 1) as $row) {
+                $id = trim((string) ($row[$index] ?? ''));
+                if ($id !== '') {
+                    $present[$id] = true;
+                }
+            }
+        }
+
+        $missing = $leads
+            ->filter(fn (Lead $lead): bool => ! isset($present[(string) $lead->id]))
+            ->values();
+        $this->appendLeads($missing);
+
+        return $missing->count();
+    }
+
+    /**
+     * @param  Collection<int, Lead>  $leads
+     */
+    private function appendLeads(Collection $leads): void
     {
         if ($leads->isEmpty()) {
             return;
@@ -138,7 +175,18 @@ final class FelixSheetExporter
             $rows[] = $this->rows->leadRow($lead);
         }
 
-        $this->sheets->appendLabeledRows($spreadsheetId, AppointmentSheetExporter::HEADER, $rows);
+        $this->sheets->appendLabeledRows($this->spreadsheetId(), AppointmentSheetExporter::HEADER, $rows);
+        $this->markExported($leads);
+    }
+
+    /**
+     * @param  Collection<int, Lead>  $leads
+     */
+    private function markExported(Collection $leads): void
+    {
+        if ($leads->isEmpty()) {
+            return;
+        }
 
         Lead::query()
             ->whereIn('id', $leads->pluck('id')->all())
