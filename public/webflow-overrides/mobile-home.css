@@ -150,6 +150,9 @@
   input[type="text"],
   input[type="email"],
   input[type="tel"],
+  select.qty-pick__select,
+  button.qty-pick__face,
+  .qty-pick__option,
   textarea {
     font-size: 16px !important;
   }

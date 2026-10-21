@@ -59,6 +59,18 @@ class Lead extends Model
     /**
      * @var array<string, string>
      */
+    public const WINDOW_COUNTS = [
+        '1' => '1',
+        '2' => '2',
+        '3-5' => '3–5',
+        '6-10' => '6–10',
+        '11plus' => '11+',
+        'unsure' => 'Not sure',
+    ];
+
+    /**
+     * @var array<string, string>
+     */
     public const OPENING_KINDS = [
         'windows' => 'Windows',
         'doors' => 'Doors',
@@ -286,15 +298,21 @@ class Lead extends Model
 
     public function openingSummary(): string
     {
-        $count = $this->metaValue('opening_count');
-        if (! array_key_exists($count, self::OPENING_COUNTS)) {
-            return '';
+        $windowCount = $this->metaValue('window_count');
+        if (array_key_exists($windowCount, self::WINDOW_COUNTS)) {
+            $countLabel = self::WINDOW_COUNTS[$windowCount];
+        } else {
+            $legacyCount = $this->metaValue('opening_count');
+            if (! array_key_exists($legacyCount, self::OPENING_COUNTS)) {
+                return '';
+            }
+            $countLabel = self::OPENING_COUNTS[$legacyCount];
         }
 
         $kind = $this->metaValue('opening_kind');
         $kindLabel = self::OPENING_KINDS[$kind] ?? self::OPENING_KINDS['both'];
 
-        return $kindLabel.' · '.self::OPENING_COUNTS[$count];
+        return $kindLabel.' · '.$countLabel;
     }
 
     public function metaValue(string $key, string $default = ''): string
@@ -326,6 +344,8 @@ class Lead extends Model
             'device' => $this->metaValue('device'),
             'creative' => $this->metaValue('creative'),
             'gclid' => $this->metaValue('gclid'),
+            'gbraid' => $this->metaValue('gbraid'),
+            'wbraid' => $this->metaValue('wbraid'),
             'fbclid' => $this->metaValue('fbclid'),
             'msclkid' => $this->metaValue('msclkid'),
             'landing_page' => $this->metaValue('landing_page'),
@@ -352,6 +372,8 @@ class Lead extends Model
             'device' => 'device',
             'creative' => 'creative',
             'gclid' => 'gclid',
+            'gbraid' => 'gbraid',
+            'wbraid' => 'wbraid',
             'fbclid' => 'fbclid',
             'msclkid' => 'msclkid',
         ];

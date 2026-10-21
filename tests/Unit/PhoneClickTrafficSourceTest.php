@@ -17,6 +17,16 @@ test('phone click traffic source is classified like leads', function (
         'utm_medium' => '(none)',
         'gclid' => 'test-click-id',
     ], 'google_ads', 'Google Ads'],
+    'Google Ads by GBRAID' => [[
+        'utm_source' => '(direct)',
+        'utm_medium' => '(none)',
+        'gbraid' => 'ios-click-id',
+    ], 'google_ads', 'Google Ads'],
+    'Google Ads by WBRAID' => [[
+        'utm_source' => '(direct)',
+        'utm_medium' => '(none)',
+        'wbraid' => 'app-click-id',
+    ], 'google_ads', 'Google Ads'],
     'Google Ads by UTM' => [[
         'utm_source' => 'google',
         'utm_medium' => 'cpc',

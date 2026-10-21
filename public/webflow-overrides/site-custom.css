@@ -3374,12 +3374,18 @@ body.bing-phone-choice-open {
   overflow: hidden;
 }
 
-/* Compact opening-count picker injected into every lead form. */
+/* Window-count select: same shape as the name field, full width of that column. */
 .qty-pick {
-  margin: 0 0 12px;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
   padding: 0;
   border: 0;
-  min-width: 0;
+  box-sizing: border-box;
+}
+
+.div-block-23 > .qty-pick {
+  grid-column: 1 / -1;
 }
 
 .qty-pick__label {
@@ -3387,76 +3393,174 @@ body.bing-phone-choice-open {
   margin: 0 0 6px;
   padding: 0;
   color: #56657a;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  line-height: 1.2;
-  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.35;
+  text-transform: none;
 }
 
-.qty-pick__options {
-  display: flex;
-  gap: 6px;
+.qty-pick {
+  --qty-radius: 24px;
 }
 
-.qty-pick__opt {
-  flex: 1 1 0;
-  margin: 0;
+select.qty-pick__native,
+select.qty-pick__select {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+  border: 0 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  appearance: none !important;
 }
 
-.qty-pick__opt input {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
+.qty-pick__shell {
+  position: relative;
+  width: 100%;
 }
 
-.qty-pick__opt span {
+button.qty-pick__face {
   display: flex;
   align-items: center;
-  justify-content: center;
-  min-height: 36px;
-  padding: 6px 8px;
-  border: 1px solid #c5d0dc;
-  border-radius: 4px;
-  background: #fff;
-  color: #16273b;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 1;
+  width: 100%;
+  height: 48px;
+  min-height: 48px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 12px 44px 12px 18px;
+  border: 1px solid #a4a6b0;
+  border-radius: var(--qty-radius);
+  background-color: #fafafb;
+  color: #8b909a;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.2;
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+}
+
+button.qty-pick__face::after {
+  content: "";
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  transform: translateY(-50%);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%2356657a' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' d='M3.5 6.5 8 11l4.5-4.5'/%3E%3C/svg%3E") center / 14px 14px no-repeat;
+}
+
+.qty-pick.is-open button.qty-pick__face {
+  border-radius: var(--qty-radius) var(--qty-radius) 0 0;
+  z-index: 2;
+}
+
+.qty-pick.is-open button.qty-pick__face::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+button.qty-pick__face.has-value {
+  color: #14161c;
+}
+
+button.qty-pick__face:focus {
+  border-color: #8ab2d8;
+  box-shadow: 0 0 0 3px rgba(15, 77, 137, 0.15);
+  outline: 0;
+}
+
+.qty-pick__menu {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  box-sizing: border-box;
+  margin: -1px 0 0;
+  padding: 4px 0 8px;
+  list-style: none;
+  border: 1px solid #a4a6b0;
+  border-top: 0;
+  border-radius: 0 0 var(--qty-radius) var(--qty-radius);
+  background: #fafafb;
+}
+
+.qty-pick__option {
+  padding: 10px 18px;
+  color: #14161c;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3;
   cursor: pointer;
 }
 
-.qty-pick__opt input:checked + span {
-  border-color: #1b4b82;
-  background: #1b4b82;
-  color: #fff;
+.qty-pick__option:hover,
+.qty-pick__option:focus {
+  background: #eef2f6;
+  outline: 0;
 }
 
-.qty-pick__opt input:focus-visible + span {
-  outline: 2px solid #2f6fb5;
-  outline-offset: 2px;
+.qty-pick__option[aria-selected="true"] {
+  background: #e7eef5;
 }
 
-.qty-pick.is-invalid .qty-pick__opt span {
+.hero-nm .qty-pick {
+  --qty-radius: 4px;
+}
+
+.hero-nm .qty-pick__shell {
+  margin-bottom: 14px;
+}
+
+.hero-nm button.qty-pick__face,
+.hero-nm .qty-pick__menu {
+  border-color: #cfd8e3;
+  background-color: #fff;
+  color: #16273b;
+  font-size: 16px;
+}
+
+.mobile-estimate-modal__form .qty-pick {
+  --qty-radius: 9px;
+  margin-bottom: 8px;
+}
+
+.mobile-estimate-modal__form button.qty-pick__face,
+.mobile-estimate-modal__form .qty-pick__menu {
+  border-color: #dbe5ef;
+  background: #fff;
+  font-size: 16px;
+}
+
+.mobile-estimate-modal__form button.qty-pick__face {
+  height: 42px;
+  min-height: 42px;
+}
+
+.rf-field.qty-pick {
+  --qty-radius: 12px;
+}
+
+.rf-field button.qty-pick__face,
+.rf-field .qty-pick__menu {
+  border-color: #ccd8e2;
+  background: #fbfdfe;
+  font-size: 16px;
+}
+
+.rf-field button.qty-pick__face {
+  min-height: 50px;
+  height: 50px;
+}
+
+.qty-pick.is-invalid button.qty-pick__face {
   border-color: #dc2626;
-}
-
-.hero-nm .qty-pick__label {
-  color: rgba(255, 255, 255, 0.78);
-}
-
-.hero-nm .qty-pick__opt span {
-  border-color: rgba(255, 255, 255, 0.45);
-  background: transparent;
-  color: #fff;
-}
-
-.hero-nm .qty-pick__opt input:checked + span {
-  border-color: #e8912a;
-  background: #e8912a;
-  color: #fff;
 }
 
 

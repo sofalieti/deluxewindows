@@ -141,9 +141,13 @@ class VisitListScreen extends Screen
                             $regions->platformFromAttribution([
                                 'utm_source' => $visit->utm_source,
                                 'gclid' => $visit->gclid,
+                                'gbraid' => $visit->gbraid,
+                                'wbraid' => $visit->wbraid,
                                 'msclkid' => $visit->msclkid,
                                 'first_utm_source' => $visit->first_utm_source,
                                 'first_gclid' => $visit->first_gclid,
+                                'first_gbraid' => $visit->first_gbraid,
+                                'first_wbraid' => $visit->first_wbraid,
                                 'first_msclkid' => $visit->first_msclkid,
                             ])
                         );
@@ -157,6 +161,12 @@ class VisitListScreen extends Screen
                         $bits = [];
                         if (trim((string) $visit->gclid) !== '') {
                             $bits[] = 'GCLID';
+                        }
+                        if (trim((string) $visit->gbraid) !== '') {
+                            $bits[] = 'GBRAID';
+                        }
+                        if (trim((string) $visit->wbraid) !== '') {
+                            $bits[] = 'WBRAID';
                         }
                         if (trim((string) $visit->msclkid) !== '') {
                             $bits[] = 'MSCLKID';

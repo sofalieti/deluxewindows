@@ -106,6 +106,10 @@ class VisitViewScreen extends Screen
                         ->render(fn (SiteVisit $visit) => e((string) ($visit->utm_campaign ?: '-'))),
                     Sight::make('gclid', 'Last GCLID')
                         ->render(fn (SiteVisit $visit) => e((string) ($visit->gclid ?: '-'))),
+                    Sight::make('gbraid', 'Last GBRAID')
+                        ->render(fn (SiteVisit $visit) => e((string) ($visit->gbraid ?: '-'))),
+                    Sight::make('wbraid', 'Last WBRAID')
+                        ->render(fn (SiteVisit $visit) => e((string) ($visit->wbraid ?: '-'))),
                     Sight::make('first_utm_source', 'First UTM source')
                         ->render(fn (SiteVisit $visit) => e((string) ($visit->first_utm_source ?: '-'))),
                     Sight::make('first_utm_medium', 'First UTM medium')
@@ -114,6 +118,10 @@ class VisitViewScreen extends Screen
                         ->render(fn (SiteVisit $visit) => e((string) ($visit->first_utm_campaign ?: '-'))),
                     Sight::make('first_gclid', 'First GCLID')
                         ->render(fn (SiteVisit $visit) => e((string) ($visit->first_gclid ?: '-'))),
+                    Sight::make('first_gbraid', 'First GBRAID')
+                        ->render(fn (SiteVisit $visit) => e((string) ($visit->first_gbraid ?: '-'))),
+                    Sight::make('first_wbraid', 'First WBRAID')
+                        ->render(fn (SiteVisit $visit) => e((string) ($visit->first_wbraid ?: '-'))),
                     Sight::make('utm_content', 'UTM content')
                         ->render(fn (SiteVisit $visit) => e((string) ($visit->utm_content ?: '-'))),
                     Sight::make('utm_term', 'UTM term')
@@ -127,6 +135,8 @@ class VisitViewScreen extends Screen
                                 $regions->platformFromAttribution([
                                     'utm_source' => $visit->utm_source,
                                     'gclid' => $visit->gclid,
+                                    'gbraid' => $visit->gbraid,
+                                    'wbraid' => $visit->wbraid,
                                     'msclkid' => $visit->msclkid,
                                     'first_utm_source' => $visit->first_utm_source,
                                     'first_gclid' => $visit->first_gclid,
@@ -143,6 +153,8 @@ class VisitViewScreen extends Screen
                                 $regions->platformFromAttribution([
                                     'utm_source' => $visit->first_utm_source,
                                     'gclid' => $visit->first_gclid,
+                                    'gbraid' => $visit->first_gbraid,
+                                    'wbraid' => $visit->first_wbraid,
                                     'msclkid' => $visit->first_msclkid,
                                 ])
                             ));

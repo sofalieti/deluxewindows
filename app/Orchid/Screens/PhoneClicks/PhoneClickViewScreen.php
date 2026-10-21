@@ -303,6 +303,10 @@ class PhoneClickViewScreen extends Screen
                         ->render(fn (PhoneClick $click) => e((string) ($click->utm_campaign ?: '-'))),
                     Sight::make('gclid', 'Last GCLID')
                         ->render(fn (PhoneClick $click) => e((string) ($click->gclid ?: '-'))),
+                    Sight::make('gbraid', 'Last GBRAID')
+                        ->render(fn (PhoneClick $click) => e((string) ($click->gbraid ?: '-'))),
+                    Sight::make('wbraid', 'Last WBRAID')
+                        ->render(fn (PhoneClick $click) => e((string) ($click->wbraid ?: '-'))),
                     Sight::make('first_utm_source', 'First UTM source')
                         ->render(fn (PhoneClick $click) => e((string) ($click->first_utm_source ?: '-'))),
                     Sight::make('first_utm_medium', 'First UTM medium')
@@ -311,6 +315,10 @@ class PhoneClickViewScreen extends Screen
                         ->render(fn (PhoneClick $click) => e((string) ($click->first_utm_campaign ?: '-'))),
                     Sight::make('first_gclid', 'First GCLID')
                         ->render(fn (PhoneClick $click) => e((string) ($click->first_gclid ?: '-'))),
+                    Sight::make('first_gbraid', 'First GBRAID')
+                        ->render(fn (PhoneClick $click) => e((string) ($click->first_gbraid ?: '-'))),
+                    Sight::make('first_wbraid', 'First WBRAID')
+                        ->render(fn (PhoneClick $click) => e((string) ($click->first_wbraid ?: '-'))),
                     Sight::make('utm_content', 'UTM content')
                         ->render(fn (PhoneClick $click) => e((string) ($click->utm_content ?: '-'))),
                     Sight::make('utm_term', 'UTM term')
@@ -324,9 +332,13 @@ class PhoneClickViewScreen extends Screen
                                 $regions->platformFromAttribution([
                                     'utm_source' => $click->utm_source,
                                     'gclid' => $click->gclid,
+                                    'gbraid' => $click->gbraid,
+                                    'wbraid' => $click->wbraid,
                                     'msclkid' => $click->msclkid,
                                     'first_utm_source' => $click->first_utm_source,
                                     'first_gclid' => $click->first_gclid,
+                                    'first_gbraid' => $click->first_gbraid,
+                                    'first_wbraid' => $click->first_wbraid,
                                     'first_msclkid' => $click->first_msclkid,
                                 ])
                             ));

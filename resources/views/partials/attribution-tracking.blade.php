@@ -5,7 +5,7 @@
 
     const TRACKING_PARAMS = [
       'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term',
-      'matchtype', 'device', 'creative', 'gclid', 'fbclid', 'msclkid'
+      'matchtype', 'device', 'creative', 'gclid', 'gbraid', 'wbraid', 'fbclid', 'msclkid'
     ];
     // Carried with every touch but never treated as a campaign signal, so a bare
     // ?utm_city= cannot overwrite a real source or fake one for direct traffic.
@@ -164,7 +164,11 @@
       }
       if (isBingPaidHit || isMetaPaidHit) {
         snapshot.gclid = '';
+        snapshot.gbraid = '';
+        snapshot.wbraid = '';
       }
+
+      const hasGoogleClick = !!(snapshot.gclid || snapshot.gbraid || snapshot.wbraid);
 
       const hasPaidOrCampaignSignal = TRACKING_PARAMS.some(function (param) {
         return !!snapshot[param];
@@ -176,8 +180,8 @@
         snapshot.utm_medium = inferred.utm_medium;
         if (inferred.utm_term) snapshot.utm_term = inferred.utm_term;
       } else if (!snapshot.utm_source) {
-        snapshot.utm_source = snapshot.gclid ? 'google' : '(direct)';
-        snapshot.utm_medium = snapshot.gclid ? 'cpc' : '(none)';
+        snapshot.utm_source = hasGoogleClick ? 'google' : '(direct)';
+        snapshot.utm_medium = hasGoogleClick ? 'cpc' : '(none)';
       }
 
       return snapshot;
@@ -212,6 +216,8 @@
     function hasFirstTouch() {
       return !!storageGet('lead_param_first_utm_source')
         || !!storageGet('lead_param_first_gclid')
+        || !!storageGet('lead_param_first_gbraid')
+        || !!storageGet('lead_param_first_wbraid')
         || !!storageGet('lead_param_first_referrer')
         || !!storageGet('lead_param_first_landing_page');
     }
@@ -223,7 +229,12 @@
 
       if (shouldRefreshLast) {
         writeTouch('lead_param_', snapshot);
-      } else if (!storageGet('lead_param_utm_source') && !storageGet('lead_param_gclid')) {
+      } else if (
+        !storageGet('lead_param_utm_source')
+        && !storageGet('lead_param_gclid')
+        && !storageGet('lead_param_gbraid')
+        && !storageGet('lead_param_wbraid')
+      ) {
         // First script run with empty storage mid-session (rare).
         writeTouch('lead_param_', snapshot);
       }

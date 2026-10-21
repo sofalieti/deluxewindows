@@ -426,7 +426,7 @@
         /* UTM capture — always refresh params present in the current URL */
         const TRACK_PARAMS = [
           "utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term",
-          "matchtype", "device", "creative", "gclid", "fbclid", "msclkid"
+          "matchtype", "device", "creative", "gclid", "gbraid", "wbraid", "fbclid", "msclkid"
         ];
         const urlParams = new URLSearchParams(window.location.search);
         TRACK_PARAMS.forEach(param => {

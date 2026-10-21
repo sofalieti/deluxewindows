@@ -275,19 +275,6 @@
         return;
       }
 
-      const qty = form.querySelector('input[name="opening_count"]:checked');
-      const qtyBox = form.querySelector('[data-qty-pick]');
-      if (!qty) {
-        if (qtyBox) qtyBox.classList.add('is-invalid');
-        if (errorEl) {
-          errorEl.textContent = 'Please choose how many you need.';
-          errorEl.hidden = false;
-        }
-        return;
-      }
-      if (qtyBox) qtyBox.classList.remove('is-invalid');
-      const kindInput = form.querySelector('input[name="opening_kind"]');
-
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.textContent = 'Sending…';
@@ -297,8 +284,6 @@
       const payload = Object.assign({}, attribution, {
         phone: phone,
         channel: channel,
-        opening_count: qty.value,
-        opening_kind: kindInput ? kindInput.value : '',
         page_url: window.location.href,
         geo_location: storageGet('lead_param_geo_location') || '',
         form_id: conf.formId,

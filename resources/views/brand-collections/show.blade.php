@@ -556,7 +556,7 @@
 
     <script>
       (function () {
-        const TRACK_PARAMS = ["utm_source","utm_medium","utm_campaign","utm_term","utm_content","matchtype","device","creative","gclid"];
+        const TRACK_PARAMS = ["utm_source","utm_medium","utm_campaign","utm_term","utm_content","matchtype","device","creative","gclid","gbraid","wbraid"];
         const params = new URLSearchParams(window.location.search);
         const hasUtm = TRACK_PARAMS.some(p => params.get(p));
         if (hasUtm) {

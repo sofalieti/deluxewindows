@@ -70,9 +70,11 @@ class CallbackRequestController extends Controller
             'device' => trim((string) $request->input('device')),
             'creative' => trim((string) ($request->input('creative') ?: $request->input('utm_creative'))),
             'gclid' => trim((string) $request->input('gclid')),
+            'gbraid' => trim((string) $request->input('gbraid')),
+            'wbraid' => trim((string) $request->input('wbraid')),
             'fbclid' => trim((string) $request->input('fbclid')),
             'msclkid' => trim((string) $request->input('msclkid')),
-            'opening_count' => trim((string) $request->input('opening_count')),
+            'opening_count' => ($openingCount = trim((string) $request->input('opening_count'))) !== '' ? $openingCount : null,
             'opening_kind' => ($openingKind = trim((string) $request->input('opening_kind'))) !== '' ? $openingKind : null,
         ];
 
@@ -94,9 +96,11 @@ class CallbackRequestController extends Controller
             'device' => 'nullable|string|max:255',
             'creative' => 'nullable|string|max:255',
             'gclid' => 'nullable|string|max:255',
+            'gbraid' => 'nullable|string|max:255',
+            'wbraid' => 'nullable|string|max:255',
             'fbclid' => 'nullable|string|max:255',
             'msclkid' => 'nullable|string|max:255',
-            'opening_count' => ['required', 'string', Rule::in(array_keys(Lead::OPENING_COUNTS))],
+            'opening_count' => ['nullable', 'string', Rule::in(array_keys(Lead::OPENING_COUNTS))],
             'opening_kind' => ['nullable', 'string', Rule::in(array_keys(Lead::OPENING_KINDS))],
         ]);
 
@@ -142,6 +146,8 @@ class CallbackRequestController extends Controller
             'utm_term' => trim((string) $request->input('first_utm_term')),
             'utm_city' => trim((string) $request->input('first_utm_city')),
             'gclid' => trim((string) $request->input('first_gclid')),
+            'gbraid' => trim((string) $request->input('first_gbraid')),
+            'wbraid' => trim((string) $request->input('first_wbraid')),
             'fbclid' => trim((string) $request->input('first_fbclid')),
             'msclkid' => trim((string) $request->input('first_msclkid')),
         ], static fn (string $value): bool => $value !== '');
@@ -161,10 +167,12 @@ class CallbackRequestController extends Controller
             'device' => $validated['device'],
             'creative' => $validated['creative'],
             'gclid' => $validated['gclid'],
+            'gbraid' => $validated['gbraid'],
+            'wbraid' => $validated['wbraid'],
             'fbclid' => $validated['fbclid'],
             'msclkid' => $validated['msclkid'],
             'form_id' => $formId,
-            'opening_count' => $validated['opening_count'],
+            'opening_count' => $validated['opening_count'] ?? null,
             'opening_kind' => ($validated['opening_kind'] ?? '') !== ''
                 ? $validated['opening_kind']
                 : Lead::openingKindFromUrl($pageUrl),

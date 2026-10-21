@@ -6,7 +6,7 @@
     const googleBridges = @json(array_values(array_filter((array) config('services.lead_bridge.urls', []))));
     const trackingParams = [
       'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term',
-      'matchtype', 'device', 'creative', 'gclid', 'fbclid', 'msclkid'
+      'matchtype', 'device', 'creative', 'gclid', 'gbraid', 'wbraid', 'fbclid', 'msclkid'
     ];
     let geoLocationPromise = null;
 
@@ -154,6 +154,7 @@
         Phone: firstValue(['Phone', 'phone']),
         Subject: firstValue(['Subject', 'city', 'City', 'Company']),
         Message: firstValue(['Message', 'message', 'Description', 'description']),
+        window_count: firstValue(['window_count']),
         opening_count: firstValue(['opening_count']),
         opening_kind: firstValue(['opening_kind']),
         'Form ID': formId,
@@ -189,6 +190,8 @@
         utm_term: String(payload.utm_term || ''),
         creative: String(payload.creative || ''),
         gclid: String(payload.gclid || ''),
+        window_count: String(payload.window_count || ''),
+        opening_kind: String(payload.opening_kind || ''),
         transport_type: 'beacon',
       });
     }
@@ -221,8 +224,11 @@
       body.append('Phone', String(payload.Phone || ''));
       body.append('Subject', String(payload.Subject || ''));
       body.append('Message', String(payload.Message || ''));
-      body.append('Opening count', String(payload.opening_count || ''));
+      body.append('Opening count', String(payload.window_count || payload.opening_count || ''));
+      body.append('window_count', String(payload.window_count || ''));
       body.append('Opening kind', String(payload.opening_kind || ''));
+      body.append('first_gbraid', String(payload.first_gbraid || ''));
+      body.append('first_wbraid', String(payload.first_wbraid || ''));
       body.append('landing_page', String(payload.landing_page || pagePath));
       body.append('referrer', String(payload.referrer || ''));
       body.append('geo_location', String(payload.geo_location || ''));
@@ -438,52 +444,274 @@
       return 'both';
     }
 
-    function openingKindLabel(kind) {
-      if (kind === 'doors') return 'Doors';
-      if (kind === 'windows') return 'Windows';
-      return 'Windows & doors';
+    function windowCountLabel(kind) {
+      if (kind === 'doors') return 'How many doors are you looking to replace?';
+      if (kind === 'windows') return 'How many windows are you looking to replace?';
+      return 'How many windows or doors are you looking to replace?';
     }
 
-    function mountOpeningQty(form) {
-      if (!(form instanceof HTMLFormElement) || form.querySelector('[data-qty-pick]')) {
+    function createWindowCountSelect(question) {
+      const select = document.createElement('select');
+      select.name = 'window_count';
+      select.className = 'qty-pick__select';
+      select.setAttribute('aria-hidden', 'true');
+      select.tabIndex = -1;
+      [
+        ['', 'Select…'],
+        ['1', '1'],
+        ['2', '2'],
+        ['3-5', '3–5'],
+        ['6-10', '6–10'],
+        ['11plus', '11+'],
+        ['unsure', 'Not sure'],
+      ].forEach(function (pair, index) {
+        const option = document.createElement('option');
+        option.value = pair[0];
+        option.textContent = pair[1];
+        if (index === 0) {
+          option.disabled = true;
+          option.selected = true;
+        }
+        select.appendChild(option);
+      });
+      return select;
+    }
+
+    function mountWindowCount(form) {
+      if (
+        !(form instanceof HTMLFormElement)
+        || form.querySelector('[data-qty-pick]')
+        || form.matches('[data-bing-phone-contact-form]')
+      ) {
         return;
       }
 
+      const nameInput = form.querySelector('input[name="Name"], input[name="full_name"], input[name="name"]');
       const submit = form.querySelector('input[type="submit"], button[type="submit"]');
-      if (!submit) return;
+      if (!nameInput || !submit) return;
 
       const kind = openingKindFromPath(window.location.pathname);
-      const field = document.createElement('fieldset');
-      field.className = 'qty-pick';
-      field.dataset.qtyPick = '1';
-      field.innerHTML =
-        '<legend class="qty-pick__label">' + openingKindLabel(kind) + '</legend>'
-        + '<input type="hidden" name="opening_kind" value="' + kind + '">'
-        + '<div class="qty-pick__options">'
-        + '<label class="qty-pick__opt"><input type="radio" name="opening_count" value="1-3"><span>1–3</span></label>'
-        + '<label class="qty-pick__opt"><input type="radio" name="opening_count" value="4-10"><span>4–10</span></label>'
-        + '<label class="qty-pick__opt"><input type="radio" name="opening_count" value="11+"><span>11+</span></label>'
-        + '</div>';
+      const question = windowCountLabel(kind);
+      const select = createWindowCountSelect(question);
+      if (nameInput.className) {
+        nameInput.classList.forEach(function (className) {
+          if (className !== 'icon-left') select.classList.add(className);
+        });
+      }
 
-      field.addEventListener('change', function () {
+      const kindInput = document.createElement('input');
+      kindInput.type = 'hidden';
+      kindInput.name = 'opening_kind';
+      kindInput.value = kind;
+
+      const nameReferral = nameInput.closest('.rf-field');
+      const nameWrap = nameInput.closest('.input-wrapper');
+      let field;
+
+      if (nameReferral) {
+        field = document.createElement('div');
+        field.className = nameReferral.className + ' qty-pick';
+        const sampleLabel = nameReferral.querySelector('label');
+        const label = document.createElement('label');
+        if (sampleLabel) label.className = sampleLabel.className;
+        label.textContent = question;
+        field.appendChild(kindInput);
+        field.appendChild(label);
+        field.appendChild(select);
+      } else if (nameWrap && nameWrap.parentElement && nameWrap.parentElement.parentElement) {
+        const blockSample = nameWrap.parentElement;
+        field = document.createElement('div');
+        field.className = 'qty-pick';
+        const sampleLabel = blockSample.querySelector('label');
+        const label = document.createElement('label');
+        label.className = sampleLabel ? sampleLabel.className : 'field-label';
+        label.textContent = question;
+        const wrap = document.createElement('div');
+        wrap.className = nameWrap.className;
+        wrap.appendChild(select);
+        field.appendChild(kindInput);
+        field.appendChild(label);
+        field.appendChild(wrap);
+      } else {
+        field = document.createElement('div');
+        field.className = 'qty-pick';
+        const previous = nameInput.previousElementSibling;
+        const label = document.createElement('label');
+        label.className = previous && previous.tagName === 'LABEL' ? previous.className : 'qty-pick__label';
+        label.textContent = question;
+        field.appendChild(kindInput);
+        field.appendChild(label);
+        field.appendChild(select);
+      }
+
+      const message = form.querySelector('textarea[name="Message"], textarea[name="message"]');
+      const messageBlock = message && message.closest('.text-area-wrapper, .rf-field');
+      const beforeDescription = messageBlock && form.contains(messageBlock) && !messageBlock.contains(nameInput)
+        ? messageBlock
+        : message;
+      if (beforeDescription && beforeDescription.parentNode) {
+        beforeDescription.parentNode.insertBefore(field, beforeDescription);
+      } else {
+        const anchor = submit.closest('.primary-button') || submit;
+        anchor.parentNode.insertBefore(field, anchor);
+      }
+
+      field.dataset.qtyPick = '1';
+      bindQtyMenu(field, select, question);
+      select.addEventListener('change', function () {
         field.classList.remove('is-invalid');
       });
-
-      const anchor = submit.closest('.primary-button') || submit;
-      anchor.parentNode.insertBefore(field, anchor);
     }
 
-    function selectedOpeningCount(form) {
-      const picked = form.querySelector('input[name="opening_count"]:checked');
+    function bindQtyMenu(field, select, question) {
+      const shell = document.createElement('div');
+      shell.className = 'qty-pick__shell';
+      select.parentNode.insertBefore(shell, select);
+      shell.appendChild(select);
+
+      const face = document.createElement('button');
+      face.type = 'button';
+      face.className = 'qty-pick__face';
+      face.setAttribute('aria-haspopup', 'listbox');
+      face.setAttribute('aria-expanded', 'false');
+      face.setAttribute('aria-label', question);
+      const valueEl = document.createElement('span');
+      valueEl.className = 'qty-pick__value';
+      valueEl.textContent = 'Select…';
+      face.appendChild(valueEl);
+
+      const menu = document.createElement('ul');
+      menu.className = 'qty-pick__menu';
+      menu.setAttribute('role', 'listbox');
+      menu.hidden = true;
+      const menuId = 'qty-menu-' + Math.random().toString(36).slice(2, 8);
+      menu.id = menuId;
+      face.setAttribute('aria-controls', menuId);
+
+      const options = [];
+      Array.prototype.forEach.call(select.options, function (option) {
+        if (!option.value) return;
+        const item = document.createElement('li');
+        item.className = 'qty-pick__option';
+        item.setAttribute('role', 'option');
+        item.dataset.value = option.value;
+        item.textContent = option.textContent;
+        item.tabIndex = -1;
+        options.push(item);
+        menu.appendChild(item);
+      });
+
+      shell.appendChild(face);
+      shell.appendChild(menu);
+      field._qtyFace = face;
+
+      function setOpen(next) {
+        field.classList.toggle('is-open', next);
+        face.setAttribute('aria-expanded', next ? 'true' : 'false');
+        menu.hidden = !next;
+      }
+
+      function choose(value) {
+        select.value = value;
+        const chosen = options.filter(function (item) { return item.dataset.value === value; })[0];
+        valueEl.textContent = chosen ? chosen.textContent : 'Select…';
+        face.classList.toggle('has-value', !!value);
+        options.forEach(function (item) {
+          item.setAttribute('aria-selected', item.dataset.value === value ? 'true' : 'false');
+        });
+        select.dispatchEvent(new Event('change', { bubbles: true }));
+        setOpen(false);
+      }
+
+      face.addEventListener('click', function () {
+        const willOpen = !field.classList.contains('is-open');
+        setOpen(willOpen);
+        if (willOpen && options[0]) options[0].focus();
+      });
+
+      face.addEventListener('keydown', function (event) {
+        if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp') return;
+        event.preventDefault();
+        setOpen(true);
+        const target = event.key === 'ArrowUp' ? options[options.length - 1] : options[0];
+        if (target) target.focus();
+      });
+
+      menu.addEventListener('click', function (event) {
+        const item = event.target.closest('.qty-pick__option');
+        if (!item) return;
+        choose(item.dataset.value);
+        face.focus();
+      });
+
+      menu.addEventListener('keydown', function (event) {
+        const index = options.indexOf(document.activeElement);
+        if (event.key === 'Escape') {
+          event.preventDefault();
+          setOpen(false);
+          face.focus();
+          return;
+        }
+        if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+          event.preventDefault();
+          const next = event.key === 'ArrowDown' ? options[index + 1] || options[0] : options[index - 1] || options[options.length - 1];
+          if (next) next.focus();
+          return;
+        }
+        if ((event.key === 'Enter' || event.key === ' ') && index >= 0) {
+          event.preventDefault();
+          choose(options[index].dataset.value);
+          face.focus();
+        }
+      });
+
+      document.addEventListener('click', function (event) {
+        if (!field.contains(event.target)) setOpen(false);
+      });
+    }
+
+    function selectedWindowCount(form) {
+      const select = form.querySelector('select[name="window_count"]');
       const box = form.querySelector('[data-qty-pick]');
-      if (picked) {
+      const value = select ? String(select.value || '').trim() : '';
+      if (value) {
         if (box) box.classList.remove('is-invalid');
-        return picked.value;
+        return value;
       }
-      if (box) {
-        box.classList.add('is-invalid');
-      }
+      if (box) box.classList.add('is-invalid');
+      const face = box && box.querySelector('.qty-pick__face');
+      if (face) face.focus();
+      else if (select) select.focus();
       return '';
+    }
+
+    function toE164(raw) {
+      const digits = String(raw || '').replace(/\D/g, '');
+      if (digits.length === 10) return '+1' + digits;
+      if (digits.length === 11 && digits.charAt(0) === '1') return '+' + digits;
+      return undefined;
+    }
+
+    function fireQualifiedLead(payload, leadId) {
+      const qualifiedValues = { '3-5': 1, '6-10': 2, '11plus': 3, 'unsure': 1 };
+      const count = (payload && payload.window_count) || '';
+      if (!Object.prototype.hasOwnProperty.call(qualifiedValues, count)) return;
+      if (typeof window.gtag !== 'function') return;
+
+      const email = payload.Email || payload.email || '';
+      const phone = toE164(payload.Phone || payload.phone || '');
+      window.gtag('set', 'user_data', {
+        email: email || undefined,
+        phone_number: phone,
+      });
+
+      const conversion = {
+        send_to: 'AW-1030787786/lc7YCMHvgp0dEMqlwusD',
+        value: qualifiedValues[count],
+        currency: 'USD',
+      };
+      if (leadId) conversion.transaction_id = String(leadId);
+      window.gtag('event', 'conversion', conversion);
     }
 
     function isLeadForm(form) {
@@ -607,7 +835,7 @@
 
     async function submitLead(form) {
       const submitBtn = form.querySelector('input[type="submit"], button[type="submit"]');
-      if (!selectedOpeningCount(form)) {
+      if (!selectedWindowCount(form)) {
         form.dataset.laravelLeadSubmitting = '0';
         return;
       }
@@ -631,6 +859,7 @@
               phone: payload.Phone || payload.phone || '',
             });
           }
+          fireQualifiedLead(payload, data && data.id);
         }
         showState(form, true);
       } catch (_) {
@@ -662,9 +891,9 @@
     }, true);
 
     document.querySelectorAll('form').forEach(function (form) {
-      if (form.matches('[data-no-lead]')) return;
-      if (isLeadForm(form) || form.matches('[data-bing-phone-contact-form]')) {
-        mountOpeningQty(form);
+      if (form.matches('[data-no-lead]') || form.matches('[data-bing-phone-contact-form]')) return;
+      if (isLeadForm(form)) {
+        mountWindowCount(form);
       }
     });
 

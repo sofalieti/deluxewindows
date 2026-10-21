@@ -25,6 +25,7 @@ use App\Services\Webflow\WebflowRichTextNormalizer;
 use App\Support\WebflowItemOrder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
@@ -524,11 +525,14 @@ class ClassicSiteController extends Controller
             'device' => trim((string) $request->input('device')),
             'creative' => trim((string) ($request->input('creative') ?: $request->input('utm_creative'))),
             'gclid' => trim((string) $request->input('gclid')),
+            'gbraid' => trim((string) $request->input('gbraid')),
+            'wbraid' => trim((string) $request->input('wbraid')),
             'fbclid' => trim((string) $request->input('fbclid')),
             'msclkid' => trim((string) $request->input('msclkid')),
             'form_id' => trim((string) ($request->input('form_id') ?: $request->input('Form ID'))),
             'hero_variant' => trim((string) $request->input('hero_variant')),
-            'opening_count' => trim((string) $request->input('opening_count')),
+            'window_count' => ($windowCount = trim((string) $request->input('window_count'))) !== '' ? $windowCount : null,
+            'opening_count' => ($openingCount = trim((string) $request->input('opening_count'))) !== '' ? $openingCount : null,
             'opening_kind' => ($openingKind = trim((string) $request->input('opening_kind'))) !== '' ? $openingKind : null,
         ];
 
@@ -553,13 +557,22 @@ class ClassicSiteController extends Controller
             'device' => 'nullable|string|max:255',
             'creative' => 'nullable|string|max:255',
             'gclid' => 'nullable|string|max:255',
+            'gbraid' => 'nullable|string|max:255',
+            'wbraid' => 'nullable|string|max:255',
             'fbclid' => 'nullable|string|max:255',
             'msclkid' => 'nullable|string|max:255',
             'form_id' => 'nullable|string|max:255',
             'hero_variant' => 'nullable|string|max:20',
-            'opening_count' => ['required', 'string', Rule::in(array_keys(Lead::OPENING_COUNTS))],
+            'window_count' => ['nullable', 'string', Rule::in(array_keys(Lead::WINDOW_COUNTS))],
+            'opening_count' => ['nullable', 'string', Rule::in(array_keys(Lead::OPENING_COUNTS))],
             'opening_kind' => ['nullable', 'string', Rule::in(array_keys(Lead::OPENING_KINDS))],
         ])->validate();
+
+        if (($validated['window_count'] ?? null) === null && ($validated['opening_count'] ?? null) === null) {
+            throw ValidationException::withMessages([
+                'window_count' => 'Choose how many windows or doors.',
+            ]);
+        }
 
         // Empty email is allowed (mobile forms hide the field). DB column is NOT NULL.
         $validated['email'] = trim((string) ($validated['email'] ?? ''));
@@ -591,6 +604,8 @@ class ClassicSiteController extends Controller
             'utm_term' => trim((string) $request->input('first_utm_term')),
             'utm_city' => trim((string) $request->input('first_utm_city')),
             'gclid' => trim((string) $request->input('first_gclid')),
+            'gbraid' => trim((string) $request->input('first_gbraid')),
+            'wbraid' => trim((string) $request->input('first_wbraid')),
             'fbclid' => trim((string) $request->input('first_fbclid')),
             'msclkid' => trim((string) $request->input('first_msclkid')),
         ], static fn (string $value): bool => $value !== '');
@@ -609,11 +624,14 @@ class ClassicSiteController extends Controller
             'device' => $validated['device'],
             'creative' => $validated['creative'],
             'gclid' => $validated['gclid'],
+            'gbraid' => $validated['gbraid'],
+            'wbraid' => $validated['wbraid'],
             'fbclid' => $validated['fbclid'],
             'msclkid' => $validated['msclkid'],
             'form_id' => $formId,
             'hero_variant' => $validated['hero_variant'] !== '' ? $validated['hero_variant'] : hero_variant(),
-            'opening_count' => $validated['opening_count'],
+            'window_count' => $validated['window_count'] ?? null,
+            'opening_count' => $validated['opening_count'] ?? null,
             'opening_kind' => ($validated['opening_kind'] ?? '') !== ''
                 ? $validated['opening_kind']
                 : Lead::openingKindFromUrl($pageUrl),
@@ -716,8 +734,14 @@ class ClassicSiteController extends Controller
                 'device' => $validated['device'],
                 'creative' => $validated['creative'],
                 'gclid' => $validated['gclid'],
+                'gbraid' => $validated['gbraid'],
+                'wbraid' => $validated['wbraid'],
+                'first_gbraid' => trim((string) $request->input('first_gbraid')),
+                'first_wbraid' => trim((string) $request->input('first_wbraid')),
                 'fbclid' => $validated['fbclid'],
                 'msclkid' => $validated['msclkid'],
+                'Opening count' => (string) ($validated['window_count'] ?? $validated['opening_count'] ?? ''),
+                'window_count' => (string) ($validated['window_count'] ?? ''),
             ];
             $bridgeBody = $this->encodeLeadBridgeBody($bridgePayload);
 
@@ -741,7 +765,7 @@ class ClassicSiteController extends Controller
         session()->flash('contact_success', true);
 
         if ($request->expectsJson() || $request->ajax()) {
-            return response()->json(['ok' => true, 'spam' => false]);
+            return response()->json(['ok' => true, 'spam' => false, 'id' => $lead->id]);
         }
 
         return redirect()->back()->with('contact_success', true);

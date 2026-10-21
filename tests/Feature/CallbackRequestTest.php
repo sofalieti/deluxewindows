@@ -85,6 +85,18 @@ test('whatsapp channel stores customer phone for us to message them', function (
         ->and($lead->message)->toContain('WhatsApp');
 });
 
+test('callback request does not require a quantity', function () {
+    postJson('/callback-request', [
+        'phone' => '6505551212',
+        'channel' => 'callback',
+        'page_url' => 'https://www.deluxewindows.com/',
+    ])
+        ->assertOk()
+        ->assertJson(['ok' => true, 'spam' => false, 'channel' => 'callback']);
+
+    expect(Lead::query()->sole()->openingSummary())->toBe('');
+});
+
 test('callback request requires a phone number', function () {
     postJson('/callback-request', [
         'channel' => 'sms',

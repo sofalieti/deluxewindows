@@ -102,7 +102,7 @@ final class ServiceAreaRegions
     /**
      * Pick google / bing from common attribution fields (utm_source, click ids).
      *
-     * @param  array{utm_source?: mixed, gclid?: mixed, msclkid?: mixed, first_utm_source?: mixed, first_gclid?: mixed, first_msclkid?: mixed}  $touch
+     * @param  array{utm_source?: mixed, gclid?: mixed, gbraid?: mixed, wbraid?: mixed, msclkid?: mixed, first_utm_source?: mixed, first_gclid?: mixed, first_gbraid?: mixed, first_wbraid?: mixed, first_msclkid?: mixed}  $touch
      * @return self::GEO_GOOGLE|self::GEO_BING|null
      */
     public function platformFromAttribution(array $touch): ?string
@@ -113,7 +113,9 @@ final class ServiceAreaRegions
         }
 
         $gclid = trim((string) ($touch['gclid'] ?? $touch['first_gclid'] ?? ''));
-        if ($gclid !== '') {
+        $gbraid = trim((string) ($touch['gbraid'] ?? $touch['first_gbraid'] ?? ''));
+        $wbraid = trim((string) ($touch['wbraid'] ?? $touch['first_wbraid'] ?? ''));
+        if ($gclid !== '' || $gbraid !== '' || $wbraid !== '') {
             return self::GEO_GOOGLE;
         }
 

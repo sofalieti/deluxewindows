@@ -34,9 +34,11 @@
       var source = (queryParam('utm_source') || storageGet('lead_param_utm_source') || '').toLowerCase();
       var msclkid = queryParam('msclkid') || storageGet('lead_param_msclkid') || '';
       var gclid = queryParam('gclid') || storageGet('lead_param_gclid') || '';
+      var gbraid = queryParam('gbraid') || storageGet('lead_param_gbraid') || '';
+      var wbraid = queryParam('wbraid') || storageGet('lead_param_wbraid') || '';
 
       if (msclkid) return 'bing';
-      if (gclid) return 'google';
+      if (gclid || gbraid || wbraid) return 'google';
       if (
         source === 'bing' ||
         source === 'msn' ||

@@ -921,6 +921,7 @@
 }
 
 .referral-landing-page .rf-field input,
+.referral-landing-page .rf-field select,
 .referral-landing-page .rf-field textarea {
   width: 100%;
   box-sizing: border-box;
@@ -940,6 +941,7 @@
 }
 
 .referral-landing-page .rf-field input:focus,
+.referral-landing-page .rf-field select:focus,
 .referral-landing-page .rf-field textarea:focus {
   outline: none;
   border-color: var(--rf-blue-2);

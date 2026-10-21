@@ -47,7 +47,7 @@ trait ClassifiesTrafficSource
     }
 
     /**
-     * @return array{utm_source: string, utm_medium: string, utm_campaign: string, referrer: string, gclid: string, fbclid: string, msclkid: string}
+     * @return array{utm_source: string, utm_medium: string, utm_campaign: string, referrer: string, gclid: string, gbraid: string, wbraid: string, fbclid: string, msclkid: string}
      */
     protected function lastTouchAttribution(): array
     {
@@ -57,13 +57,15 @@ trait ClassifiesTrafficSource
             'utm_campaign' => trim((string) ($this->utm_campaign ?? '')),
             'referrer' => $this->trafficReferrer(),
             'gclid' => $this->trafficClickId('gclid'),
+            'gbraid' => $this->trafficClickId('gbraid'),
+            'wbraid' => $this->trafficClickId('wbraid'),
             'fbclid' => $this->trafficClickId('fbclid'),
             'msclkid' => $this->trafficClickId('msclkid'),
         ];
     }
 
     /**
-     * @return array{utm_source: string, utm_medium: string, utm_campaign: string, referrer: string, gclid: string, fbclid: string, msclkid: string}
+     * @return array{utm_source: string, utm_medium: string, utm_campaign: string, referrer: string, gclid: string, gbraid: string, wbraid: string, fbclid: string, msclkid: string}
      */
     protected function firstTouchAttribution(): array
     {
@@ -76,6 +78,8 @@ trait ClassifiesTrafficSource
             'utm_campaign' => $this->firstTouchValue('first_utm_campaign', $metaFirst, 'utm_campaign'),
             'referrer' => $this->firstTouchValue('first_referrer', $metaFirst, 'referrer'),
             'gclid' => $this->firstTouchValue('first_gclid', $metaFirst, 'gclid'),
+            'gbraid' => $this->firstTouchValue('first_gbraid', $metaFirst, 'gbraid'),
+            'wbraid' => $this->firstTouchValue('first_wbraid', $metaFirst, 'wbraid'),
             'fbclid' => $this->firstTouchValue('first_fbclid', $metaFirst, 'fbclid'),
             'msclkid' => $this->firstTouchValue('first_msclkid', $metaFirst, 'msclkid'),
         ];
@@ -100,7 +104,7 @@ trait ClassifiesTrafficSource
     }
 
     /**
-     * @param  array{utm_source: string, utm_medium: string, utm_campaign: string, referrer: string, gclid: string, fbclid: string, msclkid: string}  $touch
+     * @param  array{utm_source: string, utm_medium: string, utm_campaign: string, referrer: string, gclid: string, gbraid: string, wbraid: string, fbclid: string, msclkid: string}  $touch
      */
     protected function classifyTrafficSource(array $touch): string
     {
@@ -115,7 +119,7 @@ trait ClassifiesTrafficSource
             return 'microsoft_ads';
         }
 
-        if ($touch['gclid'] !== '' || $source === 'adwords' || ($this->isGoogleSource($source) && $isPaid)) {
+        if ($this->hasGoogleClickId($touch) || $source === 'adwords' || ($this->isGoogleSource($source) && $isPaid)) {
             return 'google_ads';
         }
 
@@ -223,6 +227,20 @@ trait ClassifiesTrafficSource
         }
 
         return '';
+    }
+
+    /**
+     * @param  array{gclid?: string, gbraid?: string, wbraid?: string}  $touch
+     */
+    protected function hasGoogleClickId(array $touch): bool
+    {
+        foreach (['gclid', 'gbraid', 'wbraid'] as $key) {
+            if (trim((string) ($touch[$key] ?? '')) !== '') {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     protected function trafficClickId(string $key): string

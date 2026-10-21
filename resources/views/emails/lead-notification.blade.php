@@ -23,6 +23,8 @@
         'Match type' => $meta['matchtype'] ?? null,
         'Creative' => $meta['creative'] ?? null,
         'Gclid' => $meta['gclid'] ?? null,
+        'Gbraid' => $meta['gbraid'] ?? null,
+        'Wbraid' => $meta['wbraid'] ?? null,
         'Fbclid' => $meta['fbclid'] ?? null,
         'Msclkid' => $meta['msclkid'] ?? null,
     ], fn ($v) => trim((string) $v) !== '');

@@ -631,9 +631,13 @@ class CallAnalyticsService
                 'utm_city',
                 'utm_source',
                 'gclid',
+                'gbraid',
+                'wbraid',
                 'msclkid',
                 'first_utm_source',
                 'first_gclid',
+                'first_gbraid',
+                'first_wbraid',
                 'first_msclkid',
             ]);
 
@@ -642,9 +646,13 @@ class CallAnalyticsService
             $platform = $this->regions->platformFromAttribution([
                 'utm_source' => $click->utm_source,
                 'gclid' => $click->gclid,
+                'gbraid' => $click->gbraid,
+                'wbraid' => $click->wbraid,
                 'msclkid' => $click->msclkid,
                 'first_utm_source' => $click->first_utm_source,
                 'first_gclid' => $click->first_gclid,
+                'first_gbraid' => $click->first_gbraid,
+                'first_wbraid' => $click->first_wbraid,
                 'first_msclkid' => $click->first_msclkid,
             ]);
             $resolved = $this->regions->resolveUtmCity($click->utm_city, $platform);

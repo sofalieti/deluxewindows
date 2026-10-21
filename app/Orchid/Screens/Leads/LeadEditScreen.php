@@ -245,6 +245,8 @@ class LeadEditScreen extends Screen
                             $regions->platformFromAttribution([
                                 'utm_source' => $lead->utm_source,
                                 'gclid' => $lead->metaValue('gclid'),
+                                'gbraid' => $lead->metaValue('gbraid'),
+                                'wbraid' => $lead->metaValue('wbraid'),
                                 'msclkid' => $lead->metaValue('msclkid'),
                             ])
                         ));
