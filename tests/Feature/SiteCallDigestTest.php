@@ -18,6 +18,8 @@ test('new lead emails always include felix', function () {
 
 test('the evening digest emails matched site calls with the caller number and summary', function () {
     Mail::fake();
+    PhoneClick::query()->delete();
+    RingCentralCall::query()->delete();
     config()->set('services.lead_notifications.to', [
         'info@deluxewindows.com',
         'felix@deluxewindows.com',
@@ -80,29 +82,35 @@ test('the evening digest emails matched site calls with the caller number and su
         'created_at' => Carbon::parse('2026-10-20 12:00:00', 'America/Los_Angeles'),
     ]);
 
-    Artisan::call('calls:site-digest');
+    try {
+        Artisan::call('calls:site-digest');
 
-    Mail::assertSent(SiteCallDigestMail::class, function (SiteCallDigestMail $mail) {
-        $html = $mail->render();
+        Mail::assertSent(SiteCallDigestMail::class, function (SiteCallDigestMail $mail) {
+            $html = $mail->render();
 
-        return $mail->hasTo('info@deluxewindows.com')
-            && $mail->hasTo('felix@deluxewindows.com')
-            && $mail->clicks->count() === 2
-            && str_contains($html, '+1 (650) 555-1212')
-            && str_contains($html, 'Caller wants a quote for eight windows in San Mateo.')
-            && str_contains($html, 'RingCentral did not find a call');
-    });
-
-    Carbon::setTestNow();
+            return $mail->hasTo('info@deluxewindows.com')
+                && $mail->hasTo('felix@deluxewindows.com')
+                && $mail->clicks->count() === 2
+                && str_contains($html, '+1 (650) 555-1212')
+                && str_contains($html, 'Caller wants a quote for eight windows in San Mateo.')
+                && str_contains($html, 'RingCentral did not find a call');
+        });
+    } finally {
+        Carbon::setTestNow();
+    }
 });
 
 test('the evening digest stays quiet when nobody called', function () {
     Mail::fake();
+    PhoneClick::query()->delete();
     config()->set('services.lead_notifications.to', ['felix@deluxewindows.com']);
     Carbon::setTestNow(Carbon::parse('2026-10-22 20:00:00', 'America/Los_Angeles'));
 
-    Artisan::call('calls:site-digest');
+    try {
+        Artisan::call('calls:site-digest');
 
-    Mail::assertNothingSent();
-    Carbon::setTestNow();
+        Mail::assertNothingSent();
+    } finally {
+        Carbon::setTestNow();
+    }
 });
