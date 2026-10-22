@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Services\Ads;
 
 use App\Models\PhoneClick;
+use Carbon\CarbonImmutable;
+use Carbon\CarbonInterface;
 use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Cache;
@@ -28,6 +30,23 @@ final class MicrosoftAdsOfflineConversionService
 
     public function isConfigured(): bool
     {
+        return $this->hasCredentials()
+            && trim((string) config('services.microsoft_ads.phone_conversion_name')) !== '';
+    }
+
+    public function isConfiguredForQualifiedLeads(): bool
+    {
+        return $this->hasCredentials()
+            && $this->qualifiedConversionName() !== '';
+    }
+
+    public function qualifiedConversionName(): string
+    {
+        return trim((string) config('services.microsoft_ads.qualified_conversion_name'));
+    }
+
+    private function hasCredentials(): bool
+    {
         $keys = [
             'developer_token',
             'client_id',
@@ -35,7 +54,6 @@ final class MicrosoftAdsOfflineConversionService
             'refresh_token',
             'customer_id',
             'account_id',
-            'phone_conversion_name',
         ];
 
         foreach ($keys as $key) {
@@ -131,6 +149,40 @@ final class MicrosoftAdsOfflineConversionService
 
         $attempts[] = $base;
 
+        $this->submit($attempts);
+    }
+
+    /**
+     * Staff-confirmed qualified lead. Name, click id and time come frozen from the lead,
+     * so a retry re-sends the identical conversion and Microsoft dedupes it.
+     * No value or currency: the goal counts qualified projects, not revenue.
+     */
+    public function uploadQualifiedLead(string $msclkid, string $conversionName, CarbonInterface $conversionTime): void
+    {
+        if (trim($msclkid) === '') {
+            throw new RuntimeException('Lead has no MSCLKID.');
+        }
+
+        if ($conversionTime->lt(now()->subDays(self::IMPORT_WINDOW_DAYS))) {
+            throw new RuntimeException(
+                'Qualification is older than the '.self::IMPORT_WINDOW_DAYS.' day Microsoft Ads import window.'
+            );
+        }
+
+        $this->submit([[
+            'MicrosoftClickId' => trim($msclkid),
+            'ConversionName' => $conversionName,
+            'ConversionTime' => CarbonImmutable::instance($conversionTime)->utc()->format('Y-m-d\TH:i:s\Z'),
+        ]]);
+    }
+
+    /**
+     * Tries each payload in order; a later one is used only after an opaque InternalError.
+     *
+     * @param  list<array<string, mixed>>  $attempts
+     */
+    private function submit(array $attempts): void
+    {
         $lastResponse = null;
 
         foreach ($attempts as $index => $conversion) {

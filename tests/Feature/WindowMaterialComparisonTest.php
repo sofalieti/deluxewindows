@@ -52,9 +52,9 @@ test('comparison partial renders an accessible server-side initial state', funct
 
     expect($html)
         ->toContain('Compare Window Materials')
-        ->toContain('Vinyl: Pros &amp; Cons')
-        ->toContain('Fiberglass: Pros &amp; Cons')
-        ->toContain('Wood Clad: Pros &amp; Cons')
+        ->toContain('<span data-wmc-tradeoff-name>Vinyl</span>: Pros &amp; Cons')
+        ->toContain('<span data-wmc-tradeoff-name>Fiberglass</span>: Pros &amp; Cons')
+        ->toContain('<span data-wmc-tradeoff-name>Wood Clad</span>: Pros &amp; Cons')
         ->not->toContain('Frame material is only one part of window performance.')
         ->not->toContain('How we compare materials')
         ->toContain('type="application/json"')

@@ -3510,6 +3510,21 @@ button.qty-pick__face:focus {
   background: #e7eef5;
 }
 
+.qty-pick__deal {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #fdecea;
+  color: #b42318;
+  font-size: 0.72em;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
 .hero-nm .qty-pick {
   --qty-radius: 4px;
 }

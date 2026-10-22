@@ -120,6 +120,9 @@
 
       const payload = buildPayload(anchor, sourceOverride);
       sendGa4PhoneConversion(payload);
+      if (typeof window.uet_report_phone_click === 'function') {
+        window.uet_report_phone_click();
+      }
       try {
         fetch(endpoint, {
           method: 'POST',
@@ -306,6 +309,7 @@
             window.gtag_report_conversion(undefined, {
               email: '',
               phone: phone,
+              leadId: data && data.lead_id ? String(data.lead_id) : '',
             });
           }
           if (typeof window.gtag === 'function') {

@@ -35,6 +35,9 @@ yarn-error.log
 !/config/view.php
 !/config/webflow.php
 !/config/media.php
+!/config/crm.php
+!/config/hero.php
+!/config/lead_spam.php
 
 # Docker конфигурации
 docker-compose.override.yml 

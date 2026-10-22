@@ -381,6 +381,7 @@ class LeadListScreen extends Screen
 
         $alreadyInSheet = $lead->appointments_sheet_exported_at !== null;
         $sheetError = $this->exportStatusSheets($lead, $from, $to);
+        app(\App\Services\Ads\MicrosoftQualifiedLeadService::class)->evaluate($lead);
         $lead->refresh();
         if ($sheetError !== null) {
             Toast::warning('Status updated. Sheet export failed: '.$sheetError);

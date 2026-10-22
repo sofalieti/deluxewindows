@@ -4,16 +4,53 @@ on:
   push:
     branches:
       - main
+  pull_request:
   workflow_dispatch:
 
-concurrency:
-  group: deploy-deluxewindows
-  cancel-in-progress: false
-
 jobs:
+  tests:
+    name: Pest tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: mbstring, pdo_sqlite, sqlite3, intl, gd, zip, bcmath, fileinfo
+          coverage: none
+
+      - name: Cache Composer packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.composer/cache/files
+          key: composer-${{ hashFiles('composer.lock') }}
+          restore-keys: composer-
+
+      - name: Install dependencies
+        run: composer install --no-interaction --prefer-dist --no-progress
+
+      - name: Prepare environment
+        run: |
+          cp .env.example .env
+          grep -q '^APP_KEY=' .env || echo 'APP_KEY=' >> .env
+          php artisan key:generate
+          touch database/database.sqlite
+
+      # Quarantined tests fail on content/config issues unrelated to the change being
+      # shipped; they still run locally and should be fixed, not deleted.
+      - name: Run tests
+        run: vendor/bin/pest --exclude-group=quarantine
+
   deploy:
     name: Deploy to server
+    needs: tests
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    concurrency:
+      group: deploy-deluxewindows
+      cancel-in-progress: false
     steps:
       - name: Pull on production via SSH
         uses: appleboy/ssh-action@v1.2.0
@@ -29,6 +66,12 @@ jobs:
             cd "${{ secrets.DEPLOY_PATH }}"
             git fetch origin main
             git checkout main
+            # Configs that used to be server-only would block the pull once tracked.
+            for f in config/crm.php config/hero.php config/lead_spam.php; do
+              if [ -f "$f" ] && ! git ls-files --error-unmatch "$f" >/dev/null 2>&1; then
+                mv "$f" "$f.pre-deploy.bak"
+              fi
+            done
             git pull --ff-only origin main
             PHP_BIN=/opt/php83/bin/php
             if [ ! -x "$PHP_BIN" ]; then

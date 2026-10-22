@@ -68,9 +68,9 @@ test('brand comparison partial renders a safe server-side initial state', functi
 
     expect($html)
         ->toContain('Compare Window Brands')
-        ->toContain('Marvin: Pros &amp; Considerations')
-        ->toContain('Andersen: Pros &amp; Considerations')
-        ->toContain('Milgard: Pros &amp; Considerations')
+        ->toContain('<span data-wbc-tradeoff-name>Marvin</span>: Pros &amp; Considerations')
+        ->toContain('<span data-wbc-tradeoff-name>Andersen</span>: Pros &amp; Considerations')
+        ->toContain('<span data-wbc-tradeoff-name>Milgard</span>: Pros &amp; Considerations')
         ->toContain('This is a brand-level guide')
         ->toContain('type="application/json"')
         ->toContain('data-wbc-tradeoff-link')

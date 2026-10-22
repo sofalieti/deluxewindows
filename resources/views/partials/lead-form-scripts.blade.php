@@ -563,6 +563,15 @@
       });
     }
 
+    const QTY_DEAL_VALUES = ['3-5', '6-10', '11plus'];
+
+    function dealBadge() {
+      const badge = document.createElement('span');
+      badge.className = 'qty-pick__deal';
+      badge.textContent = '40% OFF';
+      return badge;
+    }
+
     function bindQtyMenu(field, select, question) {
       const shell = document.createElement('div');
       shell.className = 'qty-pick__shell';
@@ -595,7 +604,12 @@
         item.className = 'qty-pick__option';
         item.setAttribute('role', 'option');
         item.dataset.value = option.value;
-        item.textContent = option.textContent;
+        item.dataset.label = option.textContent;
+        item.appendChild(document.createTextNode(option.textContent));
+        if (QTY_DEAL_VALUES.indexOf(option.value) !== -1) {
+          item.appendChild(dealBadge());
+          item.setAttribute('aria-label', option.textContent + ', 40% off');
+        }
         item.tabIndex = -1;
         options.push(item);
         menu.appendChild(item);
@@ -614,7 +628,10 @@
       function choose(value) {
         select.value = value;
         const chosen = options.filter(function (item) { return item.dataset.value === value; })[0];
-        valueEl.textContent = chosen ? chosen.textContent : 'Select…';
+        valueEl.textContent = chosen ? chosen.dataset.label : 'Select…';
+        if (chosen && QTY_DEAL_VALUES.indexOf(value) !== -1) {
+          valueEl.appendChild(dealBadge());
+        }
         face.classList.toggle('has-value', !!value);
         options.forEach(function (item) {
           item.setAttribute('aria-selected', item.dataset.value === value ? 'true' : 'false');
@@ -857,6 +874,7 @@
             window.gtag_report_conversion(undefined, {
               email: payload.Email || payload.email || '',
               phone: payload.Phone || payload.phone || '',
+              leadId: data && data.id ? String(data.id) : '',
             });
           }
           fireQualifiedLead(payload, data && data.id);

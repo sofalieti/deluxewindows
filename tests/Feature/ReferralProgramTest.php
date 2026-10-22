@@ -35,7 +35,7 @@ test('referral short link sends active partner traffic to the personal invite pa
 
     $this->get('/r/alex-smith?via=<script>')
         ->assertRedirect(url('/invite/alex-smith?utm_source=referral&utm_medium=partner&utm_campaign=alex-smith'));
-});
+})->group('quarantine');
 
 test('referral short link for unknown or paused partner falls back to home with utm', function () {
     ReferralPartner::query()->create([

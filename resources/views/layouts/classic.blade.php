@@ -54,9 +54,13 @@
 
       // Mirror Google Ads lead conversion into Bing UET.
       // Goal: custom event "submit_lead_form". Optional Enhanced Conversions via pid.
+      // Only a lead the server validated and stored (leadId) counts as a form lead.
       window.uet_report_conversion = function (user) {
-        window.uetq = window.uetq || [];
         user = user || {};
+        if (!String(user.leadId || '').trim()) {
+          return;
+        }
+        window.uetq = window.uetq || [];
         var pid = {};
         var em = String(user.email || '').trim().toLowerCase();
         var phDigits = String(user.phone || '').replace(/\D/g, '');
@@ -73,6 +77,12 @@
           window.uetq.push('set', { pid: pid });
         }
         window.uetq.push('event', 'submit_lead_form', {});
+      };
+
+      // Tap on a phone number: intent only, never a lead.
+      window.uet_report_phone_click = function () {
+        window.uetq = window.uetq || [];
+        window.uetq.push('event', 'phone_click', {});
       };
     </script>
     @include('partials.seo-head')

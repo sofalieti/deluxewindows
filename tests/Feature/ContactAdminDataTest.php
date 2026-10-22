@@ -34,6 +34,7 @@ test('manual contact creation saves address and additional information and links
         new Contact,
         $request,
         app(ContactFromLeadService::class),
+        app(\App\Services\ContactFromPhoneClickService::class),
     );
 
     $contact = Contact::query()->sole();
@@ -146,6 +147,7 @@ test('leads list can be filtered by contact from the contacts list deep link', f
         'phone' => '6505557001',
     ]);
 
+    $this->actingAs(User::factory()->create(['permissions' => adminTrafficPermissions()]));
     request()->merge(['filter' => ['contact_id' => $contact->id]]);
 
     $screen = new \App\Orchid\Screens\Leads\LeadListScreen;

@@ -110,6 +110,9 @@ return [
         'customer_id' => env('MICROSOFT_ADS_CUSTOMER_ID'),
         'account_id' => env('MICROSOFT_ADS_ACCOUNT_ID'),
         'phone_conversion_name' => env('MICROSOFT_ADS_PHONE_CONVERSION_NAME', 'Phone Call Confirmed'),
+        'qualified_conversion_name' => env('MICROSOFT_ADS_QUALIFIED_CONVERSION_NAME', 'Qualified Lead - 3+ Windows'),
+        // Must not exceed the conversion window set on the goal in Microsoft Advertising.
+        'qualified_window_days' => (int) env('MICROSOFT_ADS_QUALIFIED_WINDOW_DAYS', 90),
         // Which identity signs in to Microsoft Advertising: "microsoft" or "google".
         // Accounts created through "Sign in with Google" must use google, otherwise
         // the API rejects the token with IdentityTypeMismatch.

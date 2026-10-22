@@ -13,6 +13,7 @@ use App\Models\User;
 use App\Orchid\Screens\Concerns\QueuesCallTranscripts;
 use App\Services\Ads\AppointmentSheetExporter;
 use App\Services\Ads\FelixSheetExporter;
+use App\Services\Ads\MicrosoftQualifiedLeadService;
 use App\Services\ContactFromLeadService;
 use App\Services\TrafficSourceVisibility;
 use Illuminate\Http\Request;
@@ -54,6 +55,15 @@ class LeadEditScreen extends Screen
             'changes' => $lead->changes,
             'statusChanges' => $lead->changes->where('field', 'status')->values(),
             'contact_id' => $lead->contact_id,
+            'qualification' => [
+                'window_count' => $lead->qualification_window_count,
+                'project_type' => $lead->qualification_project_type,
+                'property_type' => $lead->qualification_property_type,
+                'zip' => $lead->qualification_zip,
+                'decision_maker' => $lead->qualification_decision_maker === null
+                    ? null
+                    : ($lead->qualification_decision_maker ? 'yes' : 'no'),
+            ],
             'calls' => $lead->ringCentralCallsForPhone(),
             'tasks' => $lead->tasks,
             'mailboxMessages' => MailboxMessage::query()
@@ -160,6 +170,29 @@ class LeadEditScreen extends Screen
                     ->empty('Select contact'),
             ])->title('Lead details'),
 
+            Layout::rows([
+                Select::make('qualification.window_count')
+                    ->title('Confirmed windows')
+                    ->options(Lead::QUALIFICATION_WINDOW_COUNTS)
+                    ->empty('Not set')
+                    ->help($this->visitorCountHint()),
+                Select::make('qualification.project_type')
+                    ->title('Project type')
+                    ->options(Lead::QUALIFICATION_PROJECT_TYPES)
+                    ->empty('Not set'),
+                Select::make('qualification.property_type')
+                    ->title('Property type')
+                    ->options(Lead::QUALIFICATION_PROPERTY_TYPES)
+                    ->empty('Not set'),
+                Input::make('qualification.zip')
+                    ->title('Property ZIP')
+                    ->maxlength(10),
+                Select::make('qualification.decision_maker')
+                    ->title('Owner / decision maker')
+                    ->options(['yes' => 'Yes', 'no' => 'No'])
+                    ->empty('Not set'),
+            ])->title('Project qualification'),
+
             Layout::legend('lead', [
                 Sight::make('id', 'ID'),
                 Sight::make('created_at', 'Received')
@@ -265,6 +298,8 @@ class LeadEditScreen extends Screen
                     ->render(fn (Lead $lead) => e($lead->metaValue('fbclid', '-'))),
                 Sight::make('msclkid', 'MSCLKID')
                     ->render(fn (Lead $lead) => e($lead->metaValue('msclkid', '-'))),
+                Sight::make('bing_qualified', 'Bing Qualified')
+                    ->render(fn (Lead $lead): string => $this->bingQualifiedSummary($lead)),
             ]),
         ]);
 
@@ -317,11 +352,17 @@ class LeadEditScreen extends Screen
             'lead.message' => ['nullable', 'string', 'max:3000'],
             'lead.status' => ['required', 'string', Rule::in(array_keys(Lead::STATUSES))],
             'lead.assigned_to' => ['nullable', 'integer', 'exists:users,id'],
+            'qualification.window_count' => ['nullable', Rule::in(array_keys(Lead::QUALIFICATION_WINDOW_COUNTS))],
+            'qualification.project_type' => ['nullable', Rule::in(array_keys(Lead::QUALIFICATION_PROJECT_TYPES))],
+            'qualification.property_type' => ['nullable', Rule::in(array_keys(Lead::QUALIFICATION_PROPERTY_TYPES))],
+            'qualification.zip' => ['nullable', 'string', 'max:10'],
+            'qualification.decision_maker' => ['nullable', Rule::in(['yes', 'no'])],
         ]);
 
         $user = Auth::user();
         abort_unless($user !== null, 403);
 
+        $qualification = $validated['qualification'] ?? [];
         $newValues = [
             'full_name' => trim($validated['lead']['full_name']),
             'phone' => trim($validated['lead']['phone']),
@@ -331,6 +372,11 @@ class LeadEditScreen extends Screen
             'message' => trim((string) ($validated['lead']['message'] ?? '')),
             'status' => $validated['lead']['status'],
             'assigned_to' => $validated['lead']['assigned_to'] ?? null,
+            'qualification_window_count' => (string) ($qualification['window_count'] ?? ''),
+            'qualification_project_type' => (string) ($qualification['project_type'] ?? ''),
+            'qualification_property_type' => (string) ($qualification['property_type'] ?? ''),
+            'qualification_zip' => trim((string) ($qualification['zip'] ?? '')),
+            'qualification_decision_maker' => (string) ($qualification['decision_maker'] ?? ''),
         ];
         $labels = [
             'full_name' => 'Name',
@@ -340,13 +386,22 @@ class LeadEditScreen extends Screen
             'page_url' => 'Page',
             'message' => 'Message',
             'assigned_to' => 'Assignee',
+            'qualification_window_count' => 'Confirmed windows',
+            'qualification_project_type' => 'Project type',
+            'qualification_property_type' => 'Property type',
+            'qualification_zip' => 'Property ZIP',
+            'qualification_decision_maker' => 'Owner / decision maker',
         ];
         $changes = [];
 
         foreach ($newValues as $field => $newValue) {
-            $oldValue = $field === 'assigned_to'
-                ? ($lead->assigned_to !== null ? (string) $lead->assigned_to : '')
-                : trim((string) ($lead->{$field} ?? ''));
+            $oldValue = match ($field) {
+                'assigned_to' => $lead->assigned_to !== null ? (string) $lead->assigned_to : '',
+                'qualification_decision_maker' => $lead->qualification_decision_maker === null
+                    ? ''
+                    : ($lead->qualification_decision_maker ? 'yes' : 'no'),
+                default => trim((string) ($lead->{$field} ?? '')),
+            };
             $compareNew = $newValue === null ? '' : (string) $newValue;
             if ($oldValue !== $compareNew) {
                 $changes[$field] = [$oldValue, $compareNew];
@@ -364,6 +419,12 @@ class LeadEditScreen extends Screen
                 if ($field === 'assigned_to') {
                     $lead->assigned_to = $value ?: null;
                     $lead->assigned_at = $value ? now() : null;
+
+                    continue;
+                }
+
+                if ($field === 'qualification_decision_maker') {
+                    $lead->qualification_decision_maker = $value === '' ? null : $value === 'yes';
 
                     continue;
                 }
@@ -409,6 +470,8 @@ class LeadEditScreen extends Screen
             }
         }
 
+        app(MicrosoftQualifiedLeadService::class)->evaluate($lead);
+
         Toast::info(count($changes) === 1 ? 'Lead updated.' : count($changes).' lead fields updated.');
 
         return redirect()->route('platform.leads.edit', $lead);
@@ -437,6 +500,7 @@ class LeadEditScreen extends Screen
                 if ($sheetError !== null) {
                     Toast::warning('Status saved. Sheet export failed: '.$sheetError);
                 }
+                app(MicrosoftQualifiedLeadService::class)->evaluate($lead);
             }
         }
 
@@ -510,6 +574,47 @@ class LeadEditScreen extends Screen
         Toast::info('Lead assigned to you.');
 
         return redirect()->route('platform.leads.edit', $lead);
+    }
+
+    private function visitorCountHint(): string
+    {
+        $answer = $this->lead?->openingSummary() ?? '';
+
+        return ($answer !== '' ? 'Visitor answered: '.$answer.' (preliminary). ' : '')
+            .'Bing "Qualified Lead - 3+ Windows" needs 3+ windows, private house, service-area ZIP and the decision maker, confirmed by staff.';
+    }
+
+    private function bingQualifiedSummary(Lead $lead): string
+    {
+        $time = fn ($value): string => $value ? e($value->format('Y-m-d H:i')) : '';
+
+        if ($lead->bing_qualified_at === null) {
+            $reason = app(MicrosoftQualifiedLeadService::class)->ineligibleReason($lead);
+
+            return '<span class="text-muted">Not qualified'.($reason !== null ? ': '.e($reason) : '').'</span>';
+        }
+
+        $status = (string) $lead->bing_qualified_status;
+        $color = match ($status) {
+            Lead::BING_QUALIFIED_SENT => 'success',
+            Lead::BING_QUALIFIED_FAILED => 'danger',
+            Lead::BING_QUALIFIED_PENDING => 'warning',
+            default => 'secondary',
+        };
+
+        $parts = ['qualified '.$time($lead->bing_qualified_at)];
+        if ($lead->bing_qualified_sent_at !== null) {
+            $parts[] = 'sent '.$time($lead->bing_qualified_sent_at);
+        }
+        if ((int) $lead->bing_qualified_attempts > 0) {
+            $parts[] = 'attempts '.(int) $lead->bing_qualified_attempts;
+        }
+
+        $error = trim((string) $lead->bing_qualified_error);
+
+        return '<span class="badge bg-'.$color.' text-white">'.e(ucfirst($status)).'</span> '
+            .'<span class="text-muted">'.implode(' · ', $parts).'</span>'
+            .($error !== '' ? '<br><small class="text-'.($status === Lead::BING_QUALIFIED_FAILED ? 'danger' : 'muted').'">'.e($error).'</small>' : '');
     }
 
     private function exportStatusSheets(Lead $lead, string $from, string $to): ?string

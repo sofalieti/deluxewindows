@@ -36,6 +36,7 @@ test('contact save records field change history', function () {
             ],
         ]),
         app(ContactFromLeadService::class),
+        app(\App\Services\ContactFromPhoneClickService::class),
     );
 
     $changes = ContactChange::query()->where('contact_id', $contact->id)->orderBy('id')->get();

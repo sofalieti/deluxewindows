@@ -78,6 +78,45 @@ class Lead extends Model
     ];
 
     /**
+     * Staff-confirmed count; the visitor's own WINDOW_COUNTS answer is only a hint.
+     *
+     * @var array<string, string>
+     */
+    public const QUALIFICATION_WINDOW_COUNTS = [
+        '1-2' => '1–2',
+        '3-4' => '3–4',
+        '5-9' => '5–9',
+        '10plus' => '10+',
+        'unknown' => 'Not sure yet',
+    ];
+
+    /**
+     * @var array<string, string>
+     */
+    public const QUALIFICATION_PROJECT_TYPES = [
+        'replacement' => 'Window replacement',
+        'new_construction' => 'New construction',
+        'doors_only' => 'Doors only',
+    ];
+
+    /**
+     * @var array<string, string>
+     */
+    public const QUALIFICATION_PROPERTY_TYPES = [
+        'house' => 'Private house',
+        'apartment' => 'Apartment',
+        'commercial' => 'Commercial',
+    ];
+
+    public const BING_QUALIFIED_PENDING = 'pending';
+
+    public const BING_QUALIFIED_SENT = 'sent';
+
+    public const BING_QUALIFIED_FAILED = 'failed';
+
+    public const BING_QUALIFIED_SKIPPED = 'skipped';
+
+    /**
      * @var array<string, string>
      */
     public const STATUSES = [
@@ -112,6 +151,11 @@ class Lead extends Model
         'status',
         'assigned_to',
         'assigned_at',
+        'qualification_window_count',
+        'qualification_project_type',
+        'qualification_property_type',
+        'qualification_zip',
+        'qualification_decision_maker',
     ];
 
     /**
@@ -141,6 +185,10 @@ class Lead extends Model
         return [
             'meta' => 'array',
             'assigned_at' => 'datetime',
+            'qualification_decision_maker' => 'boolean',
+            'bing_qualified_at' => 'datetime',
+            'bing_qualified_sent_at' => 'datetime',
+            'bing_qualified_attempts' => 'integer',
         ];
     }
 
@@ -313,6 +361,26 @@ class Lead extends Model
         $kindLabel = self::OPENING_KINDS[$kind] ?? self::OPENING_KINDS['both'];
 
         return $kindLabel.' · '.$countLabel;
+    }
+
+    /**
+     * Click id captured with the lead itself, or with the phone click it was created from.
+     */
+    public function resolvedMsclkid(): ?string
+    {
+        foreach (['msclkid', 'first_touch.msclkid', 'first_msclkid'] as $key) {
+            $value = $this->metaValue($key);
+            if ($value !== '') {
+                return $value;
+            }
+        }
+
+        $phoneClickId = (int) $this->metaValue('phone_click_id', '0');
+        if ($phoneClickId > 0) {
+            return PhoneClick::query()->find($phoneClickId)?->resolvedMsclkid();
+        }
+
+        return null;
     }
 
     public function metaValue(string $key, string $default = ''): string

@@ -27,6 +27,9 @@
         <env name="MAIL_MAILER" value="array"/>
         <env name="PULSE_ENABLED" value="false"/>
         <env name="QUEUE_CONNECTION" value="sync"/>
+        <!-- Defaults point at the live office sheet; tests must never post there. -->
+        <env name="LEAD_BRIDGE_URL_1" value=""/>
+        <env name="LEAD_BRIDGE_URL_2" value=""/>
         <env name="SESSION_DRIVER" value="array"/>
         <env name="TELESCOPE_ENABLED" value="false"/>
     </php>
