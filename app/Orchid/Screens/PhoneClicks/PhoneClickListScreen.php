@@ -7,6 +7,7 @@ namespace App\Orchid\Screens\PhoneClicks;
 use App\Jobs\MatchPhoneClickToRingCentral;
 use App\Models\CrmNote;
 use App\Models\PhoneClick;
+use App\Orchid\Layouts\PhoneClicks\PhoneClickFiltersLayout;
 use App\Services\Ads\GoogleAdsOfflineSheetExporter;
 use App\Services\Ads\OfflineConversionStatsService;
 use App\Services\MicrosoftPhoneClickRecheck;
@@ -38,26 +39,26 @@ class PhoneClickListScreen extends Screen
         $stats = $this->conversionStats->summary();
 
         return [
-            'clicks' => PhoneClick::query()
+            'clicks' => PhoneClick::filters(PhoneClickFiltersLayout::class)
                 ->visibleTo($user)
                 ->notSpam()
                 ->with(['assignee', 'latestNote.user'])
                 ->defaultSort('id', 'desc')
                 ->paginate(50, pageName: 'page'),
-            'unhandledClicks' => PhoneClick::query()
+            'unhandledClicks' => PhoneClick::filters(PhoneClickFiltersLayout::class)
                 ->visibleTo($user)
                 ->needsHandling()
                 ->with(['assignee', 'latestNote.user'])
                 ->defaultSort('id', 'desc')
                 ->paginate(50, pageName: 'unhandled_page'),
-            'mineClicks' => PhoneClick::query()
+            'mineClicks' => PhoneClick::filters(PhoneClickFiltersLayout::class)
                 ->visibleTo($user)
                 ->notSpam()
                 ->where('assigned_to', $user?->id)
                 ->with(['assignee', 'latestNote.user'])
                 ->defaultSort('id', 'desc')
                 ->paginate(50, pageName: 'mine_page'),
-            'spamClicks' => PhoneClick::query()
+            'spamClicks' => PhoneClick::filters(PhoneClickFiltersLayout::class)
                 ->visibleTo($user)
                 ->onlySpam()
                 ->with('latestNote.user')
@@ -141,6 +142,8 @@ class PhoneClickListScreen extends Screen
             Layout::block([
                 Layout::view('admin.partials.offline-conversion-stats'),
             ])->title('Offline conversions (Phone Call Confirmed)'),
+
+            PhoneClickFiltersLayout::class,
 
             Layout::tabs([
                 'Phone clicks' => Layout::table('clicks', $this->clickColumns(spamTab: false)),

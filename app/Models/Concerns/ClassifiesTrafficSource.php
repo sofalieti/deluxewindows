@@ -16,6 +16,27 @@ trait ClassifiesTrafficSource
         return $this->classifyTrafficSource($this->firstTouchAttribution());
     }
 
+    /**
+     * @return array<string, string>
+     */
+    public static function trafficSourceOptions(): array
+    {
+        return [
+            'google_ads' => 'Google Ads',
+            'microsoft_ads' => 'Microsoft Ads',
+            'meta_ads' => 'Meta Ads',
+            'paid_ads' => 'Paid Ads',
+            'seo_google' => 'SEO · Google',
+            'seo_bing' => 'SEO · Bing',
+            'seo_other' => 'SEO · Other',
+            'social' => 'Social',
+            'email' => 'Email',
+            'referral' => 'Referral',
+            'campaign' => 'Campaign',
+            'direct' => 'Direct',
+        ];
+    }
+
     public function trafficSourceLabel(): string
     {
         return $this->labelForTrafficSourceKey($this->trafficSourceKey());
@@ -177,20 +198,7 @@ trait ClassifiesTrafficSource
 
     protected function labelForTrafficSourceKey(string $key): string
     {
-        return match ($key) {
-            'google_ads' => 'Google Ads',
-            'microsoft_ads' => 'Microsoft Ads',
-            'meta_ads' => 'Meta Ads',
-            'paid_ads' => 'Paid Ads',
-            'seo_google' => 'SEO · Google',
-            'seo_bing' => 'SEO · Bing',
-            'seo_other' => 'SEO · Other',
-            'social' => 'Social',
-            'email' => 'Email',
-            'referral' => 'Referral',
-            'campaign' => 'Campaign',
-            default => 'Direct',
-        };
+        return self::trafficSourceOptions()[$key] ?? 'Direct';
     }
 
     protected function colorForTrafficSourceKey(string $key): string
