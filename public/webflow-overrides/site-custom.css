@@ -3584,4 +3584,77 @@ button.qty-pick__face:focus {
   border-color: #dc2626;
 }
 
+/* Short laptops: lift the hero headline with the form, and set the form type smaller.
+   Labels stay visible. Taller screens keep the original scale. */
+@media (min-width: 992px) and (max-height: 860px) {
+  .div-block-59 > .w-layout-blockcontainer.container-default {
+    padding-top: 8px;
+  }
+
+  .title-left---content-right.paragraph-content.alt.hero-page {
+    align-items: flex-start;
+    padding-top: 0 !important;
+  }
+
+  .title-left---content-right.paragraph-content.alt.hero-page .inner-container._660px._100-tablet {
+    margin-top: 0;
+  }
+
+  .title-left---content-right.paragraph-content.alt.hero-page .rich-text-block-2 {
+    margin-top: 0 !important;
+  }
+
+  .hero-page .form-block-2 .form-3 {
+    padding: 14px 16px;
+  }
+
+  .hero-page .form-block-2 .display-4,
+  .hero-page .form-block-2 h2 {
+    font-size: 16px !important;
+    line-height: 1.25 !important;
+  }
+
+  .hero-page .form-block-2 :is(
+    .field-label,
+    .field-label-2,
+    .field-label-3,
+    .field-label-4,
+    .field-label-5,
+    .qty-pick__label,
+    .qty-pick__bing-hint
+  ) {
+    font-size: 13px;
+    line-height: 1.25;
+    margin-bottom: 4px;
+  }
+
+  .hero-page .form-block-2 :is(.w-input, .text-area, textarea, select, button.qty-pick__face, .qty-pick__option) {
+    font-size: 14px;
+  }
+
+  .hero-page .form-block-2 :is(.w-input, button.qty-pick__face) {
+    height: 40px;
+    min-height: 40px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  .hero-page .form-block-2 textarea,
+  .hero-page .form-block-2 .text-area {
+    min-height: 72px;
+    height: 72px;
+  }
+
+  .hero-page .form-block-2 .primary-button,
+  .hero-page .form-block-2 .inside-input-button,
+  .hero-page .form-block-2 input.w-button {
+    font-size: 15px;
+  }
+
+  .hero-page .form-block-2 .hero-form-offer-footer,
+  .hero-page .form-block-2 .hero-form-offer-footer__note {
+    font-size: 12px;
+  }
+}
+
 
