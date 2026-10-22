@@ -557,6 +557,13 @@
       }
 
       field.dataset.qtyPick = '1';
+      const fieldLabel = field.querySelector('label');
+      if (fieldLabel) {
+        const bingHint = document.createElement('span');
+        bingHint.className = 'qty-pick__bing-hint bing-only';
+        bingHint.textContent = '3+ get 40% OFF';
+        fieldLabel.appendChild(bingHint);
+      }
       bindQtyMenu(field, select, question);
       select.addEventListener('change', function () {
         field.classList.remove('is-invalid');

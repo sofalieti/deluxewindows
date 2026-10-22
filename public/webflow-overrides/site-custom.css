@@ -2056,9 +2056,11 @@ a.link-block.odsf {
 }
 
 /* Lift the headline block a little so headline + phones + brands sit
-   balanced against the form column. */
+   balanced against the form column. The Bing-only row is in the markup for
+   everyone, so it only counts once html.dw-bing shows it. */
 @media (min-width: 992px) {
-  .div-block-59 .hero-page .width-100-mobile-landscape:has(.hero-brands) {
+  .div-block-59 .hero-page .width-100-mobile-landscape:has(.hero-brands:not(.hero-brands--bing)),
+  html.dw-bing .div-block-59 .hero-page .width-100-mobile-landscape:has(.hero-brands--bing) {
     transform: translateY(-14px);
   }
 }
@@ -2094,19 +2096,23 @@ a.link-block.odsf {
   }
 
   /* Lift the rest of the mobile hero a little to make room for the row. */
-  .hero-mobile-promo-slot--mobile:has(.hero-brands--promo) {
+  .hero-mobile-promo-slot--mobile:has(.hero-brands--promo:not(.hero-brands--bing)),
+  html.dw-bing .hero-mobile-promo-slot--mobile:has(.hero-brands--promo) {
     margin-top: 8px;
   }
 
-  .div-block-59 .heading-4 + .hero-mobile-promo-slot--mobile:has(.hero-brands--promo) {
+  .div-block-59 .heading-4 + .hero-mobile-promo-slot--mobile:has(.hero-brands--promo:not(.hero-brands--bing)),
+  html.dw-bing .div-block-59 .heading-4 + .hero-mobile-promo-slot--mobile:has(.hero-brands--promo) {
     margin-top: 8px;
   }
 
-  .hero-mobile-promo:has(.hero-brands--promo) {
+  .hero-mobile-promo:has(.hero-brands--promo:not(.hero-brands--bing)),
+  html.dw-bing .hero-mobile-promo:has(.hero-brands--promo) {
     gap: 8px;
   }
 
-  .hero-mobile-promo:has(.hero-brands--promo) .hero-mobile-promo__owned {
+  .hero-mobile-promo:has(.hero-brands--promo:not(.hero-brands--bing)) .hero-mobile-promo__owned,
+  html.dw-bing .hero-mobile-promo:has(.hero-brands--promo) .hero-mobile-promo__owned {
     margin-top: 0;
   }
 

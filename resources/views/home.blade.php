@@ -1072,12 +1072,18 @@
 
 @section('content')
     {{-- ?new-brands=true: white brand logos inside the top of the hero instead of the strip below. --}}
-    @include('partials.hero', ['heroBrandsOverlay' => home_brands_is_new()])
+    {{-- Bing visitors always get the in-hero logos instead of the strip. --}}
+    @include('partials.hero', [
+      'heroBrandsOverlay' => home_brands_is_new(),
+      'heroBrandsForBing' => ! home_brands_is_new(),
+    ])
 
     @include('partials.trust-badges')
 
     @unless(home_brands_is_new())
-      @include('partials.brands')
+      <div class="bing-hide">
+        @include('partials.brands')
+      </div>
     @endunless
 
     @include('partials.windows', ['homeWindows' => $homeWindows])

@@ -34,7 +34,13 @@
       </div>
     @endif
   </div>
-  <button type="button" class="hero-mobile-promo__btn" data-open-estimate-modal>{{ $buttonLabel }}</button>
+  <p class="bing-only hero-mobile-promo__bing-rule">
+    {{ bing_offer_percent() }}% OFF on projects of 3+ {{ bing_offer_units() }}
+  </p>
+  <button type="button" class="hero-mobile-promo__btn" data-open-estimate-modal>
+    <span class="bing-hide">{{ $buttonLabel }}</span>
+    <span class="bing-only">Get My 3+ Discount Quote</span>
+  </button>
   <a
     href="tel:{{ $heroPhoneTel }}"
     class="hero-mobile-promo__phone"
@@ -50,6 +56,8 @@
   </a>
   @if(!empty($showBrands))
     @include('partials.hero-brands', ['heroBrandsPlacement' => 'promo'])
+  @elseif(!empty($showBingBrands))
+    @include('partials.hero-brands', ['heroBrandsPlacement' => 'promo', 'heroBrandsBing' => true])
   @endif
   <p class="hero-mobile-promo__owned">We are – 100% employee owned &amp; over 30 years in business!</p>
 </div>

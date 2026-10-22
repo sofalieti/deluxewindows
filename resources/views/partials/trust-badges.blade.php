@@ -18,8 +18,13 @@
             </div>
             <div class="div-block-65">
               <div class="text-block-46" aria-hidden="true">&#10003;</div>
-              <div class="text-block-47">40% Off — Limited Time</div>
+              <div class="text-block-47">
+                <span class="bing-hide">40% Off — Limited Time</span>
+                <span class="bing-only">40% Off on 3+ {{ str_replace(' Or ', ' or ', ucwords(bing_offer_units())) }}</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
+      @include('partials.bing-offer-steps')

@@ -105,6 +105,7 @@
           ))
   );
   $pagePromoPricing = $brandPromotionPricing ?? $heroPromotionPricing ?? $doorPromotionPricing ?? null;
+  $bingOfferPricing = $windowPromotionPricing ?? $pagePromoPricing;
   if (! $isHomeHero && is_array($pagePromoPricing) && trim((string) ($pagePromoPricing['final'] ?? '')) !== '') {
       $hasPagePrice = true;
   }
@@ -341,7 +342,8 @@
                       @if($heroMiniDescription !== '')
                         <p class="hero-mini-description">{!! $heroMiniDescription !!}</p>
                       @endif
-                      <p>‍</p>
+                      @include('partials.bing-offer-hero', ['bingOfferPricing' => $bingOfferPricing])
+                      <p class="bing-hide">‍</p>
                       <div class="w-embed">
                         <h2 data-city=""><span data-area-label>Bay Area</span> Installers</h2>
                         @include('partials.service-area-phones', [
@@ -368,14 +370,18 @@
                       'localLabel' => null,
                       'alwaysVisible' => false,
                     ])
+                    @include('partials.bing-offer-hero')
                     @if(!empty($heroBrandsOverlay))
                       {{-- Home ?new-brands=true: white brand logos marquee right under the headline (desktop). --}}
                       @include('partials.hero-brands', ['heroBrandsPlacement' => 'desktop'])
+                    @elseif(!empty($heroBrandsForBing))
+                      @include('partials.hero-brands', ['heroBrandsPlacement' => 'desktop', 'heroBrandsBing' => true])
                     @endif
                     <div class="hero-mobile-promo-slot hero-mobile-promo-slot--mobile">
                       @include('partials.hero-mobile-promo', [
                         'buttonLabel' => 'Request a Free Estimate',
                         'showBrands' => !empty($heroBrandsOverlay),
+                        'showBingBrands' => empty($heroBrandsOverlay) && !empty($heroBrandsForBing),
                       ])
                     </div>
                     @endif
@@ -438,6 +444,10 @@
                     <label for="email-banner" class="body-14"></label>
                     @endif
                   </div>
+                  <p class="bing-only hero-form-bing-rule">
+                    <span class="hero-form-bing-rule__pct">{{ bing_offer_percent() }}% OFF</span>
+                    on projects of 3+ {{ bing_offer_units() }}
+                  </p>
                   <div class="div-block-23">
                     <div>
                       <label for="Name-2" class="field-label">Full name*</label>

@@ -24,7 +24,8 @@
                     </div>
                     <div class="mg-top-small">
                       <div class="text-neutral-light">
-                        <p class="paragraph-20">{{ $ctaText }}</p>
+                        <p class="paragraph-20 bing-hide">{{ $ctaText }}</p>
+                        <p class="paragraph-20 bing-only">Replacing 3 or more {{ bing_offer_units() }}? The whole project gets {{ bing_offer_percent() }}% OFF{{ bing_offer_end_date() !== '' ? ' until '.bing_offer_end_date() : '' }}.</p>
                       </div>
                     </div>
                     <div class="mg-top-default">

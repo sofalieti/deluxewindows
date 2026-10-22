@@ -7,7 +7,8 @@
 --}}
 @php($heroBrandItems = brand_strip_items())
 @php($heroBrandsPlacementClass = 'hero-brands--'.($heroBrandsPlacement ?? 'desktop'))
-<div class="hero-brands {{ $heroBrandsPlacementClass }}" aria-label="Brands we install">
+{{-- heroBrandsBing: rendered for everyone, shown only to Bing visitors (see bing-offer.css). --}}
+<div class="hero-brands {{ $heroBrandsPlacementClass }} @if(!empty($heroBrandsBing)) hero-brands--bing bing-only @endif" aria-label="Brands we install">
   <div class="hero-brands__viewport">
     <ul class="hero-brands__list">
       @for($copy = 0; $copy < 3; $copy++)

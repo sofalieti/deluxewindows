@@ -15,7 +15,8 @@
     Call now
   </a>
   <button type="button" class="mobile-sticky-cta__btn mobile-sticky-cta__btn--book" data-open-estimate-modal>
-    Book consultation
+    <span class="bing-hide">Book consultation</span>
+    <span class="bing-only">Get {{ bing_offer_percent() }}% OFF quote</span>
   </button>
 </div>
 @endonce

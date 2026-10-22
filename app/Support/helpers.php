@@ -281,6 +281,66 @@ if (! function_exists('promotion_category')) {
     }
 }
 
+if (! function_exists('bing_offer_units')) {
+    /**
+     * What the 3+ project discount is counted in on the current page.
+     */
+    function bing_offer_units(): string
+    {
+        return match (promotion_category()) {
+            'doors' => 'doors',
+            'windows' => 'windows',
+            default => 'windows or doors',
+        };
+    }
+}
+
+if (! function_exists('bing_offer_percent')) {
+    function bing_offer_percent(): int
+    {
+        return app(PromotionControlService::class)->globalDiscountPercent();
+    }
+}
+
+if (! function_exists('bing_offer_end_date')) {
+    /**
+     * Short promo end date ("Oct 25"), or '' when no end date is configured.
+     */
+    function bing_offer_end_date(): string
+    {
+        return trim(promotion_date('us-short-no-year'));
+    }
+}
+
+if (! function_exists('bing_offer_savings')) {
+    /**
+     * Example saving for a minimum (3-unit) project at the page's promo price.
+     *
+     * @param  array{base?: string, final?: string}|null  $pricing
+     * @return array{units: int, base: int, final: int, save: int}|null
+     */
+    function bing_offer_savings(?array $pricing, int $units = 3): ?array
+    {
+        if (! is_array($pricing)) {
+            return null;
+        }
+
+        $amount = fn (mixed $value): int => (int) round((float) preg_replace('/[^\d.]/', '', (string) $value));
+        $base = $amount($pricing['base'] ?? '');
+        $final = $amount($pricing['final'] ?? '');
+        if ($base <= 0 || $final <= 0 || $final >= $base) {
+            return null;
+        }
+
+        return [
+            'units' => $units,
+            'base' => $base,
+            'final' => $final,
+            'save' => ($base - $final) * $units,
+        ];
+    }
+}
+
 if (! function_exists('site_css_bundle_url')) {
     /**
      * Concatenate several public CSS files into a single hash-named bundle

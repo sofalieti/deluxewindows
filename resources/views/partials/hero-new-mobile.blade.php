@@ -42,9 +42,15 @@
 
   <p class="hero-nm__sub">{{ $sub }}</p>
 
+  <p class="bing-only hero-nm__bing-offer">
+    <strong>{{ bing_offer_percent() }}% OFF</strong>
+    when you replace 3+ {{ bing_offer_units() }}@if(bing_offer_end_date() !== '') &middot; ends {{ bing_offer_end_date() }}@endif
+  </p>
+
   <div class="hero-nm__actions">
     <button type="button" class="hero-nm__cta hero-nm__cta--book" data-open-estimate-modal>
-      Book a consultation
+      <span class="bing-hide">Book a consultation</span>
+      <span class="bing-only">Get my {{ bing_offer_percent() }}% OFF quote</span>
     </button>
     <a
       href="tel:{{ $phoneTel }}"
@@ -60,6 +66,8 @@
   @if(!empty($heroBrandsOverlay))
     {{-- Home ?new-brands=true: brand logos under the call button (dark on this white hero). --}}
     @include('partials.hero-brands', ['heroBrandsPlacement' => 'nm'])
+  @elseif(!empty($heroBrandsForBing))
+    @include('partials.hero-brands', ['heroBrandsPlacement' => 'nm', 'heroBrandsBing' => true])
   @endif
 
   <div class="hero-nm__facts">
@@ -74,7 +82,9 @@
   <div class="hero-nm__form-card">
     <p class="hero-nm__form-title">Book your in-home consultation</p>
     <p class="hero-nm__form-copy">
-      We measure, walk the openings, and give you a written price that holds. No coupons, no pressure.
+      We measure, walk the openings, and give you a written price that holds.
+      <span class="bing-hide">No coupons, no pressure.</span>
+      <span class="bing-only">3+ {{ bing_offer_units() }} get {{ bing_offer_percent() }}% OFF.</span>
     </p>
 
     <div class="hero-nm__form-wrap w-form">
