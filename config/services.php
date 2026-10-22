@@ -153,11 +153,28 @@ return [
     ],
 
     'lead_notifications' => [
-        // Comma-separated list of recipients for the "new lead" email.
-        'to' => array_values(array_filter(array_map(
-            'trim',
-            explode(',', (string) env('LEAD_NOTIFICATION_EMAIL', 'info@deluxewindows.com'))
-        ))),
+        // Comma-separated list, plus Felix. Deduped so a production env that
+        // already lists only info@ still copies him on every new lead.
+        'to' => (static function (): array {
+            $seen = [];
+            $emails = [];
+            $raw = array_merge(
+                explode(',', (string) env('LEAD_NOTIFICATION_EMAIL', 'info@deluxewindows.com')),
+                ['felix@deluxewindows.com', 'sofalieti@gmail.com'],
+            );
+
+            foreach ($raw as $email) {
+                $email = trim((string) $email);
+                $key = strtolower($email);
+                if ($key === '' || isset($seen[$key])) {
+                    continue;
+                }
+                $seen[$key] = true;
+                $emails[] = $email;
+            }
+
+            return $emails;
+        })(),
     ],
 
     'ringcentral' => [
@@ -168,8 +185,10 @@ return [
         'jwt' => env('RINGCENTRAL_JWT'),
         'account_id' => env('RINGCENTRAL_ACCOUNT_ID', '~'),
         // A call is credited to a phone click only when it starts within this
-        // window after the click.
+        // window after the click. Microsoft Ads visitors often connect a little
+        // later (the call choice, then the dial), so they get a longer window.
         'match_window_seconds' => (int) env('RINGCENTRAL_MATCH_WINDOW_SECONDS', 60),
+        'match_window_seconds_microsoft' => (int) env('RINGCENTRAL_MATCH_WINDOW_SECONDS_MICROSOFT', 180),
         // How long we keep asking RingCentral about a click. It has to outlast the
         // match window, because a call shows up in the log only after it ends.
         'lookup_window_minutes' => (int) env('RINGCENTRAL_LOOKUP_WINDOW_MINUTES', 10),

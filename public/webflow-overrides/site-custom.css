@@ -3686,4 +3686,12 @@ button.qty-pick__face:focus {
   }
 }
 
+/* Homepage, Microsoft, about 1130px and narrower: smaller left hero headline. */
+@media (min-width: 992px) and (max-width: 1130px) {
+  html.dw-bing .div-block-59:not(.service-area-hero) .hero-page h1.heading-4 {
+    font-size: 52px;
+    line-height: 1.1;
+  }
+}
+
 

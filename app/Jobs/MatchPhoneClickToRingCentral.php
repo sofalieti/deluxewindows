@@ -35,8 +35,15 @@ class MatchPhoneClickToRingCentral implements ShouldQueue
     {
         $transcriptQueue = app(CallTranscriptionQueue::class);
 
-        Cache::lock('ringcentral:phone-click:'.$this->phoneClickId, 55)->get(
-            function () use ($ringCentral, $transcriptQueue): void {
+        $lock = Cache::lock('ringcentral:phone-click:'.$this->phoneClickId, 55);
+        if (! $lock->get()) {
+            // Another lookup for this click is still running. A nested retry on
+            // the sync queue must not start a second one, or the click stays
+            // on "Checking" forever. The scheduled matcher picks it up again.
+            return;
+        }
+
+        try {
                 $click = PhoneClick::query()->find($this->phoneClickId);
                 if (! $click || $click->isSpam()) {
                     return;
@@ -148,8 +155,9 @@ class MatchPhoneClickToRingCentral implements ShouldQueue
                 }
 
                 $this->scheduleRetryOrFinish($click, $deadline, $now);
-            }
-        );
+        } finally {
+            $lock->release();
+        }
     }
 
     public function failed(?\Throwable $exception): void

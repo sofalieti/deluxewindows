@@ -78,5 +78,18 @@ return Application::configure(basePath: dirname(__DIR__))
             ->timezone('America/Los_Angeles')
             ->withoutOverlapping()
             ->when(fn () => \Illuminate\Support\Facades\Schema::hasTable('crm_tasks'));
+
+        $schedule->command('calls:match-pending')
+            ->everyMinute()
+            ->withoutOverlapping()
+            ->when(fn () => \Illuminate\Support\Facades\Schema::hasTable('phone_clicks')
+                && filled(config('services.ringcentral.client_id'))
+                && filled(config('services.ringcentral.jwt')));
+
+        $schedule->command('calls:site-digest')
+            ->dailyAt('20:00')
+            ->timezone('America/Los_Angeles')
+            ->withoutOverlapping()
+            ->when(fn () => \Illuminate\Support\Facades\Schema::hasTable('phone_clicks'));
     })
     ->create();

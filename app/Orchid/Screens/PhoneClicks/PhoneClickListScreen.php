@@ -9,6 +9,7 @@ use App\Models\CrmNote;
 use App\Models\PhoneClick;
 use App\Services\Ads\GoogleAdsOfflineSheetExporter;
 use App\Services\Ads\OfflineConversionStatsService;
+use App\Services\MicrosoftPhoneClickRecheck;
 use App\Services\PhoneClickGoogleBridge;
 use App\Services\RingCentralCallLogService;
 use App\Services\TrafficSourceVisibility;
@@ -116,6 +117,10 @@ class PhoneClickListScreen extends Screen
                 ->icon('bs.link-45deg')
                 ->method('rematchUnmatched')
                 ->confirm('Reset and re-match the latest 100 non-spam phone clicks against each click phone number?'),
+            Button::make('Re-check Microsoft calls')
+                ->icon('bs.telephone')
+                ->method('recheckMicrosoftCalls')
+                ->confirm('Re-check Microsoft Ads phone clicks from the last 30 days that are still checking, failed, or had no call? A call that started within 3 minutes of the tap can be matched. You will see how many matched and the latest error.'),
         ];
     }
 
@@ -340,6 +345,41 @@ class PhoneClickListScreen extends Screen
         } catch (Throwable $exception) {
             report($exception);
             Toast::error('RingCentral check failed: '.$exception->getMessage());
+        }
+    }
+
+    public function recheckMicrosoftCalls(MicrosoftPhoneClickRecheck $recheck): void
+    {
+        try {
+            $result = $recheck->run();
+        } catch (Throwable $exception) {
+            report($exception);
+            Toast::error('Microsoft call re-check failed: '.$exception->getMessage());
+
+            return;
+        }
+
+        if ($result['checked'] === 0) {
+            Toast::info('No Microsoft Ads phone clicks from the last 30 days need a re-check.');
+
+            return;
+        }
+
+        $message = sprintf(
+            'Microsoft calls: %d checked, %d matched, %d with no call, %d still failed.',
+            $result['checked'],
+            $result['matched'],
+            $result['no_call'],
+            $result['failed'],
+        );
+        if ($result['remaining'] > 0) {
+            $message .= ' '.$result['remaining'].' older ones are still waiting — run this again.';
+        }
+
+        Toast::success($message);
+
+        if (is_string($result['last_error']) && $result['last_error'] !== '') {
+            Toast::warning('Latest RingCentral error: '.$result['last_error']);
         }
     }
 

@@ -8,6 +8,9 @@
     <span class="lead-status-badge lead-status-badge--{{ $color }}">
         {{ $click->ringCentralStatusLabel() }}
     </span>
+    @if (in_array($status, [\App\Models\PhoneClick::RINGCENTRAL_ERROR, \App\Models\PhoneClick::RINGCENTRAL_PENDING], true) && trim((string) $click->ringcentral_error) !== '')
+        <div class="phone-click-rc__meta">{{ \Illuminate\Support\Str::limit((string) $click->ringcentral_error, 140) }}</div>
+    @endif
 
     @if ($status === \App\Models\PhoneClick::RINGCENTRAL_FOUND)
         <div class="phone-click-rc__meta">

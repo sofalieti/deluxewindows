@@ -40,7 +40,7 @@ class RingCentralCallLogService
         $clickAt = $this->clickTimeUtc($click);
         $tolerance = max(0, (int) config('services.ringcentral.clock_tolerance_seconds', 30));
         $dateFrom = $clickAt->subSeconds($tolerance);
-        $windowEnd = $clickAt->addSeconds($this->matchWindowSeconds());
+        $windowEnd = $clickAt->addSeconds($this->matchWindowSeconds($click));
         $currentTime = CarbonImmutable::now('UTC');
         $dateTo = $currentTime->lessThan($windowEnd) ? $currentTime : $windowEnd;
 
@@ -68,9 +68,15 @@ class RingCentralCallLogService
     /**
      * How long after a click a call may start and still be credited to it.
      */
-    public function matchWindowSeconds(): int
+    public function matchWindowSeconds(?PhoneClick $click = null): int
     {
-        return max(15, (int) config('services.ringcentral.match_window_seconds', 90));
+        $window = max(15, (int) config('services.ringcentral.match_window_seconds', 90));
+
+        if ($click !== null && $click->trafficSourceKey() === 'microsoft_ads') {
+            $window = max($window, (int) config('services.ringcentral.match_window_seconds_microsoft', 180));
+        }
+
+        return $window;
     }
 
     /**
