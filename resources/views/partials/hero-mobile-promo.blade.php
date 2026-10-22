@@ -14,6 +14,10 @@
   $localPhone = $localPhone ?? null;
   $heroPhoneTel = $localPhone['phone_tel'] ?? site_phone_tel();
   $heroPhoneDisplay = $localPhone['phone_display'] ?? site_phone_display();
+  $bingConditionHtml = '<div class="bing-only hero-mobile-promo__condition">On 3+ '.e(bing_offer_units()).'</div>';
+  if ($variant === 'price' && is_string($badgeHtml) && str_contains($badgeHtml, 'promo-price-tag')) {
+      $badgeHtml = preg_replace('/<\/div>\s*$/', $bingConditionHtml.'</div>', $badgeHtml, 1);
+  }
 @endphp
 
 {{-- promo-offer.css is served inside the layout CSS bundle (see layouts/classic.blade.php) --}}
@@ -28,15 +32,13 @@
           <span class="promo-price-tag-new">{{ $percent }}</span>
         </div>
         <div class="promo-price-tag-note">{{ $badgeNote }}</div>
+        <div class="bing-only hero-mobile-promo__condition">On 3+ {{ bing_offer_units() }}</div>
         @if($showExpires)
           <div class="hero-mobile-promo__expires">Offer ends {{ promotion_date('us-short-no-year') }}</div>
         @endif
       </div>
     @endif
   </div>
-  <p class="bing-only hero-mobile-promo__bing-rule">
-    {{ bing_offer_percent() }}% OFF on projects of 3+ {{ bing_offer_units() }}
-  </p>
   <button type="button" class="hero-mobile-promo__btn" data-open-estimate-modal>
     <span class="bing-hide">{{ $buttonLabel }}</span>
     <span class="bing-only">Get My 3+ Discount Quote</span>

@@ -114,19 +114,37 @@ html.dw-bing .bing-hide {
   white-space: nowrap;
 }
 
-/* Mobile hero (old variant): condition under the price tag. */
-.hero-mobile-promo__bing-rule {
-  align-self: center;
-  width: max-content;
-  max-width: calc(100vw - 32px);
-  margin: 0;
-  padding: 6px 12px;
-  border-radius: 999px;
-  background: rgba(7, 33, 66, 0.82);
+/* Mobile hero: the 3+ condition lives inside the blue price plaque. */
+@media (max-width: 991px) {
+  html.dw-bing .hero-mobile-promo {
+    max-width: 280px;
+  }
+
+  html.dw-bing .hero-mobile-promo__badge,
+  html.dw-bing .hero-mobile-promo__badge .promo-price-tag {
+    min-width: 240px;
+  }
+
+  html.dw-bing .hero-mobile-promo__badge .promo-price-tag {
+    padding: 16px 18px 14px;
+  }
+
+  html.dw-bing .hero-mobile-promo__badge .promo-price-tag--percent .promo-price-tag-new {
+    font-size: 48px !important;
+  }
+
+  html.dw-bing .hero-mobile-promo__badge .promo-price-tag-note {
+    font-size: 16px !important;
+    letter-spacing: 0.4px;
+  }
+}
+
+.hero-mobile-promo__condition {
+  margin: 8px 0 0;
   color: #fff;
-  font-size: 13px;
-  line-height: 1.3;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.2;
   text-align: center;
   text-shadow: none;
 }
