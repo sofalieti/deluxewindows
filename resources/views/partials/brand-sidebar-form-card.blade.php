@@ -6,10 +6,6 @@
             </div>
             <div class="mg-top-small-4">
               <p class="text-titles-3"><em>Request a FREE No-Obligation Quote &amp; Expert Advice!</em><br></p>
-              <p class="bing-only hero-form-bing-rule hero-form-bing-rule--sidebar">
-                <span class="hero-form-bing-rule__pct">{{ bing_offer_percent() }}% OFF</span>
-                on projects of 3+ {{ bing_offer_units() }}
-              </p>
             </div>
           </div>
           <div class="mg-top-default-4">

@@ -444,10 +444,6 @@
                     <label for="email-banner" class="body-14"></label>
                     @endif
                   </div>
-                  <p class="bing-only hero-form-bing-rule">
-                    <span class="hero-form-bing-rule__pct">{{ bing_offer_percent() }}% OFF</span>
-                    on projects of 3+ {{ bing_offer_units() }}
-                  </p>
                   <div class="div-block-23">
                     <div>
                       <label for="Name-2" class="field-label">Full name*</label>
