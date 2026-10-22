@@ -580,8 +580,8 @@ class LeadEditScreen extends Screen
     {
         $answer = $this->lead?->openingSummary() ?? '';
 
-        return ($answer !== '' ? 'Visitor answered: '.$answer.' (preliminary). ' : '')
-            .'Bing "Qualified Lead - 3+ Windows" needs 3+ windows, private house, service-area ZIP and the decision maker, confirmed by staff.';
+        return ($answer !== '' ? 'Visitor answered: '.$answer.'. ' : '')
+            .'Bing "Qualified Lead - 3+ Windows" is sent automatically when the visitor picks 3+ on the form; these fields are for the team.';
     }
 
     private function bingQualifiedSummary(Lead $lead): string

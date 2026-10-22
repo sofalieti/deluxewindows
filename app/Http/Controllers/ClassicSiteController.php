@@ -180,6 +180,7 @@ class ClassicSiteController extends Controller
             ),
             'discountHtml' => $discountHtml,
             'pagePromotionAvailable' => $pagePromotionAvailable,
+            'windowPromotionPricing' => $windowPricing,
             'warrantyHtml' => $fieldData['warrantytext'] ?? '',
             'heroImage' => $heroImage ?? '',
             'galleryImages' => $galleryImages,
@@ -694,6 +695,7 @@ class ClassicSiteController extends Controller
 
         app(ContactFromLeadService::class)->attachNewLead($lead);
         app(\App\Services\CrmTaskAutomation::class)->onLeadCreated($lead->refresh());
+        app(\App\Services\Ads\MicrosoftQualifiedLeadService::class)->evaluate($lead);
 
         $notifyRecipients = (array) config('services.lead_notifications.to', []);
         if ($notifyRecipients !== []) {

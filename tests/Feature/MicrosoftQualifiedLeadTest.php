@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Queue;
 
+use function Pest\Laravel\postJson;
+
 uses(RefreshDatabase::class);
 
 beforeEach(function () {
@@ -31,54 +33,32 @@ beforeEach(function () {
         'api_base_url' => 'https://campaign.bingads.test',
         'oauth_token_url' => 'https://login.test/token',
     ]);
+    config()->set('services.lead_notifications.to', []);
 
     Cache::flush();
 
     $this->travelTo(
         CarbonImmutable::parse('2026-10-22 18:30:00 UTC')->setTimezone((string) config('app.timezone'))
     );
-    $this->actingAs(User::factory()->create());
 });
 
 afterEach(function () {
     $this->travelBack();
 });
 
-function qualifiedLeadFixture(array $overrides = []): Lead
+function submitLeadForm(array $overrides = []): Lead
 {
-    return Lead::query()->create(array_merge([
-        'full_name' => 'Pat Example',
-        'email' => 'pat@example.com',
-        'phone' => '(650) 555-0101',
-        'status' => Lead::STATUS_NEW,
-        'meta' => ['msclkid' => 'bing-click-abc123', 'window_count' => '6-10'],
-    ], $overrides));
-}
+    postJson('/contact-form', array_merge([
+        'Name' => 'Pat Example',
+        'Phone' => '6505550101',
+        'Email' => 'pat@example.com',
+        'window_count' => '6-10',
+        'opening_kind' => 'windows',
+        'msclkid' => 'bing-click-abc123',
+        'page_url' => 'https://www.deluxewindows.com/',
+    ], $overrides))->assertOk()->assertJsonPath('spam', false);
 
-function staffSave(Lead $lead, array $qualification, string $status = Lead::STATUS_APPOINTMENT, array $leadOverrides = []): void
-{
-    $request = Request::create('/admin/leads/'.$lead->id.'/edit', 'POST', [
-        'lead' => array_merge([
-            'full_name' => $lead->full_name,
-            'email' => $lead->email,
-            'phone' => $lead->phone,
-            'status' => $status,
-        ], $leadOverrides),
-        'qualification' => $qualification,
-    ]);
-
-    (new LeadEditScreen)->saveLead($lead, $request);
-}
-
-function threePlusHouse(array $overrides = []): array
-{
-    return array_merge([
-        'window_count' => '3-4',
-        'project_type' => 'replacement',
-        'property_type' => 'house',
-        'zip' => '94502',
-        'decision_maker' => 'yes',
-    ], $overrides);
+    return Lead::query()->latest('id')->firstOrFail();
 }
 
 function fakeMicrosoft(array $applyResponses = []): void
@@ -94,185 +74,150 @@ function fakeMicrosoft(array $applyResponses = []): void
     ]);
 }
 
-test('a 1-2 window lead moved to appointment does not qualify for Microsoft', function () {
+function applyPayloads(): \Illuminate\Support\Collection
+{
+    return collect(Http::recorded())
+        ->filter(fn ($pair) => str_contains($pair[0]->url(), '/OfflineConversions/Apply'))
+        ->map(fn ($pair) => $pair[0]['OfflineConversions'][0])
+        ->values();
+}
+
+test('a visitor who picks fewer than 3 windows or not sure is not qualified', function (string $count) {
     Queue::fake();
-    $lead = qualifiedLeadFixture();
 
-    staffSave($lead, threePlusHouse(['window_count' => '1-2']));
+    $lead = submitLeadForm(['window_count' => $count]);
 
-    $lead->refresh();
-    expect($lead->status)->toBe(Lead::STATUS_APPOINTMENT)
-        ->and($lead->qualification_window_count)->toBe('1-2')
-        ->and($lead->bing_qualified_at)->toBeNull()
+    expect($lead->refresh()->bing_qualified_at)->toBeNull()
         ->and($lead->bing_qualified_status)->toBeNull();
     Queue::assertNotPushed(SendLeadQualifiedToMicrosoftAds::class);
-});
+})->with(['1', '2', 'unsure']);
 
-test('a ZIP outside the service area or a non decision maker does not qualify', function (array $qualification) {
-    Queue::fake();
-    $lead = qualifiedLeadFixture();
-
-    staffSave($lead, threePlusHouse($qualification));
-
-    expect($lead->refresh()->bing_qualified_at)->toBeNull();
-    Queue::assertNotPushed(SendLeadQualifiedToMicrosoftAds::class);
-})->with([
-    'outside zone' => [['zip' => '10001']],
-    'not decision maker' => [['decision_maker' => 'no']],
-    'apartment' => [['property_type' => 'apartment']],
-    'doors only' => [['project_type' => 'doors_only']],
-]);
-
-test('a confirmed 3+ house in the service area is sent once with frozen values and no value', function () {
-    $lead = qualifiedLeadFixture();
+test('a visitor who picks 3+ windows is queued at submit time with frozen values', function (string $count) {
     Queue::fake();
 
-    staffSave($lead, threePlusHouse(['window_count' => '10plus']));
+    $lead = submitLeadForm(['window_count' => $count])->refresh();
 
-    $lead->refresh();
     expect($lead->bing_qualified_status)->toBe(Lead::BING_QUALIFIED_PENDING)
         ->and($lead->bing_qualified_msclkid)->toBe('bing-click-abc123')
         ->and($lead->bing_qualified_conversion_name)->toBe('Qualified Lead - 3+ Windows')
         ->and($lead->bing_qualified_at->utc()->format('Y-m-d H:i:s'))->toBe('2026-10-22 18:30:00');
     Queue::assertPushed(SendLeadQualifiedToMicrosoftAds::class, 1);
+})->with(['3-5', '6-10', '11plus']);
 
+test('the upload sends only click id, goal name and time, without a value', function () {
     fakeMicrosoft();
-    (new SendLeadQualifiedToMicrosoftAds($lead->id))->handle(app(MicrosoftAdsOfflineConversionService::class));
 
-    $lead->refresh();
+    $lead = submitLeadForm()->refresh();
+
     expect($lead->bing_qualified_status)->toBe(Lead::BING_QUALIFIED_SENT)
         ->and($lead->bing_qualified_sent_at)->not->toBeNull()
-        ->and($lead->bing_qualified_error)->toBeNull();
-
-    Http::assertSent(function ($request) {
-        if (! str_contains($request->url(), '/OfflineConversions/Apply')) {
-            return false;
-        }
-        $conversion = $request['OfflineConversions'][0];
-
-        return $conversion === [
+        ->and(applyPayloads()->all())->toBe([[
             'MicrosoftClickId' => 'bing-click-abc123',
             'ConversionName' => 'Qualified Lead - 3+ Windows',
             'ConversionTime' => '2026-10-22T18:30:00Z',
-        ];
-    });
+        ]]);
 });
 
-test('re-saving the card does not create a new qualification', function () {
+test('a later staff save of the card does not qualify the lead again', function () {
     Queue::fake();
-    $lead = qualifiedLeadFixture();
-    staffSave($lead, threePlusHouse());
+    $lead = submitLeadForm();
     $firstQualifiedAt = $lead->refresh()->bing_qualified_at->toIso8601String();
 
     $this->travel(2)->hours();
-    staffSave($lead->refresh(), threePlusHouse(['window_count' => '10plus']), Lead::STATUS_QUOTED, ['city' => 'Alameda']);
-    staffSave($lead->refresh(), threePlusHouse(), Lead::STATUS_APPOINTMENT, ['city' => 'Oakland']);
+    $this->actingAs(User::factory()->create());
+    (new LeadEditScreen)->saveLead($lead, Request::create('/admin/leads/'.$lead->id.'/edit', 'POST', [
+        'lead' => [
+            'full_name' => $lead->full_name,
+            'email' => $lead->email,
+            'phone' => $lead->phone,
+            'city' => 'Alameda',
+            'status' => Lead::STATUS_APPOINTMENT,
+        ],
+    ]));
 
     expect($lead->refresh()->bing_qualified_at->toIso8601String())->toBe($firstQualifiedAt);
     Queue::assertPushed(SendLeadQualifiedToMicrosoftAds::class, 1);
 });
 
-test('a retry after a partial error resends the identical conversion', function () {
+test('a retry after a partial error resends the identical conversion once', function () {
     fakeMicrosoft([
         ['PartialErrors' => [['ErrorCode' => 'OfflineConversionMicrosoftClickIdInvalid', 'Code' => 3801, 'Message' => 'Temporary']]],
         ['PartialErrors' => []],
     ]);
-    $lead = qualifiedLeadFixture();
 
-    // Sync queue in tests: the first upload runs right after the staff save.
-    staffSave($lead, threePlusHouse());
-    $lead->refresh();
+    $lead = submitLeadForm()->refresh();
     expect($lead->bing_qualified_status)->toBe(Lead::BING_QUALIFIED_FAILED)
-        ->and($lead->bing_qualified_sent_at)->toBeNull()
         ->and($lead->bing_qualified_error)->toContain('3801');
 
     $this->travel(1)->hours();
     Artisan::call('ads:retry-bing-qualified', ['--sync' => true]);
+    Artisan::call('ads:retry-bing-qualified', ['--sync' => true]);
 
     $lead->refresh();
+    $payloads = applyPayloads();
     expect($lead->bing_qualified_status)->toBe(Lead::BING_QUALIFIED_SENT)
         ->and($lead->bing_qualified_attempts)->toBe(2)
-        ->and($lead->bing_qualified_error)->toBeNull();
-
-    $payloads = collect(Http::recorded())
-        ->filter(fn ($pair) => str_contains($pair[0]->url(), '/OfflineConversions/Apply'))
-        ->map(fn ($pair) => $pair[0]['OfflineConversions'][0])
-        ->values();
-    expect($payloads)->toHaveCount(2)
-        ->and($payloads[0])->toBe($payloads[1])
-        ->and($payloads[0]['ConversionTime'])->toBe('2026-10-22T18:30:00Z');
-
-    Artisan::call('ads:retry-bing-qualified', ['--sync' => true]);
-    expect(collect(Http::recorded())->filter(fn ($pair) => str_contains($pair[0]->url(), '/OfflineConversions/Apply')))
-        ->toHaveCount(2);
+        ->and($payloads)->toHaveCount(2)
+        ->and($payloads[0])->toBe($payloads[1]);
 });
 
-test('a form and a call about the same project qualify only once', function () {
+test('two submissions about the same project qualify only once', function () {
     Queue::fake();
-    $formLead = qualifiedLeadFixture();
-    staffSave($formLead, threePlusHouse());
+    $first = submitLeadForm();
+    $second = submitLeadForm(['window_count' => '11plus', 'Name' => 'Pat Example Again']);
 
-    $click = PhoneClick::query()->create([
+    expect($first->refresh()->bing_qualified_status)->toBe(Lead::BING_QUALIFIED_PENDING)
+        ->and($second->refresh()->bing_qualified_status)->toBe(Lead::BING_QUALIFIED_SKIPPED)
+        ->and($second->bing_qualified_error)->toContain('lead #'.$first->id);
+    Queue::assertPushed(SendLeadQualifiedToMicrosoftAds::class, 1);
+});
+
+test('a confirmed phone call on the same click does not block the qualified conversion', function () {
+    Queue::fake();
+    PhoneClick::query()->create([
         'phone' => '+16504614446',
         'msclkid' => 'bing-click-abc123',
         'ringcentral_status' => PhoneClick::RINGCENTRAL_FOUND,
-    ]);
-    $callLead = qualifiedLeadFixture([
-        'email' => 'phone-click-'.$click->id.'@click.local',
-        'meta' => ['via' => 'phone-click', 'phone_click_id' => $click->id],
-    ]);
-    staffSave($callLead, threePlusHouse());
-
-    $callLead->refresh();
-    expect($formLead->refresh()->bing_qualified_status)->toBe(Lead::BING_QUALIFIED_PENDING)
-        ->and($callLead->bing_qualified_status)->toBe(Lead::BING_QUALIFIED_SKIPPED)
-        ->and($callLead->bing_qualified_error)->toContain('lead #'.$formLead->id);
-    Queue::assertPushed(SendLeadQualifiedToMicrosoftAds::class, 1);
-});
-
-test('a lead created from a confirmed call uses the call msclkid even after Phone Call Confirmed was sent', function () {
-    Queue::fake();
-    $click = PhoneClick::query()->create([
-        'phone' => '+16504614446',
-        'msclkid' => 'bing-call-click-9',
-        'ringcentral_status' => PhoneClick::RINGCENTRAL_FOUND,
         'bing_ads_conversion_sent_at' => now()->subHour(),
     ]);
-    $lead = qualifiedLeadFixture([
-        'email' => 'phone-click-'.$click->id.'@click.local',
-        'meta' => ['via' => 'phone-click', 'phone_click_id' => $click->id],
-    ]);
 
-    staffSave($lead, threePlusHouse());
+    $lead = submitLeadForm()->refresh();
 
-    $lead->refresh();
-    expect($lead->bing_qualified_status)->toBe(Lead::BING_QUALIFIED_PENDING)
-        ->and($lead->bing_qualified_msclkid)->toBe('bing-call-click-9');
+    expect($lead->bing_qualified_status)->toBe(Lead::BING_QUALIFIED_PENDING);
     Queue::assertPushed(SendLeadQualifiedToMicrosoftAds::class, 1);
 });
 
-test('a lead without msclkid is skipped for Bing with a reason', function () {
+test('a 3+ lead without msclkid is skipped for Bing with a reason', function () {
     Queue::fake();
-    $lead = qualifiedLeadFixture(['meta' => ['gclid' => 'google-click-1']]);
 
-    staffSave($lead, threePlusHouse());
+    $lead = submitLeadForm(['msclkid' => '', 'gclid' => 'google-click-1'])->refresh();
 
-    $lead->refresh();
     expect($lead->bing_qualified_status)->toBe(Lead::BING_QUALIFIED_SKIPPED)
         ->and($lead->bing_qualified_error)->toContain('No MSCLKID');
     Queue::assertNotPushed(SendLeadQualifiedToMicrosoftAds::class);
 });
 
-test('a qualification outside the conversion window is skipped', function () {
+test('spam and leads older than the conversion window are not sent', function () {
     Queue::fake();
-    $lead = qualifiedLeadFixture();
-    $lead->created_at = now()->subDays(120);
-    $lead->save();
+    $service = app(\App\Services\Ads\MicrosoftQualifiedLeadService::class);
 
-    staffSave($lead, threePlusHouse());
+    $spam = Lead::query()->create([
+        'full_name' => 'Spam', 'email' => 's@example.com', 'phone' => '6505550000',
+        'status' => Lead::STATUS_SPAM,
+        'meta' => ['msclkid' => 'bing-spam', 'window_count' => '6-10'],
+    ]);
+    $old = Lead::query()->create([
+        'full_name' => 'Old', 'email' => 'o@example.com', 'phone' => '6505550001',
+        'meta' => ['msclkid' => 'bing-old', 'window_count' => '6-10'],
+    ]);
+    $old->created_at = now()->subDays(120);
+    $old->save();
 
-    $lead->refresh();
-    expect($lead->bing_qualified_status)->toBe(Lead::BING_QUALIFIED_SKIPPED)
-        ->and($lead->bing_qualified_error)->toContain('conversion window');
+    $service->evaluate($spam);
+    $service->evaluate($old);
+
+    expect($spam->refresh()->bing_qualified_at)->toBeNull()
+        ->and($old->refresh()->bing_qualified_status)->toBe(Lead::BING_QUALIFIED_SKIPPED)
+        ->and($old->bing_qualified_error)->toContain('conversion window');
     Queue::assertNotPushed(SendLeadQualifiedToMicrosoftAds::class);
 });

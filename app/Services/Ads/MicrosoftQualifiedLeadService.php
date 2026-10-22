@@ -11,39 +11,26 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * Decides once per project whether a staff-confirmed lead becomes the Microsoft Ads
- * "Qualified Lead - 3+ Windows" conversion, freezes what will be sent and queues it.
+ * Turns a clean lead whose visitor picked 3+ windows on the form into the Microsoft Ads
+ * "Qualified Lead - 3+ Windows" conversion, once per project, and queues the upload.
  *
- * Runs next to the Google appointment export but never changes it: Google keeps its
- * own rules, Bing gets the stricter staff-confirmed ones.
+ * Mirrors the browser Google "Qualified Lead" rule without touching it.
  */
 final class MicrosoftQualifiedLeadService
 {
     /**
-     * Appointment is the qualification step; later stages imply it already happened.
+     * Visitor answers that mean 3 or more openings; the legacy buckets are kept for old forms.
      */
-    public const QUALIFIED_STATUSES = [
-        Lead::STATUS_APPOINTMENT,
-        Lead::STATUS_QUOTED,
-        Lead::STATUS_WON,
-        Lead::STATUS_SOLD,
-    ];
+    public const ELIGIBLE_VISITOR_COUNTS = ['3-5', '6-10', '11plus'];
 
-    private const ELIGIBLE_WINDOW_COUNTS = ['3-4', '5-9', '10plus'];
-
-    private const ELIGIBLE_PROJECT_TYPES = ['replacement', 'new_construction'];
-
-    /**
-     * @var array<string, true>|null
-     */
-    private ?array $serviceZips = null;
+    private const ELIGIBLE_LEGACY_COUNTS = ['4-10', '11+'];
 
     public function __construct(
         private readonly MicrosoftAdsOfflineConversionService $microsoft,
     ) {}
 
     /**
-     * Safe to call on every save: the first qualification is final.
+     * Safe to call repeatedly: the first qualification is final.
      */
     public function evaluate(Lead $lead): void
     {
@@ -57,7 +44,8 @@ final class MicrosoftQualifiedLeadService
             return;
         }
 
-        $qualifiedAt = now()->startOfSecond();
+        // The visitor qualified the lead by submitting the form, so that is the conversion time.
+        $qualifiedAt = ($lead->created_at ?? now())->copy()->startOfSecond();
         $msclkid = $lead->resolvedMsclkid();
         [$status, $reason] = $this->decide($lead, $msclkid, $qualifiedAt);
 
@@ -90,42 +78,20 @@ final class MicrosoftQualifiedLeadService
     }
 
     /**
-     * Why the staff qualification does not (yet) make this a 3+ windows project.
+     * Why this lead is not a 3+ windows lead.
      */
     public function ineligibleReason(Lead $lead): ?string
     {
-        if (! in_array((string) $lead->status, self::QUALIFIED_STATUSES, true)) {
-            return 'Status is not Appointment or later.';
+        if ($lead->status === Lead::STATUS_SPAM) {
+            return 'Lead is spam.';
         }
 
-        if (! in_array((string) $lead->qualification_window_count, self::ELIGIBLE_WINDOW_COUNTS, true)) {
-            return 'Confirmed window count is not 3+.';
-        }
-
-        if (! in_array((string) $lead->qualification_project_type, self::ELIGIBLE_PROJECT_TYPES, true)) {
-            return 'Project type is not window replacement or new construction.';
-        }
-
-        if ($lead->qualification_property_type !== 'house') {
-            return 'Property is not a private house.';
-        }
-
-        if (! $this->isServiceZip($lead->qualification_zip)) {
-            return 'ZIP is outside the service area.';
-        }
-
-        if ($lead->qualification_decision_maker !== true) {
-            return 'Contact is not confirmed as owner / decision maker.';
+        if (! in_array($lead->metaValue('window_count'), self::ELIGIBLE_VISITOR_COUNTS, true)
+            && ! in_array($lead->metaValue('opening_count'), self::ELIGIBLE_LEGACY_COUNTS, true)) {
+            return 'Visitor did not pick 3+ windows on the form.';
         }
 
         return null;
-    }
-
-    public function isServiceZip(?string $zip): bool
-    {
-        $digits = substr(preg_replace('/\D/', '', (string) $zip) ?? '', 0, 5);
-
-        return strlen($digits) === 5 && isset($this->serviceZips()[$digits]);
     }
 
     public static function mask(?string $value): ?string
@@ -152,8 +118,8 @@ final class MicrosoftQualifiedLeadService
         }
 
         $windowDays = max(1, (int) config('services.microsoft_ads.qualified_window_days', 90));
-        if ($lead->created_at !== null && $lead->created_at->lt($qualifiedAt->copy()->subDays($windowDays))) {
-            return [Lead::BING_QUALIFIED_SKIPPED, 'Qualified more than '.$windowDays.' days after the ad click; outside the conversion window.'];
+        if ($qualifiedAt->lt(now()->subDays($windowDays))) {
+            return [Lead::BING_QUALIFIED_SKIPPED, 'Lead is older than '.$windowDays.' days; outside the conversion window.'];
         }
 
         return [Lead::BING_QUALIFIED_PENDING, null];
@@ -192,27 +158,5 @@ final class MicrosoftQualifiedLeadService
             ->value('id');
 
         return $id !== null ? (int) $id : null;
-    }
-
-    /**
-     * @return array<string, true>
-     */
-    private function serviceZips(): array
-    {
-        if ($this->serviceZips !== null) {
-            return $this->serviceZips;
-        }
-
-        $this->serviceZips = [];
-        $path = database_path('data/city-zips.json');
-        $data = is_file($path) ? json_decode((string) file_get_contents($path), true) : null;
-
-        foreach ((array) $data as $zips) {
-            foreach ((array) $zips as $zip) {
-                $this->serviceZips[(string) $zip] = true;
-            }
-        }
-
-        return $this->serviceZips;
     }
 }
