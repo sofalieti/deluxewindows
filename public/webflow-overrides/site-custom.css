@@ -3464,6 +3464,11 @@ button.qty-pick__face::after {
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%2356657a' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' d='M3.5 6.5 8 11l4.5-4.5'/%3E%3C/svg%3E") center / 14px 14px no-repeat;
 }
 
+.qty-pick.is-open {
+  position: relative;
+  z-index: 30;
+}
+
 .qty-pick.is-open button.qty-pick__face {
   border-radius: var(--qty-radius) var(--qty-radius) 0 0;
   z-index: 2;
@@ -3484,8 +3489,11 @@ button.qty-pick__face:focus {
 }
 
 .qty-pick__menu {
-  position: relative;
-  z-index: 1;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  z-index: 5;
   width: 100%;
   box-sizing: border-box;
   margin: -1px 0 0;
@@ -3495,6 +3503,13 @@ button.qty-pick__face:focus {
   border-top: 0;
   border-radius: 0 0 var(--qty-radius) var(--qty-radius);
   background: #fafafb;
+}
+
+/* The hero clips overflow for the background photo. Let the open list paint over the fields. */
+.div-block-59:has(.qty-pick.is-open),
+.form-block-2:has(.qty-pick.is-open),
+.w-form:has(.qty-pick.is-open) {
+  overflow: visible;
 }
 
 .qty-pick__option {
@@ -3562,6 +3577,24 @@ button.qty-pick__face:focus {
 .mobile-estimate-modal__form button.qty-pick__face {
   height: 42px;
   min-height: 42px;
+}
+
+/* The open list overlays the fields under it, so the dialog does not grow a scrollbar. */
+.mobile-estimate-modal__form .qty-pick.is-open {
+  position: relative;
+  z-index: 6;
+}
+
+.mobile-estimate-modal__form .qty-pick__menu {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  z-index: 5;
+}
+
+.mobile-estimate-modal__dialog:has(.qty-pick.is-open) {
+  overflow: visible;
 }
 
 .rf-field.qty-pick {
@@ -3683,6 +3716,31 @@ button.qty-pick__face:focus {
   .hero-page .form-block-2 .hero-form-offer-footer,
   .hero-page .form-block-2 .hero-form-offer-footer__note {
     font-size: 12px;
+  }
+}
+
+/* Contact Us blocks: light gray section, form on a white rounded card. */
+section#contact.hero-v4,
+section#contact.hero-v4.section-bg-none {
+  background: #eef1f4;
+}
+
+section#contact .form-block-2 form.form-3,
+section#contact .form-block-2 form.form-4,
+section#contact .form-wrapper-v1 form.form {
+  background: #fff;
+  border: 1px solid #e4e9ee;
+  border-radius: 20px;
+  box-shadow: 0 12px 32px rgba(15, 35, 55, 0.07);
+  padding: 28px 28px 22px;
+}
+
+@media (max-width: 991px) {
+  section#contact .form-block-2 form.form-3,
+  section#contact .form-block-2 form.form-4,
+  section#contact .form-wrapper-v1 form.form {
+    padding: 18px 16px 16px;
+    border-radius: 16px;
   }
 }
 
