@@ -31,7 +31,7 @@ class SiteCallDigestMail extends Mailable
         $day = $this->windowEnd->timezone('America/Los_Angeles')->format('M j, Y');
 
         return new Envelope(
-            subject: 'Site calls · '.$day.' ('.$this->clicks->count().')',
+            subject: 'Connected site calls · '.$day.' ('.$this->clicks->count().')',
         );
     }
 

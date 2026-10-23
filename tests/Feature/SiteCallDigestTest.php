@@ -69,6 +69,19 @@ test('the evening digest emails matched site calls with the caller number and su
 
     PhoneClick::query()->create([
         'phone' => '+16504614446',
+        'page_url' => 'https://www.deluxewindows.com/doors',
+        'source_label' => 'hero-phone',
+        'ringcentral_status' => PhoneClick::RINGCENTRAL_FOUND,
+        'ringcentral_call_id' => 'digest-call-missed',
+        'ringcentral_from_phone' => '+16505559999',
+        'ringcentral_result' => 'Missed',
+        'ringcentral_duration' => 0,
+        'ringcentral_call_started_at' => Carbon::parse('2026-10-22 16:00:00', 'America/Los_Angeles'),
+        'created_at' => Carbon::parse('2026-10-22 15:59:00', 'America/Los_Angeles'),
+    ]);
+
+    PhoneClick::query()->create([
+        'phone' => '+16504614446',
         'ringcentral_status' => PhoneClick::RINGCENTRAL_FOUND,
         'is_spam' => true,
         'created_at' => Carbon::parse('2026-10-22 12:00:00', 'America/Los_Angeles'),
@@ -90,10 +103,12 @@ test('the evening digest emails matched site calls with the caller number and su
 
             return $mail->hasTo('info@deluxewindows.com')
                 && $mail->hasTo('felix@deluxewindows.com')
-                && $mail->clicks->count() === 2
+                && $mail->clicks->count() === 1
                 && str_contains($html, '+1 (650) 555-1212')
                 && str_contains($html, 'Caller wants a quote for eight windows in San Mateo.')
-                && str_contains($html, 'RingCentral did not find a call');
+                && str_contains($html, 'Only calls where someone got through')
+                && ! str_contains($html, '+1 (650) 555-9999')
+                && ! str_contains($html, 'RingCentral did not find a call');
         });
     } finally {
         Carbon::setTestNow();

@@ -13,7 +13,7 @@ class SiteCallDigestCommand extends Command
 {
     protected $signature = 'calls:site-digest';
 
-    protected $description = 'Email the last 24 hours of website phone calls';
+    protected $description = 'Email the last 24 hours of website calls that connected';
 
     public function handle(): int
     {
@@ -38,11 +38,12 @@ class SiteCallDigestCommand extends Command
                     ->orWhereBetween('ringcentral_call_started_at', [$windowStart, $windowEnd]);
             })
             ->get()
+            ->filter(fn (PhoneClick $click) => $click->isConnectedCall())
             ->sortBy(fn (PhoneClick $click) => ($click->ringcentral_call_started_at ?? $click->created_at)?->getTimestamp() ?? 0)
             ->values();
 
         if ($clicks->isEmpty()) {
-            $this->info('No site calls in this window.');
+            $this->info('No connected site calls in this window.');
 
             return self::SUCCESS;
         }

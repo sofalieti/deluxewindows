@@ -4,9 +4,6 @@
     $tz = 'America/Los_Angeles';
     $fromLabel = $windowStart->timezone($tz)->format('M j, g:i A');
     $untilLabel = $windowEnd->timezone($tz)->format('M j, g:i A T');
-    $matched = $clicks->filter(
-        fn (PhoneClick $click) => $click->ringcentral_status === PhoneClick::RINGCENTRAL_FOUND
-    )->count();
 
     $formatPhone = function (?string $raw): string {
         $raw = trim((string) $raw);
@@ -46,14 +43,14 @@
         <tr>
           <td style="background-color:#0b2e4f;padding:24px 28px;">
             <div style="color:#ffffff;font-size:18px;font-weight:600;">Deluxe Windows &amp; Doors</div>
-            <div style="color:#9fb6cc;font-size:13px;padding-top:4px;">Website calls · {{ $fromLabel }} – {{ $untilLabel }}</div>
+            <div style="color:#9fb6cc;font-size:13px;padding-top:4px;">Connected website calls · {{ $fromLabel }} – {{ $untilLabel }}</div>
           </td>
         </tr>
         <tr>
           <td style="padding:22px 28px 8px 28px;">
-            <div style="font-size:20px;font-weight:700;color:#0b2e4f;">{{ $clicks->count() }} {{ $clicks->count() === 1 ? 'call' : 'calls' }} from the site</div>
+            <div style="font-size:20px;font-weight:700;color:#0b2e4f;">{{ $clicks->count() }} connected {{ $clicks->count() === 1 ? 'call' : 'calls' }} from the site</div>
             <div style="font-size:13px;color:#5a6a7c;margin-top:6px;line-height:1.45;">
-              These are taps on a phone number on deluxewindows.com. When RingCentral matched a real call, the caller’s number and a short summary of the conversation are included. {{ $matched }} of {{ $clicks->count() }} matched a call.
+              Only calls where someone got through. Missed taps, voicemail, and busy signals stay out of this email. Each line is the caller’s number, and a short summary when we have one.
             </div>
           </td>
         </tr>
