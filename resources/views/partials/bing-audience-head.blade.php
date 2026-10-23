@@ -65,26 +65,5 @@
 
     window.DeluxeAudience = { bing: bing };
     if (bing) html.classList.add('dw-bing');
-
-    if (!bing) return;
-
-    var LANDING_KEY = 'dw_bing_landing_path';
-    var path = window.location.pathname || '/';
-    if (path.length > 1 && path.charAt(path.length - 1) === '/') path = path.slice(0, -1);
-    if (!path) path = '/';
-
-    var landing = '';
-    try {
-      landing = sessionStorage.getItem(LANDING_KEY) || '';
-      if (!landing) {
-        sessionStorage.setItem(LANDING_KEY, path);
-        landing = path;
-      }
-    } catch (_) {
-      landing = path;
-    }
-
-    var isHome = path === '/';
-    if (!isHome && path !== landing) html.classList.add('dw-bing-hide-hero');
   })();
 </script>

@@ -137,13 +137,6 @@
       @include('partials.mobile-sticky-cta')
     @endif
 
-    <button type="button" class="bing-edge-quote" data-bing-edge-quote data-open-estimate-modal aria-label="Get a free estimate">
-      <span>
-        <span class="bing-edge-quote__kicker">{{ bing_offer_percent() }}% OFF</span>
-        <span class="bing-edge-quote__text">Free estimate</span>
-      </span>
-    </button>
-
     <div id="menuDimmer"></div>
 
     @hasSection('bodyScripts')
