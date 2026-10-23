@@ -451,5 +451,30 @@
       window.addEventListener("resize", updateFabVisibility, { passive: true });
     });
   })();
+
+  // Microsoft visitors: after they leave the landing page the hero is gone,
+  // so a right-edge button opens the same estimate modal once they scroll.
+  (function () {
+    const html = document.documentElement;
+    if (!html.classList.contains("dw-bing")) return;
+
+    onReady(() => {
+      const button = document.querySelector("[data-bing-edge-quote]");
+      if (!button) return;
+
+      function update() {
+        const hero = document.querySelector(".div-block-59");
+        const heroHidden = html.classList.contains("dw-bing-hide-hero") || !hero || getComputedStyle(hero).display === "none";
+        const show = heroHidden
+          ? window.scrollY > 160
+          : hero.getBoundingClientRect().bottom < 72;
+        button.classList.toggle("is-in", show);
+      }
+
+      update();
+      window.addEventListener("scroll", update, { passive: true });
+      window.addEventListener("resize", update, { passive: true });
+    });
+  })();
 })();
 
