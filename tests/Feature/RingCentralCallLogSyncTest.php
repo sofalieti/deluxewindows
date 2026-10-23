@@ -456,7 +456,61 @@ test('RingCentral calls screen has main excluded and other tabs', function () {
         ->assertSee('Other numbers')
         ->assertDontSee('Recording')
         ->assertSee('+14155550001')
-        ->assertSee('+14155550002');
+        ->assertSee('+14155550002')
+        ->assertDontSee('Direction');
+});
+
+test('a missed inbound call shows whether someone called back', function () {
+    $user = User::factory()->create();
+    $user->forceFill([
+        'permissions' => ['platform.leads' => true],
+    ])->save();
+
+    RingCentralCall::query()->create([
+        'ringcentral_call_id' => 'missed-called-back',
+        'direction' => 'Inbound',
+        'result' => 'Missed',
+        'started_at' => CarbonImmutable::parse('2026-04-01 17:00:00', 'UTC'),
+        'duration' => 0,
+        'business_phone' => '+16504614446',
+        'from_phone' => '+14155550301',
+        'to_phone' => '+16504614446',
+        'external_phone' => '+14155550301',
+        'synced_at' => now(),
+    ]);
+    RingCentralCall::query()->create([
+        'ringcentral_call_id' => 'callback-out',
+        'direction' => 'Outbound',
+        'result' => 'Accepted',
+        'started_at' => CarbonImmutable::parse('2026-04-01 18:30:00', 'UTC'),
+        'duration' => 45,
+        'business_phone' => '+16504614446',
+        'from_phone' => '+16504614446',
+        'to_phone' => '+14155550301',
+        'external_phone' => '+14155550301',
+        'synced_at' => now(),
+    ]);
+    RingCentralCall::query()->create([
+        'ringcentral_call_id' => 'missed-no-callback',
+        'direction' => 'Inbound',
+        'result' => 'Missed',
+        'started_at' => CarbonImmutable::parse('2026-04-02 17:00:00', 'UTC'),
+        'duration' => 0,
+        'business_phone' => '+16504614446',
+        'from_phone' => '+14155550302',
+        'to_phone' => '+16504614446',
+        'external_phone' => '+14155550302',
+        'synced_at' => now(),
+    ]);
+
+    $this->withoutMiddleware(Access::class)
+        ->actingAs($user)
+        ->get(route('platform.ringcentral-calls'))
+        ->assertOk()
+        ->assertSee('Missed')
+        ->assertSee('Перезвонили')
+        ->assertSee('Не перезвонили')
+        ->assertDontSee('Direction');
 });
 
 test('inbound list hides staff numbers and shows call history plus a lead', function () {

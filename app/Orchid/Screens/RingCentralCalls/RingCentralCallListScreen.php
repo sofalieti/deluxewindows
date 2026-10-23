@@ -15,6 +15,7 @@ use App\Orchid\Screens\Concerns\QueuesCallTranscripts;
 use App\Services\PromotionControlService;
 use App\Services\RingCentralCallLogService;
 use App\Services\RingCentralCallSyncService;
+use App\Services\RingCentralPhoneCallStatsService;
 use Carbon\CarbonImmutable;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -222,21 +223,8 @@ class RingCentralCallListScreen extends Screen
         $columns = [
             TD::make('started_at', 'Date')
                 ->sort()
-                ->width('145px')
-                ->render(function (RingCentralCall $call): string {
-                    $date = $call->startedAtPacific();
-                    if ($date === null) {
-                        return '—';
-                    }
-
-                    return '<div class="fw-semibold">'.e($date->format('M d, Y')).'</div>'
-                        .'<div class="small text-muted">'.e($date->format('h:i A')).' PT</div>';
-                }),
-            TD::make('direction', 'Direction')
-                ->sort()
-                ->render(fn (RingCentralCall $call): string => $call->direction === 'Inbound'
-                    ? '<span class="badge bg-success text-white">Inbound</span>'
-                    : '<span class="badge bg-primary text-white">Outbound</span>'),
+                ->width('190px')
+                ->render(fn (RingCentralCall $call): string => $this->dateHtml($call)),
             TD::make('external_phone', 'Other number')
                 ->render(function (RingCentralCall $call): string {
                     $name = $call->direction === 'Inbound' ? $call->from_name : $call->to_name;
@@ -247,11 +235,6 @@ class RingCentralCallListScreen extends Screen
 
                     return $html;
                 }),
-            TD::make('person_call_count', 'History')
-                ->render(fn (RingCentralCall $call): string => $this->historyHtml(
-                    (int) $call->getAttribute('person_call_count'),
-                    $call->getAttribute('person_first_call_at'),
-                )),
             TD::make('route', 'From → To')
                 ->render(fn (RingCentralCall $call): string => '<div>'.e((string) ($call->from_phone ?: '—')).'</div>'
                     .'<div class="small text-muted">→ '.e((string) ($call->to_phone ?: '—')).'</div>'
@@ -266,18 +249,12 @@ class RingCentralCallListScreen extends Screen
                 ->render(fn (RingCentralCall $call) => view('admin.ringcentral-calls.handling-status-cell', [
                     'call' => $call,
                 ])),
-            TD::make('notes', 'Notes')
-                ->cantHide()
-                ->width('240px')
-                ->render(fn (RingCentralCall $call) => view('admin.partials.call-note-cell', [
-                    'subject' => $call,
-                ])),
         ];
 
         if ($showExclude) {
             $columns[] = TD::make('id', '')
                 ->align(TD::ALIGN_CENTER)
-                ->width('150px')
+                ->width('240px')
                 ->render(fn (RingCentralCall $call) => view('admin.ringcentral-calls.call-actions', [
                     'call' => $call,
                 ]));
@@ -508,6 +485,8 @@ class RingCentralCallListScreen extends Screen
             $call->setAttribute('matched_contacts', $matches['contacts']->get($suffix, collect()));
         });
 
+        $this->attachCallbacks($calls);
+
         return $page;
     }
 
@@ -619,6 +598,83 @@ class RingCentralCallListScreen extends Screen
         }
 
         return $html;
+    }
+
+    private function dateHtml(RingCentralCall $call): string
+    {
+        $date = $call->startedAtPacific();
+        $when = $date === null
+            ? '<div class="fw-semibold">—</div>'
+            : '<div class="fw-semibold">'.e($date->format('M d, Y')).'</div>'
+                .'<div class="small text-muted">'.e($date->format('h:i A')).' PT</div>';
+
+        $connected = app(RingCentralPhoneCallStatsService::class)->isConnectedCall($call);
+        $badge = $connected
+            ? '<span class="badge bg-success text-white">Принят</span>'
+            : '<span class="badge bg-danger text-white">Missed</span>';
+
+        $callback = '';
+        if ($call->direction === 'Inbound' && ! $connected) {
+            $back = $call->getAttribute('called_back_at');
+            if ($back instanceof \DateTimeInterface) {
+                $backAt = CarbonImmutable::parse($back)->setTimezone('America/Los_Angeles');
+                $callback = '<div class="small text-success">Перезвонили '.e($backAt->format('M d, h:i A')).'</div>';
+            } else {
+                $callback = '<div class="small text-danger">Не перезвонили</div>';
+            }
+        }
+
+        $count = (int) $call->getAttribute('person_call_count');
+        $countLabel = $count === 1 ? '1 call' : $count.' calls';
+        $first = '—';
+        $firstAt = $call->getAttribute('person_first_call_at');
+        if ($firstAt !== null && $firstAt !== '') {
+            $first = CarbonImmutable::parse((string) $firstAt, 'UTC')
+                ->setTimezone('America/Los_Angeles')
+                ->format('M d, Y');
+        }
+
+        return $when
+            .'<div class="mt-1">'.$badge.'</div>'
+            .$callback
+            .'<div class="small text-muted mt-1">First '.e($first).'</div>'
+            .'<div class="small text-muted">'.e($countLabel).'</div>';
+    }
+
+    /**
+     * @param  Collection<int, RingCentralCall>  $calls
+     */
+    private function attachCallbacks(Collection $calls): void
+    {
+        $missed = $calls->filter(function (RingCentralCall $call): bool {
+            return $call->direction === 'Inbound'
+                && ! app(RingCentralPhoneCallStatsService::class)->isConnectedCall($call);
+        });
+        $phones = $missed->pluck('external_phone')->filter()->unique()->values();
+        if ($phones->isEmpty()) {
+            return;
+        }
+
+        $outbound = RingCentralCall::query()
+            ->where('direction', 'Outbound')
+            ->whereIn('external_phone', $phones->all())
+            ->orderBy('started_at')
+            ->get(['id', 'external_phone', 'started_at']);
+        $byPhone = $outbound->groupBy('external_phone');
+
+        $missed->each(function (RingCentralCall $call) use ($byPhone): void {
+            $later = $byPhone->get((string) $call->external_phone, collect())
+                ->first(function (RingCentralCall $candidate) use ($call): bool {
+                    $candidateAt = $candidate->started_at;
+                    $callAt = $call->started_at;
+
+                    return $candidateAt !== null
+                        && $callAt !== null
+                        && $candidate->id !== $call->id
+                        && $candidateAt->greaterThan($callAt);
+                });
+            $call->setAttribute('called_back_at', $later?->started_at);
+        });
     }
 
     private function historyHtml(int $count, mixed $firstAt): string

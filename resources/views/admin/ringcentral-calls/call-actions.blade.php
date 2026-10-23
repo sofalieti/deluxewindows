@@ -1,4 +1,5 @@
-<div class="d-flex flex-column gap-1">
+<div class="d-flex flex-column gap-2">
+    @include('admin.partials.call-note-cell', ['subject' => $call])
     {!! \Orchid\Screen\Actions\ModalToggle::make('Staff')
         ->icon('bs.person-badge')
         ->modal('markStaffModal')
