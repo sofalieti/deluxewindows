@@ -53,6 +53,8 @@ class SiteVisit extends Model
         'geo_location',
         'ip_address',
         'user_agent',
+        'screen_width',
+        'screen_height',
         'traffic_source',
         'meta',
     ];
@@ -81,6 +83,8 @@ class SiteVisit extends Model
     {
         return [
             'meta' => 'array',
+            'screen_width' => 'integer',
+            'screen_height' => 'integer',
         ];
     }
 

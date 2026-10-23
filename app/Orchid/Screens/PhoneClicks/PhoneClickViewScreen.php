@@ -269,6 +269,10 @@ class PhoneClickViewScreen extends Screen
                                     ? '<div class="small text-muted mt-1">'.e($detail).'</div>'
                                     : '');
                         }),
+                    Sight::make('screen', 'Screen')
+                        ->render(fn (PhoneClick $click) => $click->screen_width
+                            ? e($click->screen_width.'×'.$click->screen_height)
+                            : '—'),
                     Sight::make('page_url', 'Page')
                         ->render(function (PhoneClick $click): string {
                             $url = trim((string) ($click->page_url ?? ''));
@@ -603,6 +607,8 @@ class PhoneClickViewScreen extends Screen
             'utm_medium' => $click->utm_medium,
             'utm_campaign' => $click->utm_campaign,
             'contact_id' => $click->contact_id,
+            'screen_width' => $click->screen_width,
+            'screen_height' => $click->screen_height,
             'assigned_to' => $user->id,
             'assigned_at' => now(),
             'status' => Lead::STATUS_NEW,

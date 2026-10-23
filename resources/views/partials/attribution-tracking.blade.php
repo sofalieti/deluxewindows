@@ -251,6 +251,25 @@
       };
     }
 
+    function rememberedScreen() {
+      const raw = storageGet('dw_screen');
+      if (raw) {
+        const parts = raw.split('x');
+        const storedWidth = parseInt(parts[0], 10) || 0;
+        const storedHeight = parseInt(parts[1], 10) || 0;
+        if (storedWidth >= 200 && storedHeight >= 200) {
+          return { width: storedWidth, height: storedHeight };
+        }
+      }
+
+      const width = (window.screen && window.screen.width) || 0;
+      const height = (window.screen && window.screen.height) || 0;
+      if (width < 200 || height < 200) return null;
+
+      storageSet('dw_screen', width + 'x' + height);
+      return { width: width, height: height };
+    }
+
     function payloadFields() {
       const last = readTouch('lead_param_');
       const first = readTouch('lead_param_first_');
@@ -264,6 +283,10 @@
       payload.referrer = last.referrer || '';
       payload.first_landing_page = first.landing_page || '';
       payload.first_referrer = first.referrer || '';
+
+      const screen = rememberedScreen();
+      payload.screen_width = screen ? screen.width : '';
+      payload.screen_height = screen ? screen.height : '';
 
       return payload;
     }

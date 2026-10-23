@@ -147,6 +147,8 @@ class Lead extends Model
         'referral_partner_id',
         'ip_address',
         'user_agent',
+        'screen_width',
+        'screen_height',
         'meta',
         'status',
         'assigned_to',
@@ -189,6 +191,8 @@ class Lead extends Model
             'bing_qualified_at' => 'datetime',
             'bing_qualified_sent_at' => 'datetime',
             'bing_qualified_attempts' => 'integer',
+            'screen_width' => 'integer',
+            'screen_height' => 'integer',
         ];
     }
 

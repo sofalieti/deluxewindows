@@ -439,3 +439,23 @@ if (! function_exists('promotion_hero_mobile_price_tag_html')) {
         );
     }
 }
+
+if (! function_exists('screen_size_from_request')) {
+    /**
+     * Device screen size captured on the visitor's first page view.
+     * Values outside a real display range are dropped.
+     *
+     * @return array{screen_width: int|null, screen_height: int|null}
+     */
+    function screen_size_from_request(): array
+    {
+        $width = (int) request()->input('screen_width');
+        $height = (int) request()->input('screen_height');
+        $valid = static fn (int $value): bool => $value >= 200 && $value <= 8000;
+
+        return [
+            'screen_width' => $valid($width) ? $width : null,
+            'screen_height' => $valid($height) ? $height : null,
+        ];
+    }
+}

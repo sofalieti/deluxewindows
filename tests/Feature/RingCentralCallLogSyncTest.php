@@ -1,7 +1,9 @@
 <?php
 
 use App\Models\CrmNote;
+use App\Models\Lead;
 use App\Models\PromotionControl;
+use App\Models\RingCentralStaffNumber;
 use App\Models\RingCentralCall;
 use App\Models\RingCentralCallSyncState;
 use App\Models\RingCentralExcludedNumber;
@@ -447,11 +449,102 @@ test('RingCentral calls screen has main excluded and other tabs', function () {
         ->actingAs($user)
         ->get(route('platform.ringcentral-calls'))
         ->assertOk()
-        ->assertSee('Main numbers')
+        ->assertSee('Inbound')
+        ->assertSee('Outbound')
+        ->assertSee('Staff')
         ->assertSee('Excluded numbers')
         ->assertSee('Other numbers')
+        ->assertDontSee('Recording')
         ->assertSee('+14155550001')
         ->assertSee('+14155550002');
+});
+
+test('inbound list hides staff numbers and shows call history plus a lead', function () {
+    $user = User::factory()->create();
+    $user->forceFill([
+        'permissions' => ['platform.leads' => true],
+    ])->save();
+
+    Lead::query()->create([
+        'full_name' => 'Ada Caller',
+        'email' => 'ada-caller@example.com',
+        'phone' => '4155550111',
+    ]);
+
+    $first = RingCentralCall::query()->create([
+        'ringcentral_call_id' => 'staff-in-1',
+        'direction' => 'Inbound',
+        'started_at' => CarbonImmutable::parse('2026-01-05 18:00:00', 'UTC'),
+        'duration' => 30,
+        'business_phone' => '+16504614446',
+        'from_phone' => '+14155550111',
+        'to_phone' => '+16504614446',
+        'external_phone' => '+14155550111',
+        'synced_at' => now(),
+    ]);
+    RingCentralCall::query()->create([
+        'ringcentral_call_id' => 'staff-in-2',
+        'direction' => 'Inbound',
+        'started_at' => CarbonImmutable::parse('2026-03-02 18:00:00', 'UTC'),
+        'duration' => 40,
+        'business_phone' => '+16504614446',
+        'from_phone' => '+14155550111',
+        'to_phone' => '+16504614446',
+        'external_phone' => '+14155550111',
+        'synced_at' => now(),
+    ]);
+    RingCentralCall::query()->create([
+        'ringcentral_call_id' => 'staff-out-1',
+        'direction' => 'Outbound',
+        'started_at' => now(),
+        'duration' => 15,
+        'business_phone' => '+16504614446',
+        'from_phone' => '+16504614446',
+        'to_phone' => '+14155550122',
+        'external_phone' => '+14155550122',
+        'synced_at' => now(),
+    ]);
+
+    $this->withoutMiddleware(Access::class)
+        ->actingAs($user)
+        ->get(route('platform.ringcentral-calls'))
+        ->assertOk()
+        ->assertSee('Ada Caller')
+        ->assertSee('2 calls')
+        ->assertSee('Jan 05, 2026')
+        ->assertSee('+14155550122');
+
+    expect(RingCentralCall::query()->notStaff()->inbound()->where('external_phone', '+14155550122')->exists())->toBeFalse()
+        ->and(RingCentralCall::query()->notStaff()->outbound()->where('external_phone', '+14155550122')->exists())->toBeTrue();
+
+    $this->withoutMiddleware(Access::class)
+        ->actingAs($user)
+        ->post(route('platform.ringcentral-calls', ['method' => 'markStaff']), [
+            'call' => $first->id,
+            'staff_name' => 'Felix Office',
+        ])
+        ->assertRedirect();
+
+    expect(RingCentralStaffNumber::query()->whereNull('restored_at')->sole()->name)->toBe('Felix Office')
+        ->and(RingCentralCall::query()->notStaff()->where('external_phone', '+14155550111')->count())->toBe(0);
+
+    $this->withoutMiddleware(Access::class)
+        ->actingAs($user)
+        ->get(route('platform.ringcentral-calls'))
+        ->assertOk()
+        ->assertSee('Felix Office');
+
+    $staff = RingCentralStaffNumber::query()->sole();
+
+    $this->withoutMiddleware(Access::class)
+        ->actingAs($user)
+        ->post(route('platform.ringcentral-calls', ['method' => 'returnStaff']), [
+            'staff' => $staff->id,
+        ])
+        ->assertRedirect();
+
+    expect($staff->refresh()->restored_at)->not->toBeNull()
+        ->and(RingCentralCall::query()->notStaff()->where('external_phone', '+14155550111')->count())->toBe(2);
 });
 
 test('RingCentral call notes can be added from the calls list', function () {

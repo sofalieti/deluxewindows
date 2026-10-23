@@ -9,6 +9,7 @@ use Carbon\CarbonImmutable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
@@ -174,6 +175,30 @@ class RingCentralCall extends Model
                 ->whereNull('restored_at')
                 ->whereColumn('ringcentral_excluded_numbers.phone', 'ringcentral_calls.external_phone');
         });
+    }
+
+    public function scopeNotStaff(Builder $query): Builder
+    {
+        if (! Schema::hasTable('ringcentral_staff_numbers')) {
+            return $query;
+        }
+
+        return $query->whereNotExists(function ($subquery): void {
+            $subquery->selectRaw('1')
+                ->from('ringcentral_staff_numbers')
+                ->whereNull('restored_at')
+                ->whereColumn('ringcentral_staff_numbers.phone', 'ringcentral_calls.external_phone');
+        });
+    }
+
+    public function scopeInbound(Builder $query): Builder
+    {
+        return $query->where('direction', 'Inbound');
+    }
+
+    public function scopeOutbound(Builder $query): Builder
+    {
+        return $query->where('direction', 'Outbound');
     }
 
     /**

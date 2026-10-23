@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\ReferralPrintController;
 use App\Http\Controllers\Admin\RingCentralRecordingController;
 use App\Http\Controllers\Admin\WebflowImageUploadController;
 use App\Orchid\Screens\Analytics\CallAnalyticsScreen;
+use App\Orchid\Screens\Analytics\ScreenSizeAnalyticsScreen;
 use App\Orchid\Screens\Contacts\ContactEditScreen;
 use App\Orchid\Screens\Contacts\ContactListScreen;
 use App\Orchid\Screens\Crm\TaskEditScreen;
@@ -128,6 +129,9 @@ Route::screen('ringcentral-calls', RingCentralCallListScreen::class)
 
 Route::screen('analytics/calls', CallAnalyticsScreen::class)
     ->name('platform.analytics.calls');
+
+Route::screen('analytics/screen-sizes', ScreenSizeAnalyticsScreen::class)
+    ->name('platform.analytics.screen-sizes');
 
 Route::screen('referral/applications', ReferralApplicationListScreen::class)
     ->name('platform.referral.applications');

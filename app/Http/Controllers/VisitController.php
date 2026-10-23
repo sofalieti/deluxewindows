@@ -97,6 +97,7 @@ class VisitController extends Controller
                 ...$validated,
                 'ip_address' => $request->ip(),
                 'user_agent' => (string) $request->userAgent(),
+                ...screen_size_from_request(),
                 'meta' => [
                     'via' => 'site-visit',
                     'request_id' => (string) $request->headers->get('x-request-id', ''),

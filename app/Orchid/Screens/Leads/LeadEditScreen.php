@@ -236,6 +236,10 @@ class LeadEditScreen extends Screen
                     ->render(fn (Lead $lead) => e($lead->metaValue('referrer', '-'))),
                 Sight::make('geo_location', 'Geo')
                     ->render(fn (Lead $lead) => e($lead->metaValue('geo_location', '-'))),
+                Sight::make('screen', 'Screen')
+                    ->render(fn (Lead $lead) => $lead->screen_width
+                        ? e($lead->screen_width.'×'.$lead->screen_height)
+                        : '—'),
                 Sight::make('utm_source', 'UTM source')
                     ->render(fn (Lead $lead) => e(trim((string) ($lead->utm_source ?? '')) !== '' ? (string) $lead->utm_source : '-')),
                 Sight::make('utm_medium', 'UTM medium')

@@ -158,6 +158,11 @@ class PlatformProvider extends OrchidServiceProvider
                 ->route('platform.analytics.calls')
                 ->permission('platform.analytics'),
 
+            Menu::make('Screen sizes')
+                ->icon('bs.display')
+                ->route('platform.analytics.screen-sizes')
+                ->permission('platform.analytics'),
+
             Menu::make('Referral applications')
                 ->icon('bs.person-plus')
                 ->route('platform.referral.applications')
