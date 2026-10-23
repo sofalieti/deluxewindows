@@ -450,6 +450,7 @@ test('RingCentral calls screen has main excluded and other tabs', function () {
         ->get(route('platform.ringcentral-calls'))
         ->assertOk()
         ->assertSee('Inbound')
+        ->assertSee('Not called back')
         ->assertSee('Outbound')
         ->assertSee('Staff')
         ->assertSee('Excluded numbers')
@@ -508,9 +509,15 @@ test('a missed inbound call shows whether someone called back', function () {
         ->get(route('platform.ringcentral-calls'))
         ->assertOk()
         ->assertSee('Missed')
+        ->assertSee('Not called back')
         ->assertSee('Перезвонили')
         ->assertSee('Не перезвонили')
         ->assertDontSee('Direction');
+
+    expect(RingCentralCall::query()->awaitingCallback()->pluck('external_phone')->all())
+        ->toBe(['+14155550302'])
+        ->and(RingCentralCall::query()->inbound()->whereNot(fn ($query) => $query->awaitingCallback())->pluck('external_phone')->all())
+        ->toBe(['+14155550301']);
 });
 
 test('inbound list hides staff numbers and shows call history plus a lead', function () {

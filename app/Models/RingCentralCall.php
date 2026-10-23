@@ -202,6 +202,54 @@ class RingCentralCall extends Model
     }
 
     /**
+     * Inbound calls nobody called back. A later outbound to the same number clears it.
+     */
+    public function scopeAwaitingCallback(Builder $query): Builder
+    {
+        return $query
+            ->inbound()
+            ->whereRaw(self::missedCallSql())
+            ->whereNotNull('external_phone')
+            ->where('external_phone', '!=', '')
+            ->whereNotExists(function ($subquery): void {
+                $subquery->selectRaw('1')
+                    ->from('ringcentral_calls as callbacks')
+                    ->whereColumn('callbacks.external_phone', 'ringcentral_calls.external_phone')
+                    ->where('callbacks.direction', 'Outbound')
+                    ->whereColumn('callbacks.started_at', '>', 'ringcentral_calls.started_at');
+            });
+    }
+
+    /**
+     * Same missed/connected split as RingCentralPhoneCallStatsService::isConnectedResult().
+     */
+    public static function missedCallSql(): string
+    {
+        return <<<'SQL'
+            (
+                CASE
+                    WHEN TRIM(COALESCE(result, '')) = '' THEN COALESCE(duration, 0) < 20
+                    WHEN LOWER(result) LIKE '%missed%'
+                        OR LOWER(result) LIKE '%voicemail%'
+                        OR LOWER(result) LIKE '%no answer%'
+                        OR LOWER(result) LIKE '%busy%'
+                        OR LOWER(result) LIKE '%rejected%'
+                        OR LOWER(result) LIKE '%blocked%'
+                        OR LOWER(result) LIKE '%hang up%'
+                        OR LOWER(result) LIKE '%cancelled%'
+                        OR LOWER(result) LIKE '%canceled%' THEN 1
+                    WHEN LOWER(result) LIKE '%accepted%'
+                        OR LOWER(result) LIKE '%call connected%'
+                        OR LOWER(result) LIKE '%answered%'
+                        OR LOWER(result) LIKE '%connected%'
+                        OR LOWER(result) LIKE '%received%' THEN 0
+                    ELSE COALESCE(duration, 0) < 20
+                END
+            ) = 1
+            SQL;
+    }
+
+    /**
      * @param  list<string>  $monitoredPhones  Normalized E.164 business numbers
      */
     public function scopeOnMonitoredLines(Builder $query, array $monitoredPhones): Builder

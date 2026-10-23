@@ -60,6 +60,7 @@ class RingCentralCallListScreen extends Screen
 
             return [
                 'inboundCalls' => new LengthAwarePaginator([], 0, 50, 1, ['pageName' => 'inbound_page']),
+                'unreturnedCalls' => new LengthAwarePaginator([], 0, 50, 1, ['pageName' => 'unreturned_page']),
                 'outboundCalls' => new LengthAwarePaginator([], 0, 50, 1, ['pageName' => 'outbound_page']),
                 'otherCalls' => new LengthAwarePaginator([], 0, 50, 1, ['pageName' => 'other_page']),
                 'staffNumbers' => collect(),
@@ -71,10 +72,19 @@ class RingCentralCallListScreen extends Screen
             ->visible()
             ->notStaff()
             ->inbound()
+            ->whereNot(fn ($query) => $query->awaitingCallback())
             ->onMonitoredLines($this->monitoredPhones)
             ->with(['contact', 'latestNote.user'])
             ->defaultSort('started_at', 'desc')
             ->paginate(50, pageName: 'inbound_page'));
+        $unreturned = $this->presentCalls(RingCentralCall::query()
+            ->visible()
+            ->notStaff()
+            ->awaitingCallback()
+            ->onMonitoredLines($this->monitoredPhones)
+            ->with(['contact', 'latestNote.user'])
+            ->defaultSort('started_at', 'desc')
+            ->paginate(50, pageName: 'unreturned_page'));
         $outbound = $this->presentCalls(RingCentralCall::query()
             ->visible()
             ->notStaff()
@@ -100,6 +110,7 @@ class RingCentralCallListScreen extends Screen
 
         return [
             'inboundCalls' => $inbound,
+            'unreturnedCalls' => $unreturned,
             'outboundCalls' => $outbound,
             'otherCalls' => $other,
             'staffNumbers' => $staff,
@@ -123,7 +134,7 @@ class RingCentralCallListScreen extends Screen
             ? implode(', ', $this->monitoredPhones)
             : 'configured numbers';
 
-        return 'Inbound calls on the main numbers are listed first. Outbound calls and staff numbers are on their own tabs. Main numbers: '.$phones
+        return 'Inbound calls on the main numbers are listed first. Missed calls that were never called back are on their own tab. Main numbers: '.$phones
             .'. Auto-sync hourly; last sync: '.$this->lastSyncedLabel.'.';
     }
 
@@ -148,6 +159,7 @@ class RingCentralCallListScreen extends Screen
             Layout::view('admin.ringcentral-calls.assets'),
             Layout::tabs([
                 'Inbound' => Layout::table('inboundCalls', $this->callColumns(showExclude: true)),
+                'Not called back' => Layout::table('unreturnedCalls', $this->callColumns(showExclude: true)),
                 'Outbound' => Layout::table('outboundCalls', $this->callColumns(showExclude: true)),
                 'Staff' => Layout::table('staffNumbers', [
                     TD::make('name', 'Name')
@@ -610,7 +622,7 @@ class RingCentralCallListScreen extends Screen
 
         $connected = app(RingCentralPhoneCallStatsService::class)->isConnectedCall($call);
         $badge = $connected
-            ? '<span class="badge bg-success text-white">Принят</span>'
+            ? '<span class="badge bg-success text-white">Accepted</span>'
             : '<span class="badge bg-danger text-white">Missed</span>';
 
         $callback = '';
