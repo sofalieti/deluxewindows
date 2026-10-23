@@ -246,13 +246,13 @@ test('work queue shows only the current user tasks without tasks.all and respect
         'title' => 'Mine Task AlphaUnique',
         'type' => CrmTask::TYPE_CALL,
         'assigned_to' => $manager->id,
-        'due_at' => now()->addHours(2),
+        'due_at' => now()->endOfDay(),
     ]);
     app(CrmTaskService::class)->create([
         'title' => 'Other Task BetaUnique',
         'type' => CrmTask::TYPE_CALL,
         'assigned_to' => $other->id,
-        'due_at' => now()->addHours(2),
+        'due_at' => now()->endOfDay(),
     ]);
 
     Lead::query()->create([
