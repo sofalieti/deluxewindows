@@ -574,7 +574,7 @@
 
     function dealBadge() {
       const badge = document.createElement('span');
-      badge.className = 'qty-pick__deal';
+      badge.className = 'qty-pick__deal bing-only';
       badge.textContent = '40% OFF';
       return badge;
     }
@@ -615,7 +615,6 @@
         item.appendChild(document.createTextNode(option.textContent));
         if (QTY_DEAL_VALUES.indexOf(option.value) !== -1) {
           item.appendChild(dealBadge());
-          item.setAttribute('aria-label', option.textContent + ', 40% off');
         }
         item.tabIndex = -1;
         options.push(item);

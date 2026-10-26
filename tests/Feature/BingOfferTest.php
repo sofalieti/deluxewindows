@@ -12,7 +12,8 @@ test('home keeps the regular copy and adds the Bing-only offer behind html.dw-bi
         ->toContain('hero-form-offer-footer__note bing-hide">Best for projects with 4+ windows')
         ->toContain('40% OFF applies to projects with 3+ windows or doors')
         ->toContain('class="bing-only bing-offer-steps"')
-        ->toContain('hero-brands--bing bing-only');
+        ->toContain('hero-brands--bing bing-only')
+        ->toContain("badge.className = 'qty-pick__deal bing-only'");
 });
 
 test('a Google click always wins over a stored Bing click', function () {
