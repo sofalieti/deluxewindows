@@ -552,7 +552,7 @@
       if (beforeDescription && beforeDescription.parentNode) {
         beforeDescription.parentNode.insertBefore(field, beforeDescription);
       } else {
-        const anchor = submit.closest('.primary-button') || submit;
+        const anchor = submit.closest('.primary-button, .primary-button-6') || submit;
         anchor.parentNode.insertBefore(field, anchor);
       }
 

@@ -335,6 +335,26 @@ html.dw-bing #trustBadgesBar.trust-badges-bar .div-block-65 .text-block-47 {
     height: 100%;
   }
 
+  html.dw-bing #trustBadgesBar.trust-badges-bar .grid.grid-543:has(> .ms-review-cell:not(.bing-hide)) {
+    grid-template-rows: auto repeat(2, minmax(68px, 1fr)) !important;
+  }
+
+  html.dw-bing #trustBadgesBar.trust-badges-bar .ms-review-cell:not(.bing-hide) {
+    grid-column: 1 / -1;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 0;
+    padding: 10px 16px 8px;
+  }
+
+  html.dw-bing #trustBadgesBar.trust-badges-bar .ms-review-cell .w-embed {
+    justify-content: center;
+    width: auto;
+    max-width: 100%;
+  }
+
   html.dw-bing #trustBadgesBar.trust-badges-bar .div-block-65 {
     display: flex !important;
     flex-direction: row;

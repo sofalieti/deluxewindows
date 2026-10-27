@@ -268,6 +268,77 @@ a.link-block.odsf {
 .container-default-7 .sidebar-v1---card .sidebar-form-block-v1.sidebar,
 .section_sidebar .sidebar-v1---card .sidebar-form-block-v1.sidebar {
   display: block !important;
+  width: 100%;
+  max-width: 100%;
+  overflow: visible;
+}
+
+.section_sidebar .card-2.sidebar-v1---card.new-design {
+  box-sizing: border-box;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+  flex: none;
+  padding-bottom: 20px;
+}
+
+.section_sidebar .sidebar-form-block-v1 .form-wrapper {
+  width: 100%;
+  max-width: 100%;
+  align-items: stretch;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.section_sidebar .sidebar-form-block-v1 .grid-1-column-2 {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 10px;
+}
+
+.section_sidebar .sidebar-form-block-v1 .input-wrapper-5,
+.section_sidebar .sidebar-form-block-v1 .input-2,
+.section_sidebar .sidebar-form-block-v1 .qty-pick,
+.section_sidebar .sidebar-form-block-v1 .primary-button-6 {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.section_sidebar .sidebar-form-block-v1 .qty-pick__label {
+  margin-bottom: 6px;
+  color: #3e5166;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.35;
+  text-align: left;
+}
+
+.section_sidebar .sidebar-form-block-v1 button.qty-pick__face {
+  height: 48px;
+  min-height: 48px;
+  border-radius: 300px;
+  font-size: 16px;
+}
+
+.section_sidebar .sidebar-form-block-v1 .primary-button-6 {
+  display: flex;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 16px;
+}
+
+.section_sidebar .sidebar-form-block-v1 .inside-input-button-4 {
+  flex: 1 1 auto;
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 8px;
+  text-align: center;
+  white-space: normal;
 }
 /* ─────────────────────────────────────────────────────────────── */
 
