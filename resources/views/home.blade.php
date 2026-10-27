@@ -1078,7 +1078,7 @@
       'heroBrandsForBing' => ! home_brands_is_new(),
     ])
 
-    @include('partials.trust-badges')
+    @include('partials.trust-badges', ['trustReviewBadgeBingHide' => true])
 
     @unless(home_brands_is_new())
       <div class="bing-hide">

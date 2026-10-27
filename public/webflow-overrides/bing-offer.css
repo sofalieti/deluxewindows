@@ -282,6 +282,230 @@ html.dw-bing .bing-hide {
   }
 }
 
+/* Homepage header for Microsoft visitors. Sits in the photo hero, left of the form. */
+.ms-home-hero {
+  width: 100%;
+  max-width: 540px;
+  margin: 12px 0 4px;
+  color: #f7f4ee;
+  text-align: left !important;
+}
+
+.ms-home-hero__title {
+  margin: 0;
+  color: #fff !important;
+  font-size: clamp(30px, 3.2vw, 44px);
+  line-height: 1.08;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.ms-home-hero__promise {
+  margin: 12px 0 0;
+  color: #ffe7c2;
+  font-size: 18px;
+  line-height: 1.35;
+  font-weight: 600;
+}
+
+.ms-home-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 16px;
+  margin-top: 18px;
+}
+
+.ms-home-hero__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 12px 20px;
+  border: 0;
+  border-radius: 8px;
+  background: #e87722;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+  cursor: pointer;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.28);
+}
+
+.ms-home-hero__btn:hover {
+  background: #d56a16;
+  color: #fff;
+}
+
+.ms-home-hero__btn:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+.ms-home-hero__proof {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  width: auto;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.25;
+  text-shadow: none;
+}
+
+.ms-home-hero__badge {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  max-width: 100%;
+  min-height: 36px;
+}
+
+.ms-home-hero__badge :is(.es-embed-root, .es-main-container, [class*="elfsight-app-"]) {
+  width: max-content !important;
+  max-width: 100% !important;
+}
+
+.ms-home-hero__cert {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(8, 28, 52, 0.92);
+  color: #fff !important;
+  font-weight: 700;
+  text-shadow: none !important;
+}
+
+.ms-home-hero__score {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.ms-home-hero__stars {
+  position: relative;
+  display: inline-block;
+  font-size: 13px;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.ms-home-hero__stars-base {
+  color: rgba(255, 255, 255, 0.28);
+}
+
+.ms-home-hero__stars-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--fill);
+  overflow: hidden;
+  color: #ffb547;
+  white-space: nowrap;
+}
+
+.ms-home-hero__reviews {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-shadow: none !important;
+}
+
+.ms-home-hero__reviews:hover {
+  color: #ffe7c2;
+}
+
+.ms-home-hero__cert::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #8fd18a;
+  flex: none;
+}
+
+.ms-home-hero__quote {
+  margin: 14px 0 0;
+  max-width: 520px;
+  padding: 12px 14px 10px;
+  border-radius: 12px;
+  background: rgba(8, 28, 52, 0.78);
+}
+
+.ms-home-hero__quote blockquote,
+.ms-home-hero__quote p,
+.ms-home-hero__quote figcaption {
+  margin: 0;
+  text-shadow: none !important;
+}
+
+.ms-home-hero__quote p {
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.ms-home-hero__quote figcaption {
+  margin-top: 6px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 12px;
+}
+
+.ms-home-hero__quote figcaption span::before {
+  content: " · ";
+}
+
+@media (min-width: 1100px) {
+  html.dw-bing .div-block-59 .inner-container:has(.ms-home-hero) {
+    width: 100% !important;
+    max-width: 620px !important;
+  }
+
+  .ms-home-hero__actions {
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+}
+
+@media (max-width: 991px) {
+  .ms-home-hero {
+    max-width: none;
+    margin-top: 4px;
+  }
+
+  .ms-home-hero__title {
+    font-size: clamp(28px, 7.4vw, 36px);
+  }
+
+  .ms-home-hero__promise {
+    font-size: 16px;
+  }
+
+  .ms-home-hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ms-home-hero__btn {
+    width: 100%;
+  }
+
+  .ms-home-hero__proof {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}
+
 @media (max-width: 600px) {
   .bing-offer-steps {
     padding: 20px 0;

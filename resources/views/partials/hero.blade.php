@@ -364,6 +364,7 @@
                     </div>
                     @endif
                     @else
+                    <div class="bing-hide">
                     <h1 class="heading-4">Looking to Replace Your Windows in <span data-area-label>the Bay Area</span>?</h1>
                     @include('partials.service-area-phones', [
                       'localPhone' => null,
@@ -384,6 +385,8 @@
                         'showBingBrands' => empty($heroBrandsOverlay) && !empty($heroBrandsForBing),
                       ])
                     </div>
+                    </div>
+                    @include('partials.bing-home-hero')
                     @endif
                   </div>
                 </div>
