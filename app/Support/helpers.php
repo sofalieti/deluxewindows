@@ -459,3 +459,27 @@ if (! function_exists('screen_size_from_request')) {
         ];
     }
 }
+
+if (! function_exists('tracking_ids_from_request')) {
+    /**
+     * First-party visitor and session ids from the browser tracker.
+     * Invalid values are dropped so a bad id never rejects a lead or visit.
+     *
+     * @return array{visitor_id: string|null, session_id: string|null}
+     */
+    function tracking_ids_from_request(): array
+    {
+        $valid = static function (string $value): ?string {
+            if (preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i', $value) !== 1) {
+                return null;
+            }
+
+            return strtolower($value);
+        };
+
+        return [
+            'visitor_id' => $valid(trim((string) request()->input('visitor_id'))),
+            'session_id' => $valid(trim((string) request()->input('session_id'))),
+        ];
+    }
+}

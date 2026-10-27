@@ -41,6 +41,10 @@ return [
         'site_id' => env('WEBFLOW_SITE_ID'),
     ],
 
+    'clarity' => [
+        'project_id' => env('CLARITY_PROJECT_ID'),
+    ],
+
     'google' => [
         'ga4_id' => env('GOOGLE_GA4_ID', 'G-JHYBB0THJM'),
         'ads_id' => env('GOOGLE_ADS_ID', 'AW-1030787786'),

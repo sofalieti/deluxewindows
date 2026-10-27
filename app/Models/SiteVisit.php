@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Models\Concerns\ClassifiesTrafficSource;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Filters\Filterable;
 use Orchid\Filters\Types\Like;
@@ -55,6 +56,15 @@ class SiteVisit extends Model
         'user_agent',
         'screen_width',
         'screen_height',
+        'visitor_id',
+        'session_id',
+        'pageviews',
+        'engaged_seconds',
+        'max_scroll',
+        'events_count',
+        'rage_clicks',
+        'last_seen_at',
+        'is_bot',
         'traffic_source',
         'meta',
     ];
@@ -85,7 +95,58 @@ class SiteVisit extends Model
             'meta' => 'array',
             'screen_width' => 'integer',
             'screen_height' => 'integer',
+            'pageviews' => 'integer',
+            'engaged_seconds' => 'integer',
+            'max_scroll' => 'integer',
+            'events_count' => 'integer',
+            'rage_clicks' => 'integer',
+            'is_bot' => 'boolean',
+            'last_seen_at' => 'datetime',
         ];
+    }
+
+    public function engagedLabel(): string
+    {
+        $seconds = max(0, (int) $this->engaged_seconds);
+        if ($seconds < 60) {
+            return $seconds.'s';
+        }
+
+        return intdiv($seconds, 60).'m '.($seconds % 60).'s';
+    }
+
+    /**
+     * @param  Builder<SiteVisit>  $query
+     * @return Builder<SiteVisit>
+     */
+    public function scopeConverted(Builder $query): Builder
+    {
+        return $query->whereNotNull('visitor_id')->where(function (Builder $inner): void {
+            $inner->whereIn('visitor_id', function ($sub): void {
+                $sub->select('visitor_id')->from('leads')->whereNotNull('visitor_id');
+            })->orWhereIn('visitor_id', function ($sub): void {
+                $sub->select('visitor_id')->from('phone_clicks')->whereNotNull('visitor_id');
+            });
+        });
+    }
+
+    /**
+     * @param  Builder<SiteVisit>  $query
+     * @return Builder<SiteVisit>
+     */
+    public function scopeNotConverted(Builder $query): Builder
+    {
+        return $query->where(function (Builder $outer): void {
+            $outer->whereNull('visitor_id')->orWhere(function (Builder $inner): void {
+                $inner->whereNotNull('visitor_id')
+                    ->whereNotIn('visitor_id', function ($sub): void {
+                        $sub->select('visitor_id')->from('leads')->whereNotNull('visitor_id');
+                    })
+                    ->whereNotIn('visitor_id', function ($sub): void {
+                        $sub->select('visitor_id')->from('phone_clicks')->whereNotNull('visitor_id');
+                    });
+            });
+        });
     }
 
     protected static function booted(): void

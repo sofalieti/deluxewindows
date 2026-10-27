@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BehaviorEventController;
 use App\Http\Controllers\CallbackRequestController;
 use App\Http\Controllers\ClassicSiteController;
 use App\Http\Controllers\PhoneClickController;
@@ -81,6 +82,9 @@ Route::post('/contact-form', [ClassicSiteController::class, 'submitContactForm']
 Route::post('/callback-request', [CallbackRequestController::class, 'store'])->name('callback-request.store');
 Route::post('/phone-click', [PhoneClickController::class, 'store'])->name('phone-click.store');
 Route::post('/visit', [VisitController::class, 'store'])->name('visit.store');
+Route::post('/t/events', [BehaviorEventController::class, 'store'])
+    ->middleware('throttle:60,1')
+    ->name('behavior.events');
 Route::get('/service-area-phones.json', [ClassicSiteController::class, 'serviceAreaPhones'])
     ->name('service-area-phones');
 

@@ -874,6 +874,7 @@
         const data = await res.json().catch(function () { return { ok: true }; });
         const isSpam = !!(data && data.spam);
         if (!isSpam) {
+          if (window.DeluxeClarity) window.DeluxeClarity.event('lead_submitted');
           postToGoogleBridges(payload);
           sendGa4LeadConversion(payload);
           if (typeof window.gtag_report_conversion === 'function') {

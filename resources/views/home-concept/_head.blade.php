@@ -24,6 +24,7 @@
   }
 </script>
 
+@include('partials.clarity')
 @include('partials.seo-head')
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />

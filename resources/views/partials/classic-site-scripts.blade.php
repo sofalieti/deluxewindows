@@ -2,6 +2,7 @@
     <script src="/webflow-assets/js/webflow.js" type="text/javascript"></script>
     @include('partials.attribution-tracking')
     @include('partials.visit-tracking')
+    @include('partials.behavior-tracker')
     @include('partials.service-area-personalization')
     @include('partials.bing-phone-choice-modal')
     @include('partials.lead-form-scripts')

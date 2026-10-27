@@ -110,6 +110,8 @@ class PhoneClick extends Model
         'user_agent',
         'screen_width',
         'screen_height',
+        'visitor_id',
+        'session_id',
         'meta',
         'is_spam',
         'spam_marked_at',

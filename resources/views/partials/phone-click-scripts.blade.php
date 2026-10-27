@@ -120,6 +120,7 @@
 
       const payload = buildPayload(anchor, sourceOverride);
       sendGa4PhoneConversion(payload);
+      if (window.DeluxeClarity) window.DeluxeClarity.event('phone_click');
       if (typeof window.uet_report_phone_click === 'function') {
         window.uet_report_phone_click();
       }
@@ -305,6 +306,7 @@
         const data = await res.json().catch(function () { return { ok: true }; });
         const isSpam = !!(data && data.spam);
         if (!isSpam) {
+          if (window.DeluxeClarity) window.DeluxeClarity.event('lead_submitted');
           if (typeof window.gtag_report_conversion === 'function') {
             window.gtag_report_conversion(undefined, {
               email: '',

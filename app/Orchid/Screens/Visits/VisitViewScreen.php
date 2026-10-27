@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace App\Orchid\Screens\Visits;
 
+use App\Models\SiteEvent;
 use App\Models\SiteVisit;
 use App\Services\ServiceAreaRegions;
+use App\Support\ClarityDashboard;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
 use Orchid\Screen\Sight;
@@ -21,6 +23,10 @@ class VisitViewScreen extends Screen
 
         return [
             'visit' => $visit,
+            'events' => filled($visit->session_id)
+                ? SiteEvent::query()->where('session_id', $visit->session_id)->orderBy('id')->limit(500)->get()
+                : collect(),
+            'clarityUrl' => ClarityDashboard::recordingsUrl($visit->visitor_id),
         ];
     }
 
@@ -43,16 +49,28 @@ class VisitViewScreen extends Screen
 
     public function commandBar(): iterable
     {
-        return [
+        $actions = [
             Link::make('Back to list')
                 ->icon('bs.arrow-left')
                 ->route('platform.visits'),
         ];
+
+        $clarityUrl = ClarityDashboard::recordingsUrl($this->visit?->visitor_id);
+        if ($clarityUrl !== null) {
+            $actions[] = Link::make('Open in Clarity')
+                ->icon('bs.play-circle')
+                ->href($clarityUrl)
+                ->target('_blank');
+        }
+
+        return $actions;
     }
 
     public function layout(): iterable
     {
         return [
+            Layout::view('admin.visits.behavior'),
+
             Layout::columns([
                 Layout::legend('visit', [
                     Sight::make('created_at', 'Visited at')

@@ -4,10 +4,13 @@ declare(strict_types=1);
 
 namespace App\Orchid\Screens\Visits;
 
+use App\Models\SiteEvent;
 use App\Models\SiteVisit;
+use App\Orchid\Layouts\Visits\VisitFiltersLayout;
 use App\Services\ServiceAreaRegions;
 use App\Services\VisitsSettingsService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Schema;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Fields\CheckBox;
@@ -29,8 +32,9 @@ class VisitListScreen extends Screen
         return [
             'setting' => [
                 'enabled' => $this->settings->enabled(),
+                'behavior_enabled' => $this->settings->behaviorEnabled(),
             ],
-            'visits' => SiteVisit::query()
+            'visits' => SiteVisit::filters(VisitFiltersLayout::class)
                 ->defaultSort('id', 'desc')
                 ->paginate(50),
         ];
@@ -43,11 +47,10 @@ class VisitListScreen extends Screen
 
     public function description(): ?string
     {
-        $enabled = $this->settings->enabled();
+        $visits = $this->settings->enabled() ? 'ON' : 'OFF';
+        $behavior = $this->settings->behaviorEnabled() ? 'ON' : 'OFF';
 
-        return $enabled
-            ? 'Session visits with traffic source and utm_city. Tracking is ON.'
-            : 'Session visits with traffic source and utm_city. Tracking is OFF — new visits are not recorded.';
+        return 'Session visits with traffic source and utm_city. Visit tracking is '.$visits.'. Behavior events are '.$behavior.'.';
     }
 
     public function permission(): ?iterable
@@ -62,7 +65,7 @@ class VisitListScreen extends Screen
                 ->icon('bs.trash')
                 ->type(Color::DANGER)
                 ->method('clearAll')
-                ->confirm('Delete every row in the visits table? This cannot be undone. Tracking settings stay as they are.'),
+                ->confirm('Delete every visit and behavior event? This cannot be undone. Tracking settings stay as they are.'),
         ];
     }
 
@@ -75,7 +78,14 @@ class VisitListScreen extends Screen
                     ->placeholder('Enable visit tracking')
                     ->sendTrueOrFalse()
                     ->help('When off, POST /visit returns 204 and nothing is stored.'),
+                CheckBox::make('setting.behavior_enabled')
+                    ->title('Record behavior events')
+                    ->placeholder('Enable clicks, scroll, forms, and engagement')
+                    ->sendTrueOrFalse()
+                    ->help('Stores a short event log per session. Mouse trails and session replay stay in Microsoft Clarity. When off, POST /t/events returns 204.'),
             ])->title('Tracking'),
+
+            VisitFiltersLayout::class,
 
             Layout::rows([
                 Button::make('Save tracking setting')
@@ -94,8 +104,12 @@ class VisitListScreen extends Screen
                             ? $visit->created_at->copy()->timezone('America/Los_Angeles')
                             : null;
 
+                        $bot = $visit->is_bot
+                            ? '<div class="small text-muted">bot</div>'
+                            : '';
+
                         return $at
-                            ? e($at->format('M d, Y')).'<div class="small text-muted">'.e($at->format('h:i A')).' PT</div>'
+                            ? e($at->format('M d, Y')).'<div class="small text-muted">'.e($at->format('h:i A')).' PT</div>'.$bot
                             : '—';
                     }),
 
@@ -180,6 +194,30 @@ class VisitListScreen extends Screen
                             : e(implode(' · ', $bits));
                     }),
 
+                TD::make('pageviews', 'Pages')
+                    ->width('70px')
+                    ->render(fn (SiteVisit $visit) => $visit->pageviews
+                        ? e((string) $visit->pageviews)
+                        : '<span class="text-muted">—</span>'),
+
+                TD::make('engaged_seconds', 'Time')
+                    ->width('80px')
+                    ->render(fn (SiteVisit $visit) => $visit->engaged_seconds
+                        ? e($visit->engagedLabel())
+                        : '<span class="text-muted">—</span>'),
+
+                TD::make('max_scroll', 'Scroll')
+                    ->width('70px')
+                    ->render(fn (SiteVisit $visit) => $visit->max_scroll
+                        ? e($visit->max_scroll.'%')
+                        : '<span class="text-muted">—</span>'),
+
+                TD::make('rage_clicks', 'Rage')
+                    ->width('60px')
+                    ->render(fn (SiteVisit $visit) => $visit->rage_clicks
+                        ? e((string) $visit->rage_clicks)
+                        : '<span class="text-muted">—</span>'),
+
                 TD::make('id', 'View')
                     ->align(TD::ALIGN_CENTER)
                     ->width('70px')
@@ -193,14 +231,17 @@ class VisitListScreen extends Screen
     public function saveSettings(Request $request): void
     {
         $enabled = $request->boolean('setting.enabled');
+        $behavior = $request->boolean('setting.behavior_enabled');
         $this->settings->update(['enabled' => $enabled]);
+        $this->settings->updateScope('behavior', ['enabled' => $behavior]);
 
-        Toast::info($enabled ? 'Visit tracking enabled.' : 'Visit tracking disabled.');
+        Toast::info('Tracking updated. Visits '.($enabled ? 'on' : 'off').', behavior '.($behavior ? 'on' : 'off').'.');
     }
 
     public function clearAll(): void
     {
+        $events = Schema::hasTable('site_events') ? SiteEvent::query()->delete() : 0;
         $deleted = SiteVisit::query()->delete();
-        Toast::warning('Cleared '.$deleted.' visit(s). Table is empty and will refill when tracking is on.');
+        Toast::warning('Cleared '.$deleted.' visit(s) and '.$events.' behavior event(s).');
     }
 }

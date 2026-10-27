@@ -6,10 +6,13 @@ use App\Models\SiteVisit;
 use App\Models\User;
 use App\Models\VisitsSetting;
 use App\Services\VisitsSettingsService;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Orchid\Platform\Http\Middleware\Access;
 
 use function Pest\Laravel\assertDatabaseCount;
 use function Pest\Laravel\postJson;
+
+uses(RefreshDatabase::class);
 
 beforeEach(function () {
     SiteVisit::query()->delete();
@@ -52,6 +55,8 @@ test('visit store records attribution when tracking is enabled', function () {
         'first_utm_city' => '9032015',
         'gclid' => 'abc123',
         'first_gclid' => 'abc123',
+        'visitor_id' => '11111111-1111-4111-8111-111111111111',
+        'session_id' => '22222222-2222-4222-8222-222222222222',
     ])->assertOk()->assertJson(['ok' => true]);
 
     $visit = SiteVisit::query()->latest('id')->firstOrFail();
@@ -62,6 +67,8 @@ test('visit store records attribution when tracking is enabled', function () {
         ->and($visit->gclid)->toBe('abc123')
         ->and($visit->landing_page)->toBe('/')
         ->and($visit->traffic_source)->toBe('google_ads')
+        ->and($visit->visitor_id)->toBe('11111111-1111-4111-8111-111111111111')
+        ->and($visit->session_id)->toBe('22222222-2222-4222-8222-222222222222')
         ->and($visit->meta['via'] ?? null)->toBe('site-visit');
 });
 
@@ -108,9 +115,13 @@ test('admin can toggle visit tracking', function () {
     $this->withoutMiddleware(Access::class)
         ->actingAs($user)
         ->post(route('platform.visits', ['method' => 'saveSettings']), [
-            'setting' => ['enabled' => '1'],
+            'setting' => [
+                'enabled' => '1',
+                'behavior_enabled' => '1',
+            ],
         ])
         ->assertRedirect();
 
-    expect(app(VisitsSettingsService::class)->enabled())->toBeTrue();
+    expect(app(VisitsSettingsService::class)->enabled())->toBeTrue()
+        ->and(app(VisitsSettingsService::class)->behaviorEnabled())->toBeTrue();
 });

@@ -18,12 +18,12 @@
       </div>
       <div class="input-wrapper">
         <input class="input w-input" type="tel" name="phone" placeholder="Phone Number *"
-          value="{{ old('phone') }}" required maxlength="50" autocomplete="tel" inputmode="tel" />
+          value="{{ old('phone') }}" required maxlength="50" autocomplete="tel" inputmode="tel" data-clarity-mask="true" />
         @error('phone')<span class="contact-form-error">{{ $message }}</span>@enderror
       </div>
       <div class="input-wrapper">
         <input class="input w-input" type="text" name="city" placeholder="City"
-          value="{{ old('city') }}" maxlength="100" />
+          value="{{ old('city') }}" maxlength="100" data-clarity-mask="true" />
       </div>
       <div class="input-wrapper">
         <textarea class="text-area w-input contact-form-textarea" name="message" placeholder="Short description (optional)"

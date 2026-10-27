@@ -16,6 +16,8 @@ use App\Services\Ads\FelixSheetExporter;
 use App\Services\Ads\MicrosoftQualifiedLeadService;
 use App\Services\ContactFromLeadService;
 use App\Services\TrafficSourceVisibility;
+use App\Services\VisitorJourney;
+use App\Support\ClarityDashboard;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -71,6 +73,8 @@ class LeadEditScreen extends Screen
                 ->orderByDesc('sent_at')
                 ->limit(100)
                 ->get(),
+            'journey' => app(VisitorJourney::class)->visits($lead->visitor_id, $lead->created_at),
+            'clarityUrl' => ClarityDashboard::recordingsUrl($lead->visitor_id),
         ];
     }
 
@@ -320,6 +324,7 @@ class LeadEditScreen extends Screen
 
         return [
             Layout::view('admin.leads.assets'),
+            Layout::view('admin.behavior.journey'),
 
             Layout::tabs([
                 'Details' => Layout::columns([

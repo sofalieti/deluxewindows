@@ -91,5 +91,12 @@ return Application::configure(basePath: dirname(__DIR__))
             ->timezone('America/Los_Angeles')
             ->withoutOverlapping()
             ->when(fn () => \Illuminate\Support\Facades\Schema::hasTable('phone_clicks'));
+
+        $schedule->command('model:prune', [
+            '--model' => [\App\Models\SiteEvent::class],
+        ])
+            ->daily()
+            ->withoutOverlapping()
+            ->when(fn () => \Illuminate\Support\Facades\Schema::hasTable('site_events'));
     })
     ->create();

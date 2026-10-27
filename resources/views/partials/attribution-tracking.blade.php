@@ -14,6 +14,8 @@
     const SESSION_GAP_MS = 30 * 60 * 1000;
     const SESSION_FLAG = 'dw_site_visit';
     const ACTIVITY_KEY = 'dw_last_activity_at';
+    const VID_KEY = 'dw_vid';
+    const SID_KEY = 'dw_sid';
 
     function storageGet(key) {
       try {
@@ -85,6 +87,56 @@
         // sessionStorage may be blocked.
       }
       storageSet(ACTIVITY_KEY, String(Date.now()));
+    }
+
+    function uuid() {
+      if (window.crypto && typeof window.crypto.randomUUID === 'function') {
+        return window.crypto.randomUUID();
+      }
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        const r = (Math.random() * 16) | 0;
+        const v = c === 'x' ? r : (r & 0x3) | 0x8;
+        return v.toString(16);
+      });
+    }
+
+    function writeVidCookie(value) {
+      try {
+        const secure = window.location.protocol === 'https:' ? '; Secure' : '';
+        document.cookie = VID_KEY + '=' + encodeURIComponent(value)
+          + '; path=/; max-age=63072000; SameSite=Lax' + secure;
+      } catch (_) {}
+    }
+
+    function readSid() {
+      try {
+        return sessionStorage.getItem(SID_KEY) || '';
+      } catch (_) {
+        return storageGet(SID_KEY);
+      }
+    }
+
+    function writeSid(value) {
+      try {
+        sessionStorage.setItem(SID_KEY, value);
+      } catch (_) {
+        storageSet(SID_KEY, value);
+      }
+    }
+
+    function ensureVisitorId() {
+      const existing = storageGet(VID_KEY) || getCookie(VID_KEY);
+      const vid = existing || uuid();
+      storageSet(VID_KEY, vid);
+      writeVidCookie(vid);
+      return vid;
+    }
+
+    function ensureSessionId(isNew) {
+      const existing = readSid();
+      const sid = (!isNew && existing) ? existing : uuid();
+      writeSid(sid);
+      return sid;
     }
 
     function inferFromReferrer(referrer) {
@@ -243,6 +295,8 @@
         writeTouch('lead_param_first_', readTouch('lead_param_'));
       }
 
+      ensureVisitorId();
+      ensureSessionId(wasNewVisit);
       markVisitActivity();
       return {
         last: readTouch('lead_param_'),
@@ -287,6 +341,8 @@
       const screen = rememberedScreen();
       payload.screen_width = screen ? screen.width : '';
       payload.screen_height = screen ? screen.height : '';
+      payload.visitor_id = storageGet(VID_KEY) || getCookie(VID_KEY);
+      payload.session_id = readSid();
 
       return payload;
     }
@@ -301,6 +357,9 @@
     };
 
     window.__dwAttributionCapture = capture();
+    if (window.DeluxeClarity && typeof window.DeluxeClarity.sync === 'function') {
+      window.DeluxeClarity.sync();
+    }
   })();
 </script>
 @endonce

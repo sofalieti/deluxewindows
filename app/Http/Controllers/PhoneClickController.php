@@ -97,6 +97,7 @@ class PhoneClickController extends Controller
                 'ip_address' => $request->ip(),
                 'user_agent' => (string) $request->userAgent(),
                 ...screen_size_from_request(),
+                ...tracking_ids_from_request(),
                 'ringcentral_status' => PhoneClick::RINGCENTRAL_PENDING,
                 'meta' => [
                     'via' => 'site-tel-click',

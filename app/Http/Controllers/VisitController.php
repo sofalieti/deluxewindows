@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Models\SiteVisit;
+use App\Services\BotDetector;
 use App\Services\VisitsSettingsService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -13,7 +14,7 @@ use Illuminate\Support\Facades\Log;
 
 class VisitController extends Controller
 {
-    public function store(Request $request, VisitsSettingsService $settings): JsonResponse|Response
+    public function store(Request $request, VisitsSettingsService $settings, BotDetector $bots): JsonResponse|Response
     {
         if (! $settings->enabled()) {
             return response()->noContent();
@@ -98,6 +99,8 @@ class VisitController extends Controller
                 'ip_address' => $request->ip(),
                 'user_agent' => (string) $request->userAgent(),
                 ...screen_size_from_request(),
+                ...tracking_ids_from_request(),
+                'is_bot' => $bots->isBot($request->userAgent()),
                 'meta' => [
                     'via' => 'site-visit',
                     'request_id' => (string) $request->headers->get('x-request-id', ''),

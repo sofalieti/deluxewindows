@@ -12,6 +12,7 @@
     <meta charset="utf-8" />
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     @include('partials.bing-audience-head')
+    @include('partials.clarity')
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JHYBB0THJM"></script>
     <script>
       window.dataLayer = window.dataLayer || [];

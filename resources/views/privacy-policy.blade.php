@@ -49,8 +49,8 @@
             <p>When you use the Site, we and our service providers may automatically collect:</p>
             <ul>
               <li>IP address, browser type, device information, and general location derived from IP</li>
-              <li>Pages viewed, referring URLs, timestamps, and interaction data</li>
-              <li>Cookie identifiers and similar technologies</li>
+              <li>Pages viewed, referring URLs, timestamps, and interaction data (clicks on calls to action, scroll depth, and time spent on a page)</li>
+              <li>Cookie identifiers and similar technologies, including a first-party visitor cookie used to connect repeat visits with a quote request or phone call</li>
               <li>Advertising and analytics identifiers (for example, Google Analytics / Google Ads parameters such as gclid, and similar campaign parameters)</li>
             </ul>
 
@@ -77,6 +77,14 @@
               <a href="https://adssettings.google.com" target="_blank" rel="noopener">adssettings.google.com</a>
               and review Google’s privacy practices at
               <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.
+            </p>
+            <p>
+              We use Microsoft Clarity to understand how the Site is used. Clarity records mouse movements,
+              clicks, scrolling, and session replays, and may set a cookie. Text entered into form fields is
+              masked and is not stored in those recordings. Microsoft’s privacy statement is at
+              <a href="https://privacy.microsoft.com/privacystatement" target="_blank" rel="noopener">privacy.microsoft.com/privacystatement</a>.
+              You can opt out of Clarity at
+              <a href="https://clarity.microsoft.com/opt-out" target="_blank" rel="noopener">clarity.microsoft.com/opt-out</a>.
             </p>
 
             <h2 id="sharing">4. How We Share Information</h2>

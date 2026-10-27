@@ -15,6 +15,8 @@ use App\Models\User;
 use App\Orchid\Screens\Concerns\QueuesCallTranscripts;
 use App\Services\ContactFromPhoneClickService;
 use App\Services\CrmTaskAutomation;
+use App\Services\VisitorJourney;
+use App\Support\ClarityDashboard;
 use App\Services\PhoneClickGoogleBridge;
 use App\Services\RingCentralCallLogService;
 use App\Services\TrafficSourceVisibility;
@@ -55,6 +57,8 @@ class PhoneClickViewScreen extends Screen
             'matchedCall' => $click->ringCentralCall(),
             'notes' => $click->notes,
             'tasks' => $click->tasks,
+            'journey' => app(VisitorJourney::class)->visits($click->visitor_id, $click->created_at),
+            'clarityUrl' => ClarityDashboard::recordingsUrl($click->visitor_id),
         ];
     }
 
@@ -376,6 +380,7 @@ class PhoneClickViewScreen extends Screen
         return [
             Layout::view('admin.phone-clicks.assets'),
             Layout::view('admin.leads.assets'),
+            Layout::view('admin.behavior.journey'),
             Layout::tabs([
                 'Details' => Layout::blank($details),
                 'Handling' => Layout::blank([

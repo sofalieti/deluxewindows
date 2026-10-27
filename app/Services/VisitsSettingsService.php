@@ -10,20 +10,25 @@ use Illuminate\Support\Facades\Schema;
 
 class VisitsSettingsService
 {
-    private const CACHE_KEY = 'visits.settings.default';
+    private const CACHE_PREFIX = 'visits.settings.';
 
     public function get(): VisitsSetting
     {
+        return $this->forScope('default');
+    }
+
+    public function forScope(string $scope): VisitsSetting
+    {
         if (! Schema::hasTable('visits_settings')) {
             return new VisitsSetting([
-                'scope' => 'default',
+                'scope' => $scope,
                 'enabled' => false,
             ]);
         }
 
-        return Cache::remember(self::CACHE_KEY, now()->addHour(), function () {
+        return Cache::remember(self::CACHE_PREFIX.$scope, now()->addHour(), function () use ($scope) {
             return VisitsSetting::query()->firstOrCreate(
-                ['scope' => 'default'],
+                ['scope' => $scope],
                 ['enabled' => false]
             );
         });
@@ -34,9 +39,15 @@ class VisitsSettingsService
         return (bool) $this->get()->enabled;
     }
 
+    public function behaviorEnabled(): bool
+    {
+        return (bool) $this->forScope('behavior')->enabled;
+    }
+
     public function forgetCache(): void
     {
-        Cache::forget(self::CACHE_KEY);
+        Cache::forget(self::CACHE_PREFIX.'default');
+        Cache::forget(self::CACHE_PREFIX.'behavior');
     }
 
     /**
@@ -44,10 +55,18 @@ class VisitsSettingsService
      */
     public function update(array $data): VisitsSetting
     {
-        $setting = $this->get();
+        return $this->updateScope('default', $data);
+    }
+
+    /**
+     * @param  array<string, mixed>  $data
+     */
+    public function updateScope(string $scope, array $data): VisitsSetting
+    {
+        $setting = $this->forScope($scope);
         $setting->fill($data);
         $setting->save();
-        $this->forgetCache();
+        Cache::forget(self::CACHE_PREFIX.$scope);
 
         return $setting->fresh() ?? $setting;
     }

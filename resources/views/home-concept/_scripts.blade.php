@@ -4,6 +4,7 @@
 @endphp
 @include('partials.attribution-tracking')
 @include('partials.visit-tracking')
+@include('partials.behavior-tracker')
 @include('partials.service-area-personalization')
 @include('partials.lead-form-scripts')
 @include('partials.phone-click-scripts')

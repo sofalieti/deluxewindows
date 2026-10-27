@@ -149,6 +149,8 @@ class Lead extends Model
         'user_agent',
         'screen_width',
         'screen_height',
+        'visitor_id',
+        'session_id',
         'meta',
         'status',
         'assigned_to',

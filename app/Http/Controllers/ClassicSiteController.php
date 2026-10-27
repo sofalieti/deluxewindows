@@ -656,6 +656,7 @@ class ClassicSiteController extends Controller
                 'ip_address' => $request->ip(),
                 'user_agent' => (string) $request->userAgent(),
                 ...screen_size_from_request(),
+                ...tracking_ids_from_request(),
                 'status' => Lead::STATUS_SPAM,
                 'meta' => $meta,
             ]);
@@ -690,6 +691,7 @@ class ClassicSiteController extends Controller
             'ip_address' => $request->ip(),
             'user_agent' => (string) $request->userAgent(),
             ...screen_size_from_request(),
+            ...tracking_ids_from_request(),
             'meta' => $meta,
         ]);
 
