@@ -1361,11 +1361,19 @@
             @endunless
             <div class="mobile-estimate-modal__form-wrap w-form">
               <form id="wf-form-Mobile-Estimate-Modal" name="wf-form-Mobile-Estimate-Modal" method="get" class="mobile-estimate-modal__form js-laravel-lead-form">
-                <input type="text" name="Name" placeholder="Full name*" required class="w-input" autocomplete="name" />
-                <input type="email" name="Email" placeholder="Email*" required class="w-input" autocomplete="email" />
-                <input type="tel" name="Phone" placeholder="{{ site_phone_display() }}" required class="w-input" autocomplete="tel" inputmode="tel" />
-                <input type="text" name="Subject" placeholder="City" class="w-input" />
-                <textarea name="Message" maxlength="5000" placeholder="Tell us about your project" class="w-input"></textarea>
+                <div class="mobile-estimate-modal__fields">
+                  <label class="mobile-estimate-modal__label" for="mem-name">Full name</label>
+                  <input id="mem-name" type="text" name="Name" placeholder="Full name*" required class="w-input" autocomplete="name" />
+                  <input type="email" name="Email" placeholder="Email*" required class="w-input" autocomplete="email" />
+                  <label class="mobile-estimate-modal__label" for="mem-phone">Phone</label>
+                  <input id="mem-phone" type="tel" name="Phone" placeholder="{{ site_phone_display() }}" required class="w-input" autocomplete="tel" inputmode="tel" />
+                  <label class="mobile-estimate-modal__label" for="mem-city">City</label>
+                  <input id="mem-city" type="text" name="Subject" placeholder="City" class="w-input" />
+                  <div data-estimate-message>
+                    <label class="mobile-estimate-modal__label" for="mem-message">Project</label>
+                    <textarea id="mem-message" name="Message" maxlength="5000" placeholder="Tell us about your project" class="w-input"></textarea>
+                  </div>
+                </div>
                 <p class="mobile-estimate-modal__offer-note bing-only">{{ bing_offer_percent() }}% OFF on 3+ {{ bing_offer_units() }}.</p>
                 <div class="primary-button space-between-v1">
                   <input

@@ -45,7 +45,7 @@
           <div class="dw-gallery-grid">
             @foreach($images as $image)
               <a href="{{ $image }}" target="_blank" class="dw-gallery-item" rel="noopener noreferrer">
-                <x-img :src="$image" preset="card" alt="Deluxe Windows project" loading="lazy" />
+                <x-img :src="$image" preset="gallery_grid" alt="Deluxe Windows project" loading="lazy" sizes="(max-width: 640px) 50vw, (max-width: 991px) 33vw, 25vw" />
               </a>
             @endforeach
           </div>

@@ -545,7 +545,7 @@
       }
 
       const message = form.querySelector('textarea[name="Message"], textarea[name="message"]');
-      const messageBlock = message && message.closest('.text-area-wrapper, .rf-field');
+      const messageBlock = message && message.closest('.text-area-wrapper, .rf-field, [data-estimate-message]');
       const beforeDescription = messageBlock && form.contains(messageBlock) && !messageBlock.contains(nameInput)
         ? messageBlock
         : message;

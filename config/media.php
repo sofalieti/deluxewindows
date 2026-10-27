@@ -13,6 +13,7 @@ return [
     'presets' => [
         'gallery_main'  => ['width' => 1220, 'height' => null],
         'gallery_thumb' => ['width' => 458,  'height' => null],
+        'gallery_grid'  => ['width' => 480,  'height' => null, 'quality' => 92, 'sharpen' => true],
         'card'          => ['width' => 400,  'height' => null],
         'card_sm'       => ['width' => 320,  'height' => null],
         'logo'          => ['width' => 300,  'height' => null],

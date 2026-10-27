@@ -27,8 +27,9 @@ class ImageThumbnailService
      * Return optimized URL (or original if already small enough / not raster).
      *
      * @param  string|int  $presetOrWidth  Preset name or explicit max width
+     * @param  string|int|null  $tuningFrom  Preset whose quality and sharpen settings to reuse
      */
-    public function url(?string $source, string|int $presetOrWidth = 'card', ?int $height = null): string
+    public function url(?string $source, string|int $presetOrWidth = 'card', ?int $height = null, string|int|null $tuningFrom = null): string
     {
         if ($source === null || trim($source) === '') {
             return '';
@@ -45,6 +46,8 @@ class ImageThumbnailService
             return $source;
         }
 
+        $tuning = $this->tuning($tuningFrom ?? $presetOrWidth);
+
         if (is_string($presetOrWidth) && ! is_numeric($presetOrWidth)) {
             $dims = $this->presetDimensions($presetOrWidth);
             $maxWidth = $dims['width'];
@@ -59,7 +62,7 @@ class ImageThumbnailService
             return $source;
         }
 
-        $cachePath = $this->buildCachePath($absolutePath, $maxWidth, $maxHeight);
+        $cachePath = $this->buildCachePath($absolutePath, $maxWidth, $maxHeight, $tuning);
         $disk = Storage::disk(config('media.disk', 'public'));
 
         if ($disk->exists($cachePath)) {
@@ -69,7 +72,7 @@ class ImageThumbnailService
         }
 
         try {
-            $generated = $this->generate($absolutePath, $maxWidth, $maxHeight);
+            $generated = $this->generate($absolutePath, $maxWidth, $maxHeight, $tuning);
             if ($generated === null) {
                 return $source;
             }
@@ -106,7 +109,7 @@ class ImageThumbnailService
             $h = $height;
         }
 
-        $src1x = $this->url($source, $w, $h);
+        $src1x = $this->url($source, $w, $h, $presetOrWidth);
 
         if ($src1x === '' || $src1x === $source || ! $this->isEnabled()) {
             return [
@@ -116,7 +119,7 @@ class ImageThumbnailService
             ];
         }
 
-        $src2x = $this->url($source, $w * 2, $h);
+        $src2x = $this->url($source, $w * 2, $h, $presetOrWidth);
 
         if ($src2x !== $src1x && $src2x !== $source) {
             return [
@@ -197,17 +200,22 @@ class ImageThumbnailService
         return is_file($publicFile);
     }
 
-    private function buildCachePath(string $absolutePath, int $maxWidth, ?int $maxHeight): string
+    private function buildCachePath(string $absolutePath, int $maxWidth, ?int $maxHeight, array $tuning): string
     {
         $mtime = (string) @filemtime($absolutePath);
-        $hash = substr(hash('sha256', $absolutePath.'|'.$mtime.'|'.$maxWidth.'|'.($maxHeight ?? 0)), 0, 32);
+        $hash = substr(hash('sha256', $absolutePath.'|'.$mtime.'|'.$maxWidth.'|'.($maxHeight ?? 0).'|'.$tuning['quality'].'|'.($tuning['sharpen'] ? '1' : '0')), 0, 32);
         $format = config('media.format', 'webp');
 
         return trim(config('media.directory', 'thumbnails'), '/').'/'.$hash.'_'.$maxWidth.'w.'.($maxHeight ? $maxHeight.'h.' : '').$format;
     }
 
-    private function generate(string $absolutePath, int $maxWidth, ?int $maxHeight): ?string
+    /**
+     * @param  array{quality: int, sharpen: bool}  $tuning
+     */
+    private function generate(string $absolutePath, int $maxWidth, ?int $maxHeight, array $tuning): ?string
     {
+        $this->ensureMemory();
+
         $image = $this->loadImage($absolutePath);
         if ($image === null) {
             return null;
@@ -244,17 +252,66 @@ class ImageThumbnailService
         imagesavealpha($canvas, true);
         $transparent = imagecolorallocatealpha($canvas, 0, 0, 0, 127);
         imagefill($canvas, 0, 0, $transparent);
+        imagealphablending($canvas, true);
 
         imagecopyresampled($canvas, $image, 0, 0, 0, 0, $newW, $newH, $origW, $origH);
         imagedestroy($image);
 
+        if ($tuning['sharpen']) {
+            imageconvolution($canvas, [
+                [0, -1, 0],
+                [-1, 16, -1],
+                [0, -1, 0],
+            ], 12, 0);
+        }
+
         ob_start();
-        $quality = (int) config('media.quality', 82);
-        $ok = imagewebp($canvas, null, $quality);
+        $ok = imagewebp($canvas, null, $tuning['quality']);
         $binary = ob_get_clean();
         imagedestroy($canvas);
 
         return ($ok && is_string($binary) && $binary !== '') ? $binary : null;
+    }
+
+    /**
+     * @return array{quality: int, sharpen: bool}
+     */
+    private function tuning(string|int|null $presetOrWidth): array
+    {
+        $quality = (int) config('media.quality', 82);
+        $sharpen = false;
+
+        if (is_string($presetOrWidth) && ! is_numeric($presetOrWidth)) {
+            $def = config('media.presets.'.$presetOrWidth, []);
+            if (isset($def['quality'])) {
+                $quality = (int) $def['quality'];
+            }
+            $sharpen = (bool) ($def['sharpen'] ?? false);
+        }
+
+        return [
+            'quality' => max(1, min(100, $quality)),
+            'sharpen' => $sharpen,
+        ];
+    }
+
+    private function ensureMemory(): void
+    {
+        $limit = ini_get('memory_limit');
+        if ($limit === false || $limit === '-1') {
+            return;
+        }
+
+        $bytes = match (strtolower(substr($limit, -1))) {
+            'g' => (int) $limit * 1024 * 1024 * 1024,
+            'm' => (int) $limit * 1024 * 1024,
+            'k' => (int) $limit * 1024,
+            default => (int) $limit,
+        };
+
+        if ($bytes > 0 && $bytes < 512 * 1024 * 1024) {
+            ini_set('memory_limit', '512M');
+        }
     }
 
     /**

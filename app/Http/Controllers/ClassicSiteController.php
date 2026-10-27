@@ -273,6 +273,10 @@ class ClassicSiteController extends Controller
 
     public function gallery()
     {
+        if (function_exists('set_time_limit')) {
+            set_time_limit(180);
+        }
+
         $staticImages = [
             '/webflow-assets/images/68c89a4ddd537cbd43140679_IMG_8948-copy.jpg',
             '/webflow-assets/images/68c89a099acdcf47011a2c81_IMG_9092-copy.jpg',
