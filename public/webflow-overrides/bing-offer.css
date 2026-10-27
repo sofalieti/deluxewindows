@@ -599,6 +599,19 @@ html.dw-bing .ms-home-hero .area-phones:not([hidden]) {
     padding-bottom: 56px !important;
   }
 
+  html.dw-bing .div-block-59:has(.ms-home-hero) .title-left---content-right.paragraph-content.alt.hero-page {
+    width: 100% !important;
+    max-width: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    box-sizing: border-box !important;
+    left: auto !important;
+    right: auto !important;
+    align-items: center !important;
+  }
+
   html.dw-bing .bing-hero-offer,
   html.dw-bing .hero-mobile-promo__badge,
   html.dw-bing .hero-nm__bing-offer {

@@ -862,7 +862,13 @@
                   id="w-node-_632206d9-3c73-e5be-be34-15992c2e8416-2c2e830e"
                   class="primary-button-2 w-inline-block"
                   data-open-estimate-modal
-                  ><div>@if(hero_is_new())Book a consultation@else<span class="bing-hide">Request a Free Estimate</span><span class="bing-only">Quick Estimate</span>@endif</div></a
+                  ><div>
+                    @if(hero_is_new())
+                      <span class="bing-hide">Book a consultation</span><span class="bing-only">Quick Estimate</span>
+                    @else
+                      <span class="bing-hide">Request a Free Estimate</span><span class="bing-only">Quick Estimate</span>
+                    @endif
+                  </div></a
                 >
                 <div
                   class="hamburger-menu-2 w-nav-button"

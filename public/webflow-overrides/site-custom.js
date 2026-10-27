@@ -514,20 +514,35 @@
       } catch (e) {}
     }, true);
 
-    function land() {
-      if (userMoved || (!isMobile() && !isBing())) return;
+    let placed = false;
+
+    function reveal() {
+      placed = true;
+      document.documentElement.classList.remove("dw-land-pending");
+    }
+
+    function land(done) {
+      if (!isMobile() && !isBing()) {
+        reveal();
+        return;
+      }
       let flagged = false;
       try {
         flagged = sessionStorage.getItem(KEY) === "1";
       } catch (e) {
+        reveal();
         return;
       }
-      if (!flagged) return;
+      if (!flagged || userMoved) {
+        reveal();
+        return;
+      }
       const bar = document.getElementById("trustBadgesBar");
       if (!bar) {
         try {
           sessionStorage.removeItem(KEY);
         } catch (e) {}
+        reveal();
         return;
       }
       const header = document.querySelector(isMobile() ? ".navbar-3" : ".header-container-2");
@@ -535,20 +550,18 @@
       const top = bar.getBoundingClientRect().top + window.scrollY - headerH;
       if ("scrollRestoration" in history) history.scrollRestoration = "manual";
       window.scrollTo(0, Math.max(0, Math.round(top)));
+      if (!done) return;
+      try {
+        sessionStorage.removeItem(KEY);
+      } catch (e) {}
+      reveal();
     }
 
-    window.addEventListener("touchstart", () => { userMoved = true; }, { passive: true, once: true });
-    window.addEventListener("wheel", () => { userMoved = true; }, { passive: true, once: true });
-    onReady(land);
-    window.addEventListener("load", () => {
-      land();
-      window.setTimeout(() => {
-        land();
-        try {
-          sessionStorage.removeItem(KEY);
-        } catch (e) {}
-      }, 350);
-    });
+    window.addEventListener("touchstart", () => { if (placed) userMoved = true; }, { passive: true });
+    window.addEventListener("wheel", () => { if (placed) userMoved = true; }, { passive: true });
+    onReady(() => land(false));
+    window.addEventListener("load", () => land(true));
+    if (document.readyState === "complete") land(true);
   })();
 })();
 

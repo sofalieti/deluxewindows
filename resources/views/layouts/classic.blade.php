@@ -12,6 +12,20 @@
     <meta charset="utf-8" />
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     @include('partials.bing-audience-head')
+    <style>html.dw-land-pending body{visibility:hidden!important}</style>
+    <script>
+      (function () {
+        try {
+          if (sessionStorage.getItem('dwLandUnderTrust') !== '1') return;
+        } catch (e) {
+          return;
+        }
+        var mobile = window.matchMedia('(max-width: 991px)').matches;
+        if (!mobile && !document.documentElement.classList.contains('dw-bing')) return;
+        if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+        document.documentElement.classList.add('dw-land-pending');
+      })();
+    </script>
     @include('partials.clarity')
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JHYBB0THJM"></script>
     <script>
