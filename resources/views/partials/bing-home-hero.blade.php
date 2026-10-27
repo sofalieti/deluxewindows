@@ -18,7 +18,7 @@
 
   <div class="ms-home-hero__actions">
     <button type="button" class="ms-home-hero__btn" data-open-estimate-modal>
-      Get a Free Estimate
+      Quick Estimate
     </button>
     <div class="ms-home-hero__proof">
       <div class="ms-home-hero__badge" data-ms-review-slot></div>

@@ -554,8 +554,14 @@
                     <input
                       type="submit"
                       data-wait="Please wait..."
-                      class="inside-input-button text-light w-button"
+                      class="inside-input-button text-light w-button bing-hide"
                       value="Request a Free Estimate"
+                    />
+                    <input
+                      type="submit"
+                      data-wait="Please wait..."
+                      class="inside-input-button text-light w-button bing-only"
+                      value="Quick Estimate"
                     />
                   </div>
                   @include('partials.hero-form-offer-footer')

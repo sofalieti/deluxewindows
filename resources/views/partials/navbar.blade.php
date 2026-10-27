@@ -862,7 +862,7 @@
                   id="w-node-_632206d9-3c73-e5be-be34-15992c2e8416-2c2e830e"
                   class="primary-button-2 w-inline-block"
                   data-open-estimate-modal
-                  ><div>{{ hero_is_new() ? 'Book a consultation' : 'Request a Free Estimate' }}</div></a
+                  ><div>@if(hero_is_new())Book a consultation@else<span class="bing-hide">Request a Free Estimate</span><span class="bing-only">Quick Estimate</span>@endif</div></a
                 >
                 <div
                   class="hamburger-menu-2 w-nav-button"
@@ -1343,7 +1343,8 @@
           <svg class="mobile-fab-estimate__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14H7v-2h5v2zm5-4H7v-2h10v2zm0-4H7V7h10v2z"/>
           </svg>
-          <span class="mobile-fab-estimate__label">Free Estimate</span>
+          <span class="mobile-fab-estimate__label bing-hide">Free Estimate</span>
+          <span class="mobile-fab-estimate__label bing-only">Quick Estimate</span>
         </a>
       @endunless
 
@@ -1352,7 +1353,12 @@
           <div class="mobile-estimate-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="mobileEstimateTitle">
             <button type="button" class="mobile-estimate-modal__close" data-close-estimate-modal aria-label="Close form">×</button>
             <h3 id="mobileEstimateTitle" class="mobile-estimate-modal__title">
-              {{ hero_is_new() ? 'Book your in-home consultation' : 'Request a Free Estimate' }}
+              @if(hero_is_new())
+                Book your in-home consultation
+              @else
+                <span class="bing-hide">Request a Free Estimate</span>
+                <span class="bing-only">Quick Estimate</span>
+              @endif
             </h3>
             @unless(hero_is_new())
               <div class="mobile-estimate-modal__promo promo-offer-context--modal w-richtext bing-hide" data-estimate-modal-promo>

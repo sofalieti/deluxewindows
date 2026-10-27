@@ -477,17 +477,27 @@
     });
   })();
 
-  // Mobile menu: open the next page with the blue trust bar at the top.
+  // Menu: open the next page with the blue trust bar at the top.
+  // Mobile does this for everyone. Desktop does it for Microsoft only.
   (function () {
     const KEY = "dwLandUnderTrust";
     const MOBILE = "(max-width: 991px)";
-    const MENU = ".navbar-3 .nav-menu-wrapper-4";
+    const MOBILE_MENU = ".navbar-3 .nav-menu-wrapper-4";
+    const DESKTOP_MENU = ".header-wrapper-2 .nav-menu-wrapper-2";
     let userMoved = false;
 
+    function isMobile() {
+      return window.matchMedia(MOBILE).matches;
+    }
+
+    function isBing() {
+      return document.documentElement.classList.contains("dw-bing");
+    }
+
     document.addEventListener("click", (event) => {
-      if (!window.matchMedia(MOBILE).matches) return;
+      if (!isMobile() && !isBing()) return;
       if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-      const link = event.target.closest(`${MENU} a[href]`);
+      const link = event.target.closest(`${isMobile() ? MOBILE_MENU : DESKTOP_MENU} a[href]`);
       if (!link) return;
       const href = link.getAttribute("href") || "";
       if (href.charAt(0) === "#" || /^(tel:|mailto:|javascript:)/i.test(href)) return;
@@ -505,7 +515,7 @@
     }, true);
 
     function land() {
-      if (!window.matchMedia(MOBILE).matches || userMoved) return;
+      if (userMoved || (!isMobile() && !isBing())) return;
       let flagged = false;
       try {
         flagged = sessionStorage.getItem(KEY) === "1";
@@ -520,7 +530,7 @@
         } catch (e) {}
         return;
       }
-      const header = document.querySelector(".navbar-3");
+      const header = document.querySelector(isMobile() ? ".navbar-3" : ".header-container-2");
       const headerH = header ? Math.round(header.getBoundingClientRect().height) : 0;
       const top = bar.getBoundingClientRect().top + window.scrollY - headerH;
       if ("scrollRestoration" in history) history.scrollRestoration = "manual";

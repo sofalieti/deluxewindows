@@ -17,7 +17,7 @@ test('home keeps the regular copy and adds the Bing-only offer behind html.dw-bi
         ->toContain('class="bing-only ms-home-hero"')
         ->toContain('Window and door replacement in the Bay Area with professional installation.')
         ->toContain('Free in-home measure and a written estimate.')
-        ->toContain('Get a Free Estimate')
+        ->toContain('Quick Estimate')
         ->toContain('CA Lic. #695262')
         ->toContain('class="div-block-65 bing-only"')
         ->not->toContain('ms-home-hero__cert')

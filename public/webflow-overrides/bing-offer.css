@@ -320,13 +320,39 @@ html.dw-bing #trustBadgesBar.trust-badges-bar .div-block-65 .text-block-47 {
 }
 
 @media (max-width: 991px) {
+  html.dw-bing #trustBadgesBar.trust-badges-bar .container-default {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   html.dw-bing #trustBadgesBar.trust-badges-bar .w-layout-grid.grid.grid-543,
   html.dw-bing #trustBadgesBar.trust-badges-bar .grid.grid-543 {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0 !important;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
   html.dw-bing #trustBadgesBar.trust-badges-bar .div-block-65 {
-    min-height: 96px;
+    min-height: 0;
+    padding: 8px 10px;
+    border-radius: 0 !important;
+  }
+
+  html.dw-bing #trustBadgesBar.trust-badges-bar .div-block-65:nth-child(2) {
+    background: #0c5888 !important;
+  }
+
+  html.dw-bing #trustBadgesBar.trust-badges-bar .div-block-65:nth-child(3) {
+    background: #0d6399 !important;
+  }
+
+  html.dw-bing #trustBadgesBar.trust-badges-bar .div-block-65:nth-child(4) {
+    background: #0e6ca6 !important;
+  }
+
+  html.dw-bing #trustBadgesBar.trust-badges-bar .div-block-65:nth-child(5) {
+    background: #1076b2 !important;
   }
 }
 
