@@ -708,6 +708,23 @@ html.dw-bing .ms-home-hero .area-phones:not([hidden]) {
     font-weight: 600;
   }
 
+  html.dw-bing .mobile-estimate-modal__form .primary-button.space-between-v1 {
+    margin-top: 0;
+    flex: none;
+    padding: 0;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
+  html.dw-bing .mobile-estimate-modal__form .primary-button.space-between-v1:hover {
+    background: transparent !important;
+    box-shadow: none !important;
+    transform: none;
+    filter: none;
+  }
+
   html.dw-bing .mobile-estimate-modal__form .inside-input-button {
     min-height: 50px;
     border: 0 !important;
