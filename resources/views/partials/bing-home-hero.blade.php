@@ -28,4 +28,7 @@
     'localPhone' => $localPhone ?? null,
     'localLabel' => $localLabel ?? null,
   ])
+  @if(!empty($msHeroBrands))
+    @include('partials.hero-brands', ['heroBrandsPlacement' => 'desktop', 'heroBrandsBing' => true])
+  @endif
 </section>

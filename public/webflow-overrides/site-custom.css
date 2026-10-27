@@ -2851,6 +2851,8 @@ html.dw-bing .trust-badges-bar .grid.grid-543:has(> .bing-hide) {
   form .input-wrapper:has(> input[name="email"]),
   form.mobile-estimate-modal__form input[name="Email"],
   form.mobile-estimate-modal__form input[name="email"],
+  form.mobile-estimate-modal__form .mobile-estimate-modal__field:has(input[name="Email"]),
+  form.mobile-estimate-modal__form .mobile-estimate-modal__field:has(input[name="email"]),
   form.contact-form-fields .input-wrapper:has(input[name="email"]),
   form.js-laravel-lead-form > input[name="Email"],
   form.js-laravel-lead-form > input[name="email"],

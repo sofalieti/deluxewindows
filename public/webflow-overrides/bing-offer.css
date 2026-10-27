@@ -320,23 +320,44 @@ html.dw-bing #trustBadgesBar.trust-badges-bar .div-block-65 .text-block-47 {
 }
 
 @media (max-width: 991px) {
-  html.dw-bing #trustBadgesBar.trust-badges-bar .container-default {
-    padding-left: 0;
-    padding-right: 0;
+  html.dw-bing #trustBadgesBar.trust-badges-bar .container-default,
+  html.dw-bing #trustBadgesBar.trust-badges-bar .w-container {
+    padding: 0 !important;
+    max-width: none;
   }
 
   html.dw-bing #trustBadgesBar.trust-badges-bar .w-layout-grid.grid.grid-543,
   html.dw-bing #trustBadgesBar.trust-badges-bar .grid.grid-543 {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-template-rows: repeat(2, minmax(68px, 1fr)) !important;
     gap: 0 !important;
-    padding-top: 0;
-    padding-bottom: 0;
+    padding: 0 !important;
+    height: 100%;
   }
 
   html.dw-bing #trustBadgesBar.trust-badges-bar .div-block-65 {
-    min-height: 0;
-    padding: 8px 10px;
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100% !important;
+    height: 100%;
+    min-height: 68px;
+    margin: 0;
+    padding: 10px 12px;
     border-radius: 0 !important;
+    text-align: left;
+  }
+
+  html.dw-bing #trustBadgesBar.trust-badges-bar .trust-badge-icon {
+    flex: none;
+    align-self: center;
+  }
+
+  html.dw-bing #trustBadgesBar.trust-badges-bar .div-block-65 .text-block-47 {
+    flex: 0 1 auto;
+    text-align: left !important;
   }
 
   html.dw-bing #trustBadgesBar.trust-badges-bar .div-block-65:nth-child(2) {
@@ -598,6 +619,11 @@ html.dw-bing .ms-home-hero .area-phones:not([hidden]) {
     margin-top: 18px;
   }
 
+  html.dw-bing .ms-home-hero .hero-brands--desktop {
+    display: block;
+    margin-top: 16px;
+  }
+
   html.dw-bing .div-block-59 .title-left---content-right.paragraph-content.alt.hero-page .inner-container:has(.ms-home-hero) {
     width: 100% !important;
     max-width: 420px !important;
@@ -661,18 +687,77 @@ html.dw-bing .ms-home-hero .area-phones:not([hidden]) {
   display: none;
 }
 
+html.dw-bing .mobile-estimate-modal__label,
+html.dw-bing .mobile-estimate-modal__form .qty-pick__label {
+  display: block;
+  margin: 0 0 6px;
+  color: #3e5166;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+html.dw-bing .mobile-estimate-modal .qty-pick__bing-hint {
+  display: none !important;
+}
+
+html.dw-bing .mobile-estimate-modal__dialog {
+  overflow: hidden;
+}
+
+html.dw-bing .mobile-estimate-modal__fields {
+  overflow: hidden;
+}
+
+html.dw-bing .mobile-estimate-modal__form .qty-pick__shell {
+  position: relative;
+}
+
+html.dw-bing .mobile-estimate-modal__form .qty-pick.is-open {
+  position: relative;
+  z-index: 6;
+}
+
+html.dw-bing .mobile-estimate-modal__form .qty-pick__menu {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% - 1px);
+  z-index: 7;
+  margin: 0;
+}
+
+html.dw-bing .mobile-estimate-modal__form textarea.w-input {
+  resize: none;
+}
+
+@media (min-width: 992px) {
+  html.dw-bing .mobile-estimate-modal__dialog {
+    width: min(92vw, 680px);
+    max-height: none;
+    overflow: visible;
+  }
+
+  html.dw-bing .mobile-estimate-modal__fields {
+    overflow: visible;
+  }
+
+  html.dw-bing .mobile-estimate-modal__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  html.dw-bing .mobile-estimate-modal__field .w-input {
+    width: 100%;
+    margin-bottom: 0;
+  }
+}
+
 @media (max-width: 991px) {
   html.dw-bing .mobile-estimate-modal .qty-pick__bing-hint {
     display: none !important;
-  }
-
-  html.dw-bing .mobile-estimate-modal__label {
-    display: block;
-    margin: 0 0 6px;
-    color: #3e5166;
-    font-size: 13px;
-    font-weight: 600;
-    line-height: 1.3;
   }
 
   html.dw-bing .mobile-estimate-modal__title {
@@ -684,10 +769,19 @@ html.dw-bing .ms-home-hero .area-phones:not([hidden]) {
   }
 
   html.dw-bing .mobile-estimate-modal__fields {
+    display: flex;
     flex: 1;
+    flex-direction: column;
     min-height: 0;
-    overflow-y: auto;
-    padding-right: 2px;
+    overflow: hidden;
+    padding-right: 0;
+  }
+
+  html.dw-bing .mobile-estimate-modal__form [data-estimate-message] {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-height: 0;
   }
 
   html.dw-bing .mobile-estimate-modal__form .w-input,
@@ -726,7 +820,10 @@ html.dw-bing .ms-home-hero .area-phones:not([hidden]) {
   }
 
   html.dw-bing .mobile-estimate-modal__form textarea.w-input {
-    min-height: 88px;
+    flex: 1 1 auto;
+    min-height: 64px;
+    max-height: 120px;
+    margin-bottom: 0;
   }
 
   html.dw-bing .mobile-estimate-modal__offer-note {

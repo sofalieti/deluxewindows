@@ -393,7 +393,7 @@
                       ])
                     </div>
                     </div>
-                    @include('partials.bing-home-hero')
+                    @include('partials.bing-home-hero', ['msHeroBrands' => true])
                     @endif
                   </div>
                 </div>
