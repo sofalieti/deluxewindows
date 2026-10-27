@@ -476,5 +476,69 @@
       window.addEventListener("resize", update, { passive: true });
     });
   })();
+
+  // Mobile menu: open the next page with the blue trust bar at the top.
+  (function () {
+    const KEY = "dwLandUnderTrust";
+    const MOBILE = "(max-width: 991px)";
+    const MENU = ".navbar-3 .nav-menu-wrapper-4";
+    let userMoved = false;
+
+    document.addEventListener("click", (event) => {
+      if (!window.matchMedia(MOBILE).matches) return;
+      if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      const link = event.target.closest(`${MENU} a[href]`);
+      if (!link) return;
+      const href = link.getAttribute("href") || "";
+      if (href.charAt(0) === "#" || /^(tel:|mailto:|javascript:)/i.test(href)) return;
+      let url;
+      try {
+        url = new URL(link.href, window.location.href);
+      } catch (e) {
+        return;
+      }
+      if (url.origin !== window.location.origin) return;
+      if (url.pathname === window.location.pathname && url.search === window.location.search) return;
+      try {
+        sessionStorage.setItem(KEY, "1");
+      } catch (e) {}
+    }, true);
+
+    function land() {
+      if (!window.matchMedia(MOBILE).matches || userMoved) return;
+      let flagged = false;
+      try {
+        flagged = sessionStorage.getItem(KEY) === "1";
+      } catch (e) {
+        return;
+      }
+      if (!flagged) return;
+      const bar = document.getElementById("trustBadgesBar");
+      if (!bar) {
+        try {
+          sessionStorage.removeItem(KEY);
+        } catch (e) {}
+        return;
+      }
+      const header = document.querySelector(".navbar-3");
+      const headerH = header ? Math.round(header.getBoundingClientRect().height) : 0;
+      const top = bar.getBoundingClientRect().top + window.scrollY - headerH;
+      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+      window.scrollTo(0, Math.max(0, Math.round(top)));
+    }
+
+    window.addEventListener("touchstart", () => { userMoved = true; }, { passive: true, once: true });
+    window.addEventListener("wheel", () => { userMoved = true; }, { passive: true, once: true });
+    onReady(land);
+    window.addEventListener("load", () => {
+      land();
+      window.setTimeout(() => {
+        land();
+        try {
+          sessionStorage.removeItem(KEY);
+        } catch (e) {}
+      }, 350);
+    });
+  })();
 })();
 
