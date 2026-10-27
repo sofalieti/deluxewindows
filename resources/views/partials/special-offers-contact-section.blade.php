@@ -69,7 +69,7 @@
                     <div>
                       <label for="Company">City</label>
                       <div class="input-wrapper-2">
-                        <input class="input-2 icon-left w-input" maxlength="256" name="Subject" data-name="Subject" placeholder="San Francisco" type="text" id="subject" required="" />
+                        <input class="input-2 icon-left w-input" maxlength="256" name="Subject" data-name="Subject" placeholder="San Francisco" type="text" id="subject" />
                         <div class="input-line-icon-wrapper-2">
                           <img loading="eager" src="/webflow-assets/images/6841ddf8ace3d9d9facb194d_star-icon-property-x-webflow-template.svg" alt="Star Icon - Property X Webflow Template" />
                         </div>

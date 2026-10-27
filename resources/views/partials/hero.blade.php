@@ -333,6 +333,7 @@
                 <div class="inner-container _450px---tablet">
                   <div class="inner-container _400px---mbl">
                     @if($brandLikeHero || !empty($windowHeroImage) || !empty($doorHero))
+                    <div class="bing-hide">
                     @if($brandLikeHero || !empty($doorHero))
                     <div class="div-block-60">
                     @endif
@@ -363,6 +364,12 @@
                     @if($brandLikeHero || !empty($doorHero))
                     </div>
                     @endif
+                    </div>
+                    @include('partials.bing-home-hero', [
+                      'msHeroTitle' => $heroHeadlineText,
+                      'msHeroPromise' => $heroMiniDescription,
+                      'msHeroHeading' => 'h2',
+                    ])
                     @else
                     <div class="bing-hide">
                     <h1 class="heading-4">Looking to Replace Your Windows in <span data-area-label>the Bay Area</span>?</h1>
@@ -509,7 +516,6 @@
                           placeholder="San Francisco"
                           type="text"
                           id="subject"
-                          required=""
                         />
                         <div class="input-line-icon-wrapper">
                           <img

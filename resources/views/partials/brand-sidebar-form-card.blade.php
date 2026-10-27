@@ -36,7 +36,7 @@
                     <input class="input-2 icon-left w-input" maxlength="256" name="Phone" data-name="Phone" placeholder="Phone number" type="tel" id="phone" required="" />
                   </div>
                   <div class="input-wrapper-5">
-                    <input class="input-2 icon-left w-input" maxlength="256" name="Subject" data-name="Subject" placeholder="City" type="text" id="subject" required="" />
+                    <input class="input-2 icon-left w-input" maxlength="256" name="Subject" data-name="Subject" placeholder="City" type="text" id="subject" />
                     <div class="input-line-icon-wrapper">
                       <img loading="eager" src="/webflow-assets/images/6841ddf8ace3d9d9facb194d_star-icon-property-x-webflow-template.svg" alt="Star Icon - Property X Webflow Template" />
                     </div>

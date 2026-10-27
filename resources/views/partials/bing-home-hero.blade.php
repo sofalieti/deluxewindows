@@ -1,8 +1,20 @@
+@php
+  $msHeroTitle = $msHeroTitle ?? 'Window and door replacement in the Bay Area with professional installation.';
+  $msHeroPromise = $msHeroPromise ?? 'Free in-home measure and a written estimate.';
+  $msHeroHeading = ($msHeroHeading ?? 'h1') === 'h2' ? 'h2' : 'h1';
+  $msHeroTitleHtml = $msHeroTitleHtml ?? null;
+@endphp
 <section class="bing-only ms-home-hero" aria-labelledby="ms-home-hero-title">
-  <h1 id="ms-home-hero-title" class="ms-home-hero__title">
-    Window and door replacement in the Bay Area with professional installation.
-  </h1>
-  <p class="ms-home-hero__promise">Free in-home measure and a written estimate.</p>
+  <{{ $msHeroHeading }} id="ms-home-hero-title" class="ms-home-hero__title">
+    @if($msHeroTitleHtml)
+      {!! $msHeroTitleHtml !!}
+    @else
+      {{ $msHeroTitle }}
+    @endif
+  </{{ $msHeroHeading }}>
+  @if(trim(strip_tags((string) $msHeroPromise)) !== '')
+    <p class="ms-home-hero__promise">{!! $msHeroPromise !!}</p>
+  @endif
 
   <div class="ms-home-hero__actions">
     <button type="button" class="ms-home-hero__btn" data-open-estimate-modal>
@@ -13,7 +25,7 @@
     </div>
   </div>
   @include('partials.service-area-phones', [
-    'localPhone' => null,
-    'localLabel' => null,
+    'localPhone' => $localPhone ?? null,
+    'localLabel' => $localLabel ?? null,
   ])
 </section>

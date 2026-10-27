@@ -23,6 +23,7 @@
               <div class="inner-container _640px _100-tablet">
                 <div class="inner-container _450px---tablet">
                   <div class="inner-container _400px---mbl">
+                    <div class="bing-hide">
                     <div class="div-block-60">
                       <div class="code-embed-7 w-embed">⚲ Serving {{ $countyName }}</div>
                       <div class="code-embed-6 w-embed">
@@ -45,6 +46,12 @@
                         'buttonLabel' => 'Request a Free Estimate',
                       ])
                     </div>
+                    </div>
+                    @include('partials.bing-home-hero', [
+                      'msHeroHeading' => 'h1',
+                      'msHeroTitleHtml' => 'Windows &amp; Doors in <span class="city-highlight">'.e($countyName).'</span><span class="h1-subline">Installation &amp; Replacement | <span data-area-label>Bay Area</span></span>',
+                      'msHeroPromise' => 'Professional window &amp; door installation by <span data-area-label>Bay Area</span>\'s most trusted team. Vinyl, fiberglass, wood &amp; aluminum — every brand, every style, free estimate.',
+                    ])
                   </div>
                 </div>
               </div>
@@ -92,7 +99,7 @@
                     <div id="w-node-dcd175c2-d86f-a2d9-1064-979a34e6bde2-1bcf1ae2">
                       <label for="Company" class="field-label-4">City</label>
                       <div class="input-wrapper">
-                        <input class="input icon-left w-input" maxlength="256" name="Subject" data-name="Subject" placeholder="San Francisco" type="text" id="subject" required="" />
+                        <input class="input icon-left w-input" maxlength="256" name="Subject" data-name="Subject" placeholder="San Francisco" type="text" id="subject" />
                         <div class="input-line-icon-wrapper">
                           <img loading="eager" src="/webflow-assets/images/6841ddf8ace3d9d9facb194d_star-icon-property-x-webflow-template.svg" alt="Star Icon - Property X Webflow Template" />
                         </div>

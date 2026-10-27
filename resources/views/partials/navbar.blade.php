@@ -1355,7 +1355,7 @@
               {{ hero_is_new() ? 'Book your in-home consultation' : 'Request a Free Estimate' }}
             </h3>
             @unless(hero_is_new())
-              <div class="mobile-estimate-modal__promo promo-offer-context--modal w-richtext" data-estimate-modal-promo>
+              <div class="mobile-estimate-modal__promo promo-offer-context--modal w-richtext bing-hide" data-estimate-modal-promo>
                 {!! promotion_home_html() !!}
               </div>
             @endunless
@@ -1366,6 +1366,7 @@
                 <input type="tel" name="Phone" placeholder="{{ site_phone_display() }}" required class="w-input" autocomplete="tel" inputmode="tel" />
                 <input type="text" name="Subject" placeholder="City" class="w-input" />
                 <textarea name="Message" maxlength="5000" placeholder="Tell us about your project" class="w-input"></textarea>
+                <p class="mobile-estimate-modal__offer-note bing-only">{{ bing_offer_percent() }}% OFF on 3+ {{ bing_offer_units() }}.</p>
                 <div class="primary-button space-between-v1">
                   <input
                     type="submit"

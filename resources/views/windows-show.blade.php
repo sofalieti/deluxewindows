@@ -1261,7 +1261,6 @@
                           placeholder="San Francisco"
                           type="text"
                           id="subject"
-                          required=""
                         />
                         <div class="input-line-icon-wrapper">
                           <img

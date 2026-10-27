@@ -27,6 +27,7 @@
               <div class="inner-container _640px _100-tablet">
                 <div class="inner-container _450px---tablet">
                   <div class="inner-container _400px---mbl">
+                    <div class="bing-hide">
                     <div class="div-block-60">
                       <div class="code-embed-7 w-embed">⚲ Serving {{ $cityLabel }}</div>
                       <div class="code-embed-6 w-embed">
@@ -55,6 +56,14 @@
                         'localPhone' => $localPhone ?? null,
                       ])
                     </div>
+                    </div>
+                    @include('partials.bing-home-hero', [
+                      'msHeroHeading' => 'h1',
+                      'msHeroTitleHtml' => 'Windows &amp; Doors in <span class="city-highlight">'.(!empty($countyName) ? e($cityName).', '.e($countyName) : e($cityLabel)).'</span><span class="h1-subline">Installation &amp; Replacement | '.e($areaLabel).'</span>',
+                      'msHeroPromise' => 'Professional window &amp; door installation by '.e($areaLabel).'\'s most trusted team. Vinyl, fiberglass, wood &amp; aluminum — every brand, every style, free estimate.',
+                      'localPhone' => $localPhone ?? null,
+                      'localLabel' => $cityName ?: null,
+                    ])
                   </div>
                 </div>
               </div>
@@ -102,7 +111,7 @@
                     <div id="w-node-b3fcb7c0-398e-469d-7e45-aad63030bc32-8b4bb9e4">
                       <label for="Company" class="field-label-4">City</label>
                       <div class="input-wrapper">
-                        <input class="input icon-left w-input" maxlength="256" name="Subject" data-name="Subject" placeholder="{{ $cityName }}" type="text" id="subject" required="" />
+                        <input class="input icon-left w-input" maxlength="256" name="Subject" data-name="Subject" placeholder="{{ $cityName }}" type="text" id="subject" />
                         <div class="input-line-icon-wrapper">
                           <img loading="eager" src="/webflow-assets/images/6841ddf8ace3d9d9facb194d_star-icon-property-x-webflow-template.svg" alt="Star Icon - Property X Webflow Template" />
                         </div>
