@@ -10,7 +10,7 @@
     </button>
     <div class="ms-home-hero__proof">
       <div class="ms-home-hero__badge" data-ms-review-slot></div>
-      <p class="ms-home-hero__cert">AAMA certified installers</p>
+      <p class="ms-home-hero__license">CA Lic. #{{ \App\Services\Seo\OrganizationSchema::CSLB_LICENSE }}</p>
     </div>
   </div>
 </section>

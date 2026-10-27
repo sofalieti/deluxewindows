@@ -35,5 +35,3 @@
           </div>
         </div>
       </div>
-
-      @include('partials.bing-offer-steps')

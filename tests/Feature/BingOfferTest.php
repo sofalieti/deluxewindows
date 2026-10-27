@@ -11,13 +11,15 @@ test('home keeps the regular copy and adds the Bing-only offer behind html.dw-bi
         ->toContain('40% Off on 3+ Windows or Doors')
         ->toContain('hero-form-offer-footer__note bing-hide">Best for projects with 4+ windows')
         ->toContain('40% OFF applies to projects with 3+ windows or doors')
-        ->toContain('class="bing-only bing-offer-steps"')
+        ->not->toContain('bing-offer-steps')
+        ->not->toContain('Get 40% OFF the whole project')
         ->toContain('hero-brands--bing bing-only')
         ->toContain('class="bing-only ms-home-hero"')
         ->toContain('Window and door replacement in the Bay Area with professional installation.')
         ->toContain('Free in-home measure and a written estimate.')
         ->toContain('Get a Free Estimate')
-        ->toContain('AAMA certified installers')
+        ->toContain('CA Lic. #695262')
+        ->not->toContain('ms-home-hero__cert')
         ->toContain('data-ms-review-slot')
         ->toContain("badge.className = 'qty-pick__deal bing-only'");
 });

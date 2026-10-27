@@ -285,10 +285,20 @@ html.dw-bing .bing-hide {
 /* Homepage header for Microsoft visitors. Sits in the photo hero, left of the form. */
 .ms-home-hero {
   width: 100%;
-  max-width: 540px;
-  margin: 12px 0 4px;
+  max-width: 420px;
+  margin: 0;
   color: #f7f4ee;
   text-align: left !important;
+}
+
+html.dw-bing .div-block-59:has(.ms-home-hero) > .w-layout-blockcontainer.container-default {
+  align-items: flex-start;
+  padding-top: 12px !important;
+}
+
+html.dw-bing .div-block-59:has(.ms-home-hero) .title-left---content-right.paragraph-content.alt.hero-page {
+  align-items: flex-start !important;
+  padding-top: 4px !important;
 }
 
 .ms-home-hero__title {
@@ -433,6 +443,21 @@ html.dw-bing .bing-hide {
   flex: none;
 }
 
+.ms-home-hero__license {
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #0f4d89;
+  color: #fff !important;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  text-shadow: none !important;
+}
+
 .ms-home-hero__quote {
   margin: 14px 0 0;
   max-width: 520px;
@@ -466,20 +491,36 @@ html.dw-bing .bing-hide {
 
 @media (min-width: 1100px) {
   html.dw-bing .div-block-59 .inner-container:has(.ms-home-hero) {
-    width: 100% !important;
-    max-width: 620px !important;
+    width: auto !important;
+    max-width: 420px !important;
   }
 
   .ms-home-hero__actions {
-    flex-wrap: nowrap;
-    align-items: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
   }
 }
 
 @media (max-width: 991px) {
+  html.dw-bing .div-block-59:has(.ms-home-hero) {
+    min-height: 0 !important;
+  }
+
+  html.dw-bing .div-block-59:has(.ms-home-hero) > .w-layout-blockcontainer.container-default {
+    min-height: 0;
+    align-items: flex-start;
+    padding-top: 12px !important;
+  }
+
+  html.dw-bing .div-block-59 .title-left---content-right.paragraph-content.alt.hero-page .inner-container:has(.ms-home-hero) {
+    width: 100% !important;
+    max-width: 420px !important;
+    text-align: left !important;
+  }
+
   .ms-home-hero {
-    max-width: none;
-    margin-top: 4px;
+    max-width: 420px;
+    margin-top: 0;
   }
 
   .ms-home-hero__title {
