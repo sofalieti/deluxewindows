@@ -1744,6 +1744,11 @@ a.link-block.odsf {
   align-items: center;
 }
 
+html:not(.dw-bing) .trust-badges-bar .w-layout-grid.grid.grid-543,
+html:not(.dw-bing) .trust-badges-bar .grid.grid-543 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
 html.dw-bing .trust-badges-bar .grid.grid-543:has(> .bing-hide) {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }

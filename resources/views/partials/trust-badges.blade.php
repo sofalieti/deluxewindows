@@ -37,7 +37,7 @@
                 <span class="bing-only">40% Off on 3+ {{ str_replace(' Or ', ' or ', ucwords(bing_offer_units())) }}</span>
               </div>
             </div>
-            <div class="div-block-65">
+            <div class="div-block-65 bing-only">
               <div class="text-block-46" aria-hidden="true">&#10003;</div>
               <span class="trust-badge-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6l-7-3z"/><path d="m9 12 2 2 4-4"/></svg></span>
               <div class="text-block-47">CA Lic. #{{ \App\Services\Seo\OrganizationSchema::CSLB_LICENSE }}</div>

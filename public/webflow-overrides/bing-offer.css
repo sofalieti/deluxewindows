@@ -1,6 +1,7 @@
 /* Microsoft Ads (Bing) visitors: html.dw-bing is set in <head> by
    partials/bing-audience-head. Everyone else must see the pages unchanged. */
-html:not(.dw-bing) .bing-only {
+html:not(.dw-bing) .bing-only,
+html:not(.dw-bing) #trustBadgesBar .div-block-65.bing-only {
   display: none !important;
 }
 

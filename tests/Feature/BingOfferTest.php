@@ -19,6 +19,7 @@ test('home keeps the regular copy and adds the Bing-only offer behind html.dw-bi
         ->toContain('Free in-home measure and a written estimate.')
         ->toContain('Get a Free Estimate')
         ->toContain('CA Lic. #695262')
+        ->toContain('class="div-block-65 bing-only"')
         ->not->toContain('ms-home-hero__cert')
         ->toContain('data-ms-review-slot')
         ->toContain("badge.className = 'qty-pick__deal bing-only'");
@@ -40,7 +41,7 @@ test('Bing-only copy is hidden for everyone else', function () {
     $css = File::get(public_path('webflow-overrides/bing-offer.css'));
 
     expect($css)
-        ->toContain("html:not(.dw-bing) .bing-only {\n  display: none !important;")
+        ->toContain("html:not(.dw-bing) .bing-only,\nhtml:not(.dw-bing) #trustBadgesBar .div-block-65.bing-only {\n  display: none !important;")
         ->toContain("html.dw-bing .bing-hide {\n  display: none !important;");
 });
 
