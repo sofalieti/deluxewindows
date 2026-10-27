@@ -12,4 +12,8 @@
       <div class="ms-home-hero__badge" data-ms-review-slot></div>
     </div>
   </div>
+  @include('partials.service-area-phones', [
+    'localPhone' => null,
+    'localLabel' => null,
+  ])
 </section>

@@ -291,6 +291,10 @@ html.dw-bing .bing-hide {
   text-align: left !important;
 }
 
+html.dw-bing #trustBadgesBar.trust-badges-bar .text-block-46 {
+  display: none !important;
+}
+
 @media (min-width: 992px) {
   html.dw-bing .div-block-59:has(.ms-home-hero) > .w-layout-blockcontainer.container-default {
     align-items: center;
@@ -298,6 +302,10 @@ html.dw-bing .bing-hide {
 
   html.dw-bing .div-block-59:has(.ms-home-hero) .title-left---content-right.paragraph-content.alt.hero-page {
     align-items: center !important;
+  }
+
+  .ms-home-hero__btn {
+    display: none !important;
   }
 }
 
@@ -487,14 +495,36 @@ html.dw-bing .bing-hide {
 }
 
 @media (max-width: 991px) {
-  html.dw-bing .div-block-59:has(.ms-home-hero) {
+  html.dw-bing .div-block-59 {
     min-height: 0 !important;
   }
 
-  html.dw-bing .div-block-59:has(.ms-home-hero) > .w-layout-blockcontainer.container-default {
-    min-height: 0;
-    align-items: flex-start;
-    padding-top: 12px !important;
+  html.dw-bing .div-block-59 > .w-layout-blockcontainer.container-default {
+    min-height: 0 !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    padding-top: 64px !important;
+    padding-bottom: 56px !important;
+  }
+
+  html.dw-bing .bing-hero-offer,
+  html.dw-bing .hero-mobile-promo__badge,
+  html.dw-bing .hero-nm__bing-offer {
+    display: none !important;
+  }
+
+  html.dw-bing .hero-mobile-promo__btn .bing-hide {
+    display: inline !important;
+  }
+
+  html.dw-bing .hero-mobile-promo__btn .bing-only {
+    display: none !important;
+  }
+
+  html.dw-bing .ms-home-hero .area-phones:not([hidden]) {
+    display: flex !important;
+    justify-content: center;
+    margin-top: 18px;
   }
 
   html.dw-bing .div-block-59 .title-left---content-right.paragraph-content.alt.hero-page .inner-container:has(.ms-home-hero) {
@@ -525,10 +555,10 @@ html.dw-bing .bing-hide {
     width: 100%;
   }
 
-  .ms-home-hero__proof {
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
+  .ms-home-hero__proof,
+  .ms-home-hero__badge {
+    justify-content: center;
+    width: 100%;
   }
 }
 
