@@ -41,7 +41,7 @@
   </div>
   <button type="button" class="hero-mobile-promo__btn" data-open-estimate-modal>
     <span class="bing-hide">{{ $buttonLabel }}</span>
-    <span class="bing-only">Get My 3+ Discount Quote</span>
+    <span class="bing-only">Get My 3+ Discount Estimate</span>
   </button>
   <a
     href="tel:{{ $heroPhoneTel }}"

@@ -22,7 +22,7 @@
       <div class="po-nav__item"><a href="/special-offers" class="po-nav__offer">Special Offers <i>{{ $c['discountLabel'] }}</i></a></div>
     </nav>
     <a href="tel:{{ $c['phoneTel'] }}" class="po-header__phone">{{ $c['phoneDisplay'] }}</a>
-    <a href="#quote" class="po-btn po-btn--sm" data-hc-quote>Get quote</a>
+    <a href="#quote" class="po-btn po-btn--sm" data-hc-quote>Get estimate</a>
     <button type="button" class="po-burger" data-hc-burger aria-expanded="false" aria-controls="po-drawer" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
   <div class="po-drawer" id="po-drawer" data-hc-drawer hidden>
@@ -41,7 +41,7 @@
     <span class="po-sticker po-sticker--sun">{{ $c['discountLabel'] }}<small>until {{ $c['promoEnd'] ? $c['promoEnd']->format('M j') : 'TBA' }}</small></span>
     <h1 class="po-h1">NEW<br>WINDOWS.<br><span>BIG</span> MOOD.</h1>
     <p class="po-lede">Bay Area replacement windows &amp; doors, installed in a day or two by people who own the company. 11 brands. Prices on the tin.</p>
-    <div class="po-hero__cta"><a href="#quote" class="po-btn po-btn--lg" data-hc-quote>Get my quote →</a><a href="#windows" class="po-btn po-btn--lg po-btn--outline">See prices</a></div>
+    <div class="po-hero__cta"><a href="#quote" class="po-btn po-btn--lg" data-hc-quote>Get my estimate →</a><a href="#windows" class="po-btn po-btn--lg po-btn--outline">See prices</a></div>
   </div>
   <div class="po-tile po-tile--photo po-tile--hero-photo"><x-img :src="$c['images']['hero']" preset="hero_bg" loading="eager" alt="Bay Area home with new windows" /><span class="po-sticker po-sticker--white po-sticker--corner">San Mateo County · Marvin Elevate</span></div>
   <div class="po-tile po-tile--coral po-tile--stat"><b>$499</b><span>per vinyl window, installed</span></div>
@@ -174,7 +174,7 @@
   <p class="po-footer__legal">©{{ date('Y') }} Deluxe Windows, Inc. All rights reserved.</p>
 </footer>
 
-<div class="po-sticky"><a href="tel:{{ $c['phoneTel'] }}">Call</a><a href="#quote" data-hc-quote>Get quote →</a></div>
+<div class="po-sticky"><a href="tel:{{ $c['phoneTel'] }}">Call</a><a href="#quote" data-hc-quote>Get estimate →</a></div>
 
 @include('home-concept._switcher')
 @include('home-concept._scripts')

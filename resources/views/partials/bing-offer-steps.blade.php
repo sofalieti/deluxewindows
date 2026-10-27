@@ -38,7 +38,7 @@
         </li>
       </ol>
       <button type="button" class="bing-offer-steps__cta" data-open-estimate-modal>
-        Get my {{ $bingPercent }}% OFF quote
+        Get my {{ $bingPercent }}% OFF estimate
       </button>
     </div>
   </div>

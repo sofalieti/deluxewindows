@@ -357,7 +357,7 @@
                       @include('partials.hero-mobile-promo', [
                         'variant' => $hasSpecificPagePromotion ? 'price' : 'percent',
                         'badgeHtml' => $heroMobilePriceTagHtml,
-                        'buttonLabel' => 'Get Free Quote',
+                        'buttonLabel' => 'Get Free Estimate',
                       ])
                     </div>
                     @if($brandLikeHero || !empty($doorHero))

@@ -28,7 +28,7 @@
     </nav>
     <div class="ed-header__actions">
       <a href="tel:{{ $c['phoneTel'] }}" class="ed-header__phone">{{ $c['phoneDisplay'] }}</a>
-      <a href="#quote" class="ed-btn ed-btn--ink ed-btn--sm" data-hc-quote>Get a quote</a>
+      <a href="#quote" class="ed-btn ed-btn--ink ed-btn--sm" data-hc-quote>Get an estimate</a>
       <button type="button" class="ed-burger" data-hc-burger aria-expanded="false" aria-controls="ed-drawer" aria-label="Menu"><span></span><span></span></button>
     </div>
   </div>
@@ -50,7 +50,7 @@
     <h1 class="ed-display">Windows that pay<br><em>for themselves,</em><br>installed by the people<br><em>who own the company.</em></h1>
     <p class="ed-hero__lede">Deluxe Windows is a 100% employee-owned window &amp; door company. We carry every major brand, quote in writing within 24 hours, and install most homes in a day or two — from <strong>$499 per window</strong>, everything included.</p>
     <div class="ed-hero__cta">
-      <a href="#quote" class="ed-btn ed-btn--accent" data-hc-quote>Start my free quote <span aria-hidden="true">→</span></a>
+      <a href="#quote" class="ed-btn ed-btn--accent" data-hc-quote>Start my free estimate <span aria-hidden="true">→</span></a>
       <a href="#windows" class="ed-textlink">Browse materials &amp; prices</a>
     </div>
     <dl class="ed-facts">
@@ -245,7 +245,7 @@
     <span class="ed-num">Nº 02</span>
     <h2 class="ed-h2">Your dream home starts<br><em>with one conversation.</em></h2>
     <p>Tell us about the project. We measure, quote in writing within 24 hours, and take care of everything after that — {{ $c['discountLabel'] }} while the promotion lasts.</p>
-    <div class="ed-hero__cta"><a href="#quote" class="ed-btn ed-btn--bone" data-hc-quote>Start my free quote <span aria-hidden="true">→</span></a><a href="tel:{{ $c['phoneTel'] }}" class="ed-textlink ed-textlink--light">Or call {{ $c['phoneDisplay'] }}</a></div>
+    <div class="ed-hero__cta"><a href="#quote" class="ed-btn ed-btn--bone" data-hc-quote>Start my free estimate <span aria-hidden="true">→</span></a><a href="tel:{{ $c['phoneTel'] }}" class="ed-textlink ed-textlink--light">Or call {{ $c['phoneDisplay'] }}</a></div>
   </div>
 </section>
 </main>
@@ -259,7 +259,7 @@
   <div class="ed-footer__bottom"><span>©{{ date('Y') }} Deluxe Windows, Inc. · {{ $c['license'] }} · All rights reserved.</span><span>100% employee-owned · Burlingame, California</span></div>
 </footer>
 
-<div class="ed-sticky"><a href="tel:{{ $c['phoneTel'] }}">Call</a><a href="#quote" data-hc-quote>Free quote · {{ $c['discountLabel'] }}</a></div>
+<div class="ed-sticky"><a href="tel:{{ $c['phoneTel'] }}">Call</a><a href="#quote" data-hc-quote>Free estimate · {{ $c['discountLabel'] }}</a></div>
 
 @include('home-concept._switcher')
 @include('home-concept._scripts')

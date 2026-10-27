@@ -541,7 +541,7 @@
                 Get a free, no-obligation quote for the <span>{{ $name }}</span> and see how these windows can transform your home.
               </p>
               <a href="/contacts" class="primary-button-6 sidebar-button w-inline-block">
-                <div class="text-block">Request a Quote</div>
+                <div class="text-block">Request an Estimate</div>
               </a>
             </div>
           </div>

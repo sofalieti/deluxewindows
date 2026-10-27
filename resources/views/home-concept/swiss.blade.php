@@ -20,7 +20,7 @@
       <div class="sw-nav__cell sw-nav__cell--offer"><a href="/special-offers">Special Offers</a></div>
     </nav>
     <a href="tel:{{ $c['phoneTel'] }}" class="sw-header__phone">{{ $c['phoneDisplay'] }}</a>
-    <a href="#quote" class="sw-header__cta" data-hc-quote>Get quote →</a>
+    <a href="#quote" class="sw-header__cta" data-hc-quote>Get estimate →</a>
     <button type="button" class="sw-burger" data-hc-burger aria-expanded="false" aria-controls="sw-drawer" aria-label="Menu">Menu</button>
   </div>
   <div class="sw-drawer" id="sw-drawer" data-hc-drawer hidden>
@@ -39,7 +39,7 @@
     <p class="sw-mono">Replacement windows &amp; doors — San Francisco Bay Area — {{ $c['discountLabel'] }} until {{ $c['promoEnd'] ? $c['promoEnd']->format('Y-m-d') : 'TBA' }}</p>
     <h1 class="sw-h1">Replacement windows.<br>Priced like a spreadsheet,<br><span>installed like a promise.</span></h1>
     <p class="sw-lede">Independent dealer for 11 brands. 100% employee-owned. Written, itemized quotes in 24 h. Most homes done in 1–2 days. From <b>$499 / window</b>, installed.</p>
-    <div class="sw-hero__actions"><a href="#quote" class="sw-btn sw-btn--red" data-hc-quote>Get my quote →</a><a href="#windows" class="sw-btn">Price table ↓</a></div>
+    <div class="sw-hero__actions"><a href="#quote" class="sw-btn sw-btn--red" data-hc-quote>Get my estimate →</a><a href="#windows" class="sw-btn">Price table ↓</a></div>
   </div>
   <table class="sw-spec" aria-label="Key facts">
     <tbody>
@@ -190,7 +190,7 @@
   <p class="sw-footer__legal sw-mono">©{{ date('Y') }} Deluxe Windows, Inc. — {{ $c['license'] }} — 100% employee-owned — All rights reserved.</p>
 </footer>
 
-<div class="sw-sticky"><a href="tel:{{ $c['phoneTel'] }}">Call</a><a href="#quote" data-hc-quote>Get quote →</a></div>
+<div class="sw-sticky"><a href="tel:{{ $c['phoneTel'] }}">Call</a><a href="#quote" data-hc-quote>Get estimate →</a></div>
 
 @include('home-concept._switcher')
 @include('home-concept._scripts')

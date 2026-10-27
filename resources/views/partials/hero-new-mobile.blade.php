@@ -50,7 +50,7 @@
   <div class="hero-nm__actions">
     <button type="button" class="hero-nm__cta hero-nm__cta--book" data-open-estimate-modal>
       <span class="bing-hide">Book a consultation</span>
-      <span class="bing-only">Get my {{ bing_offer_percent() }}% OFF quote</span>
+      <span class="bing-only">Get my {{ bing_offer_percent() }}% OFF estimate</span>
     </button>
     <a
       href="tel:{{ $phoneTel }}"
