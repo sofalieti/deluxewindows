@@ -118,6 +118,8 @@ class BuildBingGeoTargetsCommand extends Command
 
         $bingMap = [];
         $wantedSlugs = array_values(array_unique(array_values($googleIdToSlug)));
+        $wanted = array_fill_keys($wantedSlugs, true);
+        $zipToSlug = $this->zipToSlug($wanted);
 
         foreach ($lines as $line) {
             if (trim($line) === '') {
@@ -133,27 +135,20 @@ class BuildBingGeoTargetsCommand extends Command
             $type = trim((string) ($cols[$idxType] ?? ''));
             $bingId = (int) ($cols[$idxLocationId] ?? 0);
             $adWordsId = (int) ($cols[$idxAdWords] ?? 0);
-            $display = trim((string) ($cols[$idxDisplay] ?? ''));
+            $display = $idxDisplay !== false ? trim((string) ($cols[$idxDisplay] ?? '')) : '';
 
             if ($bingId <= 0) {
                 continue;
             }
 
-            if ($adWordsId > 0 && isset($googleIdToSlug[$adWordsId])) {
-                $slug = $googleIdToSlug[$adWordsId];
-                if ($type === 'City' || ! isset($bingMap[$bingId])) {
-                    $bingMap[$bingId] = $slug;
-                }
-
+            $slug = $this->slugForLocation($adWordsId, $display, $googleIdToSlug, $zipToSlug, $wanted);
+            if ($slug === null) {
                 continue;
             }
 
-            if ($type === 'City' && str_contains($display, '|California|United States')) {
-                $cityName = explode('|', $display)[0] ?? '';
-                $slug = Str::slug($cityName);
-                if (in_array($slug, $wantedSlugs, true) && ! in_array($slug, $bingMap, true)) {
-                    $bingMap[$bingId] = $slug;
-                }
+            // A city id wins over a zip or neighborhood that reused the same id.
+            if ($type === 'City' || ! isset($bingMap[$bingId])) {
+                $bingMap[$bingId] = $slug;
             }
         }
 
@@ -176,5 +171,66 @@ class BuildBingGeoTargetsCommand extends Command
         }
 
         return self::SUCCESS;
+    }
+
+    /**
+     * @param  array<string, true>  $wanted
+     * @return array<string, string>
+     */
+    private function zipToSlug(array $wanted): array
+    {
+        $decoded = json_decode((string) file_get_contents(database_path('data/city-zips.json')), true);
+        $map = [];
+
+        foreach (is_array($decoded) ? $decoded : [] as $slug => $zips) {
+            $slug = (string) $slug;
+            if (! isset($wanted[$slug]) || ! is_array($zips)) {
+                continue;
+            }
+
+            foreach ($zips as $zip) {
+                $zip = preg_replace('/\D/', '', (string) $zip) ?? '';
+                if (strlen($zip) === 5) {
+                    $map[$zip] = $slug;
+                }
+            }
+        }
+
+        return $map;
+    }
+
+    /**
+     * @param  array<int, string>  $googleIdToSlug
+     * @param  array<string, string>  $zipToSlug
+     * @param  array<string, true>  $wanted
+     */
+    private function slugForLocation(
+        int $adWordsId,
+        string $display,
+        array $googleIdToSlug,
+        array $zipToSlug,
+        array $wanted,
+    ): ?string {
+        if ($adWordsId > 0 && isset($googleIdToSlug[$adWordsId])) {
+            return $googleIdToSlug[$adWordsId];
+        }
+
+        if (! str_contains($display, '|California|United States')) {
+            return null;
+        }
+
+        foreach (explode('|', $display) as $part) {
+            $part = trim($part);
+            if (preg_match('/^\d{5}$/', $part) === 1) {
+                return $zipToSlug[$part] ?? null;
+            }
+
+            $slug = Str::slug($part);
+            if (isset($wanted[$slug])) {
+                return $slug;
+            }
+        }
+
+        return null;
     }
 }

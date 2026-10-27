@@ -113,6 +113,11 @@ test('utm_city resolves a Bing location id through the Bing map', function () {
     expect($resolved)->not->toBeNull()
         ->and($resolved['slug'])->toBe('vallejo')
         ->and($resolved['region']['phone_display'])->toBe('(925) 430-5135');
+
+    // City id, plus the postal-code ids Microsoft sends as {loc_physical}.
+    expect($regions->utmCityLabel('43952', ServiceAreaRegions::GEO_BING))->toBe('San Jose — 43952')
+        ->and($regions->utmCityLabel('87120', ServiceAreaRegions::GEO_BING))->toBe('San Bruno — 87120')
+        ->and($regions->utmCityLabel('88418', ServiceAreaRegions::GEO_BING))->toBe('Vallejo — 88418');
 });
 
 test('traffic source picks which geo id space to prefer', function () {
@@ -150,8 +155,11 @@ test('the lookup endpoint only publishes cities that have a local number', funct
         ->and(count($payload['geo_google']))->toBeGreaterThan(200)
         ->and($payload['geo_google'])->toHaveKey('9032015')
         ->and($payload['geo_google']['9032015'])->toBe('lafayette')
-        ->and($payload['geo_bing'])->toHaveCount(98)
+        ->and(count($payload['geo_bing']))->toBeGreaterThan(98)
         ->and($payload['geo_bing']['43578'])->toBe('vallejo')
+        ->and($payload['geo_bing']['43952'])->toBe('san-jose')
+        ->and($payload['geo_bing']['87120'])->toBe('san-bruno')
+        ->and($payload['geo_bing']['88418'])->toBe('vallejo')
         ->and($payload['cities']['vallejo'])->toBe([
             'name' => 'Vallejo',
             'phone_display' => '(925) 430-5135',

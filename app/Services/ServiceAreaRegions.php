@@ -74,8 +74,13 @@ final class ServiceAreaRegions
 
         foreach ($order as $provider) {
             $slug = $this->geoTargets($provider)[$id] ?? null;
-            if ($slug !== null) {
-                return $this->cityBySlug($slug);
+            if ($slug === null) {
+                continue;
+            }
+
+            $city = $this->cityBySlug($slug);
+            if ($city !== null) {
+                return $city;
             }
         }
 
