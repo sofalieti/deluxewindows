@@ -291,14 +291,14 @@ html.dw-bing .bing-hide {
   text-align: left !important;
 }
 
-html.dw-bing .div-block-59:has(.ms-home-hero) > .w-layout-blockcontainer.container-default {
-  align-items: flex-start;
-  padding-top: 12px !important;
-}
+@media (min-width: 992px) {
+  html.dw-bing .div-block-59:has(.ms-home-hero) > .w-layout-blockcontainer.container-default {
+    align-items: center;
+  }
 
-html.dw-bing .div-block-59:has(.ms-home-hero) .title-left---content-right.paragraph-content.alt.hero-page {
-  align-items: flex-start !important;
-  padding-top: 4px !important;
+  html.dw-bing .div-block-59:has(.ms-home-hero) .title-left---content-right.paragraph-content.alt.hero-page {
+    align-items: center !important;
+  }
 }
 
 .ms-home-hero__title {
@@ -441,21 +441,6 @@ html.dw-bing .div-block-59:has(.ms-home-hero) .title-left---content-right.paragr
   border-radius: 50%;
   background: #8fd18a;
   flex: none;
-}
-
-.ms-home-hero__license {
-  display: inline-flex;
-  align-items: center;
-  margin: 0;
-  padding: 8px 12px;
-  border-radius: 8px;
-  background: #0f4d89;
-  color: #fff !important;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: 0.01em;
-  text-shadow: none !important;
 }
 
 .ms-home-hero__quote {

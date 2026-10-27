@@ -19,18 +19,26 @@
             </div>
             <div class="div-block-65">
               <div class="text-block-46" aria-hidden="true">&#10003;</div>
-              <div class="text-block-47">AAMA Certified Installers<br /></div>
+              <span class="trust-badge-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M8.5 14.5 7 21l5-2.5L17 21l-1.5-6.5"/></svg></span>
+              <div class="text-block-47">AAMA Certified Installers</div>
             </div>
             <div class="div-block-65">
               <div class="text-block-46" aria-hidden="true">&#10003;</div>
-              <div class="text-block-47">Financing Available<br /></div>
+              <span class="trust-badge-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></span>
+              <div class="text-block-47">Financing Available</div>
             </div>
             <div class="div-block-65">
               <div class="text-block-46" aria-hidden="true">&#10003;</div>
+              <span class="trust-badge-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 5 5 19"/><circle cx="7.5" cy="7.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/></svg></span>
               <div class="text-block-47">
                 <span class="bing-hide">40% Off — Limited Time</span>
                 <span class="bing-only">40% Off on 3+ {{ str_replace(' Or ', ' or ', ucwords(bing_offer_units())) }}</span>
               </div>
+            </div>
+            <div class="div-block-65">
+              <div class="text-block-46" aria-hidden="true">&#10003;</div>
+              <span class="trust-badge-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6l-7-3z"/><path d="m9 12 2 2 4-4"/></svg></span>
+              <div class="text-block-47">CA Lic. #{{ \App\Services\Seo\OrganizationSchema::CSLB_LICENSE }}</div>
             </div>
           </div>
         </div>

@@ -26,7 +26,8 @@ test('trust badges bar mounts the original Elfsight reviews widget', function ()
         ->toContain('elfsight-app-e3dc666e-7803-4c6a-94c1-0e4f1155d816')
         ->toContain('elfsightcdn.com')
         ->toContain('40% Off — Limited Time')
-        ->not->toContain('CA Lic. #695262')
+        ->toContain('CA Lic. #695262')
+        ->toContain('trust-badge-icon')
         ->not->toContain('data-yelp-drawer');
 });
 

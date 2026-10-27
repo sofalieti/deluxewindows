@@ -1736,12 +1736,16 @@ a.link-block.odsf {
 .trust-badges-bar .w-layout-grid.grid.grid-543,
 .trust-badges-bar .grid.grid-543 {
   display: grid !important;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   grid-template-rows: auto;
   padding-top: 10px;
   padding-bottom: 10px;
   gap: 12px;
   align-items: center;
+}
+
+html.dw-bing .trust-badges-bar .grid.grid-543:has(> .bing-hide) {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .trust-badges-bar .div-block-65 {
@@ -1765,6 +1769,20 @@ a.link-block.odsf {
   font-variant-emoji: text;
   text-shadow: none !important;
   opacity: 1 !important;
+}
+
+.trust-badges-bar .trust-badge-icon {
+  flex: none;
+  display: inline-flex;
+  width: 18px;
+  height: 18px;
+  color: #fff;
+}
+
+.trust-badges-bar .trust-badge-icon svg {
+  display: block;
+  width: 18px;
+  height: 18px;
 }
 
 .trust-badges-bar .text-block-47 {
