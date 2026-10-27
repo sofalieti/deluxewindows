@@ -309,3 +309,59 @@ test('clearing visits also clears behavior events', function () {
     assertDatabaseCount('site_visits', 0);
     assertDatabaseCount('site_events', 0);
 });
+
+test('estimate and form visits have their own tab with a clarity link', function () {
+    config(['services.clarity.project_id' => 'abc123']);
+
+    SiteVisit::query()->create([
+        'page_url' => 'https://www.deluxewindows.com/estimate-intent',
+        'visitor_id' => BEHAVIOR_VISITOR,
+        'session_id' => BEHAVIOR_SESSION,
+        'is_bot' => false,
+    ]);
+    SiteEvent::query()->create([
+        'session_id' => BEHAVIOR_SESSION,
+        'visitor_id' => BEHAVIOR_VISITOR,
+        'type' => 'click',
+        'path' => '/',
+        'target' => 'a:Request a Free Estimate',
+    ]);
+    SiteEvent::query()->create([
+        'session_id' => BEHAVIOR_SESSION,
+        'visitor_id' => BEHAVIOR_VISITOR,
+        'type' => 'form_start',
+        'path' => '/contacts',
+        'target' => 'form:lead',
+    ]);
+
+    $browser = SiteVisit::query()->create([
+        'page_url' => 'https://www.deluxewindows.com/just-browsing',
+        'visitor_id' => '33333333-3333-4333-8333-333333333333',
+        'session_id' => '44444444-4444-4444-8444-444444444444',
+        'is_bot' => false,
+    ]);
+    SiteEvent::query()->create([
+        'session_id' => $browser->session_id,
+        'visitor_id' => $browser->visitor_id,
+        'type' => 'click',
+        'path' => '/',
+        'target' => 'tel',
+    ]);
+
+    $user = User::factory()->create([
+        'permissions' => [
+            'platform.index' => true,
+            'platform.visits' => true,
+        ],
+    ]);
+
+    $this->withoutMiddleware(Access::class)
+        ->actingAs($user)
+        ->get(route('platform.visits'))
+        ->assertOk()
+        ->assertSee('Estimate & forms', false)
+        ->assertSee('Form started')
+        ->assertSee('Estimate click')
+        ->assertSee('CustomUserId=is%3B'.BEHAVIOR_VISITOR, false)
+        ->assertDontSee('CustomUserId=is%3B'.$browser->visitor_id, false);
+});

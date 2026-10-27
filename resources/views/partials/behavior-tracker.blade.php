@@ -24,7 +24,7 @@
     var startedForms = [];
     var submittedForms = [];
     var focusedFields = {};
-    var SIGNIFICANT = 'a[href^="tel:"], a[href^="mailto:"], button, input[type="submit"], [data-track], a.w-button, a.button, a.primary-button, [role="button"]';
+    var SIGNIFICANT = 'a[href^="tel:"], a[href^="mailto:"], button, input[type="submit"], [data-track], [data-open-estimate-modal], a.w-button, a.button, a.primary-button, a.primary-button-2, a.mobile-fab-estimate, [role="button"]';
 
     function sessionSent() {
       try {

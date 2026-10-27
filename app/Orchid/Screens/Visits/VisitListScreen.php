@@ -9,7 +9,10 @@ use App\Models\SiteVisit;
 use App\Orchid\Layouts\Visits\VisitFiltersLayout;
 use App\Services\ServiceAreaRegions;
 use App\Services\VisitsSettingsService;
+use App\Support\ClarityDashboard;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Schema;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\Link;
@@ -22,6 +25,9 @@ use Orchid\Support\Facades\Toast;
 
 class VisitListScreen extends Screen
 {
+    /** @var array<string, list<SiteEvent>> */
+    private array $signals = [];
+
     public function __construct(
         private readonly VisitsSettingsService $settings,
     ) {
@@ -29,6 +35,9 @@ class VisitListScreen extends Screen
 
     public function query(): iterable
     {
+        $interested = $this->interestedVisits();
+        $this->signals = $this->signalsFor($interested->getCollection());
+
         return [
             'setting' => [
                 'enabled' => $this->settings->enabled(),
@@ -37,6 +46,7 @@ class VisitListScreen extends Screen
             'visits' => SiteVisit::filters(VisitFiltersLayout::class)
                 ->defaultSort('id', 'desc')
                 ->paginate(50),
+            'interested' => $interested,
         ];
     }
 
@@ -94,7 +104,22 @@ class VisitListScreen extends Screen
                     ->icon('bs.check-lg'),
             ]),
 
-            Layout::table('visits', [
+            Layout::tabs([
+                'All visits' => Layout::table('visits', $this->visitColumns()),
+                'Estimate & forms' => Layout::table('interested', array_merge(
+                    $this->visitColumns(),
+                    [$this->signalColumn(), $this->clarityColumn()]
+                )),
+            ]),
+        ];
+    }
+
+    /**
+     * @return list<TD>
+     */
+    private function visitColumns(): array
+    {
+        return [
                 TD::make('created_at', 'Visit')
                     ->sort()
                     ->cantHide()
@@ -224,8 +249,115 @@ class VisitListScreen extends Screen
                     ->render(fn (SiteVisit $visit) => Link::make('')
                         ->icon('bs.eye')
                         ->route('platform.visits.view', $visit)),
-            ]),
         ];
+    }
+
+    private function signalColumn(): TD
+    {
+        return TD::make('signal', 'Did')
+            ->width('160px')
+            ->render(function (SiteVisit $visit): string {
+                $label = $this->signalLabel($visit);
+
+                return $label === ''
+                    ? '<span class="text-muted">—</span>'
+                    : e($label);
+            });
+    }
+
+    private function clarityColumn(): TD
+    {
+        return TD::make('clarity', 'Clarity')
+            ->width('90px')
+            ->render(function (SiteVisit $visit): string {
+                $url = ClarityDashboard::recordingsUrl($visit->visitor_id);
+                if ($url === null) {
+                    return '<span class="text-muted">—</span>';
+                }
+
+                return '<a href="'.e($url).'" target="_blank" rel="noopener">Open</a>';
+            });
+    }
+
+    private function interestedVisits(): LengthAwarePaginator
+    {
+        $query = SiteVisit::filters(VisitFiltersLayout::class)
+            ->where('is_bot', false)
+            ->whereNotNull('session_id');
+
+        if (! Schema::hasTable('site_events')) {
+            $query->whereRaw('1 = 0');
+        } else {
+            $query->whereExists(function ($events): void {
+                $events->selectRaw('1')
+                    ->from('site_events')
+                    ->whereColumn('site_events.session_id', 'site_visits.session_id')
+                    ->where(function ($match): void {
+                        $match->where('site_events.type', 'form_start')
+                            ->orWhere(function ($click): void {
+                                $click->where('site_events.type', 'click')
+                                    ->where(function ($target): void {
+                                        $target->where('site_events.target', 'like', '%estimate%')
+                                            ->orWhere('site_events.target', 'like', '%consultation%')
+                                            ->orWhere('site_events.target', 'request-estimate');
+                                    });
+                            });
+                    });
+            });
+        }
+
+        return $query
+            ->defaultSort('id', 'desc')
+            ->paginate(50, ['*'], 'intent_page');
+    }
+
+    /**
+     * @param  Collection<int, SiteVisit>  $visits
+     * @return array<string, list<SiteEvent>>
+     */
+    private function signalsFor(Collection $visits): array
+    {
+        $sessionIds = $visits->pluck('session_id')->filter()->unique()->values();
+        if ($sessionIds->isEmpty() || ! Schema::hasTable('site_events')) {
+            return [];
+        }
+
+        $grouped = [];
+        SiteEvent::query()
+            ->whereIn('session_id', $sessionIds)
+            ->where(function ($match): void {
+                $match->where('type', 'form_start')
+                    ->orWhere(function ($click): void {
+                        $click->where('type', 'click')
+                            ->where(function ($target): void {
+                                $target->where('target', 'like', '%estimate%')
+                                    ->orWhere('target', 'like', '%consultation%')
+                                    ->orWhere('target', 'request-estimate');
+                            });
+                    });
+            })
+            ->orderBy('id')
+            ->get(['session_id', 'type', 'target'])
+            ->each(function (SiteEvent $event) use (&$grouped): void {
+                $grouped[$event->session_id][] = $event;
+            });
+
+        return $grouped;
+    }
+
+    private function signalLabel(SiteVisit $visit): string
+    {
+        $events = $this->signals[$visit->session_id] ?? [];
+        $bits = [];
+        foreach ($events as $event) {
+            if ($event->type === 'form_start') {
+                $bits['form'] = 'Form started';
+            } else {
+                $bits['click'] = 'Estimate click';
+            }
+        }
+
+        return implode(' · ', $bits);
     }
 
     public function saveSettings(Request $request): void
