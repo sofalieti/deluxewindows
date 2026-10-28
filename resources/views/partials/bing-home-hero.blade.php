@@ -20,14 +20,14 @@
     <button type="button" class="ms-home-hero__btn" data-open-estimate-modal>
       Quick Estimate
     </button>
-    <div class="ms-home-hero__proof">
-      <div class="ms-home-hero__badge" data-ms-review-slot></div>
-    </div>
   </div>
   @include('partials.service-area-phones', [
     'localPhone' => $localPhone ?? null,
     'localLabel' => $localLabel ?? null,
   ])
+  <div class="ms-home-hero__proof">
+    <div class="ms-home-hero__badge" data-ms-review-slot></div>
+  </div>
   @if(!empty($msHeroBrands))
     @include('partials.hero-brands', ['heroBrandsPlacement' => 'desktop', 'heroBrandsBing' => true])
   @endif

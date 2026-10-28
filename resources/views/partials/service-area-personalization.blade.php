@@ -174,7 +174,15 @@
       }
       setText('[data-area-phone-number]', city.phone_display);
 
-      // Desktop hero shows the general and the local number side by side.
+      var headerLocals = document.querySelectorAll('[data-header-phone-local]');
+      for (var h = 0; h < headerLocals.length; h++) {
+        headerLocals[h].setAttribute('href', 'tel:' + city.phone_tel);
+        headerLocals[h].setAttribute('aria-label', 'Call ' + city.phone_display);
+      }
+      setText('[data-header-phone-local-number]', city.phone_display);
+      reveal('[data-header-phone-local]');
+
+      // Desktop shows the general and the local number. Mobile keeps only the local one.
       var locals = document.querySelectorAll('[data-area-phones-local]');
       for (var j = 0; j < locals.length; j++) {
         locals[j].setAttribute('href', 'tel:' + city.phone_tel);

@@ -712,10 +712,25 @@ a.link-block.odsf {
 }
 
 /* Top-bar header phone — keep look, enable call. */
+.header-container-2 .div-block-16 {
+  display: flex;
+  align-items: center;
+}
+
 .header-phone-link {
   color: inherit;
   text-decoration: none;
   cursor: pointer;
+}
+
+.header-phone-link--local {
+  margin-left: 12px;
+  padding-left: 12px;
+  border-left: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.header-phone-link--local[hidden] {
+  display: none !important;
 }
 
 .header-phone-link:hover {
@@ -726,6 +741,10 @@ a.link-block.odsf {
 @media (max-width: 991px) {
   .area-phones {
     display: none;
+  }
+
+  .area-phones:has(.area-phones__item--local:not([hidden])) > .area-phones__item:not(.area-phones__item--local) {
+    display: none !important;
   }
 }
 

@@ -38,6 +38,13 @@
                   aria-label="Call {{ site_phone_display() }}"
                   data-phone-source="header-phone"
                 >{{ site_phone_display() }}</a>
+                <a
+                  href="#"
+                  class="text-block-15 header-phone-link header-phone-link--local"
+                  data-header-phone-local
+                  data-phone-source="header-phone-local"
+                  hidden
+                ><span data-header-phone-local-number></span></a>
               </div>
             </div>
           </div>
@@ -923,13 +930,13 @@
                     src="/webflow-assets/images/686acba4611e759fd8169f9d_photo_2025-07-06-22.14.41.avif"
                     preset="nav_logo"
                     class="image-24" /></a
-                >@if(hero_is_new())<button type="button" class="mobile-header-book" data-open-estimate-modal>Book a consultation</button>@endif<a href="tel:{{ site_phone_tel() }}" class="link-15" aria-label="Call {{ site_phone_display() }}"
+                >@if(hero_is_new())<button type="button" class="mobile-header-book" data-open-estimate-modal>Book a consultation</button>@endif<a href="tel:{{ site_phone_tel() }}" class="link-15" data-area-phone aria-label="Call {{ site_phone_display() }}"
                   ><img
                     src="/webflow-assets/images/687559a123cece2e95a41a6f_phone_enabled_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg"
                     alt=""
                     loading="lazy"
                     class="link-15__icon"
-                  /><span class="link-15__label">{{ site_phone_display() }}</span></a
+                  /><span class="link-15__label" data-area-phone-number>{{ site_phone_display() }}</span></a>
                 >
                 <nav role="navigation" class="nav-menu-wrapper-4 w-nav-menu">
                   <ul role="list" class="nav-menu-2 w-list-unstyled">
