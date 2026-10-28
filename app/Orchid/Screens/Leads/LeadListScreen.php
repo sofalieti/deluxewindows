@@ -300,12 +300,12 @@ class LeadListScreen extends Screen
             LeadFiltersLayout::class,
 
             Layout::tabs([
+                'All' => Layout::table('leads', $this->leadColumns(spamTab: false)),
                 'Microsoft' => Layout::table('microsoftLeads', $this->leadColumns(spamTab: false)),
                 'Direct' => Layout::table('directLeads', $this->leadColumns(spamTab: false)),
                 'Google' => Layout::table('googleLeads', $this->leadColumns(spamTab: false)),
                 'SEO' => Layout::table('seoLeads', $this->leadColumns(spamTab: false)),
                 'ChatGPT' => Layout::table('chatgptLeads', $this->leadColumns(spamTab: false)),
-                'Leads' => Layout::table('leads', $this->leadColumns(spamTab: false)),
                 'Unprocessed' => Layout::table('unprocessedLeads', $this->leadColumns(spamTab: false)),
                 'Mine' => Layout::table('mineLeads', $this->leadColumns(spamTab: false)),
                 'Spam' => Layout::table('spamLeads', $this->leadColumns(spamTab: true)),

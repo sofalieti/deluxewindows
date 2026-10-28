@@ -60,6 +60,7 @@ class RingCentralCallListScreen extends Screen
 
             return [
                 'inboundCalls' => new LengthAwarePaginator([], 0, 50, 1, ['pageName' => 'inbound_page']),
+                'allCalls' => new LengthAwarePaginator([], 0, 50, 1, ['pageName' => 'all_page']),
                 'unreturnedCalls' => new LengthAwarePaginator([], 0, 50, 1, ['pageName' => 'unreturned_page']),
                 'outboundCalls' => new LengthAwarePaginator([], 0, 50, 1, ['pageName' => 'outbound_page']),
                 'otherCalls' => new LengthAwarePaginator([], 0, 50, 1, ['pageName' => 'other_page']),
@@ -68,6 +69,13 @@ class RingCentralCallListScreen extends Screen
             ];
         }
 
+        $all = $this->presentCalls(RingCentralCall::query()
+            ->visible()
+            ->notStaff()
+            ->onMonitoredLines($this->monitoredPhones)
+            ->with(['contact', 'latestNote.user'])
+            ->defaultSort('started_at', 'desc')
+            ->paginate(50, pageName: 'all_page'));
         $inbound = $this->presentCalls(RingCentralCall::query()
             ->visible()
             ->notStaff()
@@ -110,6 +118,7 @@ class RingCentralCallListScreen extends Screen
 
         return [
             'inboundCalls' => $inbound,
+            'allCalls' => $all,
             'unreturnedCalls' => $unreturned,
             'outboundCalls' => $outbound,
             'otherCalls' => $other,
@@ -134,7 +143,7 @@ class RingCentralCallListScreen extends Screen
             ? implode(', ', $this->monitoredPhones)
             : 'configured numbers';
 
-        return 'Inbound calls on the main numbers are listed first. Missed calls that were never called back are on their own tab. Main numbers: '.$phones
+        return 'All calls on the main numbers are listed first. Missed calls that were never called back are on their own tab. Main numbers: '.$phones
             .'. Auto-sync hourly; last sync: '.$this->lastSyncedLabel.'.';
     }
 
@@ -158,6 +167,7 @@ class RingCentralCallListScreen extends Screen
         return [
             Layout::view('admin.ringcentral-calls.assets'),
             Layout::tabs([
+                'All' => Layout::table('allCalls', $this->callColumns(showExclude: true)),
                 'Inbound' => Layout::table('inboundCalls', $this->callColumns(showExclude: true)),
                 'Not called back' => Layout::table('unreturnedCalls', $this->callColumns(showExclude: true)),
                 'Outbound' => Layout::table('outboundCalls', $this->callColumns(showExclude: true)),

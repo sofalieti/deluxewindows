@@ -38,11 +38,7 @@ test('phone clicks spam tab and mark as spam work', function () {
         ->actingAs($user)
         ->get(route('platform.phone-clicks'))
         ->assertOk()
-        ->assertSee('Microsoft')
-        ->assertSee('Direct')
-        ->assertSee('Google')
-        ->assertSee('SEO')
-        ->assertSee('ChatGPT')
+        ->assertSeeInOrder(['All', 'Microsoft', 'Direct', 'Google', 'SEO', 'ChatGPT', 'Spam'])
         ->assertSee('Spam')
         ->assertSee('Restore');
 });
@@ -68,11 +64,7 @@ test('leads spam tab renders', function () {
         ->assertSee('Spam')
         ->assertSee('honeypot')
         ->assertSee('Spam Person')
-        ->assertSee('Microsoft')
-        ->assertSee('Direct')
-        ->assertSee('Google')
-        ->assertSee('SEO')
-        ->assertSee('ChatGPT');
+        ->assertSeeInOrder(['All', 'Microsoft', 'Direct', 'Google', 'SEO', 'ChatGPT', 'Spam']);
 });
 
 test('lead list splits microsoft direct google seo and chatgpt', function () {

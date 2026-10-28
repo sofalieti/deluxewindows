@@ -152,12 +152,12 @@ class PhoneClickListScreen extends Screen
             PhoneClickFiltersLayout::class,
 
             Layout::tabs([
+                'All' => Layout::table('clicks', $this->clickColumns(spamTab: false)),
                 'Microsoft' => Layout::table('microsoftClicks', $this->clickColumns(spamTab: false)),
                 'Direct' => Layout::table('directClicks', $this->clickColumns(spamTab: false)),
                 'Google' => Layout::table('googleClicks', $this->clickColumns(spamTab: false)),
                 'SEO' => Layout::table('seoClicks', $this->clickColumns(spamTab: false)),
                 'ChatGPT' => Layout::table('chatgptClicks', $this->clickColumns(spamTab: false)),
-                'All' => Layout::table('clicks', $this->clickColumns(spamTab: false)),
                 'Unhandled' => Layout::table('unhandledClicks', $this->clickColumns(spamTab: false)),
                 'Mine' => Layout::table('mineClicks', $this->clickColumns(spamTab: false)),
                 'Spam' => Layout::table('spamClicks', $this->clickColumns(spamTab: true)),
