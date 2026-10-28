@@ -117,7 +117,11 @@ test('utm_city resolves a Bing location id through the Bing map', function () {
     // City id, plus the postal-code ids Microsoft sends as {loc_physical}.
     expect($regions->utmCityLabel('43952', ServiceAreaRegions::GEO_BING))->toBe('San Jose — 43952')
         ->and($regions->utmCityLabel('87120', ServiceAreaRegions::GEO_BING))->toBe('San Bruno — 87120')
-        ->and($regions->utmCityLabel('88418', ServiceAreaRegions::GEO_BING))->toBe('Vallejo — 88418');
+        ->and($regions->utmCityLabel('88418', ServiceAreaRegions::GEO_BING))->toBe('Vallejo — 88418')
+        ->and($regions->utmCityLabel('utm_city=43896', ServiceAreaRegions::GEO_BING))->toBe('San Francisco — 43896')
+        ->and($regions->utmCityLabel('utm_city=utm_city=85950', ServiceAreaRegions::GEO_BING))->toBe('San Jose — 85950')
+        ->and($regions->utmCityLabel('87452', ServiceAreaRegions::GEO_BING))->toBe('Livermore — 87452')
+        ->and($regions->utmCityLabel('{loc_physical}', ServiceAreaRegions::GEO_BING))->toBe('{loc_physical} (unmatched)');
 });
 
 test('traffic source picks which geo id space to prefer', function () {

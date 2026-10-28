@@ -6,7 +6,7 @@
     // {loc_physical} (Bing location id). The maps live in separate tables.
     var ENDPOINT = @json(route('service-area-phones'));
     var STORAGE_KEY = 'lead_param_utm_city';
-    var CACHE_KEY = 'dw_service_area_phones_v5';
+    var CACHE_KEY = 'dw_service_area_phones_v6';
 
     function storageGet(key) {
       try {
@@ -24,10 +24,19 @@
       }
     }
 
+    function unwrapUtmCity(value) {
+      value = String(value || '').trim();
+      var match;
+      while ((match = value.match(/^utm_city=(.*)$/i))) {
+        value = match[1].trim();
+      }
+      return value;
+    }
+
     function utmCity() {
-      var fromUrl = queryParam('utm_city').trim();
+      var fromUrl = unwrapUtmCity(queryParam('utm_city'));
       if (fromUrl) return fromUrl;
-      return storageGet(STORAGE_KEY).trim();
+      return unwrapUtmCity(storageGet(STORAGE_KEY));
     }
 
     function platformHint() {

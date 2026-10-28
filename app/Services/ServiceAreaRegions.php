@@ -52,6 +52,30 @@ final class ServiceAreaRegions
     }
 
     /**
+     * Some Microsoft final URLs repeat the key, so the stored value is
+     * "utm_city=85950" instead of the location id. Peel that off.
+     */
+    public function normalizeUtmCityValue(?string $value): string
+    {
+        $value = trim((string) $value);
+
+        for ($i = 0; $i < 3; $i++) {
+            $decoded = rawurldecode(str_replace('+', ' ', $value));
+            if ($decoded !== $value) {
+                $value = trim($decoded);
+            }
+
+            if (preg_match('/^utm_city=(.*)$/i', $value, $matches) !== 1) {
+                break;
+            }
+
+            $value = trim($matches[1]);
+        }
+
+        return $value;
+    }
+
+    /**
      * Resolve a raw utm_city value: a city slug/name, or a numeric geo id from
      * Google ({loc_physical_ms}) or Bing ({loc_physical}).
      *
@@ -60,7 +84,7 @@ final class ServiceAreaRegions
      */
     public function resolveUtmCity(?string $value, ?string $platform = null): ?array
     {
-        $value = trim((string) $value);
+        $value = $this->normalizeUtmCityValue($value);
         if ($value === '') {
             return null;
         }
@@ -92,7 +116,7 @@ final class ServiceAreaRegions
      */
     public function utmCityLabel(?string $value, ?string $platform = null): string
     {
-        $value = trim((string) $value);
+        $value = $this->normalizeUtmCityValue($value);
         if ($value === '') {
             return '-';
         }

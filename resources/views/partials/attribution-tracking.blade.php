@@ -178,6 +178,15 @@
       }
     }
 
+    function unwrapUtmCity(value) {
+      value = String(value || '').trim();
+      let match;
+      while ((match = value.match(/^utm_city=(.*)$/i))) {
+        value = match[1].trim();
+      }
+      return value;
+    }
+
     function buildVisitSnapshot() {
       const params = new URLSearchParams(window.location.search);
       const snapshot = {
@@ -188,6 +197,7 @@
       STORED_PARAMS.forEach(function (param) {
         snapshot[param] = params.get(param) || '';
       });
+      snapshot.utm_city = unwrapUtmCity(snapshot.utm_city);
 
       if (!snapshot.creative) {
         snapshot.creative = params.get('utm_creative') || '';
@@ -262,6 +272,7 @@
       STORED_PARAMS.forEach(function (param) {
         touch[param] = storageGet(prefix + param);
       });
+      touch.utm_city = unwrapUtmCity(touch.utm_city);
       return touch;
     }
 
