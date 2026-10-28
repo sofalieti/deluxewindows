@@ -629,6 +629,38 @@
         field.classList.toggle('is-open', next);
         face.setAttribute('aria-expanded', next ? 'true' : 'false');
         menu.hidden = !next;
+        const sidebar = field.closest('.section_sidebar');
+        if (sidebar) {
+          sidebar.classList.toggle('is-qty-open', !!sidebar.querySelector('.qty-pick.is-open'));
+        }
+        if (!next) return;
+        window.requestAnimationFrame(function () {
+          const card = field.closest('.sidebar-v1---card, .mobile-estimate-modal__dialog, form') || field;
+          const header = document.querySelector('.header-container-2, .navbar-3');
+          const headerBox = header ? header.getBoundingClientRect() : null;
+          const headerH = headerBox && headerBox.height > 0 && headerBox.bottom > 0
+            ? Math.round(headerBox.bottom)
+            : 0;
+          const margin = 12;
+          const rect = card.getBoundingClientRect();
+          const topLimit = headerH + margin;
+          const bottomLimit = window.innerHeight - margin;
+          const room = bottomLimit - topLimit;
+          let delta = 0;
+          if (rect.height <= room) {
+            if (rect.top < topLimit) delta = rect.top - topLimit;
+            else if (rect.bottom > bottomLimit) delta = rect.bottom - bottomLimit;
+          } else {
+            delta = rect.bottom - bottomLimit;
+          }
+          if (Math.abs(delta) < 2) return;
+          const scroller = field.closest('.mobile-estimate-modal__dialog');
+          if (scroller && scroller.scrollHeight > scroller.clientHeight + 4) {
+            scroller.scrollBy({ top: delta, behavior: 'smooth' });
+            return;
+          }
+          window.scrollBy({ top: delta, behavior: 'smooth' });
+        });
       }
 
       function choose(value) {
