@@ -56,7 +56,7 @@ class TrafficSourceVisibility
             'bing' => ['microsoft_ads'],
             'seo' => ['seo_google', 'seo_bing', 'seo_other'],
             'direct' => ['direct'],
-            'other' => ['meta_ads', 'paid_ads', 'social', 'email', 'referral', 'campaign'],
+            'other' => ['meta_ads', 'paid_ads', 'social', 'email', 'referral', 'campaign', 'chatgpt'],
             default => [],
         };
     }

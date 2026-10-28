@@ -39,6 +39,9 @@ test('lead traffic source is classified from click ids utm data and referrers', 
     'Bing organic search' => [[
         'meta' => ['referrer' => 'https://www.bing.com/search?q=windows'],
     ], 'seo_bing', 'SEO · Bing'],
+    'ChatGPT referral' => [[
+        'meta' => ['referrer' => 'https://chatgpt.com/'],
+    ], 'chatgpt', 'ChatGPT'],
     'external referral' => [[
         'meta' => ['referrer' => 'https://example.com/recommended-contractors'],
     ], 'referral', 'Referral'],

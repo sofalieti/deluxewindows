@@ -38,6 +38,11 @@ test('phone clicks spam tab and mark as spam work', function () {
         ->actingAs($user)
         ->get(route('platform.phone-clicks'))
         ->assertOk()
+        ->assertSee('Microsoft')
+        ->assertSee('Direct')
+        ->assertSee('Google')
+        ->assertSee('SEO')
+        ->assertSee('ChatGPT')
         ->assertSee('Spam')
         ->assertSee('Restore');
 });

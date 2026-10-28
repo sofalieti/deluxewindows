@@ -14,6 +14,7 @@ use App\Services\MicrosoftPhoneClickRecheck;
 use App\Services\PhoneClickGoogleBridge;
 use App\Services\RingCentralCallLogService;
 use App\Services\TrafficSourceVisibility;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
@@ -64,6 +65,11 @@ class PhoneClickListScreen extends Screen
                 ->with('latestNote.user')
                 ->defaultSort('id', 'desc')
                 ->paginate(50, pageName: 'spam_page'),
+            'microsoftClicks' => $this->channelClicks(['microsoft_ads'], 'microsoft_page'),
+            'directClicks' => $this->channelClicks(['direct'], 'direct_page'),
+            'googleClicks' => $this->channelClicks(['google_ads'], 'google_page'),
+            'seoClicks' => $this->channelClicks(['seo_google', 'seo_bing', 'seo_other'], 'seo_page'),
+            'chatgptClicks' => $this->chatgptClicks(),
             'conversionStats' => $stats,
             'metrics' => [
                 'bing_uploaded' => ['value' => number_format($stats['bing']['uploaded'])],
@@ -146,12 +152,48 @@ class PhoneClickListScreen extends Screen
             PhoneClickFiltersLayout::class,
 
             Layout::tabs([
-                'Phone clicks' => Layout::table('clicks', $this->clickColumns(spamTab: false)),
+                'Microsoft' => Layout::table('microsoftClicks', $this->clickColumns(spamTab: false)),
+                'Direct' => Layout::table('directClicks', $this->clickColumns(spamTab: false)),
+                'Google' => Layout::table('googleClicks', $this->clickColumns(spamTab: false)),
+                'SEO' => Layout::table('seoClicks', $this->clickColumns(spamTab: false)),
+                'ChatGPT' => Layout::table('chatgptClicks', $this->clickColumns(spamTab: false)),
+                'All' => Layout::table('clicks', $this->clickColumns(spamTab: false)),
                 'Unhandled' => Layout::table('unhandledClicks', $this->clickColumns(spamTab: false)),
                 'Mine' => Layout::table('mineClicks', $this->clickColumns(spamTab: false)),
                 'Spam' => Layout::table('spamClicks', $this->clickColumns(spamTab: true)),
             ]),
         ];
+    }
+
+    /**
+     * @param  list<string>  $sources
+     */
+    private function channelClicks(array $sources, string $pageName): LengthAwarePaginator
+    {
+        return PhoneClick::filters(PhoneClickFiltersLayout::class)
+            ->visibleTo(Auth::user())
+            ->notSpam()
+            ->with(['assignee', 'latestNote.user'])
+            ->whereIn('traffic_source', $sources)
+            ->defaultSort('id', 'desc')
+            ->paginate(50, ['*'], $pageName);
+    }
+
+    private function chatgptClicks(): LengthAwarePaginator
+    {
+        return PhoneClick::filters(PhoneClickFiltersLayout::class)
+            ->visibleTo(Auth::user())
+            ->notSpam()
+            ->with(['assignee', 'latestNote.user'])
+            ->where(function ($query): void {
+                $query->where('traffic_source', 'chatgpt')
+                    ->orWhere('utm_source', 'like', '%chatgpt%')
+                    ->orWhere('utm_source', 'like', '%openai%')
+                    ->orWhere('referrer', 'like', '%chatgpt.com%')
+                    ->orWhere('referrer', 'like', '%openai.com%');
+            })
+            ->defaultSort('id', 'desc')
+            ->paginate(50, ['*'], 'chatgpt_page');
     }
 
     /**

@@ -33,6 +33,7 @@ trait ClassifiesTrafficSource
             'email' => 'Email',
             'referral' => 'Referral',
             'campaign' => 'Campaign',
+            'chatgpt' => 'ChatGPT',
             'direct' => 'Direct',
         ];
     }
@@ -177,6 +178,10 @@ trait ClassifiesTrafficSource
             return 'seo_other';
         }
 
+        if ($this->isChatGptSource($source) || $this->isChatGptHost($referrerHost)) {
+            return 'chatgpt';
+        }
+
         if ($medium === 'email' || str_contains($source, 'email') || str_contains($source, 'newsletter')) {
             return 'email';
         }
@@ -207,6 +212,7 @@ trait ClassifiesTrafficSource
             'google_ads', 'microsoft_ads', 'meta_ads', 'paid_ads' => 'primary',
             'seo_google', 'seo_bing', 'seo_other' => 'success',
             'social', 'email' => 'warning',
+            'chatgpt' => 'dark',
             'referral', 'campaign' => 'info',
             default => 'secondary',
         };
@@ -328,6 +334,17 @@ trait ClassifiesTrafficSource
             || str_starts_with($host, 'google.')
             || str_contains($host, '.google.')
         );
+    }
+
+    protected function isChatGptSource(string $source): bool
+    {
+        return str_contains($source, 'chatgpt') || str_contains($source, 'openai');
+    }
+
+    protected function isChatGptHost(string $host): bool
+    {
+        return $this->hostMatches($host, 'chatgpt.com')
+            || $this->hostMatches($host, 'openai.com');
     }
 
     protected function isSocialHost(string $host): bool

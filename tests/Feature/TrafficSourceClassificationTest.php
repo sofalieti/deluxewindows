@@ -27,6 +27,17 @@ test('gclid still classifies as google ads when utm is google paid', function ()
     expect($click->trafficSourceKey())->toBe('google_ads');
 });
 
+test('a chatgpt referrer is its own source', function () {
+    $click = new PhoneClick([
+        'utm_source' => '',
+        'utm_medium' => '',
+        'referrer' => 'https://chatgpt.com/',
+    ]);
+
+    expect($click->trafficSourceKey())->toBe('chatgpt')
+        ->and($click->trafficSourceLabel())->toBe('ChatGPT');
+});
+
 test('msclkid alone classifies as microsoft ads', function () {
     $click = new PhoneClick([
         'utm_source' => '',
