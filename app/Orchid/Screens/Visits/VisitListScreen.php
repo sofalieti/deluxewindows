@@ -43,6 +43,10 @@ class VisitListScreen extends Screen
                 'enabled' => $this->settings->enabled(),
                 'behavior_enabled' => $this->settings->behaviorEnabled(),
             ],
+            'microsoft' => $this->channelVisits(['microsoft_ads'], 'microsoft_page'),
+            'google' => $this->channelVisits(['google_ads'], 'google_page'),
+            'seo' => $this->channelVisits(['seo_google', 'seo_bing', 'seo_other'], 'seo_page'),
+            'direct' => $this->channelVisits(['direct'], 'direct_page'),
             'visits' => SiteVisit::filters(VisitFiltersLayout::class)
                 ->defaultSort('id', 'desc')
                 ->paginate(50),
@@ -105,6 +109,10 @@ class VisitListScreen extends Screen
             ]),
 
             Layout::tabs([
+                'Microsoft' => Layout::table('microsoft', $this->visitColumns()),
+                'Google' => Layout::table('google', $this->visitColumns()),
+                'SEO' => Layout::table('seo', $this->visitColumns()),
+                'Direct' => Layout::table('direct', $this->visitColumns()),
                 'All visits' => Layout::table('visits', $this->visitColumns()),
                 'Estimate & forms' => Layout::table('interested', array_merge(
                     $this->visitColumns(),
@@ -277,6 +285,17 @@ class VisitListScreen extends Screen
 
                 return '<a href="'.e($url).'" target="_blank" rel="noopener">Open</a>';
             });
+    }
+
+    /**
+     * @param  list<string>  $sources
+     */
+    private function channelVisits(array $sources, string $pageName): LengthAwarePaginator
+    {
+        return SiteVisit::filters(VisitFiltersLayout::class)
+            ->whereIn('traffic_source', $sources)
+            ->defaultSort('id', 'desc')
+            ->paginate(50, ['*'], $pageName);
     }
 
     private function interestedVisits(): LengthAwarePaginator

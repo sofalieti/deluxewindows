@@ -5,6 +5,7 @@ declare(strict_types=1);
 use App\Models\SiteVisit;
 use App\Models\User;
 use App\Models\VisitsSetting;
+use App\Orchid\Screens\Visits\VisitListScreen;
 use App\Services\VisitsSettingsService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Orchid\Platform\Http\Middleware\Access;
@@ -100,6 +101,50 @@ test('admin can clear all visits', function () {
         ->assertRedirect();
 
     assertDatabaseCount('site_visits', 0);
+});
+
+test('visit list splits microsoft, google, seo, and direct into their own tabs', function () {
+    SiteVisit::query()->create([
+        'page_url' => 'https://www.deluxewindows.com/from-microsoft',
+        'msclkid' => 'ms-click',
+        'utm_source' => 'bing',
+        'utm_medium' => 'cpc',
+    ]);
+    SiteVisit::query()->create([
+        'page_url' => 'https://www.deluxewindows.com/from-google',
+        'gclid' => 'g-click',
+    ]);
+    SiteVisit::query()->create([
+        'page_url' => 'https://www.deluxewindows.com/from-seo',
+        'referrer' => 'https://www.google.com/search?q=windows',
+    ]);
+    SiteVisit::query()->create([
+        'page_url' => 'https://www.deluxewindows.com/from-direct',
+    ]);
+
+    $screen = app(VisitListScreen::class)->query();
+
+    expect($screen['microsoft']->pluck('page_url')->all())->toBe(['https://www.deluxewindows.com/from-microsoft'])
+        ->and($screen['google']->pluck('page_url')->all())->toBe(['https://www.deluxewindows.com/from-google'])
+        ->and($screen['seo']->pluck('page_url')->all())->toBe(['https://www.deluxewindows.com/from-seo'])
+        ->and($screen['direct']->pluck('page_url')->all())->toBe(['https://www.deluxewindows.com/from-direct'])
+        ->and($screen['visits']->total())->toBe(4);
+
+    $user = User::factory()->create([
+        'permissions' => [
+            'platform.index' => true,
+            'platform.visits' => true,
+        ],
+    ]);
+
+    $this->withoutMiddleware(Access::class)
+        ->actingAs($user)
+        ->get(route('platform.visits'))
+        ->assertOk()
+        ->assertSee('Microsoft')
+        ->assertSee('Google')
+        ->assertSee('SEO')
+        ->assertSee('Direct');
 });
 
 test('admin can toggle visit tracking', function () {
