@@ -15,6 +15,8 @@ use App\Services\Ads\FelixSheetExporter;
 use App\Services\Mailbox\MailboxEmailStatsService;
 use App\Services\RingCentralPhoneCallStatsService;
 use App\Services\TrafficSourceVisibility;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -82,11 +84,21 @@ class LeadListScreen extends Screen
         $minePage = $mineLeads->paginate(50, pageName: 'mine_page');
         $spamPage = $spamLeads->paginate(50, pageName: 'spam_page');
         $unprocessedPage = $unprocessedLeads->paginate(50, pageName: 'unprocessed_page');
+        $microsoftPage = $this->channelLeads(['microsoft_ads'], 'microsoft_page');
+        $directPage = $this->channelLeads(['direct'], 'direct_page');
+        $googlePage = $this->channelLeads(['google_ads'], 'google_page');
+        $seoPage = $this->channelLeads(['seo_google', 'seo_bing', 'seo_other'], 'seo_page');
+        $chatgptPage = $this->chatgptLeads();
 
         $pageLeads = collect($leadsPage->items())
             ->concat($minePage->items())
             ->concat($spamPage->items())
-            ->concat($unprocessedPage->items());
+            ->concat($unprocessedPage->items())
+            ->concat($microsoftPage->items())
+            ->concat($directPage->items())
+            ->concat($googlePage->items())
+            ->concat($seoPage->items())
+            ->concat($chatgptPage->items());
 
         $this->callStatsByPhone = app(RingCentralPhoneCallStatsService::class)->statsForPhones(
             $pageLeads->pluck('phone')->all()
@@ -100,6 +112,11 @@ class LeadListScreen extends Screen
             'mineLeads' => $minePage,
             'spamLeads' => $spamPage,
             'unprocessedLeads' => $unprocessedPage,
+            'microsoftLeads' => $microsoftPage,
+            'directLeads' => $directPage,
+            'googleLeads' => $googlePage,
+            'seoLeads' => $seoPage,
+            'chatgptLeads' => $chatgptPage,
             'contactFilter' => $this->contactFilter,
         ];
     }
@@ -253,12 +270,56 @@ class LeadListScreen extends Screen
             LeadFiltersLayout::class,
 
             Layout::tabs([
+                'Microsoft' => Layout::table('microsoftLeads', $this->leadColumns(spamTab: false)),
+                'Direct' => Layout::table('directLeads', $this->leadColumns(spamTab: false)),
+                'Google' => Layout::table('googleLeads', $this->leadColumns(spamTab: false)),
+                'SEO' => Layout::table('seoLeads', $this->leadColumns(spamTab: false)),
+                'ChatGPT' => Layout::table('chatgptLeads', $this->leadColumns(spamTab: false)),
                 'Leads' => Layout::table('leads', $this->leadColumns(spamTab: false)),
                 'Unprocessed' => Layout::table('unprocessedLeads', $this->leadColumns(spamTab: false)),
                 'Mine' => Layout::table('mineLeads', $this->leadColumns(spamTab: false)),
                 'Spam' => Layout::table('spamLeads', $this->leadColumns(spamTab: true)),
             ]),
         ];
+    }
+
+    /**
+     * @param  list<string>  $sources
+     */
+    private function channelLeads(array $sources, string $pageName): LengthAwarePaginator
+    {
+        return $this->sourcedLeads()
+            ->whereIn('traffic_source', $sources)
+            ->paginate(50, ['*'], $pageName);
+    }
+
+    private function chatgptLeads(): LengthAwarePaginator
+    {
+        return $this->sourcedLeads()
+            ->where(function (Builder $query): void {
+                $query->where('traffic_source', 'chatgpt')
+                    ->orWhere('utm_source', 'like', '%chatgpt%')
+                    ->orWhere('utm_source', 'like', '%openai%')
+                    ->orWhere('meta->referrer', 'like', '%chatgpt.com%')
+                    ->orWhere('meta->referrer', 'like', '%openai.com%');
+            })
+            ->paginate(50, ['*'], 'chatgpt_page');
+    }
+
+    private function sourcedLeads(): Builder
+    {
+        $query = Lead::filters(LeadFiltersLayout::class)
+            ->visibleTo(Auth::user())
+            ->with(['assignee', 'latestComment.user'])
+            ->where('status', '!=', Lead::STATUS_SPAM)
+            ->defaultSort('id', 'desc');
+
+        $contactId = (int) request()->input('filter.contact_id', 0);
+        if ($contactId > 0) {
+            $query->where('contact_id', $contactId);
+        }
+
+        return $query;
     }
 
     /**

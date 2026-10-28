@@ -67,7 +67,33 @@ test('leads spam tab renders', function () {
         ->assertOk()
         ->assertSee('Spam')
         ->assertSee('honeypot')
-        ->assertSee('Spam Person');
+        ->assertSee('Spam Person')
+        ->assertSee('Microsoft')
+        ->assertSee('Direct')
+        ->assertSee('Google')
+        ->assertSee('SEO')
+        ->assertSee('ChatGPT');
+});
+
+test('lead list splits microsoft direct google seo and chatgpt', function () {
+    $user = User::factory()->create();
+    $user->forceFill([
+        'permissions' => adminTrafficPermissions(phoneClicks: false),
+    ])->save();
+
+    \App\Models\Lead::query()->create([
+        'full_name' => 'Chat Person',
+        'phone' => '5551113333',
+        'email' => 'chat@example.com',
+        'status' => \App\Models\Lead::STATUS_NEW,
+        'meta' => ['referrer' => 'https://chatgpt.com/'],
+    ]);
+
+    $this->actingAs($user);
+    $screen = app(\App\Orchid\Screens\Leads\LeadListScreen::class)->query();
+
+    expect($screen['chatgptLeads']->pluck('full_name')->all())->toBe(['Chat Person'])
+        ->and($screen['microsoftLeads']->total())->toBe(0);
 });
 
 test('phone click notes can be added from the list', function () {
