@@ -121,6 +121,13 @@ test('visit list splits microsoft, google, seo, and direct into their own tabs',
     SiteVisit::query()->create([
         'page_url' => 'https://www.deluxewindows.com/from-direct',
     ]);
+    SiteVisit::query()->create([
+        'page_url' => 'https://www.deluxewindows.com/from-bot',
+        'msclkid' => 'bot-click',
+        'utm_source' => 'bing',
+        'utm_medium' => 'cpc',
+        'is_bot' => true,
+    ]);
 
     $screen = app(VisitListScreen::class)->query();
 

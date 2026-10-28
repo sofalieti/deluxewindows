@@ -11,6 +11,7 @@ use App\Services\ServiceAreaRegions;
 use App\Services\VisitsSettingsService;
 use App\Support\ClarityDashboard;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Schema;
@@ -47,7 +48,7 @@ class VisitListScreen extends Screen
             'google' => $this->channelVisits(['google_ads'], 'google_page'),
             'seo' => $this->channelVisits(['seo_google', 'seo_bing', 'seo_other'], 'seo_page'),
             'direct' => $this->channelVisits(['direct'], 'direct_page'),
-            'visits' => SiteVisit::filters(VisitFiltersLayout::class)
+            'visits' => $this->listedVisits()
                 ->defaultSort('id', 'desc')
                 ->paginate(50),
             'interested' => $interested,
@@ -292,10 +293,21 @@ class VisitListScreen extends Screen
      */
     private function channelVisits(array $sources, string $pageName): LengthAwarePaginator
     {
-        return SiteVisit::filters(VisitFiltersLayout::class)
+        return $this->listedVisits()
             ->whereIn('traffic_source', $sources)
             ->defaultSort('id', 'desc')
             ->paginate(50, ['*'], $pageName);
+    }
+
+    private function listedVisits(): Builder
+    {
+        $query = SiteVisit::filters(VisitFiltersLayout::class);
+
+        if ((string) request()->input('filter.bot', '') !== 'yes') {
+            $query->where('is_bot', false);
+        }
+
+        return $query;
     }
 
     private function interestedVisits(): LengthAwarePaginator

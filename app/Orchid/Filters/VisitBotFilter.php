@@ -40,7 +40,7 @@ class VisitBotFilter extends Filter
         return [
             Select::make('filter[bot]')
                 ->title('Bot')
-                ->empty('All')
+                ->empty('People')
                 ->options([
                     'no' => 'People',
                     'yes' => 'Bots',
