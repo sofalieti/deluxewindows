@@ -42,7 +42,8 @@
                     </div>
                   </div>
                   <div class="primary-button-6 space-between-v1">
-                    <input type="submit" data-wait="Please wait..." class="inside-input-button-4 text-light w-button" value="Get Your Free Estimate" />
+                    <input type="submit" data-wait="Please wait..." class="inside-input-button-4 text-light w-button bing-hide" value="Get Your Free Estimate" />
+                    <input type="submit" data-wait="Please wait..." class="inside-input-button-4 text-light w-button bing-only" value="Quick Estimate" />
                   </div>
                 </div>
               </form>
