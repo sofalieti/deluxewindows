@@ -121,6 +121,8 @@ test('utm_city resolves a Bing location id through the Bing map', function () {
         ->and($regions->utmCityLabel('utm_city=43896', ServiceAreaRegions::GEO_BING))->toBe('San Francisco — 43896')
         ->and($regions->utmCityLabel('utm_city=utm_city=85950', ServiceAreaRegions::GEO_BING))->toBe('San Jose — 85950')
         ->and($regions->utmCityLabel('87452', ServiceAreaRegions::GEO_BING))->toBe('Livermore — 87452')
+        ->and($regions->utmCityLabel('87523', ServiceAreaRegions::GEO_BING))->toBe('Alameda — 87523')
+        ->and($regions->utmCityLabel('86999', ServiceAreaRegions::GEO_BING))->toBe('San Mateo — 86999')
         ->and($regions->utmCityLabel('{loc_physical}', ServiceAreaRegions::GEO_BING))->toBe('{loc_physical} (unmatched)');
 });
 

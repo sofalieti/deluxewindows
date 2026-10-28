@@ -25,7 +25,7 @@ class BuildGoogleZipGeoTargetsCommand extends Command
 
     private const GEO_DATA_URL = 'https://raw.githubusercontent.com/scpike/us-state-county-zip/master/geo-data.csv';
 
-    private const GEOTARGETS_ZIP_URL = 'https://developers.google.com/static/google-ads/api/data/geo/geotargets-2026-07-16.csv.zip';
+    private const GEOTARGETS_ZIP_URL = 'https://developers.google.com/static/google-ads/api/data/geo/geotargets-2026-10-06.csv.zip';
 
     public function handle(): int
     {
@@ -338,17 +338,39 @@ class BuildGoogleZipGeoTargetsCommand extends Command
     private function applyZipOverrides(array $cityZips): array
     {
         $overrides = [
+            'alameda' => ['94501'],
+            'brentwood' => ['94514'],
             'burlingame' => ['94010'],
+            'concord' => ['94553'],
             'cupertino' => ['95014', '95015'],
+            'daly-city' => ['94005', '94014'],
+            'danville' => ['94506', '94507'],
             'dixon' => ['95620'],
+            'el-cerrito' => ['94707', '94708'],
+            'fairfield' => ['94534', '94535'],
+            'hayward' => ['94546', '94552'],
+            'hercules' => ['94572'],
+            'larkspur' => ['94904'],
+            'livermore' => ['94550', '94551'],
             'los-altos-hills' => ['94022', '94024'],
             'menlo-park' => ['94025', '94026'],
+            'napa' => ['94576'],
+            'oakley' => ['94511'],
+            'palo-alto' => ['94305'],
+            'pinole' => ['94525'],
             'pittsburg' => ['94565'],
+            'pleasanton' => ['94586'],
             'portola-valley' => ['94028'],
+            'richmond' => ['94803'],
             'ross' => ['94957'],
+            'san-jose' => ['95002', '95140', '95141'],
+            'san-leandro' => ['94580'],
+            'san-mateo' => ['94401'],
+            'san-rafael' => ['94903'],
             'sebastopol' => ['95472'],
             'south-san-francisco' => ['94080', '94083'],
             'tiburon' => ['94920'],
+            'vallejo' => ['94592'],
         ];
 
         foreach ($overrides as $slug => $zips) {
