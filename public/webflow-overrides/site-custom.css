@@ -589,7 +589,9 @@ a.link-block.odsf {
   gap: 6px;
   padding: 0;
   text-decoration: none;
-  min-width: 220px;
+  flex: 1 1 240px;
+  min-width: min(100%, 240px);
+  max-width: 100%;
 }
 
 .area-phones__label {
@@ -613,9 +615,11 @@ a.link-block.odsf {
   align-items: center;
   justify-content: center;
   gap: 0;
+  width: 100%;
+  box-sizing: border-box;
   height: 48px;
   min-height: 48px;
-  padding: 0 14px 0 18px;
+  padding: 0 12px 0 16px;
   border-radius: 10px;
   border: 1px solid #0d4578;
   background: linear-gradient(180deg, #1a5f8f 0%, #0f4d89 100%);
@@ -628,10 +632,11 @@ a.link-block.odsf {
   align-items: center;
   align-self: stretch;
   flex: 1 1 auto;
+  min-width: 0;
   justify-content: center;
   height: 100%;
-  padding-right: 14px;
-  font-size: 18px;
+  padding-right: 12px;
+  font-size: clamp(15px, 1.5vw, 18px);
   font-weight: 700;
   line-height: 1;
   letter-spacing: 0.01em;
@@ -647,7 +652,7 @@ a.link-block.odsf {
   align-self: stretch;
   flex: 0 0 auto;
   height: 100%;
-  padding-left: 14px;
+  padding-left: 12px;
   border-left: 1px solid rgba(255, 255, 255, 0.45);
   color: #fff;
   line-height: 0;

@@ -417,8 +417,9 @@ html.dw-bing .ms-home-hero .area-phones:not([hidden]) {
 }
 
 .ms-home-hero .area-phones__item {
-  min-width: 0;
-  flex: 1 1 180px;
+  flex: 1 1 240px;
+  min-width: min(100%, 240px);
+  max-width: 100%;
 }
 
 .ms-home-hero__title {
