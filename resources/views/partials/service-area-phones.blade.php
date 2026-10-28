@@ -13,8 +13,8 @@
     data-phone-source="hero-phone-general"
     aria-label="Call {{ site_phone_display() }}"
   >
-    <span class="area-phones__label">Bay Area</span>
     <span class="area-phones__plaque">
+      <span class="area-phones__label">Bay Area</span>
       <span class="area-phones__number">{{ site_phone_display() }}</span>
       <span class="area-phones__icon" aria-hidden="true">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
@@ -31,8 +31,8 @@
     aria-label="Call {{ $localPhone['phone_display'] ?? '' }}"
     @unless($localPhone) hidden @endunless
   >
-    <span class="area-phones__label" data-area-phones-local-label>{{ $localLabel }}</span>
     <span class="area-phones__plaque">
+      <span class="area-phones__label" data-area-phones-local-label>{{ $localLabel }}</span>
       <span class="area-phones__number" data-area-phones-local-number>{{ $localPhone['phone_display'] ?? '' }}</span>
       <span class="area-phones__icon" aria-hidden="true">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">

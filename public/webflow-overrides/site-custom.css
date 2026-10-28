@@ -595,19 +595,29 @@ a.link-block.odsf {
 }
 
 .area-phones__label {
-  display: flex;
-  align-items: flex-end;
-  min-height: 18px;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  line-height: 1.2;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex: 0 0 auto;
+  min-height: 0;
+  padding: 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 1;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.92);
-  padding-left: 2px;
-  text-shadow:
-    0 2px 10px rgba(0, 0, 0, 0.75),
-    0 1px 3px rgba(0, 0, 0, 0.9);
+  color: rgba(255, 255, 255, 0.88);
+  text-shadow: none;
+  white-space: nowrap;
+}
+
+.area-phones__label::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 14px;
+  flex: 0 0 auto;
+  background: rgba(255, 255, 255, 0.22);
 }
 
 .area-phones__plaque {
@@ -635,6 +645,7 @@ a.link-block.odsf {
   min-width: 0;
   justify-content: center;
   height: 100%;
+  padding-left: 12px;
   padding-right: 12px;
   font-size: clamp(15px, 1.5vw, 18px);
   font-weight: 700;
@@ -671,6 +682,10 @@ a.link-block.odsf {
 /* Local number: white plaque, yellow text (matches brand accent). */
 .area-phones__item--local .area-phones__label {
   color: #f5a623;
+}
+
+.area-phones__item--local .area-phones__label::after {
+  background: rgba(245, 166, 35, 0.28);
 }
 
 .area-phones__item--local .area-phones__plaque {
@@ -1491,7 +1506,6 @@ a.link-block.odsf {
   .hero-mini-description,
   .h1-subline,
   .city-highlight,
-  .area-phones__label,
   .w-embed h2[data-city]
 ) {
   text-shadow:
