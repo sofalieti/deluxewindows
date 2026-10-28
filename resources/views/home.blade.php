@@ -5,29 +5,6 @@
 @section('bodyClass', 'body-18 height-auto')
 
 @section('head')
-    <link
-      rel="preload"
-      as="image"
-      href="/webflow-assets/images/hero-home-bay-area-2560.avif"
-      type="image/avif"
-      imagesrcset="/webflow-assets/images/hero-home-bay-area-2560.avif 2560w, /webflow-assets/images/hero-home-bay-area-3840.avif 3840w"
-      imagesizes="100vw"
-      media="(min-width: 768px)"
-      fetchpriority="high"
-    />
-    @unless(hero_is_new())
-      {{-- The new mobile hero hides the photo entirely, so it is only preloaded for the old one. --}}
-      <link
-        rel="preload"
-        as="image"
-        href="/webflow-assets/images/hero-home-bay-area-mobile-1200.avif"
-        type="image/avif"
-        imagesrcset="/webflow-assets/images/hero-home-bay-area-mobile-1200.avif 1200w, /webflow-assets/images/hero-home-bay-area-mobile-1600.avif 1600w"
-        imagesizes="100vw"
-        media="(max-width: 767px)"
-        fetchpriority="high"
-      />
-    @endunless
     <style rel="stylesheet" type="text/css">
       @charset "utf-8";
 
@@ -1012,7 +989,7 @@
         z-index: 0;
         pointer-events: none;
         overflow: hidden;
-        background-color: #1a5f9c;
+        background-color: #123f72;
         background-size: cover;
         background-position: center center;
       }

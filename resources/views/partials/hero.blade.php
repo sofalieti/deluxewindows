@@ -268,33 +268,9 @@
           {{-- Fallback for hero-based templates without image: solid blue background only --}}
           <div class="div-block-61"></div>
         @else
-          {{-- Homepage: photo as LCP/poster. Desktop plays the original background video. --}}
+          {{-- Homepage: solid blue until the desktop background video starts. --}}
         <div class="code-embed-5 w-embed w-script">
-          <div id="hero-bg-wrapper" class="video-bg-container">
-            <picture>
-              {{-- Phones get a portrait crop of the facade; the wide frame would show mostly sky. --}}
-              <source
-                type="image/avif"
-                media="(max-width: 767px)"
-                srcset="/webflow-assets/images/hero-home-bay-area-mobile-1200.avif 1200w, /webflow-assets/images/hero-home-bay-area-mobile-1600.avif 1600w"
-                sizes="100vw"
-              />
-              <source
-                type="image/avif"
-                srcset="/webflow-assets/images/hero-home-bay-area-1280.avif 1280w, /webflow-assets/images/hero-home-bay-area-2560.avif 2560w, /webflow-assets/images/hero-home-bay-area-3840.avif 3840w"
-                sizes="100vw"
-              />
-              <img
-                src="/webflow-assets/images/hero-home-bay-area-1920.webp"
-                alt=""
-                width="3840"
-                height="2160"
-                fetchpriority="high"
-                decoding="async"
-                class="hero-bg-image"
-              />
-            </picture>
-          </div>
+          <div id="hero-bg-wrapper" class="video-bg-container"></div>
           <script>
             (function () {
               if (window.innerWidth <= 767) return;
