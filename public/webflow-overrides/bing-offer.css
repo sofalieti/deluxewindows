@@ -651,6 +651,8 @@ html.dw-bing .ms-home-hero .area-phones:not([hidden]) {
     display: flex !important;
     justify-content: center;
     margin-top: 18px;
+    padding-top: 0;
+    border-top: 0;
   }
 
   html.dw-bing .ms-home-hero .hero-brands--desktop {

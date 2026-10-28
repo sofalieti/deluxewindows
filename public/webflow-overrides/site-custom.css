@@ -742,10 +742,6 @@ a.link-block.odsf {
   .area-phones {
     display: none;
   }
-
-  .area-phones:has(.area-phones__item--local:not([hidden])) > .area-phones__item:not(.area-phones__item--local) {
-    display: none !important;
-  }
 }
 
 /* Hero mobile promo — unified badge + CTA for all hero sections */

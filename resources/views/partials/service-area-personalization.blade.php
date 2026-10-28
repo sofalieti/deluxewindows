@@ -182,7 +182,7 @@
       setText('[data-header-phone-local-number]', city.phone_display);
       reveal('[data-header-phone-local]');
 
-      // Desktop shows the general and the local number. Mobile keeps only the local one.
+      // Hero shows the general and the local number together. The mobile header keeps only the local one.
       var locals = document.querySelectorAll('[data-area-phones-local]');
       for (var j = 0; j < locals.length; j++) {
         locals[j].setAttribute('href', 'tel:' + city.phone_tel);
