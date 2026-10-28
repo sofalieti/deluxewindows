@@ -105,6 +105,40 @@ if (! function_exists('home_brands_is_new')) {
     }
 }
 
+if (! function_exists('family_preview')) {
+    /**
+     * Happy-family overlay on window/door material and brand photos.
+     * Preview only: /windows/vinyl-windows?family=true
+     */
+    function family_preview(): bool
+    {
+        try {
+            $value = strtolower(trim((string) request()->query('family', '')));
+        } catch (\Throwable) {
+            return false;
+        }
+
+        if (! in_array($value, ['1', 'true', 'yes', 'on'], true)) {
+            return false;
+        }
+
+        return request()->is(
+            'windows',
+            'windows/*',
+            'doors',
+            'doors/*',
+            'brands',
+            'brands/*',
+            'door-brands',
+            'door-brands/*',
+            'window-type',
+            'window-type/*',
+            'door-types',
+            'door-types/*',
+        );
+    }
+}
+
 if (! function_exists('brand_strip_items')) {
     /**
      * Brand logos shown on the home page strip (and its overlay variant).
