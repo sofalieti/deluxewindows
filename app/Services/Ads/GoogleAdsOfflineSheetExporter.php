@@ -799,6 +799,149 @@ final class GoogleAdsOfflineSheetExporter
         return strtolower(trim((string) config('services.google_drive.auth', 'service_account')));
     }
 
+    /**
+     * @return list<array{sheetId: int, title: string}>
+     */
+    public function spreadsheetTabs(string $spreadsheetId): array
+    {
+        $base = (string) config('services.google_drive.sheets_api_base_url');
+        $response = $this->http()
+            ->withToken($this->accessToken())
+            ->get($base.'/spreadsheets/'.$spreadsheetId, [
+                'fields' => 'sheets.properties(sheetId,title)',
+            ]);
+
+        if (! $response->successful()) {
+            throw new RuntimeException($this->sheetsError('Open spreadsheet', $response->status(), $response->body()));
+        }
+
+        $sheets = $response->json('sheets');
+        if (! is_array($sheets)) {
+            return [];
+        }
+
+        $tabs = [];
+        foreach ($sheets as $sheet) {
+            $properties = is_array($sheet['properties'] ?? null) ? $sheet['properties'] : [];
+            $title = trim((string) ($properties['title'] ?? ''));
+            if ($title === '') {
+                continue;
+            }
+            $tabs[] = [
+                'sheetId' => (int) ($properties['sheetId'] ?? 0),
+                'title' => $title,
+            ];
+        }
+
+        return $tabs;
+    }
+
+    public function ensureSheetTab(string $spreadsheetId, string $title): void
+    {
+        foreach ($this->spreadsheetTabs($spreadsheetId) as $tab) {
+            if ($tab['title'] === $title) {
+                return;
+            }
+        }
+
+        $base = (string) config('services.google_drive.sheets_api_base_url');
+        $response = $this->http()
+            ->withToken($this->accessToken())
+            ->post($base.'/spreadsheets/'.$spreadsheetId.':batchUpdate', [
+                'requests' => [
+                    ['addSheet' => ['properties' => ['title' => $title]]],
+                ],
+            ]);
+
+        if (! $response->successful()) {
+            throw new RuntimeException($this->sheetsError('Add sheet '.$title, $response->status(), $response->body()));
+        }
+    }
+
+    /**
+     * @return list<list<string>>
+     */
+    public function readTabRows(string $spreadsheetId, string $title, int $columns): array
+    {
+        $base = (string) config('services.google_drive.sheets_api_base_url');
+        $endCol = $this->columnLetter(max(1, $columns));
+        $range = $this->quotedSheet($title).'!A:'.$endCol;
+        $response = $this->http()
+            ->withToken($this->accessToken())
+            ->get($base.'/spreadsheets/'.$spreadsheetId.'/values/'.rawurlencode($range));
+
+        if (! $response->successful()) {
+            throw new RuntimeException($this->sheetsError('Read '.$title, $response->status(), $response->body()));
+        }
+
+        $values = $response->json('values');
+        if (! is_array($values)) {
+            return [];
+        }
+
+        $rows = [];
+        foreach ($values as $row) {
+            if (! is_array($row)) {
+                continue;
+            }
+            $rows[] = array_map(static fn ($cell): string => trim((string) $cell), $row);
+        }
+
+        return $rows;
+    }
+
+    /**
+     * @param  list<list<string>>  $grid
+     */
+    public function writeTabGrid(string $spreadsheetId, string $title, array $grid): void
+    {
+        $columns = 1;
+        foreach ($grid as $row) {
+            $columns = max($columns, count($row));
+        }
+
+        $this->writeValues($spreadsheetId, $grid, $columns, $title);
+    }
+
+    /**
+     * @param  list<array{range: string, values: list<list<string>>}>  $data
+     */
+    public function batchUpdateTabRows(string $spreadsheetId, array $data): void
+    {
+        if ($data === []) {
+            return;
+        }
+
+        $base = (string) config('services.google_drive.sheets_api_base_url');
+        $response = $this->http()
+            ->withToken($this->accessToken())
+            ->post($base.'/spreadsheets/'.$spreadsheetId.'/values:batchUpdate', [
+                'valueInputOption' => 'RAW',
+                'data' => $data,
+            ]);
+
+        if (! $response->successful()) {
+            throw new RuntimeException($this->sheetsError('Update rows', $response->status(), $response->body()));
+        }
+    }
+
+    /**
+     * @param  list<list<string>>  $rows
+     */
+    public function appendTabRows(string $spreadsheetId, string $title, array $rows): void
+    {
+        if ($rows === []) {
+            return;
+        }
+
+        $columns = 1;
+        foreach ($rows as $row) {
+            $columns = max($columns, count($row));
+        }
+
+        $this->appendValues($spreadsheetId, $rows, $columns, $title);
+    }
+
     private function timezone(): string
     {
         $tz = trim((string) config('services.google_drive.timezone', 'America/Los_Angeles'));

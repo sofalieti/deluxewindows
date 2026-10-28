@@ -96,6 +96,12 @@ return [
             '1hoVapSRvvzfot8wLrFUFKPj2jC06MPRAnvJCspjkElM'
         ),
         'felix_spreadsheet_title' => 'Deluxe Windows Transfered to Felix',
+        // All website leads, one tab per traffic source. Share this workbook with the service account as Editor.
+        'leads_spreadsheet_id' => env(
+            'GOOGLE_DRIVE_LEADS_SPREADSHEET_ID',
+            '1EC9-ehtGD8Vm4SU5tqSpNVv1UywlbtPEgSnnCN1G5w4'
+        ),
+        'leads_list_sync' => env('LEADS_LIST_SHEET_SYNC', true),
         'service_account_json' => env('GOOGLE_DRIVE_SERVICE_ACCOUNT_JSON'),
         'client_id' => env('GOOGLE_DRIVE_CLIENT_ID', env('GOOGLE_ADS_CLIENT_ID')),
         'client_secret' => env('GOOGLE_DRIVE_CLIENT_SECRET', env('GOOGLE_ADS_CLIENT_SECRET')),

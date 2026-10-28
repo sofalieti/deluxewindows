@@ -27,6 +27,8 @@
         <env name="MAIL_MAILER" value="array"/>
         <env name="PULSE_ENABLED" value="false"/>
         <env name="QUEUE_CONNECTION" value="sync"/>
+        <!-- Live lead-sheet sync must not run while tests create leads. -->
+        <env name="LEADS_LIST_SHEET_SYNC" value="false"/>
         <!-- Defaults point at the live office sheet; tests must never post there. -->
         <env name="LEAD_BRIDGE_URL_1" value=""/>
         <env name="LEAD_BRIDGE_URL_2" value=""/>

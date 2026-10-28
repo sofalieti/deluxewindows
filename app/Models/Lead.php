@@ -211,6 +211,25 @@ class Lead extends Model
             $lead->normalized_phone = Contact::normalizePhone($lead->phone);
             $lead->traffic_source = $lead->trafficSourceKey();
         });
+
+        static::created(function (Lead $lead): void {
+            self::queueListSheetSync($lead);
+        });
+
+        static::updated(function (Lead $lead): void {
+            if ($lead->wasChanged('status')) {
+                self::queueListSheetSync($lead);
+            }
+        });
+    }
+
+    private static function queueListSheetSync(self $lead): void
+    {
+        if (! config('services.google_drive.leads_list_sync') || $lead->id === null) {
+            return;
+        }
+
+        \App\Jobs\SyncLeadToListSheet::dispatch($lead->id)->afterCommit();
     }
 
     /**

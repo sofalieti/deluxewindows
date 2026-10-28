@@ -12,6 +12,7 @@ use App\Models\User;
 use App\Orchid\Layouts\Leads\LeadFiltersLayout;
 use App\Services\Ads\AppointmentSheetExporter;
 use App\Services\Ads\FelixSheetExporter;
+use App\Services\Ads\LeadListSheetExporter;
 use App\Services\Mailbox\MailboxEmailStatsService;
 use App\Services\RingCentralPhoneCallStatsService;
 use App\Services\TrafficSourceVisibility;
@@ -161,6 +162,10 @@ class LeadListScreen extends Screen
                 ->icon('bs.file-earmark-spreadsheet')
                 ->method('exportFelix')
                 ->confirm('Append Transfered to Felix leads into the Felix spreadsheet?'),
+            Button::make('Export last 3 days')
+                ->icon('bs.file-earmark-spreadsheet')
+                ->method('exportRecentLeads')
+                ->confirm('Write every lead from the last 3 days into the leads spreadsheet? Rows already there are overwritten with the current status.'),
         ];
 
         if ($this->contactFilter !== null) {
@@ -193,6 +198,29 @@ class LeadListScreen extends Screen
         }
 
         Toast::success('Sent '.$result['count'].' appointment lead(s) to the sheet.');
+    }
+
+    public function exportRecentLeads(LeadListSheetExporter $exporter): void
+    {
+        try {
+            $result = $exporter->exportCreatedWithinDays(3);
+        } catch (\Throwable $e) {
+            report($e);
+            Toast::error(Str::limit($e->getMessage(), 300));
+
+            return;
+        }
+
+        if ($result['count'] === 0) {
+            Toast::info('No leads from the last 3 days.');
+
+            return;
+        }
+
+        Toast::success('Wrote '.$result['count'].' lead(s) to the sheet.');
+        if ($result['spreadsheet_url'] !== '') {
+            Toast::info($result['spreadsheet_url']);
+        }
     }
 
     public function exportFelix(FelixSheetExporter $exporter): void
