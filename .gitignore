@@ -38,6 +38,7 @@ yarn-error.log
 !/config/crm.php
 !/config/hero.php
 !/config/lead_spam.php
+!/config/platform.php
 
 # Docker конфигурации
 docker-compose.override.yml 
