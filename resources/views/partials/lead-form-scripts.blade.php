@@ -629,22 +629,33 @@
         field.classList.toggle('is-open', next);
         face.setAttribute('aria-expanded', next ? 'true' : 'false');
         menu.hidden = !next;
+        if (!next) {
+          menu.classList.remove('is-drop-up');
+          return;
+        }
         const sidebar = field.closest('.section_sidebar');
         if (sidebar) {
-          sidebar.classList.toggle('is-qty-open', !!sidebar.querySelector('.qty-pick.is-open'));
+          sidebar.classList.add('is-qty-open');
+          if (!sidebar._qtyRelease) {
+            sidebar._qtyRelease = function () {
+              if (sidebar.querySelector('.qty-pick.is-open')) return;
+              if (window.scrollY > 140) return;
+              sidebar.classList.remove('is-qty-open');
+              window.removeEventListener('scroll', sidebar._qtyRelease);
+              sidebar._qtyRelease = null;
+            };
+            window.addEventListener('scroll', sidebar._qtyRelease, { passive: true });
+          }
         }
-        if (!next) return;
         window.requestAnimationFrame(function () {
-          const card = field.closest('.sidebar-v1---card, .mobile-estimate-modal__dialog, form') || field;
+          const card = field.closest('.sidebar-v1---card') || field.closest('form') || field;
           const header = document.querySelector('.header-container-2, .navbar-3');
           const headerBox = header ? header.getBoundingClientRect() : null;
-          const headerH = headerBox && headerBox.height > 0 && headerBox.bottom > 0
-            ? Math.round(headerBox.bottom)
-            : 0;
+          const headerH = headerBox && headerBox.bottom > 0 ? Math.round(headerBox.bottom) : 0;
           const margin = 12;
-          const rect = card.getBoundingClientRect();
           const topLimit = headerH + margin;
           const bottomLimit = window.innerHeight - margin;
+          const rect = card.getBoundingClientRect();
           const room = bottomLimit - topLimit;
           let delta = 0;
           if (rect.height <= room) {
@@ -653,13 +664,24 @@
           } else {
             delta = rect.bottom - bottomLimit;
           }
-          if (Math.abs(delta) < 2) return;
-          const scroller = field.closest('.mobile-estimate-modal__dialog');
-          if (scroller && scroller.scrollHeight > scroller.clientHeight + 4) {
-            scroller.scrollBy({ top: delta, behavior: 'smooth' });
-            return;
+          if (Math.abs(delta) >= 2) {
+            const scroller = field.closest('.mobile-estimate-modal__dialog');
+            if (scroller && scroller.scrollHeight > scroller.clientHeight + 4) {
+              scroller.scrollTop += delta;
+            } else {
+              const root = document.documentElement;
+              const previous = root.style.scrollBehavior;
+              root.style.scrollBehavior = 'auto';
+              window.scrollBy(0, delta);
+              root.style.scrollBehavior = previous;
+            }
           }
-          window.scrollBy({ top: delta, behavior: 'smooth' });
+          if (!sidebar) return;
+          const faceRect = face.getBoundingClientRect();
+          const menuHeight = menu.getBoundingClientRect().height;
+          const spaceBelow = bottomLimit - faceRect.bottom;
+          const spaceAbove = faceRect.top - topLimit;
+          menu.classList.toggle('is-drop-up', menuHeight > spaceBelow && spaceAbove >= spaceBelow);
         });
       }
 

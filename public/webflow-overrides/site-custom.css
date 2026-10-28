@@ -379,6 +379,28 @@ a.link-block.odsf {
   max-height: none !important;
   overflow: visible !important;
 }
+
+.section_sidebar .qty-pick.is-open {
+  position: relative;
+  z-index: 30;
+}
+
+.section_sidebar .qty-pick__menu {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 6px);
+  z-index: 40;
+  margin: 0;
+  border-top: 1px solid #a4a6b0;
+  border-radius: 16px;
+  box-shadow: 0 12px 28px rgba(20, 22, 28, 0.16);
+}
+
+.section_sidebar .qty-pick__menu.is-drop-up {
+  top: auto;
+  bottom: calc(100% + 6px);
+}
 /* ─────────────────────────────────────────────────────────────── */
 
 .div-block-59 { margin-bottom: 0 !important; }
