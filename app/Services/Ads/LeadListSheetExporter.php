@@ -82,6 +82,26 @@ final class LeadListSheetExporter
     /**
      * @return array{count: int, spreadsheet_url: string}
      */
+    public function exportAll(): array
+    {
+        $this->assertReady();
+
+        $count = 0;
+        Lead::query()
+            ->orderBy('id')
+            ->chunkById(200, function ($leads) use (&$count): void {
+                $count += $this->syncLeads($leads);
+            });
+
+        return [
+            'count' => $count,
+            'spreadsheet_url' => $this->spreadsheetUrl(),
+        ];
+    }
+
+    /**
+     * @return array{count: int, spreadsheet_url: string}
+     */
     public function exportCreatedWithinDays(int $days): array
     {
         $this->assertReady();

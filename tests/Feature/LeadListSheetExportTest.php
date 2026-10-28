@@ -165,6 +165,24 @@ test('leads land on a tab per source and a status change overwrites the same row
     $again = $exporter->syncUpdatedWithinMinutes(60);
     expect($again['count'])->toBe(0)
         ->and($grids['Microsoft'])->toHaveCount(2);
+
+    $old = Lead::query()->create([
+        'full_name' => 'Old Direct',
+        'email' => 'old@example.com',
+        'phone' => '6505550009',
+        'message' => 'From last month',
+    ]);
+    $old->forceFill([
+        'created_at' => now()->subDays(20),
+        'updated_at' => now()->subDays(20),
+    ])->saveQuietly();
+
+    $all = $exporter->exportAll();
+
+    expect($all['count'])->toBe(3)
+        ->and($grids['Microsoft'])->toHaveCount(2)
+        ->and(implode("\t", $grids['Direct'][1]))->toContain('Old Direct')
+        ->and(implode("\t", $grids['Direct'][1]))->toContain('From last month');
 });
 
 test('creating a lead and changing its status queue a sheet sync', function () {

@@ -162,10 +162,10 @@ class LeadListScreen extends Screen
                 ->icon('bs.file-earmark-spreadsheet')
                 ->method('exportFelix')
                 ->confirm('Append Transfered to Felix leads into the Felix spreadsheet?'),
-            Button::make('Export last 3 days')
+            Button::make('Export all leads')
                 ->icon('bs.file-earmark-spreadsheet')
-                ->method('exportRecentLeads')
-                ->confirm('Write every lead from the last 3 days into the leads spreadsheet? Rows already there are overwritten with the current status.'),
+                ->method('exportAllLeads')
+                ->confirm('Write every lead into the leads spreadsheet? Rows already there are overwritten with the current status.'),
         ];
 
         if ($this->contactFilter !== null) {
@@ -200,10 +200,12 @@ class LeadListScreen extends Screen
         Toast::success('Sent '.$result['count'].' appointment lead(s) to the sheet.');
     }
 
-    public function exportRecentLeads(LeadListSheetExporter $exporter): void
+    public function exportAllLeads(LeadListSheetExporter $exporter): void
     {
+        @set_time_limit(0);
+
         try {
-            $result = $exporter->exportCreatedWithinDays(3);
+            $result = $exporter->exportAll();
         } catch (\Throwable $e) {
             report($e);
             Toast::error(Str::limit($e->getMessage(), 300));
@@ -212,7 +214,7 @@ class LeadListScreen extends Screen
         }
 
         if ($result['count'] === 0) {
-            Toast::info('No leads from the last 3 days.');
+            Toast::info('No leads to export.');
 
             return;
         }
