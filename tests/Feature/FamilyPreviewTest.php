@@ -47,6 +47,13 @@ test('material and brand heroes have a microsoft family redraw', function () {
         }
     }
 
+    $doorStyle = hero_background_style(
+        '/webflow-assets/images/brand-hero/marvin.avif',
+        '/webflow-assets/images/door-brand-hero/marvin.avif',
+    );
+    expect($doorStyle)->toContain('door-brand-hero/marvin-family.avif')
+        ->and($doorStyle)->toContain('brand-hero/marvin');
+
     expect(family_hero_variant('/webflow-assets/images/logo.svg'))->toBeNull()
         ->and(family_hero_variant(null))->toBeNull();
 

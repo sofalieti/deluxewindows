@@ -1163,12 +1163,18 @@ class ClassicSiteController extends Controller
             ? $controls->pricingHtmlFromMap($brandPricing, 'per door installed')
             : null;
 
+        $doorFamilyFile = public_path("webflow-assets/images/door-brand-hero/{$slug}-family.avif");
+        $familyHeroImage = is_file($doorFamilyFile)
+            ? '/webflow-assets/images/door-brand-hero/'.$slug.'.avif'
+            : null;
+
         return view('door-brands.show', [
             'brandFieldData' => $fieldData,
             'name' => $name,
             'slug' => $fieldData['slug'] ?? $slug,
             'logo' => $logo,
             'featuredImage' => $featuredImage,
+            'familyHeroImage' => $familyHeroImage,
             'description' => $description,
             'windowTypes' => $windowTypes,
             'doorTypes' => $doorTypes,

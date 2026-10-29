@@ -11,6 +11,7 @@
         'brandName' => $name,
         'brandLogo' => $logo,
         'heroBackgroundImage' => $featuredImage,
+        'familyHeroImage' => $familyHeroImage ?? null,
         'windowHeroImage' => null,
         'brandHeroFormHtml' => $brandHeroFormHtml,
         'brandPromotionPricing' => $brandPromotionPricing ?? null,

@@ -150,11 +150,14 @@ if (! function_exists('hero_background_style')) {
      * Inline hero background. Microsoft visitors swap to the family redraw
      * via --dw-family-hero when html.dw-bing is set.
      */
-    function hero_background_style(?string $source): string
+    function hero_background_style(?string $source, ?string $familySource = null): string
     {
         $url = thumbnail_url($source, 'hero_bg');
         $position = 'background-position:center center;background-size:cover;background-repeat:no-repeat;';
-        $family = family_hero_variant($source);
+        $family = family_hero_variant($familySource ?: $source);
+        if ($family === null && $familySource !== null) {
+            $family = family_hero_variant($source);
+        }
         if ($family === null) {
             return "background-image:url('{$url}');{$position}";
         }
