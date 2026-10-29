@@ -12,6 +12,10 @@
     <meta charset="utf-8" />
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     @include('partials.bing-audience-head')
+    <style>
+      .div-block-61[style*="--dw-hero"]{background-image:var(--dw-hero);background-position:center center;background-size:cover;background-repeat:no-repeat}
+      html.dw-bing .div-block-61[style*="--dw-family-hero"]{background-image:var(--dw-family-hero)!important}
+    </style>
     <style>html.dw-land-pending body{visibility:hidden!important}</style>
     <script>
       (function () {

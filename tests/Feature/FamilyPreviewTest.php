@@ -40,10 +40,10 @@ test('material and brand heroes have a microsoft family redraw', function () {
             expect(is_file($family))->toBeTrue();
 
             $url = family_hero_variant("/webflow-assets/images/{$directory}/{$slug}.avif?v=1");
-            expect($url)->toStartWith("/webflow-assets/images/{$directory}/{$slug}-family.webp");
+            expect($url)->toContain("/webflow-assets/images/{$directory}/{$slug}-family.");
 
             $legacy = family_hero_variant("/webflow-assets/images/{$directory}/{$slug}-hero-bg-v1.avif");
-            expect($legacy)->toStartWith("/webflow-assets/images/{$directory}/{$slug}-family.webp");
+            expect($legacy)->toContain("/webflow-assets/images/{$directory}/{$slug}-family.");
         }
     }
 
@@ -51,9 +51,10 @@ test('material and brand heroes have a microsoft family redraw', function () {
         ->and(family_hero_variant(null))->toBeNull();
 
     $style = hero_background_style('/webflow-assets/images/window-type-hero/vinyl-windows.avif');
-    expect($style)->toContain('background-image:url(')
+    expect($style)->not->toContain('background-image:')
+        ->and($style)->toContain('--dw-hero:url(')
         ->and($style)->toContain('--dw-family-hero:url(')
-        ->and($style)->toContain('vinyl-windows-family.webp');
+        ->and($style)->toContain('vinyl-windows-family.avif');
 
     $css = file_get_contents(public_path('webflow-overrides/site-custom.css'));
     expect($css)->toContain('html.dw-bing .div-block-61[style*="--dw-family-hero"]')
@@ -63,6 +64,6 @@ test('material and brand heroes have a microsoft family redraw', function () {
 test('the regular homepage does not switch on the family hero', function () {
     $html = $this->get('/')->assertOk()->getContent();
 
-    expect($html)->not->toContain('--dw-family-hero')
-        ->and($html)->not->toContain('dw-family');
+    expect($html)->not->toContain('-family.avif')
+        ->and($html)->not->toContain('-family.webp');
 });

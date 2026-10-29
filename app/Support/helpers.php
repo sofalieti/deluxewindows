@@ -125,8 +125,16 @@ if (! function_exists('family_hero_variant')) {
         $absolute = public_path($path);
         $filename = pathinfo($absolute, PATHINFO_FILENAME);
         $filename = preg_replace('/-hero-bg-v1$/', '', (string) $filename) ?: $filename;
-        $family = dirname($absolute).DIRECTORY_SEPARATOR.$filename.'-family.webp';
-        if (! is_file($family)) {
+        $directory = dirname($absolute);
+        $family = null;
+        foreach (['avif', 'webp'] as $extension) {
+            $candidate = $directory.DIRECTORY_SEPARATOR.$filename.'-family.'.$extension;
+            if (is_file($candidate)) {
+                $family = $candidate;
+                break;
+            }
+        }
+        if ($family === null) {
             return null;
         }
 
@@ -145,13 +153,15 @@ if (! function_exists('hero_background_style')) {
     function hero_background_style(?string $source): string
     {
         $url = thumbnail_url($source, 'hero_bg');
-        $style = "background-image:url('{$url}');background-position:center center;background-size:cover;background-repeat:no-repeat;";
+        $position = 'background-position:center center;background-size:cover;background-repeat:no-repeat;';
         $family = family_hero_variant($source);
-        if ($family !== null) {
-            $style .= "--dw-family-hero:url('{$family}');";
+        if ($family === null) {
+            return "background-image:url('{$url}');{$position}";
         }
 
-        return $style;
+        // The old photo stays in an unused variable for everyone else.
+        // Microsoft uses only the family file, so the original is not shown.
+        return "--dw-hero:url('{$url}');--dw-family-hero:url('{$family}');{$position}";
     }
 }
 

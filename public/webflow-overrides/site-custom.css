@@ -1424,10 +1424,13 @@ a.link-block.odsf {
 
 .div-block-59 > .div-block-61 {
   background-color: #123f72;
-  background-image: none;
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.div-block-59 > .div-block-61:not([style*="--dw-hero"]) {
+  background-image: none;
 }
 
 /* Mobile hero: pan left edge → center, ease-in-out (slow at ends), then back */
@@ -1451,7 +1454,8 @@ a.link-block.odsf {
 
 @media (max-width: 767px) {
   .div-block-59 > .div-block-61[data-parallax],
-  .div-block-59 > .div-block-61[style*="background-image"] {
+  .div-block-59 > .div-block-61[style*="background-image"],
+  .div-block-59 > .div-block-61[style*="--dw-hero"] {
     animation: dw-hero-pan-x-bg 14s ease-in-out infinite alternate;
     will-change: background-position;
   }
@@ -1467,6 +1471,7 @@ a.link-block.odsf {
 @media (max-width: 767px) and (prefers-reduced-motion: reduce) {
   .div-block-59 > .div-block-61[data-parallax],
   .div-block-59 > .div-block-61[style*="background-image"],
+  .div-block-59 > .div-block-61[style*="--dw-hero"],
   .video-bg-container .hero-bg-image,
   .service-area-hero__image {
     animation: none;
@@ -3879,7 +3884,11 @@ button.qty-pick__face:focus {
   }
 }
 
-/* Microsoft visitors get the redrawn hero. Everyone else keeps the original. */
+/* Regular visitors use the original. Microsoft uses only the family redraw. */
+.div-block-61[style*="--dw-hero"] {
+  background-image: var(--dw-hero);
+}
+
 html.dw-bing .div-block-61[style*="--dw-family-hero"] {
   background-image: var(--dw-family-hero) !important;
 }
