@@ -123,7 +123,9 @@ if (! function_exists('family_hero_variant')) {
         }
 
         $absolute = public_path($path);
-        $family = dirname($absolute).DIRECTORY_SEPARATOR.pathinfo($absolute, PATHINFO_FILENAME).'-family.webp';
+        $filename = pathinfo($absolute, PATHINFO_FILENAME);
+        $filename = preg_replace('/-hero-bg-v1$/', '', (string) $filename) ?: $filename;
+        $family = dirname($absolute).DIRECTORY_SEPARATOR.$filename.'-family.webp';
         if (! is_file($family)) {
             return null;
         }

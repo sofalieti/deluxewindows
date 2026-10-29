@@ -41,6 +41,9 @@ test('material and brand heroes have a microsoft family redraw', function () {
 
             $url = family_hero_variant("/webflow-assets/images/{$directory}/{$slug}.avif?v=1");
             expect($url)->toStartWith("/webflow-assets/images/{$directory}/{$slug}-family.webp");
+
+            $legacy = family_hero_variant("/webflow-assets/images/{$directory}/{$slug}-hero-bg-v1.avif");
+            expect($legacy)->toStartWith("/webflow-assets/images/{$directory}/{$slug}-family.webp");
         }
     }
 
