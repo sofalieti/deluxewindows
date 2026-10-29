@@ -105,37 +105,51 @@ if (! function_exists('home_brands_is_new')) {
     }
 }
 
-if (! function_exists('family_preview')) {
+if (! function_exists('family_hero_variant')) {
     /**
-     * Happy-family overlay on window/door material and brand photos.
-     * Preview only: /windows/vinyl-windows?family=true
+     * Microsoft-only redraw of a local hero. Regular visitors keep $source.
+     * vinyl-windows.avif -> vinyl-windows-family.webp when that file exists.
      */
-    function family_preview(): bool
+    function family_hero_variant(?string $source): ?string
     {
-        try {
-            $value = strtolower(trim((string) request()->query('family', '')));
-        } catch (\Throwable) {
-            return false;
+        if ($source === null || trim($source) === '') {
+            return null;
         }
 
-        if (! in_array($value, ['1', 'true', 'yes', 'on'], true)) {
-            return false;
+        $path = parse_url($source, PHP_URL_PATH);
+        $path = ltrim(is_string($path) && $path !== '' ? $path : $source, '/');
+        if (! str_starts_with($path, 'webflow-assets/images/')) {
+            return null;
         }
 
-        return request()->is(
-            'windows',
-            'windows/*',
-            'doors',
-            'doors/*',
-            'brands',
-            'brands/*',
-            'door-brands',
-            'door-brands/*',
-            'window-type',
-            'window-type/*',
-            'door-types',
-            'door-types/*',
-        );
+        $absolute = public_path($path);
+        $family = dirname($absolute).DIRECTORY_SEPARATOR.pathinfo($absolute, PATHINFO_FILENAME).'-family.webp';
+        if (! is_file($family)) {
+            return null;
+        }
+
+        $relative = str_replace('\\', '/', substr($family, strlen(rtrim(public_path(), '\\/')) + 1));
+        $version = @filemtime($family) ?: 1;
+
+        return '/'.$relative.'?v='.$version;
+    }
+}
+
+if (! function_exists('hero_background_style')) {
+    /**
+     * Inline hero background. Microsoft visitors swap to the family redraw
+     * via --dw-family-hero when html.dw-bing is set.
+     */
+    function hero_background_style(?string $source): string
+    {
+        $url = thumbnail_url($source, 'hero_bg');
+        $style = "background-image:url('{$url}');background-position:center center;background-size:cover;background-repeat:no-repeat;";
+        $family = family_hero_variant($source);
+        if ($family !== null) {
+            $style .= "--dw-family-hero:url('{$family}');";
+        }
+
+        return $style;
     }
 }
 

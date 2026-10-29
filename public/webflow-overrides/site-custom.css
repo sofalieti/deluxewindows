@@ -3879,38 +3879,9 @@ button.qty-pick__face:focus {
   }
 }
 
-/* Family preview (?family=true) on window/door material and brand photos. */
-html.dw-family .div-block-59 > .div-block-61[style*="background-image"] {
-  position: absolute;
-  inset: 0;
-}
-
-html.dw-family .div-block-59 > .div-block-61[style*="background-image"]::after,
-html.dw-family .property-card-top-content-v1---image:not(.is-brand-logo)::after,
-html.dw-family .dw-gallery__main::after,
-html.dw-family .dw-gallery__thumb::after {
-  content: "";
-  position: absolute;
-  left: 2%;
-  bottom: 0;
-  width: min(46%, 560px);
-  height: 78%;
-  background: url("/webflow-assets/images/family-cutout.webp") left bottom / contain no-repeat;
-  filter: drop-shadow(0 10px 16px rgba(0, 0, 0, 0.28));
-  pointer-events: none;
-  z-index: 2;
-}
-
-html.dw-family .property-card-top-content-v1---image:not(.is-brand-logo),
-html.dw-family .dw-gallery__main,
-html.dw-family .dw-gallery__thumb {
-  position: relative;
-}
-
-html.dw-family .dw-gallery__thumb::after {
-  width: 70%;
-  height: 92%;
-  left: 0;
+/* Microsoft visitors get the redrawn hero. Everyone else keeps the original. */
+html.dw-bing .div-block-61[style*="--dw-family-hero"] {
+  background-image: var(--dw-family-hero) !important;
 }
 
 

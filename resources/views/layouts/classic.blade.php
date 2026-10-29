@@ -6,15 +6,12 @@
   @hasSection('wfCollection') data-wf-collection="@yield('wfCollection')" @endif
   @hasSection('wfItemSlug') data-wf-item-slug="@yield('wfItemSlug')" @endif
   lang="en"
-  class="@yield('htmlClass', 'w-mod-js w-mod-ix'){{ family_preview() ? ' dw-family' : '' }}"
+  class="@yield('htmlClass', 'w-mod-js w-mod-ix')"
 >
   <head>
     <meta charset="utf-8" />
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     @include('partials.bing-audience-head')
-    @if(family_preview())
-      <link rel="preload" as="image" href="/webflow-assets/images/family-cutout.webp" />
-    @endif
     <style>html.dw-land-pending body{visibility:hidden!important}</style>
     <script>
       (function () {
@@ -164,21 +161,5 @@
     @endif
 
     @stack('scripts')
-
-    @if(family_preview())
-      <script>
-        document.addEventListener('click', function (event) {
-          var link = event.target.closest && event.target.closest('a[href]');
-          if (!link) return;
-          var href = link.getAttribute('href') || '';
-          if (!href || href.charAt(0) === '#' || href.indexOf('tel:') === 0 || href.indexOf('mailto:') === 0) return;
-          var url;
-          try { url = new URL(link.href, location.origin); } catch (e) { return; }
-          if (url.origin !== location.origin || url.searchParams.get('family') === 'true') return;
-          url.searchParams.set('family', 'true');
-          link.href = url.pathname + url.search + url.hash;
-        }, true);
-      </script>
-    @endif
   </body>
 </html>

@@ -1,37 +1,65 @@
 <?php
 
-use Illuminate\Http\Request;
+test('material and brand heroes have a microsoft family redraw', function () {
+    $groups = [
+        'window-type-hero' => [
+            'vinyl-windows',
+            'wood-windows',
+            'wood-clad-windows',
+            'steel-windows',
+            'aluminum-windows',
+            'aluminum-clad-windows',
+            'fiberglass-windows',
+        ],
+        'door-type-hero' => [
+            'vinyl-doors',
+            'wood-doors',
+            'wood-clad-doors',
+            'steel-doors',
+            'aluminum-doors',
+            'fiberglass-doors',
+        ],
+        'brand-hero' => [
+            'marvin',
+            'milgard',
+            'ply-gem',
+            'western-window-systems',
+            'anlin',
+            'simonton',
+            'alside',
+            'andersen',
+            'jeld-wen',
+            'italwindows',
+            'all-weather-architectural-aluminum',
+        ],
+    ];
 
-function familyPreviewFor(string $path): bool
-{
-    app()->instance('request', Request::create($path));
+    foreach ($groups as $directory => $slugs) {
+        foreach ($slugs as $slug) {
+            $family = public_path("webflow-assets/images/{$directory}/{$slug}-family.webp");
+            expect(is_file($family))->toBeTrue();
 
-    return family_preview();
-}
+            $url = family_hero_variant("/webflow-assets/images/{$directory}/{$slug}.avif?v=1");
+            expect($url)->toStartWith("/webflow-assets/images/{$directory}/{$slug}-family.webp");
+        }
+    }
 
-test('family overlay is only on material and brand pages with the query', function () {
-    expect(familyPreviewFor('/windows/vinyl-windows?family=true'))->toBeTrue()
-        ->and(familyPreviewFor('/windows?family=true'))->toBeTrue()
-        ->and(familyPreviewFor('/doors/vinyl-doors?family=true'))->toBeTrue()
-        ->and(familyPreviewFor('/brands/marvin?family=true'))->toBeTrue()
-        ->and(familyPreviewFor('/door-brands/marvin?family=1'))->toBeTrue()
-        ->and(familyPreviewFor('/window-type/marvin-vinyl?family=yes'))->toBeTrue()
-        ->and(familyPreviewFor('/door-types/marvin-vinyl?family=on'))->toBeTrue()
-        ->and(familyPreviewFor('/windows/vinyl-windows'))->toBeFalse()
-        ->and(familyPreviewFor('/windows/vinyl-windows?family=false'))->toBeFalse()
-        ->and(familyPreviewFor('/?family=true'))->toBeFalse()
-        ->and(familyPreviewFor('/about?family=true'))->toBeFalse();
+    expect(family_hero_variant('/webflow-assets/images/logo.svg'))->toBeNull()
+        ->and(family_hero_variant(null))->toBeNull();
 
-    expect(is_file(public_path('webflow-assets/images/family-cutout.webp')))->toBeTrue();
+    $style = hero_background_style('/webflow-assets/images/window-type-hero/vinyl-windows.avif');
+    expect($style)->toContain('background-image:url(')
+        ->and($style)->toContain('--dw-family-hero:url(')
+        ->and($style)->toContain('vinyl-windows-family.webp');
 
     $css = file_get_contents(public_path('webflow-overrides/site-custom.css'));
-    expect($css)->toContain('html.dw-family')
-        ->and($css)->toContain('family-cutout.webp')
-        ->and($css)->toContain('.is-brand-logo');
+    expect($css)->toContain('html.dw-bing .div-block-61[style*="--dw-family-hero"]')
+        ->and($css)->not->toContain('html.dw-family');
 });
 
-test('the homepage does not get the family class', function () {
-    $html = $this->get('/?family=true')->assertOk()->getContent();
+test('the regular homepage does not switch on the family hero', function () {
+    $html = $this->get('/')->assertOk()->getContent();
 
-    expect($html)->not->toContain('dw-family');
+    expect($html)->not->toContain('--dw-family-hero')
+        ->and($html)->not->toContain('dw-family');
 });
