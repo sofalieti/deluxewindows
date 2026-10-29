@@ -23,6 +23,7 @@
         'doorDiscountHtml' => $discountHtml,
         'brandHeroFormHtml' => $doorHeroFormHtml,
         'brandPromotionPricing' => $doorPromotionPricing,
+        'msHeroBrands' => true,
       ])
 
       @include('partials.trust-badges')
@@ -41,7 +42,7 @@
 
       {{-- Brands for this material — under hero & breadcrumbs --}}
       @if($doorBrands->count() > 0)
-      <div class="door-brands-section door-brands-section--under-hero">
+      <div class="door-brands-section door-brands-section--under-hero bing-hide">
         <div class="w-layout-blockcontainer container-default-3 w-container">
           @include('partials.brand-strip', [
             'title' => $brandsTitle,

@@ -345,6 +345,7 @@
                       'msHeroTitle' => $heroHeadlineText,
                       'msHeroPromise' => $heroMiniDescription,
                       'msHeroHeading' => 'h2',
+                      'msHeroBrands' => !empty($msHeroBrands),
                     ])
                     @else
                     <div class="bing-hide">

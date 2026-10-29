@@ -15,7 +15,11 @@
 @endsection
 
 @section('content')
-      @include('partials.hero', ['windowHeroImage' => $heroImage, 'windowDiscountHtml' => $discountHtml])
+      @include('partials.hero', [
+        'windowHeroImage' => $heroImage,
+        'windowDiscountHtml' => $discountHtml,
+        'msHeroBrands' => true,
+      ])
 
       @include('partials.trust-badges')
 
@@ -34,7 +38,7 @@
 
       {{-- Brands for this material — under hero & breadcrumbs --}}
       @if($brandTypes->count() > 0)
-      <div class="window-brands-section window-brands-section--under-hero">
+      <div class="window-brands-section window-brands-section--under-hero bing-hide">
         <div class="w-layout-blockcontainer container-default w-container">
           @include('partials.brand-strip', [
             'title' => $brandsTitle,
