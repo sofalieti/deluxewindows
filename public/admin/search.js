@@ -57,7 +57,9 @@
             '#dw-admin-search-panel .dw-search-row, #dw-admin-search-panel .dw-search-more { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; width: 100%; margin: 0; padding: 8px 12px; border: 0; border-radius: 8px; background: transparent; color: inherit; text-align: left; text-decoration: none; box-sizing: border-box; }',
             '#dw-admin-search-panel .dw-search-row:hover, #dw-admin-search-panel .dw-search-row.active, #dw-admin-search-panel .dw-search-more:hover, #dw-admin-search-panel .dw-search-more.active { background: #f3f6fb; }',
             '#dw-admin-search-panel .dw-search-main { min-width: 0; flex: 1; }',
-            '#dw-admin-search-panel .dw-search-title { display: block; font-weight: 600; line-height: 1.35; }',
+            '#dw-admin-search-panel .dw-search-title { display: inline; font-weight: 600; line-height: 1.35; }',
+            '#dw-admin-search-panel .dw-search-note { color: #6b7280; font-weight: 500; }',
+            '#dw-admin-search-panel .dw-search-nested { margin: 2px 4px 8px 12px; padding-left: 8px; border-left: 2px solid #e6e8ee; }',
             '#dw-admin-search-panel .dw-search-sub { display: block; margin-top: 2px; color: #6b7280; font-size: 12px; line-height: 1.4; word-break: break-word; }',
             '#dw-admin-search-panel .dw-search-badge { flex: none; margin-top: 2px; padding: 2px 8px; border-radius: 999px; font-size: 11px; line-height: 1.4; }',
             '#dw-admin-search-panel .dw-search-more { color: #0f4d89; font-size: 13px; font-weight: 600; }',
@@ -218,6 +220,68 @@
         }
     }
 
+    function digitsOf(value) {
+        return String(value || '').replace(/\D+/g, '');
+    }
+
+    function samePhone(left, right) {
+        if (left.length < 3 || right.length < 3) {
+            return false;
+        }
+        if (left.indexOf(right) >= 0 || right.indexOf(left) >= 0) {
+            return true;
+        }
+        var a = left.charAt(0) === '1' ? left.slice(1) : left;
+        var b = right.charAt(0) === '1' ? right.slice(1) : right;
+        return a.length >= 3 && b.length >= 3 && (a === b || a.indexOf(b) >= 0 || b.indexOf(a) >= 0);
+    }
+
+    function itemRelates(item, suggestion) {
+        var blob = (item.title || '') + ' ' + (item.subtitle || '');
+        var suggestionDigits = digitsOf(suggestion.value);
+        if (suggestion.kind === 'Phone' || suggestionDigits.length >= 7) {
+            return samePhone(suggestionDigits, digitsOf(blob));
+        }
+        return blob.toLowerCase().indexOf(String(suggestion.value || '').toLowerCase()) >= 0;
+    }
+
+    function withQuery(url, value) {
+        try {
+            var next = new URL(url, window.location.origin);
+            next.searchParams.set('q', value);
+            return next.pathname + next.search + next.hash;
+        } catch (error) {
+            return url;
+        }
+    }
+
+    function relatedLabels(suggestion, groups) {
+        var order = ['Leads', 'Contacts', 'Phone clicks', 'RingCentral'];
+        var have = {};
+        (suggestion.sources || []).forEach(function (label) {
+            have[label] = true;
+        });
+        groups.forEach(function (group) {
+            if ((group.items || []).some(function (item) { return itemRelates(item, suggestion); })) {
+                have[group.label] = true;
+            }
+        });
+        return order.filter(function (label) { return have[label]; });
+    }
+
+    function groupsFor(suggestion, groups) {
+        var labels = relatedLabels(suggestion, groups);
+        return groups.filter(function (group) {
+            return labels.indexOf(group.label) >= 0;
+        }).map(function (group) {
+            return {
+                label: group.label,
+                more: group.more,
+                items: (group.items || []).filter(function (item) { return itemRelates(item, suggestion); })
+            };
+        });
+    }
+
     function sectionLabel(text) {
         var label = document.createElement('div');
         label.className = 'dw-search-label';
@@ -232,90 +296,124 @@
         active = -1;
         var suggestions = payload.suggestions || [];
         var groups = payload.groups || [];
+        if (root.dataset.expandedFor !== query) {
+            root.dataset.expandedValue = '';
+            root.dataset.expandedFor = query;
+        }
+        var expandedValue = root.dataset.expandedValue || '';
         root.dataset.completion = payload.completion || '';
         paintGhost(root, query, root.dataset.completion);
+
+        function appendSections(parent, sectionGroups, highlight, listValue) {
+            var firstList = '';
+            sectionGroups.forEach(function (group) {
+                var section = document.createElement('section');
+                section.className = 'dw-search-section';
+                section.appendChild(sectionLabel(group.label));
+                var listUrl = group.more ? withQuery(group.more.url, listValue) : '';
+                if (!firstList && listUrl) {
+                    firstList = listUrl;
+                }
+                (group.items || []).forEach(function (item) {
+                    var link = document.createElement('a');
+                    link.className = 'dw-search-row';
+                    link.href = item.url;
+                    var text = document.createElement('span');
+                    text.className = 'dw-search-main';
+                    var title = document.createElement('span');
+                    title.className = 'dw-search-title';
+                    fillMatch(title, item.title, highlight);
+                    var subtitle = document.createElement('span');
+                    subtitle.className = 'dw-search-sub';
+                    fillMatch(subtitle, item.subtitle || '', highlight);
+                    text.appendChild(title);
+                    if (item.subtitle) {
+                        text.appendChild(subtitle);
+                    }
+                    link.appendChild(text);
+                    if (item.badge) {
+                        var badge = document.createElement('span');
+                        badge.className = 'dw-search-badge ' + (item.badge === 'Client' ? 'bg-success text-white' : 'bg-secondary text-white');
+                        badge.textContent = item.badge;
+                        link.appendChild(badge);
+                    }
+                    section.appendChild(link);
+                    rows.push({ el: link, fill: '', href: item.url, listUrl: listUrl });
+                });
+                if (listUrl) {
+                    var more = document.createElement('a');
+                    more.className = 'dw-search-more';
+                    more.href = listUrl;
+                    more.textContent = 'Full list';
+                    section.appendChild(more);
+                    rows.push({ el: more, fill: '', href: listUrl, listUrl: listUrl });
+                }
+                parent.appendChild(section);
+            });
+            return firstList;
+        }
 
         if (!suggestions.length && !groups.length) {
             var empty = document.createElement('div');
             empty.className = 'dw-search-empty';
             empty.textContent = 'Nothing found';
             layer.appendChild(empty);
-        }
-
-        groups.forEach(function (group) {
-            var section = document.createElement('section');
-            section.className = 'dw-search-section';
-            section.appendChild(sectionLabel(group.label));
-            var listUrl = group.more ? group.more.url : '';
-            (group.items || []).forEach(function (item) {
-                var link = document.createElement('a');
-                link.className = 'dw-search-row';
-                link.href = item.url;
-                var text = document.createElement('span');
-                text.className = 'dw-search-main';
-                var title = document.createElement('span');
-                title.className = 'dw-search-title';
-                fillMatch(title, item.title, query);
-                var subtitle = document.createElement('span');
-                subtitle.className = 'dw-search-sub';
-                fillMatch(subtitle, item.subtitle || '', query);
-                text.appendChild(title);
-                if (item.subtitle) {
-                    text.appendChild(subtitle);
-                }
-                link.appendChild(text);
-                if (item.badge) {
-                    var badge = document.createElement('span');
-                    badge.className = 'dw-search-badge ' + (item.badge === 'Client' ? 'bg-success text-white' : 'bg-secondary text-white');
-                    badge.textContent = item.badge;
-                    link.appendChild(badge);
-                }
-                section.appendChild(link);
-                rows.push({ el: link, fill: '', href: item.url, listUrl: listUrl });
-            });
-            if (group.more) {
-                var more = document.createElement('a');
-                more.className = 'dw-search-more';
-                more.href = group.more.url;
-                more.textContent = group.more.label;
-                section.appendChild(more);
-                rows.push({ el: more, fill: '', href: group.more.url, listUrl: listUrl });
-            }
-            layer.appendChild(section);
-        });
-
-        if (suggestions.length) {
-            var complete = document.createElement('section');
-            complete.className = 'dw-search-section';
-            complete.appendChild(sectionLabel('Complete'));
+        } else if (!suggestions.length) {
+            appendSections(layer, groups, query, query);
+        } else {
             suggestions.forEach(function (item) {
+                var key = (item.kind || '') + '|' + item.value;
+                var block = document.createElement('div');
                 var button = document.createElement('button');
                 button.type = 'button';
                 button.className = 'dw-search-row';
+                var text = document.createElement('span');
+                text.className = 'dw-search-main';
                 var value = document.createElement('span');
                 value.className = 'dw-search-title';
                 fillMatch(value, item.value, query);
-                var kind = document.createElement('span');
-                kind.className = 'dw-search-sub';
-                kind.style.marginTop = '0';
-                kind.textContent = item.kind || '';
-                button.appendChild(value);
-                button.appendChild(kind);
-                button.addEventListener('click', function () {
-                    acceptSuggestion(root, item.value);
+                text.appendChild(value);
+                var labels = relatedLabels(item, groups);
+                var suggestionDigits = digitsOf(item.value);
+                if (labels.length && (item.kind === 'Phone' || suggestionDigits.length >= 7)) {
+                    var note = document.createElement('span');
+                    note.className = 'dw-search-note';
+                    note.textContent = ' (' + labels.join(', ') + ')';
+                    text.appendChild(note);
+                }
+                button.appendChild(text);
+                var matched = groupsFor(item, groups);
+                var listUrl = '';
+                matched.forEach(function (group) {
+                    if (!listUrl && group.more) {
+                        listUrl = withQuery(group.more.url, item.value);
+                    }
                 });
-                complete.appendChild(button);
-                rows.push({ el: button, fill: item.value, href: '', listUrl: '' });
+                button.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    root.dataset.expandedFor = query;
+                    root.dataset.expandedValue = expandedValue === key ? '' : key;
+                    render(root, payload, query);
+                });
+                block.appendChild(button);
+                rows.push({ el: button, fill: item.value, href: '', listUrl: listUrl });
+                if (expandedValue === key) {
+                    var nested = document.createElement('div');
+                    nested.className = 'dw-search-nested';
+                    appendSections(nested, matched, item.value, item.value);
+                    block.appendChild(nested);
+                }
+                layer.appendChild(block);
             });
-            layer.appendChild(complete);
         }
 
         if (suggestions.length || groups.length) {
             var hint = document.createElement('div');
             hint.className = 'dw-search-hint';
             hint.textContent = root.dataset.adminSearch === 'filter'
-                ? 'Tab completes · Enter filters this list'
-                : 'Enter opens the full list';
+                ? 'Click opens the sections · Enter filters this list'
+                : 'Click opens the sections · Enter opens the full list';
             layer.appendChild(hint);
         }
 

@@ -158,6 +158,7 @@ test('header search completes a name and a phone that already exist', function (
         ->getJson(route('platform.omni-search', ['q' => '650']));
 
     $phone->assertOk();
-    expect(collect($phone->json('suggestions'))->firstWhere('kind', 'Phone')['value'] ?? null)
-        ->toBe('(650) 461-4446');
+    $phoneSuggestion = collect($phone->json('suggestions'))->firstWhere('kind', 'Phone');
+    expect($phoneSuggestion['value'] ?? null)->toBe('(650) 461-4446')
+        ->and($phoneSuggestion['sources'] ?? [])->toBe(['Leads']);
 });

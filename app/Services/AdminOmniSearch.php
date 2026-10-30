@@ -263,10 +263,11 @@ final class AdminOmniSearch
                 Lead::query()->visibleTo($user)->where('status', '!=', Lead::STATUS_SPAM),
                 $term,
                 $fields,
+                'Leads',
             );
         }
         if ($user->hasAccess('platform.contacts')) {
-            $this->pullSuggestions($found, Contact::query(), $term, $fields);
+            $this->pullSuggestions($found, Contact::query(), $term, $fields, 'Contacts');
         }
         if ($user->hasAccess('platform.phone-clicks')) {
             $this->pullSuggestions(
@@ -274,6 +275,7 @@ final class AdminOmniSearch
                 PhoneClick::query()->visibleTo($user)->notSpam(),
                 $term,
                 ['phone' => 'Phone'],
+                'Phone clicks',
             );
         }
 
@@ -281,11 +283,11 @@ final class AdminOmniSearch
     }
 
     /**
-     * @param  array<string, array{value: string, kind: string, order: int}>  $found
+     * @param  array<string, array{value: string, kind: string, order: int, sources: list<string>}>  $found
      * @param  Builder<\Illuminate\Database\Eloquent\Model>  $query
      * @param  array<string, string>  $fields
      */
-    private function pullSuggestions(array &$found, Builder $query, string $term, array $fields): void
+    private function pullSuggestions(array &$found, Builder $query, string $term, array $fields, string $source): void
     {
         $digits = preg_replace('/\D+/', '', $term) ?? '';
         $textColumns = array_values(array_filter(
@@ -318,14 +320,17 @@ final class AdminOmniSearch
                     continue;
                 }
                 $key = $kind.'|'.mb_strtolower($value);
-                if (isset($found[$key])) {
-                    continue;
+                if (! isset($found[$key])) {
+                    $found[$key] = [
+                        'value' => $value,
+                        'kind' => $kind,
+                        'order' => count($found),
+                        'sources' => [],
+                    ];
                 }
-                $found[$key] = [
-                    'value' => $value,
-                    'kind' => $kind,
-                    'order' => count($found),
-                ];
+                if (! in_array($source, $found[$key]['sources'], true)) {
+                    $found[$key]['sources'][] = $source;
+                }
             }
         }
     }
@@ -351,7 +356,11 @@ final class AdminOmniSearch
         });
 
         return array_map(
-            fn (array $item): array => ['value' => $item['value'], 'kind' => $item['kind']],
+            fn (array $item): array => [
+                'value' => $item['value'],
+                'kind' => $item['kind'],
+                'sources' => $this->orderedSources($item['sources'] ?? []),
+            ],
             array_slice($items, 0, 6),
         );
     }
@@ -383,6 +392,18 @@ final class AdminOmniSearch
         }
 
         return 10000 + strlen((string) preg_replace('/\D+/', '', $value));
+    }
+
+    /**
+     * @param  list<string>  $sources
+     * @return list<string>
+     */
+    private function orderedSources(array $sources): array
+    {
+        return array_values(array_filter(
+            ['Leads', 'Contacts', 'Phone clicks', 'RingCentral'],
+            fn (string $label): bool => in_array($label, $sources, true),
+        ));
     }
 
     /**
