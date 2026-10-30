@@ -85,7 +85,7 @@ test('the admin header search suggests leads contacts phones and client calls', 
         ->and($titles)->not->toContain('Other Person');
 
     $call = collect($response->json('groups'))
-        ->firstWhere('label', 'RingCentral calls');
+        ->firstWhere('label', 'RingCentral');
     expect($call['items'][0]['badge'])->toBe('Client');
 
     $this->withoutMiddleware(Access::class)

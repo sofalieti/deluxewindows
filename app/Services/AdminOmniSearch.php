@@ -47,13 +47,15 @@ final class AdminOmniSearch
         $groups = [];
         if ($user->hasAccess('platform.leads')) {
             $groups[] = $this->leads($user, $term);
-            $groups[] = $this->calls($term);
         }
         if ($user->hasAccess('platform.contacts')) {
             $groups[] = $this->contacts($term);
         }
         if ($user->hasAccess('platform.phone-clicks')) {
             $groups[] = $this->phones($user, $term);
+        }
+        if ($user->hasAccess('platform.leads')) {
+            $groups[] = $this->calls($term);
         }
 
         return array_values(array_filter(
@@ -98,7 +100,7 @@ final class AdminOmniSearch
         return [
             'label' => 'Leads',
             'more' => [
-                'label' => 'All leads',
+                'label' => 'Full list',
                 'url' => route('platform.leads', ['q' => $term]),
             ],
             'items' => $items,
@@ -141,7 +143,7 @@ final class AdminOmniSearch
         return [
             'label' => 'Contacts',
             'more' => [
-                'label' => 'All contacts',
+                'label' => 'Full list',
                 'url' => route('platform.contacts', ['q' => $term]),
             ],
             'items' => $items,
@@ -181,7 +183,7 @@ final class AdminOmniSearch
         return [
             'label' => 'Phone clicks',
             'more' => [
-                'label' => 'All phone clicks',
+                'label' => 'Full list',
                 'url' => route('platform.phone-clicks', ['q' => $term]),
             ],
             'items' => $items,
@@ -232,9 +234,9 @@ final class AdminOmniSearch
             ->all();
 
         return [
-            'label' => 'RingCentral calls',
+            'label' => 'RingCentral',
             'more' => [
-                'label' => 'All calls',
+                'label' => 'Full list',
                 'url' => route('platform.ringcentral-calls', ['q' => $term]),
             ],
             'items' => $items,
