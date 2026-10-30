@@ -51,6 +51,7 @@ final class RingCentralCallSyncService
         $window = $this->resolveAccountWindow($now, $forceDays);
         $accountRecords = $this->callLog->fetchAccountVoiceRecords($window['date_from'], $now);
         $phoneIndex = $this->contacts->phoneIndex();
+        $leadIndex = $this->contacts->leadIndex();
 
         $records = [];
         foreach ($accountRecords as $record) {
@@ -64,6 +65,9 @@ final class RingCentralCallSyncService
 
             $call['contact_id'] = Schema::hasColumn('ringcentral_calls', 'contact_id')
                 ? $this->contacts->contactIdForPhone($call['external_phone'], $phoneIndex)
+                : null;
+            $call['lead_id'] = Schema::hasColumn('ringcentral_calls', 'lead_id')
+                ? $this->contacts->leadIdForPhone($call['external_phone'], $leadIndex)
                 : null;
 
             $records[$call['ringcentral_call_id']] = $call;
@@ -89,6 +93,9 @@ final class RingCentralCallSyncService
                 $payload = $record;
                 if (! Schema::hasColumn('ringcentral_calls', 'contact_id')) {
                     unset($payload['contact_id']);
+                }
+                if (! Schema::hasColumn('ringcentral_calls', 'lead_id')) {
+                    unset($payload['lead_id']);
                 }
                 if (! Schema::hasColumn('ringcentral_calls', 'recording_id')) {
                     unset($payload['recording_id']);

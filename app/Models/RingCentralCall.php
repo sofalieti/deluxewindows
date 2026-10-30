@@ -80,6 +80,7 @@ class RingCentralCall extends Model
         'external_phone',
         'recording_id',
         'contact_id',
+        'lead_id',
         'handling_status',
         'handled_at',
         'handled_by',
@@ -150,6 +151,45 @@ class RingCentralCall extends Model
     public function contact(): BelongsTo
     {
         return $this->belongsTo(Contact::class);
+    }
+
+    public function lead(): BelongsTo
+    {
+        return $this->belongsTo(Lead::class);
+    }
+
+    public function isClient(): bool
+    {
+        if ($this->contact_id !== null) {
+            return true;
+        }
+
+        return collect($this->getAttribute('matched_contacts') ?? [])->isNotEmpty();
+    }
+
+    /**
+     * @param  Builder<RingCentralCall>  $query
+     * @return Builder<RingCentralCall>
+     */
+    public function scopeMatchingSearch(Builder $query): Builder
+    {
+        return app(\App\Services\CrmSmartSearch::class)->apply(
+            $query,
+            ['external_phone', 'from_phone', 'to_phone', 'from_name', 'to_name'],
+            ['external_phone', 'from_phone', 'to_phone'],
+            null,
+            function (Builder $inner, string $like, string $digits = ''): void {
+                $inner->orWhereHas('contact', function (Builder $contact) use ($like): void {
+                    $contact->where('full_name', 'like', $like)
+                        ->orWhere('email', 'like', $like)
+                        ->orWhere('phone', 'like', $like);
+                })->orWhereHas('lead', function (Builder $lead) use ($like): void {
+                    $lead->where('full_name', 'like', $like)
+                        ->orWhere('email', 'like', $like)
+                        ->orWhere('phone', 'like', $like);
+                });
+            },
+        );
     }
 
     public function handler(): BelongsTo

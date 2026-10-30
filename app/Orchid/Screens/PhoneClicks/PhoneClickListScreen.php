@@ -40,26 +40,26 @@ class PhoneClickListScreen extends Screen
         $stats = $this->conversionStats->summary();
 
         return [
-            'clicks' => PhoneClick::filters(PhoneClickFiltersLayout::class)
+            'clicks' => PhoneClick::filters(PhoneClickFiltersLayout::class)->matchingSearch()
                 ->visibleTo($user)
                 ->notSpam()
                 ->with(['assignee', 'latestNote.user'])
                 ->defaultSort('id', 'desc')
                 ->paginate(50, pageName: 'page'),
-            'unhandledClicks' => PhoneClick::filters(PhoneClickFiltersLayout::class)
+            'unhandledClicks' => PhoneClick::filters(PhoneClickFiltersLayout::class)->matchingSearch()
                 ->visibleTo($user)
                 ->needsHandling()
                 ->with(['assignee', 'latestNote.user'])
                 ->defaultSort('id', 'desc')
                 ->paginate(50, pageName: 'unhandled_page'),
-            'mineClicks' => PhoneClick::filters(PhoneClickFiltersLayout::class)
+            'mineClicks' => PhoneClick::filters(PhoneClickFiltersLayout::class)->matchingSearch()
                 ->visibleTo($user)
                 ->notSpam()
                 ->where('assigned_to', $user?->id)
                 ->with(['assignee', 'latestNote.user'])
                 ->defaultSort('id', 'desc')
                 ->paginate(50, pageName: 'mine_page'),
-            'spamClicks' => PhoneClick::filters(PhoneClickFiltersLayout::class)
+            'spamClicks' => PhoneClick::filters(PhoneClickFiltersLayout::class)->matchingSearch()
                 ->visibleTo($user)
                 ->onlySpam()
                 ->with('latestNote.user')
@@ -149,6 +149,7 @@ class PhoneClickListScreen extends Screen
                 Layout::view('admin.partials.offline-conversion-stats'),
             ])->title('Offline conversions (Phone Call Confirmed)'),
 
+            Layout::view('admin.partials.crm-search'),
             PhoneClickFiltersLayout::class,
 
             Layout::tabs([
@@ -170,7 +171,7 @@ class PhoneClickListScreen extends Screen
      */
     private function channelClicks(array $sources, string $pageName): LengthAwarePaginator
     {
-        return PhoneClick::filters(PhoneClickFiltersLayout::class)
+        return PhoneClick::filters(PhoneClickFiltersLayout::class)->matchingSearch()
             ->visibleTo(Auth::user())
             ->notSpam()
             ->with(['assignee', 'latestNote.user'])
@@ -181,7 +182,7 @@ class PhoneClickListScreen extends Screen
 
     private function chatgptClicks(): LengthAwarePaginator
     {
-        return PhoneClick::filters(PhoneClickFiltersLayout::class)
+        return PhoneClick::filters(PhoneClickFiltersLayout::class)->matchingSearch()
             ->visibleTo(Auth::user())
             ->notSpam()
             ->with(['assignee', 'latestNote.user'])

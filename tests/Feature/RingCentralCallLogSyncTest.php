@@ -366,6 +366,11 @@ test('sync stores calls on non-monitored business lines and links matching conta
         'full_name' => 'Linked Caller',
         'phone' => '(415) 555-7777',
     ]);
+    $lead = Lead::query()->create([
+        'full_name' => 'Linked Lead',
+        'phone' => '415-555-7777',
+        'email' => 'linked-lead@example.com',
+    ]);
 
     Http::fake([
         'https://platform.ringcentral.test/restapi/oauth/token' => Http::response([
@@ -410,8 +415,11 @@ test('sync stores calls on non-monitored business lines and links matching conta
 
     expect($main->business_phone)->toBe('+16504614446')
         ->and($main->contact_id)->toBe($contact->id)
+        ->and($main->lead_id)->toBe($lead->id)
+        ->and($main->isClient())->toBeTrue()
         ->and($other->business_phone)->toBe('+18885550100')
         ->and($other->contact_id)->toBeNull()
+        ->and($other->lead_id)->toBeNull()
         ->and($contact->ringCentralCallsForPhone()->pluck('ringcentral_call_id')->all())
         ->toBe(['main-line-call']);
 });

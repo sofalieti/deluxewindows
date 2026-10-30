@@ -73,7 +73,7 @@ class RingCentralCallListScreen extends Screen
             ->visible()
             ->notStaff()
             ->onMonitoredLines($this->monitoredPhones)
-            ->with(['contact', 'latestNote.user'])
+            ->matchingSearch()->with(['contact', 'lead', 'latestNote.user'])
             ->defaultSort('started_at', 'desc')
             ->paginate(50, pageName: 'all_page'));
         $inbound = $this->presentCalls(RingCentralCall::query()
@@ -82,7 +82,7 @@ class RingCentralCallListScreen extends Screen
             ->inbound()
             ->whereNot(fn ($query) => $query->awaitingCallback())
             ->onMonitoredLines($this->monitoredPhones)
-            ->with(['contact', 'latestNote.user'])
+            ->matchingSearch()->with(['contact', 'lead', 'latestNote.user'])
             ->defaultSort('started_at', 'desc')
             ->paginate(50, pageName: 'inbound_page'));
         $unreturned = $this->presentCalls(RingCentralCall::query()
@@ -90,7 +90,7 @@ class RingCentralCallListScreen extends Screen
             ->notStaff()
             ->awaitingCallback()
             ->onMonitoredLines($this->monitoredPhones)
-            ->with(['contact', 'latestNote.user'])
+            ->matchingSearch()->with(['contact', 'lead', 'latestNote.user'])
             ->defaultSort('started_at', 'desc')
             ->paginate(50, pageName: 'unreturned_page'));
         $outbound = $this->presentCalls(RingCentralCall::query()
@@ -98,14 +98,14 @@ class RingCentralCallListScreen extends Screen
             ->notStaff()
             ->outbound()
             ->onMonitoredLines($this->monitoredPhones)
-            ->with(['contact', 'latestNote.user'])
+            ->matchingSearch()->with(['contact', 'lead', 'latestNote.user'])
             ->defaultSort('started_at', 'desc')
             ->paginate(50, pageName: 'outbound_page'));
         $other = $this->presentCalls(RingCentralCall::query()
             ->visible()
             ->notStaff()
             ->onOtherLines($this->monitoredPhones)
-            ->with(['contact', 'latestNote.user'])
+            ->matchingSearch()->with(['contact', 'lead', 'latestNote.user'])
             ->defaultSort('started_at', 'desc')
             ->paginate(50, pageName: 'other_page'));
 
@@ -166,6 +166,7 @@ class RingCentralCallListScreen extends Screen
     {
         return [
             Layout::view('admin.ringcentral-calls.assets'),
+            Layout::view('admin.partials.crm-search'),
             Layout::tabs([
                 'All' => Layout::table('allCalls', $this->callColumns(showExclude: true)),
                 'Inbound' => Layout::table('inboundCalls', $this->callColumns(showExclude: true)),
@@ -592,6 +593,9 @@ class RingCentralCallListScreen extends Screen
     private function associationHtml(RingCentralCall $call): string
     {
         $html = '';
+        if ($call->isClient()) {
+            $html .= '<span class="badge bg-success text-white">Client</span>';
+        }
         $seenContacts = [];
         if ($call->contact_id && $call->contact) {
             $seenContacts[] = (int) $call->contact_id;

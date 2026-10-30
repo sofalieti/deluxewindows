@@ -50,12 +50,14 @@ class LeadListScreen extends Screen
         $user = Auth::user();
 
         $leads = Lead::filters(LeadFiltersLayout::class)
+            ->matchingSearch()
             ->visibleTo($user)
             ->with(['assignee', 'latestComment.user'])
             ->defaultSort('id', 'desc')
             ->where('status', '!=', Lead::STATUS_SPAM);
 
         $mineLeads = Lead::query()
+            ->matchingSearch()
             ->visibleTo($user)
             ->with(['assignee', 'latestComment.user'])
             ->where('status', '!=', Lead::STATUS_SPAM)
@@ -63,12 +65,14 @@ class LeadListScreen extends Screen
             ->defaultSort('id', 'desc');
 
         $spamLeads = Lead::query()
+            ->matchingSearch()
             ->visibleTo($user)
             ->with(['assignee', 'latestComment.user'])
             ->where('status', Lead::STATUS_SPAM)
             ->defaultSort('id', 'desc');
 
         $unprocessedLeads = Lead::query()
+            ->matchingSearch()
             ->visibleTo($user)
             ->with(['assignee', 'latestComment.user'])
             ->unprocessed()
@@ -297,6 +301,7 @@ class LeadListScreen extends Screen
     {
         return [
             Layout::view('admin.leads.assets'),
+            Layout::view('admin.partials.crm-search'),
             LeadFiltersLayout::class,
 
             Layout::tabs([
@@ -339,6 +344,7 @@ class LeadListScreen extends Screen
     private function sourcedLeads(): Builder
     {
         $query = Lead::filters(LeadFiltersLayout::class)
+            ->matchingSearch()
             ->visibleTo(Auth::user())
             ->with(['assignee', 'latestComment.user'])
             ->where('status', '!=', Lead::STATUS_SPAM)

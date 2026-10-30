@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Services\RingCentralCallLogService;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -57,6 +58,26 @@ class Contact extends Model
         static::saved(function (Contact $contact): void {
             $contact->syncPrimaryEmailRow();
         });
+    }
+
+    /**
+     * @param  Builder<Contact>  $query
+     * @return Builder<Contact>
+     */
+    public function scopeMatchingSearch(Builder $query): Builder
+    {
+        return app(\App\Services\CrmSmartSearch::class)->apply(
+            $query,
+            ['full_name', 'email', 'phone', 'city', 'address', 'additional_information'],
+            ['phone', 'normalized_phone'],
+            null,
+            function (Builder $inner, string $like, string $digits = ''): void {
+                $inner->orWhereHas('emailAddresses', function (Builder $emails) use ($like): void {
+                    $emails->where('email', 'like', $like)
+                        ->orWhere('normalized_email', 'like', $like);
+                });
+            },
+        );
     }
 
     public function leads(): HasMany

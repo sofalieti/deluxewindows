@@ -216,6 +216,19 @@ class PhoneClick extends Model
         return (bool) ($this->attributes['is_spam'] ?? false);
     }
 
+    /**
+     * @param  Builder<PhoneClick>  $query
+     * @return Builder<PhoneClick>
+     */
+    public function scopeMatchingSearch(Builder $query): Builder
+    {
+        return app(\App\Services\CrmSmartSearch::class)->apply(
+            $query,
+            ['phone', 'page_url', 'utm_source', 'utm_campaign', 'utm_city', 'source_label'],
+            ['phone', 'normalized_phone', 'ringcentral_from_phone', 'ringcentral_to_phone'],
+        );
+    }
+
     public function scopeNotSpam(Builder $query): Builder
     {
         if (! $this->spamColumnReady()) {

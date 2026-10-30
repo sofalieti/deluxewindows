@@ -212,6 +212,12 @@ class Lead extends Model
             $lead->traffic_source = $lead->trafficSourceKey();
         });
 
+        static::saved(function (Lead $lead): void {
+            if ($lead->wasRecentlyCreated || $lead->wasChanged(['phone', 'status'])) {
+                app(\App\Services\RingCentralContactBinder::class)->rebindLead($lead);
+            }
+        });
+
         static::created(function (Lead $lead): void {
             self::queueListSheetSync($lead);
         });
@@ -230,6 +236,19 @@ class Lead extends Model
         }
 
         \App\Jobs\SyncLeadToListSheet::dispatch($lead->id)->afterCommit();
+    }
+
+    /**
+     * @param  Builder<Lead>  $query
+     * @return Builder<Lead>
+     */
+    public function scopeMatchingSearch(Builder $query): Builder
+    {
+        return app(\App\Services\CrmSmartSearch::class)->apply(
+            $query,
+            ['full_name', 'email', 'phone', 'city', 'message'],
+            ['phone', 'normalized_phone'],
+        );
     }
 
     /**

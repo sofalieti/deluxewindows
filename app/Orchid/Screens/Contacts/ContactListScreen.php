@@ -30,6 +30,7 @@ class ContactListScreen extends Screen
     public function query(): iterable
     {
         $contacts = Contact::filters()
+            ->matchingSearch()
             ->with(['leads', 'emailAddresses', 'latestComment.user'])
             ->withCount('leads')
             ->withMin('leads', 'created_at')
@@ -83,6 +84,7 @@ class ContactListScreen extends Screen
 
         return [
             Layout::view('admin.contacts.assets'),
+            Layout::view('admin.partials.crm-search'),
             Layout::table('contacts', [
                 TD::make('created_at', 'Date')
                     ->sort()
