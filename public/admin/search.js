@@ -61,7 +61,8 @@
             '#dw-admin-search-panel .dw-search-sub { display: block; margin-top: 2px; color: #6b7280; font-size: 12px; line-height: 1.4; word-break: break-word; }',
             '#dw-admin-search-panel .dw-search-badge { flex: none; margin-top: 2px; padding: 2px 8px; border-radius: 999px; font-size: 11px; line-height: 1.4; }',
             '#dw-admin-search-panel .dw-search-more { color: #0f4d89; font-size: 13px; font-weight: 600; }',
-            '#dw-admin-search-panel .dw-search-empty, #dw-admin-search-panel .dw-search-hint { padding: 10px 12px; color: #6b7280; font-size: 13px; }'
+            '#dw-admin-search-panel .dw-search-empty, #dw-admin-search-panel .dw-search-hint { padding: 10px 12px; color: #6b7280; font-size: 13px; }',
+            '#dw-admin-search-panel mark.dw-search-hit { background: #fde8e8; color: #c4232c; border-radius: 3px; padding: 0 1px; }'
         ].join('');
         document.head.appendChild(style);
     }
@@ -130,6 +131,93 @@
         }
     }
 
+    function matchRanges(text, query) {
+        var ranges = [];
+        String(query || '').trim().split(/\s+/).forEach(function (token) {
+            if (!token) {
+                return;
+            }
+            var lower = text.toLowerCase();
+            var needle = token.toLowerCase();
+            var from = 0;
+            var found = false;
+            while (from < text.length) {
+                var at = lower.indexOf(needle, from);
+                if (at < 0) {
+                    break;
+                }
+                ranges.push([at, at + token.length]);
+                from = at + token.length;
+                found = true;
+            }
+            if (found) {
+                return;
+            }
+            var digits = token.replace(/\D+/g, '');
+            if (digits.length < 3) {
+                return;
+            }
+            var digitIndex = 0;
+            var start = -1;
+            for (var i = 0; i < text.length; i++) {
+                var ch = text.charAt(i);
+                if (ch === digits.charAt(digitIndex)) {
+                    if (start < 0) {
+                        start = i;
+                    }
+                    digitIndex++;
+                    if (digitIndex === digits.length) {
+                        ranges.push([start, i + 1]);
+                        start = -1;
+                        digitIndex = 0;
+                    }
+                    continue;
+                }
+                if (start >= 0 && /\d/.test(ch)) {
+                    start = -1;
+                    digitIndex = 0;
+                    i--;
+                }
+            }
+        });
+        ranges.sort(function (a, b) {
+            return a[0] - b[0] || a[1] - b[1];
+        });
+        var merged = [];
+        ranges.forEach(function (range) {
+            var last = merged[merged.length - 1];
+            if (!last || range[0] > last[1]) {
+                merged.push(range);
+            } else if (range[1] > last[1]) {
+                last[1] = range[1];
+            }
+        });
+        return merged;
+    }
+
+    function fillMatch(node, text, query) {
+        node.replaceChildren();
+        var ranges = matchRanges(text, query);
+        if (!ranges.length) {
+            node.textContent = text;
+            return;
+        }
+        var cursor = 0;
+        ranges.forEach(function (range) {
+            if (range[0] > cursor) {
+                node.appendChild(document.createTextNode(text.slice(cursor, range[0])));
+            }
+            var hit = document.createElement('mark');
+            hit.className = 'dw-search-hit';
+            hit.textContent = text.slice(range[0], range[1]);
+            node.appendChild(hit);
+            cursor = range[1];
+        });
+        if (cursor < text.length) {
+            node.appendChild(document.createTextNode(text.slice(cursor)));
+        }
+    }
+
     function sectionLabel(text) {
         var label = document.createElement('div');
         label.className = 'dw-search-label';
@@ -167,10 +255,10 @@
                 text.className = 'dw-search-main';
                 var title = document.createElement('span');
                 title.className = 'dw-search-title';
-                title.textContent = item.title;
+                fillMatch(title, item.title, query);
                 var subtitle = document.createElement('span');
                 subtitle.className = 'dw-search-sub';
-                subtitle.textContent = item.subtitle || '';
+                fillMatch(subtitle, item.subtitle || '', query);
                 text.appendChild(title);
                 if (item.subtitle) {
                     text.appendChild(subtitle);
@@ -206,7 +294,7 @@
                 button.className = 'dw-search-row';
                 var value = document.createElement('span');
                 value.className = 'dw-search-title';
-                value.textContent = item.value;
+                fillMatch(value, item.value, query);
                 var kind = document.createElement('span');
                 kind.className = 'dw-search-sub';
                 kind.style.marginTop = '0';
