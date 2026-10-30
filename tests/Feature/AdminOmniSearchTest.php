@@ -92,7 +92,18 @@ test('the admin header search suggests leads contacts phones and client calls', 
         ->actingAs($user)
         ->get(route('platform.main'))
         ->assertOk()
-        ->assertSee('dw-omni-search-input', false);
+        ->assertSee('dw-omni-search-input', false)
+        ->assertSee('data-admin-search="jump"', false)
+        ->assertSee('admin/search.js', false);
+
+    $this->withoutMiddleware(Access::class)
+        ->actingAs($user)
+        ->get(route('platform.leads'))
+        ->assertOk()
+        ->assertSee('data-admin-search="filter"', false)
+        ->assertSee('form="dw-admin-search-form"', false)
+        ->assertSee('data-admin-search-apply', false)
+        ->assertDontSee('<form method="get"', false);
 });
 
 test('header search hides sections the user cannot open', function () {
@@ -117,4 +128,36 @@ test('header search hides sections the user cannot open', function () {
 
     $response->assertOk();
     expect(collect($response->json('groups'))->pluck('label')->all())->not->toContain('Contacts');
+});
+
+test('header search completes a name and a phone that already exist', function () {
+    $user = omniSearchUser();
+
+    Lead::query()->create([
+        'full_name' => 'Ada Window',
+        'phone' => '(650) 461-4446',
+        'email' => 'ada@example.com',
+    ]);
+    Lead::query()->create([
+        'full_name' => 'Other Person',
+        'phone' => '4155550100',
+        'email' => 'other@example.com',
+    ]);
+
+    $name = $this->withoutMiddleware(Access::class)
+        ->actingAs($user)
+        ->getJson(route('platform.omni-search', ['q' => 'Ada']));
+
+    $name->assertOk();
+    expect($name->json('completion'))->toBe('Ada Window')
+        ->and(collect($name->json('suggestions'))->pluck('value')->all())->toContain('Ada Window')
+        ->and(collect($name->json('suggestions'))->pluck('value')->all())->not->toContain('Other Person');
+
+    $phone = $this->withoutMiddleware(Access::class)
+        ->actingAs($user)
+        ->getJson(route('platform.omni-search', ['q' => '650']));
+
+    $phone->assertOk();
+    expect(collect($phone->json('suggestions'))->firstWhere('kind', 'Phone')['value'] ?? null)
+        ->toBe('(650) 461-4446');
 });

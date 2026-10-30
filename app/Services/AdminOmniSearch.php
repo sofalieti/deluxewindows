@@ -10,6 +10,7 @@ use App\Models\PhoneClick;
 use App\Models\RingCentralCall;
 use App\Models\User;
 use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Database\Eloquent\Builder;
 
 /**
  * Suggestions for the search box that stays in the admin header.
@@ -17,6 +18,21 @@ use Illuminate\Contracts\Auth\Authenticatable;
 final class AdminOmniSearch
 {
     public function __construct(private readonly CrmSmartSearch $search) {}
+
+    /**
+     * @return array{completion: ?string, suggestions: list<array{value: string, kind: string}>, groups: list<array{label: string, more: array{label: string, url: string}, items: list<array{title: string, subtitle: string, url: string, badge: ?string}>}>}
+     */
+    public function payload(?Authenticatable $user, string $term): array
+    {
+        $term = trim($term);
+        $suggestions = $user instanceof User ? $this->suggestions($user, $term) : [];
+
+        return [
+            'completion' => $suggestions[0]['value'] ?? null,
+            'suggestions' => $suggestions,
+            'groups' => $this->groups($user, $term),
+        ];
+    }
 
     /**
      * @return list<array{label: string, more: array{label: string, url: string}, items: list<array{title: string, subtitle: string, url: string, badge: ?string}>}>
@@ -223,6 +239,165 @@ final class AdminOmniSearch
             ],
             'items' => $items,
         ];
+    }
+
+    /**
+     * Names, emails and phones already stored, which continue what was typed.
+     *
+     * @return list<array{value: string, kind: string}>
+     */
+    private function suggestions(User $user, string $term): array
+    {
+        if (mb_strlen($term) < 2) {
+            return [];
+        }
+
+        $found = [];
+        $fields = ['full_name' => 'Name', 'email' => 'Email', 'phone' => 'Phone'];
+
+        if ($user->hasAccess('platform.leads')) {
+            $this->pullSuggestions(
+                $found,
+                Lead::query()->visibleTo($user)->where('status', '!=', Lead::STATUS_SPAM),
+                $term,
+                $fields,
+            );
+        }
+        if ($user->hasAccess('platform.contacts')) {
+            $this->pullSuggestions($found, Contact::query(), $term, $fields);
+        }
+        if ($user->hasAccess('platform.phone-clicks')) {
+            $this->pullSuggestions(
+                $found,
+                PhoneClick::query()->visibleTo($user)->notSpam(),
+                $term,
+                ['phone' => 'Phone'],
+            );
+        }
+
+        return $this->rankSuggestions($found, $term);
+    }
+
+    /**
+     * @param  array<string, array{value: string, kind: string, order: int}>  $found
+     * @param  Builder<\Illuminate\Database\Eloquent\Model>  $query
+     * @param  array<string, string>  $fields
+     */
+    private function pullSuggestions(array &$found, Builder $query, string $term, array $fields): void
+    {
+        $digits = preg_replace('/\D+/', '', $term) ?? '';
+        $textColumns = array_values(array_filter(
+            array_keys($fields),
+            fn (string $column): bool => $column !== 'phone',
+        ));
+        $needles = $this->phoneNeedles($digits);
+        if ($textColumns === [] && $needles === []) {
+            return;
+        }
+
+        $prefix = str_replace(['%', '_'], '', $term).'%';
+        $rows = $query
+            ->where(function (Builder $inner) use ($textColumns, $prefix, $needles): void {
+                foreach ($textColumns as $column) {
+                    $inner->orWhere($column, 'like', $prefix);
+                }
+                foreach ($needles as $needle) {
+                    $inner->orWhere('normalized_phone', 'like', $needle.'%');
+                }
+            })
+            ->orderByDesc('id')
+            ->limit(8)
+            ->get(array_keys($fields));
+
+        foreach ($rows as $row) {
+            foreach ($fields as $column => $kind) {
+                $value = trim((string) $row->{$column});
+                if ($value === '') {
+                    continue;
+                }
+                $key = $kind.'|'.mb_strtolower($value);
+                if (isset($found[$key])) {
+                    continue;
+                }
+                $found[$key] = [
+                    'value' => $value,
+                    'kind' => $kind,
+                    'order' => count($found),
+                ];
+            }
+        }
+    }
+
+    /**
+     * @param  array<string, array{value: string, kind: string, order: int}>  $found
+     * @return list<array{value: string, kind: string}>
+     */
+    private function rankSuggestions(array $found, string $term): array
+    {
+        $digits = preg_replace('/\D+/', '', $term) ?? '';
+        $items = [];
+        foreach ($found as $item) {
+            if (! $this->extendsTerm($term, $digits, $item['value'])) {
+                continue;
+            }
+            $item['score'] = $this->suggestionScore($term, $item['value']);
+            $items[] = $item;
+        }
+
+        usort($items, function (array $a, array $b): int {
+            return $a['score'] <=> $b['score'] ?: $a['order'] <=> $b['order'];
+        });
+
+        return array_map(
+            fn (array $item): array => ['value' => $item['value'], 'kind' => $item['kind']],
+            array_slice($items, 0, 6),
+        );
+    }
+
+    private function extendsTerm(string $term, string $digits, string $value): bool
+    {
+        if (mb_strlen($value) > mb_strlen($term) && mb_stripos($value, $term) === 0) {
+            return true;
+        }
+
+        if (strlen($digits) < 3) {
+            return false;
+        }
+
+        $valueDigits = preg_replace('/\D+/', '', $value) ?? '';
+        foreach ($this->phoneNeedles($digits) as $needle) {
+            if (str_starts_with($valueDigits, $needle) && strlen($valueDigits) > strlen($digits)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private function suggestionScore(string $term, string $value): int
+    {
+        if (mb_stripos($value, $term) === 0) {
+            return mb_strlen($value);
+        }
+
+        return 10000 + strlen((string) preg_replace('/\D+/', '', $value));
+    }
+
+    /**
+     * @return list<string>
+     */
+    private function phoneNeedles(string $digits): array
+    {
+        if (strlen($digits) < 3) {
+            return [];
+        }
+
+        $needles = [$digits];
+        if (! str_starts_with($digits, '1')) {
+            $needles[] = '1'.$digits;
+        }
+
+        return $needles;
     }
 
     /**

@@ -76,4 +76,7 @@
 
     @include('platform::partials.alert')
     @yield('content')
+
+    <form id="dw-admin-search-form" hidden onsubmit="return false"></form>
+    <script src="{{ asset('admin/search.js') }}?v={{ filemtime(public_path('admin/search.js')) }}"></script>
 @endsection

@@ -4,32 +4,42 @@
         'direct_page', 'google_page', 'seo_page', 'chatgpt_page', 'unhandled_page',
         'all_page', 'inbound_page', 'unreturned_page', 'outbound_page', 'other_page',
     ];
+    $filterQuery = http_build_query(request()->except(array_merge(['q'], $pageParams)));
+    $filterBase = url()->current().($filterQuery !== '' ? '?'.$filterQuery : '');
 @endphp
-<form method="get" action="{{ url()->current() }}" class="bg-white rounded shadow-sm p-3 mb-3">
-    @foreach(request()->except(array_merge(['q'], $pageParams)) as $name => $value)
-        @if(is_array($value))
-            @foreach($value as $child => $childValue)
-                @if(is_scalar($childValue))
-                    <input type="hidden" name="{{ $name }}[{{ $child }}]" value="{{ $childValue }}">
-                @endif
-            @endforeach
-        @elseif(is_scalar($value))
-            <input type="hidden" name="{{ $name }}" value="{{ $value }}">
-        @endif
-    @endforeach
+<div
+    class="bg-white rounded shadow-sm p-3 mb-3"
+    data-admin-search="filter"
+    data-endpoint="{{ route('platform.omni-search') }}"
+    data-filter-base="{{ $filterBase }}"
+>
     <div class="d-flex flex-wrap gap-2 align-items-center">
-        <input
-            type="search"
-            name="q"
-            value="{{ request('q') }}"
-            class="form-control"
-            style="max-width: 28rem"
-            placeholder="Name, email, phone, or city"
-            aria-label="Search"
-        >
-        <button type="submit" class="btn btn-primary">Search</button>
+        <div class="position-relative" style="max-width: 28rem; flex: 1 1 18rem">
+            <div
+                data-admin-search-ghost
+                class="form-control border-0"
+                aria-hidden="true"
+                style="position: absolute; inset: 0; color: #9aa0a6; pointer-events: none; overflow: hidden; white-space: nowrap; background: #fff"
+            ></div>
+            <input
+                data-admin-search-input
+                form="dw-admin-search-form"
+                type="search"
+                value="{{ request('q') }}"
+                class="form-control"
+                style="position: relative; background: #fff"
+                placeholder="Name, email, phone, or city"
+                autocomplete="off"
+                autocorrect="off"
+                spellcheck="false"
+                aria-label="Search"
+                aria-expanded="false"
+                aria-autocomplete="both"
+            >
+        </div>
+        <button type="button" class="btn btn-primary" data-admin-search-apply>Search</button>
         @if(trim((string) request('q')) !== '')
             <a class="btn btn-link" href="{{ url()->current() }}">Clear</a>
         @endif
     </div>
-</form>
+</div>

@@ -12,8 +12,8 @@ class AdminOmniSearchController
 {
     public function __invoke(Request $request, AdminOmniSearch $search): JsonResponse
     {
-        return response()->json([
-            'groups' => $search->groups($request->user(), (string) $request->query('q', '')),
-        ]);
+        return response()->json(
+            $search->payload($request->user(), (string) $request->query('q', '')),
+        );
     }
 }
