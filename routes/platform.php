@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\Admin\AdminOmniSearchController;
 use App\Http\Controllers\Admin\GoogleMailboxOAuthController;
 use App\Http\Controllers\Admin\ReferralPrintController;
 use App\Http\Controllers\Admin\RingCentralRecordingController;
@@ -74,6 +75,9 @@ use Tabuna\Breadcrumbs\Trail;
 // Main
 Route::screen('/main', PlatformScreen::class)
     ->name('platform.main');
+
+Route::get('search', AdminOmniSearchController::class)
+    ->name('platform.omni-search');
 
 Route::screen('promotions', PromotionsScreen::class)
     ->name('platform.promotions');
