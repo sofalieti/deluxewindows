@@ -281,7 +281,7 @@ final class LeadListSheetExporter
         }
 
         $created = $lead->created_at !== null
-            ? CarbonImmutable::parse($lead->created_at)->setTimezone($timezone)->format('Y-m-d H:i')
+            ? CarbonImmutable::parse($lead->created_at)->setTimezone($timezone)->format('n/j/Y G:i:s')
             : '';
 
         return $this->pad([

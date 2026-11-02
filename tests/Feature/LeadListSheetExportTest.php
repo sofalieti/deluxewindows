@@ -129,6 +129,11 @@ test('leads land on a tab per source and a status change overwrites the same row
         ],
     ]);
 
+    $createdAt = \Carbon\CarbonImmutable::now('America/Los_Angeles')->setTime(5, 2, 30);
+    $microsoft->forceFill([
+        'created_at' => $createdAt,
+    ])->saveQuietly();
+
     $exporter = app(LeadListSheetExporter::class);
     $result = $exporter->exportCreatedWithinDays(3);
 
@@ -141,6 +146,8 @@ test('leads land on a tab per source and a status change overwrites the same row
 
     expect($grids['Microsoft'][0][0])->toBe('Lead ID')
         ->and($grids['Microsoft'])->toHaveCount(2)
+        ->and($grids['Microsoft'][1][1])->toBe($createdAt->format('n/j/Y G:i:s'))
+        ->and($grids['Microsoft'][1][1])->toEndWith('5:02:30')
         ->and($microsoftRow)->toContain('Mina Ads')
         ->and($microsoftRow)->toContain('Need new windows')
         ->and($microsoftRow)->toContain($windows)
