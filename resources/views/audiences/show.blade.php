@@ -74,8 +74,15 @@
       </div>
     </section>
 
-    <section class="section top-none" id="contact" aria-label="Request a conversation">
-      <div class="w-layout-blockcontainer container-default w-container">
+    <section class="who-page__ask" id="contact" aria-label="Request a conversation">
+      <x-img
+        :src="$audience['form_image']"
+        preset="hero_bg"
+        :alt="$audience['form_image_alt']"
+        loading="lazy"
+        class="who-page__ask-bg"
+      />
+      <div class="w-layout-blockcontainer container-default w-container who-page__ask-inner">
         <div class="w-layout-grid grid-2-columns contact-grid-v2">
           <div class="inner-container _440px _100-tablet">
             <h2 class="heading-6">Tell us about the project</h2>
@@ -83,8 +90,11 @@
               <p class="paragraph-8">A short note is enough. We reply with the next step, not a generic brochure.</p>
             </div>
           </div>
-          <div class="inner-container _659px width-100 _100-tablet">
-            @include('partials.contact-form', ['formId' => $audience['form_id']])
+          <div class="inner-container _659px width-100 _100-tablet who-page__ask-card">
+            @include('partials.contact-form', [
+              'formId' => $audience['form_id'],
+              'questions' => $audience['questions'],
+            ])
           </div>
         </div>
       </div>

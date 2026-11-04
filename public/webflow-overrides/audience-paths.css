@@ -9,8 +9,8 @@
 
 .who-paths__grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px 18px;
 }
 
 .who-card {
@@ -19,6 +19,18 @@
   min-width: 0;
   color: inherit;
   text-decoration: none;
+}
+
+button.who-card {
+  appearance: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
 }
 
 .who-card__art {
@@ -51,6 +63,44 @@
 
 .who-card:hover .display-5 {
   color: #1b73bb;
+}
+
+.who-card__art--own {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 8px;
+  aspect-ratio: 4 / 3;
+  padding: 22px;
+  background: #123f72;
+  color: #fff;
+}
+
+.who-card__own-kicker {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #ffb547;
+}
+
+.who-card__own-line {
+  font-size: 28px;
+  line-height: 1.15;
+  font-weight: 600;
+}
+
+.who-card--own .who-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.who-own-modal__copy {
+  margin: 0 48px 14px 0;
+  color: #5c6b7f;
+  font-size: 15px;
+  line-height: 1.45;
 }
 
 .who-page h1.heading-2 {
@@ -123,17 +173,67 @@
   font-size: 15px;
 }
 
+.who-page__ask {
+  position: relative;
+  overflow: hidden;
+  padding: 72px 0;
+  background: #123f72;
+}
+
+.who-page__ask-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-fit: cover;
+  border-radius: 0;
+  pointer-events: none;
+}
+
+.who-page__ask::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, rgba(8, 28, 52, 0.82) 0%, rgba(8, 28, 52, 0.55) 48%, rgba(8, 28, 52, 0.38) 100%);
+  pointer-events: none;
+}
+
+.who-page__ask-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.who-page__ask h2,
+.who-page__ask .paragraph-8 {
+  color: #fff;
+}
+
+.who-page__ask-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 22px 22px 8px;
+}
+
+.who-ask__label {
+  display: block;
+  margin: 0 0 6px;
+  color: #172033;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.who-ask__select {
+  width: 100%;
+  min-height: 48px;
+  background: #fff;
+}
+
 .who-page__other-row {
   display: flex;
   flex-wrap: wrap;
   gap: 10px 22px;
   margin-top: 8px;
-}
-
-@media (max-width: 1100px) {
-  .who-paths__grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
 }
 
 @media (max-width: 767px) {
@@ -149,5 +249,9 @@
 
   .who-page h1.heading-2 {
     font-size: 30px;
+  }
+
+  .who-page__ask {
+    padding: 40px 0;
   }
 }

@@ -54,6 +54,28 @@ test('a legacy opening count is still accepted without the new field', function 
         ->and($lead->id)->toBeGreaterThan(0);
 });
 
+test('an audience path form stores its own questions without a window count', function () {
+    postJson('/contact-form', [
+        'Name' => 'Board Member',
+        'Phone' => '6505554545',
+        'Email' => 'board@example.com',
+        'form_id' => 'Who: HOAs',
+        'message' => 'The east buildings are next.',
+        'audience_answers' => [
+            ['question' => 'Who is reaching out?', 'answer' => 'A board member'],
+            ['question' => 'How wide is this phase?', 'answer' => 'One building'],
+        ],
+    ])->assertOk()->assertJsonPath('spam', false);
+
+    $lead = Lead::query()->sole();
+
+    expect($lead->meta['form_id'] ?? null)->toBe('Who: HOAs')
+        ->and($lead->meta['window_count'] ?? null)->toBeNull()
+        ->and($lead->meta['audience_answers'][0]['answer'] ?? null)->toBe('A board member')
+        ->and($lead->message)->toContain('Who is reaching out? A board member')
+        ->and($lead->message)->toContain('The east buildings are next.');
+});
+
 test('a lead without either quantity is rejected', function () {
     postJson('/contact-form', [
         'Name' => 'No Quantity',

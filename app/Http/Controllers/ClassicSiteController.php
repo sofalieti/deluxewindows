@@ -590,10 +590,36 @@ class ClassicSiteController extends Controller
             'opening_kind' => ['nullable', 'string', Rule::in(array_keys(Lead::OPENING_KINDS))],
         ])->validate();
 
-        if (($validated['window_count'] ?? null) === null && ($validated['opening_count'] ?? null) === null) {
+        $audienceAnswers = [];
+        foreach ((array) $request->input('audience_answers', []) as $row) {
+            if (! is_array($row)) {
+                continue;
+            }
+            $question = trim((string) ($row['question'] ?? ''));
+            $answer = trim((string) ($row['answer'] ?? ''));
+            if ($question === '' || $answer === '') {
+                continue;
+            }
+            $audienceAnswers[] = [
+                'question' => mb_substr($question, 0, 180),
+                'answer' => mb_substr($answer, 0, 180),
+            ];
+        }
+
+        if ($audienceAnswers === [] && ($validated['window_count'] ?? null) === null && ($validated['opening_count'] ?? null) === null) {
             throw ValidationException::withMessages([
                 'window_count' => 'Choose how many windows or doors.',
             ]);
+        }
+
+        if ($audienceAnswers !== []) {
+            $block = implode("\n", array_map(
+                static fn (array $pair): string => $pair['question'].' '.$pair['answer'],
+                $audienceAnswers,
+            ));
+            if (! str_contains($validated['message'], $audienceAnswers[0]['question'])) {
+                $validated['message'] = trim($block.($validated['message'] !== '' ? "\n\n".$validated['message'] : ''));
+            }
         }
 
         // Empty email is allowed (mobile forms hide the field). DB column is NOT NULL.
@@ -659,6 +685,10 @@ class ClassicSiteController extends Controller
                 : Lead::openingKindFromUrl($pageUrl),
             'first_touch' => $firstTouch,
         ];
+
+        if ($audienceAnswers !== []) {
+            $meta['audience_answers'] = $audienceAnswers;
+        }
 
         if ($spam['spam']) {
             $meta['spam_reason'] = (string) ($spam['reason'] ?? 'unknown');

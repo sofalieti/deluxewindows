@@ -169,6 +169,24 @@
       trackingParams.forEach(function (param) {
         payload[param] = firstValue([param]) || payload[param] || storageGet('lead_param_' + param);
       });
+
+      const audienceAnswers = [];
+      form.querySelectorAll('select[data-audience-question]').forEach(function (select) {
+        audienceAnswers.push({
+          question: select.getAttribute('data-audience-question') || '',
+          answer: select.value,
+        });
+      });
+      if (audienceAnswers.length) {
+        payload.audience_answers = audienceAnswers;
+        const block = audienceAnswers.map(function (row) {
+          return row.question + ' ' + row.answer;
+        }).join('\n');
+        const note = payload.Message ? '\n\n' + payload.Message : '';
+        payload.Message = block + note;
+        payload.message = payload.Message;
+      }
+
       return payload;
     }
 
@@ -482,6 +500,7 @@
         !(form instanceof HTMLFormElement)
         || form.querySelector('[data-qty-pick]')
         || form.matches('[data-bing-phone-contact-form]')
+        || form.hasAttribute('data-audience-form')
       ) {
         return;
       }
@@ -748,6 +767,16 @@
     }
 
     function selectedWindowCount(form) {
+      if (form.hasAttribute('data-audience-form')) {
+        const selects = form.querySelectorAll('select[data-audience-question]');
+        for (let i = 0; i < selects.length; i += 1) {
+          if (!String(selects[i].value || '').trim()) {
+            selects[i].focus();
+            return '';
+          }
+        }
+        return selects.length ? 'audience' : '';
+      }
       const select = form.querySelector('select[name="window_count"]');
       const box = form.querySelector('[data-qty-pick]');
       const value = select ? String(select.value || '').trim() : '';

@@ -4,7 +4,7 @@
       We have received your message and will get back to you as soon as possible.
     </div>
   @else
-    <form class="form-3 contact-form-fields" action="{{ route('contact.submit') }}" method="POST">
+    <form class="form-3 contact-form-fields" action="{{ route('contact.submit') }}" method="POST" @if(!empty($questions)) data-audience-form @endif>
       @csrf
       @if(!empty($formId))
         <input type="hidden" name="form_id" value="{{ $formId }}" />
@@ -28,8 +28,26 @@
         <input class="input w-input" type="text" name="city" placeholder="City"
           value="{{ old('city') }}" maxlength="100" data-clarity-mask="true" />
       </div>
+      @foreach($questions ?? [] as $index => $question)
+        <div class="input-wrapper">
+          <label class="who-ask__label" for="audience-q-{{ $index }}">{{ $question['label'] }}</label>
+          <select
+            id="audience-q-{{ $index }}"
+            class="input w-input who-ask__select"
+            name="audience_answers[{{ $index }}][answer]"
+            data-audience-question="{{ $question['label'] }}"
+            required
+          >
+            <option value="" disabled selected>Select…</option>
+            @foreach($question['options'] as $option)
+              <option value="{{ $option }}">{{ $option }}</option>
+            @endforeach
+          </select>
+          <input type="hidden" name="audience_answers[{{ $index }}][question]" value="{{ $question['label'] }}" />
+        </div>
+      @endforeach
       <div class="input-wrapper">
-        <textarea class="text-area w-input contact-form-textarea" name="message" placeholder="Short description (optional)"
+        <textarea class="text-area w-input contact-form-textarea" name="message" placeholder="{{ !empty($questions) ? 'Anything else we should know (optional)' : 'Short description (optional)' }}"
           rows="3" maxlength="2000">{{ old('message') }}</textarea>
       </div>
       <button type="submit" class="primary-button w-button contact-form-submit">
