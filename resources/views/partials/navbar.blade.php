@@ -937,7 +937,6 @@
                     loading="lazy"
                     class="link-15__icon"
                   /><span class="link-15__label" data-area-phone-number>{{ site_phone_display() }}</span></a>
-                >
                 <nav role="navigation" class="nav-menu-wrapper-4 w-nav-menu">
                   <ul role="list" class="nav-menu-2 w-list-unstyled">
                     <li class="menu">
