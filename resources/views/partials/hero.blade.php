@@ -268,9 +268,26 @@
           {{-- Fallback for hero-based templates without image: solid blue background only --}}
           <div class="div-block-61"></div>
         @else
-          {{-- Homepage: solid blue until the desktop background video starts. --}}
+          {{-- Homepage: phones keep the facade photo. Desktop stays blue until the video plays. --}}
         <div class="code-embed-5 w-embed w-script">
-          <div id="hero-bg-wrapper" class="video-bg-container"></div>
+          <div id="hero-bg-wrapper" class="video-bg-container">
+            <picture>
+              <source
+                type="image/avif"
+                media="(max-width: 767px)"
+                srcset="/webflow-assets/images/hero-home-bay-area-mobile-1200.avif 1200w, /webflow-assets/images/hero-home-bay-area-mobile-1600.avif 1600w"
+                sizes="100vw"
+              />
+              {{-- Desktop does not match the source above, so this pixel is the fallback and the wide photo stays unloaded. --}}
+              <img
+                class="hero-bg-image"
+                alt=""
+                width="1"
+                height="1"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              />
+            </picture>
+          </div>
           <script>
             (function () {
               if (window.innerWidth <= 767) return;

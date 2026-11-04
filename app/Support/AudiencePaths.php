@@ -15,6 +15,8 @@ final class AudiencePaths
     /**
      * @return list<array{
      *     slug: string,
+     *     image: string,
+     *     image_alt: string,
      *     title: string,
      *     card: string,
      *     h1: string,
@@ -29,6 +31,8 @@ final class AudiencePaths
         return [
             [
                 'slug' => 'homeowners',
+                'image' => '/webflow-assets/images/audience/audience-homeowners.jpg',
+                'image_alt' => 'California craftsman home with new white windows',
                 'title' => 'Homeowners',
                 'card' => 'Beautiful, efficient windows and doors for the home you love.',
                 'h1' => 'Windows and doors for the home you love',
@@ -47,6 +51,8 @@ final class AudiencePaths
             ],
             [
                 'slug' => 'hoas',
+                'image' => '/webflow-assets/images/audience/audience-hoas.jpg',
+                'image_alt' => 'Matching townhomes with the same windows across the community',
                 'title' => 'HOAs',
                 'card' => 'Consistent, coordinated window replacement for your whole community.',
                 'h1' => 'One standard for the whole community',
@@ -65,6 +71,8 @@ final class AudiencePaths
             ],
             [
                 'slug' => 'property-managers',
+                'image' => '/webflow-assets/images/audience/audience-property-managers.jpg',
+                'image_alt' => 'Apartment building with uniform replacement windows',
                 'title' => 'Property Managers',
                 'card' => 'Dependable service with clear scheduling and resident communication.',
                 'h1' => 'Replacement that fits an occupied building',
@@ -83,6 +91,8 @@ final class AudiencePaths
             ],
             [
                 'slug' => 'designers-architects',
+                'image' => '/webflow-assets/images/audience/audience-designers.jpg',
+                'image_alt' => 'Modern home with large black-framed windows',
                 'title' => 'Designers & Architects',
                 'card' => 'Product options and specs to match your design intent.',
                 'h1' => 'Specs that match the design',
@@ -101,6 +111,8 @@ final class AudiencePaths
             ],
             [
                 'slug' => 'builders',
+                'image' => '/webflow-assets/images/audience/audience-builders.jpg',
+                'image_alt' => 'New house with windows set during construction',
                 'title' => 'Builders',
                 'card' => 'A trade partner for new construction and materials-only orders.',
                 'h1' => 'A trade partner for the opening package',

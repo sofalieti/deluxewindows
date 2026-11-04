@@ -4,7 +4,7 @@ test('the homepage path chooser is present only as Bing-only markup', function (
     $html = $this->get('/')->assertOk()->getContent();
 
     expect($html)
-        ->toContain('class="who-paths bing-only"')
+        ->toContain('who-paths bing-only')
         ->toContain('Who Are You?')
         ->toContain('href="/for/homeowners"')
         ->toContain('href="/for/hoas"')

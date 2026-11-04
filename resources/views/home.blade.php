@@ -5,6 +5,18 @@
 @section('bodyClass', 'body-18 height-auto')
 
 @section('head')
+    @unless(hero_is_new())
+      <link
+        rel="preload"
+        as="image"
+        href="/webflow-assets/images/hero-home-bay-area-mobile-1200.avif"
+        type="image/avif"
+        imagesrcset="/webflow-assets/images/hero-home-bay-area-mobile-1200.avif 1200w, /webflow-assets/images/hero-home-bay-area-mobile-1600.avif 1600w"
+        imagesizes="100vw"
+        media="(max-width: 767px)"
+        fetchpriority="high"
+      />
+    @endunless
     <style rel="stylesheet" type="text/css">
       @charset "utf-8";
 
