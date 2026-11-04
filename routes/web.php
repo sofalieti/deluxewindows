@@ -15,6 +15,8 @@ Route::get('/home-concept/{variant}', [ClassicSiteController::class, 'homeConcep
 Route::get('/windows', [ClassicSiteController::class, 'windowsIndex']);
 Route::get('/doors', [ClassicSiteController::class, 'doorsIndex']);
 Route::get('/new-construction', [ClassicSiteController::class, 'newConstruction']);
+Route::get('/for/{slug}', [ClassicSiteController::class, 'audience'])
+    ->where('slug', '[a-z0-9\-]+');
 Route::get('/referrals', [ReferralController::class, 'landing']);
 Route::post('/referrals/apply', [ReferralController::class, 'apply'])->name('referrals.apply');
 Route::get('/r/{code}', [ReferralController::class, 'redirect'])

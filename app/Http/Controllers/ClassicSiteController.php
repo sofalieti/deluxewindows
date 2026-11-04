@@ -464,6 +464,23 @@ class ClassicSiteController extends Controller
         return view('new-construction');
     }
 
+    public function audience(string $slug)
+    {
+        $audience = \App\Support\AudiencePaths::find($slug);
+        if ($audience === null) {
+            abort(404);
+        }
+
+        $metadata = \App\Support\AudiencePaths::metadata($audience);
+
+        return view('audiences.show', [
+            'audience' => $audience,
+            'paths' => \App\Support\AudiencePaths::all(),
+            'pageMetadata' => $metadata,
+            'pageSchemas' => app(\App\Services\Seo\SchemaBuilder::class)->build($metadata),
+        ]);
+    }
+
     public function about()
     {
         return view('about');

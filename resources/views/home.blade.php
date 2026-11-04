@@ -1057,6 +1057,8 @@
 
     @include('partials.trust-badges', ['trustReviewBadgeBingHide' => true])
 
+    @include('partials.who-are-you')
+
     @unless(home_brands_is_new())
       <div class="bing-hide">
         @include('partials.brands')
@@ -1073,7 +1075,9 @@
 
     @include('partials.certifications')
 
-    @include('partials.for-professionals')
+    <div class="bing-hide">
+      @include('partials.for-professionals')
+    </div>
 
     @include('partials.cta')
 

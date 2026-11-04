@@ -6,6 +6,9 @@
   @else
     <form class="form-3 contact-form-fields" action="{{ route('contact.submit') }}" method="POST">
       @csrf
+      @if(!empty($formId))
+        <input type="hidden" name="form_id" value="{{ $formId }}" />
+      @endif
       <div class="input-wrapper">
         <input class="input w-input" type="text" name="full_name" placeholder="Full Name *"
           value="{{ old('full_name') }}" required maxlength="255" />
