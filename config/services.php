@@ -87,6 +87,7 @@ return [
         'refresh_token' => env('GOOGLE_LSA_REFRESH_TOKEN'),
         'manager_customer_id' => env('GOOGLE_LSA_MANAGER_CUSTOMER_ID'),
         'oauth_redirect_uri' => env('GOOGLE_LSA_OAUTH_REDIRECT_URI', 'https://www.deluxewindows.com'),
+        'oauth_state' => env('GOOGLE_LSA_OAUTH_STATE'),
         'oauth_token_url' => env('GOOGLE_LSA_OAUTH_TOKEN_URL', 'https://oauth2.googleapis.com/token'),
         'api_base_url' => rtrim((string) env('GOOGLE_LSA_API_BASE_URL', 'https://localservices.googleapis.com'), '/'),
     ],

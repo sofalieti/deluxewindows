@@ -62,6 +62,11 @@ final class GoogleLsaClient
 
     public function oauthState(): string
     {
+        $configured = trim((string) config('services.google_lsa.oauth_state'));
+        if ($configured !== '') {
+            return $configured;
+        }
+
         return hash_hmac('sha256', 'google-lsa', (string) config('app.key'));
     }
 

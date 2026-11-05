@@ -23,6 +23,7 @@ class GoogleLsaInstallCommand extends Command
             'GOOGLE_LSA_CLIENT_SECRET',
             'GOOGLE_LSA_REFRESH_TOKEN',
             'GOOGLE_LSA_MANAGER_CUSTOMER_ID',
+            'GOOGLE_LSA_OAUTH_STATE',
         ] as $key) {
             $value = getenv($key);
             if (is_string($value) && trim($value) !== '') {
