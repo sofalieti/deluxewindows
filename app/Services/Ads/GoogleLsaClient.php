@@ -56,7 +56,29 @@ final class GoogleLsaClient
             'scope' => 'https://www.googleapis.com/auth/adwords',
             'access_type' => 'offline',
             'prompt' => 'consent',
+            'state' => $this->oauthState(),
         ]);
+    }
+
+    public function oauthState(): string
+    {
+        return hash_hmac('sha256', 'google-lsa', (string) config('app.key'));
+    }
+
+    public function isOAuthReturn(string $code, string $state): bool
+    {
+        $expected = $this->oauthState();
+
+        return $code !== ''
+            && strlen($state) === strlen($expected)
+            && hash_equals($expected, $state);
+    }
+
+    public function envPath(): string
+    {
+        $path = trim((string) config('services.google_lsa.env_path'));
+
+        return $path !== '' ? $path : base_path('.env');
     }
 
     public function exchangeAuthorizationCode(string $code): string

@@ -61,11 +61,15 @@ test('the lsa status command fails before any api call when the refresh token is
 });
 
 test('the lsa oauth command prints a consent url and can exchange a code', function () {
-    expect(app(GoogleLsaClient::class)->authorizeUrl())
+    $lsa = app(GoogleLsaClient::class);
+
+    expect($lsa->authorizeUrl())
         ->toContain('client_id=lsa-client')
+        ->toContain('redirect_uri=http%3A%2F%2Flocalhost')
         ->toContain('scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fadwords')
         ->toContain('access_type=offline')
-        ->toContain('prompt=consent');
+        ->toContain('prompt=consent')
+        ->toContain('state='.$lsa->oauthState());
 
     $this->artisan('ads:lsa-oauth')
         ->expectsOutputToContain('https://accounts.google.com/o/oauth2/v2/auth?')
@@ -78,6 +82,58 @@ test('the lsa oauth command prints a consent url and can exchange a code', funct
     $this->artisan('ads:lsa-oauth', ['--code' => 'auth-code'])
         ->expectsOutputToContain('GOOGLE_LSA_REFRESH_TOKEN=refresh-new')
         ->assertSuccessful();
+});
+
+test('the homepage stores an lsa refresh token and shows the account report', function () {
+    $path = tempnam(sys_get_temp_dir(), 'lsa-env');
+    file_put_contents($path, "APP_NAME=Deluxe\n");
+    config()->set('services.google_lsa.env_path', $path);
+    config()->set('services.google_lsa.refresh_token', '');
+
+    Http::fake([
+        'https://oauth2.test/token' => Http::response([
+            'refresh_token' => 'refresh-from-google',
+            'access_token' => 'access',
+            'expires_in' => 3600,
+        ]),
+        'https://localservices.test/v1/accountReports:search*' => Http::response([
+            'accountReports' => [[
+                'businessName' => 'Deluxe Windows',
+                'currentPeriodChargedLeads' => '3',
+                'currentPeriodPhoneCalls' => '8',
+                'currentPeriodTotalCost' => '120.5',
+            ]],
+        ]),
+        'https://localservices.test/v1/detailedLeadReports:search*' => Http::response([
+            'detailedLeadReports' => [[
+                'leadType' => 'PHONE_CALL',
+                'phoneLead' => ['consumerPhoneNumber' => '+14155550100'],
+            ]],
+        ]),
+    ]);
+
+    $state = app(GoogleLsaClient::class)->oauthState();
+
+    $this->get('/?code=auth-code&state='.$state)
+        ->assertOk()
+        ->assertSee('Local Services is connected')
+        ->assertSee('Deluxe Windows')
+        ->assertSee('charged leads 3')
+        ->assertDontSee('refresh-from-google')
+        ->assertDontSee('+14155550100');
+
+    expect(file_get_contents($path))->toContain('GOOGLE_LSA_REFRESH_TOKEN=refresh-from-google');
+    @unlink($path);
+});
+
+test('a homepage code with the wrong state stays on the homepage', function () {
+    Http::fake();
+
+    $this->get('/?code=auth-code&state=not-ours')
+        ->assertOk()
+        ->assertDontSee('Local Services is connected');
+
+    Http::assertNothingSent();
 });
 
 test('the lsa env writer updates one key and leaves the rest of the file', function () {

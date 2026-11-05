@@ -90,6 +90,8 @@ jobs:
             "$PHP_BIN" artisan optimize:clear
             if grep -q '^GOOGLE_LSA_REFRESH_TOKEN=.' .env; then
               "$PHP_BIN" artisan ads:lsa-status || true
+            else
+              "$PHP_BIN" artisan ads:lsa-oauth || true
             fi
             find . -user root -exec chown www-root:www-root {} +
             if systemctl list-unit-files deluxe-windows-queue.service --no-legend | grep -q deluxe-windows-queue; then

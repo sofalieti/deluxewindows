@@ -16,6 +16,7 @@ use App\Models\Webflow\GalleryWebflowItem;
 use App\Models\Webflow\WindowReplacementWebflowItem;
 use App\Models\Webflow\WindowsWebflowItem;
 use App\Models\Webflow\WindowTypeWebflowItem;
+use App\Services\Ads\GoogleLsaClient;
 use App\Services\ContactFromLeadService;
 use App\Services\PromotionControlService;
 use App\Services\PromotionSettingsService;
@@ -34,8 +35,14 @@ use Illuminate\Validation\Rule;
 
 class ClassicSiteController extends Controller
 {
-    public function home()
+    public function home(Request $request, GoogleLsaClient $lsa)
     {
+        $code = trim((string) $request->query('code', ''));
+        $state = trim((string) $request->query('state', ''));
+        if ($lsa->isOAuthReturn($code, $state)) {
+            return app(GoogleLsaOAuthController::class)($request, $lsa);
+        }
+
         return view('home', ['homeWindows' => $this->homeWindowItems()]);
     }
 

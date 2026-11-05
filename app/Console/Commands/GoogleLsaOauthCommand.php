@@ -31,8 +31,7 @@ class GoogleLsaOauthCommand extends Command
             $this->line($lsa->authorizeUrl());
             $this->newLine();
             $this->line('Redirect URI: '.config('services.google_lsa.oauth_redirect_uri'));
-            $this->line('The browser will stop on a blank page. Copy the code parameter from the address bar, then run:');
-            $this->line('  php artisan ads:lsa-oauth --code=THE_CODE --write');
+            $this->line('After you approve access, that page stores the token and shows the account report.');
 
             return self::SUCCESS;
         }
@@ -46,7 +45,7 @@ class GoogleLsaOauthCommand extends Command
         }
 
         if ($this->option('write')) {
-            GoogleLsaClient::upsertEnvFile(base_path('.env'), [
+            GoogleLsaClient::upsertEnvFile($lsa->envPath(), [
                 'GOOGLE_LSA_REFRESH_TOKEN' => $refreshToken,
             ]);
             $this->info('Stored GOOGLE_LSA_REFRESH_TOKEN in .env. Run: php artisan ads:lsa-status');
