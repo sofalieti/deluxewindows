@@ -54,6 +54,11 @@ jobs:
     steps:
       - name: Pull on production via SSH
         uses: appleboy/ssh-action@v1.2.0
+        env:
+          GOOGLE_LSA_CLIENT_ID: ${{ secrets.GOOGLE_LSA_CLIENT_ID }}
+          GOOGLE_LSA_CLIENT_SECRET: ${{ secrets.GOOGLE_LSA_CLIENT_SECRET }}
+          GOOGLE_LSA_REFRESH_TOKEN: ${{ secrets.GOOGLE_LSA_REFRESH_TOKEN }}
+          GOOGLE_LSA_MANAGER_CUSTOMER_ID: ${{ secrets.GOOGLE_LSA_MANAGER_CUSTOMER_ID }}
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
@@ -61,6 +66,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           command_timeout: 20m
           script_stop: true
+          envs: GOOGLE_LSA_CLIENT_ID,GOOGLE_LSA_CLIENT_SECRET,GOOGLE_LSA_REFRESH_TOKEN,GOOGLE_LSA_MANAGER_CUSTOMER_ID
           script: |
             set -eu
             cd "${{ secrets.DEPLOY_PATH }}"
@@ -79,7 +85,12 @@ jobs:
             fi
             composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
             "$PHP_BIN" artisan migrate --force
+            # LSA client id/secret live in GitHub secrets, not in git. Empty values are skipped.
+            "$PHP_BIN" artisan ads:lsa-install
             "$PHP_BIN" artisan optimize:clear
+            if grep -q '^GOOGLE_LSA_REFRESH_TOKEN=.' .env; then
+              "$PHP_BIN" artisan ads:lsa-status || true
+            fi
             find . -user root -exec chown www-root:www-root {} +
             if systemctl list-unit-files deluxe-windows-queue.service --no-legend | grep -q deluxe-windows-queue; then
               systemctl restart deluxe-windows-queue || true

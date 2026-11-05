@@ -77,6 +77,21 @@ return [
     ],
 
     /*
+     * Local Services Ads reporting. OAuth client from Google Cloud; the same
+     * adwords scope as Google Ads. No developer token. The manager id is the
+     * 10-digit MCC. When it is empty, the Google Ads login customer id is used.
+     */
+    'google_lsa' => [
+        'client_id' => env('GOOGLE_LSA_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_LSA_CLIENT_SECRET'),
+        'refresh_token' => env('GOOGLE_LSA_REFRESH_TOKEN'),
+        'manager_customer_id' => env('GOOGLE_LSA_MANAGER_CUSTOMER_ID'),
+        'oauth_redirect_uri' => env('GOOGLE_LSA_OAUTH_REDIRECT_URI', 'http://localhost'),
+        'oauth_token_url' => env('GOOGLE_LSA_OAUTH_TOKEN_URL', 'https://oauth2.googleapis.com/token'),
+        'api_base_url' => rtrim((string) env('GOOGLE_LSA_API_BASE_URL', 'https://localservices.googleapis.com'), '/'),
+    ],
+
+    /*
      * Daily / on-demand Google Drive export of confirmed Google Ads phone clicks
      * in the official Offline Conversion Import spreadsheet template.
      * Prefer a service account JSON whose email has Editor on the Drive folder.
