@@ -27,7 +27,7 @@
               </div>
               <div class="div-block-17">
                 <div class="link-block">
-                  <div class="text-block-17">We are – 100% employee owned &amp; over 30 years in business!</div>
+                  <div class="text-block-17">Over 30 years in business · CA Lic. #{{ \App\Services\Seo\OrganizationSchema::CSLB_LICENSE }}</div>
                 </div>
               </div>
               <div class="nav-menu-left-side-2"></div>
@@ -903,7 +903,7 @@
       <div class="mobile-header-shell">
         <div class="mobile-top-strip" aria-label="Company info">
           <div class="mobile-top-strip__inner">
-            <span class="mobile-top-strip__text">We are – 100% employee owned &amp; over 30 years in business!</span>
+            <span class="mobile-top-strip__text">Over 30 years in business · CA Lic. #{{ \App\Services\Seo\OrganizationSchema::CSLB_LICENSE }}</span>
           </div>
         </div>
         <div class="navbar-3">

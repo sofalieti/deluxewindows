@@ -61,5 +61,5 @@
   @elseif(!empty($showBingBrands))
     @include('partials.hero-brands', ['heroBrandsPlacement' => 'promo', 'heroBrandsBing' => true])
   @endif
-  <p class="hero-mobile-promo__owned">We are – 100% employee owned &amp; over 30 years in business!</p>
+  <p class="hero-mobile-promo__owned">Over 30 years in business · CA Lic. #{{ \App\Services\Seo\OrganizationSchema::CSLB_LICENSE }}</p>
 </div>
