@@ -52,6 +52,13 @@ class PhoneClickListScreen extends Screen
                 ->with(['assignee', 'latestNote.user'])
                 ->defaultSort('id', 'desc')
                 ->paginate(50, pageName: 'unhandled_page'),
+            'unconfirmedClicks' => PhoneClick::filters(PhoneClickFiltersLayout::class)->matchingSearch()
+                ->visibleTo($user)
+                ->notSpam()
+                ->unconfirmedByRingCentral()
+                ->with(['assignee', 'latestNote.user'])
+                ->defaultSort('id', 'desc')
+                ->paginate(50, pageName: 'unconfirmed_page'),
             'mineClicks' => PhoneClick::filters(PhoneClickFiltersLayout::class)->matchingSearch()
                 ->visibleTo($user)
                 ->notSpam()
@@ -95,7 +102,7 @@ class PhoneClickListScreen extends Screen
             ? ' No traffic sources are enabled for your role.'
             : ' Visible sources: '.implode(', ', $sources).'.';
 
-        return 'Website phone clicks with traffic source, RingCentral call tracking, and spam tab.'.$sourceNote;
+        return 'Website phone clicks with traffic source, RingCentral call tracking, an unconfirmed tab, and a spam tab.'.$sourceNote;
     }
 
     public function permission(): ?iterable
@@ -160,6 +167,7 @@ class PhoneClickListScreen extends Screen
                 'SEO' => Layout::table('seoClicks', $this->clickColumns(spamTab: false)),
                 'ChatGPT' => Layout::table('chatgptClicks', $this->clickColumns(spamTab: false)),
                 'Unhandled' => Layout::table('unhandledClicks', $this->clickColumns(spamTab: false)),
+                'Unconfirmed' => Layout::table('unconfirmedClicks', $this->clickColumns(spamTab: false)),
                 'Mine' => Layout::table('mineClicks', $this->clickColumns(spamTab: false)),
                 'Spam' => Layout::table('spamClicks', $this->clickColumns(spamTab: true)),
             ]),

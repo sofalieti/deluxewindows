@@ -336,6 +336,20 @@ class PhoneClick extends Model
             ]);
     }
 
+    /**
+     * Clicks RingCentral has not confirmed with a matched call.
+     *
+     * @param  Builder<PhoneClick>  $query
+     * @return Builder<PhoneClick>
+     */
+    public function scopeUnconfirmedByRingCentral(Builder $query): Builder
+    {
+        return $query->where(function (Builder $query): void {
+            $query->whereNull('ringcentral_status')
+                ->orWhere('ringcentral_status', '!=', self::RINGCENTRAL_FOUND);
+        });
+    }
+
     public function handlingStatusLabel(): string
     {
         return self::HANDLING_STATUSES[$this->handling_status] ?? (string) $this->handling_status;

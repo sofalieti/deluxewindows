@@ -38,9 +38,41 @@ test('phone clicks spam tab and mark as spam work', function () {
         ->actingAs($user)
         ->get(route('platform.phone-clicks'))
         ->assertOk()
-        ->assertSeeInOrder(['All', 'Microsoft', 'Direct', 'Google', 'SEO', 'ChatGPT', 'Spam'])
+        ->assertSeeInOrder(['All', 'Microsoft', 'Direct', 'Google', 'SEO', 'ChatGPT', 'Unconfirmed', 'Spam'])
         ->assertSee('Spam')
         ->assertSee('Restore');
+});
+
+test('the unconfirmed tab lists clicks ringcentral did not match', function () {
+    $user = User::factory()->create();
+    $user->forceFill([
+        'permissions' => adminTrafficPermissions(),
+    ])->save();
+
+    PhoneClick::query()->create([
+        'phone' => '+16504614446',
+        'source_label' => 'header-phone',
+        'page_url' => 'https://example.com/confirmed',
+        'ringcentral_status' => PhoneClick::RINGCENTRAL_FOUND,
+    ]);
+    $missed = PhoneClick::query()->create([
+        'phone' => '+16504614447',
+        'source_label' => 'header-phone',
+        'page_url' => 'https://example.com/missed',
+        'ringcentral_status' => PhoneClick::RINGCENTRAL_NO_CALL,
+    ]);
+    PhoneClick::query()->create([
+        'phone' => '+16504614448',
+        'source_label' => 'header-phone',
+        'page_url' => 'https://example.com/spam',
+        'ringcentral_status' => PhoneClick::RINGCENTRAL_NO_CALL,
+        'is_spam' => true,
+    ]);
+
+    $this->actingAs($user);
+    $screen = app(\App\Orchid\Screens\PhoneClicks\PhoneClickListScreen::class)->query();
+
+    expect($screen['unconfirmedClicks']->pluck('id')->all())->toBe([$missed->id]);
 });
 
 test('leads spam tab renders', function () {
