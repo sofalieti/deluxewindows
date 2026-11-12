@@ -337,6 +337,15 @@ class PhoneClick extends Model
     }
 
     /**
+     * @param  Builder<PhoneClick>  $query
+     * @return Builder<PhoneClick>
+     */
+    public function scopeConfirmedByRingCentral(Builder $query): Builder
+    {
+        return $query->where($query->getModel()->getTable().'.ringcentral_status', self::RINGCENTRAL_FOUND);
+    }
+
+    /**
      * Clicks RingCentral has not confirmed with a matched call.
      *
      * @param  Builder<PhoneClick>  $query

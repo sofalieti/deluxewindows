@@ -49,7 +49,7 @@ test('the unconfirmed tab lists clicks ringcentral did not match', function () {
         'permissions' => adminTrafficPermissions(),
     ])->save();
 
-    PhoneClick::query()->create([
+    $confirmed = PhoneClick::query()->create([
         'phone' => '+16504614446',
         'source_label' => 'header-phone',
         'page_url' => 'https://example.com/confirmed',
@@ -72,7 +72,8 @@ test('the unconfirmed tab lists clicks ringcentral did not match', function () {
     $this->actingAs($user);
     $screen = app(\App\Orchid\Screens\PhoneClicks\PhoneClickListScreen::class)->query();
 
-    expect($screen['unconfirmedClicks']->pluck('id')->all())->toBe([$missed->id]);
+    expect($screen['unconfirmedClicks']->pluck('id')->all())->toBe([$missed->id])
+        ->and($screen['clicks']->pluck('id')->all())->toBe([$confirmed->id]);
 });
 
 test('leads spam tab renders', function () {

@@ -43,6 +43,7 @@ class PhoneClickListScreen extends Screen
             'clicks' => PhoneClick::filters(PhoneClickFiltersLayout::class)->matchingSearch()
                 ->visibleTo($user)
                 ->notSpam()
+                ->confirmedByRingCentral()
                 ->with(['assignee', 'latestNote.user'])
                 ->defaultSort('id', 'desc')
                 ->paginate(50, pageName: 'page'),
@@ -182,6 +183,7 @@ class PhoneClickListScreen extends Screen
         return PhoneClick::filters(PhoneClickFiltersLayout::class)->matchingSearch()
             ->visibleTo(Auth::user())
             ->notSpam()
+            ->confirmedByRingCentral()
             ->with(['assignee', 'latestNote.user'])
             ->whereIn('traffic_source', $sources)
             ->defaultSort('id', 'desc')
@@ -193,6 +195,7 @@ class PhoneClickListScreen extends Screen
         return PhoneClick::filters(PhoneClickFiltersLayout::class)->matchingSearch()
             ->visibleTo(Auth::user())
             ->notSpam()
+            ->confirmedByRingCentral()
             ->with(['assignee', 'latestNote.user'])
             ->where(function ($query): void {
                 $query->where('traffic_source', 'chatgpt')
