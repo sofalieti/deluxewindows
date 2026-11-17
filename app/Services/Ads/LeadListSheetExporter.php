@@ -88,20 +88,44 @@ final class LeadListSheetExporter
     {
         $this->assertReady();
 
+        /** @var array<string, list<array{id: string, at: int, row: list<string>}>> $groups */
+        $groups = [];
         $leads = 0;
+        $calls = 0;
+
         Lead::query()
             ->orderBy('id')
-            ->chunkById(200, function ($chunk) use (&$leads): void {
-                $leads += $this->syncLeads($chunk);
+            ->chunkById(200, function ($chunk) use (&$groups, &$leads): void {
+                foreach ($chunk as $lead) {
+                    $leads++;
+                    $groups[$this->sheetTitleFor($lead)][] = [
+                        'id' => (string) $lead->id,
+                        'at' => $lead->created_at?->getTimestamp() ?? 0,
+                        'row' => $this->row($lead),
+                    ];
+                }
             });
 
-        $calls = 0;
         PhoneClick::query()
             ->confirmedByRingCentral()
             ->orderBy('id')
-            ->chunkById(200, function ($chunk) use (&$calls): void {
-                $calls += $this->syncClicks($chunk);
+            ->chunkById(200, function ($chunk) use (&$groups, &$calls): void {
+                foreach ($chunk as $click) {
+                    $calls++;
+                    $groups[$this->sheetTitleForSource((string) $click->traffic_source)][] = [
+                        'id' => 'C'.$click->id,
+                        'at' => $click->created_at?->getTimestamp() ?? 0,
+                        'row' => $this->clickRow($click),
+                    ];
+                }
             });
+
+        foreach ($groups as $title => $items) {
+            usort($items, static function (array $a, array $b): int {
+                return $a['at'] <=> $b['at'] ?: strcmp($a['id'], $b['id']);
+            });
+            $this->rewriteTab($title, array_column($items, 'row'));
+        }
 
         return [
             'count' => $leads + $calls,
@@ -223,6 +247,16 @@ final class LeadListSheetExporter
         }
 
         return $this->syncGroups($groups, $onlyChanges);
+    }
+
+    /**
+     * @param  list<list<string>>  $rows
+     */
+    private function rewriteTab(string $title, array $rows): void
+    {
+        $spreadsheetId = $this->spreadsheetId();
+        $this->sheets->ensureSheetTab($spreadsheetId, $title);
+        $this->sheets->writeTabGrid($spreadsheetId, $title, array_merge([self::HEADER], $rows));
     }
 
     /**

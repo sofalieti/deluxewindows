@@ -222,20 +222,24 @@ test('leads land on a tab per source and a status change overwrites the same row
         'phone' => '6505550000',
         'ringcentral_status' => PhoneClick::RINGCENTRAL_PENDING,
     ]);
+    $click->forceFill([
+        'created_at' => $createdAt->subDay(),
+        'updated_at' => $createdAt->subDay(),
+    ])->saveQuietly();
 
     $withCalls = $exporter->exportAll();
 
-    $callRow = implode("\t", $grids['Microsoft'][2]);
+    $callRow = implode("\t", $grids['Microsoft'][1]);
     expect($withCalls['calls'])->toBe(1)
         ->and($withCalls['leads'])->toBe(3)
-        ->and($grids['Microsoft'][2][0])->toBe('C'.$click->id)
+        ->and($grids['Microsoft'][1][0])->toBe('C'.$click->id)
         ->and($callRow)->toContain('(650) 555-1212')
         ->and($callRow)->toContain('Phone call · Accepted · 1m 12s')
         ->and($callRow)->toContain('Reached')
         ->and($callRow)->toContain('ms-click')
         ->and($callRow)->toContain('ms-click-first')
         ->and($callRow)->toContain('bay-area-calls')
-        ->and($grids['Microsoft'][1][0])->toBe((string) $microsoft->id)
+        ->and($grids['Microsoft'][2][0])->toBe((string) $microsoft->id)
         ->and(json_encode($grids))->not->toContain('C'.$pending->id);
 
     $click->handling_status = PhoneClick::HANDLING_CONVERTED;
@@ -243,8 +247,8 @@ test('leads land on a tab per source and a status change overwrites the same row
     $exporter->syncClick($click->fresh());
 
     expect($grids['Microsoft'])->toHaveCount(3)
-        ->and(implode("\t", $grids['Microsoft'][2]))->toContain('Converted')
-        ->and($grids['Microsoft'][2][0])->toBe('C'.$click->id);
+        ->and(implode("\t", $grids['Microsoft'][1]))->toContain('Converted')
+        ->and($grids['Microsoft'][1][0])->toBe('C'.$click->id);
 });
 
 test('creating a lead and changing its status queue a sheet sync', function () {
