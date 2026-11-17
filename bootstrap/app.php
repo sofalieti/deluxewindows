@@ -54,8 +54,7 @@ return Application::configure(basePath: dirname(__DIR__))
             ->when(fn () => \Illuminate\Support\Facades\Schema::hasColumn('leads', 'bing_qualified_status')
                 && filled(config('services.microsoft_ads.refresh_token')));
 
-        // Safety net: live append also runs in SendPhoneClickOfflineConversions after RC match.
-        // Hourly --all-pending catches anything the queue missed (worker restart, API blip).
+        // Rewrites leads and RingCentral-confirmed phone clicks changed in the last day.
         $schedule->command('leads:sync-list-sheet --minutes=1440')
             ->everyFifteenMinutes()
             ->withoutOverlapping()
@@ -67,6 +66,8 @@ return Application::configure(basePath: dirname(__DIR__))
                     || filled(config('services.google_drive.service_account_json'))
                 ));
 
+        // Safety net: live append also runs in SendPhoneClickOfflineConversions after RC match.
+        // Hourly --all-pending catches anything the queue missed (worker restart, API blip).
         $schedule->command('ads:export-google-offline-sheet --all-pending')
             ->hourly()
             ->timezone('America/Los_Angeles')

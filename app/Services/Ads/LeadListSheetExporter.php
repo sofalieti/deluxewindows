@@ -5,14 +5,16 @@ declare(strict_types=1);
 namespace App\Services\Ads;
 
 use App\Models\Lead;
+use App\Models\PhoneClick;
 use App\Services\ServiceAreaRegions;
 use Carbon\CarbonImmutable;
 use RuntimeException;
 
 /**
- * Upserts every website lead into one workbook, with a tab per traffic source.
- * Existing rows are matched by Lead ID and overwritten, so a status change
- * updates the same line instead of appending a second one.
+ * Upserts website leads and RingCentral-confirmed phone clicks into one workbook,
+ * with a tab per traffic source. Leads keep their numeric id. Calls use C{id}
+ * so a call cannot overwrite a lead that happens to share the same number.
+ * Existing rows are matched by that id and overwritten.
  */
 final class LeadListSheetExporter
 {
@@ -86,15 +88,25 @@ final class LeadListSheetExporter
     {
         $this->assertReady();
 
-        $count = 0;
+        $leads = 0;
         Lead::query()
             ->orderBy('id')
-            ->chunkById(200, function ($leads) use (&$count): void {
-                $count += $this->syncLeads($leads);
+            ->chunkById(200, function ($chunk) use (&$leads): void {
+                $leads += $this->syncLeads($chunk);
+            });
+
+        $calls = 0;
+        PhoneClick::query()
+            ->confirmedByRingCentral()
+            ->orderBy('id')
+            ->chunkById(200, function ($chunk) use (&$calls): void {
+                $calls += $this->syncClicks($chunk);
             });
 
         return [
-            'count' => $count,
+            'count' => $leads + $calls,
+            'leads' => $leads,
+            'calls' => $calls,
             'spreadsheet_url' => $this->spreadsheetUrl(),
         ];
     }
@@ -106,13 +118,19 @@ final class LeadListSheetExporter
     {
         $this->assertReady();
 
+        $since = now()->subDays(max(1, $days));
         $leads = Lead::query()
-            ->where('created_at', '>=', now()->subDays(max(1, $days)))
+            ->where('created_at', '>=', $since)
+            ->orderBy('id')
+            ->get();
+        $clicks = PhoneClick::query()
+            ->confirmedByRingCentral()
+            ->where('created_at', '>=', $since)
             ->orderBy('id')
             ->get();
 
         return [
-            'count' => $this->syncLeads($leads),
+            'count' => $this->syncLeads($leads) + $this->syncClicks($clicks),
             'spreadsheet_url' => $this->spreadsheetUrl(),
         ];
     }
@@ -124,13 +142,19 @@ final class LeadListSheetExporter
     {
         $this->assertReady();
 
+        $since = now()->subMinutes(max(1, $minutes));
         $leads = Lead::query()
-            ->where('updated_at', '>=', now()->subMinutes(max(1, $minutes)))
+            ->where('updated_at', '>=', $since)
+            ->orderBy('id')
+            ->get();
+        $clicks = PhoneClick::query()
+            ->confirmedByRingCentral()
+            ->where('updated_at', '>=', $since)
             ->orderBy('id')
             ->get();
 
         return [
-            'count' => $this->syncLeads($leads, onlyChanges: true),
+            'count' => $this->syncLeads($leads, onlyChanges: true) + $this->syncClicks($clicks, onlyChanges: true),
             'spreadsheet_url' => $this->spreadsheetUrl(),
         ];
     }
@@ -141,9 +165,20 @@ final class LeadListSheetExporter
         $this->syncLeads([$lead]);
     }
 
+    public function syncClick(PhoneClick $click): void
+    {
+        $this->assertReady();
+        $this->syncClicks([$click]);
+    }
+
     public function sheetTitleFor(Lead $lead): string
     {
-        return match ((string) $lead->traffic_source) {
+        return $this->sheetTitleForSource((string) $lead->traffic_source);
+    }
+
+    public function sheetTitleForSource(string $source): string
+    {
+        return match ($source) {
             'microsoft_ads' => 'Microsoft',
             'google_ads' => 'Google',
             'direct' => 'Direct',
@@ -158,12 +193,43 @@ final class LeadListSheetExporter
      */
     public function syncLeads(iterable $leads, bool $onlyChanges = false): int
     {
-        /** @var array<string, list<Lead>> $groups */
+        /** @var array<string, list<array{id: string, row: list<string>}> > $groups */
         $groups = [];
         foreach ($leads as $lead) {
-            $groups[$this->sheetTitleFor($lead)][] = $lead;
+            $groups[$this->sheetTitleFor($lead)][] = [
+                'id' => (string) $lead->id,
+                'row' => $this->row($lead),
+            ];
         }
 
+        return $this->syncGroups($groups, $onlyChanges);
+    }
+
+    /**
+     * @param  iterable<PhoneClick>  $clicks
+     */
+    public function syncClicks(iterable $clicks, bool $onlyChanges = false): int
+    {
+        /** @var array<string, list<array{id: string, row: list<string>}> > $groups */
+        $groups = [];
+        foreach ($clicks as $click) {
+            if ($click->ringcentral_status !== PhoneClick::RINGCENTRAL_FOUND) {
+                continue;
+            }
+            $groups[$this->sheetTitleForSource((string) $click->traffic_source)][] = [
+                'id' => 'C'.$click->id,
+                'row' => $this->clickRow($click),
+            ];
+        }
+
+        return $this->syncGroups($groups, $onlyChanges);
+    }
+
+    /**
+     * @param  array<string, list<array{id: string, row: list<string>}>>  $groups
+     */
+    private function syncGroups(array $groups, bool $onlyChanges): int
+    {
         $count = 0;
         foreach ($groups as $title => $group) {
             $count += $this->syncGroup($title, $group, $onlyChanges);
@@ -173,11 +239,11 @@ final class LeadListSheetExporter
     }
 
     /**
-     * @param  list<Lead>  $leads
+     * @param  list<array{id: string, row: list<string>}>  $items
      */
-    private function syncGroup(string $title, array $leads, bool $onlyChanges): int
+    private function syncGroup(string $title, array $items, bool $onlyChanges): int
     {
-        if ($leads === []) {
+        if ($items === []) {
             return 0;
         }
 
@@ -192,10 +258,10 @@ final class LeadListSheetExporter
         $updates = [];
         $appends = [];
         $written = 0;
-        foreach ($leads as $lead) {
-            $row = $this->row($lead);
-            $rowNumber = $idToRow[(string) $lead->id] ?? null;
-            if ($rowNumber !== null) {
+        foreach ($items as $item) {
+            $row = $item['row'];
+            $rowNumber = $idToRow[$item['id']] ?? null;
+            if ($rowNumber !== null && $rowNumber > 0) {
                 $currentStatus = trim((string) ($existing[$rowNumber - 1][$statusIndex] ?? ''));
                 if ($onlyChanges && $currentStatus === $row[$statusIndex]) {
                     continue;
@@ -210,7 +276,7 @@ final class LeadListSheetExporter
 
             $appends[] = $row;
             $written++;
-            $idToRow[(string) $lead->id] = -1;
+            $idToRow[$item['id']] = -1;
         }
 
         if (! $headerReady && $existing === []) {
@@ -236,7 +302,7 @@ final class LeadListSheetExporter
         $map = [];
         foreach ($rows as $index => $row) {
             $id = trim((string) ($row[0] ?? ''));
-            if ($id !== '' && ctype_digit($id)) {
+            if (preg_match('/^C?\d+$/', $id) === 1) {
                 $map[$id] = $index + 1;
             }
         }
@@ -320,6 +386,88 @@ final class LeadListSheetExporter
             $lead->metaValue('fbclid'),
             $lead->metaValue('utm_city'),
         ]);
+    }
+
+    /**
+     * @return list<string>
+     */
+    private function clickRow(PhoneClick $click): array
+    {
+        $touch = static function (string $key) use ($click): string {
+            return trim((string) ($click->getAttribute('first_'.$key) ?? ''));
+        };
+
+        $lastPlatform = $this->regions->platformFromAttribution([
+            'utm_source' => $click->utm_source,
+            'gclid' => $click->gclid,
+            'gbraid' => $click->gbraid,
+            'wbraid' => $click->wbraid,
+            'msclkid' => $click->msclkid,
+        ]);
+        $firstPlatform = $this->regions->platformFromAttribution([
+            'utm_source' => $touch('utm_source'),
+            'gclid' => $touch('gclid'),
+            'gbraid' => $touch('gbraid'),
+            'wbraid' => $touch('wbraid'),
+            'msclkid' => $touch('msclkid'),
+        ]);
+
+        $seconds = max(0, (int) ($click->ringcentral_duration ?? 0));
+        $description = 'Phone call · '.$click->ringCentralStatusLabel();
+        if ($seconds > 0) {
+            $description .= ' · '.intdiv($seconds, 60).'m '.($seconds % 60).'s';
+        }
+
+        return $this->pad([
+            'C'.$click->id,
+            $this->formatCreated($click->created_at),
+            '',
+            trim((string) ($click->ringCentralClientPhone() ?: $click->phone)),
+            '',
+            '',
+            $this->cityLabel((string) $click->utm_city, $lastPlatform),
+            $this->cityLabel($touch('utm_city'), $firstPlatform),
+            $description,
+            '',
+            $click->isSpam() ? 'Spam' : $click->handlingStatusLabel(),
+            $click->trafficSourceLabel(),
+            trim((string) $click->page_url),
+            trim((string) $click->referrer),
+            trim((string) $click->utm_source),
+            trim((string) $click->utm_medium),
+            trim((string) $click->utm_campaign),
+            trim((string) $click->utm_content),
+            trim((string) $click->utm_term),
+            $touch('utm_source'),
+            $touch('utm_medium'),
+            $touch('utm_campaign'),
+            $touch('utm_content'),
+            $touch('utm_term'),
+            trim((string) $click->gclid),
+            trim((string) $click->gbraid),
+            trim((string) $click->wbraid),
+            $touch('gclid'),
+            $touch('gbraid'),
+            $touch('wbraid'),
+            trim((string) $click->msclkid),
+            $touch('msclkid'),
+            trim((string) $click->fbclid),
+            trim((string) $click->utm_city),
+        ]);
+    }
+
+    private function formatCreated(mixed $value): string
+    {
+        if ($value === null || $value === '') {
+            return '';
+        }
+
+        $timezone = trim((string) config('services.google_drive.timezone', 'America/Los_Angeles'));
+        if ($timezone === '') {
+            $timezone = 'America/Los_Angeles';
+        }
+
+        return CarbonImmutable::parse($value)->setTimezone($timezone)->format('n/j/Y G:i:s');
     }
 
     private function cityLabel(string $raw, ?string $platform): string

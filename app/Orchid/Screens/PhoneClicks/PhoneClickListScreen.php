@@ -9,6 +9,7 @@ use App\Models\CrmNote;
 use App\Models\PhoneClick;
 use App\Orchid\Layouts\PhoneClicks\PhoneClickFiltersLayout;
 use App\Services\Ads\GoogleAdsOfflineSheetExporter;
+use App\Services\Ads\LeadListSheetExporter;
 use App\Services\Ads\OfflineConversionStatsService;
 use App\Services\MicrosoftPhoneClickRecheck;
 use App\Services\PhoneClickGoogleBridge;
@@ -17,6 +18,7 @@ use App\Services\TrafficSourceVisibility;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\Link;
@@ -116,6 +118,10 @@ class PhoneClickListScreen extends Screen
     public function commandBar(): iterable
     {
         return [
+            Button::make('Export leads and calls')
+                ->icon('bs.file-earmark-spreadsheet')
+                ->method('exportLeadsAndCalls')
+                ->confirm('Write every lead and every RingCentral-confirmed phone click into the leads spreadsheet? Rows already there are overwritten with the current status.'),
             Button::make('Export Google Ads sheet (yesterday)')
                 ->icon('bs.file-earmark-spreadsheet')
                 ->method('exportGoogleAdsSheetYesterday')
@@ -137,6 +143,34 @@ class PhoneClickListScreen extends Screen
                 ->method('recheckMicrosoftCalls')
                 ->confirm('Re-check Microsoft Ads phone clicks from the last 30 days that are still checking, failed, or had no call? A call that started within 3 minutes of the tap can be matched. You will see how many matched and the latest error.'),
         ];
+    }
+
+    public function exportLeadsAndCalls(LeadListSheetExporter $exporter): void
+    {
+        @set_time_limit(0);
+
+        try {
+            $result = $exporter->exportAll();
+        } catch (Throwable $e) {
+            report($e);
+            Toast::error(Str::limit($e->getMessage(), 300));
+
+            return;
+        }
+
+        if ($result['count'] === 0) {
+            Toast::info('No leads or confirmed calls to export.');
+
+            return;
+        }
+
+        Toast::success(
+            'Wrote '.($result['leads'] ?? $result['count']).' lead(s) and '
+            .($result['calls'] ?? 0).' confirmed call(s) to the sheet.'
+        );
+        if ($result['spreadsheet_url'] !== '') {
+            Toast::info($result['spreadsheet_url']);
+        }
     }
 
     public function layout(): iterable

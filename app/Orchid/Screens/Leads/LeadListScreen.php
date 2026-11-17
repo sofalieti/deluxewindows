@@ -166,10 +166,10 @@ class LeadListScreen extends Screen
                 ->icon('bs.file-earmark-spreadsheet')
                 ->method('exportFelix')
                 ->confirm('Append Transfered to Felix leads into the Felix spreadsheet?'),
-            Button::make('Export all leads')
+            Button::make('Export leads and calls')
                 ->icon('bs.file-earmark-spreadsheet')
                 ->method('exportAllLeads')
-                ->confirm('Write every lead into the leads spreadsheet? Rows already there are overwritten with the current status.'),
+                ->confirm('Write every lead and every RingCentral-confirmed phone click into the leads spreadsheet? Rows already there are overwritten with the current status.'),
         ];
 
         if ($this->contactFilter !== null) {
@@ -218,12 +218,15 @@ class LeadListScreen extends Screen
         }
 
         if ($result['count'] === 0) {
-            Toast::info('No leads to export.');
+            Toast::info('No leads or confirmed calls to export.');
 
             return;
         }
 
-        Toast::success('Wrote '.$result['count'].' lead(s) to the sheet.');
+        Toast::success(
+            'Wrote '.($result['leads'] ?? $result['count']).' lead(s) and '
+            .($result['calls'] ?? 0).' confirmed call(s) to the sheet.'
+        );
         if ($result['spreadsheet_url'] !== '') {
             Toast::info($result['spreadsheet_url']);
         }

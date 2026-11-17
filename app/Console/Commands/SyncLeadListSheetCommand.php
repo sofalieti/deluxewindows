@@ -11,7 +11,7 @@ final class SyncLeadListSheetCommand extends Command
 {
     protected $signature = 'leads:sync-list-sheet {--days=} {--minutes=1440}';
 
-    protected $description = 'Upsert website leads into the leads workbook, one tab per source';
+    protected $description = 'Upsert website leads and RingCentral-confirmed phone clicks into the leads workbook, one tab per source';
 
     public function handle(LeadListSheetExporter $exporter): int
     {
@@ -34,7 +34,7 @@ final class SyncLeadListSheetCommand extends Command
             return self::FAILURE;
         }
 
-        $this->info('Wrote '.$result['count'].' lead(s).');
+        $this->info('Wrote '.$result['count'].' row(s).');
         $this->line($result['spreadsheet_url']);
 
         return self::SUCCESS;

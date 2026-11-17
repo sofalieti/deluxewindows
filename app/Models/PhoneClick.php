@@ -199,6 +199,37 @@ class PhoneClick extends Model
                 $click->ringCentralClientPhone() ?: $click->phone
             );
         });
+
+        static::saved(function (PhoneClick $click): void {
+            if ((string) $click->ringcentral_status !== self::RINGCENTRAL_FOUND || $click->id === null) {
+                return;
+            }
+
+            $watched = [
+                'ringcentral_status',
+                'handling_status',
+                'is_spam',
+                'phone',
+                'ringcentral_from_phone',
+                'ringcentral_to_phone',
+                'ringcentral_result',
+                'ringcentral_duration',
+            ];
+            if (! $click->wasChanged($watched)) {
+                return;
+            }
+
+            self::queueListSheetSync($click);
+        });
+    }
+
+    private static function queueListSheetSync(self $click): void
+    {
+        if (! config('services.google_drive.leads_list_sync')) {
+            return;
+        }
+
+        \App\Jobs\SyncPhoneClickToListSheet::dispatch($click->id)->afterCommit();
     }
 
     /**

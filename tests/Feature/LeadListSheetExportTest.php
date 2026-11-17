@@ -1,7 +1,9 @@
 <?php
 
 use App\Jobs\SyncLeadToListSheet;
+use App\Jobs\SyncPhoneClickToListSheet;
 use App\Models\Lead;
+use App\Models\PhoneClick;
 use App\Services\Ads\LeadListSheetExporter;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Bus;
@@ -73,6 +75,15 @@ test('leads land on a tab per source and a status change overwrites the same row
             $grids[$title] = $data['values'];
 
             return Http::response(['updatedRows' => count($data['values'] ?? [])]);
+        }
+
+        if ($request->method() === 'POST' && str_contains($url, ':append')) {
+            $title = sheet_title_from_range(rawurldecode($url));
+            foreach ($data['values'] ?? [] as $row) {
+                $grids[$title][] = $row;
+            }
+
+            return Http::response(['updates' => ['updatedRows' => count($data['values'] ?? [])]]);
         }
 
         if ($request->method() === 'GET' && str_contains($url, '/values/')) {
@@ -190,6 +201,50 @@ test('leads land on a tab per source and a status change overwrites the same row
         ->and($grids['Microsoft'])->toHaveCount(2)
         ->and(implode("\t", $grids['Direct'][1]))->toContain('Old Direct')
         ->and(implode("\t", $grids['Direct'][1]))->toContain('From last month');
+
+    $click = PhoneClick::query()->create([
+        'phone' => '(650) 555-1212',
+        'page_url' => 'https://www.deluxewindows.com/windows/vinyl-windows',
+        'referrer' => 'https://www.bing.com/',
+        'utm_source' => 'bing',
+        'utm_medium' => 'cpc',
+        'utm_campaign' => 'bay-area-calls',
+        'utm_city' => '999001',
+        'msclkid' => 'ms-click',
+        'first_msclkid' => 'ms-click-first',
+        'first_utm_city' => '888002',
+        'ringcentral_status' => PhoneClick::RINGCENTRAL_FOUND,
+        'ringcentral_result' => 'Accepted',
+        'ringcentral_duration' => 72,
+        'handling_status' => PhoneClick::HANDLING_REACHED,
+    ]);
+    $pending = PhoneClick::query()->create([
+        'phone' => '6505550000',
+        'ringcentral_status' => PhoneClick::RINGCENTRAL_PENDING,
+    ]);
+
+    $withCalls = $exporter->exportAll();
+
+    $callRow = implode("\t", $grids['Microsoft'][2]);
+    expect($withCalls['calls'])->toBe(1)
+        ->and($withCalls['leads'])->toBe(3)
+        ->and($grids['Microsoft'][2][0])->toBe('C'.$click->id)
+        ->and($callRow)->toContain('(650) 555-1212')
+        ->and($callRow)->toContain('Phone call · Accepted · 1m 12s')
+        ->and($callRow)->toContain('Reached')
+        ->and($callRow)->toContain('ms-click')
+        ->and($callRow)->toContain('ms-click-first')
+        ->and($callRow)->toContain('bay-area-calls')
+        ->and($grids['Microsoft'][1][0])->toBe((string) $microsoft->id)
+        ->and(json_encode($grids))->not->toContain('C'.$pending->id);
+
+    $click->handling_status = PhoneClick::HANDLING_CONVERTED;
+    $click->save();
+    $exporter->syncClick($click->fresh());
+
+    expect($grids['Microsoft'])->toHaveCount(3)
+        ->and(implode("\t", $grids['Microsoft'][2]))->toContain('Converted')
+        ->and($grids['Microsoft'][2][0])->toBe('C'.$click->id);
 });
 
 test('creating a lead and changing its status queue a sheet sync', function () {
@@ -213,6 +268,32 @@ test('creating a lead and changing its status queue a sheet sync', function () {
     $lead->save();
 
     Bus::assertDispatchedTimes(SyncLeadToListSheet::class, 2);
+});
+
+test('a ringcentral confirmed phone click queues a sheet sync', function () {
+    Bus::fake();
+
+    $click = PhoneClick::query()->create([
+        'phone' => '6505550101',
+        'ringcentral_status' => PhoneClick::RINGCENTRAL_PENDING,
+    ]);
+
+    Bus::assertNotDispatched(SyncPhoneClickToListSheet::class);
+
+    $click->ringcentral_status = PhoneClick::RINGCENTRAL_FOUND;
+    $click->save();
+
+    Bus::assertDispatched(SyncPhoneClickToListSheet::class, fn (SyncPhoneClickToListSheet $job): bool => $job->phoneClickId === $click->id);
+
+    $click->page_url = 'https://www.deluxewindows.com/';
+    $click->save();
+
+    Bus::assertDispatchedTimes(SyncPhoneClickToListSheet::class, 1);
+
+    $click->handling_status = PhoneClick::HANDLING_REACHED;
+    $click->save();
+
+    Bus::assertDispatchedTimes(SyncPhoneClickToListSheet::class, 2);
 });
 
 function sheet_title_from_range(string $range): string
