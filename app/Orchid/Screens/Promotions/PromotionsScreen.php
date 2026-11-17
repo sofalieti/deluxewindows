@@ -12,6 +12,7 @@ use App\Models\Webflow\WindowsWebflowItem;
 use App\Services\PromotionCalendarService;
 use App\Services\PromotionControlService;
 use App\Services\PromotionSettingsService;
+use App\Support\WebflowItemOrder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
 use Orchid\Screen\Actions\Button;
@@ -375,11 +376,12 @@ class PromotionsScreen extends Screen
      */
     private function windowTypeItems(): array
     {
-        return WindowsWebflowItem::query()
-            ->where('is_archived', false)
-            ->where('is_draft', false)
-            ->orderBy('id')
-            ->get()
+        return WebflowItemOrder::sort(
+            WindowsWebflowItem::query()
+                ->where('is_archived', false)
+                ->where('is_draft', false)
+                ->get()
+        )
             ->map(function (WindowsWebflowItem $item): ?array {
                 $fd = is_array($item->field_data) ? $item->field_data : [];
                 $id = trim((string) ($item->webflow_item_id ?? ''));
@@ -404,11 +406,12 @@ class PromotionsScreen extends Screen
      */
     private function seriesItems(): array
     {
-        return BrandCollectionsWebflowItem::query()
-            ->where('is_archived', false)
-            ->where('is_draft', false)
-            ->orderBy('id')
-            ->get()
+        return WebflowItemOrder::sort(
+            BrandCollectionsWebflowItem::query()
+                ->where('is_archived', false)
+                ->where('is_draft', false)
+                ->get()
+        )
             ->map(function (BrandCollectionsWebflowItem $item): ?array {
                 $fd = is_array($item->field_data) ? $item->field_data : [];
                 $id = trim((string) ($item->webflow_item_id ?? ''));
@@ -430,11 +433,12 @@ class PromotionsScreen extends Screen
      */
     private function brandItems(): array
     {
-        return BrandsWebflowItem::query()
-            ->where('is_archived', false)
-            ->where('is_draft', false)
-            ->orderBy('id')
-            ->get()
+        return WebflowItemOrder::sort(
+            BrandsWebflowItem::query()
+                ->where('is_archived', false)
+                ->where('is_draft', false)
+                ->get()
+        )
             ->map(function (BrandsWebflowItem $item): ?array {
                 $fd = is_array($item->field_data) ? $item->field_data : [];
                 $id = trim((string) ($item->webflow_item_id ?? ''));
@@ -458,11 +462,12 @@ class PromotionsScreen extends Screen
      */
     private function doorItems(): array
     {
-        return DoorsWebflowItem::query()
-            ->where('is_archived', false)
-            ->where('is_draft', false)
-            ->orderBy('id')
-            ->get()
+        return WebflowItemOrder::sort(
+            DoorsWebflowItem::query()
+                ->where('is_archived', false)
+                ->where('is_draft', false)
+                ->get()
+        )
             ->map(function (DoorsWebflowItem $item): ?array {
                 $fd = is_array($item->field_data) ? $item->field_data : [];
                 if (($fd['hide'] ?? false) === true) {
