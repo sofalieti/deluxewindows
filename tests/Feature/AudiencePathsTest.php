@@ -15,6 +15,12 @@ test('the homepage path chooser is present only as Bing-only markup', function (
         ->toContain('data-open-who-own')
         ->toContain('Who: Write your own')
         ->toContain('class="bing-hide"');
+
+    $script = file_get_contents(public_path('webflow-overrides/site-custom.js'));
+    expect($script)
+        ->toContain('a.who-card[href]')
+        ->toContain('lead_param_')
+        ->toContain('dw_audience_preview');
 });
 
 test('an audience page is noindex and sends other visitors home', function () {

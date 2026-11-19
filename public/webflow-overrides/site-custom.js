@@ -452,6 +452,74 @@
     });
   })();
 
+  // Who Are You cards stay on the same Microsoft click. The next page
+  // keeps msclkid, the utm fields, and the audience preview from this visit.
+  (function () {
+    const html = document.documentElement;
+    if (!html.classList.contains("dw-bing")) return;
+
+    const KEYS = [
+      "utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term",
+      "matchtype", "device", "creative", "msclkid", "utm_city", "utm_redirect", "audience",
+    ];
+
+    function stored(key) {
+      try {
+        return localStorage.getItem(key) || "";
+      } catch (e) {
+        return "";
+      }
+    }
+
+    function bingQuery() {
+      const params = new URLSearchParams();
+      let current;
+      try {
+        current = new URLSearchParams(window.location.search);
+      } catch (e) {
+        current = new URLSearchParams();
+      }
+
+      KEYS.forEach((key) => {
+        const fromUrl = current.get(key);
+        if (fromUrl) {
+          params.set(key, fromUrl);
+          return;
+        }
+        if (key === "audience") return;
+        const fromStore = stored("lead_param_" + key) || stored("lead_param_first_" + key);
+        if (fromStore) params.set(key, fromStore);
+      });
+
+      if (!params.get("audience")) {
+        try {
+          if (sessionStorage.getItem("dw_audience_preview") === "bing") params.set("audience", "bing");
+        } catch (e) {}
+      }
+
+      return params;
+    }
+
+    onReady(() => {
+      const params = bingQuery();
+      if (!params.toString()) return;
+
+      document.querySelectorAll("a.who-card[href], .who-page__others a[href]").forEach((link) => {
+        let url;
+        try {
+          url = new URL(link.getAttribute("href") || "", window.location.href);
+        } catch (e) {
+          return;
+        }
+        if (url.origin !== window.location.origin || url.pathname.indexOf("/for/") !== 0) return;
+        params.forEach((value, key) => {
+          if (!url.searchParams.has(key)) url.searchParams.set(key, value);
+        });
+        link.href = url.pathname + url.search + url.hash;
+      });
+    });
+  })();
+
   // Microsoft visitors: after they leave the landing page the hero is gone,
   // so a right-edge button opens the same estimate modal once they scroll.
   (function () {
